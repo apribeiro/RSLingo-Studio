@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.Stakeholder#getId <em>Id</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Stakeholder#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Stakeholder#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Stakeholder#getCotegory <em>Cotegory</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Stakeholder#getCategory <em>Category</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Stakeholder#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Stakeholder#getDependsOnType <em>Depends On Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Stakeholder#getDependsOn <em>Depends On</em>}</li>
@@ -107,30 +107,30 @@ public interface Stakeholder extends EObject
   void setType(String value);
 
   /**
-   * Returns the value of the '<em><b>Cotegory</b></em>' attribute.
+   * Returns the value of the '<em><b>Category</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Cotegory</em>' attribute isn't clear,
+   * If the meaning of the '<em>Category</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Cotegory</em>' attribute.
-   * @see #setCotegory(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getStakeholder_Cotegory()
+   * @return the value of the '<em>Category</em>' attribute.
+   * @see #setCategory(String)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getStakeholder_Category()
    * @model
    * @generated
    */
-  String getCotegory();
+  String getCategory();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Stakeholder#getCotegory <em>Cotegory</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Stakeholder#getCategory <em>Category</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Cotegory</em>' attribute.
-   * @see #getCotegory()
+   * @param value the new value of the '<em>Category</em>' attribute.
+   * @see #getCategory()
    * @generated
    */
-  void setCotegory(String value);
+  void setCategory(String value);
 
   /**
    * Returns the value of the '<em><b>Description</b></em>' attribute.

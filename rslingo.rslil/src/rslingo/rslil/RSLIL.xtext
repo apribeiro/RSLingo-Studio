@@ -38,7 +38,7 @@ Stakeholder:
 	'Stakeholder' id=ID '{'
 		'Name' name=STRING
 		'Type' type=STRING
-		'Category' cotegory=STRING
+		'Category' category=STRING
 		'Description' description=STRING
 		'DependsOnType' dependsOnType=STRING
 		'DependsOn' dependsOn=STRING

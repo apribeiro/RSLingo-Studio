@@ -425,7 +425,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStakeholder_Cotegory()
+  public EAttribute getStakeholder_Category()
   {
     return (EAttribute)stakeholderEClass.getEStructuralFeatures().get(3);
   }
@@ -613,7 +613,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     createEAttribute(stakeholderEClass, STAKEHOLDER__ID);
     createEAttribute(stakeholderEClass, STAKEHOLDER__NAME);
     createEAttribute(stakeholderEClass, STAKEHOLDER__TYPE);
-    createEAttribute(stakeholderEClass, STAKEHOLDER__COTEGORY);
+    createEAttribute(stakeholderEClass, STAKEHOLDER__CATEGORY);
     createEAttribute(stakeholderEClass, STAKEHOLDER__DESCRIPTION);
     createEAttribute(stakeholderEClass, STAKEHOLDER__DEPENDS_ON_TYPE);
     createEAttribute(stakeholderEClass, STAKEHOLDER__DEPENDS_ON);
@@ -693,7 +693,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     initEAttribute(getStakeholder_Id(), ecorePackage.getEString(), "id", null, 0, 1, Stakeholder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStakeholder_Name(), ecorePackage.getEString(), "name", null, 0, 1, Stakeholder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStakeholder_Type(), ecorePackage.getEString(), "type", null, 0, 1, Stakeholder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getStakeholder_Cotegory(), ecorePackage.getEString(), "cotegory", null, 0, 1, Stakeholder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStakeholder_Category(), ecorePackage.getEString(), "category", null, 0, 1, Stakeholder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStakeholder_Description(), ecorePackage.getEString(), "description", null, 0, 1, Stakeholder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStakeholder_DependsOnType(), ecorePackage.getEString(), "dependsOnType", null, 0, 1, Stakeholder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStakeholder_DependsOn(), ecorePackage.getEString(), "dependsOn", null, 0, 1, Stakeholder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

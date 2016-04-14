@@ -70,7 +70,7 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStakeholderAccess().getIdAssignment_1(), "rule__Stakeholder__IdAssignment_1");
 					put(grammarAccess.getStakeholderAccess().getNameAssignment_4(), "rule__Stakeholder__NameAssignment_4");
 					put(grammarAccess.getStakeholderAccess().getTypeAssignment_6(), "rule__Stakeholder__TypeAssignment_6");
-					put(grammarAccess.getStakeholderAccess().getCotegoryAssignment_8(), "rule__Stakeholder__CotegoryAssignment_8");
+					put(grammarAccess.getStakeholderAccess().getCategoryAssignment_8(), "rule__Stakeholder__CategoryAssignment_8");
 					put(grammarAccess.getStakeholderAccess().getDescriptionAssignment_10(), "rule__Stakeholder__DescriptionAssignment_10");
 					put(grammarAccess.getStakeholderAccess().getDependsOnTypeAssignment_12(), "rule__Stakeholder__DependsOnTypeAssignment_12");
 					put(grammarAccess.getStakeholderAccess().getDependsOnAssignment_14(), "rule__Stakeholder__DependsOnAssignment_14");

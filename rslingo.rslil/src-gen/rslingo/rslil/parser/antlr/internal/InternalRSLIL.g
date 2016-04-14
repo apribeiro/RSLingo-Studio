@@ -680,9 +680,9 @@ ruleStakeholder returns [EObject current=null]
     }
 (
 (
-		lv_cotegory_8_0=RULE_STRING
+		lv_category_8_0=RULE_STRING
 		{
-			newLeafNode(lv_cotegory_8_0, grammarAccess.getStakeholderAccess().getCotegorySTRINGTerminalRuleCall_8_0()); 
+			newLeafNode(lv_category_8_0, grammarAccess.getStakeholderAccess().getCategorySTRINGTerminalRuleCall_8_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -690,8 +690,8 @@ ruleStakeholder returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"cotegory",
-        		lv_cotegory_8_0, 
+       			"category",
+        		lv_category_8_0, 
         		"STRING");
 	    }
 

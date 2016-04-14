@@ -175,7 +175,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         id=ID 
 	 *         name=STRING 
 	 *         type=STRING 
-	 *         cotegory=STRING 
+	 *         category=STRING 
 	 *         description=STRING 
 	 *         dependsOnType=STRING 
 	 *         dependsOn=STRING
@@ -189,8 +189,8 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.STAKEHOLDER__NAME));
 			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.STAKEHOLDER__TYPE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.STAKEHOLDER__TYPE));
-			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.STAKEHOLDER__COTEGORY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.STAKEHOLDER__COTEGORY));
+			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.STAKEHOLDER__CATEGORY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.STAKEHOLDER__CATEGORY));
 			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.STAKEHOLDER__DESCRIPTION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.STAKEHOLDER__DESCRIPTION));
 			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.STAKEHOLDER__DEPENDS_ON_TYPE) == ValueTransient.YES)
@@ -203,7 +203,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		feeder.accept(grammarAccess.getStakeholderAccess().getIdIDTerminalRuleCall_1_0(), semanticObject.getId());
 		feeder.accept(grammarAccess.getStakeholderAccess().getNameSTRINGTerminalRuleCall_4_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getStakeholderAccess().getTypeSTRINGTerminalRuleCall_6_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getStakeholderAccess().getCotegorySTRINGTerminalRuleCall_8_0(), semanticObject.getCotegory());
+		feeder.accept(grammarAccess.getStakeholderAccess().getCategorySTRINGTerminalRuleCall_8_0(), semanticObject.getCategory());
 		feeder.accept(grammarAccess.getStakeholderAccess().getDescriptionSTRINGTerminalRuleCall_10_0(), semanticObject.getDescription());
 		feeder.accept(grammarAccess.getStakeholderAccess().getDependsOnTypeSTRINGTerminalRuleCall_12_0(), semanticObject.getDependsOnType());
 		feeder.accept(grammarAccess.getStakeholderAccess().getDependsOnSTRINGTerminalRuleCall_14_0(), semanticObject.getDependsOn());

@@ -359,13 +359,13 @@ public interface RSLILPackage extends EPackage
   int STAKEHOLDER__TYPE = 2;
 
   /**
-   * The feature id for the '<em><b>Cotegory</b></em>' attribute.
+   * The feature id for the '<em><b>Category</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STAKEHOLDER__COTEGORY = 3;
+  int STAKEHOLDER__CATEGORY = 3;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -810,15 +810,15 @@ public interface RSLILPackage extends EPackage
   EAttribute getStakeholder_Type();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Stakeholder#getCotegory <em>Cotegory</em>}'.
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Stakeholder#getCategory <em>Category</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Cotegory</em>'.
-   * @see rslingo.rslil.rSLIL.Stakeholder#getCotegory()
+   * @return the meta object for the attribute '<em>Category</em>'.
+   * @see rslingo.rslil.rSLIL.Stakeholder#getCategory()
    * @see #getStakeholder()
    * @generated
    */
-  EAttribute getStakeholder_Cotegory();
+  EAttribute getStakeholder_Category();
 
   /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Stakeholder#getDescription <em>Description</em>}'.
@@ -1217,12 +1217,12 @@ public interface RSLILPackage extends EPackage
     EAttribute STAKEHOLDER__TYPE = eINSTANCE.getStakeholder_Type();
 
     /**
-     * The meta object literal for the '<em><b>Cotegory</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Category</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STAKEHOLDER__COTEGORY = eINSTANCE.getStakeholder_Cotegory();
+    EAttribute STAKEHOLDER__CATEGORY = eINSTANCE.getStakeholder_Category();
 
     /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.

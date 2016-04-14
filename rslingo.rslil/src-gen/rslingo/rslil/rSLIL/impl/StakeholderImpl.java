@@ -23,7 +23,7 @@ import rslingo.rslil.rSLIL.Stakeholder;
  *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getId <em>Id</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getCotegory <em>Cotegory</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getDependsOnType <em>Depends On Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getDependsOn <em>Depends On</em>}</li>
@@ -94,24 +94,24 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
   protected String type = TYPE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getCotegory() <em>Cotegory</em>}' attribute.
+   * The default value of the '{@link #getCategory() <em>Category</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCotegory()
+   * @see #getCategory()
    * @generated
    * @ordered
    */
-  protected static final String COTEGORY_EDEFAULT = null;
+  protected static final String CATEGORY_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getCotegory() <em>Cotegory</em>}' attribute.
+   * The cached value of the '{@link #getCategory() <em>Category</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCotegory()
+   * @see #getCategory()
    * @generated
    * @ordered
    */
-  protected String cotegory = COTEGORY_EDEFAULT;
+  protected String category = CATEGORY_EDEFAULT;
 
   /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -268,9 +268,9 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getCotegory()
+  public String getCategory()
   {
-    return cotegory;
+    return category;
   }
 
   /**
@@ -278,12 +278,12 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCotegory(String newCotegory)
+  public void setCategory(String newCategory)
   {
-    String oldCotegory = cotegory;
-    cotegory = newCotegory;
+    String oldCategory = category;
+    category = newCategory;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.STAKEHOLDER__COTEGORY, oldCotegory, cotegory));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.STAKEHOLDER__CATEGORY, oldCategory, category));
   }
 
   /**
@@ -371,8 +371,8 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
         return getName();
       case RSLILPackage.STAKEHOLDER__TYPE:
         return getType();
-      case RSLILPackage.STAKEHOLDER__COTEGORY:
-        return getCotegory();
+      case RSLILPackage.STAKEHOLDER__CATEGORY:
+        return getCategory();
       case RSLILPackage.STAKEHOLDER__DESCRIPTION:
         return getDescription();
       case RSLILPackage.STAKEHOLDER__DEPENDS_ON_TYPE:
@@ -402,8 +402,8 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
       case RSLILPackage.STAKEHOLDER__TYPE:
         setType((String)newValue);
         return;
-      case RSLILPackage.STAKEHOLDER__COTEGORY:
-        setCotegory((String)newValue);
+      case RSLILPackage.STAKEHOLDER__CATEGORY:
+        setCategory((String)newValue);
         return;
       case RSLILPackage.STAKEHOLDER__DESCRIPTION:
         setDescription((String)newValue);
@@ -437,8 +437,8 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
       case RSLILPackage.STAKEHOLDER__TYPE:
         setType(TYPE_EDEFAULT);
         return;
-      case RSLILPackage.STAKEHOLDER__COTEGORY:
-        setCotegory(COTEGORY_EDEFAULT);
+      case RSLILPackage.STAKEHOLDER__CATEGORY:
+        setCategory(CATEGORY_EDEFAULT);
         return;
       case RSLILPackage.STAKEHOLDER__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
@@ -469,8 +469,8 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RSLILPackage.STAKEHOLDER__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-      case RSLILPackage.STAKEHOLDER__COTEGORY:
-        return COTEGORY_EDEFAULT == null ? cotegory != null : !COTEGORY_EDEFAULT.equals(cotegory);
+      case RSLILPackage.STAKEHOLDER__CATEGORY:
+        return CATEGORY_EDEFAULT == null ? category != null : !CATEGORY_EDEFAULT.equals(category);
       case RSLILPackage.STAKEHOLDER__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case RSLILPackage.STAKEHOLDER__DEPENDS_ON_TYPE:
@@ -498,8 +498,8 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
     result.append(name);
     result.append(", type: ");
     result.append(type);
-    result.append(", cotegory: ");
-    result.append(cotegory);
+    result.append(", category: ");
+    result.append(category);
     result.append(", description: ");
     result.append(description);
     result.append(", dependsOnType: ");

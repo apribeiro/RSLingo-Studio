@@ -361,8 +361,8 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cTypeSTRINGTerminalRuleCall_6_0 = (RuleCall)cTypeAssignment_6.eContents().get(0);
 		private final Keyword cCategoryKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cCotegoryAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cCotegorySTRINGTerminalRuleCall_8_0 = (RuleCall)cCotegoryAssignment_8.eContents().get(0);
+		private final Assignment cCategoryAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cCategorySTRINGTerminalRuleCall_8_0 = (RuleCall)cCategoryAssignment_8.eContents().get(0);
 		private final Keyword cDescriptionKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		private final Assignment cDescriptionAssignment_10 = (Assignment)cGroup.eContents().get(10);
 		private final RuleCall cDescriptionSTRINGTerminalRuleCall_10_0 = (RuleCall)cDescriptionAssignment_10.eContents().get(0);
@@ -375,11 +375,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_15 = (Keyword)cGroup.eContents().get(15);
 		
 		//Stakeholder:
-		//	"Stakeholder" id=ID "{" "Name" name=STRING "Type" type=STRING "Category" cotegory=STRING "Description"
+		//	"Stakeholder" id=ID "{" "Name" name=STRING "Type" type=STRING "Category" category=STRING "Description"
 		//	description=STRING "DependsOnType" dependsOnType=STRING "DependsOn" dependsOn=STRING "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Stakeholder" id=ID "{" "Name" name=STRING "Type" type=STRING "Category" cotegory=STRING "Description"
+		//"Stakeholder" id=ID "{" "Name" name=STRING "Type" type=STRING "Category" category=STRING "Description"
 		//description=STRING "DependsOnType" dependsOnType=STRING "DependsOn" dependsOn=STRING "}"
 		public Group getGroup() { return cGroup; }
 
@@ -416,11 +416,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Category"
 		public Keyword getCategoryKeyword_7() { return cCategoryKeyword_7; }
 
-		//cotegory=STRING
-		public Assignment getCotegoryAssignment_8() { return cCotegoryAssignment_8; }
+		//category=STRING
+		public Assignment getCategoryAssignment_8() { return cCategoryAssignment_8; }
 
 		//STRING
-		public RuleCall getCotegorySTRINGTerminalRuleCall_8_0() { return cCotegorySTRINGTerminalRuleCall_8_0; }
+		public RuleCall getCategorySTRINGTerminalRuleCall_8_0() { return cCategorySTRINGTerminalRuleCall_8_0; }
 
 		//"Description"
 		public Keyword getDescriptionKeyword_9() { return cDescriptionKeyword_9; }
@@ -674,7 +674,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Stakeholder:
-	//	"Stakeholder" id=ID "{" "Name" name=STRING "Type" type=STRING "Category" cotegory=STRING "Description"
+	//	"Stakeholder" id=ID "{" "Name" name=STRING "Type" type=STRING "Category" category=STRING "Description"
 	//	description=STRING "DependsOnType" dependsOnType=STRING "DependsOn" dependsOn=STRING "}";
 	public StakeholderElements getStakeholderAccess() {
 		return pStakeholder;

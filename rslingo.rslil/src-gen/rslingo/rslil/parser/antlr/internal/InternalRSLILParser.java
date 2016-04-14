@@ -1227,7 +1227,7 @@ public class InternalRSLILParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStakeholder"
-    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:603:1: ruleStakeholder returns [EObject current=null] : (otherlv_0= 'Stakeholder' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'Name' ( (lv_name_4_0= RULE_STRING ) ) otherlv_5= 'Type' ( (lv_type_6_0= RULE_STRING ) ) otherlv_7= 'Category' ( (lv_cotegory_8_0= RULE_STRING ) ) otherlv_9= 'Description' ( (lv_description_10_0= RULE_STRING ) ) otherlv_11= 'DependsOnType' ( (lv_dependsOnType_12_0= RULE_STRING ) ) otherlv_13= 'DependsOn' ( (lv_dependsOn_14_0= RULE_STRING ) ) otherlv_15= '}' ) ;
+    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:603:1: ruleStakeholder returns [EObject current=null] : (otherlv_0= 'Stakeholder' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'Name' ( (lv_name_4_0= RULE_STRING ) ) otherlv_5= 'Type' ( (lv_type_6_0= RULE_STRING ) ) otherlv_7= 'Category' ( (lv_category_8_0= RULE_STRING ) ) otherlv_9= 'Description' ( (lv_description_10_0= RULE_STRING ) ) otherlv_11= 'DependsOnType' ( (lv_dependsOnType_12_0= RULE_STRING ) ) otherlv_13= 'DependsOn' ( (lv_dependsOn_14_0= RULE_STRING ) ) otherlv_15= '}' ) ;
     public final EObject ruleStakeholder() throws RecognitionException {
         EObject current = null;
 
@@ -1239,7 +1239,7 @@ public class InternalRSLILParser extends AbstractInternalAntlrParser {
         Token otherlv_5=null;
         Token lv_type_6_0=null;
         Token otherlv_7=null;
-        Token lv_cotegory_8_0=null;
+        Token lv_category_8_0=null;
         Token otherlv_9=null;
         Token lv_description_10_0=null;
         Token otherlv_11=null;
@@ -1251,11 +1251,11 @@ public class InternalRSLILParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:606:28: ( (otherlv_0= 'Stakeholder' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'Name' ( (lv_name_4_0= RULE_STRING ) ) otherlv_5= 'Type' ( (lv_type_6_0= RULE_STRING ) ) otherlv_7= 'Category' ( (lv_cotegory_8_0= RULE_STRING ) ) otherlv_9= 'Description' ( (lv_description_10_0= RULE_STRING ) ) otherlv_11= 'DependsOnType' ( (lv_dependsOnType_12_0= RULE_STRING ) ) otherlv_13= 'DependsOn' ( (lv_dependsOn_14_0= RULE_STRING ) ) otherlv_15= '}' ) )
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:607:1: (otherlv_0= 'Stakeholder' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'Name' ( (lv_name_4_0= RULE_STRING ) ) otherlv_5= 'Type' ( (lv_type_6_0= RULE_STRING ) ) otherlv_7= 'Category' ( (lv_cotegory_8_0= RULE_STRING ) ) otherlv_9= 'Description' ( (lv_description_10_0= RULE_STRING ) ) otherlv_11= 'DependsOnType' ( (lv_dependsOnType_12_0= RULE_STRING ) ) otherlv_13= 'DependsOn' ( (lv_dependsOn_14_0= RULE_STRING ) ) otherlv_15= '}' )
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:606:28: ( (otherlv_0= 'Stakeholder' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'Name' ( (lv_name_4_0= RULE_STRING ) ) otherlv_5= 'Type' ( (lv_type_6_0= RULE_STRING ) ) otherlv_7= 'Category' ( (lv_category_8_0= RULE_STRING ) ) otherlv_9= 'Description' ( (lv_description_10_0= RULE_STRING ) ) otherlv_11= 'DependsOnType' ( (lv_dependsOnType_12_0= RULE_STRING ) ) otherlv_13= 'DependsOn' ( (lv_dependsOn_14_0= RULE_STRING ) ) otherlv_15= '}' ) )
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:607:1: (otherlv_0= 'Stakeholder' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'Name' ( (lv_name_4_0= RULE_STRING ) ) otherlv_5= 'Type' ( (lv_type_6_0= RULE_STRING ) ) otherlv_7= 'Category' ( (lv_category_8_0= RULE_STRING ) ) otherlv_9= 'Description' ( (lv_description_10_0= RULE_STRING ) ) otherlv_11= 'DependsOnType' ( (lv_dependsOnType_12_0= RULE_STRING ) ) otherlv_13= 'DependsOn' ( (lv_dependsOn_14_0= RULE_STRING ) ) otherlv_15= '}' )
             {
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:607:1: (otherlv_0= 'Stakeholder' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'Name' ( (lv_name_4_0= RULE_STRING ) ) otherlv_5= 'Type' ( (lv_type_6_0= RULE_STRING ) ) otherlv_7= 'Category' ( (lv_cotegory_8_0= RULE_STRING ) ) otherlv_9= 'Description' ( (lv_description_10_0= RULE_STRING ) ) otherlv_11= 'DependsOnType' ( (lv_dependsOnType_12_0= RULE_STRING ) ) otherlv_13= 'DependsOn' ( (lv_dependsOn_14_0= RULE_STRING ) ) otherlv_15= '}' )
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:607:3: otherlv_0= 'Stakeholder' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'Name' ( (lv_name_4_0= RULE_STRING ) ) otherlv_5= 'Type' ( (lv_type_6_0= RULE_STRING ) ) otherlv_7= 'Category' ( (lv_cotegory_8_0= RULE_STRING ) ) otherlv_9= 'Description' ( (lv_description_10_0= RULE_STRING ) ) otherlv_11= 'DependsOnType' ( (lv_dependsOnType_12_0= RULE_STRING ) ) otherlv_13= 'DependsOn' ( (lv_dependsOn_14_0= RULE_STRING ) ) otherlv_15= '}'
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:607:1: (otherlv_0= 'Stakeholder' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'Name' ( (lv_name_4_0= RULE_STRING ) ) otherlv_5= 'Type' ( (lv_type_6_0= RULE_STRING ) ) otherlv_7= 'Category' ( (lv_category_8_0= RULE_STRING ) ) otherlv_9= 'Description' ( (lv_description_10_0= RULE_STRING ) ) otherlv_11= 'DependsOnType' ( (lv_dependsOnType_12_0= RULE_STRING ) ) otherlv_13= 'DependsOn' ( (lv_dependsOn_14_0= RULE_STRING ) ) otherlv_15= '}' )
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:607:3: otherlv_0= 'Stakeholder' ( (lv_id_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'Name' ( (lv_name_4_0= RULE_STRING ) ) otherlv_5= 'Type' ( (lv_type_6_0= RULE_STRING ) ) otherlv_7= 'Category' ( (lv_category_8_0= RULE_STRING ) ) otherlv_9= 'Description' ( (lv_description_10_0= RULE_STRING ) ) otherlv_11= 'DependsOnType' ( (lv_dependsOnType_12_0= RULE_STRING ) ) otherlv_13= 'DependsOn' ( (lv_dependsOn_14_0= RULE_STRING ) ) otherlv_15= '}'
             {
             otherlv_0=(Token)match(input,27,FOLLOW_27_in_ruleStakeholder1110); 
 
@@ -1355,15 +1355,15 @@ public class InternalRSLILParser extends AbstractInternalAntlrParser {
 
                 	newLeafNode(otherlv_7, grammarAccess.getStakeholderAccess().getCategoryKeyword_7());
                 
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:681:1: ( (lv_cotegory_8_0= RULE_STRING ) )
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:682:1: (lv_cotegory_8_0= RULE_STRING )
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:681:1: ( (lv_category_8_0= RULE_STRING ) )
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:682:1: (lv_category_8_0= RULE_STRING )
             {
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:682:1: (lv_cotegory_8_0= RULE_STRING )
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:683:3: lv_cotegory_8_0= RULE_STRING
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:682:1: (lv_category_8_0= RULE_STRING )
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:683:3: lv_category_8_0= RULE_STRING
             {
-            lv_cotegory_8_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStakeholder1241); 
+            lv_category_8_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStakeholder1241); 
 
-            			newLeafNode(lv_cotegory_8_0, grammarAccess.getStakeholderAccess().getCotegorySTRINGTerminalRuleCall_8_0()); 
+            			newLeafNode(lv_category_8_0, grammarAccess.getStakeholderAccess().getCategorySTRINGTerminalRuleCall_8_0()); 
             		
 
             	        if (current==null) {
@@ -1371,8 +1371,8 @@ public class InternalRSLILParser extends AbstractInternalAntlrParser {
             	        }
                    		setWithLastConsumed(
                    			current, 
-                   			"cotegory",
-                    		lv_cotegory_8_0, 
+                   			"category",
+                    		lv_category_8_0, 
                     		"STRING");
             	    
 

@@ -4842,31 +4842,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Stakeholder__Group__8__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:1881:1: rule__Stakeholder__Group__8__Impl : ( ( rule__Stakeholder__CotegoryAssignment_8 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:1881:1: rule__Stakeholder__Group__8__Impl : ( ( rule__Stakeholder__CategoryAssignment_8 ) ) ;
     public final void rule__Stakeholder__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:1885:1: ( ( ( rule__Stakeholder__CotegoryAssignment_8 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:1886:1: ( ( rule__Stakeholder__CotegoryAssignment_8 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:1885:1: ( ( ( rule__Stakeholder__CategoryAssignment_8 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:1886:1: ( ( rule__Stakeholder__CategoryAssignment_8 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:1886:1: ( ( rule__Stakeholder__CotegoryAssignment_8 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:1887:1: ( rule__Stakeholder__CotegoryAssignment_8 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:1886:1: ( ( rule__Stakeholder__CategoryAssignment_8 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:1887:1: ( rule__Stakeholder__CategoryAssignment_8 )
             {
-             before(grammarAccess.getStakeholderAccess().getCotegoryAssignment_8()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:1888:1: ( rule__Stakeholder__CotegoryAssignment_8 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:1888:2: rule__Stakeholder__CotegoryAssignment_8
+             before(grammarAccess.getStakeholderAccess().getCategoryAssignment_8()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:1888:1: ( rule__Stakeholder__CategoryAssignment_8 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:1888:2: rule__Stakeholder__CategoryAssignment_8
             {
-            pushFollow(FOLLOW_rule__Stakeholder__CotegoryAssignment_8_in_rule__Stakeholder__Group__8__Impl3702);
-            rule__Stakeholder__CotegoryAssignment_8();
+            pushFollow(FOLLOW_rule__Stakeholder__CategoryAssignment_8_in_rule__Stakeholder__Group__8__Impl3702);
+            rule__Stakeholder__CategoryAssignment_8();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getStakeholderAccess().getCotegoryAssignment_8()); 
+             after(grammarAccess.getStakeholderAccess().getCategoryAssignment_8()); 
 
             }
 
@@ -7795,9 +7795,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Stakeholder__TypeAssignment_6"
 
 
-    // $ANTLR start "rule__Stakeholder__CotegoryAssignment_8"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3090:1: rule__Stakeholder__CotegoryAssignment_8 : ( RULE_STRING ) ;
-    public final void rule__Stakeholder__CotegoryAssignment_8() throws RecognitionException {
+    // $ANTLR start "rule__Stakeholder__CategoryAssignment_8"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3090:1: rule__Stakeholder__CategoryAssignment_8 : ( RULE_STRING ) ;
+    public final void rule__Stakeholder__CategoryAssignment_8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -7808,9 +7808,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3095:1: ( RULE_STRING )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3096:1: RULE_STRING
             {
-             before(grammarAccess.getStakeholderAccess().getCotegorySTRINGTerminalRuleCall_8_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Stakeholder__CotegoryAssignment_86095); 
-             after(grammarAccess.getStakeholderAccess().getCotegorySTRINGTerminalRuleCall_8_0()); 
+             before(grammarAccess.getStakeholderAccess().getCategorySTRINGTerminalRuleCall_8_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Stakeholder__CategoryAssignment_86095); 
+             after(grammarAccess.getStakeholderAccess().getCategorySTRINGTerminalRuleCall_8_0()); 
 
             }
 
@@ -7829,7 +7829,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Stakeholder__CotegoryAssignment_8"
+    // $ANTLR end "rule__Stakeholder__CategoryAssignment_8"
 
 
     // $ANTLR start "rule__Stakeholder__DescriptionAssignment_10"
@@ -8420,7 +8420,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_28_in_rule__Stakeholder__Group__7__Impl3641 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Stakeholder__Group__8__Impl_in_rule__Stakeholder__Group__83672 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_rule__Stakeholder__Group__9_in_rule__Stakeholder__Group__83675 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Stakeholder__CotegoryAssignment_8_in_rule__Stakeholder__Group__8__Impl3702 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Stakeholder__CategoryAssignment_8_in_rule__Stakeholder__Group__8__Impl3702 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Stakeholder__Group__9__Impl_in_rule__Stakeholder__Group__93732 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_rule__Stakeholder__Group__10_in_rule__Stakeholder__Group__93735 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_15_in_rule__Stakeholder__Group__9__Impl3763 = new BitSet(new long[]{0x0000000000000002L});
@@ -8518,7 +8518,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_RULE_ID_in_rule__Stakeholder__IdAssignment_16002 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Stakeholder__NameAssignment_46033 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Stakeholder__TypeAssignment_66064 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Stakeholder__CotegoryAssignment_86095 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Stakeholder__CategoryAssignment_86095 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Stakeholder__DescriptionAssignment_106126 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Stakeholder__DependsOnTypeAssignment_126157 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Stakeholder__DependsOnAssignment_146188 = new BitSet(new long[]{0x0000000000000002L});

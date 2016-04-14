@@ -40,7 +40,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Stakeholder/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Stakeholder/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Stakeholder/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Stakeholder/cotegory"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Stakeholder/category"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Stakeholder/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Stakeholder/dependsOnType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Stakeholder/dependsOn"/>
