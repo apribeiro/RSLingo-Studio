@@ -1,0 +1,9 @@
+grammar rslingo.rslil.RSLIL with org.eclipse.xtext.common.Terminals
+
+generate rSLIL "http://www.rslil.rslingo/RSLIL"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
