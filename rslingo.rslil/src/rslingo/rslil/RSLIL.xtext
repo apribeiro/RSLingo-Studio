@@ -3,7 +3,54 @@ grammar rslingo.rslil.RSLIL with org.eclipse.xtext.common.Terminals
 generate rSLIL "http://www.rslil.rslingo/RSLIL"
 
 Model:
-	greetings+=Greeting*;
+	// Business Level
+	systems+=System*
+	glossaries+=Glossary*
+	stakeholders+=Stakeholder*
+	goals+=Goal*;
+	// TODO System Level
 	
-Greeting:
-	'Hello' name=ID '!';
+System:
+	'System' id=ID '{'
+		'Id' systemId=STRING
+		'Name' name=STRING
+		'Description' description=STRING
+		('DecomposedBy' refSystem=RefSystem)?
+		('PartOf' partOf=[System])?
+	'}';
+
+RefSystem:
+	refSystem=[System](',' refs+=[System])*;
+	
+Glossary:
+	'Glossary' id=ID '{'
+		'Name' name=STRING
+		'Type' type=STRING
+		'Acronym' acronym=STRING
+		'Description' description=STRING
+		'POS' pos=STRING
+		'Synset' synset=STRING
+		'TermRelationType' termRelationType=STRING
+		'TermRelation' termRelation=STRING
+	'}';
+
+Stakeholder:
+	'Stakeholder' id=ID '{'
+		'Name' name=STRING
+		'Type' type=STRING
+		'Category' cotegory=STRING
+		'Description' description=STRING
+		'DependsOnType' dependsOnType=STRING
+		'DependsOn' dependsOn=STRING
+	'}';
+
+Goal:
+	'Goal' id=ID '{'
+		'Description' description=STRING
+		'Stakeholder' stakeholder=[Stakeholder]
+		'Priority' priority=STRING
+		'DependsOnType' dependsOnType=STRING
+		'DependsOn' dependsOn=STRING
+		'ComposedByType' composedByType=STRING
+		'ComposedBy' composedBy=STRING
+	'}';
