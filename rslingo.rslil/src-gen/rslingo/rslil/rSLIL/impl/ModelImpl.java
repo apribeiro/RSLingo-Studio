@@ -16,11 +16,16 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import rslingo.rslil.rSLIL.Actor;
+import rslingo.rslil.rSLIL.Entity;
+import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.Glossary;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
+import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.Stakeholder;
+import rslingo.rslil.rSLIL.UseCase;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +39,11 @@ import rslingo.rslil.rSLIL.Stakeholder;
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getGlossaries <em>Glossaries</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getStakeholders <em>Stakeholders</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getGoals <em>Goals</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getEntities <em>Entities</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getActors <em>Actors</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getUseCases <em>Use Cases</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getFrs <em>Frs</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getNfrs <em>Nfrs</em>}</li>
  * </ul>
  *
  * @generated
@@ -79,6 +89,56 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @ordered
    */
   protected EList<Goal> goals;
+
+  /**
+   * The cached value of the '{@link #getEntities() <em>Entities</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEntities()
+   * @generated
+   * @ordered
+   */
+  protected EList<Entity> entities;
+
+  /**
+   * The cached value of the '{@link #getActors() <em>Actors</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getActors()
+   * @generated
+   * @ordered
+   */
+  protected EList<Actor> actors;
+
+  /**
+   * The cached value of the '{@link #getUseCases() <em>Use Cases</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUseCases()
+   * @generated
+   * @ordered
+   */
+  protected EList<UseCase> useCases;
+
+  /**
+   * The cached value of the '{@link #getFrs() <em>Frs</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFrs()
+   * @generated
+   * @ordered
+   */
+  protected EList<FR> frs;
+
+  /**
+   * The cached value of the '{@link #getNfrs() <em>Nfrs</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNfrs()
+   * @generated
+   * @ordered
+   */
+  protected EList<NFR> nfrs;
 
   /**
    * <!-- begin-user-doc -->
@@ -162,6 +222,76 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Entity> getEntities()
+  {
+    if (entities == null)
+    {
+      entities = new EObjectContainmentEList<Entity>(Entity.class, this, RSLILPackage.MODEL__ENTITIES);
+    }
+    return entities;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Actor> getActors()
+  {
+    if (actors == null)
+    {
+      actors = new EObjectContainmentEList<Actor>(Actor.class, this, RSLILPackage.MODEL__ACTORS);
+    }
+    return actors;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<UseCase> getUseCases()
+  {
+    if (useCases == null)
+    {
+      useCases = new EObjectContainmentEList<UseCase>(UseCase.class, this, RSLILPackage.MODEL__USE_CASES);
+    }
+    return useCases;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<FR> getFrs()
+  {
+    if (frs == null)
+    {
+      frs = new EObjectContainmentEList<FR>(FR.class, this, RSLILPackage.MODEL__FRS);
+    }
+    return frs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<NFR> getNfrs()
+  {
+    if (nfrs == null)
+    {
+      nfrs = new EObjectContainmentEList<NFR>(NFR.class, this, RSLILPackage.MODEL__NFRS);
+    }
+    return nfrs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -175,6 +305,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return ((InternalEList<?>)getStakeholders()).basicRemove(otherEnd, msgs);
       case RSLILPackage.MODEL__GOALS:
         return ((InternalEList<?>)getGoals()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.MODEL__ENTITIES:
+        return ((InternalEList<?>)getEntities()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.MODEL__ACTORS:
+        return ((InternalEList<?>)getActors()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.MODEL__USE_CASES:
+        return ((InternalEList<?>)getUseCases()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.MODEL__FRS:
+        return ((InternalEList<?>)getFrs()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.MODEL__NFRS:
+        return ((InternalEList<?>)getNfrs()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -197,6 +337,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return getStakeholders();
       case RSLILPackage.MODEL__GOALS:
         return getGoals();
+      case RSLILPackage.MODEL__ENTITIES:
+        return getEntities();
+      case RSLILPackage.MODEL__ACTORS:
+        return getActors();
+      case RSLILPackage.MODEL__USE_CASES:
+        return getUseCases();
+      case RSLILPackage.MODEL__FRS:
+        return getFrs();
+      case RSLILPackage.MODEL__NFRS:
+        return getNfrs();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -228,6 +378,26 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         getGoals().clear();
         getGoals().addAll((Collection<? extends Goal>)newValue);
         return;
+      case RSLILPackage.MODEL__ENTITIES:
+        getEntities().clear();
+        getEntities().addAll((Collection<? extends Entity>)newValue);
+        return;
+      case RSLILPackage.MODEL__ACTORS:
+        getActors().clear();
+        getActors().addAll((Collection<? extends Actor>)newValue);
+        return;
+      case RSLILPackage.MODEL__USE_CASES:
+        getUseCases().clear();
+        getUseCases().addAll((Collection<? extends UseCase>)newValue);
+        return;
+      case RSLILPackage.MODEL__FRS:
+        getFrs().clear();
+        getFrs().addAll((Collection<? extends FR>)newValue);
+        return;
+      case RSLILPackage.MODEL__NFRS:
+        getNfrs().clear();
+        getNfrs().addAll((Collection<? extends NFR>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -254,6 +424,21 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case RSLILPackage.MODEL__GOALS:
         getGoals().clear();
         return;
+      case RSLILPackage.MODEL__ENTITIES:
+        getEntities().clear();
+        return;
+      case RSLILPackage.MODEL__ACTORS:
+        getActors().clear();
+        return;
+      case RSLILPackage.MODEL__USE_CASES:
+        getUseCases().clear();
+        return;
+      case RSLILPackage.MODEL__FRS:
+        getFrs().clear();
+        return;
+      case RSLILPackage.MODEL__NFRS:
+        getNfrs().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -276,6 +461,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return stakeholders != null && !stakeholders.isEmpty();
       case RSLILPackage.MODEL__GOALS:
         return goals != null && !goals.isEmpty();
+      case RSLILPackage.MODEL__ENTITIES:
+        return entities != null && !entities.isEmpty();
+      case RSLILPackage.MODEL__ACTORS:
+        return actors != null && !actors.isEmpty();
+      case RSLILPackage.MODEL__USE_CASES:
+        return useCases != null && !useCases.isEmpty();
+      case RSLILPackage.MODEL__FRS:
+        return frs != null && !frs.isEmpty();
+      case RSLILPackage.MODEL__NFRS:
+        return nfrs != null && !nfrs.isEmpty();
     }
     return super.eIsSet(featureID);
   }

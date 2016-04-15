@@ -77,6 +77,87 @@ public interface RSLILFactory extends EFactory
   Goal createGoal();
 
   /**
+   * Returns a new object of class '<em>Entity</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Entity</em>'.
+   * @generated
+   */
+  Entity createEntity();
+
+  /**
+   * Returns a new object of class '<em>Attribute</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Attribute</em>'.
+   * @generated
+   */
+  Attribute createAttribute();
+
+  /**
+   * Returns a new object of class '<em>Actor</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Actor</em>'.
+   * @generated
+   */
+  Actor createActor();
+
+  /**
+   * Returns a new object of class '<em>Use Case</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Use Case</em>'.
+   * @generated
+   */
+  UseCase createUseCase();
+
+  /**
+   * Returns a new object of class '<em>FR</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>FR</em>'.
+   * @generated
+   */
+  FR createFR();
+
+  /**
+   * Returns a new object of class '<em>NFR</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>NFR</em>'.
+   * @generated
+   */
+  NFR createNFR();
+
+  /**
+   * Returns a new object of class '<em>Ref Goal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ref Goal</em>'.
+   * @generated
+   */
+  RefGoal createRefGoal();
+
+  /**
+   * Returns a new object of class '<em>Ref FR</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ref FR</em>'.
+   * @generated
+   */
+  RefFR createRefFR();
+
+  /**
+   * Returns a new object of class '<em>Ref UC</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ref UC</em>'.
+   * @generated
+   */
+  RefUC createRefUC();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

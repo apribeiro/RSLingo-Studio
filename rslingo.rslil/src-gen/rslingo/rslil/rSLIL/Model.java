@@ -19,6 +19,11 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.Model#getGlossaries <em>Glossaries</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Model#getStakeholders <em>Stakeholders</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Model#getGoals <em>Goals</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Model#getEntities <em>Entities</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Model#getActors <em>Actors</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Model#getUseCases <em>Use Cases</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Model#getFrs <em>Frs</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Model#getNfrs <em>Nfrs</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getModel()
@@ -90,5 +95,85 @@ public interface Model extends EObject
    * @generated
    */
   EList<Goal> getGoals();
+
+  /**
+   * Returns the value of the '<em><b>Entities</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.Entity}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Entities</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Entities</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getModel_Entities()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Entity> getEntities();
+
+  /**
+   * Returns the value of the '<em><b>Actors</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.Actor}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Actors</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Actors</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getModel_Actors()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Actor> getActors();
+
+  /**
+   * Returns the value of the '<em><b>Use Cases</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.UseCase}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Use Cases</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Use Cases</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getModel_UseCases()
+   * @model containment="true"
+   * @generated
+   */
+  EList<UseCase> getUseCases();
+
+  /**
+   * Returns the value of the '<em><b>Frs</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.FR}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Frs</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Frs</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getModel_Frs()
+   * @model containment="true"
+   * @generated
+   */
+  EList<FR> getFrs();
+
+  /**
+   * Returns the value of the '<em><b>Nfrs</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.NFR}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Nfrs</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Nfrs</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getModel_Nfrs()
+   * @model containment="true"
+   * @generated
+   */
+  EList<NFR> getNfrs();
 
 } // Model
