@@ -7,8 +7,13 @@ Model:
 	systems+=System*
 	glossaries+=Glossary*
 	stakeholders+=Stakeholder*
-	goals+=Goal*;
-	// TODO System Level
+	goals+=Goal*
+	// System Level
+	entities+=Entity*
+	actors+=Actor*
+	useCases+=UseCase*
+	frs+=FR*
+	nfrs+=NFR*;
 	
 System:
 	'System' id=ID '{'
@@ -54,3 +59,79 @@ Goal:
 		'ComposedByType' composedByType=STRING
 		'ComposedBy' composedBy=STRING
 	'}';
+
+Entity:
+	'Entity' id=ID '{'
+		'Name' name=STRING
+		'Description' description=STRING
+		attributes+=Attribute+
+	'}';
+
+Attribute:
+	'Attribute' '{'
+		'Name' name=STRING
+		'Description' descrition=STRING
+		'Type' type=STRING
+		'FieldSize' fieldSize=INT
+		'FieldMultiplicity' fieldMultiplicity=STRING
+		'DefaultValue' defaultValue=STRING
+		'ReferencesTo' refTo=[Entity]
+		'Multiplicity' multiplicity=STRING
+	'}';
+
+Actor:
+	'Actor' id=ID '{'
+		'Name' name=STRING
+		'Type' type=STRING
+		'Description' description=STRING
+		'Stakeholder' stakeholder=[Stakeholder]
+		'DependsOnType' dependsOnType=STRING
+		'DependsOn' dependsOn=STRING
+	'}';
+
+UseCase:
+	'UseCase' id=ID '{'
+		'Name' name=STRING
+		'Type' type=STRING
+		'Description' description=STRING
+		'Priority' priotity=STRING
+		'AccomplishedGoals' goals+=RefGoal*
+		'FunctionalRequirements' frs+=RefFR*
+		'ActorInitiates' actorInitiates=[Actor]
+		'ActorParticipates' actorParticipates=[Actor]
+		'Pre-Conditions' preConditions=STRING
+		'Post-Conditions' postConditions=STRING
+		'Include' includes+=RefUC*
+		// TODO 'ExtendedBy UC | Extension Point'
+	'}';
+
+FR:
+	'FunctionalRequirement' id=ID '{'
+		'Name' name=STRING
+		'Description' description=STRING
+		'ModalityType' modalityType=STRING
+		'ActionType' actionType=STRING
+		'Source (Stakeholder)' source=[Stakeholder]
+		'Priority' priority=STRING
+	'}';
+
+NFR:
+	'Non-FunctionalRequirement' id=ID '{'
+		'Name' name=STRING
+		'Description' description=STRING
+		'Type' type=STRING
+		'Sub-Type' subType=STRING
+		'Metric' metric=STRING
+		'Value' value=STRING
+		'Source (Stakeholder)' source=[Stakeholder]
+		'Priority' priority=STRING
+	'}';
+
+RefGoal:
+	refGoal=[Goal](',' refs+=[Goal])*;
+
+RefFR:
+	refFR=[FR](',' refs+=[FR])*;
+
+RefUC:
+	refUC=[UseCase](',' refs+=[UseCase])*;
