@@ -2,7 +2,12 @@
  */
 package rslingo.rslil.rSLIL.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -10,6 +15,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import rslingo.rslil.rSLIL.ComposedBy;
+import rslingo.rslil.rSLIL.DependsOnGoal;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.Stakeholder;
@@ -26,9 +36,7 @@ import rslingo.rslil.rSLIL.Stakeholder;
  *   <li>{@link rslingo.rslil.rSLIL.impl.GoalImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GoalImpl#getStakeholder <em>Stakeholder</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GoalImpl#getPriority <em>Priority</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.GoalImpl#getDependsOnType <em>Depends On Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GoalImpl#getDependsOn <em>Depends On</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.GoalImpl#getComposedByType <em>Composed By Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GoalImpl#getComposedBy <em>Composed By</em>}</li>
  * </ul>
  *
@@ -107,84 +115,24 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
   protected String priority = PRIORITY_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getDependsOnType() <em>Depends On Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDependsOnType()
-   * @generated
-   * @ordered
-   */
-  protected static final String DEPENDS_ON_TYPE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDependsOnType() <em>Depends On Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDependsOnType()
-   * @generated
-   * @ordered
-   */
-  protected String dependsOnType = DEPENDS_ON_TYPE_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getDependsOn() <em>Depends On</em>}' attribute.
+   * The cached value of the '{@link #getDependsOn() <em>Depends On</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getDependsOn()
    * @generated
    * @ordered
    */
-  protected static final String DEPENDS_ON_EDEFAULT = null;
+  protected EList<DependsOnGoal> dependsOn;
 
   /**
-   * The cached value of the '{@link #getDependsOn() <em>Depends On</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDependsOn()
-   * @generated
-   * @ordered
-   */
-  protected String dependsOn = DEPENDS_ON_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getComposedByType() <em>Composed By Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getComposedByType()
-   * @generated
-   * @ordered
-   */
-  protected static final String COMPOSED_BY_TYPE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getComposedByType() <em>Composed By Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getComposedByType()
-   * @generated
-   * @ordered
-   */
-  protected String composedByType = COMPOSED_BY_TYPE_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getComposedBy() <em>Composed By</em>}' attribute.
+   * The cached value of the '{@link #getComposedBy() <em>Composed By</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getComposedBy()
    * @generated
    * @ordered
    */
-  protected static final String COMPOSED_BY_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getComposedBy() <em>Composed By</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getComposedBy()
-   * @generated
-   * @ordered
-   */
-  protected String composedBy = COMPOSED_BY_EDEFAULT;
+  protected EList<ComposedBy> composedBy;
 
   /**
    * <!-- begin-user-doc -->
@@ -324,31 +272,12 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDependsOnType()
+  public EList<DependsOnGoal> getDependsOn()
   {
-    return dependsOnType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDependsOnType(String newDependsOnType)
-  {
-    String oldDependsOnType = dependsOnType;
-    dependsOnType = newDependsOnType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GOAL__DEPENDS_ON_TYPE, oldDependsOnType, dependsOnType));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getDependsOn()
-  {
+    if (dependsOn == null)
+    {
+      dependsOn = new EObjectContainmentEList<DependsOnGoal>(DependsOnGoal.class, this, RSLILPackage.GOAL__DEPENDS_ON);
+    }
     return dependsOn;
   }
 
@@ -357,44 +286,12 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDependsOn(String newDependsOn)
+  public EList<ComposedBy> getComposedBy()
   {
-    String oldDependsOn = dependsOn;
-    dependsOn = newDependsOn;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GOAL__DEPENDS_ON, oldDependsOn, dependsOn));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getComposedByType()
-  {
-    return composedByType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setComposedByType(String newComposedByType)
-  {
-    String oldComposedByType = composedByType;
-    composedByType = newComposedByType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GOAL__COMPOSED_BY_TYPE, oldComposedByType, composedByType));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getComposedBy()
-  {
+    if (composedBy == null)
+    {
+      composedBy = new EObjectContainmentEList<ComposedBy>(ComposedBy.class, this, RSLILPackage.GOAL__COMPOSED_BY);
+    }
     return composedBy;
   }
 
@@ -403,12 +300,17 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setComposedBy(String newComposedBy)
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    String oldComposedBy = composedBy;
-    composedBy = newComposedBy;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GOAL__COMPOSED_BY, oldComposedBy, composedBy));
+    switch (featureID)
+    {
+      case RSLILPackage.GOAL__DEPENDS_ON:
+        return ((InternalEList<?>)getDependsOn()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.GOAL__COMPOSED_BY:
+        return ((InternalEList<?>)getComposedBy()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -430,12 +332,8 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
         return basicGetStakeholder();
       case RSLILPackage.GOAL__PRIORITY:
         return getPriority();
-      case RSLILPackage.GOAL__DEPENDS_ON_TYPE:
-        return getDependsOnType();
       case RSLILPackage.GOAL__DEPENDS_ON:
         return getDependsOn();
-      case RSLILPackage.GOAL__COMPOSED_BY_TYPE:
-        return getComposedByType();
       case RSLILPackage.GOAL__COMPOSED_BY:
         return getComposedBy();
     }
@@ -447,6 +345,7 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -464,17 +363,13 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
       case RSLILPackage.GOAL__PRIORITY:
         setPriority((String)newValue);
         return;
-      case RSLILPackage.GOAL__DEPENDS_ON_TYPE:
-        setDependsOnType((String)newValue);
-        return;
       case RSLILPackage.GOAL__DEPENDS_ON:
-        setDependsOn((String)newValue);
-        return;
-      case RSLILPackage.GOAL__COMPOSED_BY_TYPE:
-        setComposedByType((String)newValue);
+        getDependsOn().clear();
+        getDependsOn().addAll((Collection<? extends DependsOnGoal>)newValue);
         return;
       case RSLILPackage.GOAL__COMPOSED_BY:
-        setComposedBy((String)newValue);
+        getComposedBy().clear();
+        getComposedBy().addAll((Collection<? extends ComposedBy>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -502,17 +397,11 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
       case RSLILPackage.GOAL__PRIORITY:
         setPriority(PRIORITY_EDEFAULT);
         return;
-      case RSLILPackage.GOAL__DEPENDS_ON_TYPE:
-        setDependsOnType(DEPENDS_ON_TYPE_EDEFAULT);
-        return;
       case RSLILPackage.GOAL__DEPENDS_ON:
-        setDependsOn(DEPENDS_ON_EDEFAULT);
-        return;
-      case RSLILPackage.GOAL__COMPOSED_BY_TYPE:
-        setComposedByType(COMPOSED_BY_TYPE_EDEFAULT);
+        getDependsOn().clear();
         return;
       case RSLILPackage.GOAL__COMPOSED_BY:
-        setComposedBy(COMPOSED_BY_EDEFAULT);
+        getComposedBy().clear();
         return;
     }
     super.eUnset(featureID);
@@ -536,14 +425,10 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
         return stakeholder != null;
       case RSLILPackage.GOAL__PRIORITY:
         return PRIORITY_EDEFAULT == null ? priority != null : !PRIORITY_EDEFAULT.equals(priority);
-      case RSLILPackage.GOAL__DEPENDS_ON_TYPE:
-        return DEPENDS_ON_TYPE_EDEFAULT == null ? dependsOnType != null : !DEPENDS_ON_TYPE_EDEFAULT.equals(dependsOnType);
       case RSLILPackage.GOAL__DEPENDS_ON:
-        return DEPENDS_ON_EDEFAULT == null ? dependsOn != null : !DEPENDS_ON_EDEFAULT.equals(dependsOn);
-      case RSLILPackage.GOAL__COMPOSED_BY_TYPE:
-        return COMPOSED_BY_TYPE_EDEFAULT == null ? composedByType != null : !COMPOSED_BY_TYPE_EDEFAULT.equals(composedByType);
+        return dependsOn != null && !dependsOn.isEmpty();
       case RSLILPackage.GOAL__COMPOSED_BY:
-        return COMPOSED_BY_EDEFAULT == null ? composedBy != null : !COMPOSED_BY_EDEFAULT.equals(composedBy);
+        return composedBy != null && !composedBy.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -565,14 +450,6 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
     result.append(description);
     result.append(", priority: ");
     result.append(priority);
-    result.append(", dependsOnType: ");
-    result.append(dependsOnType);
-    result.append(", dependsOn: ");
-    result.append(dependsOn);
-    result.append(", composedByType: ");
-    result.append(composedByType);
-    result.append(", composedBy: ");
-    result.append(composedBy);
     result.append(')');
     return result.toString();
   }

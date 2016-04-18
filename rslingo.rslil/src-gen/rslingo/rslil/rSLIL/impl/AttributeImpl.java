@@ -3,6 +3,7 @@
 package rslingo.rslil.rSLIL.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -11,8 +12,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import rslingo.rslil.rSLIL.Attribute;
-import rslingo.rslil.rSLIL.Entity;
+import rslingo.rslil.rSLIL.Field;
 import rslingo.rslil.rSLIL.RSLILPackage;
+import rslingo.rslil.rSLIL.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,11 +27,8 @@ import rslingo.rslil.rSLIL.RSLILPackage;
  *   <li>{@link rslingo.rslil.rSLIL.impl.AttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.AttributeImpl#getDescrition <em>Descrition</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.AttributeImpl#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.AttributeImpl#getFieldSize <em>Field Size</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.AttributeImpl#getFieldMultiplicity <em>Field Multiplicity</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.AttributeImpl#getDefaultValue <em>Default Value</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.AttributeImpl#getRefTo <em>Ref To</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.AttributeImpl#getMultiplicity <em>Multiplicity</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.AttributeImpl#getField <em>Field</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.AttributeImpl#getReference <em>Reference</em>}</li>
  * </ul>
  *
  * @generated
@@ -97,94 +96,24 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   protected String type = TYPE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getFieldSize() <em>Field Size</em>}' attribute.
+   * The cached value of the '{@link #getField() <em>Field</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFieldSize()
+   * @see #getField()
    * @generated
    * @ordered
    */
-  protected static final int FIELD_SIZE_EDEFAULT = 0;
+  protected Field field;
 
   /**
-   * The cached value of the '{@link #getFieldSize() <em>Field Size</em>}' attribute.
+   * The cached value of the '{@link #getReference() <em>Reference</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFieldSize()
+   * @see #getReference()
    * @generated
    * @ordered
    */
-  protected int fieldSize = FIELD_SIZE_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getFieldMultiplicity() <em>Field Multiplicity</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFieldMultiplicity()
-   * @generated
-   * @ordered
-   */
-  protected static final String FIELD_MULTIPLICITY_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getFieldMultiplicity() <em>Field Multiplicity</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFieldMultiplicity()
-   * @generated
-   * @ordered
-   */
-  protected String fieldMultiplicity = FIELD_MULTIPLICITY_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDefaultValue()
-   * @generated
-   * @ordered
-   */
-  protected static final String DEFAULT_VALUE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDefaultValue()
-   * @generated
-   * @ordered
-   */
-  protected String defaultValue = DEFAULT_VALUE_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getRefTo() <em>Ref To</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRefTo()
-   * @generated
-   * @ordered
-   */
-  protected Entity refTo;
-
-  /**
-   * The default value of the '{@link #getMultiplicity() <em>Multiplicity</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMultiplicity()
-   * @generated
-   * @ordered
-   */
-  protected static final String MULTIPLICITY_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getMultiplicity() <em>Multiplicity</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMultiplicity()
-   * @generated
-   * @ordered
-   */
-  protected String multiplicity = MULTIPLICITY_EDEFAULT;
+  protected Reference reference;
 
   /**
    * <!-- begin-user-doc -->
@@ -281,9 +210,9 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getFieldSize()
+  public Field getField()
   {
-    return fieldSize;
+    return field;
   }
 
   /**
@@ -291,78 +220,16 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFieldSize(int newFieldSize)
+  public NotificationChain basicSetField(Field newField, NotificationChain msgs)
   {
-    int oldFieldSize = fieldSize;
-    fieldSize = newFieldSize;
+    Field oldField = field;
+    field = newField;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.ATTRIBUTE__FIELD_SIZE, oldFieldSize, fieldSize));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getFieldMultiplicity()
-  {
-    return fieldMultiplicity;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFieldMultiplicity(String newFieldMultiplicity)
-  {
-    String oldFieldMultiplicity = fieldMultiplicity;
-    fieldMultiplicity = newFieldMultiplicity;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.ATTRIBUTE__FIELD_MULTIPLICITY, oldFieldMultiplicity, fieldMultiplicity));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getDefaultValue()
-  {
-    return defaultValue;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDefaultValue(String newDefaultValue)
-  {
-    String oldDefaultValue = defaultValue;
-    defaultValue = newDefaultValue;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.ATTRIBUTE__DEFAULT_VALUE, oldDefaultValue, defaultValue));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Entity getRefTo()
-  {
-    if (refTo != null && refTo.eIsProxy())
     {
-      InternalEObject oldRefTo = (InternalEObject)refTo;
-      refTo = (Entity)eResolveProxy(oldRefTo);
-      if (refTo != oldRefTo)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.ATTRIBUTE__REF_TO, oldRefTo, refTo));
-      }
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.ATTRIBUTE__FIELD, oldField, newField);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return refTo;
+    return msgs;
   }
 
   /**
@@ -370,9 +237,20 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * <!-- end-user-doc -->
    * @generated
    */
-  public Entity basicGetRefTo()
+  public void setField(Field newField)
   {
-    return refTo;
+    if (newField != field)
+    {
+      NotificationChain msgs = null;
+      if (field != null)
+        msgs = ((InternalEObject)field).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.ATTRIBUTE__FIELD, null, msgs);
+      if (newField != null)
+        msgs = ((InternalEObject)newField).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.ATTRIBUTE__FIELD, null, msgs);
+      msgs = basicSetField(newField, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.ATTRIBUTE__FIELD, newField, newField));
   }
 
   /**
@@ -380,12 +258,26 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRefTo(Entity newRefTo)
+  public Reference getReference()
   {
-    Entity oldRefTo = refTo;
-    refTo = newRefTo;
+    return reference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetReference(Reference newReference, NotificationChain msgs)
+  {
+    Reference oldReference = reference;
+    reference = newReference;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.ATTRIBUTE__REF_TO, oldRefTo, refTo));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.ATTRIBUTE__REFERENCE, oldReference, newReference);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -393,9 +285,20 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getMultiplicity()
+  public void setReference(Reference newReference)
   {
-    return multiplicity;
+    if (newReference != reference)
+    {
+      NotificationChain msgs = null;
+      if (reference != null)
+        msgs = ((InternalEObject)reference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.ATTRIBUTE__REFERENCE, null, msgs);
+      if (newReference != null)
+        msgs = ((InternalEObject)newReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.ATTRIBUTE__REFERENCE, null, msgs);
+      msgs = basicSetReference(newReference, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.ATTRIBUTE__REFERENCE, newReference, newReference));
   }
 
   /**
@@ -403,12 +306,17 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMultiplicity(String newMultiplicity)
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    String oldMultiplicity = multiplicity;
-    multiplicity = newMultiplicity;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.ATTRIBUTE__MULTIPLICITY, oldMultiplicity, multiplicity));
+    switch (featureID)
+    {
+      case RSLILPackage.ATTRIBUTE__FIELD:
+        return basicSetField(null, msgs);
+      case RSLILPackage.ATTRIBUTE__REFERENCE:
+        return basicSetReference(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -427,17 +335,10 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
         return getDescrition();
       case RSLILPackage.ATTRIBUTE__TYPE:
         return getType();
-      case RSLILPackage.ATTRIBUTE__FIELD_SIZE:
-        return getFieldSize();
-      case RSLILPackage.ATTRIBUTE__FIELD_MULTIPLICITY:
-        return getFieldMultiplicity();
-      case RSLILPackage.ATTRIBUTE__DEFAULT_VALUE:
-        return getDefaultValue();
-      case RSLILPackage.ATTRIBUTE__REF_TO:
-        if (resolve) return getRefTo();
-        return basicGetRefTo();
-      case RSLILPackage.ATTRIBUTE__MULTIPLICITY:
-        return getMultiplicity();
+      case RSLILPackage.ATTRIBUTE__FIELD:
+        return getField();
+      case RSLILPackage.ATTRIBUTE__REFERENCE:
+        return getReference();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -461,20 +362,11 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
       case RSLILPackage.ATTRIBUTE__TYPE:
         setType((String)newValue);
         return;
-      case RSLILPackage.ATTRIBUTE__FIELD_SIZE:
-        setFieldSize((Integer)newValue);
+      case RSLILPackage.ATTRIBUTE__FIELD:
+        setField((Field)newValue);
         return;
-      case RSLILPackage.ATTRIBUTE__FIELD_MULTIPLICITY:
-        setFieldMultiplicity((String)newValue);
-        return;
-      case RSLILPackage.ATTRIBUTE__DEFAULT_VALUE:
-        setDefaultValue((String)newValue);
-        return;
-      case RSLILPackage.ATTRIBUTE__REF_TO:
-        setRefTo((Entity)newValue);
-        return;
-      case RSLILPackage.ATTRIBUTE__MULTIPLICITY:
-        setMultiplicity((String)newValue);
+      case RSLILPackage.ATTRIBUTE__REFERENCE:
+        setReference((Reference)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -499,20 +391,11 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
       case RSLILPackage.ATTRIBUTE__TYPE:
         setType(TYPE_EDEFAULT);
         return;
-      case RSLILPackage.ATTRIBUTE__FIELD_SIZE:
-        setFieldSize(FIELD_SIZE_EDEFAULT);
+      case RSLILPackage.ATTRIBUTE__FIELD:
+        setField((Field)null);
         return;
-      case RSLILPackage.ATTRIBUTE__FIELD_MULTIPLICITY:
-        setFieldMultiplicity(FIELD_MULTIPLICITY_EDEFAULT);
-        return;
-      case RSLILPackage.ATTRIBUTE__DEFAULT_VALUE:
-        setDefaultValue(DEFAULT_VALUE_EDEFAULT);
-        return;
-      case RSLILPackage.ATTRIBUTE__REF_TO:
-        setRefTo((Entity)null);
-        return;
-      case RSLILPackage.ATTRIBUTE__MULTIPLICITY:
-        setMultiplicity(MULTIPLICITY_EDEFAULT);
+      case RSLILPackage.ATTRIBUTE__REFERENCE:
+        setReference((Reference)null);
         return;
     }
     super.eUnset(featureID);
@@ -534,16 +417,10 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
         return DESCRITION_EDEFAULT == null ? descrition != null : !DESCRITION_EDEFAULT.equals(descrition);
       case RSLILPackage.ATTRIBUTE__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-      case RSLILPackage.ATTRIBUTE__FIELD_SIZE:
-        return fieldSize != FIELD_SIZE_EDEFAULT;
-      case RSLILPackage.ATTRIBUTE__FIELD_MULTIPLICITY:
-        return FIELD_MULTIPLICITY_EDEFAULT == null ? fieldMultiplicity != null : !FIELD_MULTIPLICITY_EDEFAULT.equals(fieldMultiplicity);
-      case RSLILPackage.ATTRIBUTE__DEFAULT_VALUE:
-        return DEFAULT_VALUE_EDEFAULT == null ? defaultValue != null : !DEFAULT_VALUE_EDEFAULT.equals(defaultValue);
-      case RSLILPackage.ATTRIBUTE__REF_TO:
-        return refTo != null;
-      case RSLILPackage.ATTRIBUTE__MULTIPLICITY:
-        return MULTIPLICITY_EDEFAULT == null ? multiplicity != null : !MULTIPLICITY_EDEFAULT.equals(multiplicity);
+      case RSLILPackage.ATTRIBUTE__FIELD:
+        return field != null;
+      case RSLILPackage.ATTRIBUTE__REFERENCE:
+        return reference != null;
     }
     return super.eIsSet(featureID);
   }
@@ -565,14 +442,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
     result.append(descrition);
     result.append(", type: ");
     result.append(type);
-    result.append(", fieldSize: ");
-    result.append(fieldSize);
-    result.append(", fieldMultiplicity: ");
-    result.append(fieldMultiplicity);
-    result.append(", defaultValue: ");
-    result.append(defaultValue);
-    result.append(", multiplicity: ");
-    result.append(multiplicity);
     result.append(')');
     return result.toString();
   }

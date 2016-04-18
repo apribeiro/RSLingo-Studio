@@ -32,6 +32,15 @@ public interface RSLILFactory extends EFactory
   Model createModel();
 
   /**
+   * Returns a new object of class '<em>Project</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Project</em>'.
+   * @generated
+   */
+  Project createProject();
+
+  /**
    * Returns a new object of class '<em>System</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -59,6 +68,42 @@ public interface RSLILFactory extends EFactory
   Glossary createGlossary();
 
   /**
+   * Returns a new object of class '<em>Ref Glossary Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ref Glossary Type</em>'.
+   * @generated
+   */
+  RefGlossaryType createRefGlossaryType();
+
+  /**
+   * Returns a new object of class '<em>Glossary Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Glossary Type</em>'.
+   * @generated
+   */
+  GlossaryType createGlossaryType();
+
+  /**
+   * Returns a new object of class '<em>Term Relation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Term Relation</em>'.
+   * @generated
+   */
+  TermRelation createTermRelation();
+
+  /**
+   * Returns a new object of class '<em>Term</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Term</em>'.
+   * @generated
+   */
+  Term createTerm();
+
+  /**
    * Returns a new object of class '<em>Stakeholder</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -75,6 +120,24 @@ public interface RSLILFactory extends EFactory
    * @generated
    */
   Goal createGoal();
+
+  /**
+   * Returns a new object of class '<em>Depends On Goal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Depends On Goal</em>'.
+   * @generated
+   */
+  DependsOnGoal createDependsOnGoal();
+
+  /**
+   * Returns a new object of class '<em>Composed By</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Composed By</em>'.
+   * @generated
+   */
+  ComposedBy createComposedBy();
 
   /**
    * Returns a new object of class '<em>Entity</em>'.
@@ -95,6 +158,33 @@ public interface RSLILFactory extends EFactory
   Attribute createAttribute();
 
   /**
+   * Returns a new object of class '<em>Field</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Field</em>'.
+   * @generated
+   */
+  Field createField();
+
+  /**
+   * Returns a new object of class '<em>Reference</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Reference</em>'.
+   * @generated
+   */
+  Reference createReference();
+
+  /**
+   * Returns a new object of class '<em>Ref Attribute</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ref Attribute</em>'.
+   * @generated
+   */
+  RefAttribute createRefAttribute();
+
+  /**
    * Returns a new object of class '<em>Actor</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -102,6 +192,15 @@ public interface RSLILFactory extends EFactory
    * @generated
    */
   Actor createActor();
+
+  /**
+   * Returns a new object of class '<em>Depends On Actor</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Depends On Actor</em>'.
+   * @generated
+   */
+  DependsOnActor createDependsOnActor();
 
   /**
    * Returns a new object of class '<em>Use Case</em>'.

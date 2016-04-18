@@ -2,6 +2,8 @@
  */
 package rslingo.rslil.rSLIL;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,9 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.Goal#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Goal#getStakeholder <em>Stakeholder</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Goal#getPriority <em>Priority</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Goal#getDependsOnType <em>Depends On Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Goal#getDependsOn <em>Depends On</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Goal#getComposedByType <em>Composed By Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Goal#getComposedBy <em>Composed By</em>}</li>
  * </ul>
  *
@@ -134,107 +134,35 @@ public interface Goal extends EObject
   void setPriority(String value);
 
   /**
-   * Returns the value of the '<em><b>Depends On Type</b></em>' attribute.
+   * Returns the value of the '<em><b>Depends On</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.DependsOnGoal}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Depends On Type</em>' attribute isn't clear,
+   * If the meaning of the '<em>Depends On</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Depends On Type</em>' attribute.
-   * @see #setDependsOnType(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getGoal_DependsOnType()
-   * @model
-   * @generated
-   */
-  String getDependsOnType();
-
-  /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Goal#getDependsOnType <em>Depends On Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Depends On Type</em>' attribute.
-   * @see #getDependsOnType()
-   * @generated
-   */
-  void setDependsOnType(String value);
-
-  /**
-   * Returns the value of the '<em><b>Depends On</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Depends On</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Depends On</em>' attribute.
-   * @see #setDependsOn(String)
+   * @return the value of the '<em>Depends On</em>' containment reference list.
    * @see rslingo.rslil.rSLIL.RSLILPackage#getGoal_DependsOn()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getDependsOn();
+  EList<DependsOnGoal> getDependsOn();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Goal#getDependsOn <em>Depends On</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Depends On</em>' attribute.
-   * @see #getDependsOn()
-   * @generated
-   */
-  void setDependsOn(String value);
-
-  /**
-   * Returns the value of the '<em><b>Composed By Type</b></em>' attribute.
+   * Returns the value of the '<em><b>Composed By</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.ComposedBy}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Composed By Type</em>' attribute isn't clear,
+   * If the meaning of the '<em>Composed By</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Composed By Type</em>' attribute.
-   * @see #setComposedByType(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getGoal_ComposedByType()
-   * @model
-   * @generated
-   */
-  String getComposedByType();
-
-  /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Goal#getComposedByType <em>Composed By Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Composed By Type</em>' attribute.
-   * @see #getComposedByType()
-   * @generated
-   */
-  void setComposedByType(String value);
-
-  /**
-   * Returns the value of the '<em><b>Composed By</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Composed By</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Composed By</em>' attribute.
-   * @see #setComposedBy(String)
+   * @return the value of the '<em>Composed By</em>' containment reference list.
    * @see rslingo.rslil.rSLIL.RSLILPackage#getGoal_ComposedBy()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getComposedBy();
-
-  /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Goal#getComposedBy <em>Composed By</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Composed By</em>' attribute.
-   * @see #getComposedBy()
-   * @generated
-   */
-  void setComposedBy(String value);
+  EList<ComposedBy> getComposedBy();
 
 } // Goal

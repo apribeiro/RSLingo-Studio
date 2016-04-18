@@ -16,11 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.Attribute#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Attribute#getDescrition <em>Descrition</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Attribute#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Attribute#getFieldSize <em>Field Size</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Attribute#getFieldMultiplicity <em>Field Multiplicity</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Attribute#getDefaultValue <em>Default Value</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Attribute#getRefTo <em>Ref To</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Attribute#getMultiplicity <em>Multiplicity</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Attribute#getField <em>Field</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Attribute#getReference <em>Reference</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getAttribute()
@@ -108,133 +105,55 @@ public interface Attribute extends EObject
   void setType(String value);
 
   /**
-   * Returns the value of the '<em><b>Field Size</b></em>' attribute.
+   * Returns the value of the '<em><b>Field</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Field Size</em>' attribute isn't clear,
+   * If the meaning of the '<em>Field</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Field Size</em>' attribute.
-   * @see #setFieldSize(int)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getAttribute_FieldSize()
-   * @model
+   * @return the value of the '<em>Field</em>' containment reference.
+   * @see #setField(Field)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getAttribute_Field()
+   * @model containment="true"
    * @generated
    */
-  int getFieldSize();
+  Field getField();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Attribute#getFieldSize <em>Field Size</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Attribute#getField <em>Field</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Field Size</em>' attribute.
-   * @see #getFieldSize()
+   * @param value the new value of the '<em>Field</em>' containment reference.
+   * @see #getField()
    * @generated
    */
-  void setFieldSize(int value);
+  void setField(Field value);
 
   /**
-   * Returns the value of the '<em><b>Field Multiplicity</b></em>' attribute.
+   * Returns the value of the '<em><b>Reference</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Field Multiplicity</em>' attribute isn't clear,
+   * If the meaning of the '<em>Reference</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Field Multiplicity</em>' attribute.
-   * @see #setFieldMultiplicity(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getAttribute_FieldMultiplicity()
-   * @model
+   * @return the value of the '<em>Reference</em>' containment reference.
+   * @see #setReference(Reference)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getAttribute_Reference()
+   * @model containment="true"
    * @generated
    */
-  String getFieldMultiplicity();
+  Reference getReference();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Attribute#getFieldMultiplicity <em>Field Multiplicity</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Attribute#getReference <em>Reference</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Field Multiplicity</em>' attribute.
-   * @see #getFieldMultiplicity()
+   * @param value the new value of the '<em>Reference</em>' containment reference.
+   * @see #getReference()
    * @generated
    */
-  void setFieldMultiplicity(String value);
-
-  /**
-   * Returns the value of the '<em><b>Default Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Default Value</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Default Value</em>' attribute.
-   * @see #setDefaultValue(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getAttribute_DefaultValue()
-   * @model
-   * @generated
-   */
-  String getDefaultValue();
-
-  /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Attribute#getDefaultValue <em>Default Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Default Value</em>' attribute.
-   * @see #getDefaultValue()
-   * @generated
-   */
-  void setDefaultValue(String value);
-
-  /**
-   * Returns the value of the '<em><b>Ref To</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Ref To</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Ref To</em>' reference.
-   * @see #setRefTo(Entity)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getAttribute_RefTo()
-   * @model
-   * @generated
-   */
-  Entity getRefTo();
-
-  /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Attribute#getRefTo <em>Ref To</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Ref To</em>' reference.
-   * @see #getRefTo()
-   * @generated
-   */
-  void setRefTo(Entity value);
-
-  /**
-   * Returns the value of the '<em><b>Multiplicity</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Multiplicity</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Multiplicity</em>' attribute.
-   * @see #setMultiplicity(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getAttribute_Multiplicity()
-   * @model
-   * @generated
-   */
-  String getMultiplicity();
-
-  /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Attribute#getMultiplicity <em>Multiplicity</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Multiplicity</em>' attribute.
-   * @see #getMultiplicity()
-   * @generated
-   */
-  void setMultiplicity(String value);
+  void setReference(Reference value);
 
 } // Attribute

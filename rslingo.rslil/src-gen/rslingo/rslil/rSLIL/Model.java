@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link rslingo.rslil.rSLIL.Model#getProject <em>Project</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Model#getSystems <em>Systems</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Model#getGlossaries <em>Glossaries</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Model#getStakeholders <em>Stakeholders</em>}</li>
@@ -32,6 +33,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Model extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Project</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Project</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Project</em>' containment reference.
+   * @see #setProject(Project)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getModel_Project()
+   * @model containment="true"
+   * @generated
+   */
+  Project getProject();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Model#getProject <em>Project</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Project</em>' containment reference.
+   * @see #getProject()
+   * @generated
+   */
+  void setProject(Project value);
+
   /**
    * Returns the value of the '<em><b>Systems</b></em>' containment reference list.
    * The list contents are of type {@link rslingo.rslil.rSLIL.System}.

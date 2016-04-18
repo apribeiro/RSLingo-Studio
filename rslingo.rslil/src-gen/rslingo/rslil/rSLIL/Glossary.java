@@ -2,6 +2,8 @@
  */
 package rslingo.rslil.rSLIL;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -20,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.Glossary#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Glossary#getPos <em>Pos</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Glossary#getSynset <em>Synset</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Glossary#getTermRelationType <em>Term Relation Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Glossary#getTermRelation <em>Term Relation</em>}</li>
  * </ul>
  *
@@ -83,30 +84,30 @@ public interface Glossary extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Type</b></em>' attribute.
+   * Returns the value of the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type</em>' attribute isn't clear,
+   * If the meaning of the '<em>Type</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' attribute.
-   * @see #setType(String)
+   * @return the value of the '<em>Type</em>' containment reference.
+   * @see #setType(RefGlossaryType)
    * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossary_Type()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getType();
+  RefGlossaryType getType();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Glossary#getType <em>Type</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Glossary#getType <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' attribute.
+   * @param value the new value of the '<em>Type</em>' containment reference.
    * @see #getType()
    * @generated
    */
-  void setType(String value);
+  void setType(RefGlossaryType value);
 
   /**
    * Returns the value of the '<em><b>Acronym</b></em>' attribute.
@@ -213,55 +214,19 @@ public interface Glossary extends EObject
   void setSynset(String value);
 
   /**
-   * Returns the value of the '<em><b>Term Relation Type</b></em>' attribute.
+   * Returns the value of the '<em><b>Term Relation</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.TermRelation}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Term Relation Type</em>' attribute isn't clear,
+   * If the meaning of the '<em>Term Relation</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Term Relation Type</em>' attribute.
-   * @see #setTermRelationType(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossary_TermRelationType()
-   * @model
-   * @generated
-   */
-  String getTermRelationType();
-
-  /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Glossary#getTermRelationType <em>Term Relation Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Term Relation Type</em>' attribute.
-   * @see #getTermRelationType()
-   * @generated
-   */
-  void setTermRelationType(String value);
-
-  /**
-   * Returns the value of the '<em><b>Term Relation</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Term Relation</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Term Relation</em>' attribute.
-   * @see #setTermRelation(String)
+   * @return the value of the '<em>Term Relation</em>' containment reference list.
    * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossary_TermRelation()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getTermRelation();
-
-  /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Glossary#getTermRelation <em>Term Relation</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Term Relation</em>' attribute.
-   * @see #getTermRelation()
-   * @generated
-   */
-  void setTermRelation(String value);
+  EList<TermRelation> getTermRelation();
 
 } // Glossary

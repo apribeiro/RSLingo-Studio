@@ -2,15 +2,26 @@
  */
 package rslingo.rslil.rSLIL.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import rslingo.rslil.rSLIL.Glossary;
 import rslingo.rslil.rSLIL.RSLILPackage;
+import rslingo.rslil.rSLIL.RefGlossaryType;
+import rslingo.rslil.rSLIL.TermRelation;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +38,6 @@ import rslingo.rslil.rSLIL.RSLILPackage;
  *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryImpl#getPos <em>Pos</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryImpl#getSynset <em>Synset</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryImpl#getTermRelationType <em>Term Relation Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryImpl#getTermRelation <em>Term Relation</em>}</li>
  * </ul>
  *
@@ -76,24 +86,14 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getType()
    * @generated
    * @ordered
    */
-  protected static final String TYPE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected String type = TYPE_EDEFAULT;
+  protected RefGlossaryType type;
 
   /**
    * The default value of the '{@link #getAcronym() <em>Acronym</em>}' attribute.
@@ -176,44 +176,14 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
   protected String synset = SYNSET_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getTermRelationType() <em>Term Relation Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTermRelationType()
-   * @generated
-   * @ordered
-   */
-  protected static final String TERM_RELATION_TYPE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getTermRelationType() <em>Term Relation Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTermRelationType()
-   * @generated
-   * @ordered
-   */
-  protected String termRelationType = TERM_RELATION_TYPE_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getTermRelation() <em>Term Relation</em>}' attribute.
+   * The cached value of the '{@link #getTermRelation() <em>Term Relation</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getTermRelation()
    * @generated
    * @ordered
    */
-  protected static final String TERM_RELATION_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getTermRelation() <em>Term Relation</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTermRelation()
-   * @generated
-   * @ordered
-   */
-  protected String termRelation = TERM_RELATION_EDEFAULT;
+  protected EList<TermRelation> termRelation;
 
   /**
    * <!-- begin-user-doc -->
@@ -287,7 +257,7 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getType()
+  public RefGlossaryType getType()
   {
     return type;
   }
@@ -297,12 +267,37 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(String newType)
+  public NotificationChain basicSetType(RefGlossaryType newType, NotificationChain msgs)
   {
-    String oldType = type;
+    RefGlossaryType oldType = type;
     type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY__TYPE, oldType, type));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY__TYPE, oldType, newType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setType(RefGlossaryType newType)
+  {
+    if (newType != type)
+    {
+      NotificationChain msgs = null;
+      if (type != null)
+        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.GLOSSARY__TYPE, null, msgs);
+      if (newType != null)
+        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.GLOSSARY__TYPE, null, msgs);
+      msgs = basicSetType(newType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY__TYPE, newType, newType));
   }
 
   /**
@@ -402,31 +397,12 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getTermRelationType()
+  public EList<TermRelation> getTermRelation()
   {
-    return termRelationType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTermRelationType(String newTermRelationType)
-  {
-    String oldTermRelationType = termRelationType;
-    termRelationType = newTermRelationType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY__TERM_RELATION_TYPE, oldTermRelationType, termRelationType));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getTermRelation()
-  {
+    if (termRelation == null)
+    {
+      termRelation = new EObjectContainmentEList<TermRelation>(TermRelation.class, this, RSLILPackage.GLOSSARY__TERM_RELATION);
+    }
     return termRelation;
   }
 
@@ -435,12 +411,17 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTermRelation(String newTermRelation)
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    String oldTermRelation = termRelation;
-    termRelation = newTermRelation;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY__TERM_RELATION, oldTermRelation, termRelation));
+    switch (featureID)
+    {
+      case RSLILPackage.GLOSSARY__TYPE:
+        return basicSetType(null, msgs);
+      case RSLILPackage.GLOSSARY__TERM_RELATION:
+        return ((InternalEList<?>)getTermRelation()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -467,8 +448,6 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
         return getPos();
       case RSLILPackage.GLOSSARY__SYNSET:
         return getSynset();
-      case RSLILPackage.GLOSSARY__TERM_RELATION_TYPE:
-        return getTermRelationType();
       case RSLILPackage.GLOSSARY__TERM_RELATION:
         return getTermRelation();
     }
@@ -480,6 +459,7 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -492,7 +472,7 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
         setName((String)newValue);
         return;
       case RSLILPackage.GLOSSARY__TYPE:
-        setType((String)newValue);
+        setType((RefGlossaryType)newValue);
         return;
       case RSLILPackage.GLOSSARY__ACRONYM:
         setAcronym((String)newValue);
@@ -506,11 +486,9 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
       case RSLILPackage.GLOSSARY__SYNSET:
         setSynset((String)newValue);
         return;
-      case RSLILPackage.GLOSSARY__TERM_RELATION_TYPE:
-        setTermRelationType((String)newValue);
-        return;
       case RSLILPackage.GLOSSARY__TERM_RELATION:
-        setTermRelation((String)newValue);
+        getTermRelation().clear();
+        getTermRelation().addAll((Collection<? extends TermRelation>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -533,7 +511,7 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
         setName(NAME_EDEFAULT);
         return;
       case RSLILPackage.GLOSSARY__TYPE:
-        setType(TYPE_EDEFAULT);
+        setType((RefGlossaryType)null);
         return;
       case RSLILPackage.GLOSSARY__ACRONYM:
         setAcronym(ACRONYM_EDEFAULT);
@@ -547,11 +525,8 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
       case RSLILPackage.GLOSSARY__SYNSET:
         setSynset(SYNSET_EDEFAULT);
         return;
-      case RSLILPackage.GLOSSARY__TERM_RELATION_TYPE:
-        setTermRelationType(TERM_RELATION_TYPE_EDEFAULT);
-        return;
       case RSLILPackage.GLOSSARY__TERM_RELATION:
-        setTermRelation(TERM_RELATION_EDEFAULT);
+        getTermRelation().clear();
         return;
     }
     super.eUnset(featureID);
@@ -572,7 +547,7 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
       case RSLILPackage.GLOSSARY__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RSLILPackage.GLOSSARY__TYPE:
-        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+        return type != null;
       case RSLILPackage.GLOSSARY__ACRONYM:
         return ACRONYM_EDEFAULT == null ? acronym != null : !ACRONYM_EDEFAULT.equals(acronym);
       case RSLILPackage.GLOSSARY__DESCRIPTION:
@@ -581,10 +556,8 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
         return POS_EDEFAULT == null ? pos != null : !POS_EDEFAULT.equals(pos);
       case RSLILPackage.GLOSSARY__SYNSET:
         return SYNSET_EDEFAULT == null ? synset != null : !SYNSET_EDEFAULT.equals(synset);
-      case RSLILPackage.GLOSSARY__TERM_RELATION_TYPE:
-        return TERM_RELATION_TYPE_EDEFAULT == null ? termRelationType != null : !TERM_RELATION_TYPE_EDEFAULT.equals(termRelationType);
       case RSLILPackage.GLOSSARY__TERM_RELATION:
-        return TERM_RELATION_EDEFAULT == null ? termRelation != null : !TERM_RELATION_EDEFAULT.equals(termRelation);
+        return termRelation != null && !termRelation.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -604,8 +577,6 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
     result.append(id);
     result.append(", name: ");
     result.append(name);
-    result.append(", type: ");
-    result.append(type);
     result.append(", acronym: ");
     result.append(acronym);
     result.append(", description: ");
@@ -614,10 +585,6 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
     result.append(pos);
     result.append(", synset: ");
     result.append(synset);
-    result.append(", termRelationType: ");
-    result.append(termRelationType);
-    result.append(", termRelation: ");
-    result.append(termRelation);
     result.append(')');
     return result.toString();
   }

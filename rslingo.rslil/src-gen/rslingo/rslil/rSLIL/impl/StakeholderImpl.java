@@ -5,6 +5,7 @@ package rslingo.rslil.rSLIL.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -25,8 +26,7 @@ import rslingo.rslil.rSLIL.Stakeholder;
  *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getCategory <em>Category</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getDependsOnType <em>Depends On Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getDependsOn <em>Depends On</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getPartOf <em>Part Of</em>}</li>
  * </ul>
  *
  * @generated
@@ -134,44 +134,14 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
   protected String description = DESCRIPTION_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getDependsOnType() <em>Depends On Type</em>}' attribute.
+   * The cached value of the '{@link #getPartOf() <em>Part Of</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDependsOnType()
+   * @see #getPartOf()
    * @generated
    * @ordered
    */
-  protected static final String DEPENDS_ON_TYPE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDependsOnType() <em>Depends On Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDependsOnType()
-   * @generated
-   * @ordered
-   */
-  protected String dependsOnType = DEPENDS_ON_TYPE_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getDependsOn() <em>Depends On</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDependsOn()
-   * @generated
-   * @ordered
-   */
-  protected static final String DEPENDS_ON_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDependsOn() <em>Depends On</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDependsOn()
-   * @generated
-   * @ordered
-   */
-  protected String dependsOn = DEPENDS_ON_EDEFAULT;
+  protected Stakeholder partOf;
 
   /**
    * <!-- begin-user-doc -->
@@ -314,9 +284,19 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDependsOnType()
+  public Stakeholder getPartOf()
   {
-    return dependsOnType;
+    if (partOf != null && partOf.eIsProxy())
+    {
+      InternalEObject oldPartOf = (InternalEObject)partOf;
+      partOf = (Stakeholder)eResolveProxy(oldPartOf);
+      if (partOf != oldPartOf)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.STAKEHOLDER__PART_OF, oldPartOf, partOf));
+      }
+    }
+    return partOf;
   }
 
   /**
@@ -324,35 +304,22 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDependsOnType(String newDependsOnType)
+  public Stakeholder basicGetPartOf()
   {
-    String oldDependsOnType = dependsOnType;
-    dependsOnType = newDependsOnType;
+    return partOf;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPartOf(Stakeholder newPartOf)
+  {
+    Stakeholder oldPartOf = partOf;
+    partOf = newPartOf;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.STAKEHOLDER__DEPENDS_ON_TYPE, oldDependsOnType, dependsOnType));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getDependsOn()
-  {
-    return dependsOn;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDependsOn(String newDependsOn)
-  {
-    String oldDependsOn = dependsOn;
-    dependsOn = newDependsOn;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.STAKEHOLDER__DEPENDS_ON, oldDependsOn, dependsOn));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.STAKEHOLDER__PART_OF, oldPartOf, partOf));
   }
 
   /**
@@ -375,10 +342,9 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
         return getCategory();
       case RSLILPackage.STAKEHOLDER__DESCRIPTION:
         return getDescription();
-      case RSLILPackage.STAKEHOLDER__DEPENDS_ON_TYPE:
-        return getDependsOnType();
-      case RSLILPackage.STAKEHOLDER__DEPENDS_ON:
-        return getDependsOn();
+      case RSLILPackage.STAKEHOLDER__PART_OF:
+        if (resolve) return getPartOf();
+        return basicGetPartOf();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -408,11 +374,8 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
       case RSLILPackage.STAKEHOLDER__DESCRIPTION:
         setDescription((String)newValue);
         return;
-      case RSLILPackage.STAKEHOLDER__DEPENDS_ON_TYPE:
-        setDependsOnType((String)newValue);
-        return;
-      case RSLILPackage.STAKEHOLDER__DEPENDS_ON:
-        setDependsOn((String)newValue);
+      case RSLILPackage.STAKEHOLDER__PART_OF:
+        setPartOf((Stakeholder)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -443,11 +406,8 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
       case RSLILPackage.STAKEHOLDER__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case RSLILPackage.STAKEHOLDER__DEPENDS_ON_TYPE:
-        setDependsOnType(DEPENDS_ON_TYPE_EDEFAULT);
-        return;
-      case RSLILPackage.STAKEHOLDER__DEPENDS_ON:
-        setDependsOn(DEPENDS_ON_EDEFAULT);
+      case RSLILPackage.STAKEHOLDER__PART_OF:
+        setPartOf((Stakeholder)null);
         return;
     }
     super.eUnset(featureID);
@@ -473,10 +433,8 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
         return CATEGORY_EDEFAULT == null ? category != null : !CATEGORY_EDEFAULT.equals(category);
       case RSLILPackage.STAKEHOLDER__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case RSLILPackage.STAKEHOLDER__DEPENDS_ON_TYPE:
-        return DEPENDS_ON_TYPE_EDEFAULT == null ? dependsOnType != null : !DEPENDS_ON_TYPE_EDEFAULT.equals(dependsOnType);
-      case RSLILPackage.STAKEHOLDER__DEPENDS_ON:
-        return DEPENDS_ON_EDEFAULT == null ? dependsOn != null : !DEPENDS_ON_EDEFAULT.equals(dependsOn);
+      case RSLILPackage.STAKEHOLDER__PART_OF:
+        return partOf != null;
     }
     return super.eIsSet(featureID);
   }
@@ -502,10 +460,6 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
     result.append(category);
     result.append(", description: ");
     result.append(description);
-    result.append(", dependsOnType: ");
-    result.append(dependsOnType);
-    result.append(", dependsOn: ");
-    result.append(dependsOn);
     result.append(')');
     return result.toString();
   }

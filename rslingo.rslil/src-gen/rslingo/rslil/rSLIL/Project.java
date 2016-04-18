@@ -6,24 +6,24 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>System</b></em>'.
+ * A representation of the model object '<em><b>Project</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.System#getId <em>Id</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.System#getName <em>Name</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.System#getDescription <em>Description</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.System#getPartOf <em>Part Of</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Project#getId <em>Id</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Project#getName <em>Name</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Project#getDescription <em>Description</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Project#getRefSystem <em>Ref System</em>}</li>
  * </ul>
  *
- * @see rslingo.rslil.rSLIL.RSLILPackage#getSystem()
+ * @see rslingo.rslil.rSLIL.RSLILPackage#getProject()
  * @model
  * @generated
  */
-public interface System extends EObject
+public interface Project extends EObject
 {
   /**
    * Returns the value of the '<em><b>Id</b></em>' attribute.
@@ -35,14 +35,14 @@ public interface System extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Id</em>' attribute.
    * @see #setId(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getSystem_Id()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getProject_Id()
    * @model
    * @generated
    */
   String getId();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.System#getId <em>Id</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Project#getId <em>Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Id</em>' attribute.
@@ -61,14 +61,14 @@ public interface System extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getSystem_Name()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getProject_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.System#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Project#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -87,14 +87,14 @@ public interface System extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Description</em>' attribute.
    * @see #setDescription(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getSystem_Description()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getProject_Description()
    * @model
    * @generated
    */
   String getDescription();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.System#getDescription <em>Description</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Project#getDescription <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Description</em>' attribute.
@@ -104,29 +104,29 @@ public interface System extends EObject
   void setDescription(String value);
 
   /**
-   * Returns the value of the '<em><b>Part Of</b></em>' reference.
+   * Returns the value of the '<em><b>Ref System</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Part Of</em>' reference isn't clear,
+   * If the meaning of the '<em>Ref System</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Part Of</em>' reference.
-   * @see #setPartOf(System)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getSystem_PartOf()
-   * @model
+   * @return the value of the '<em>Ref System</em>' containment reference.
+   * @see #setRefSystem(RefSystem)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getProject_RefSystem()
+   * @model containment="true"
    * @generated
    */
-  System getPartOf();
+  RefSystem getRefSystem();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.System#getPartOf <em>Part Of</em>}' reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Project#getRefSystem <em>Ref System</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Part Of</em>' reference.
-   * @see #getPartOf()
+   * @param value the new value of the '<em>Ref System</em>' containment reference.
+   * @see #getRefSystem()
    * @generated
    */
-  void setPartOf(System value);
+  void setRefSystem(RefSystem value);
 
-} // System
+} // Project

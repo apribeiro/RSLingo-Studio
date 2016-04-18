@@ -4,6 +4,7 @@ package rslingo.rslil.rSLIL.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -11,6 +12,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -23,6 +25,7 @@ import rslingo.rslil.rSLIL.Glossary;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.NFR;
+import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.UseCase;
@@ -35,6 +38,7 @@ import rslingo.rslil.rSLIL.UseCase;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getProject <em>Project</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getSystems <em>Systems</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getGlossaries <em>Glossaries</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getStakeholders <em>Stakeholders</em>}</li>
@@ -50,6 +54,16 @@ import rslingo.rslil.rSLIL.UseCase;
  */
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
+  /**
+   * The cached value of the '{@link #getProject() <em>Project</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProject()
+   * @generated
+   * @ordered
+   */
+  protected Project project;
+
   /**
    * The cached value of the '{@link #getSystems() <em>Systems</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -159,6 +173,54 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected EClass eStaticClass()
   {
     return RSLILPackage.Literals.MODEL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Project getProject()
+  {
+    return project;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetProject(Project newProject, NotificationChain msgs)
+  {
+    Project oldProject = project;
+    project = newProject;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.MODEL__PROJECT, oldProject, newProject);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setProject(Project newProject)
+  {
+    if (newProject != project)
+    {
+      NotificationChain msgs = null;
+      if (project != null)
+        msgs = ((InternalEObject)project).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.MODEL__PROJECT, null, msgs);
+      if (newProject != null)
+        msgs = ((InternalEObject)newProject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.MODEL__PROJECT, null, msgs);
+      msgs = basicSetProject(newProject, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.MODEL__PROJECT, newProject, newProject));
   }
 
   /**
@@ -297,6 +359,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case RSLILPackage.MODEL__PROJECT:
+        return basicSetProject(null, msgs);
       case RSLILPackage.MODEL__SYSTEMS:
         return ((InternalEList<?>)getSystems()).basicRemove(otherEnd, msgs);
       case RSLILPackage.MODEL__GLOSSARIES:
@@ -329,6 +393,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case RSLILPackage.MODEL__PROJECT:
+        return getProject();
       case RSLILPackage.MODEL__SYSTEMS:
         return getSystems();
       case RSLILPackage.MODEL__GLOSSARIES:
@@ -362,6 +428,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case RSLILPackage.MODEL__PROJECT:
+        setProject((Project)newValue);
+        return;
       case RSLILPackage.MODEL__SYSTEMS:
         getSystems().clear();
         getSystems().addAll((Collection<? extends rslingo.rslil.rSLIL.System>)newValue);
@@ -412,6 +481,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case RSLILPackage.MODEL__PROJECT:
+        setProject((Project)null);
+        return;
       case RSLILPackage.MODEL__SYSTEMS:
         getSystems().clear();
         return;
@@ -453,6 +525,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case RSLILPackage.MODEL__PROJECT:
+        return project != null;
       case RSLILPackage.MODEL__SYSTEMS:
         return systems != null && !systems.isEmpty();
       case RSLILPackage.MODEL__GLOSSARIES:

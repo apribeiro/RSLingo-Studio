@@ -4,6 +4,7 @@ generate rSLIL "http://www.rslil.rslingo/RSLIL"
 
 Model:
 	// Business Level
+	project=Project
 	systems+=System*
 	glossaries+=Glossary*
 	stakeholders+=Stakeholder*
@@ -14,13 +15,18 @@ Model:
 	useCases+=UseCase*
 	frs+=FR*
 	nfrs+=NFR*;
-	
-System:
-	'System' id=ID '{'
-		'Id' systemId=STRING
+
+Project:
+	'Project' id=ID '{'
 		'Name' name=STRING
 		'Description' description=STRING
 		('DecomposedBy' refSystem=RefSystem)?
+	'}';
+
+System:
+	'System' id=ID '{'
+		'Name' name=STRING
+		'Description' description=STRING
 		('PartOf' partOf=[System])?
 	'}';
 
@@ -30,35 +36,49 @@ RefSystem:
 Glossary:
 	'Glossary' id=ID '{'
 		'Name' name=STRING
-		'Type' type=STRING
+		'Type' type=RefGlossaryType
 		'Acronym' acronym=STRING
 		'Description' description=STRING
-		'POS' pos=STRING
-		'Synset' synset=STRING
-		'TermRelationType' termRelationType=STRING
-		'TermRelation' termRelation=STRING
+		('POS' pos=('Adjective'|'Adverb'|'Noun'|'Verb'))?
+		('Synset' synset=STRING)?
+		termRelation+=TermRelation*
 	'}';
+
+RefGlossaryType:
+	refType=GlossaryType(',' refs+=GlossaryType)*;
+
+GlossaryType:
+	type=('Stakeholder'|'Entity'|'Architectural'|'Actor');
+
+TermRelation:
+	'TermRelation' type=('Antonym'|'Hypernym'|'Synonym') term=Term;
+
+Term:
+	refTerm=STRING(',' refs+=STRING)*;
 
 Stakeholder:
 	'Stakeholder' id=ID '{'
 		'Name' name=STRING
-		'Type' type=STRING
-		'Category' category=STRING
-		'Description' description=STRING
-		'DependsOnType' dependsOnType=STRING
-		'DependsOn' dependsOn=STRING
+		'Type' type=('Group.Organization'|'Group.BusinessUnit'|'Group.Team'|'Individual.Person'|'Individual.ExternalSystem')
+		'Category' category=('Business.User.Direct'|'System.Engine')
+		('Description' description=STRING)?
+		('PartOf' partOf=[Stakeholder])?
 	'}';
 
 Goal:
 	'Goal' id=ID '{'
 		'Description' description=STRING
 		'Stakeholder' stakeholder=[Stakeholder]
-		'Priority' priority=STRING
-		'DependsOnType' dependsOnType=STRING
-		'DependsOn' dependsOn=STRING
-		'ComposedByType' composedByType=STRING
-		'ComposedBy' composedBy=STRING
+		'Priority' priority=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
+		dependsOn+=DependsOnGoal*
+		composedBy+=ComposedBy*
 	'}';
+
+DependsOnGoal:
+	type=('Requires'|'Supports'|'Obstructs'|'Conflicts'|'Identical') refGoal=[Goal];
+
+ComposedBy:
+	'ComposedBy' type=('And'|'Or') refGoal=[Goal];
 
 Entity:
 	'Entity' id=ID '{'
@@ -71,23 +91,36 @@ Attribute:
 	'Attribute' '{'
 		'Name' name=STRING
 		'Description' descrition=STRING
-		'Type' type=STRING
-		'FieldSize' fieldSize=INT
-		'FieldMultiplicity' fieldMultiplicity=STRING
-		'DefaultValue' defaultValue=STRING
-		'ReferencesTo' refTo=[Entity]
-		'Multiplicity' multiplicity=STRING
+		'Type' type=('Boolean'|'Integer'|'Decimal'|'Currency'|'Date'|'Time'|'Datetime'|'Enumeration'|'Text'|'Regex'|'Ref'|'Image')
+		field=Field
+		(reference=Reference)?
 	'}';
+
+Field:
+	'Field' '{'
+		'Size' size=INT
+		'Multiplicity' multiplicity=('0'|'1'|'0..1'|'*'|STRING)
+		'DefaultValue' defaultValue=STRING
+	'}';
+
+Reference:
+	'Reference' refTo=RefAttribute 'Multiplicity' multiplicity=('0'|'1'|'0..1'|'*'|STRING);
+
+RefAttribute:
+	refAttr=[Attribute](',' refs+=[Attribute])*;
 
 Actor:
 	'Actor' id=ID '{'
 		'Name' name=STRING
-		'Type' type=STRING
+		'Type' type=('User'|'ExternalSystem'|'Timer')
 		'Description' description=STRING
-		'Stakeholder' stakeholder=[Stakeholder]
-		'DependsOnType' dependsOnType=STRING
-		'DependsOn' dependsOn=STRING
+		('Stakeholder' stakeholder=[Stakeholder])?
+		// FIXME PartOf and SpecializedFrom?
+		(dependsOn=DependsOnActor)?
 	'}';
+
+DependsOnActor:
+	type=('PartOf'|'SpecializedFrom') stakeholder=[Stakeholder];
 
 UseCase:
 	'UseCase' id=ID '{'
@@ -95,10 +128,11 @@ UseCase:
 		'Type' type=STRING
 		'Description' description=STRING
 		'Priority' priotity=STRING
-		'AccomplishedGoals' goals+=RefGoal*
-		'FunctionalRequirements' frs+=RefFR*
+		'Goals' goals+=RefGoal* // opt
+		'FunctionalRequirements' frs+=RefFR* // opt
 		'ActorInitiates' actorInitiates=[Actor]
-		'ActorParticipates' actorParticipates=[Actor]
+		// optional
+		'ActorParticipates' actorParticipates=[Actor] // list
 		'Pre-Conditions' preConditions=STRING
 		'Post-Conditions' postConditions=STRING
 		'Include' includes+=RefUC*
@@ -113,8 +147,9 @@ FR:
 		'Description' description=STRING
 		'ModalityType' modalityType=STRING
 		'ActionType' actionType=STRING
-		'Source (Stakeholder)' source=[Stakeholder]
+		'Stakeholder' source=[Stakeholder]
 		'Priority' priority=STRING
+		// depends / partof
 	'}';
 
 NFR:

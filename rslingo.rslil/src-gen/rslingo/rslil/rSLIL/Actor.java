@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.Actor#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Actor#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Actor#getStakeholder <em>Stakeholder</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Actor#getDependsOnType <em>Depends On Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Actor#getDependsOn <em>Depends On</em>}</li>
  * </ul>
  *
@@ -159,55 +158,29 @@ public interface Actor extends EObject
   void setStakeholder(Stakeholder value);
 
   /**
-   * Returns the value of the '<em><b>Depends On Type</b></em>' attribute.
+   * Returns the value of the '<em><b>Depends On</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Depends On Type</em>' attribute isn't clear,
+   * If the meaning of the '<em>Depends On</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Depends On Type</em>' attribute.
-   * @see #setDependsOnType(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getActor_DependsOnType()
-   * @model
-   * @generated
-   */
-  String getDependsOnType();
-
-  /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Actor#getDependsOnType <em>Depends On Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Depends On Type</em>' attribute.
-   * @see #getDependsOnType()
-   * @generated
-   */
-  void setDependsOnType(String value);
-
-  /**
-   * Returns the value of the '<em><b>Depends On</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Depends On</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Depends On</em>' attribute.
-   * @see #setDependsOn(String)
+   * @return the value of the '<em>Depends On</em>' containment reference.
+   * @see #setDependsOn(DependsOnActor)
    * @see rslingo.rslil.rSLIL.RSLILPackage#getActor_DependsOn()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getDependsOn();
+  DependsOnActor getDependsOn();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Actor#getDependsOn <em>Depends On</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Actor#getDependsOn <em>Depends On</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Depends On</em>' attribute.
+   * @param value the new value of the '<em>Depends On</em>' containment reference.
    * @see #getDependsOn()
    * @generated
    */
-  void setDependsOn(String value);
+  void setDependsOn(DependsOnActor value);
 
 } // Actor
