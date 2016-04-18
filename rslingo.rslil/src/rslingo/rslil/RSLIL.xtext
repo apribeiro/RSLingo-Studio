@@ -125,19 +125,38 @@ DependsOnActor:
 UseCase:
 	'UseCase' id=ID '{'
 		'Name' name=STRING
-		'Type' type=STRING
+		'Type' type=('EntityManage'|'EntityBrowse'|'EntitySearch'|'EntityCreate'|'EntityDelete'|'EntitySync'|'Report')
 		'Description' description=STRING
-		'Priority' priotity=STRING
-		'Goals' goals+=RefGoal* // opt
-		'FunctionalRequirements' frs+=RefFR* // opt
+		'Priority' priotity=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
+		('Goals' goals+=RefGoal*)?
+		('FunctionalRequirements' frs+=RefFR*)?
 		'ActorInitiates' actorInitiates=[Actor]
-		// optional
-		'ActorParticipates' actorParticipates=[Actor] // list
-		'Pre-Conditions' preConditions=STRING
-		'Post-Conditions' postConditions=STRING
-		'Include' includes+=RefUC*
-		// TODO 'ExtendedBy UC | Extension Point'
+		('ActorParticipates' actors=RefActor)?
+		('Pre-Conditions' preConditions=STRING)?
+		('Post-Conditions' postConditions=STRING)?
+		('Include' includes+=RefUC*)?
+		// FIXME 'ExtendedBy UC | Extension Point'
+		('Extend' extends+=RefUC*)?
+		('ExtensionPoints' extPoints+=ExtPoint*)?
 	'}';
+
+RefGoal:
+	refGoal=[Goal](',' refs+=[Goal])*;
+
+RefFR:
+	refFR=[FR](',' refs+=[FR])*;
+
+RefActor:
+	refActor=[Actor](',' refs+=Actor)*;
+
+RefUC:
+	refUC=[UseCase](',' refs+=[UseCase])*;
+
+ExtensionPoint:
+	name=STRING;
+
+ExtPoint:
+	refExtPoint=[ExtensionPoint](',' refs+=[ExtensionPoint])*;
 
 // TODO UseCase Scenarios
 
@@ -147,7 +166,7 @@ FR:
 		'Description' description=STRING
 		'ModalityType' modalityType=STRING
 		'ActionType' actionType=STRING
-		'Stakeholder' source=[Stakeholder]
+		'Stakeholder' stakeholder=[Stakeholder]
 		'Priority' priority=STRING
 		// depends / partof
 	'}';
@@ -160,15 +179,6 @@ NFR:
 		'Sub-Type' subType=STRING
 		'Metric' metric=STRING
 		'Value' value=STRING
-		'Source (Stakeholder)' source=[Stakeholder]
+		'Stakeholder' stakeholder=[Stakeholder]
 		'Priority' priority=STRING
 	'}';
-
-RefGoal:
-	refGoal=[Goal](',' refs+=[Goal])*;
-
-RefFR:
-	refFR=[FR](',' refs+=[FR])*;
-
-RefUC:
-	refUC=[UseCase](',' refs+=[UseCase])*;
