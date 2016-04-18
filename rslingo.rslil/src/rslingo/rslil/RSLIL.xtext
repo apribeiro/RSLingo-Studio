@@ -135,9 +135,8 @@ UseCase:
 		('Pre-Conditions' preConditions=STRING)?
 		('Post-Conditions' postConditions=STRING)?
 		('Include' includes+=RefUC*)?
-		// FIXME 'ExtendedBy UC | Extension Point'
-		('Extend' extends+=RefUC*)?
-		('ExtensionPoints' extPoints+=ExtPoint*)?
+		('Extend' extends+=[UseCase] 'using ExtensionPoint' extPoint=[ExtensionPoint])?
+		extensionnPoints+=ExtensionPoint*
 	'}';
 
 RefGoal:
@@ -153,10 +152,7 @@ RefUC:
 	refUC=[UseCase](',' refs+=[UseCase])*;
 
 ExtensionPoint:
-	name=STRING;
-
-ExtPoint:
-	refExtPoint=[ExtensionPoint](',' refs+=[ExtensionPoint])*;
+	'ExtensionPoint' name=STRING;
 
 // TODO UseCase Scenarios
 
