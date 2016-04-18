@@ -137,6 +137,7 @@ UseCase:
 		('Include' includes+=RefUC*)?
 		('Extend' extends+=[UseCase] 'using ExtensionPoint' extPoint=[ExtensionPoint])?
 		extensionnPoints+=ExtensionPoint*
+		scenarios+=Scenario*
 	'}';
 
 RefGoal:
@@ -154,27 +155,55 @@ RefUC:
 ExtensionPoint:
 	'ExtensionPoint' name=STRING;
 
-// TODO UseCase Scenarios
+Scenario:
+	'Scenario' id=ID '{'
+		('Description' description=STRING)?
+		'Type' type=('Main'|'Alternative'|'Exception')
+		'Mode' mode=('Sequential'|'Parallel')
+		steps+=Step*
+	'}';
+
+Step:
+	'Step' id=ID '{'
+		'ActionType' type=RefActionType
+		'Description' description=STRING
+		('Actor' actor=[Actor])?
+		('Pre-Conditions' preConditions=STRING)?
+		('Post-Conditions' postConditions=STRING)?
+	'}';
+
+RefActionType:
+	refType=ActionType(',' refs+=ActionType)*;
+
+ActionType:
+	type=('ActorPrepareData'|'ActorCallSystem'|'SystemExecutes'|'SystemReturnResult');
 
 FR:
 	'FunctionalRequirement' id=ID '{'
 		'Name' name=STRING
 		'Description' description=STRING
-		'ModalityType' modalityType=STRING
-		'ActionType' actionType=STRING
+		'Modality' modality=('Obligation'|'Permission'|'Prohibition')
+		'ActionType' actionType=('EntityManage'|'EntityBrowse'|'EntitySearch'|'EntityCreate'|'EntityDelete'|'EntitySync'|'Report')
 		'Stakeholder' stakeholder=[Stakeholder]
-		'Priority' priority=STRING
-		// depends / partof
+		'Priority' priority=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
+		// FIXME Depends 1 or *?
+		('Depends' depends+=RefFR)?
+		('PartOf' partOf=[FR])?
 	'}';
 
 NFR:
 	'Non-FunctionalRequirement' id=ID '{'
 		'Name' name=STRING
 		'Description' description=STRING
-		'Type' type=STRING
-		'Sub-Type' subType=STRING
-		'Metric' metric=STRING
+		'Type' type=('Security'|'Performance'|'Usability'|'Appearance'|'Operational'|'Maintenance'|'Cultural'|'Legal')
+		'Sub-Type' subType=('Security.Privacy'|'Security.Integrity'|'Usability.EaseOfUse'|'Usability.EaseOfLean'|'Usability.Accessibility')
+		'Metric' metric=('Hours'|'Mins'|'Secs'|'mSecs'|'Tasks')
 		'Value' value=STRING
 		'Stakeholder' stakeholder=[Stakeholder]
-		'Priority' priority=STRING
+		'Priority' priority=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
+		('Depends' depends+=RefNFR)?
+		('PartOf' partOf=[NFR])?
 	'}';
+
+RefNFR:
+	refNFR=[NFR](',' refs+=[NFR])*;
