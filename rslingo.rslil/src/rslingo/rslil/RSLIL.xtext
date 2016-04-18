@@ -105,6 +105,8 @@ UseCase:
 		// TODO 'ExtendedBy UC | Extension Point'
 	'}';
 
+// TODO UseCase Scenarios
+
 FR:
 	'FunctionalRequirement' id=ID '{'
 		'Name' name=STRING
