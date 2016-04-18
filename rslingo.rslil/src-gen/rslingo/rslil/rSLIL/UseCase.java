@@ -23,10 +23,13 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getGoals <em>Goals</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getFrs <em>Frs</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getActorInitiates <em>Actor Initiates</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.UseCase#getActorParticipates <em>Actor Participates</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.UseCase#getActors <em>Actors</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getPreConditions <em>Pre Conditions</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getPostConditions <em>Post Conditions</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getIncludes <em>Includes</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.UseCase#getExtends <em>Extends</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.UseCase#getExtPoint <em>Ext Point</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.UseCase#getExtensionnPoints <em>Extensionn Points</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getUseCase()
@@ -224,30 +227,30 @@ public interface UseCase extends EObject
   void setActorInitiates(Actor value);
 
   /**
-   * Returns the value of the '<em><b>Actor Participates</b></em>' reference.
+   * Returns the value of the '<em><b>Actors</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Actor Participates</em>' reference isn't clear,
+   * If the meaning of the '<em>Actors</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Actor Participates</em>' reference.
-   * @see #setActorParticipates(Actor)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getUseCase_ActorParticipates()
-   * @model
+   * @return the value of the '<em>Actors</em>' containment reference.
+   * @see #setActors(RefActor)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getUseCase_Actors()
+   * @model containment="true"
    * @generated
    */
-  Actor getActorParticipates();
+  RefActor getActors();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.UseCase#getActorParticipates <em>Actor Participates</em>}' reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.UseCase#getActors <em>Actors</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Actor Participates</em>' reference.
-   * @see #getActorParticipates()
+   * @param value the new value of the '<em>Actors</em>' containment reference.
+   * @see #getActors()
    * @generated
    */
-  void setActorParticipates(Actor value);
+  void setActors(RefActor value);
 
   /**
    * Returns the value of the '<em><b>Pre Conditions</b></em>' attribute.
@@ -316,5 +319,63 @@ public interface UseCase extends EObject
    * @generated
    */
   EList<RefUC> getIncludes();
+
+  /**
+   * Returns the value of the '<em><b>Extends</b></em>' reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.UseCase}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Extends</em>' reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Extends</em>' reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getUseCase_Extends()
+   * @model
+   * @generated
+   */
+  EList<UseCase> getExtends();
+
+  /**
+   * Returns the value of the '<em><b>Ext Point</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Ext Point</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ext Point</em>' reference.
+   * @see #setExtPoint(ExtensionPoint)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getUseCase_ExtPoint()
+   * @model
+   * @generated
+   */
+  ExtensionPoint getExtPoint();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.UseCase#getExtPoint <em>Ext Point</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ext Point</em>' reference.
+   * @see #getExtPoint()
+   * @generated
+   */
+  void setExtPoint(ExtensionPoint value);
+
+  /**
+   * Returns the value of the '<em><b>Extensionn Points</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.ExtensionPoint}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Extensionn Points</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Extensionn Points</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getUseCase_ExtensionnPoints()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ExtensionPoint> getExtensionnPoints();
 
 } // UseCase

@@ -13,6 +13,7 @@ import rslingo.rslil.rSLIL.ComposedBy;
 import rslingo.rslil.rSLIL.DependsOnActor;
 import rslingo.rslil.rSLIL.DependsOnGoal;
 import rslingo.rslil.rSLIL.Entity;
+import rslingo.rslil.rSLIL.ExtensionPoint;
 import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.Field;
 import rslingo.rslil.rSLIL.Glossary;
@@ -22,6 +23,7 @@ import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
+import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGlossaryType;
@@ -244,20 +246,6 @@ public class RSLILSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RSLILPackage.FR:
-      {
-        FR fr = (FR)theEObject;
-        T result = caseFR(fr);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case RSLILPackage.NFR:
-      {
-        NFR nfr = (NFR)theEObject;
-        T result = caseNFR(nfr);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case RSLILPackage.REF_GOAL:
       {
         RefGoal refGoal = (RefGoal)theEObject;
@@ -272,10 +260,38 @@ public class RSLILSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case RSLILPackage.REF_ACTOR:
+      {
+        RefActor refActor = (RefActor)theEObject;
+        T result = caseRefActor(refActor);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case RSLILPackage.REF_UC:
       {
         RefUC refUC = (RefUC)theEObject;
         T result = caseRefUC(refUC);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.EXTENSION_POINT:
+      {
+        ExtensionPoint extensionPoint = (ExtensionPoint)theEObject;
+        T result = caseExtensionPoint(extensionPoint);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.FR:
+      {
+        FR fr = (FR)theEObject;
+        T result = caseFR(fr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.NFR:
+      {
+        NFR nfr = (NFR)theEObject;
+        T result = caseNFR(nfr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -620,38 +636,6 @@ public class RSLILSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>FR</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>FR</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFR(FR object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>NFR</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>NFR</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseNFR(NFR object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Ref Goal</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -684,6 +668,22 @@ public class RSLILSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Ref Actor</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ref Actor</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRefActor(RefActor object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Ref UC</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -695,6 +695,54 @@ public class RSLILSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseRefUC(RefUC object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Extension Point</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Extension Point</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExtensionPoint(ExtensionPoint object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>FR</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>FR</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFR(FR object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>NFR</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>NFR</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNFR(NFR object)
   {
     return null;
   }

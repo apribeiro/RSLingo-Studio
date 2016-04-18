@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.FR#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.FR#getModalityType <em>Modality Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.FR#getActionType <em>Action Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.FR#getSource <em>Source</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.FR#getStakeholder <em>Stakeholder</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.FR#getPriority <em>Priority</em>}</li>
  * </ul>
  *
@@ -159,30 +159,30 @@ public interface FR extends EObject
   void setActionType(String value);
 
   /**
-   * Returns the value of the '<em><b>Source</b></em>' reference.
+   * Returns the value of the '<em><b>Stakeholder</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Source</em>' reference isn't clear,
+   * If the meaning of the '<em>Stakeholder</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Source</em>' reference.
-   * @see #setSource(Stakeholder)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getFR_Source()
+   * @return the value of the '<em>Stakeholder</em>' reference.
+   * @see #setStakeholder(Stakeholder)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getFR_Stakeholder()
    * @model
    * @generated
    */
-  Stakeholder getSource();
+  Stakeholder getStakeholder();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.FR#getSource <em>Source</em>}' reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.FR#getStakeholder <em>Stakeholder</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Source</em>' reference.
-   * @see #getSource()
+   * @param value the new value of the '<em>Stakeholder</em>' reference.
+   * @see #getStakeholder()
    * @generated
    */
-  void setSource(Stakeholder value);
+  void setStakeholder(Stakeholder value);
 
   /**
    * Returns the value of the '<em><b>Priority</b></em>' attribute.

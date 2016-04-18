@@ -16,6 +16,7 @@ import rslingo.rslil.rSLIL.ComposedBy;
 import rslingo.rslil.rSLIL.DependsOnActor;
 import rslingo.rslil.rSLIL.DependsOnGoal;
 import rslingo.rslil.rSLIL.Entity;
+import rslingo.rslil.rSLIL.ExtensionPoint;
 import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.Field;
 import rslingo.rslil.rSLIL.Glossary;
@@ -26,6 +27,7 @@ import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILFactory;
 import rslingo.rslil.rSLIL.RSLILPackage;
+import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGlossaryType;
@@ -111,11 +113,13 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
       case RSLILPackage.ACTOR: return createActor();
       case RSLILPackage.DEPENDS_ON_ACTOR: return createDependsOnActor();
       case RSLILPackage.USE_CASE: return createUseCase();
-      case RSLILPackage.FR: return createFR();
-      case RSLILPackage.NFR: return createNFR();
       case RSLILPackage.REF_GOAL: return createRefGoal();
       case RSLILPackage.REF_FR: return createRefFR();
+      case RSLILPackage.REF_ACTOR: return createRefActor();
       case RSLILPackage.REF_UC: return createRefUC();
+      case RSLILPackage.EXTENSION_POINT: return createExtensionPoint();
+      case RSLILPackage.FR: return createFR();
+      case RSLILPackage.NFR: return createNFR();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -357,28 +361,6 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public FR createFR()
-  {
-    FRImpl fr = new FRImpl();
-    return fr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NFR createNFR()
-  {
-    NFRImpl nfr = new NFRImpl();
-    return nfr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public RefGoal createRefGoal()
   {
     RefGoalImpl refGoal = new RefGoalImpl();
@@ -401,10 +383,54 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public RefActor createRefActor()
+  {
+    RefActorImpl refActor = new RefActorImpl();
+    return refActor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public RefUC createRefUC()
   {
     RefUCImpl refUC = new RefUCImpl();
     return refUC;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExtensionPoint createExtensionPoint()
+  {
+    ExtensionPointImpl extensionPoint = new ExtensionPointImpl();
+    return extensionPoint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FR createFR()
+  {
+    FRImpl fr = new FRImpl();
+    return fr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NFR createNFR()
+  {
+    NFRImpl nfr = new NFRImpl();
+    return nfr;
   }
 
   /**

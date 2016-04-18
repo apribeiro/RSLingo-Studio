@@ -29,7 +29,7 @@ import rslingo.rslil.rSLIL.Stakeholder;
  *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getSubType <em>Sub Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getMetric <em>Metric</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getValue <em>Value</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getStakeholder <em>Stakeholder</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getPriority <em>Priority</em>}</li>
  * </ul>
  *
@@ -178,14 +178,14 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
   protected String value = VALUE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
+   * The cached value of the '{@link #getStakeholder() <em>Stakeholder</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSource()
+   * @see #getStakeholder()
    * @generated
    * @ordered
    */
-  protected Stakeholder source;
+  protected Stakeholder stakeholder;
 
   /**
    * The default value of the '{@link #getPriority() <em>Priority</em>}' attribute.
@@ -394,19 +394,19 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
    * <!-- end-user-doc -->
    * @generated
    */
-  public Stakeholder getSource()
+  public Stakeholder getStakeholder()
   {
-    if (source != null && source.eIsProxy())
+    if (stakeholder != null && stakeholder.eIsProxy())
     {
-      InternalEObject oldSource = (InternalEObject)source;
-      source = (Stakeholder)eResolveProxy(oldSource);
-      if (source != oldSource)
+      InternalEObject oldStakeholder = (InternalEObject)stakeholder;
+      stakeholder = (Stakeholder)eResolveProxy(oldStakeholder);
+      if (stakeholder != oldStakeholder)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.NFR__SOURCE, oldSource, source));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.NFR__STAKEHOLDER, oldStakeholder, stakeholder));
       }
     }
-    return source;
+    return stakeholder;
   }
 
   /**
@@ -414,9 +414,9 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
    * <!-- end-user-doc -->
    * @generated
    */
-  public Stakeholder basicGetSource()
+  public Stakeholder basicGetStakeholder()
   {
-    return source;
+    return stakeholder;
   }
 
   /**
@@ -424,12 +424,12 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSource(Stakeholder newSource)
+  public void setStakeholder(Stakeholder newStakeholder)
   {
-    Stakeholder oldSource = source;
-    source = newSource;
+    Stakeholder oldStakeholder = stakeholder;
+    stakeholder = newStakeholder;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.NFR__SOURCE, oldSource, source));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.NFR__STAKEHOLDER, oldStakeholder, stakeholder));
   }
 
   /**
@@ -479,9 +479,9 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
         return getMetric();
       case RSLILPackage.NFR__VALUE:
         return getValue();
-      case RSLILPackage.NFR__SOURCE:
-        if (resolve) return getSource();
-        return basicGetSource();
+      case RSLILPackage.NFR__STAKEHOLDER:
+        if (resolve) return getStakeholder();
+        return basicGetStakeholder();
       case RSLILPackage.NFR__PRIORITY:
         return getPriority();
     }
@@ -519,8 +519,8 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
       case RSLILPackage.NFR__VALUE:
         setValue((String)newValue);
         return;
-      case RSLILPackage.NFR__SOURCE:
-        setSource((Stakeholder)newValue);
+      case RSLILPackage.NFR__STAKEHOLDER:
+        setStakeholder((Stakeholder)newValue);
         return;
       case RSLILPackage.NFR__PRIORITY:
         setPriority((String)newValue);
@@ -560,8 +560,8 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
       case RSLILPackage.NFR__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
-      case RSLILPackage.NFR__SOURCE:
-        setSource((Stakeholder)null);
+      case RSLILPackage.NFR__STAKEHOLDER:
+        setStakeholder((Stakeholder)null);
         return;
       case RSLILPackage.NFR__PRIORITY:
         setPriority(PRIORITY_EDEFAULT);
@@ -594,8 +594,8 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
         return METRIC_EDEFAULT == null ? metric != null : !METRIC_EDEFAULT.equals(metric);
       case RSLILPackage.NFR__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-      case RSLILPackage.NFR__SOURCE:
-        return source != null;
+      case RSLILPackage.NFR__STAKEHOLDER:
+        return stakeholder != null;
       case RSLILPackage.NFR__PRIORITY:
         return PRIORITY_EDEFAULT == null ? priority != null : !PRIORITY_EDEFAULT.equals(priority);
     }

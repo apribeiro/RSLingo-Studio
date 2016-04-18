@@ -212,24 +212,6 @@ public interface RSLILFactory extends EFactory
   UseCase createUseCase();
 
   /**
-   * Returns a new object of class '<em>FR</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>FR</em>'.
-   * @generated
-   */
-  FR createFR();
-
-  /**
-   * Returns a new object of class '<em>NFR</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>NFR</em>'.
-   * @generated
-   */
-  NFR createNFR();
-
-  /**
    * Returns a new object of class '<em>Ref Goal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -248,6 +230,15 @@ public interface RSLILFactory extends EFactory
   RefFR createRefFR();
 
   /**
+   * Returns a new object of class '<em>Ref Actor</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ref Actor</em>'.
+   * @generated
+   */
+  RefActor createRefActor();
+
+  /**
    * Returns a new object of class '<em>Ref UC</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -255,6 +246,33 @@ public interface RSLILFactory extends EFactory
    * @generated
    */
   RefUC createRefUC();
+
+  /**
+   * Returns a new object of class '<em>Extension Point</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Extension Point</em>'.
+   * @generated
+   */
+  ExtensionPoint createExtensionPoint();
+
+  /**
+   * Returns a new object of class '<em>FR</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>FR</em>'.
+   * @generated
+   */
+  FR createFR();
+
+  /**
+   * Returns a new object of class '<em>NFR</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>NFR</em>'.
+   * @generated
+   */
+  NFR createNFR();
 
   /**
    * Returns the package supported by this factory.

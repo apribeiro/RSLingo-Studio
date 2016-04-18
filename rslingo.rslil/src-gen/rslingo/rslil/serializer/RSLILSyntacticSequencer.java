@@ -10,6 +10,8 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import rslingo.rslil.services.RSLILGrammarAccess;
@@ -18,10 +20,16 @@ import rslingo.rslil.services.RSLILGrammarAccess;
 public class RSLILSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected RSLILGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_UseCase_FunctionalRequirementsKeyword_12_0_q;
+	protected AbstractElementAlias match_UseCase_GoalsKeyword_11_0_q;
+	protected AbstractElementAlias match_UseCase_IncludeKeyword_18_0_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (RSLILGrammarAccess) access;
+		match_UseCase_FunctionalRequirementsKeyword_12_0_q = new TokenAlias(false, true, grammarAccess.getUseCaseAccess().getFunctionalRequirementsKeyword_12_0());
+		match_UseCase_GoalsKeyword_11_0_q = new TokenAlias(false, true, grammarAccess.getUseCaseAccess().getGoalsKeyword_11_0());
+		match_UseCase_IncludeKeyword_18_0_q = new TokenAlias(false, true, grammarAccess.getUseCaseAccess().getIncludeKeyword_18_0());
 	}
 	
 	@Override
@@ -36,8 +44,72 @@ public class RSLILSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if(match_UseCase_FunctionalRequirementsKeyword_12_0_q.equals(syntax))
+				emit_UseCase_FunctionalRequirementsKeyword_12_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UseCase_GoalsKeyword_11_0_q.equals(syntax))
+				emit_UseCase_GoalsKeyword_11_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UseCase_IncludeKeyword_18_0_q.equals(syntax))
+				emit_UseCase_IncludeKeyword_18_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     'FunctionalRequirements'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     goals+=RefGoal (ambiguity) 'ActorInitiates' actorInitiates=[Actor|ID]
+	 *     priotity='High' 'Goals'? (ambiguity) 'ActorInitiates' actorInitiates=[Actor|ID]
+	 *     priotity='Low' 'Goals'? (ambiguity) 'ActorInitiates' actorInitiates=[Actor|ID]
+	 *     priotity='Medium' 'Goals'? (ambiguity) 'ActorInitiates' actorInitiates=[Actor|ID]
+	 *     priotity='VeryHigh' 'Goals'? (ambiguity) 'ActorInitiates' actorInitiates=[Actor|ID]
+	 *     priotity='VeryLow' 'Goals'? (ambiguity) 'ActorInitiates' actorInitiates=[Actor|ID]
+	 */
+	protected void emit_UseCase_FunctionalRequirementsKeyword_12_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'Goals'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     priotity='High' (ambiguity) 'FunctionalRequirements' frs+=RefFR
+	 *     priotity='High' (ambiguity) 'FunctionalRequirements'? 'ActorInitiates' actorInitiates=[Actor|ID]
+	 *     priotity='Low' (ambiguity) 'FunctionalRequirements' frs+=RefFR
+	 *     priotity='Low' (ambiguity) 'FunctionalRequirements'? 'ActorInitiates' actorInitiates=[Actor|ID]
+	 *     priotity='Medium' (ambiguity) 'FunctionalRequirements' frs+=RefFR
+	 *     priotity='Medium' (ambiguity) 'FunctionalRequirements'? 'ActorInitiates' actorInitiates=[Actor|ID]
+	 *     priotity='VeryHigh' (ambiguity) 'FunctionalRequirements' frs+=RefFR
+	 *     priotity='VeryHigh' (ambiguity) 'FunctionalRequirements'? 'ActorInitiates' actorInitiates=[Actor|ID]
+	 *     priotity='VeryLow' (ambiguity) 'FunctionalRequirements' frs+=RefFR
+	 *     priotity='VeryLow' (ambiguity) 'FunctionalRequirements'? 'ActorInitiates' actorInitiates=[Actor|ID]
+	 */
+	protected void emit_UseCase_GoalsKeyword_11_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'Include'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     actorInitiates=[Actor|ID] (ambiguity) 'Extend' extends+=[UseCase|ID]
+	 *     actorInitiates=[Actor|ID] (ambiguity) '}' (rule end)
+	 *     actorInitiates=[Actor|ID] (ambiguity) extensionnPoints+=ExtensionPoint
+	 *     actors=RefActor (ambiguity) 'Extend' extends+=[UseCase|ID]
+	 *     actors=RefActor (ambiguity) '}' (rule end)
+	 *     actors=RefActor (ambiguity) extensionnPoints+=ExtensionPoint
+	 *     postConditions=STRING (ambiguity) 'Extend' extends+=[UseCase|ID]
+	 *     postConditions=STRING (ambiguity) '}' (rule end)
+	 *     postConditions=STRING (ambiguity) extensionnPoints+=ExtensionPoint
+	 *     preConditions=STRING (ambiguity) 'Extend' extends+=[UseCase|ID]
+	 *     preConditions=STRING (ambiguity) '}' (rule end)
+	 *     preConditions=STRING (ambiguity) extensionnPoints+=ExtensionPoint
+	 */
+	protected void emit_UseCase_IncludeKeyword_18_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

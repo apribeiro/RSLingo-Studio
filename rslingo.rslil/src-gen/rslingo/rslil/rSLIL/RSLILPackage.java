@@ -1194,13 +1194,13 @@ public interface RSLILPackage extends EPackage
   int USE_CASE__ACTOR_INITIATES = 7;
 
   /**
-   * The feature id for the '<em><b>Actor Participates</b></em>' reference.
+   * The feature id for the '<em><b>Actors</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USE_CASE__ACTOR_PARTICIPATES = 8;
+  int USE_CASE__ACTORS = 8;
 
   /**
    * The feature id for the '<em><b>Pre Conditions</b></em>' attribute.
@@ -1230,13 +1230,216 @@ public interface RSLILPackage extends EPackage
   int USE_CASE__INCLUDES = 11;
 
   /**
+   * The feature id for the '<em><b>Extends</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE__EXTENDS = 12;
+
+  /**
+   * The feature id for the '<em><b>Ext Point</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE__EXT_POINT = 13;
+
+  /**
+   * The feature id for the '<em><b>Extensionn Points</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE__EXTENSIONN_POINTS = 14;
+
+  /**
    * The number of structural features of the '<em>Use Case</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USE_CASE_FEATURE_COUNT = 12;
+  int USE_CASE_FEATURE_COUNT = 15;
+
+  /**
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.RefGoalImpl <em>Ref Goal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see rslingo.rslil.rSLIL.impl.RefGoalImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefGoal()
+   * @generated
+   */
+  int REF_GOAL = 21;
+
+  /**
+   * The feature id for the '<em><b>Ref Goal</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_GOAL__REF_GOAL = 0;
+
+  /**
+   * The feature id for the '<em><b>Refs</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_GOAL__REFS = 1;
+
+  /**
+   * The number of structural features of the '<em>Ref Goal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_GOAL_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.RefFRImpl <em>Ref FR</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see rslingo.rslil.rSLIL.impl.RefFRImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefFR()
+   * @generated
+   */
+  int REF_FR = 22;
+
+  /**
+   * The feature id for the '<em><b>Ref FR</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_FR__REF_FR = 0;
+
+  /**
+   * The feature id for the '<em><b>Refs</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_FR__REFS = 1;
+
+  /**
+   * The number of structural features of the '<em>Ref FR</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_FR_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.RefActorImpl <em>Ref Actor</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see rslingo.rslil.rSLIL.impl.RefActorImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefActor()
+   * @generated
+   */
+  int REF_ACTOR = 23;
+
+  /**
+   * The feature id for the '<em><b>Ref Actor</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_ACTOR__REF_ACTOR = 0;
+
+  /**
+   * The feature id for the '<em><b>Refs</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_ACTOR__REFS = 1;
+
+  /**
+   * The number of structural features of the '<em>Ref Actor</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_ACTOR_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.RefUCImpl <em>Ref UC</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see rslingo.rslil.rSLIL.impl.RefUCImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefUC()
+   * @generated
+   */
+  int REF_UC = 24;
+
+  /**
+   * The feature id for the '<em><b>Ref UC</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_UC__REF_UC = 0;
+
+  /**
+   * The feature id for the '<em><b>Refs</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_UC__REFS = 1;
+
+  /**
+   * The number of structural features of the '<em>Ref UC</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_UC_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.ExtensionPointImpl <em>Extension Point</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see rslingo.rslil.rSLIL.impl.ExtensionPointImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getExtensionPoint()
+   * @generated
+   */
+  int EXTENSION_POINT = 25;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTENSION_POINT__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Extension Point</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTENSION_POINT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.FRImpl <em>FR</em>}' class.
@@ -1246,7 +1449,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getFR()
    * @generated
    */
-  int FR = 21;
+  int FR = 26;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1294,13 +1497,13 @@ public interface RSLILPackage extends EPackage
   int FR__ACTION_TYPE = 4;
 
   /**
-   * The feature id for the '<em><b>Source</b></em>' reference.
+   * The feature id for the '<em><b>Stakeholder</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FR__SOURCE = 5;
+  int FR__STAKEHOLDER = 5;
 
   /**
    * The feature id for the '<em><b>Priority</b></em>' attribute.
@@ -1328,7 +1531,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getNFR()
    * @generated
    */
-  int NFR = 22;
+  int NFR = 27;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1394,13 +1597,13 @@ public interface RSLILPackage extends EPackage
   int NFR__VALUE = 6;
 
   /**
-   * The feature id for the '<em><b>Source</b></em>' reference.
+   * The feature id for the '<em><b>Stakeholder</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NFR__SOURCE = 7;
+  int NFR__STAKEHOLDER = 7;
 
   /**
    * The feature id for the '<em><b>Priority</b></em>' attribute.
@@ -1419,117 +1622,6 @@ public interface RSLILPackage extends EPackage
    * @ordered
    */
   int NFR_FEATURE_COUNT = 9;
-
-  /**
-   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.RefGoalImpl <em>Ref Goal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see rslingo.rslil.rSLIL.impl.RefGoalImpl
-   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefGoal()
-   * @generated
-   */
-  int REF_GOAL = 23;
-
-  /**
-   * The feature id for the '<em><b>Ref Goal</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_GOAL__REF_GOAL = 0;
-
-  /**
-   * The feature id for the '<em><b>Refs</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_GOAL__REFS = 1;
-
-  /**
-   * The number of structural features of the '<em>Ref Goal</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_GOAL_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.RefFRImpl <em>Ref FR</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see rslingo.rslil.rSLIL.impl.RefFRImpl
-   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefFR()
-   * @generated
-   */
-  int REF_FR = 24;
-
-  /**
-   * The feature id for the '<em><b>Ref FR</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_FR__REF_FR = 0;
-
-  /**
-   * The feature id for the '<em><b>Refs</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_FR__REFS = 1;
-
-  /**
-   * The number of structural features of the '<em>Ref FR</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_FR_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.RefUCImpl <em>Ref UC</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see rslingo.rslil.rSLIL.impl.RefUCImpl
-   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefUC()
-   * @generated
-   */
-  int REF_UC = 25;
-
-  /**
-   * The feature id for the '<em><b>Ref UC</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_UC__REF_UC = 0;
-
-  /**
-   * The feature id for the '<em><b>Refs</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_UC__REFS = 1;
-
-  /**
-   * The number of structural features of the '<em>Ref UC</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_UC_FEATURE_COUNT = 2;
 
 
   /**
@@ -2656,15 +2748,15 @@ public interface RSLILPackage extends EPackage
   EReference getUseCase_ActorInitiates();
 
   /**
-   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.UseCase#getActorParticipates <em>Actor Participates</em>}'.
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.UseCase#getActors <em>Actors</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Actor Participates</em>'.
-   * @see rslingo.rslil.rSLIL.UseCase#getActorParticipates()
+   * @return the meta object for the containment reference '<em>Actors</em>'.
+   * @see rslingo.rslil.rSLIL.UseCase#getActors()
    * @see #getUseCase()
    * @generated
    */
-  EReference getUseCase_ActorParticipates();
+  EReference getUseCase_Actors();
 
   /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.UseCase#getPreConditions <em>Pre Conditions</em>}'.
@@ -2698,6 +2790,188 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EReference getUseCase_Includes();
+
+  /**
+   * Returns the meta object for the reference list '{@link rslingo.rslil.rSLIL.UseCase#getExtends <em>Extends</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Extends</em>'.
+   * @see rslingo.rslil.rSLIL.UseCase#getExtends()
+   * @see #getUseCase()
+   * @generated
+   */
+  EReference getUseCase_Extends();
+
+  /**
+   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.UseCase#getExtPoint <em>Ext Point</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ext Point</em>'.
+   * @see rslingo.rslil.rSLIL.UseCase#getExtPoint()
+   * @see #getUseCase()
+   * @generated
+   */
+  EReference getUseCase_ExtPoint();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.UseCase#getExtensionnPoints <em>Extensionn Points</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Extensionn Points</em>'.
+   * @see rslingo.rslil.rSLIL.UseCase#getExtensionnPoints()
+   * @see #getUseCase()
+   * @generated
+   */
+  EReference getUseCase_ExtensionnPoints();
+
+  /**
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.RefGoal <em>Ref Goal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ref Goal</em>'.
+   * @see rslingo.rslil.rSLIL.RefGoal
+   * @generated
+   */
+  EClass getRefGoal();
+
+  /**
+   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.RefGoal#getRefGoal <em>Ref Goal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ref Goal</em>'.
+   * @see rslingo.rslil.rSLIL.RefGoal#getRefGoal()
+   * @see #getRefGoal()
+   * @generated
+   */
+  EReference getRefGoal_RefGoal();
+
+  /**
+   * Returns the meta object for the reference list '{@link rslingo.rslil.rSLIL.RefGoal#getRefs <em>Refs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Refs</em>'.
+   * @see rslingo.rslil.rSLIL.RefGoal#getRefs()
+   * @see #getRefGoal()
+   * @generated
+   */
+  EReference getRefGoal_Refs();
+
+  /**
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.RefFR <em>Ref FR</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ref FR</em>'.
+   * @see rslingo.rslil.rSLIL.RefFR
+   * @generated
+   */
+  EClass getRefFR();
+
+  /**
+   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.RefFR#getRefFR <em>Ref FR</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ref FR</em>'.
+   * @see rslingo.rslil.rSLIL.RefFR#getRefFR()
+   * @see #getRefFR()
+   * @generated
+   */
+  EReference getRefFR_RefFR();
+
+  /**
+   * Returns the meta object for the reference list '{@link rslingo.rslil.rSLIL.RefFR#getRefs <em>Refs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Refs</em>'.
+   * @see rslingo.rslil.rSLIL.RefFR#getRefs()
+   * @see #getRefFR()
+   * @generated
+   */
+  EReference getRefFR_Refs();
+
+  /**
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.RefActor <em>Ref Actor</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ref Actor</em>'.
+   * @see rslingo.rslil.rSLIL.RefActor
+   * @generated
+   */
+  EClass getRefActor();
+
+  /**
+   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.RefActor#getRefActor <em>Ref Actor</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ref Actor</em>'.
+   * @see rslingo.rslil.rSLIL.RefActor#getRefActor()
+   * @see #getRefActor()
+   * @generated
+   */
+  EReference getRefActor_RefActor();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.RefActor#getRefs <em>Refs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Refs</em>'.
+   * @see rslingo.rslil.rSLIL.RefActor#getRefs()
+   * @see #getRefActor()
+   * @generated
+   */
+  EReference getRefActor_Refs();
+
+  /**
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.RefUC <em>Ref UC</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ref UC</em>'.
+   * @see rslingo.rslil.rSLIL.RefUC
+   * @generated
+   */
+  EClass getRefUC();
+
+  /**
+   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.RefUC#getRefUC <em>Ref UC</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ref UC</em>'.
+   * @see rslingo.rslil.rSLIL.RefUC#getRefUC()
+   * @see #getRefUC()
+   * @generated
+   */
+  EReference getRefUC_RefUC();
+
+  /**
+   * Returns the meta object for the reference list '{@link rslingo.rslil.rSLIL.RefUC#getRefs <em>Refs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Refs</em>'.
+   * @see rslingo.rslil.rSLIL.RefUC#getRefs()
+   * @see #getRefUC()
+   * @generated
+   */
+  EReference getRefUC_Refs();
+
+  /**
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.ExtensionPoint <em>Extension Point</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Extension Point</em>'.
+   * @see rslingo.rslil.rSLIL.ExtensionPoint
+   * @generated
+   */
+  EClass getExtensionPoint();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.ExtensionPoint#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see rslingo.rslil.rSLIL.ExtensionPoint#getName()
+   * @see #getExtensionPoint()
+   * @generated
+   */
+  EAttribute getExtensionPoint_Name();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.FR <em>FR</em>}'.
@@ -2765,15 +3039,15 @@ public interface RSLILPackage extends EPackage
   EAttribute getFR_ActionType();
 
   /**
-   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.FR#getSource <em>Source</em>}'.
+   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.FR#getStakeholder <em>Stakeholder</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Source</em>'.
-   * @see rslingo.rslil.rSLIL.FR#getSource()
+   * @return the meta object for the reference '<em>Stakeholder</em>'.
+   * @see rslingo.rslil.rSLIL.FR#getStakeholder()
    * @see #getFR()
    * @generated
    */
-  EReference getFR_Source();
+  EReference getFR_Stakeholder();
 
   /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.FR#getPriority <em>Priority</em>}'.
@@ -2874,15 +3148,15 @@ public interface RSLILPackage extends EPackage
   EAttribute getNFR_Value();
 
   /**
-   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.NFR#getSource <em>Source</em>}'.
+   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.NFR#getStakeholder <em>Stakeholder</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Source</em>'.
-   * @see rslingo.rslil.rSLIL.NFR#getSource()
+   * @return the meta object for the reference '<em>Stakeholder</em>'.
+   * @see rslingo.rslil.rSLIL.NFR#getStakeholder()
    * @see #getNFR()
    * @generated
    */
-  EReference getNFR_Source();
+  EReference getNFR_Stakeholder();
 
   /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.NFR#getPriority <em>Priority</em>}'.
@@ -2894,102 +3168,6 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EAttribute getNFR_Priority();
-
-  /**
-   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.RefGoal <em>Ref Goal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Ref Goal</em>'.
-   * @see rslingo.rslil.rSLIL.RefGoal
-   * @generated
-   */
-  EClass getRefGoal();
-
-  /**
-   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.RefGoal#getRefGoal <em>Ref Goal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Ref Goal</em>'.
-   * @see rslingo.rslil.rSLIL.RefGoal#getRefGoal()
-   * @see #getRefGoal()
-   * @generated
-   */
-  EReference getRefGoal_RefGoal();
-
-  /**
-   * Returns the meta object for the reference list '{@link rslingo.rslil.rSLIL.RefGoal#getRefs <em>Refs</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Refs</em>'.
-   * @see rslingo.rslil.rSLIL.RefGoal#getRefs()
-   * @see #getRefGoal()
-   * @generated
-   */
-  EReference getRefGoal_Refs();
-
-  /**
-   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.RefFR <em>Ref FR</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Ref FR</em>'.
-   * @see rslingo.rslil.rSLIL.RefFR
-   * @generated
-   */
-  EClass getRefFR();
-
-  /**
-   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.RefFR#getRefFR <em>Ref FR</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Ref FR</em>'.
-   * @see rslingo.rslil.rSLIL.RefFR#getRefFR()
-   * @see #getRefFR()
-   * @generated
-   */
-  EReference getRefFR_RefFR();
-
-  /**
-   * Returns the meta object for the reference list '{@link rslingo.rslil.rSLIL.RefFR#getRefs <em>Refs</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Refs</em>'.
-   * @see rslingo.rslil.rSLIL.RefFR#getRefs()
-   * @see #getRefFR()
-   * @generated
-   */
-  EReference getRefFR_Refs();
-
-  /**
-   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.RefUC <em>Ref UC</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Ref UC</em>'.
-   * @see rslingo.rslil.rSLIL.RefUC
-   * @generated
-   */
-  EClass getRefUC();
-
-  /**
-   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.RefUC#getRefUC <em>Ref UC</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Ref UC</em>'.
-   * @see rslingo.rslil.rSLIL.RefUC#getRefUC()
-   * @see #getRefUC()
-   * @generated
-   */
-  EReference getRefUC_RefUC();
-
-  /**
-   * Returns the meta object for the reference list '{@link rslingo.rslil.rSLIL.RefUC#getRefs <em>Refs</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Refs</em>'.
-   * @see rslingo.rslil.rSLIL.RefUC#getRefs()
-   * @see #getRefUC()
-   * @generated
-   */
-  EReference getRefUC_Refs();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -3889,12 +4067,12 @@ public interface RSLILPackage extends EPackage
     EReference USE_CASE__ACTOR_INITIATES = eINSTANCE.getUseCase_ActorInitiates();
 
     /**
-     * The meta object literal for the '<em><b>Actor Participates</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Actors</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference USE_CASE__ACTOR_PARTICIPATES = eINSTANCE.getUseCase_ActorParticipates();
+    EReference USE_CASE__ACTORS = eINSTANCE.getUseCase_Actors();
 
     /**
      * The meta object literal for the '<em><b>Pre Conditions</b></em>' attribute feature.
@@ -3919,6 +4097,152 @@ public interface RSLILPackage extends EPackage
      * @generated
      */
     EReference USE_CASE__INCLUDES = eINSTANCE.getUseCase_Includes();
+
+    /**
+     * The meta object literal for the '<em><b>Extends</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USE_CASE__EXTENDS = eINSTANCE.getUseCase_Extends();
+
+    /**
+     * The meta object literal for the '<em><b>Ext Point</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USE_CASE__EXT_POINT = eINSTANCE.getUseCase_ExtPoint();
+
+    /**
+     * The meta object literal for the '<em><b>Extensionn Points</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USE_CASE__EXTENSIONN_POINTS = eINSTANCE.getUseCase_ExtensionnPoints();
+
+    /**
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.RefGoalImpl <em>Ref Goal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see rslingo.rslil.rSLIL.impl.RefGoalImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefGoal()
+     * @generated
+     */
+    EClass REF_GOAL = eINSTANCE.getRefGoal();
+
+    /**
+     * The meta object literal for the '<em><b>Ref Goal</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REF_GOAL__REF_GOAL = eINSTANCE.getRefGoal_RefGoal();
+
+    /**
+     * The meta object literal for the '<em><b>Refs</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REF_GOAL__REFS = eINSTANCE.getRefGoal_Refs();
+
+    /**
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.RefFRImpl <em>Ref FR</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see rslingo.rslil.rSLIL.impl.RefFRImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefFR()
+     * @generated
+     */
+    EClass REF_FR = eINSTANCE.getRefFR();
+
+    /**
+     * The meta object literal for the '<em><b>Ref FR</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REF_FR__REF_FR = eINSTANCE.getRefFR_RefFR();
+
+    /**
+     * The meta object literal for the '<em><b>Refs</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REF_FR__REFS = eINSTANCE.getRefFR_Refs();
+
+    /**
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.RefActorImpl <em>Ref Actor</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see rslingo.rslil.rSLIL.impl.RefActorImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefActor()
+     * @generated
+     */
+    EClass REF_ACTOR = eINSTANCE.getRefActor();
+
+    /**
+     * The meta object literal for the '<em><b>Ref Actor</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REF_ACTOR__REF_ACTOR = eINSTANCE.getRefActor_RefActor();
+
+    /**
+     * The meta object literal for the '<em><b>Refs</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REF_ACTOR__REFS = eINSTANCE.getRefActor_Refs();
+
+    /**
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.RefUCImpl <em>Ref UC</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see rslingo.rslil.rSLIL.impl.RefUCImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefUC()
+     * @generated
+     */
+    EClass REF_UC = eINSTANCE.getRefUC();
+
+    /**
+     * The meta object literal for the '<em><b>Ref UC</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REF_UC__REF_UC = eINSTANCE.getRefUC_RefUC();
+
+    /**
+     * The meta object literal for the '<em><b>Refs</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REF_UC__REFS = eINSTANCE.getRefUC_Refs();
+
+    /**
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.ExtensionPointImpl <em>Extension Point</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see rslingo.rslil.rSLIL.impl.ExtensionPointImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getExtensionPoint()
+     * @generated
+     */
+    EClass EXTENSION_POINT = eINSTANCE.getExtensionPoint();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXTENSION_POINT__NAME = eINSTANCE.getExtensionPoint_Name();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.FRImpl <em>FR</em>}' class.
@@ -3971,12 +4295,12 @@ public interface RSLILPackage extends EPackage
     EAttribute FR__ACTION_TYPE = eINSTANCE.getFR_ActionType();
 
     /**
-     * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Stakeholder</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FR__SOURCE = eINSTANCE.getFR_Source();
+    EReference FR__STAKEHOLDER = eINSTANCE.getFR_Stakeholder();
 
     /**
      * The meta object literal for the '<em><b>Priority</b></em>' attribute feature.
@@ -4053,12 +4377,12 @@ public interface RSLILPackage extends EPackage
     EAttribute NFR__VALUE = eINSTANCE.getNFR_Value();
 
     /**
-     * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Stakeholder</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference NFR__SOURCE = eINSTANCE.getNFR_Source();
+    EReference NFR__STAKEHOLDER = eINSTANCE.getNFR_Stakeholder();
 
     /**
      * The meta object literal for the '<em><b>Priority</b></em>' attribute feature.
@@ -4067,84 +4391,6 @@ public interface RSLILPackage extends EPackage
      * @generated
      */
     EAttribute NFR__PRIORITY = eINSTANCE.getNFR_Priority();
-
-    /**
-     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.RefGoalImpl <em>Ref Goal</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see rslingo.rslil.rSLIL.impl.RefGoalImpl
-     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefGoal()
-     * @generated
-     */
-    EClass REF_GOAL = eINSTANCE.getRefGoal();
-
-    /**
-     * The meta object literal for the '<em><b>Ref Goal</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference REF_GOAL__REF_GOAL = eINSTANCE.getRefGoal_RefGoal();
-
-    /**
-     * The meta object literal for the '<em><b>Refs</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference REF_GOAL__REFS = eINSTANCE.getRefGoal_Refs();
-
-    /**
-     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.RefFRImpl <em>Ref FR</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see rslingo.rslil.rSLIL.impl.RefFRImpl
-     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefFR()
-     * @generated
-     */
-    EClass REF_FR = eINSTANCE.getRefFR();
-
-    /**
-     * The meta object literal for the '<em><b>Ref FR</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference REF_FR__REF_FR = eINSTANCE.getRefFR_RefFR();
-
-    /**
-     * The meta object literal for the '<em><b>Refs</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference REF_FR__REFS = eINSTANCE.getRefFR_Refs();
-
-    /**
-     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.RefUCImpl <em>Ref UC</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see rslingo.rslil.rSLIL.impl.RefUCImpl
-     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefUC()
-     * @generated
-     */
-    EClass REF_UC = eINSTANCE.getRefUC();
-
-    /**
-     * The meta object literal for the '<em><b>Ref UC</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference REF_UC__REF_UC = eINSTANCE.getRefUC_RefUC();
-
-    /**
-     * The meta object literal for the '<em><b>Refs</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference REF_UC__REFS = eINSTANCE.getRefUC_Refs();
 
   }
 

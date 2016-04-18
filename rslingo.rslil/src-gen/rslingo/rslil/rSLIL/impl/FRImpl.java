@@ -27,7 +27,7 @@ import rslingo.rslil.rSLIL.Stakeholder;
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getModalityType <em>Modality Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getActionType <em>Action Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getStakeholder <em>Stakeholder</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getPriority <em>Priority</em>}</li>
  * </ul>
  *
@@ -136,14 +136,14 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
   protected String actionType = ACTION_TYPE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
+   * The cached value of the '{@link #getStakeholder() <em>Stakeholder</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSource()
+   * @see #getStakeholder()
    * @generated
    * @ordered
    */
-  protected Stakeholder source;
+  protected Stakeholder stakeholder;
 
   /**
    * The default value of the '{@link #getPriority() <em>Priority</em>}' attribute.
@@ -306,19 +306,19 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
    * <!-- end-user-doc -->
    * @generated
    */
-  public Stakeholder getSource()
+  public Stakeholder getStakeholder()
   {
-    if (source != null && source.eIsProxy())
+    if (stakeholder != null && stakeholder.eIsProxy())
     {
-      InternalEObject oldSource = (InternalEObject)source;
-      source = (Stakeholder)eResolveProxy(oldSource);
-      if (source != oldSource)
+      InternalEObject oldStakeholder = (InternalEObject)stakeholder;
+      stakeholder = (Stakeholder)eResolveProxy(oldStakeholder);
+      if (stakeholder != oldStakeholder)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.FR__SOURCE, oldSource, source));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.FR__STAKEHOLDER, oldStakeholder, stakeholder));
       }
     }
-    return source;
+    return stakeholder;
   }
 
   /**
@@ -326,9 +326,9 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
    * <!-- end-user-doc -->
    * @generated
    */
-  public Stakeholder basicGetSource()
+  public Stakeholder basicGetStakeholder()
   {
-    return source;
+    return stakeholder;
   }
 
   /**
@@ -336,12 +336,12 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSource(Stakeholder newSource)
+  public void setStakeholder(Stakeholder newStakeholder)
   {
-    Stakeholder oldSource = source;
-    source = newSource;
+    Stakeholder oldStakeholder = stakeholder;
+    stakeholder = newStakeholder;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.FR__SOURCE, oldSource, source));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.FR__STAKEHOLDER, oldStakeholder, stakeholder));
   }
 
   /**
@@ -387,9 +387,9 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
         return getModalityType();
       case RSLILPackage.FR__ACTION_TYPE:
         return getActionType();
-      case RSLILPackage.FR__SOURCE:
-        if (resolve) return getSource();
-        return basicGetSource();
+      case RSLILPackage.FR__STAKEHOLDER:
+        if (resolve) return getStakeholder();
+        return basicGetStakeholder();
       case RSLILPackage.FR__PRIORITY:
         return getPriority();
     }
@@ -421,8 +421,8 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
       case RSLILPackage.FR__ACTION_TYPE:
         setActionType((String)newValue);
         return;
-      case RSLILPackage.FR__SOURCE:
-        setSource((Stakeholder)newValue);
+      case RSLILPackage.FR__STAKEHOLDER:
+        setStakeholder((Stakeholder)newValue);
         return;
       case RSLILPackage.FR__PRIORITY:
         setPriority((String)newValue);
@@ -456,8 +456,8 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
       case RSLILPackage.FR__ACTION_TYPE:
         setActionType(ACTION_TYPE_EDEFAULT);
         return;
-      case RSLILPackage.FR__SOURCE:
-        setSource((Stakeholder)null);
+      case RSLILPackage.FR__STAKEHOLDER:
+        setStakeholder((Stakeholder)null);
         return;
       case RSLILPackage.FR__PRIORITY:
         setPriority(PRIORITY_EDEFAULT);
@@ -486,8 +486,8 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
         return MODALITY_TYPE_EDEFAULT == null ? modalityType != null : !MODALITY_TYPE_EDEFAULT.equals(modalityType);
       case RSLILPackage.FR__ACTION_TYPE:
         return ACTION_TYPE_EDEFAULT == null ? actionType != null : !ACTION_TYPE_EDEFAULT.equals(actionType);
-      case RSLILPackage.FR__SOURCE:
-        return source != null;
+      case RSLILPackage.FR__STAKEHOLDER:
+        return stakeholder != null;
       case RSLILPackage.FR__PRIORITY:
         return PRIORITY_EDEFAULT == null ? priority != null : !PRIORITY_EDEFAULT.equals(priority);
     }

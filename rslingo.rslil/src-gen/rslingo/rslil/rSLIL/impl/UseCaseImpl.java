@@ -16,10 +16,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import rslingo.rslil.rSLIL.Actor;
+import rslingo.rslil.rSLIL.ExtensionPoint;
 import rslingo.rslil.rSLIL.RSLILPackage;
+import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
 import rslingo.rslil.rSLIL.RefUC;
@@ -41,10 +44,13 @@ import rslingo.rslil.rSLIL.UseCase;
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getGoals <em>Goals</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getFrs <em>Frs</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getActorInitiates <em>Actor Initiates</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getActorParticipates <em>Actor Participates</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getActors <em>Actors</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getPreConditions <em>Pre Conditions</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getPostConditions <em>Post Conditions</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getIncludes <em>Includes</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getExtends <em>Extends</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getExtPoint <em>Ext Point</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getExtensionnPoints <em>Extensionn Points</em>}</li>
  * </ul>
  *
  * @generated
@@ -182,14 +188,14 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   protected Actor actorInitiates;
 
   /**
-   * The cached value of the '{@link #getActorParticipates() <em>Actor Participates</em>}' reference.
+   * The cached value of the '{@link #getActors() <em>Actors</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getActorParticipates()
+   * @see #getActors()
    * @generated
    * @ordered
    */
-  protected Actor actorParticipates;
+  protected RefActor actors;
 
   /**
    * The default value of the '{@link #getPreConditions() <em>Pre Conditions</em>}' attribute.
@@ -240,6 +246,36 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * @ordered
    */
   protected EList<RefUC> includes;
+
+  /**
+   * The cached value of the '{@link #getExtends() <em>Extends</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExtends()
+   * @generated
+   * @ordered
+   */
+  protected EList<UseCase> extends_;
+
+  /**
+   * The cached value of the '{@link #getExtPoint() <em>Ext Point</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExtPoint()
+   * @generated
+   * @ordered
+   */
+  protected ExtensionPoint extPoint;
+
+  /**
+   * The cached value of the '{@link #getExtensionnPoints() <em>Extensionn Points</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExtensionnPoints()
+   * @generated
+   * @ordered
+   */
+  protected EList<ExtensionPoint> extensionnPoints;
 
   /**
    * <!-- begin-user-doc -->
@@ -453,19 +489,9 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * <!-- end-user-doc -->
    * @generated
    */
-  public Actor getActorParticipates()
+  public RefActor getActors()
   {
-    if (actorParticipates != null && actorParticipates.eIsProxy())
-    {
-      InternalEObject oldActorParticipates = (InternalEObject)actorParticipates;
-      actorParticipates = (Actor)eResolveProxy(oldActorParticipates);
-      if (actorParticipates != oldActorParticipates)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.USE_CASE__ACTOR_PARTICIPATES, oldActorParticipates, actorParticipates));
-      }
-    }
-    return actorParticipates;
+    return actors;
   }
 
   /**
@@ -473,22 +499,37 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * <!-- end-user-doc -->
    * @generated
    */
-  public Actor basicGetActorParticipates()
+  public NotificationChain basicSetActors(RefActor newActors, NotificationChain msgs)
   {
-    return actorParticipates;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setActorParticipates(Actor newActorParticipates)
-  {
-    Actor oldActorParticipates = actorParticipates;
-    actorParticipates = newActorParticipates;
+    RefActor oldActors = actors;
+    actors = newActors;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.USE_CASE__ACTOR_PARTICIPATES, oldActorParticipates, actorParticipates));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.USE_CASE__ACTORS, oldActors, newActors);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setActors(RefActor newActors)
+  {
+    if (newActors != actors)
+    {
+      NotificationChain msgs = null;
+      if (actors != null)
+        msgs = ((InternalEObject)actors).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.USE_CASE__ACTORS, null, msgs);
+      if (newActors != null)
+        msgs = ((InternalEObject)newActors).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.USE_CASE__ACTORS, null, msgs);
+      msgs = basicSetActors(newActors, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.USE_CASE__ACTORS, newActors, newActors));
   }
 
   /**
@@ -556,6 +597,77 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<UseCase> getExtends()
+  {
+    if (extends_ == null)
+    {
+      extends_ = new EObjectResolvingEList<UseCase>(UseCase.class, this, RSLILPackage.USE_CASE__EXTENDS);
+    }
+    return extends_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExtensionPoint getExtPoint()
+  {
+    if (extPoint != null && extPoint.eIsProxy())
+    {
+      InternalEObject oldExtPoint = (InternalEObject)extPoint;
+      extPoint = (ExtensionPoint)eResolveProxy(oldExtPoint);
+      if (extPoint != oldExtPoint)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.USE_CASE__EXT_POINT, oldExtPoint, extPoint));
+      }
+    }
+    return extPoint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExtensionPoint basicGetExtPoint()
+  {
+    return extPoint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExtPoint(ExtensionPoint newExtPoint)
+  {
+    ExtensionPoint oldExtPoint = extPoint;
+    extPoint = newExtPoint;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.USE_CASE__EXT_POINT, oldExtPoint, extPoint));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ExtensionPoint> getExtensionnPoints()
+  {
+    if (extensionnPoints == null)
+    {
+      extensionnPoints = new EObjectContainmentEList<ExtensionPoint>(ExtensionPoint.class, this, RSLILPackage.USE_CASE__EXTENSIONN_POINTS);
+    }
+    return extensionnPoints;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -565,8 +677,12 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return ((InternalEList<?>)getGoals()).basicRemove(otherEnd, msgs);
       case RSLILPackage.USE_CASE__FRS:
         return ((InternalEList<?>)getFrs()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.USE_CASE__ACTORS:
+        return basicSetActors(null, msgs);
       case RSLILPackage.USE_CASE__INCLUDES:
         return ((InternalEList<?>)getIncludes()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
+        return ((InternalEList<?>)getExtensionnPoints()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -598,15 +714,21 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case RSLILPackage.USE_CASE__ACTOR_INITIATES:
         if (resolve) return getActorInitiates();
         return basicGetActorInitiates();
-      case RSLILPackage.USE_CASE__ACTOR_PARTICIPATES:
-        if (resolve) return getActorParticipates();
-        return basicGetActorParticipates();
+      case RSLILPackage.USE_CASE__ACTORS:
+        return getActors();
       case RSLILPackage.USE_CASE__PRE_CONDITIONS:
         return getPreConditions();
       case RSLILPackage.USE_CASE__POST_CONDITIONS:
         return getPostConditions();
       case RSLILPackage.USE_CASE__INCLUDES:
         return getIncludes();
+      case RSLILPackage.USE_CASE__EXTENDS:
+        return getExtends();
+      case RSLILPackage.USE_CASE__EXT_POINT:
+        if (resolve) return getExtPoint();
+        return basicGetExtPoint();
+      case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
+        return getExtensionnPoints();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -648,8 +770,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case RSLILPackage.USE_CASE__ACTOR_INITIATES:
         setActorInitiates((Actor)newValue);
         return;
-      case RSLILPackage.USE_CASE__ACTOR_PARTICIPATES:
-        setActorParticipates((Actor)newValue);
+      case RSLILPackage.USE_CASE__ACTORS:
+        setActors((RefActor)newValue);
         return;
       case RSLILPackage.USE_CASE__PRE_CONDITIONS:
         setPreConditions((String)newValue);
@@ -660,6 +782,17 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case RSLILPackage.USE_CASE__INCLUDES:
         getIncludes().clear();
         getIncludes().addAll((Collection<? extends RefUC>)newValue);
+        return;
+      case RSLILPackage.USE_CASE__EXTENDS:
+        getExtends().clear();
+        getExtends().addAll((Collection<? extends UseCase>)newValue);
+        return;
+      case RSLILPackage.USE_CASE__EXT_POINT:
+        setExtPoint((ExtensionPoint)newValue);
+        return;
+      case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
+        getExtensionnPoints().clear();
+        getExtensionnPoints().addAll((Collection<? extends ExtensionPoint>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -699,8 +832,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case RSLILPackage.USE_CASE__ACTOR_INITIATES:
         setActorInitiates((Actor)null);
         return;
-      case RSLILPackage.USE_CASE__ACTOR_PARTICIPATES:
-        setActorParticipates((Actor)null);
+      case RSLILPackage.USE_CASE__ACTORS:
+        setActors((RefActor)null);
         return;
       case RSLILPackage.USE_CASE__PRE_CONDITIONS:
         setPreConditions(PRE_CONDITIONS_EDEFAULT);
@@ -710,6 +843,15 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return;
       case RSLILPackage.USE_CASE__INCLUDES:
         getIncludes().clear();
+        return;
+      case RSLILPackage.USE_CASE__EXTENDS:
+        getExtends().clear();
+        return;
+      case RSLILPackage.USE_CASE__EXT_POINT:
+        setExtPoint((ExtensionPoint)null);
+        return;
+      case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
+        getExtensionnPoints().clear();
         return;
     }
     super.eUnset(featureID);
@@ -741,14 +883,20 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return frs != null && !frs.isEmpty();
       case RSLILPackage.USE_CASE__ACTOR_INITIATES:
         return actorInitiates != null;
-      case RSLILPackage.USE_CASE__ACTOR_PARTICIPATES:
-        return actorParticipates != null;
+      case RSLILPackage.USE_CASE__ACTORS:
+        return actors != null;
       case RSLILPackage.USE_CASE__PRE_CONDITIONS:
         return PRE_CONDITIONS_EDEFAULT == null ? preConditions != null : !PRE_CONDITIONS_EDEFAULT.equals(preConditions);
       case RSLILPackage.USE_CASE__POST_CONDITIONS:
         return POST_CONDITIONS_EDEFAULT == null ? postConditions != null : !POST_CONDITIONS_EDEFAULT.equals(postConditions);
       case RSLILPackage.USE_CASE__INCLUDES:
         return includes != null && !includes.isEmpty();
+      case RSLILPackage.USE_CASE__EXTENDS:
+        return extends_ != null && !extends_.isEmpty();
+      case RSLILPackage.USE_CASE__EXT_POINT:
+        return extPoint != null;
+      case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
+        return extensionnPoints != null && !extensionnPoints.isEmpty();
     }
     return super.eIsSet(featureID);
   }
