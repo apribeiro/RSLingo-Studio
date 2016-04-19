@@ -2,6 +2,8 @@
  */
 package rslingo.rslil.rSLIL;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,10 +18,12 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.FR#getId <em>Id</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.FR#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.FR#getDescription <em>Description</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.FR#getModalityType <em>Modality Type</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.FR#getModality <em>Modality</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.FR#getActionType <em>Action Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.FR#getStakeholder <em>Stakeholder</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.FR#getPriority <em>Priority</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.FR#getDepends <em>Depends</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.FR#getPartOf <em>Part Of</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getFR()
@@ -107,30 +111,30 @@ public interface FR extends EObject
   void setDescription(String value);
 
   /**
-   * Returns the value of the '<em><b>Modality Type</b></em>' attribute.
+   * Returns the value of the '<em><b>Modality</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Modality Type</em>' attribute isn't clear,
+   * If the meaning of the '<em>Modality</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Modality Type</em>' attribute.
-   * @see #setModalityType(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getFR_ModalityType()
+   * @return the value of the '<em>Modality</em>' attribute.
+   * @see #setModality(String)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getFR_Modality()
    * @model
    * @generated
    */
-  String getModalityType();
+  String getModality();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.FR#getModalityType <em>Modality Type</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.FR#getModality <em>Modality</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Modality Type</em>' attribute.
-   * @see #getModalityType()
+   * @param value the new value of the '<em>Modality</em>' attribute.
+   * @see #getModality()
    * @generated
    */
-  void setModalityType(String value);
+  void setModality(String value);
 
   /**
    * Returns the value of the '<em><b>Action Type</b></em>' attribute.
@@ -209,5 +213,47 @@ public interface FR extends EObject
    * @generated
    */
   void setPriority(String value);
+
+  /**
+   * Returns the value of the '<em><b>Depends</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.RefFR}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Depends</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Depends</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getFR_Depends()
+   * @model containment="true"
+   * @generated
+   */
+  EList<RefFR> getDepends();
+
+  /**
+   * Returns the value of the '<em><b>Part Of</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Part Of</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Part Of</em>' reference.
+   * @see #setPartOf(FR)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getFR_PartOf()
+   * @model
+   * @generated
+   */
+  FR getPartOf();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.FR#getPartOf <em>Part Of</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Part Of</em>' reference.
+   * @see #getPartOf()
+   * @generated
+   */
+  void setPartOf(FR value);
 
 } // FR

@@ -138,6 +138,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//UseCase/extends"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//UseCase/extPoint"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//UseCase/extensionnPoints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//UseCase/scenarios"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//RefGoal">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefGoal/refGoal"/>
@@ -158,14 +159,38 @@
     <genClasses ecoreClass="RSLIL.ecore#//ExtensionPoint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//ExtensionPoint/name"/>
     </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//Scenario">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Scenario/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Scenario/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Scenario/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Scenario/mode"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Scenario/steps"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//Step">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Step/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Step/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Step/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Step/actor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Step/preConditions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Step/postConditions"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//RefActionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefActionType/refType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefActionType/refs"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//ActionType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//ActionType/type"/>
+    </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//FR">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//FR/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//FR/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//FR/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//FR/modalityType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//FR/modality"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//FR/actionType"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//FR/stakeholder"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//FR/priority"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//FR/depends"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//FR/partOf"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//NFR">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//NFR/id"/>
@@ -177,6 +202,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//NFR/value"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//NFR/stakeholder"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//NFR/priority"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//NFR/depends"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//NFR/partOf"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//RefNFR">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefNFR/refNFR"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefNFR/refs"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

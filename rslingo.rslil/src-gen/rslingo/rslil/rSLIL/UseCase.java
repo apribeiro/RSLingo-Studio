@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getExtends <em>Extends</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getExtPoint <em>Ext Point</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getExtensionnPoints <em>Extensionn Points</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.UseCase#getScenarios <em>Scenarios</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getUseCase()
@@ -377,5 +378,21 @@ public interface UseCase extends EObject
    * @generated
    */
   EList<ExtensionPoint> getExtensionnPoints();
+
+  /**
+   * Returns the value of the '<em><b>Scenarios</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.Scenario}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Scenarios</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Scenarios</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getUseCase_Scenarios()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Scenario> getScenarios();
 
 } // UseCase

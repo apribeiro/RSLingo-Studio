@@ -9,6 +9,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import rslingo.rslil.rSLIL.ActionType;
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.ComposedBy;
@@ -25,15 +26,19 @@ import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
+import rslingo.rslil.rSLIL.RefActionType;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGlossaryType;
 import rslingo.rslil.rSLIL.RefGoal;
+import rslingo.rslil.rSLIL.RefNFR;
 import rslingo.rslil.rSLIL.RefSystem;
 import rslingo.rslil.rSLIL.RefUC;
 import rslingo.rslil.rSLIL.Reference;
+import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
+import rslingo.rslil.rSLIL.Step;
 import rslingo.rslil.rSLIL.Term;
 import rslingo.rslil.rSLIL.TermRelation;
 import rslingo.rslil.rSLIL.UseCase;
@@ -232,6 +237,26 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
         return createExtensionPointAdapter();
       }
       @Override
+      public Adapter caseScenario(Scenario object)
+      {
+        return createScenarioAdapter();
+      }
+      @Override
+      public Adapter caseStep(Step object)
+      {
+        return createStepAdapter();
+      }
+      @Override
+      public Adapter caseRefActionType(RefActionType object)
+      {
+        return createRefActionTypeAdapter();
+      }
+      @Override
+      public Adapter caseActionType(ActionType object)
+      {
+        return createActionTypeAdapter();
+      }
+      @Override
       public Adapter caseFR(FR object)
       {
         return createFRAdapter();
@@ -240,6 +265,11 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
       public Adapter caseNFR(NFR object)
       {
         return createNFRAdapter();
+      }
+      @Override
+      public Adapter caseRefNFR(RefNFR object)
+      {
+        return createRefNFRAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -654,6 +684,66 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.Scenario <em>Scenario</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.Scenario
+   * @generated
+   */
+  public Adapter createScenarioAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.Step <em>Step</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.Step
+   * @generated
+   */
+  public Adapter createStepAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.RefActionType <em>Ref Action Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.RefActionType
+   * @generated
+   */
+  public Adapter createRefActionTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.ActionType <em>Action Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.ActionType
+   * @generated
+   */
+  public Adapter createActionTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.FR <em>FR</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -679,6 +769,21 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNFRAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.RefNFR <em>Ref NFR</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.RefNFR
+   * @generated
+   */
+  public Adapter createRefNFRAdapter()
   {
     return null;
   }

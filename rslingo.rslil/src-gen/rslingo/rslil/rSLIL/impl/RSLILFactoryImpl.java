@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
+import rslingo.rslil.rSLIL.ActionType;
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.ComposedBy;
@@ -27,15 +28,19 @@ import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILFactory;
 import rslingo.rslil.rSLIL.RSLILPackage;
+import rslingo.rslil.rSLIL.RefActionType;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGlossaryType;
 import rslingo.rslil.rSLIL.RefGoal;
+import rslingo.rslil.rSLIL.RefNFR;
 import rslingo.rslil.rSLIL.RefSystem;
 import rslingo.rslil.rSLIL.RefUC;
 import rslingo.rslil.rSLIL.Reference;
+import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
+import rslingo.rslil.rSLIL.Step;
 import rslingo.rslil.rSLIL.Term;
 import rslingo.rslil.rSLIL.TermRelation;
 import rslingo.rslil.rSLIL.UseCase;
@@ -118,8 +123,13 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
       case RSLILPackage.REF_ACTOR: return createRefActor();
       case RSLILPackage.REF_UC: return createRefUC();
       case RSLILPackage.EXTENSION_POINT: return createExtensionPoint();
+      case RSLILPackage.SCENARIO: return createScenario();
+      case RSLILPackage.STEP: return createStep();
+      case RSLILPackage.REF_ACTION_TYPE: return createRefActionType();
+      case RSLILPackage.ACTION_TYPE: return createActionType();
       case RSLILPackage.FR: return createFR();
       case RSLILPackage.NFR: return createNFR();
+      case RSLILPackage.REF_NFR: return createRefNFR();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -416,6 +426,50 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Scenario createScenario()
+  {
+    ScenarioImpl scenario = new ScenarioImpl();
+    return scenario;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Step createStep()
+  {
+    StepImpl step = new StepImpl();
+    return step;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RefActionType createRefActionType()
+  {
+    RefActionTypeImpl refActionType = new RefActionTypeImpl();
+    return refActionType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ActionType createActionType()
+  {
+    ActionTypeImpl actionType = new ActionTypeImpl();
+    return actionType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public FR createFR()
   {
     FRImpl fr = new FRImpl();
@@ -431,6 +485,17 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
   {
     NFRImpl nfr = new NFRImpl();
     return nfr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RefNFR createRefNFR()
+  {
+    RefNFRImpl refNFR = new RefNFRImpl();
+    return refNFR;
   }
 
   /**

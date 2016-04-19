@@ -2,6 +2,8 @@
  */
 package rslingo.rslil.rSLIL;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -22,6 +24,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.NFR#getValue <em>Value</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.NFR#getStakeholder <em>Stakeholder</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.NFR#getPriority <em>Priority</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.NFR#getDepends <em>Depends</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.NFR#getPartOf <em>Part Of</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getNFR()
@@ -263,5 +267,47 @@ public interface NFR extends EObject
    * @generated
    */
   void setPriority(String value);
+
+  /**
+   * Returns the value of the '<em><b>Depends</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.RefNFR}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Depends</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Depends</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getNFR_Depends()
+   * @model containment="true"
+   * @generated
+   */
+  EList<RefNFR> getDepends();
+
+  /**
+   * Returns the value of the '<em><b>Part Of</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Part Of</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Part Of</em>' reference.
+   * @see #setPartOf(NFR)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getNFR_PartOf()
+   * @model
+   * @generated
+   */
+  NFR getPartOf();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.NFR#getPartOf <em>Part Of</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Part Of</em>' reference.
+   * @see #getPartOf()
+   * @generated
+   */
+  void setPartOf(NFR value);
 
 } // NFR

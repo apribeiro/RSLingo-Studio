@@ -2,7 +2,12 @@
  */
 package rslingo.rslil.rSLIL.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -10,8 +15,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.RSLILPackage;
+import rslingo.rslil.rSLIL.RefNFR;
 import rslingo.rslil.rSLIL.Stakeholder;
 
 /**
@@ -31,6 +40,8 @@ import rslingo.rslil.rSLIL.Stakeholder;
  *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getValue <em>Value</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getStakeholder <em>Stakeholder</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getPriority <em>Priority</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getDepends <em>Depends</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getPartOf <em>Part Of</em>}</li>
  * </ul>
  *
  * @generated
@@ -206,6 +217,26 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
    * @ordered
    */
   protected String priority = PRIORITY_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getDepends() <em>Depends</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDepends()
+   * @generated
+   * @ordered
+   */
+  protected EList<RefNFR> depends;
+
+  /**
+   * The cached value of the '{@link #getPartOf() <em>Part Of</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPartOf()
+   * @generated
+   * @ordered
+   */
+  protected NFR partOf;
 
   /**
    * <!-- begin-user-doc -->
@@ -460,6 +491,79 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<RefNFR> getDepends()
+  {
+    if (depends == null)
+    {
+      depends = new EObjectContainmentEList<RefNFR>(RefNFR.class, this, RSLILPackage.NFR__DEPENDS);
+    }
+    return depends;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NFR getPartOf()
+  {
+    if (partOf != null && partOf.eIsProxy())
+    {
+      InternalEObject oldPartOf = (InternalEObject)partOf;
+      partOf = (NFR)eResolveProxy(oldPartOf);
+      if (partOf != oldPartOf)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.NFR__PART_OF, oldPartOf, partOf));
+      }
+    }
+    return partOf;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NFR basicGetPartOf()
+  {
+    return partOf;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPartOf(NFR newPartOf)
+  {
+    NFR oldPartOf = partOf;
+    partOf = newPartOf;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.NFR__PART_OF, oldPartOf, partOf));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case RSLILPackage.NFR__DEPENDS:
+        return ((InternalEList<?>)getDepends()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -484,6 +588,11 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
         return basicGetStakeholder();
       case RSLILPackage.NFR__PRIORITY:
         return getPriority();
+      case RSLILPackage.NFR__DEPENDS:
+        return getDepends();
+      case RSLILPackage.NFR__PART_OF:
+        if (resolve) return getPartOf();
+        return basicGetPartOf();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -493,6 +602,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -524,6 +634,13 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
         return;
       case RSLILPackage.NFR__PRIORITY:
         setPriority((String)newValue);
+        return;
+      case RSLILPackage.NFR__DEPENDS:
+        getDepends().clear();
+        getDepends().addAll((Collection<? extends RefNFR>)newValue);
+        return;
+      case RSLILPackage.NFR__PART_OF:
+        setPartOf((NFR)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -566,6 +683,12 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
       case RSLILPackage.NFR__PRIORITY:
         setPriority(PRIORITY_EDEFAULT);
         return;
+      case RSLILPackage.NFR__DEPENDS:
+        getDepends().clear();
+        return;
+      case RSLILPackage.NFR__PART_OF:
+        setPartOf((NFR)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -598,6 +721,10 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
         return stakeholder != null;
       case RSLILPackage.NFR__PRIORITY:
         return PRIORITY_EDEFAULT == null ? priority != null : !PRIORITY_EDEFAULT.equals(priority);
+      case RSLILPackage.NFR__DEPENDS:
+        return depends != null && !depends.isEmpty();
+      case RSLILPackage.NFR__PART_OF:
+        return partOf != null;
     }
     return super.eIsSet(featureID);
   }

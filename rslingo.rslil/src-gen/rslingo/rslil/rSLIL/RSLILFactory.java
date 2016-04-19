@@ -257,6 +257,42 @@ public interface RSLILFactory extends EFactory
   ExtensionPoint createExtensionPoint();
 
   /**
+   * Returns a new object of class '<em>Scenario</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Scenario</em>'.
+   * @generated
+   */
+  Scenario createScenario();
+
+  /**
+   * Returns a new object of class '<em>Step</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Step</em>'.
+   * @generated
+   */
+  Step createStep();
+
+  /**
+   * Returns a new object of class '<em>Ref Action Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ref Action Type</em>'.
+   * @generated
+   */
+  RefActionType createRefActionType();
+
+  /**
+   * Returns a new object of class '<em>Action Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Action Type</em>'.
+   * @generated
+   */
+  ActionType createActionType();
+
+  /**
    * Returns a new object of class '<em>FR</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -273,6 +309,15 @@ public interface RSLILFactory extends EFactory
    * @generated
    */
   NFR createNFR();
+
+  /**
+   * Returns a new object of class '<em>Ref NFR</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ref NFR</em>'.
+   * @generated
+   */
+  RefNFR createRefNFR();
 
   /**
    * Returns the package supported by this factory.

@@ -26,6 +26,7 @@ import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
 import rslingo.rslil.rSLIL.RefUC;
+import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.UseCase;
 
 /**
@@ -51,6 +52,7 @@ import rslingo.rslil.rSLIL.UseCase;
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getExtends <em>Extends</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getExtPoint <em>Ext Point</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getExtensionnPoints <em>Extensionn Points</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getScenarios <em>Scenarios</em>}</li>
  * </ul>
  *
  * @generated
@@ -276,6 +278,16 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * @ordered
    */
   protected EList<ExtensionPoint> extensionnPoints;
+
+  /**
+   * The cached value of the '{@link #getScenarios() <em>Scenarios</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getScenarios()
+   * @generated
+   * @ordered
+   */
+  protected EList<Scenario> scenarios;
 
   /**
    * <!-- begin-user-doc -->
@@ -668,6 +680,20 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Scenario> getScenarios()
+  {
+    if (scenarios == null)
+    {
+      scenarios = new EObjectContainmentEList<Scenario>(Scenario.class, this, RSLILPackage.USE_CASE__SCENARIOS);
+    }
+    return scenarios;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -683,6 +709,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return ((InternalEList<?>)getIncludes()).basicRemove(otherEnd, msgs);
       case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
         return ((InternalEList<?>)getExtensionnPoints()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.USE_CASE__SCENARIOS:
+        return ((InternalEList<?>)getScenarios()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -729,6 +757,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return basicGetExtPoint();
       case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
         return getExtensionnPoints();
+      case RSLILPackage.USE_CASE__SCENARIOS:
+        return getScenarios();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -794,6 +824,10 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         getExtensionnPoints().clear();
         getExtensionnPoints().addAll((Collection<? extends ExtensionPoint>)newValue);
         return;
+      case RSLILPackage.USE_CASE__SCENARIOS:
+        getScenarios().clear();
+        getScenarios().addAll((Collection<? extends Scenario>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -853,6 +887,9 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
         getExtensionnPoints().clear();
         return;
+      case RSLILPackage.USE_CASE__SCENARIOS:
+        getScenarios().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -897,6 +934,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return extPoint != null;
       case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
         return extensionnPoints != null && !extensionnPoints.isEmpty();
+      case RSLILPackage.USE_CASE__SCENARIOS:
+        return scenarios != null && !scenarios.isEmpty();
     }
     return super.eIsSet(featureID);
   }

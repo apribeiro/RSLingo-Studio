@@ -16,6 +16,7 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEOb
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import rslingo.rslil.rSLIL.ActionType;
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.ComposedBy;
@@ -32,15 +33,19 @@ import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
+import rslingo.rslil.rSLIL.RefActionType;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGlossaryType;
 import rslingo.rslil.rSLIL.RefGoal;
+import rslingo.rslil.rSLIL.RefNFR;
 import rslingo.rslil.rSLIL.RefSystem;
 import rslingo.rslil.rSLIL.RefUC;
 import rslingo.rslil.rSLIL.Reference;
+import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
+import rslingo.rslil.rSLIL.Step;
 import rslingo.rslil.rSLIL.Term;
 import rslingo.rslil.rSLIL.TermRelation;
 import rslingo.rslil.rSLIL.UseCase;
@@ -55,6 +60,9 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	@Override
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == RSLILPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case RSLILPackage.ACTION_TYPE:
+				sequence_ActionType(context, (ActionType) semanticObject); 
+				return; 
 			case RSLILPackage.ACTOR:
 				sequence_Actor(context, (Actor) semanticObject); 
 				return; 
@@ -100,6 +108,9 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case RSLILPackage.PROJECT:
 				sequence_Project(context, (Project) semanticObject); 
 				return; 
+			case RSLILPackage.REF_ACTION_TYPE:
+				sequence_RefActionType(context, (RefActionType) semanticObject); 
+				return; 
 			case RSLILPackage.REF_ACTOR:
 				sequence_RefActor(context, (RefActor) semanticObject); 
 				return; 
@@ -115,6 +126,9 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case RSLILPackage.REF_GOAL:
 				sequence_RefGoal(context, (RefGoal) semanticObject); 
 				return; 
+			case RSLILPackage.REF_NFR:
+				sequence_RefNFR(context, (RefNFR) semanticObject); 
+				return; 
 			case RSLILPackage.REF_SYSTEM:
 				sequence_RefSystem(context, (RefSystem) semanticObject); 
 				return; 
@@ -124,8 +138,14 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case RSLILPackage.REFERENCE:
 				sequence_Reference(context, (Reference) semanticObject); 
 				return; 
+			case RSLILPackage.SCENARIO:
+				sequence_Scenario(context, (Scenario) semanticObject); 
+				return; 
 			case RSLILPackage.STAKEHOLDER:
 				sequence_Stakeholder(context, (Stakeholder) semanticObject); 
+				return; 
+			case RSLILPackage.STEP:
+				sequence_Step(context, (Step) semanticObject); 
 				return; 
 			case RSLILPackage.SYSTEM:
 				sequence_System(context, (rslingo.rslil.rSLIL.System) semanticObject); 
@@ -142,6 +162,15 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Constraint:
+	 *     (type='ActorPrepareData' | type='ActorCallSystem' | type='SystemExecutes' | type='SystemReturnResult')
+	 */
+	protected void sequence_ActionType(EObject context, ActionType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Constraint:
@@ -245,39 +274,24 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         id=ID 
 	 *         name=STRING 
 	 *         description=STRING 
-	 *         modalityType=STRING 
-	 *         actionType=STRING 
+	 *         (modality='Obligation' | modality='Permission' | modality='Prohibition') 
+	 *         (
+	 *             actionType='EntityManage' | 
+	 *             actionType='EntityBrowse' | 
+	 *             actionType='EntitySearch' | 
+	 *             actionType='EntityCreate' | 
+	 *             actionType='EntityDelete' | 
+	 *             actionType='EntitySync' | 
+	 *             actionType='Report'
+	 *         ) 
 	 *         stakeholder=[Stakeholder|ID] 
-	 *         priority=STRING
+	 *         (priority='VeryLow' | priority='Low' | priority='Medium' | priority='High' | priority='VeryHigh') 
+	 *         depends+=RefFR? 
+	 *         partOf=[FR|ID]?
 	 *     )
 	 */
 	protected void sequence_FR(EObject context, FR semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.FR__ID) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.FR__ID));
-			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.FR__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.FR__NAME));
-			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.FR__DESCRIPTION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.FR__DESCRIPTION));
-			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.FR__MODALITY_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.FR__MODALITY_TYPE));
-			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.FR__ACTION_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.FR__ACTION_TYPE));
-			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.FR__STAKEHOLDER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.FR__STAKEHOLDER));
-			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.FR__PRIORITY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.FR__PRIORITY));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getFRAccess().getIdIDTerminalRuleCall_1_0(), semanticObject.getId());
-		feeder.accept(grammarAccess.getFRAccess().getNameSTRINGTerminalRuleCall_4_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getFRAccess().getDescriptionSTRINGTerminalRuleCall_6_0(), semanticObject.getDescription());
-		feeder.accept(grammarAccess.getFRAccess().getModalityTypeSTRINGTerminalRuleCall_8_0(), semanticObject.getModalityType());
-		feeder.accept(grammarAccess.getFRAccess().getActionTypeSTRINGTerminalRuleCall_10_0(), semanticObject.getActionType());
-		feeder.accept(grammarAccess.getFRAccess().getStakeholderStakeholderIDTerminalRuleCall_12_0_1(), semanticObject.getStakeholder());
-		feeder.accept(grammarAccess.getFRAccess().getPrioritySTRINGTerminalRuleCall_14_0(), semanticObject.getPriority());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -359,47 +373,33 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         id=ID 
 	 *         name=STRING 
 	 *         description=STRING 
-	 *         type=STRING 
-	 *         subType=STRING 
-	 *         metric=STRING 
+	 *         (
+	 *             type='Security' | 
+	 *             type='Performance' | 
+	 *             type='Usability' | 
+	 *             type='Appearance' | 
+	 *             type='Operational' | 
+	 *             type='Maintenance' | 
+	 *             type='Cultural' | 
+	 *             type='Legal'
+	 *         ) 
+	 *         (
+	 *             subType='Security.Privacy' | 
+	 *             subType='Security.Integrity' | 
+	 *             subType='Usability.EaseOfUse' | 
+	 *             subType='Usability.EaseOfLean' | 
+	 *             subType='Usability.Accessibility'
+	 *         ) 
+	 *         (metric='Hours' | metric='Mins' | metric='Secs' | metric='mSecs' | metric='Tasks') 
 	 *         value=STRING 
 	 *         stakeholder=[Stakeholder|ID] 
-	 *         priority=STRING
+	 *         (priority='VeryLow' | priority='Low' | priority='Medium' | priority='High' | priority='VeryHigh') 
+	 *         depends+=RefNFR? 
+	 *         partOf=[NFR|ID]?
 	 *     )
 	 */
 	protected void sequence_NFR(EObject context, NFR semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.NFR__ID) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.NFR__ID));
-			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.NFR__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.NFR__NAME));
-			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.NFR__DESCRIPTION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.NFR__DESCRIPTION));
-			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.NFR__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.NFR__TYPE));
-			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.NFR__SUB_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.NFR__SUB_TYPE));
-			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.NFR__METRIC) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.NFR__METRIC));
-			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.NFR__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.NFR__VALUE));
-			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.NFR__STAKEHOLDER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.NFR__STAKEHOLDER));
-			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.NFR__PRIORITY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.NFR__PRIORITY));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getNFRAccess().getIdIDTerminalRuleCall_1_0(), semanticObject.getId());
-		feeder.accept(grammarAccess.getNFRAccess().getNameSTRINGTerminalRuleCall_4_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getNFRAccess().getDescriptionSTRINGTerminalRuleCall_6_0(), semanticObject.getDescription());
-		feeder.accept(grammarAccess.getNFRAccess().getTypeSTRINGTerminalRuleCall_8_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getNFRAccess().getSubTypeSTRINGTerminalRuleCall_10_0(), semanticObject.getSubType());
-		feeder.accept(grammarAccess.getNFRAccess().getMetricSTRINGTerminalRuleCall_12_0(), semanticObject.getMetric());
-		feeder.accept(grammarAccess.getNFRAccess().getValueSTRINGTerminalRuleCall_14_0(), semanticObject.getValue());
-		feeder.accept(grammarAccess.getNFRAccess().getStakeholderStakeholderIDTerminalRuleCall_16_0_1(), semanticObject.getStakeholder());
-		feeder.accept(grammarAccess.getNFRAccess().getPrioritySTRINGTerminalRuleCall_18_0(), semanticObject.getPriority());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -408,6 +408,15 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (id=ID name=STRING description=STRING refSystem=RefSystem?)
 	 */
 	protected void sequence_Project(EObject context, Project semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (refType=ActionType refs+=ActionType*)
+	 */
+	protected void sequence_RefActionType(EObject context, RefActionType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -459,6 +468,15 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
+	 *     (refNFR=[NFR|ID] refs+=[NFR|ID]*)
+	 */
+	protected void sequence_RefNFR(EObject context, RefNFR semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (refSystem=[System|ID] refs+=[System|ID]*)
 	 */
 	protected void sequence_RefSystem(EObject context, RefSystem semanticObject) {
@@ -486,6 +504,15 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
+	 *     (id=ID description=STRING? (type='Main' | type='Alternative' | type='Exception') (mode='Sequential' | mode='Parallel') steps+=Step*)
+	 */
+	protected void sequence_Scenario(EObject context, Scenario semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
 	 *         id=ID 
 	 *         name=STRING 
@@ -496,6 +523,22 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     )
 	 */
 	protected void sequence_Stakeholder(EObject context, Stakeholder semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         id=ID 
+	 *         type=RefActionType 
+	 *         description=STRING 
+	 *         actor=[Actor|ID]? 
+	 *         preConditions=STRING? 
+	 *         postConditions=STRING?
+	 *     )
+	 */
+	protected void sequence_Step(EObject context, Step semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -551,7 +594,8 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         postConditions=STRING? 
 	 *         includes+=RefUC* 
 	 *         (extends+=[UseCase|ID] extPoint=[ExtensionPoint|ID])? 
-	 *         extensionnPoints+=ExtensionPoint*
+	 *         extensionnPoints+=ExtensionPoint* 
+	 *         scenarios+=Scenario*
 	 *     )
 	 */
 	protected void sequence_UseCase(EObject context, UseCase semanticObject) {
