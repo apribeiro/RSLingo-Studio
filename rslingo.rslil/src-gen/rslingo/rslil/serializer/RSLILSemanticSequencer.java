@@ -227,7 +227,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     ((type='PartOf' | type='SpecializedFrom') stakeholder=[Stakeholder|ID])
+	 *     ((type='PartOf' | type='SpecializedFrom') actor=[Actor|ID])
 	 */
 	protected void sequence_DependsOnActor(EObject context, DependsOnActor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -297,7 +297,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (size=INT (multiplicity='0' | multiplicity='1' | multiplicity='0..1' | multiplicity='*' | multiplicity=STRING) defaultValue=STRING)
+	 *     (size=INT (multiplicity='0' | multiplicity='1' | multiplicity='0..1' | multiplicity='*' | multiplicity=STRING) defaultValue=STRING?)
 	 */
 	protected void sequence_Field(EObject context, Field semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -517,7 +517,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         name=ID 
 	 *         nameAlias=STRING 
 	 *         (type='Group.Organization' | type='Group.BusinessUnit' | type='Group.Team' | type='Individual.Person' | type='Individual.ExternalSystem') 
-	 *         (category='Business.User.Direct' | category='System.Engine') 
+	 *         (category='Business.User.Direct' | category='Business.User.Indirect' | category='System.Engine') 
 	 *         description=STRING? 
 	 *         partOf=[Stakeholder|ID]?
 	 *     )

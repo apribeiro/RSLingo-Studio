@@ -86,6 +86,7 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEntityAccess().getGroup(), "rule__Entity__Group__0");
 					put(grammarAccess.getAttributeAccess().getGroup(), "rule__Attribute__Group__0");
 					put(grammarAccess.getFieldAccess().getGroup(), "rule__Field__Group__0");
+					put(grammarAccess.getFieldAccess().getGroup_6(), "rule__Field__Group_6__0");
 					put(grammarAccess.getReferenceAccess().getGroup(), "rule__Reference__Group__0");
 					put(grammarAccess.getRefAttributeAccess().getGroup(), "rule__RefAttribute__Group__0");
 					put(grammarAccess.getRefAttributeAccess().getGroup_1(), "rule__RefAttribute__Group_1__0");
@@ -187,7 +188,7 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAttributeAccess().getReferenceAssignment_9(), "rule__Attribute__ReferenceAssignment_9");
 					put(grammarAccess.getFieldAccess().getSizeAssignment_3(), "rule__Field__SizeAssignment_3");
 					put(grammarAccess.getFieldAccess().getMultiplicityAssignment_5(), "rule__Field__MultiplicityAssignment_5");
-					put(grammarAccess.getFieldAccess().getDefaultValueAssignment_7(), "rule__Field__DefaultValueAssignment_7");
+					put(grammarAccess.getFieldAccess().getDefaultValueAssignment_6_1(), "rule__Field__DefaultValueAssignment_6_1");
 					put(grammarAccess.getReferenceAccess().getRefToAssignment_1(), "rule__Reference__RefToAssignment_1");
 					put(grammarAccess.getReferenceAccess().getMultiplicityAssignment_3(), "rule__Reference__MultiplicityAssignment_3");
 					put(grammarAccess.getRefAttributeAccess().getRefAttrAssignment_0(), "rule__RefAttribute__RefAttrAssignment_0");
@@ -199,7 +200,7 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getActorAccess().getStakeholderAssignment_9_1(), "rule__Actor__StakeholderAssignment_9_1");
 					put(grammarAccess.getActorAccess().getDependsOnAssignment_10(), "rule__Actor__DependsOnAssignment_10");
 					put(grammarAccess.getDependsOnActorAccess().getTypeAssignment_0(), "rule__DependsOnActor__TypeAssignment_0");
-					put(grammarAccess.getDependsOnActorAccess().getStakeholderAssignment_1(), "rule__DependsOnActor__StakeholderAssignment_1");
+					put(grammarAccess.getDependsOnActorAccess().getActorAssignment_1(), "rule__DependsOnActor__ActorAssignment_1");
 					put(grammarAccess.getUseCaseAccess().getNameAssignment_1(), "rule__UseCase__NameAssignment_1");
 					put(grammarAccess.getUseCaseAccess().getNameAliasAssignment_4(), "rule__UseCase__NameAliasAssignment_4");
 					put(grammarAccess.getUseCaseAccess().getTypeAssignment_6(), "rule__UseCase__TypeAssignment_6");

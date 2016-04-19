@@ -145,6 +145,7 @@ public class AbstractRSLILProposalProvider extends org.eclipse.xtext.common.ui.c
 	public void completeStakeholder_Category(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
 		// subclasses may override
+		// subclasses may override
 	}
 	public void completeStakeholder_Description(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
@@ -282,7 +283,7 @@ public class AbstractRSLILProposalProvider extends org.eclipse.xtext.common.ui.c
 		// subclasses may override
 		// subclasses may override
 	}
-	public void completeDependsOnActor_Stakeholder(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	public void completeDependsOnActor_Actor(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		lookupCrossReference(((CrossReference)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeUseCase_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {

@@ -93,6 +93,7 @@ Attribute:
 		'Description' descrition=STRING
 		'Type' type=('Boolean'|'Integer'|'Decimal'|'Currency'|'Date'|'Time'|'Datetime'|'Enumeration'|'Text'|'Regex'|'Ref'|'Image')
 		field=Field
+		// FIXME Define how to properly represent this relation
 		(reference=Reference)?
 	'}';
 
@@ -100,7 +101,7 @@ Field:
 	'Field' '{'
 		'Size' size=INT
 		'Multiplicity' multiplicity=('0'|'1'|'0..1'|'*'|STRING)
-		'DefaultValue' defaultValue=STRING
+		('DefaultValue' defaultValue=STRING)?
 	'}';
 
 Reference:
@@ -120,7 +121,7 @@ Actor:
 	'}';
 
 DependsOnActor:
-	type=('PartOf'|'SpecializedFrom') stakeholder=[Stakeholder];
+	type=('PartOf'|'SpecializedFrom') actor=[Actor];
 
 UseCase:
 	'UseCase' name=ID '{'
@@ -135,7 +136,8 @@ UseCase:
 		('Pre-Conditions' preConditions=STRING)?
 		('Post-Conditions' postConditions=STRING)?
 		('Include' includes+=RefUC*)?
-		('Extend' extends+=[UseCase] 'using ExtensionPoint' extPoint=[ExtensionPoint])?
+		// FIXME Review this concept!
+		('Extend' extends+=[UseCase] 'using' extPoint=[ExtensionPoint])?
 		extensionnPoints+=ExtensionPoint*
 		scenarios+=Scenario*
 	'}';

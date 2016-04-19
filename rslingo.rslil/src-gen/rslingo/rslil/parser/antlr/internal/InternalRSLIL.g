@@ -1214,9 +1214,9 @@ ruleStakeholder returns [EObject current=null]
        		setWithLastConsumed($current, "category", lv_category_8_1, null);
 	    }
 
-    |		lv_category_8_2=	'System.Engine' 
+    |		lv_category_8_2=	'Business.User.Indirect' 
     {
-        newLeafNode(lv_category_8_2, grammarAccess.getStakeholderAccess().getCategorySystemEngineKeyword_8_0_1());
+        newLeafNode(lv_category_8_2, grammarAccess.getStakeholderAccess().getCategoryBusinessUserIndirectKeyword_8_0_1());
     }
  
 	    {
@@ -1224,6 +1224,18 @@ ruleStakeholder returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getStakeholderRule());
 	        }
        		setWithLastConsumed($current, "category", lv_category_8_2, null);
+	    }
+
+    |		lv_category_8_3=	'System.Engine' 
+    {
+        newLeafNode(lv_category_8_3, grammarAccess.getStakeholderAccess().getCategorySystemEngineKeyword_8_0_2());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getStakeholderRule());
+	        }
+       		setWithLastConsumed($current, "category", lv_category_8_3, null);
 	    }
 
 )
@@ -2140,15 +2152,15 @@ ruleField returns [EObject current=null]
 )
 
 )
-)	otherlv_6='DefaultValue' 
+)(	otherlv_6='DefaultValue' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getFieldAccess().getDefaultValueKeyword_6());
+    	newLeafNode(otherlv_6, grammarAccess.getFieldAccess().getDefaultValueKeyword_6_0());
     }
 (
 (
 		lv_defaultValue_7_0=RULE_STRING
 		{
-			newLeafNode(lv_defaultValue_7_0, grammarAccess.getFieldAccess().getDefaultValueSTRINGTerminalRuleCall_7_0()); 
+			newLeafNode(lv_defaultValue_7_0, grammarAccess.getFieldAccess().getDefaultValueSTRINGTerminalRuleCall_6_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2162,9 +2174,9 @@ ruleField returns [EObject current=null]
 	    }
 
 )
-)	otherlv_8='}' 
+))?	otherlv_8='}' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getFieldAccess().getRightCurlyBracketKeyword_8());
+    	newLeafNode(otherlv_8, grammarAccess.getFieldAccess().getRightCurlyBracketKeyword_7());
     }
 )
 ;
@@ -2569,7 +2581,7 @@ ruleDependsOnActor returns [EObject current=null]
         }
 	otherlv_1=RULE_ID
 	{
-		newLeafNode(otherlv_1, grammarAccess.getDependsOnActorAccess().getStakeholderStakeholderCrossReference_1_0()); 
+		newLeafNode(otherlv_1, grammarAccess.getDependsOnActorAccess().getActorActorCrossReference_1_0()); 
 	}
 
 )
@@ -2994,9 +3006,9 @@ ruleUseCase returns [EObject current=null]
 	}
 
 )
-)	otherlv_27='using ExtensionPoint' 
+)	otherlv_27='using' 
     {
-    	newLeafNode(otherlv_27, grammarAccess.getUseCaseAccess().getUsingExtensionPointKeyword_19_2());
+    	newLeafNode(otherlv_27, grammarAccess.getUseCaseAccess().getUsingKeyword_19_2());
     }
 (
 (
