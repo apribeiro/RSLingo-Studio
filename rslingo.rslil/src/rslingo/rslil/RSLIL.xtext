@@ -60,7 +60,7 @@ Stakeholder:
 	'Stakeholder' name=ID '{'
 		'Name' nameAlias=STRING
 		'Type' type=('Group.Organization'|'Group.BusinessUnit'|'Group.Team'|'Individual.Person'|'Individual.ExternalSystem')
-		'Category' category=('Business.User.Direct'|'System.Engine')
+		'Category' category=('Business.User.Direct'|'Business.User.Indirect'|'System.Engine')
 		('Description' description=STRING)?
 		('PartOf' partOf=[Stakeholder])?
 	'}';
