@@ -175,8 +175,8 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * Constraint:
 	 *     (
-	 *         id=ID 
-	 *         name=STRING 
+	 *         name=ID 
+	 *         nameAlias=STRING 
 	 *         (type='User' | type='ExternalSystem' | type='Timer') 
 	 *         description=STRING 
 	 *         stakeholder=[Stakeholder|ID]? 
@@ -245,7 +245,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (id=ID name=STRING description=STRING attributes+=Attribute+)
+	 *     (name=ID nameAlias=STRING description=STRING attributes+=Attribute+)
 	 */
 	protected void sequence_Entity(EObject context, Entity semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -271,8 +271,8 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * Constraint:
 	 *     (
-	 *         id=ID 
-	 *         name=STRING 
+	 *         name=ID 
+	 *         nameAlias=STRING 
 	 *         description=STRING 
 	 *         (modality='Obligation' | modality='Permission' | modality='Prohibition') 
 	 *         (
@@ -316,8 +316,8 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * Constraint:
 	 *     (
-	 *         id=ID 
-	 *         name=STRING 
+	 *         name=ID 
+	 *         nameAlias=STRING 
 	 *         type=RefGlossaryType 
 	 *         acronym=STRING 
 	 *         description=STRING 
@@ -334,7 +334,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * Constraint:
 	 *     (
-	 *         id=ID 
+	 *         name=ID 
 	 *         description=STRING 
 	 *         stakeholder=[Stakeholder|ID] 
 	 *         (priority='VeryLow' | priority='Low' | priority='Medium' | priority='High' | priority='VeryHigh') 
@@ -370,8 +370,8 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * Constraint:
 	 *     (
-	 *         id=ID 
-	 *         name=STRING 
+	 *         name=ID 
+	 *         nameAlias=STRING 
 	 *         description=STRING 
 	 *         (
 	 *             type='Security' | 
@@ -405,7 +405,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (id=ID name=STRING description=STRING refSystem=RefSystem?)
+	 *     (name=ID nameAlias=STRING description=STRING refSystem=RefSystem?)
 	 */
 	protected void sequence_Project(EObject context, Project semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -504,7 +504,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (id=ID description=STRING? (type='Main' | type='Alternative' | type='Exception') (mode='Sequential' | mode='Parallel') steps+=Step*)
+	 *     (name=ID description=STRING? (type='Main' | type='Alternative' | type='Exception') (mode='Sequential' | mode='Parallel') steps+=Step*)
 	 */
 	protected void sequence_Scenario(EObject context, Scenario semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -514,8 +514,8 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * Constraint:
 	 *     (
-	 *         id=ID 
-	 *         name=STRING 
+	 *         name=ID 
+	 *         nameAlias=STRING 
 	 *         (type='Group.Organization' | type='Group.BusinessUnit' | type='Group.Team' | type='Individual.Person' | type='Individual.ExternalSystem') 
 	 *         (category='Business.User.Direct' | category='System.Engine') 
 	 *         description=STRING? 
@@ -530,7 +530,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * Constraint:
 	 *     (
-	 *         id=ID 
+	 *         name=ID 
 	 *         type=RefActionType 
 	 *         description=STRING 
 	 *         actor=[Actor|ID]? 
@@ -545,7 +545,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (id=ID name=STRING description=STRING partOf=[System|ID]?)
+	 *     (name=ID nameAlias=STRING description=STRING partOf=[System|ID]?)
 	 */
 	protected void sequence_System(EObject context, rslingo.rslil.rSLIL.System semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -573,8 +573,8 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * Constraint:
 	 *     (
-	 *         id=ID 
-	 *         name=STRING 
+	 *         name=ID 
+	 *         nameAlias=STRING 
 	 *         (
 	 *             type='EntityManage' | 
 	 *             type='EntityBrowse' | 

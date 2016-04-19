@@ -119,12 +119,12 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Project");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cProjectKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cNameSTRINGTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Assignment cNameAliasAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameAliasSTRINGTerminalRuleCall_4_0 = (RuleCall)cNameAliasAssignment_4.eContents().get(0);
 		private final Keyword cDescriptionKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cDescriptionAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_0 = (RuleCall)cDescriptionAssignment_6.eContents().get(0);
@@ -135,20 +135,21 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Project:
-		//	"Project" id=ID "{" "Name" name=STRING "Description" description=STRING ("DecomposedBy" refSystem=RefSystem)? "}";
+		//	"Project" name=ID "{" "Name" nameAlias=STRING "Description" description=STRING ("DecomposedBy" refSystem=RefSystem)?
+		//	"}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Project" id=ID "{" "Name" name=STRING "Description" description=STRING ("DecomposedBy" refSystem=RefSystem)? "}"
+		//"Project" name=ID "{" "Name" nameAlias=STRING "Description" description=STRING ("DecomposedBy" refSystem=RefSystem)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Project"
 		public Keyword getProjectKeyword_0() { return cProjectKeyword_0; }
 
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -156,11 +157,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Name"
 		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
 
-		//name=STRING
-		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		//nameAlias=STRING
+		public Assignment getNameAliasAssignment_4() { return cNameAliasAssignment_4; }
 
 		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_4_0() { return cNameSTRINGTerminalRuleCall_4_0; }
+		public RuleCall getNameAliasSTRINGTerminalRuleCall_4_0() { return cNameAliasSTRINGTerminalRuleCall_4_0; }
 
 		//"Description"
 		public Keyword getDescriptionKeyword_5() { return cDescriptionKeyword_5; }
@@ -191,12 +192,12 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "System");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cSystemKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cNameSTRINGTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Assignment cNameAliasAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameAliasSTRINGTerminalRuleCall_4_0 = (RuleCall)cNameAliasAssignment_4.eContents().get(0);
 		private final Keyword cDescriptionKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cDescriptionAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_0 = (RuleCall)cDescriptionAssignment_6.eContents().get(0);
@@ -208,20 +209,20 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//System:
-		//	"System" id=ID "{" "Name" name=STRING "Description" description=STRING ("PartOf" partOf=[System])? "}";
+		//	"System" name=ID "{" "Name" nameAlias=STRING "Description" description=STRING ("PartOf" partOf=[System])? "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"System" id=ID "{" "Name" name=STRING "Description" description=STRING ("PartOf" partOf=[System])? "}"
+		//"System" name=ID "{" "Name" nameAlias=STRING "Description" description=STRING ("PartOf" partOf=[System])? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"System"
 		public Keyword getSystemKeyword_0() { return cSystemKeyword_0; }
 
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -229,11 +230,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Name"
 		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
 
-		//name=STRING
-		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		//nameAlias=STRING
+		public Assignment getNameAliasAssignment_4() { return cNameAliasAssignment_4; }
 
 		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_4_0() { return cNameSTRINGTerminalRuleCall_4_0; }
+		public RuleCall getNameAliasSTRINGTerminalRuleCall_4_0() { return cNameAliasSTRINGTerminalRuleCall_4_0; }
 
 		//"Description"
 		public Keyword getDescriptionKeyword_5() { return cDescriptionKeyword_5; }
@@ -311,12 +312,12 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Glossary");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cGlossaryKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cNameSTRINGTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Assignment cNameAliasAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameAliasSTRINGTerminalRuleCall_4_0 = (RuleCall)cNameAliasAssignment_4.eContents().get(0);
 		private final Keyword cTypeKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cTypeRefGlossaryTypeParserRuleCall_6_0 = (RuleCall)cTypeAssignment_6.eContents().get(0);
@@ -343,12 +344,12 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_14 = (Keyword)cGroup.eContents().get(14);
 		
 		//Glossary:
-		//	"Glossary" id=ID "{" "Name" name=STRING "Type" type=RefGlossaryType "Acronym" acronym=STRING "Description"
+		//	"Glossary" name=ID "{" "Name" nameAlias=STRING "Type" type=RefGlossaryType "Acronym" acronym=STRING "Description"
 		//	description=STRING ("POS" pos=("Adjective" | "Adverb" | "Noun" | "Verb"))? ("Synset" synset=STRING)?
 		//	termRelation+=TermRelation* "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Glossary" id=ID "{" "Name" name=STRING "Type" type=RefGlossaryType "Acronym" acronym=STRING "Description"
+		//"Glossary" name=ID "{" "Name" nameAlias=STRING "Type" type=RefGlossaryType "Acronym" acronym=STRING "Description"
 		//description=STRING ("POS" pos=("Adjective" | "Adverb" | "Noun" | "Verb"))? ("Synset" synset=STRING)?
 		//termRelation+=TermRelation* "}"
 		public Group getGroup() { return cGroup; }
@@ -356,11 +357,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Glossary"
 		public Keyword getGlossaryKeyword_0() { return cGlossaryKeyword_0; }
 
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -368,11 +369,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Name"
 		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
 
-		//name=STRING
-		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		//nameAlias=STRING
+		public Assignment getNameAliasAssignment_4() { return cNameAliasAssignment_4; }
 
 		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_4_0() { return cNameSTRINGTerminalRuleCall_4_0; }
+		public RuleCall getNameAliasSTRINGTerminalRuleCall_4_0() { return cNameAliasSTRINGTerminalRuleCall_4_0; }
 
 		//"Type"
 		public Keyword getTypeKeyword_5() { return cTypeKeyword_5; }
@@ -599,12 +600,12 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Stakeholder");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cStakeholderKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cNameSTRINGTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Assignment cNameAliasAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameAliasSTRINGTerminalRuleCall_4_0 = (RuleCall)cNameAliasAssignment_4.eContents().get(0);
 		private final Keyword cTypeKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final Alternatives cTypeAlternatives_6_0 = (Alternatives)cTypeAssignment_6.eContents().get(0);
@@ -630,24 +631,24 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		//Stakeholder:
-		//	"Stakeholder" id=ID "{" "Name" name=STRING "Type" type=("Group.Organization" | "Group.BusinessUnit" | "Group.Team" |
-		//	"Individual.Person" | "Individual.ExternalSystem") "Category" category=("Business.User.Direct" | "System.Engine")
-		//	("Description" description=STRING)? ("PartOf" partOf=[Stakeholder])? "}";
+		//	"Stakeholder" name=ID "{" "Name" nameAlias=STRING "Type" type=("Group.Organization" | "Group.BusinessUnit" |
+		//	"Group.Team" | "Individual.Person" | "Individual.ExternalSystem") "Category" category=("Business.User.Direct" |
+		//	"System.Engine") ("Description" description=STRING)? ("PartOf" partOf=[Stakeholder])? "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Stakeholder" id=ID "{" "Name" name=STRING "Type" type=("Group.Organization" | "Group.BusinessUnit" | "Group.Team" |
-		//"Individual.Person" | "Individual.ExternalSystem") "Category" category=("Business.User.Direct" | "System.Engine")
-		//("Description" description=STRING)? ("PartOf" partOf=[Stakeholder])? "}"
+		//"Stakeholder" name=ID "{" "Name" nameAlias=STRING "Type" type=("Group.Organization" | "Group.BusinessUnit" |
+		//"Group.Team" | "Individual.Person" | "Individual.ExternalSystem") "Category" category=("Business.User.Direct" |
+		//"System.Engine") ("Description" description=STRING)? ("PartOf" partOf=[Stakeholder])? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Stakeholder"
 		public Keyword getStakeholderKeyword_0() { return cStakeholderKeyword_0; }
 
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -655,11 +656,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Name"
 		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
 
-		//name=STRING
-		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		//nameAlias=STRING
+		public Assignment getNameAliasAssignment_4() { return cNameAliasAssignment_4; }
 
 		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_4_0() { return cNameSTRINGTerminalRuleCall_4_0; }
+		public RuleCall getNameAliasSTRINGTerminalRuleCall_4_0() { return cNameAliasSTRINGTerminalRuleCall_4_0; }
 
 		//"Type"
 		public Keyword getTypeKeyword_5() { return cTypeKeyword_5; }
@@ -735,8 +736,8 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Goal");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cGoalKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cDescriptionKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
@@ -760,22 +761,22 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		//Goal:
-		//	"Goal" id=ID "{" "Description" description=STRING "Stakeholder" stakeholder=[Stakeholder] "Priority"
+		//	"Goal" name=ID "{" "Description" description=STRING "Stakeholder" stakeholder=[Stakeholder] "Priority"
 		//	priority=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh") dependsOn+=DependsOnGoal* composedBy+=ComposedBy* "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Goal" id=ID "{" "Description" description=STRING "Stakeholder" stakeholder=[Stakeholder] "Priority" priority=("VeryLow"
-		//| "Low" | "Medium" | "High" | "VeryHigh") dependsOn+=DependsOnGoal* composedBy+=ComposedBy* "}"
+		//"Goal" name=ID "{" "Description" description=STRING "Stakeholder" stakeholder=[Stakeholder] "Priority"
+		//priority=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh") dependsOn+=DependsOnGoal* composedBy+=ComposedBy* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Goal"
 		public Keyword getGoalKeyword_0() { return cGoalKeyword_0; }
 
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -941,12 +942,12 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Entity");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cEntityKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cNameSTRINGTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Assignment cNameAliasAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameAliasSTRINGTerminalRuleCall_4_0 = (RuleCall)cNameAliasAssignment_4.eContents().get(0);
 		private final Keyword cDescriptionKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cDescriptionAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_0 = (RuleCall)cDescriptionAssignment_6.eContents().get(0);
@@ -955,20 +956,20 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Entity:
-		//	"Entity" id=ID "{" "Name" name=STRING "Description" description=STRING attributes+=Attribute+ "}";
+		//	"Entity" name=ID "{" "Name" nameAlias=STRING "Description" description=STRING attributes+=Attribute+ "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Entity" id=ID "{" "Name" name=STRING "Description" description=STRING attributes+=Attribute+ "}"
+		//"Entity" name=ID "{" "Name" nameAlias=STRING "Description" description=STRING attributes+=Attribute+ "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Entity"
 		public Keyword getEntityKeyword_0() { return cEntityKeyword_0; }
 
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -976,11 +977,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Name"
 		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
 
-		//name=STRING
-		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		//nameAlias=STRING
+		public Assignment getNameAliasAssignment_4() { return cNameAliasAssignment_4; }
 
 		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_4_0() { return cNameSTRINGTerminalRuleCall_4_0; }
+		public RuleCall getNameAliasSTRINGTerminalRuleCall_4_0() { return cNameAliasSTRINGTerminalRuleCall_4_0; }
 
 		//"Description"
 		public Keyword getDescriptionKeyword_5() { return cDescriptionKeyword_5; }
@@ -1317,12 +1318,12 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Actor");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cActorKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cNameSTRINGTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Assignment cNameAliasAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameAliasSTRINGTerminalRuleCall_4_0 = (RuleCall)cNameAliasAssignment_4.eContents().get(0);
 		private final Keyword cTypeKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final Alternatives cTypeAlternatives_6_0 = (Alternatives)cTypeAssignment_6.eContents().get(0);
@@ -1342,24 +1343,24 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		//Actor:
-		//	"Actor" id=ID "{" "Name" name=STRING "Type" type=("User" | "ExternalSystem" | "Timer") "Description"
+		//	"Actor" name=ID "{" "Name" nameAlias=STRING "Type" type=("User" | "ExternalSystem" | "Timer") "Description"
 		//	description=STRING ("Stakeholder" stakeholder=[Stakeholder])? // FIXME PartOf and SpecializedFrom?
 		//	dependsOn=DependsOnActor? "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Actor" id=ID "{" "Name" name=STRING "Type" type=("User" | "ExternalSystem" | "Timer") "Description" description=STRING
-		//("Stakeholder" stakeholder=[Stakeholder])? // FIXME PartOf and SpecializedFrom?
+		//"Actor" name=ID "{" "Name" nameAlias=STRING "Type" type=("User" | "ExternalSystem" | "Timer") "Description"
+		//description=STRING ("Stakeholder" stakeholder=[Stakeholder])? // FIXME PartOf and SpecializedFrom?
 		//dependsOn=DependsOnActor? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Actor"
 		public Keyword getActorKeyword_0() { return cActorKeyword_0; }
 
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -1367,11 +1368,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Name"
 		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
 
-		//name=STRING
-		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		//nameAlias=STRING
+		public Assignment getNameAliasAssignment_4() { return cNameAliasAssignment_4; }
 
 		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_4_0() { return cNameSTRINGTerminalRuleCall_4_0; }
+		public RuleCall getNameAliasSTRINGTerminalRuleCall_4_0() { return cNameAliasSTRINGTerminalRuleCall_4_0; }
 
 		//"Type"
 		public Keyword getTypeKeyword_5() { return cTypeKeyword_5; }
@@ -1469,12 +1470,12 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UseCase");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cUseCaseKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cNameSTRINGTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Assignment cNameAliasAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameAliasSTRINGTerminalRuleCall_4_0 = (RuleCall)cNameAliasAssignment_4.eContents().get(0);
 		private final Keyword cTypeKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final Alternatives cTypeAlternatives_6_0 = (Alternatives)cTypeAssignment_6.eContents().get(0);
@@ -1540,30 +1541,32 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_22 = (Keyword)cGroup.eContents().get(22);
 		
 		//UseCase:
-		//	"UseCase" id=ID "{" "Name" name=STRING "Type" type=("EntityManage" | "EntityBrowse" | "EntitySearch" | "EntityCreate"
-		//	| "EntityDelete" | "EntitySync" | "Report") "Description" description=STRING "Priority" priotity=("VeryLow" | "Low" |
-		//	"Medium" | "High" | "VeryHigh") ("Goals" goals+=RefGoal*)? ("FunctionalRequirements" frs+=RefFR*)? "ActorInitiates"
-		//	actorInitiates=[Actor] ("ActorParticipates" actors=RefActor)? ("Pre-Conditions" preConditions=STRING)?
-		//	("Post-Conditions" postConditions=STRING)? ("Include" includes+=RefUC*)? ("Extend" extends+=[UseCase]
-		//	"using ExtensionPoint" extPoint=[ExtensionPoint])? extensionnPoints+=ExtensionPoint* scenarios+=Scenario* "}";
+		//	"UseCase" name=ID "{" "Name" nameAlias=STRING "Type" type=("EntityManage" | "EntityBrowse" | "EntitySearch" |
+		//	"EntityCreate" | "EntityDelete" | "EntitySync" | "Report") "Description" description=STRING "Priority"
+		//	priotity=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh") ("Goals" goals+=RefGoal*)? ("FunctionalRequirements"
+		//	frs+=RefFR*)? "ActorInitiates" actorInitiates=[Actor] ("ActorParticipates" actors=RefActor)? ("Pre-Conditions"
+		//	preConditions=STRING)? ("Post-Conditions" postConditions=STRING)? ("Include" includes+=RefUC*)? ("Extend"
+		//	extends+=[UseCase] "using ExtensionPoint" extPoint=[ExtensionPoint])? extensionnPoints+=ExtensionPoint*
+		//	scenarios+=Scenario* "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"UseCase" id=ID "{" "Name" name=STRING "Type" type=("EntityManage" | "EntityBrowse" | "EntitySearch" | "EntityCreate" |
-		//"EntityDelete" | "EntitySync" | "Report") "Description" description=STRING "Priority" priotity=("VeryLow" | "Low" |
-		//"Medium" | "High" | "VeryHigh") ("Goals" goals+=RefGoal*)? ("FunctionalRequirements" frs+=RefFR*)? "ActorInitiates"
-		//actorInitiates=[Actor] ("ActorParticipates" actors=RefActor)? ("Pre-Conditions" preConditions=STRING)?
-		//("Post-Conditions" postConditions=STRING)? ("Include" includes+=RefUC*)? ("Extend" extends+=[UseCase]
-		//"using ExtensionPoint" extPoint=[ExtensionPoint])? extensionnPoints+=ExtensionPoint* scenarios+=Scenario* "}"
+		//"UseCase" name=ID "{" "Name" nameAlias=STRING "Type" type=("EntityManage" | "EntityBrowse" | "EntitySearch" |
+		//"EntityCreate" | "EntityDelete" | "EntitySync" | "Report") "Description" description=STRING "Priority"
+		//priotity=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh") ("Goals" goals+=RefGoal*)? ("FunctionalRequirements"
+		//frs+=RefFR*)? "ActorInitiates" actorInitiates=[Actor] ("ActorParticipates" actors=RefActor)? ("Pre-Conditions"
+		//preConditions=STRING)? ("Post-Conditions" postConditions=STRING)? ("Include" includes+=RefUC*)? ("Extend"
+		//extends+=[UseCase] "using ExtensionPoint" extPoint=[ExtensionPoint])? extensionnPoints+=ExtensionPoint*
+		//scenarios+=Scenario* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"UseCase"
 		public Keyword getUseCaseKeyword_0() { return cUseCaseKeyword_0; }
 
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -1571,11 +1574,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Name"
 		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
 
-		//name=STRING
-		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		//nameAlias=STRING
+		public Assignment getNameAliasAssignment_4() { return cNameAliasAssignment_4; }
 
 		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_4_0() { return cNameSTRINGTerminalRuleCall_4_0; }
+		public RuleCall getNameAliasSTRINGTerminalRuleCall_4_0() { return cNameAliasSTRINGTerminalRuleCall_4_0; }
 
 		//"Type"
 		public Keyword getTypeKeyword_5() { return cTypeKeyword_5; }
@@ -1967,8 +1970,8 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Scenario");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cScenarioKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cDescriptionKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
@@ -1990,22 +1993,22 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Scenario:
-		//	"Scenario" id=ID "{" ("Description" description=STRING)? "Type" type=("Main" | "Alternative" | "Exception") "Mode"
+		//	"Scenario" name=ID "{" ("Description" description=STRING)? "Type" type=("Main" | "Alternative" | "Exception") "Mode"
 		//	mode=("Sequential" | "Parallel") steps+=Step* "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Scenario" id=ID "{" ("Description" description=STRING)? "Type" type=("Main" | "Alternative" | "Exception") "Mode"
+		//"Scenario" name=ID "{" ("Description" description=STRING)? "Type" type=("Main" | "Alternative" | "Exception") "Mode"
 		//mode=("Sequential" | "Parallel") steps+=Step* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Scenario"
 		public Keyword getScenarioKeyword_0() { return cScenarioKeyword_0; }
 
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -2069,8 +2072,8 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Step");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cStepKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cActionTypeKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
@@ -2094,22 +2097,22 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//Step:
-		//	"Step" id=ID "{" "ActionType" type=RefActionType "Description" description=STRING ("Actor" actor=[Actor])?
+		//	"Step" name=ID "{" "ActionType" type=RefActionType "Description" description=STRING ("Actor" actor=[Actor])?
 		//	("Pre-Conditions" preConditions=STRING)? ("Post-Conditions" postConditions=STRING)? "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Step" id=ID "{" "ActionType" type=RefActionType "Description" description=STRING ("Actor" actor=[Actor])?
+		//"Step" name=ID "{" "ActionType" type=RefActionType "Description" description=STRING ("Actor" actor=[Actor])?
 		//("Pre-Conditions" preConditions=STRING)? ("Post-Conditions" postConditions=STRING)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Step"
 		public Keyword getStepKeyword_0() { return cStepKeyword_0; }
 
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -2247,12 +2250,12 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FR");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cFunctionalRequirementKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cNameSTRINGTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Assignment cNameAliasAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameAliasSTRINGTerminalRuleCall_4_0 = (RuleCall)cNameAliasAssignment_4.eContents().get(0);
 		private final Keyword cDescriptionKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cDescriptionAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_0 = (RuleCall)cDescriptionAssignment_6.eContents().get(0);
@@ -2296,28 +2299,28 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_17 = (Keyword)cGroup.eContents().get(17);
 		
 		//FR:
-		//	"FunctionalRequirement" id=ID "{" "Name" name=STRING "Description" description=STRING "Modality"
+		//	"FunctionalRequirement" name=ID "{" "Name" nameAlias=STRING "Description" description=STRING "Modality"
 		//	modality=("Obligation" | "Permission" | "Prohibition") "ActionType" actionType=("EntityManage" | "EntityBrowse" |
 		//	"EntitySearch" | "EntityCreate" | "EntityDelete" | "EntitySync" | "Report") "Stakeholder" stakeholder=[Stakeholder]
 		//	"Priority" priority=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh") // FIXME Depends 1 or *?
 		//	("Depends" depends+=RefFR)? ("PartOf" partOf=[FR])? "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"FunctionalRequirement" id=ID "{" "Name" name=STRING "Description" description=STRING "Modality" modality=("Obligation"
-		//| "Permission" | "Prohibition") "ActionType" actionType=("EntityManage" | "EntityBrowse" | "EntitySearch" |
-		//"EntityCreate" | "EntityDelete" | "EntitySync" | "Report") "Stakeholder" stakeholder=[Stakeholder] "Priority"
-		//priority=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh") // FIXME Depends 1 or *?
+		//"FunctionalRequirement" name=ID "{" "Name" nameAlias=STRING "Description" description=STRING "Modality"
+		//modality=("Obligation" | "Permission" | "Prohibition") "ActionType" actionType=("EntityManage" | "EntityBrowse" |
+		//"EntitySearch" | "EntityCreate" | "EntityDelete" | "EntitySync" | "Report") "Stakeholder" stakeholder=[Stakeholder]
+		//"Priority" priority=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh") // FIXME Depends 1 or *?
 		//("Depends" depends+=RefFR)? ("PartOf" partOf=[FR])? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"FunctionalRequirement"
 		public Keyword getFunctionalRequirementKeyword_0() { return cFunctionalRequirementKeyword_0; }
 
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -2325,11 +2328,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Name"
 		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
 
-		//name=STRING
-		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		//nameAlias=STRING
+		public Assignment getNameAliasAssignment_4() { return cNameAliasAssignment_4; }
 
 		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_4_0() { return cNameSTRINGTerminalRuleCall_4_0; }
+		public RuleCall getNameAliasSTRINGTerminalRuleCall_4_0() { return cNameAliasSTRINGTerminalRuleCall_4_0; }
 
 		//"Description"
 		public Keyword getDescriptionKeyword_5() { return cDescriptionKeyword_5; }
@@ -2460,12 +2463,12 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "NFR");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cNonFunctionalRequirementKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cIdAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cNameAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cNameSTRINGTerminalRuleCall_4_0 = (RuleCall)cNameAssignment_4.eContents().get(0);
+		private final Assignment cNameAliasAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cNameAliasSTRINGTerminalRuleCall_4_0 = (RuleCall)cNameAliasAssignment_4.eContents().get(0);
 		private final Keyword cDescriptionKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cDescriptionAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_0 = (RuleCall)cDescriptionAssignment_6.eContents().get(0);
@@ -2523,16 +2526,16 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_21 = (Keyword)cGroup.eContents().get(21);
 		
 		//NFR:
-		//	"Non-FunctionalRequirement" id=ID "{" "Name" name=STRING "Description" description=STRING "Type" type=("Security" |
-		//	"Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal") "Sub-Type"
-		//	subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLean" |
+		//	"Non-FunctionalRequirement" name=ID "{" "Name" nameAlias=STRING "Description" description=STRING "Type"
+		//	type=("Security" | "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal")
+		//	"Sub-Type" subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLean" |
 		//	"Usability.Accessibility") "Metric" metric=("Hours" | "Mins" | "Secs" | "mSecs" | "Tasks") "Value" value=STRING
 		//	"Stakeholder" stakeholder=[Stakeholder] "Priority" priority=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh")
 		//	("Depends" depends+=RefNFR)? ("PartOf" partOf=[NFR])? "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Non-FunctionalRequirement" id=ID "{" "Name" name=STRING "Description" description=STRING "Type" type=("Security" |
-		//"Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal") "Sub-Type"
+		//"Non-FunctionalRequirement" name=ID "{" "Name" nameAlias=STRING "Description" description=STRING "Type" type=("Security"
+		//| "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal") "Sub-Type"
 		//subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLean" |
 		//"Usability.Accessibility") "Metric" metric=("Hours" | "Mins" | "Secs" | "mSecs" | "Tasks") "Value" value=STRING
 		//"Stakeholder" stakeholder=[Stakeholder] "Priority" priority=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh")
@@ -2542,11 +2545,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Non-FunctionalRequirement"
 		public Keyword getNonFunctionalRequirementKeyword_0() { return cNonFunctionalRequirementKeyword_0; }
 
-		//id=ID
-		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_1_0() { return cIdIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -2554,11 +2557,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Name"
 		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
 
-		//name=STRING
-		public Assignment getNameAssignment_4() { return cNameAssignment_4; }
+		//nameAlias=STRING
+		public Assignment getNameAliasAssignment_4() { return cNameAliasAssignment_4; }
 
 		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_4_0() { return cNameSTRINGTerminalRuleCall_4_0; }
+		public RuleCall getNameAliasSTRINGTerminalRuleCall_4_0() { return cNameAliasSTRINGTerminalRuleCall_4_0; }
 
 		//"Description"
 		public Keyword getDescriptionKeyword_5() { return cDescriptionKeyword_5; }
@@ -2889,7 +2892,8 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Project:
-	//	"Project" id=ID "{" "Name" name=STRING "Description" description=STRING ("DecomposedBy" refSystem=RefSystem)? "}";
+	//	"Project" name=ID "{" "Name" nameAlias=STRING "Description" description=STRING ("DecomposedBy" refSystem=RefSystem)?
+	//	"}";
 	public ProjectElements getProjectAccess() {
 		return pProject;
 	}
@@ -2899,7 +2903,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//System:
-	//	"System" id=ID "{" "Name" name=STRING "Description" description=STRING ("PartOf" partOf=[System])? "}";
+	//	"System" name=ID "{" "Name" nameAlias=STRING "Description" description=STRING ("PartOf" partOf=[System])? "}";
 	public SystemElements getSystemAccess() {
 		return pSystem;
 	}
@@ -2919,7 +2923,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Glossary:
-	//	"Glossary" id=ID "{" "Name" name=STRING "Type" type=RefGlossaryType "Acronym" acronym=STRING "Description"
+	//	"Glossary" name=ID "{" "Name" nameAlias=STRING "Type" type=RefGlossaryType "Acronym" acronym=STRING "Description"
 	//	description=STRING ("POS" pos=("Adjective" | "Adverb" | "Noun" | "Verb"))? ("Synset" synset=STRING)?
 	//	termRelation+=TermRelation* "}";
 	public GlossaryElements getGlossaryAccess() {
@@ -2971,9 +2975,9 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Stakeholder:
-	//	"Stakeholder" id=ID "{" "Name" name=STRING "Type" type=("Group.Organization" | "Group.BusinessUnit" | "Group.Team" |
-	//	"Individual.Person" | "Individual.ExternalSystem") "Category" category=("Business.User.Direct" | "System.Engine")
-	//	("Description" description=STRING)? ("PartOf" partOf=[Stakeholder])? "}";
+	//	"Stakeholder" name=ID "{" "Name" nameAlias=STRING "Type" type=("Group.Organization" | "Group.BusinessUnit" |
+	//	"Group.Team" | "Individual.Person" | "Individual.ExternalSystem") "Category" category=("Business.User.Direct" |
+	//	"System.Engine") ("Description" description=STRING)? ("PartOf" partOf=[Stakeholder])? "}";
 	public StakeholderElements getStakeholderAccess() {
 		return pStakeholder;
 	}
@@ -2983,7 +2987,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Goal:
-	//	"Goal" id=ID "{" "Description" description=STRING "Stakeholder" stakeholder=[Stakeholder] "Priority"
+	//	"Goal" name=ID "{" "Description" description=STRING "Stakeholder" stakeholder=[Stakeholder] "Priority"
 	//	priority=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh") dependsOn+=DependsOnGoal* composedBy+=ComposedBy* "}";
 	public GoalElements getGoalAccess() {
 		return pGoal;
@@ -3014,7 +3018,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Entity:
-	//	"Entity" id=ID "{" "Name" name=STRING "Description" description=STRING attributes+=Attribute+ "}";
+	//	"Entity" name=ID "{" "Name" nameAlias=STRING "Description" description=STRING attributes+=Attribute+ "}";
 	public EntityElements getEntityAccess() {
 		return pEntity;
 	}
@@ -3067,7 +3071,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Actor:
-	//	"Actor" id=ID "{" "Name" name=STRING "Type" type=("User" | "ExternalSystem" | "Timer") "Description"
+	//	"Actor" name=ID "{" "Name" nameAlias=STRING "Type" type=("User" | "ExternalSystem" | "Timer") "Description"
 	//	description=STRING ("Stakeholder" stakeholder=[Stakeholder])? // FIXME PartOf and SpecializedFrom?
 	//	dependsOn=DependsOnActor? "}";
 	public ActorElements getActorAccess() {
@@ -3089,12 +3093,13 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UseCase:
-	//	"UseCase" id=ID "{" "Name" name=STRING "Type" type=("EntityManage" | "EntityBrowse" | "EntitySearch" | "EntityCreate"
-	//	| "EntityDelete" | "EntitySync" | "Report") "Description" description=STRING "Priority" priotity=("VeryLow" | "Low" |
-	//	"Medium" | "High" | "VeryHigh") ("Goals" goals+=RefGoal*)? ("FunctionalRequirements" frs+=RefFR*)? "ActorInitiates"
-	//	actorInitiates=[Actor] ("ActorParticipates" actors=RefActor)? ("Pre-Conditions" preConditions=STRING)?
-	//	("Post-Conditions" postConditions=STRING)? ("Include" includes+=RefUC*)? ("Extend" extends+=[UseCase]
-	//	"using ExtensionPoint" extPoint=[ExtensionPoint])? extensionnPoints+=ExtensionPoint* scenarios+=Scenario* "}";
+	//	"UseCase" name=ID "{" "Name" nameAlias=STRING "Type" type=("EntityManage" | "EntityBrowse" | "EntitySearch" |
+	//	"EntityCreate" | "EntityDelete" | "EntitySync" | "Report") "Description" description=STRING "Priority"
+	//	priotity=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh") ("Goals" goals+=RefGoal*)? ("FunctionalRequirements"
+	//	frs+=RefFR*)? "ActorInitiates" actorInitiates=[Actor] ("ActorParticipates" actors=RefActor)? ("Pre-Conditions"
+	//	preConditions=STRING)? ("Post-Conditions" postConditions=STRING)? ("Include" includes+=RefUC*)? ("Extend"
+	//	extends+=[UseCase] "using ExtensionPoint" extPoint=[ExtensionPoint])? extensionnPoints+=ExtensionPoint*
+	//	scenarios+=Scenario* "}";
 	public UseCaseElements getUseCaseAccess() {
 		return pUseCase;
 	}
@@ -3154,7 +3159,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Scenario:
-	//	"Scenario" id=ID "{" ("Description" description=STRING)? "Type" type=("Main" | "Alternative" | "Exception") "Mode"
+	//	"Scenario" name=ID "{" ("Description" description=STRING)? "Type" type=("Main" | "Alternative" | "Exception") "Mode"
 	//	mode=("Sequential" | "Parallel") steps+=Step* "}";
 	public ScenarioElements getScenarioAccess() {
 		return pScenario;
@@ -3165,7 +3170,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Step:
-	//	"Step" id=ID "{" "ActionType" type=RefActionType "Description" description=STRING ("Actor" actor=[Actor])?
+	//	"Step" name=ID "{" "ActionType" type=RefActionType "Description" description=STRING ("Actor" actor=[Actor])?
 	//	("Pre-Conditions" preConditions=STRING)? ("Post-Conditions" postConditions=STRING)? "}";
 	public StepElements getStepAccess() {
 		return pStep;
@@ -3196,7 +3201,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//FR:
-	//	"FunctionalRequirement" id=ID "{" "Name" name=STRING "Description" description=STRING "Modality"
+	//	"FunctionalRequirement" name=ID "{" "Name" nameAlias=STRING "Description" description=STRING "Modality"
 	//	modality=("Obligation" | "Permission" | "Prohibition") "ActionType" actionType=("EntityManage" | "EntityBrowse" |
 	//	"EntitySearch" | "EntityCreate" | "EntityDelete" | "EntitySync" | "Report") "Stakeholder" stakeholder=[Stakeholder]
 	//	"Priority" priority=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh") // FIXME Depends 1 or *?
@@ -3210,9 +3215,9 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//NFR:
-	//	"Non-FunctionalRequirement" id=ID "{" "Name" name=STRING "Description" description=STRING "Type" type=("Security" |
-	//	"Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal") "Sub-Type"
-	//	subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLean" |
+	//	"Non-FunctionalRequirement" name=ID "{" "Name" nameAlias=STRING "Description" description=STRING "Type"
+	//	type=("Security" | "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal")
+	//	"Sub-Type" subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLean" |
 	//	"Usability.Accessibility") "Metric" metric=("Hours" | "Mins" | "Secs" | "mSecs" | "Tasks") "Value" value=STRING
 	//	"Stakeholder" stakeholder=[Stakeholder] "Priority" priority=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh")
 	//	("Depends" depends+=RefNFR)? ("PartOf" partOf=[NFR])? "}";

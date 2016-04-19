@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.Glossary#getId <em>Id</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Glossary#getName <em>Name</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Glossary#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Glossary#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Glossary#getAcronym <em>Acronym</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Glossary#getDescription <em>Description</em>}</li>
@@ -31,32 +31,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Glossary extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Id</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Id</em>' attribute.
-   * @see #setId(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossary_Id()
-   * @model
-   * @generated
-   */
-  String getId();
-
-  /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Glossary#getId <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Id</em>' attribute.
-   * @see #getId()
-   * @generated
-   */
-  void setId(String value);
-
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -82,6 +56,32 @@ public interface Glossary extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Name Alias</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name Alias</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name Alias</em>' attribute.
+   * @see #setNameAlias(String)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossary_NameAlias()
+   * @model
+   * @generated
+   */
+  String getNameAlias();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Glossary#getNameAlias <em>Name Alias</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name Alias</em>' attribute.
+   * @see #getNameAlias()
+   * @generated
+   */
+  void setNameAlias(String value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.

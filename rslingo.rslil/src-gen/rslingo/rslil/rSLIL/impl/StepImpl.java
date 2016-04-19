@@ -24,7 +24,7 @@ import rslingo.rslil.rSLIL.Step;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.impl.StepImpl#getId <em>Id</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.StepImpl#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StepImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StepImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StepImpl#getActor <em>Actor</em>}</li>
@@ -37,24 +37,24 @@ import rslingo.rslil.rSLIL.Step;
 public class StepImpl extends MinimalEObjectImpl.Container implements Step
 {
   /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String ID_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String id = ID_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -162,9 +162,9 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getId()
+  public String getName()
   {
-    return id;
+    return name;
   }
 
   /**
@@ -172,12 +172,12 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setId(String newId)
+  public void setName(String newName)
   {
-    String oldId = id;
-    id = newId;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.STEP__ID, oldId, id));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.STEP__NAME, oldName, name));
   }
 
   /**
@@ -366,8 +366,8 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
   {
     switch (featureID)
     {
-      case RSLILPackage.STEP__ID:
-        return getId();
+      case RSLILPackage.STEP__NAME:
+        return getName();
       case RSLILPackage.STEP__TYPE:
         return getType();
       case RSLILPackage.STEP__DESCRIPTION:
@@ -393,8 +393,8 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
   {
     switch (featureID)
     {
-      case RSLILPackage.STEP__ID:
-        setId((String)newValue);
+      case RSLILPackage.STEP__NAME:
+        setName((String)newValue);
         return;
       case RSLILPackage.STEP__TYPE:
         setType((RefActionType)newValue);
@@ -425,8 +425,8 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
   {
     switch (featureID)
     {
-      case RSLILPackage.STEP__ID:
-        setId(ID_EDEFAULT);
+      case RSLILPackage.STEP__NAME:
+        setName(NAME_EDEFAULT);
         return;
       case RSLILPackage.STEP__TYPE:
         setType((RefActionType)null);
@@ -457,8 +457,8 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
   {
     switch (featureID)
     {
-      case RSLILPackage.STEP__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+      case RSLILPackage.STEP__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RSLILPackage.STEP__TYPE:
         return type != null;
       case RSLILPackage.STEP__DESCRIPTION:
@@ -484,8 +484,8 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
+    result.append(" (name: ");
+    result.append(name);
     result.append(", description: ");
     result.append(description);
     result.append(", preConditions: ");

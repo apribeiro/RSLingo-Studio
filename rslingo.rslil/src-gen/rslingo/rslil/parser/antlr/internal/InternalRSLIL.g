@@ -284,9 +284,9 @@ ruleProject returns [EObject current=null]
     }
 (
 (
-		lv_id_1_0=RULE_ID
+		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getProjectAccess().getIdIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getProjectAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -294,8 +294,8 @@ ruleProject returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"name",
+        		lv_name_1_0, 
         		"ID");
 	    }
 
@@ -310,9 +310,9 @@ ruleProject returns [EObject current=null]
     }
 (
 (
-		lv_name_4_0=RULE_STRING
+		lv_nameAlias_4_0=RULE_STRING
 		{
-			newLeafNode(lv_name_4_0, grammarAccess.getProjectAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+			newLeafNode(lv_nameAlias_4_0, grammarAccess.getProjectAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -320,8 +320,8 @@ ruleProject returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"name",
-        		lv_name_4_0, 
+       			"nameAlias",
+        		lv_nameAlias_4_0, 
         		"STRING");
 	    }
 
@@ -401,9 +401,9 @@ ruleSystem returns [EObject current=null]
     }
 (
 (
-		lv_id_1_0=RULE_ID
+		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getSystemAccess().getIdIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getSystemAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -411,8 +411,8 @@ ruleSystem returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"name",
+        		lv_name_1_0, 
         		"ID");
 	    }
 
@@ -427,9 +427,9 @@ ruleSystem returns [EObject current=null]
     }
 (
 (
-		lv_name_4_0=RULE_STRING
+		lv_nameAlias_4_0=RULE_STRING
 		{
-			newLeafNode(lv_name_4_0, grammarAccess.getSystemAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+			newLeafNode(lv_nameAlias_4_0, grammarAccess.getSystemAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -437,8 +437,8 @@ ruleSystem returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"name",
-        		lv_name_4_0, 
+       			"nameAlias",
+        		lv_nameAlias_4_0, 
         		"STRING");
 	    }
 
@@ -564,9 +564,9 @@ ruleGlossary returns [EObject current=null]
     }
 (
 (
-		lv_id_1_0=RULE_ID
+		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getGlossaryAccess().getIdIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getGlossaryAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -574,8 +574,8 @@ ruleGlossary returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"name",
+        		lv_name_1_0, 
         		"ID");
 	    }
 
@@ -590,9 +590,9 @@ ruleGlossary returns [EObject current=null]
     }
 (
 (
-		lv_name_4_0=RULE_STRING
+		lv_nameAlias_4_0=RULE_STRING
 		{
-			newLeafNode(lv_name_4_0, grammarAccess.getGlossaryAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+			newLeafNode(lv_nameAlias_4_0, grammarAccess.getGlossaryAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -600,8 +600,8 @@ ruleGlossary returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"name",
-        		lv_name_4_0, 
+       			"nameAlias",
+        		lv_nameAlias_4_0, 
         		"STRING");
 	    }
 
@@ -1083,9 +1083,9 @@ ruleStakeholder returns [EObject current=null]
     }
 (
 (
-		lv_id_1_0=RULE_ID
+		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getStakeholderAccess().getIdIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getStakeholderAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1093,8 +1093,8 @@ ruleStakeholder returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"name",
+        		lv_name_1_0, 
         		"ID");
 	    }
 
@@ -1109,9 +1109,9 @@ ruleStakeholder returns [EObject current=null]
     }
 (
 (
-		lv_name_4_0=RULE_STRING
+		lv_nameAlias_4_0=RULE_STRING
 		{
-			newLeafNode(lv_name_4_0, grammarAccess.getStakeholderAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+			newLeafNode(lv_nameAlias_4_0, grammarAccess.getStakeholderAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1119,8 +1119,8 @@ ruleStakeholder returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"name",
-        		lv_name_4_0, 
+       			"nameAlias",
+        		lv_nameAlias_4_0, 
         		"STRING");
 	    }
 
@@ -1299,9 +1299,9 @@ ruleGoal returns [EObject current=null]
     }
 (
 (
-		lv_id_1_0=RULE_ID
+		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getGoalAccess().getIdIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getGoalAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1309,8 +1309,8 @@ ruleGoal returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"name",
+        		lv_name_1_0, 
         		"ID");
 	    }
 
@@ -1663,9 +1663,9 @@ ruleEntity returns [EObject current=null]
     }
 (
 (
-		lv_id_1_0=RULE_ID
+		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getEntityAccess().getIdIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getEntityAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1673,8 +1673,8 @@ ruleEntity returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"name",
+        		lv_name_1_0, 
         		"ID");
 	    }
 
@@ -1689,9 +1689,9 @@ ruleEntity returns [EObject current=null]
     }
 (
 (
-		lv_name_4_0=RULE_STRING
+		lv_nameAlias_4_0=RULE_STRING
 		{
-			newLeafNode(lv_name_4_0, grammarAccess.getEntityAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+			newLeafNode(lv_nameAlias_4_0, grammarAccess.getEntityAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1699,8 +1699,8 @@ ruleEntity returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"name",
-        		lv_name_4_0, 
+       			"nameAlias",
+        		lv_nameAlias_4_0, 
         		"STRING");
 	    }
 
@@ -2360,9 +2360,9 @@ ruleActor returns [EObject current=null]
     }
 (
 (
-		lv_id_1_0=RULE_ID
+		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getActorAccess().getIdIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getActorAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2370,8 +2370,8 @@ ruleActor returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"name",
+        		lv_name_1_0, 
         		"ID");
 	    }
 
@@ -2386,9 +2386,9 @@ ruleActor returns [EObject current=null]
     }
 (
 (
-		lv_name_4_0=RULE_STRING
+		lv_nameAlias_4_0=RULE_STRING
 		{
-			newLeafNode(lv_name_4_0, grammarAccess.getActorAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+			newLeafNode(lv_nameAlias_4_0, grammarAccess.getActorAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2396,8 +2396,8 @@ ruleActor returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"name",
-        		lv_name_4_0, 
+       			"nameAlias",
+        		lv_nameAlias_4_0, 
         		"STRING");
 	    }
 
@@ -2600,9 +2600,9 @@ ruleUseCase returns [EObject current=null]
     }
 (
 (
-		lv_id_1_0=RULE_ID
+		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getUseCaseAccess().getIdIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getUseCaseAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2610,8 +2610,8 @@ ruleUseCase returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"name",
+        		lv_name_1_0, 
         		"ID");
 	    }
 
@@ -2626,9 +2626,9 @@ ruleUseCase returns [EObject current=null]
     }
 (
 (
-		lv_name_4_0=RULE_STRING
+		lv_nameAlias_4_0=RULE_STRING
 		{
-			newLeafNode(lv_name_4_0, grammarAccess.getUseCaseAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+			newLeafNode(lv_nameAlias_4_0, grammarAccess.getUseCaseAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2636,8 +2636,8 @@ ruleUseCase returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"name",
-        		lv_name_4_0, 
+       			"nameAlias",
+        		lv_nameAlias_4_0, 
         		"STRING");
 	    }
 
@@ -3330,9 +3330,9 @@ ruleScenario returns [EObject current=null]
     }
 (
 (
-		lv_id_1_0=RULE_ID
+		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getScenarioAccess().getIdIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getScenarioAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3340,8 +3340,8 @@ ruleScenario returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"name",
+        		lv_name_1_0, 
         		"ID");
 	    }
 
@@ -3501,9 +3501,9 @@ ruleStep returns [EObject current=null]
     }
 (
 (
-		lv_id_1_0=RULE_ID
+		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getStepAccess().getIdIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getStepAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3511,8 +3511,8 @@ ruleStep returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"name",
+        		lv_name_1_0, 
         		"ID");
 	    }
 
@@ -3793,9 +3793,9 @@ ruleFR returns [EObject current=null]
     }
 (
 (
-		lv_id_1_0=RULE_ID
+		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getFRAccess().getIdIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getFRAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3803,8 +3803,8 @@ ruleFR returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"name",
+        		lv_name_1_0, 
         		"ID");
 	    }
 
@@ -3819,9 +3819,9 @@ ruleFR returns [EObject current=null]
     }
 (
 (
-		lv_name_4_0=RULE_STRING
+		lv_nameAlias_4_0=RULE_STRING
 		{
-			newLeafNode(lv_name_4_0, grammarAccess.getFRAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+			newLeafNode(lv_nameAlias_4_0, grammarAccess.getFRAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3829,8 +3829,8 @@ ruleFR returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"name",
-        		lv_name_4_0, 
+       			"nameAlias",
+        		lv_nameAlias_4_0, 
         		"STRING");
 	    }
 
@@ -4154,9 +4154,9 @@ ruleNFR returns [EObject current=null]
     }
 (
 (
-		lv_id_1_0=RULE_ID
+		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_id_1_0, grammarAccess.getNFRAccess().getIdIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getNFRAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -4164,8 +4164,8 @@ ruleNFR returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"id",
-        		lv_id_1_0, 
+       			"name",
+        		lv_name_1_0, 
         		"ID");
 	    }
 
@@ -4180,9 +4180,9 @@ ruleNFR returns [EObject current=null]
     }
 (
 (
-		lv_name_4_0=RULE_STRING
+		lv_nameAlias_4_0=RULE_STRING
 		{
-			newLeafNode(lv_name_4_0, grammarAccess.getNFRAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+			newLeafNode(lv_nameAlias_4_0, grammarAccess.getNFRAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -4190,8 +4190,8 @@ ruleNFR returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"name",
-        		lv_name_4_0, 
+       			"nameAlias",
+        		lv_nameAlias_4_0, 
         		"STRING");
 	    }
 

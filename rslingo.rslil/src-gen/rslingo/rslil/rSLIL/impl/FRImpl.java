@@ -31,8 +31,8 @@ import rslingo.rslil.rSLIL.Stakeholder;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getId <em>Id</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getName <em>Name</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getModality <em>Modality</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getActionType <em>Action Type</em>}</li>
@@ -46,26 +46,6 @@ import rslingo.rslil.rSLIL.Stakeholder;
  */
 public class FRImpl extends MinimalEObjectImpl.Container implements FR
 {
-  /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected static final String ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected String id = ID_EDEFAULT;
-
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -85,6 +65,26 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getNameAlias() <em>Name Alias</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNameAlias()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_ALIAS_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getNameAlias() <em>Name Alias</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNameAlias()
+   * @generated
+   * @ordered
+   */
+  protected String nameAlias = NAME_ALIAS_EDEFAULT;
 
   /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -222,29 +222,6 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getId()
-  {
-    return id;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setId(String newId)
-  {
-    String oldId = id;
-    id = newId;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.FR__ID, oldId, id));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getName()
   {
     return name;
@@ -261,6 +238,29 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.FR__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getNameAlias()
+  {
+    return nameAlias;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNameAlias(String newNameAlias)
+  {
+    String oldNameAlias = nameAlias;
+    nameAlias = newNameAlias;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.FR__NAME_ALIAS, oldNameAlias, nameAlias));
   }
 
   /**
@@ -481,10 +481,10 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
   {
     switch (featureID)
     {
-      case RSLILPackage.FR__ID:
-        return getId();
       case RSLILPackage.FR__NAME:
         return getName();
+      case RSLILPackage.FR__NAME_ALIAS:
+        return getNameAlias();
       case RSLILPackage.FR__DESCRIPTION:
         return getDescription();
       case RSLILPackage.FR__MODALITY:
@@ -516,11 +516,11 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
   {
     switch (featureID)
     {
-      case RSLILPackage.FR__ID:
-        setId((String)newValue);
-        return;
       case RSLILPackage.FR__NAME:
         setName((String)newValue);
+        return;
+      case RSLILPackage.FR__NAME_ALIAS:
+        setNameAlias((String)newValue);
         return;
       case RSLILPackage.FR__DESCRIPTION:
         setDescription((String)newValue);
@@ -558,11 +558,11 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
   {
     switch (featureID)
     {
-      case RSLILPackage.FR__ID:
-        setId(ID_EDEFAULT);
-        return;
       case RSLILPackage.FR__NAME:
         setName(NAME_EDEFAULT);
+        return;
+      case RSLILPackage.FR__NAME_ALIAS:
+        setNameAlias(NAME_ALIAS_EDEFAULT);
         return;
       case RSLILPackage.FR__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
@@ -599,10 +599,10 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
   {
     switch (featureID)
     {
-      case RSLILPackage.FR__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
       case RSLILPackage.FR__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case RSLILPackage.FR__NAME_ALIAS:
+        return NAME_ALIAS_EDEFAULT == null ? nameAlias != null : !NAME_ALIAS_EDEFAULT.equals(nameAlias);
       case RSLILPackage.FR__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case RSLILPackage.FR__MODALITY:
@@ -632,10 +632,10 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
-    result.append(", name: ");
+    result.append(" (name: ");
     result.append(name);
+    result.append(", nameAlias: ");
+    result.append(nameAlias);
     result.append(", description: ");
     result.append(description);
     result.append(", modality: ");

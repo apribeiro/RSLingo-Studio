@@ -37,8 +37,8 @@ import rslingo.rslil.rSLIL.UseCase;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getId <em>Id</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getName <em>Name</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getPriotity <em>Priotity</em>}</li>
@@ -60,26 +60,6 @@ import rslingo.rslil.rSLIL.UseCase;
 public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
 {
   /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected static final String ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected String id = ID_EDEFAULT;
-
-  /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -98,6 +78,26 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getNameAlias() <em>Name Alias</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNameAlias()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_ALIAS_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getNameAlias() <em>Name Alias</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNameAlias()
+   * @generated
+   * @ordered
+   */
+  protected String nameAlias = NAME_ALIAS_EDEFAULT;
 
   /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -315,29 +315,6 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getId()
-  {
-    return id;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setId(String newId)
-  {
-    String oldId = id;
-    id = newId;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.USE_CASE__ID, oldId, id));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getName()
   {
     return name;
@@ -354,6 +331,29 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.USE_CASE__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getNameAlias()
+  {
+    return nameAlias;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNameAlias(String newNameAlias)
+  {
+    String oldNameAlias = nameAlias;
+    nameAlias = newNameAlias;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.USE_CASE__NAME_ALIAS, oldNameAlias, nameAlias));
   }
 
   /**
@@ -725,10 +725,10 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   {
     switch (featureID)
     {
-      case RSLILPackage.USE_CASE__ID:
-        return getId();
       case RSLILPackage.USE_CASE__NAME:
         return getName();
+      case RSLILPackage.USE_CASE__NAME_ALIAS:
+        return getNameAlias();
       case RSLILPackage.USE_CASE__TYPE:
         return getType();
       case RSLILPackage.USE_CASE__DESCRIPTION:
@@ -774,11 +774,11 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   {
     switch (featureID)
     {
-      case RSLILPackage.USE_CASE__ID:
-        setId((String)newValue);
-        return;
       case RSLILPackage.USE_CASE__NAME:
         setName((String)newValue);
+        return;
+      case RSLILPackage.USE_CASE__NAME_ALIAS:
+        setNameAlias((String)newValue);
         return;
       case RSLILPackage.USE_CASE__TYPE:
         setType((String)newValue);
@@ -842,11 +842,11 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   {
     switch (featureID)
     {
-      case RSLILPackage.USE_CASE__ID:
-        setId(ID_EDEFAULT);
-        return;
       case RSLILPackage.USE_CASE__NAME:
         setName(NAME_EDEFAULT);
+        return;
+      case RSLILPackage.USE_CASE__NAME_ALIAS:
+        setNameAlias(NAME_ALIAS_EDEFAULT);
         return;
       case RSLILPackage.USE_CASE__TYPE:
         setType(TYPE_EDEFAULT);
@@ -904,10 +904,10 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   {
     switch (featureID)
     {
-      case RSLILPackage.USE_CASE__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
       case RSLILPackage.USE_CASE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case RSLILPackage.USE_CASE__NAME_ALIAS:
+        return NAME_ALIAS_EDEFAULT == null ? nameAlias != null : !NAME_ALIAS_EDEFAULT.equals(nameAlias);
       case RSLILPackage.USE_CASE__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case RSLILPackage.USE_CASE__DESCRIPTION:
@@ -951,10 +951,10 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
-    result.append(", name: ");
+    result.append(" (name: ");
     result.append(name);
+    result.append(", nameAlias: ");
+    result.append(nameAlias);
     result.append(", type: ");
     result.append(type);
     result.append(", description: ");

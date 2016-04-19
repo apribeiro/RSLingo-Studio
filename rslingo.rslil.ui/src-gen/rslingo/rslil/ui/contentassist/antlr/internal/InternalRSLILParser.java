@@ -7045,31 +7045,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Project__Group__1__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2512:1: rule__Project__Group__1__Impl : ( ( rule__Project__IdAssignment_1 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2512:1: rule__Project__Group__1__Impl : ( ( rule__Project__NameAssignment_1 ) ) ;
     public final void rule__Project__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2516:1: ( ( ( rule__Project__IdAssignment_1 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2517:1: ( ( rule__Project__IdAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2516:1: ( ( ( rule__Project__NameAssignment_1 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2517:1: ( ( rule__Project__NameAssignment_1 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2517:1: ( ( rule__Project__IdAssignment_1 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2518:1: ( rule__Project__IdAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2517:1: ( ( rule__Project__NameAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2518:1: ( rule__Project__NameAssignment_1 )
             {
-             before(grammarAccess.getProjectAccess().getIdAssignment_1()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2519:1: ( rule__Project__IdAssignment_1 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2519:2: rule__Project__IdAssignment_1
+             before(grammarAccess.getProjectAccess().getNameAssignment_1()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2519:1: ( rule__Project__NameAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2519:2: rule__Project__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__Project__IdAssignment_1_in_rule__Project__Group__1__Impl5455);
-            rule__Project__IdAssignment_1();
+            pushFollow(FOLLOW_rule__Project__NameAssignment_1_in_rule__Project__Group__1__Impl5455);
+            rule__Project__NameAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getProjectAccess().getIdAssignment_1()); 
+             after(grammarAccess.getProjectAccess().getNameAssignment_1()); 
 
             }
 
@@ -7280,31 +7280,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Project__Group__4__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2603:1: rule__Project__Group__4__Impl : ( ( rule__Project__NameAssignment_4 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2603:1: rule__Project__Group__4__Impl : ( ( rule__Project__NameAliasAssignment_4 ) ) ;
     public final void rule__Project__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2607:1: ( ( ( rule__Project__NameAssignment_4 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2608:1: ( ( rule__Project__NameAssignment_4 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2607:1: ( ( ( rule__Project__NameAliasAssignment_4 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2608:1: ( ( rule__Project__NameAliasAssignment_4 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2608:1: ( ( rule__Project__NameAssignment_4 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2609:1: ( rule__Project__NameAssignment_4 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2608:1: ( ( rule__Project__NameAliasAssignment_4 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2609:1: ( rule__Project__NameAliasAssignment_4 )
             {
-             before(grammarAccess.getProjectAccess().getNameAssignment_4()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2610:1: ( rule__Project__NameAssignment_4 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2610:2: rule__Project__NameAssignment_4
+             before(grammarAccess.getProjectAccess().getNameAliasAssignment_4()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2610:1: ( rule__Project__NameAliasAssignment_4 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2610:2: rule__Project__NameAliasAssignment_4
             {
-            pushFollow(FOLLOW_rule__Project__NameAssignment_4_in_rule__Project__Group__4__Impl5639);
-            rule__Project__NameAssignment_4();
+            pushFollow(FOLLOW_rule__Project__NameAliasAssignment_4_in_rule__Project__Group__4__Impl5639);
+            rule__Project__NameAliasAssignment_4();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getProjectAccess().getNameAssignment_4()); 
+             after(grammarAccess.getProjectAccess().getNameAliasAssignment_4()); 
 
             }
 
@@ -7921,31 +7921,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__System__Group__1__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2863:1: rule__System__Group__1__Impl : ( ( rule__System__IdAssignment_1 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2863:1: rule__System__Group__1__Impl : ( ( rule__System__NameAssignment_1 ) ) ;
     public final void rule__System__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2867:1: ( ( ( rule__System__IdAssignment_1 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2868:1: ( ( rule__System__IdAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2867:1: ( ( ( rule__System__NameAssignment_1 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2868:1: ( ( rule__System__NameAssignment_1 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2868:1: ( ( rule__System__IdAssignment_1 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2869:1: ( rule__System__IdAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2868:1: ( ( rule__System__NameAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2869:1: ( rule__System__NameAssignment_1 )
             {
-             before(grammarAccess.getSystemAccess().getIdAssignment_1()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2870:1: ( rule__System__IdAssignment_1 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2870:2: rule__System__IdAssignment_1
+             before(grammarAccess.getSystemAccess().getNameAssignment_1()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2870:1: ( rule__System__NameAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2870:2: rule__System__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__System__IdAssignment_1_in_rule__System__Group__1__Impl6144);
-            rule__System__IdAssignment_1();
+            pushFollow(FOLLOW_rule__System__NameAssignment_1_in_rule__System__Group__1__Impl6144);
+            rule__System__NameAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getSystemAccess().getIdAssignment_1()); 
+             after(grammarAccess.getSystemAccess().getNameAssignment_1()); 
 
             }
 
@@ -8156,31 +8156,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__System__Group__4__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2954:1: rule__System__Group__4__Impl : ( ( rule__System__NameAssignment_4 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2954:1: rule__System__Group__4__Impl : ( ( rule__System__NameAliasAssignment_4 ) ) ;
     public final void rule__System__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2958:1: ( ( ( rule__System__NameAssignment_4 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2959:1: ( ( rule__System__NameAssignment_4 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2958:1: ( ( ( rule__System__NameAliasAssignment_4 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2959:1: ( ( rule__System__NameAliasAssignment_4 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2959:1: ( ( rule__System__NameAssignment_4 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2960:1: ( rule__System__NameAssignment_4 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2959:1: ( ( rule__System__NameAliasAssignment_4 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2960:1: ( rule__System__NameAliasAssignment_4 )
             {
-             before(grammarAccess.getSystemAccess().getNameAssignment_4()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2961:1: ( rule__System__NameAssignment_4 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2961:2: rule__System__NameAssignment_4
+             before(grammarAccess.getSystemAccess().getNameAliasAssignment_4()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2961:1: ( rule__System__NameAliasAssignment_4 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2961:2: rule__System__NameAliasAssignment_4
             {
-            pushFollow(FOLLOW_rule__System__NameAssignment_4_in_rule__System__Group__4__Impl6328);
-            rule__System__NameAssignment_4();
+            pushFollow(FOLLOW_rule__System__NameAliasAssignment_4_in_rule__System__Group__4__Impl6328);
+            rule__System__NameAliasAssignment_4();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getSystemAccess().getNameAssignment_4()); 
+             after(grammarAccess.getSystemAccess().getNameAliasAssignment_4()); 
 
             }
 
@@ -9135,31 +9135,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Glossary__Group__1__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3338:1: rule__Glossary__Group__1__Impl : ( ( rule__Glossary__IdAssignment_1 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3338:1: rule__Glossary__Group__1__Impl : ( ( rule__Glossary__NameAssignment_1 ) ) ;
     public final void rule__Glossary__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3342:1: ( ( ( rule__Glossary__IdAssignment_1 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3343:1: ( ( rule__Glossary__IdAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3342:1: ( ( ( rule__Glossary__NameAssignment_1 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3343:1: ( ( rule__Glossary__NameAssignment_1 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3343:1: ( ( rule__Glossary__IdAssignment_1 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3344:1: ( rule__Glossary__IdAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3343:1: ( ( rule__Glossary__NameAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3344:1: ( rule__Glossary__NameAssignment_1 )
             {
-             before(grammarAccess.getGlossaryAccess().getIdAssignment_1()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3345:1: ( rule__Glossary__IdAssignment_1 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3345:2: rule__Glossary__IdAssignment_1
+             before(grammarAccess.getGlossaryAccess().getNameAssignment_1()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3345:1: ( rule__Glossary__NameAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3345:2: rule__Glossary__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__Glossary__IdAssignment_1_in_rule__Glossary__Group__1__Impl7078);
-            rule__Glossary__IdAssignment_1();
+            pushFollow(FOLLOW_rule__Glossary__NameAssignment_1_in_rule__Glossary__Group__1__Impl7078);
+            rule__Glossary__NameAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getGlossaryAccess().getIdAssignment_1()); 
+             after(grammarAccess.getGlossaryAccess().getNameAssignment_1()); 
 
             }
 
@@ -9370,31 +9370,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Glossary__Group__4__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3429:1: rule__Glossary__Group__4__Impl : ( ( rule__Glossary__NameAssignment_4 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3429:1: rule__Glossary__Group__4__Impl : ( ( rule__Glossary__NameAliasAssignment_4 ) ) ;
     public final void rule__Glossary__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3433:1: ( ( ( rule__Glossary__NameAssignment_4 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3434:1: ( ( rule__Glossary__NameAssignment_4 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3433:1: ( ( ( rule__Glossary__NameAliasAssignment_4 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3434:1: ( ( rule__Glossary__NameAliasAssignment_4 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3434:1: ( ( rule__Glossary__NameAssignment_4 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3435:1: ( rule__Glossary__NameAssignment_4 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3434:1: ( ( rule__Glossary__NameAliasAssignment_4 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3435:1: ( rule__Glossary__NameAliasAssignment_4 )
             {
-             before(grammarAccess.getGlossaryAccess().getNameAssignment_4()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3436:1: ( rule__Glossary__NameAssignment_4 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3436:2: rule__Glossary__NameAssignment_4
+             before(grammarAccess.getGlossaryAccess().getNameAliasAssignment_4()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3436:1: ( rule__Glossary__NameAliasAssignment_4 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3436:2: rule__Glossary__NameAliasAssignment_4
             {
-            pushFollow(FOLLOW_rule__Glossary__NameAssignment_4_in_rule__Glossary__Group__4__Impl7262);
-            rule__Glossary__NameAssignment_4();
+            pushFollow(FOLLOW_rule__Glossary__NameAliasAssignment_4_in_rule__Glossary__Group__4__Impl7262);
+            rule__Glossary__NameAliasAssignment_4();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getGlossaryAccess().getNameAssignment_4()); 
+             after(grammarAccess.getGlossaryAccess().getNameAliasAssignment_4()); 
 
             }
 
@@ -11601,31 +11601,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Stakeholder__Group__1__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4284:1: rule__Stakeholder__Group__1__Impl : ( ( rule__Stakeholder__IdAssignment_1 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4284:1: rule__Stakeholder__Group__1__Impl : ( ( rule__Stakeholder__NameAssignment_1 ) ) ;
     public final void rule__Stakeholder__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4288:1: ( ( ( rule__Stakeholder__IdAssignment_1 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4289:1: ( ( rule__Stakeholder__IdAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4288:1: ( ( ( rule__Stakeholder__NameAssignment_1 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4289:1: ( ( rule__Stakeholder__NameAssignment_1 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4289:1: ( ( rule__Stakeholder__IdAssignment_1 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4290:1: ( rule__Stakeholder__IdAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4289:1: ( ( rule__Stakeholder__NameAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4290:1: ( rule__Stakeholder__NameAssignment_1 )
             {
-             before(grammarAccess.getStakeholderAccess().getIdAssignment_1()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4291:1: ( rule__Stakeholder__IdAssignment_1 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4291:2: rule__Stakeholder__IdAssignment_1
+             before(grammarAccess.getStakeholderAccess().getNameAssignment_1()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4291:1: ( rule__Stakeholder__NameAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4291:2: rule__Stakeholder__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__Stakeholder__IdAssignment_1_in_rule__Stakeholder__Group__1__Impl8943);
-            rule__Stakeholder__IdAssignment_1();
+            pushFollow(FOLLOW_rule__Stakeholder__NameAssignment_1_in_rule__Stakeholder__Group__1__Impl8943);
+            rule__Stakeholder__NameAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getStakeholderAccess().getIdAssignment_1()); 
+             after(grammarAccess.getStakeholderAccess().getNameAssignment_1()); 
 
             }
 
@@ -11836,31 +11836,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Stakeholder__Group__4__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4375:1: rule__Stakeholder__Group__4__Impl : ( ( rule__Stakeholder__NameAssignment_4 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4375:1: rule__Stakeholder__Group__4__Impl : ( ( rule__Stakeholder__NameAliasAssignment_4 ) ) ;
     public final void rule__Stakeholder__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4379:1: ( ( ( rule__Stakeholder__NameAssignment_4 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4380:1: ( ( rule__Stakeholder__NameAssignment_4 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4379:1: ( ( ( rule__Stakeholder__NameAliasAssignment_4 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4380:1: ( ( rule__Stakeholder__NameAliasAssignment_4 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4380:1: ( ( rule__Stakeholder__NameAssignment_4 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4381:1: ( rule__Stakeholder__NameAssignment_4 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4380:1: ( ( rule__Stakeholder__NameAliasAssignment_4 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4381:1: ( rule__Stakeholder__NameAliasAssignment_4 )
             {
-             before(grammarAccess.getStakeholderAccess().getNameAssignment_4()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4382:1: ( rule__Stakeholder__NameAssignment_4 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4382:2: rule__Stakeholder__NameAssignment_4
+             before(grammarAccess.getStakeholderAccess().getNameAliasAssignment_4()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4382:1: ( rule__Stakeholder__NameAliasAssignment_4 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4382:2: rule__Stakeholder__NameAliasAssignment_4
             {
-            pushFollow(FOLLOW_rule__Stakeholder__NameAssignment_4_in_rule__Stakeholder__Group__4__Impl9127);
-            rule__Stakeholder__NameAssignment_4();
+            pushFollow(FOLLOW_rule__Stakeholder__NameAliasAssignment_4_in_rule__Stakeholder__Group__4__Impl9127);
+            rule__Stakeholder__NameAliasAssignment_4();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getStakeholderAccess().getNameAssignment_4()); 
+             after(grammarAccess.getStakeholderAccess().getNameAliasAssignment_4()); 
 
             }
 
@@ -12888,31 +12888,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Goal__Group__1__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4793:1: rule__Goal__Group__1__Impl : ( ( rule__Goal__IdAssignment_1 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4793:1: rule__Goal__Group__1__Impl : ( ( rule__Goal__NameAssignment_1 ) ) ;
     public final void rule__Goal__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4797:1: ( ( ( rule__Goal__IdAssignment_1 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4798:1: ( ( rule__Goal__IdAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4797:1: ( ( ( rule__Goal__NameAssignment_1 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4798:1: ( ( rule__Goal__NameAssignment_1 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4798:1: ( ( rule__Goal__IdAssignment_1 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4799:1: ( rule__Goal__IdAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4798:1: ( ( rule__Goal__NameAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4799:1: ( rule__Goal__NameAssignment_1 )
             {
-             before(grammarAccess.getGoalAccess().getIdAssignment_1()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4800:1: ( rule__Goal__IdAssignment_1 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4800:2: rule__Goal__IdAssignment_1
+             before(grammarAccess.getGoalAccess().getNameAssignment_1()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4800:1: ( rule__Goal__NameAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:4800:2: rule__Goal__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__Goal__IdAssignment_1_in_rule__Goal__Group__1__Impl9944);
-            rule__Goal__IdAssignment_1();
+            pushFollow(FOLLOW_rule__Goal__NameAssignment_1_in_rule__Goal__Group__1__Impl9944);
+            rule__Goal__NameAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getGoalAccess().getIdAssignment_1()); 
+             after(grammarAccess.getGoalAccess().getNameAssignment_1()); 
 
             }
 
@@ -14284,31 +14284,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Entity__Group__1__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5331:1: rule__Entity__Group__1__Impl : ( ( rule__Entity__IdAssignment_1 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5331:1: rule__Entity__Group__1__Impl : ( ( rule__Entity__NameAssignment_1 ) ) ;
     public final void rule__Entity__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5335:1: ( ( ( rule__Entity__IdAssignment_1 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5336:1: ( ( rule__Entity__IdAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5335:1: ( ( ( rule__Entity__NameAssignment_1 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5336:1: ( ( rule__Entity__NameAssignment_1 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5336:1: ( ( rule__Entity__IdAssignment_1 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5337:1: ( rule__Entity__IdAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5336:1: ( ( rule__Entity__NameAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5337:1: ( rule__Entity__NameAssignment_1 )
             {
-             before(grammarAccess.getEntityAccess().getIdAssignment_1()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5338:1: ( rule__Entity__IdAssignment_1 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5338:2: rule__Entity__IdAssignment_1
+             before(grammarAccess.getEntityAccess().getNameAssignment_1()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5338:1: ( rule__Entity__NameAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5338:2: rule__Entity__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__Entity__IdAssignment_1_in_rule__Entity__Group__1__Impl11005);
-            rule__Entity__IdAssignment_1();
+            pushFollow(FOLLOW_rule__Entity__NameAssignment_1_in_rule__Entity__Group__1__Impl11005);
+            rule__Entity__NameAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getEntityAccess().getIdAssignment_1()); 
+             after(grammarAccess.getEntityAccess().getNameAssignment_1()); 
 
             }
 
@@ -14519,31 +14519,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Entity__Group__4__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5422:1: rule__Entity__Group__4__Impl : ( ( rule__Entity__NameAssignment_4 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5422:1: rule__Entity__Group__4__Impl : ( ( rule__Entity__NameAliasAssignment_4 ) ) ;
     public final void rule__Entity__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5426:1: ( ( ( rule__Entity__NameAssignment_4 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5427:1: ( ( rule__Entity__NameAssignment_4 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5426:1: ( ( ( rule__Entity__NameAliasAssignment_4 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5427:1: ( ( rule__Entity__NameAliasAssignment_4 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5427:1: ( ( rule__Entity__NameAssignment_4 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5428:1: ( rule__Entity__NameAssignment_4 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5427:1: ( ( rule__Entity__NameAliasAssignment_4 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5428:1: ( rule__Entity__NameAliasAssignment_4 )
             {
-             before(grammarAccess.getEntityAccess().getNameAssignment_4()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5429:1: ( rule__Entity__NameAssignment_4 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5429:2: rule__Entity__NameAssignment_4
+             before(grammarAccess.getEntityAccess().getNameAliasAssignment_4()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5429:1: ( rule__Entity__NameAliasAssignment_4 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:5429:2: rule__Entity__NameAliasAssignment_4
             {
-            pushFollow(FOLLOW_rule__Entity__NameAssignment_4_in_rule__Entity__Group__4__Impl11189);
-            rule__Entity__NameAssignment_4();
+            pushFollow(FOLLOW_rule__Entity__NameAliasAssignment_4_in_rule__Entity__Group__4__Impl11189);
+            rule__Entity__NameAliasAssignment_4();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getEntityAccess().getNameAssignment_4()); 
+             after(grammarAccess.getEntityAccess().getNameAliasAssignment_4()); 
 
             }
 
@@ -17271,31 +17271,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor__Group__1__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6519:1: rule__Actor__Group__1__Impl : ( ( rule__Actor__IdAssignment_1 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6519:1: rule__Actor__Group__1__Impl : ( ( rule__Actor__NameAssignment_1 ) ) ;
     public final void rule__Actor__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6523:1: ( ( ( rule__Actor__IdAssignment_1 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6524:1: ( ( rule__Actor__IdAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6523:1: ( ( ( rule__Actor__NameAssignment_1 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6524:1: ( ( rule__Actor__NameAssignment_1 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6524:1: ( ( rule__Actor__IdAssignment_1 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6525:1: ( rule__Actor__IdAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6524:1: ( ( rule__Actor__NameAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6525:1: ( rule__Actor__NameAssignment_1 )
             {
-             before(grammarAccess.getActorAccess().getIdAssignment_1()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6526:1: ( rule__Actor__IdAssignment_1 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6526:2: rule__Actor__IdAssignment_1
+             before(grammarAccess.getActorAccess().getNameAssignment_1()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6526:1: ( rule__Actor__NameAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6526:2: rule__Actor__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__Actor__IdAssignment_1_in_rule__Actor__Group__1__Impl13340);
-            rule__Actor__IdAssignment_1();
+            pushFollow(FOLLOW_rule__Actor__NameAssignment_1_in_rule__Actor__Group__1__Impl13340);
+            rule__Actor__NameAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getActorAccess().getIdAssignment_1()); 
+             after(grammarAccess.getActorAccess().getNameAssignment_1()); 
 
             }
 
@@ -17506,31 +17506,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Actor__Group__4__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6610:1: rule__Actor__Group__4__Impl : ( ( rule__Actor__NameAssignment_4 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6610:1: rule__Actor__Group__4__Impl : ( ( rule__Actor__NameAliasAssignment_4 ) ) ;
     public final void rule__Actor__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6614:1: ( ( ( rule__Actor__NameAssignment_4 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6615:1: ( ( rule__Actor__NameAssignment_4 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6614:1: ( ( ( rule__Actor__NameAliasAssignment_4 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6615:1: ( ( rule__Actor__NameAliasAssignment_4 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6615:1: ( ( rule__Actor__NameAssignment_4 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6616:1: ( rule__Actor__NameAssignment_4 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6615:1: ( ( rule__Actor__NameAliasAssignment_4 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6616:1: ( rule__Actor__NameAliasAssignment_4 )
             {
-             before(grammarAccess.getActorAccess().getNameAssignment_4()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6617:1: ( rule__Actor__NameAssignment_4 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6617:2: rule__Actor__NameAssignment_4
+             before(grammarAccess.getActorAccess().getNameAliasAssignment_4()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6617:1: ( rule__Actor__NameAliasAssignment_4 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:6617:2: rule__Actor__NameAliasAssignment_4
             {
-            pushFollow(FOLLOW_rule__Actor__NameAssignment_4_in_rule__Actor__Group__4__Impl13524);
-            rule__Actor__NameAssignment_4();
+            pushFollow(FOLLOW_rule__Actor__NameAliasAssignment_4_in_rule__Actor__Group__4__Impl13524);
+            rule__Actor__NameAliasAssignment_4();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getActorAccess().getNameAssignment_4()); 
+             after(grammarAccess.getActorAccess().getNameAliasAssignment_4()); 
 
             }
 
@@ -18568,31 +18568,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UseCase__Group__1__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7026:1: rule__UseCase__Group__1__Impl : ( ( rule__UseCase__IdAssignment_1 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7026:1: rule__UseCase__Group__1__Impl : ( ( rule__UseCase__NameAssignment_1 ) ) ;
     public final void rule__UseCase__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7030:1: ( ( ( rule__UseCase__IdAssignment_1 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7031:1: ( ( rule__UseCase__IdAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7030:1: ( ( ( rule__UseCase__NameAssignment_1 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7031:1: ( ( rule__UseCase__NameAssignment_1 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7031:1: ( ( rule__UseCase__IdAssignment_1 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7032:1: ( rule__UseCase__IdAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7031:1: ( ( rule__UseCase__NameAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7032:1: ( rule__UseCase__NameAssignment_1 )
             {
-             before(grammarAccess.getUseCaseAccess().getIdAssignment_1()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7033:1: ( rule__UseCase__IdAssignment_1 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7033:2: rule__UseCase__IdAssignment_1
+             before(grammarAccess.getUseCaseAccess().getNameAssignment_1()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7033:1: ( rule__UseCase__NameAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7033:2: rule__UseCase__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__UseCase__IdAssignment_1_in_rule__UseCase__Group__1__Impl14339);
-            rule__UseCase__IdAssignment_1();
+            pushFollow(FOLLOW_rule__UseCase__NameAssignment_1_in_rule__UseCase__Group__1__Impl14339);
+            rule__UseCase__NameAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getUseCaseAccess().getIdAssignment_1()); 
+             after(grammarAccess.getUseCaseAccess().getNameAssignment_1()); 
 
             }
 
@@ -18803,31 +18803,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UseCase__Group__4__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7117:1: rule__UseCase__Group__4__Impl : ( ( rule__UseCase__NameAssignment_4 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7117:1: rule__UseCase__Group__4__Impl : ( ( rule__UseCase__NameAliasAssignment_4 ) ) ;
     public final void rule__UseCase__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7121:1: ( ( ( rule__UseCase__NameAssignment_4 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7122:1: ( ( rule__UseCase__NameAssignment_4 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7121:1: ( ( ( rule__UseCase__NameAliasAssignment_4 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7122:1: ( ( rule__UseCase__NameAliasAssignment_4 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7122:1: ( ( rule__UseCase__NameAssignment_4 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7123:1: ( rule__UseCase__NameAssignment_4 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7122:1: ( ( rule__UseCase__NameAliasAssignment_4 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7123:1: ( rule__UseCase__NameAliasAssignment_4 )
             {
-             before(grammarAccess.getUseCaseAccess().getNameAssignment_4()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7124:1: ( rule__UseCase__NameAssignment_4 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7124:2: rule__UseCase__NameAssignment_4
+             before(grammarAccess.getUseCaseAccess().getNameAliasAssignment_4()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7124:1: ( rule__UseCase__NameAliasAssignment_4 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:7124:2: rule__UseCase__NameAliasAssignment_4
             {
-            pushFollow(FOLLOW_rule__UseCase__NameAssignment_4_in_rule__UseCase__Group__4__Impl14523);
-            rule__UseCase__NameAssignment_4();
+            pushFollow(FOLLOW_rule__UseCase__NameAliasAssignment_4_in_rule__UseCase__Group__4__Impl14523);
+            rule__UseCase__NameAliasAssignment_4();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getUseCaseAccess().getNameAssignment_4()); 
+             after(grammarAccess.getUseCaseAccess().getNameAliasAssignment_4()); 
 
             }
 
@@ -23357,31 +23357,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Scenario__Group__1__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8818:1: rule__Scenario__Group__1__Impl : ( ( rule__Scenario__IdAssignment_1 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8818:1: rule__Scenario__Group__1__Impl : ( ( rule__Scenario__NameAssignment_1 ) ) ;
     public final void rule__Scenario__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8822:1: ( ( ( rule__Scenario__IdAssignment_1 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8823:1: ( ( rule__Scenario__IdAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8822:1: ( ( ( rule__Scenario__NameAssignment_1 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8823:1: ( ( rule__Scenario__NameAssignment_1 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8823:1: ( ( rule__Scenario__IdAssignment_1 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8824:1: ( rule__Scenario__IdAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8823:1: ( ( rule__Scenario__NameAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8824:1: ( rule__Scenario__NameAssignment_1 )
             {
-             before(grammarAccess.getScenarioAccess().getIdAssignment_1()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8825:1: ( rule__Scenario__IdAssignment_1 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8825:2: rule__Scenario__IdAssignment_1
+             before(grammarAccess.getScenarioAccess().getNameAssignment_1()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8825:1: ( rule__Scenario__NameAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8825:2: rule__Scenario__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__Scenario__IdAssignment_1_in_rule__Scenario__Group__1__Impl17880);
-            rule__Scenario__IdAssignment_1();
+            pushFollow(FOLLOW_rule__Scenario__NameAssignment_1_in_rule__Scenario__Group__1__Impl17880);
+            rule__Scenario__NameAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getScenarioAccess().getIdAssignment_1()); 
+             after(grammarAccess.getScenarioAccess().getNameAssignment_1()); 
 
             }
 
@@ -24336,31 +24336,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Step__Group__1__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9200:1: rule__Step__Group__1__Impl : ( ( rule__Step__IdAssignment_1 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9200:1: rule__Step__Group__1__Impl : ( ( rule__Step__NameAssignment_1 ) ) ;
     public final void rule__Step__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9204:1: ( ( ( rule__Step__IdAssignment_1 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9205:1: ( ( rule__Step__IdAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9204:1: ( ( ( rule__Step__NameAssignment_1 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9205:1: ( ( rule__Step__NameAssignment_1 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9205:1: ( ( rule__Step__IdAssignment_1 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9206:1: ( rule__Step__IdAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9205:1: ( ( rule__Step__NameAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9206:1: ( rule__Step__NameAssignment_1 )
             {
-             before(grammarAccess.getStepAccess().getIdAssignment_1()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9207:1: ( rule__Step__IdAssignment_1 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9207:2: rule__Step__IdAssignment_1
+             before(grammarAccess.getStepAccess().getNameAssignment_1()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9207:1: ( rule__Step__NameAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9207:2: rule__Step__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__Step__IdAssignment_1_in_rule__Step__Group__1__Impl18632);
-            rule__Step__IdAssignment_1();
+            pushFollow(FOLLOW_rule__Step__NameAssignment_1_in_rule__Step__Group__1__Impl18632);
+            rule__Step__NameAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getStepAccess().getIdAssignment_1()); 
+             after(grammarAccess.getStepAccess().getNameAssignment_1()); 
 
             }
 
@@ -26052,31 +26052,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FR__Group__1__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9863:1: rule__FR__Group__1__Impl : ( ( rule__FR__IdAssignment_1 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9863:1: rule__FR__Group__1__Impl : ( ( rule__FR__NameAssignment_1 ) ) ;
     public final void rule__FR__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9867:1: ( ( ( rule__FR__IdAssignment_1 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9868:1: ( ( rule__FR__IdAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9867:1: ( ( ( rule__FR__NameAssignment_1 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9868:1: ( ( rule__FR__NameAssignment_1 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9868:1: ( ( rule__FR__IdAssignment_1 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9869:1: ( rule__FR__IdAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9868:1: ( ( rule__FR__NameAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9869:1: ( rule__FR__NameAssignment_1 )
             {
-             before(grammarAccess.getFRAccess().getIdAssignment_1()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9870:1: ( rule__FR__IdAssignment_1 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9870:2: rule__FR__IdAssignment_1
+             before(grammarAccess.getFRAccess().getNameAssignment_1()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9870:1: ( rule__FR__NameAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9870:2: rule__FR__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__FR__IdAssignment_1_in_rule__FR__Group__1__Impl19938);
-            rule__FR__IdAssignment_1();
+            pushFollow(FOLLOW_rule__FR__NameAssignment_1_in_rule__FR__Group__1__Impl19938);
+            rule__FR__NameAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getFRAccess().getIdAssignment_1()); 
+             after(grammarAccess.getFRAccess().getNameAssignment_1()); 
 
             }
 
@@ -26287,31 +26287,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FR__Group__4__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9954:1: rule__FR__Group__4__Impl : ( ( rule__FR__NameAssignment_4 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9954:1: rule__FR__Group__4__Impl : ( ( rule__FR__NameAliasAssignment_4 ) ) ;
     public final void rule__FR__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9958:1: ( ( ( rule__FR__NameAssignment_4 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9959:1: ( ( rule__FR__NameAssignment_4 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9958:1: ( ( ( rule__FR__NameAliasAssignment_4 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9959:1: ( ( rule__FR__NameAliasAssignment_4 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9959:1: ( ( rule__FR__NameAssignment_4 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9960:1: ( rule__FR__NameAssignment_4 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9959:1: ( ( rule__FR__NameAliasAssignment_4 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9960:1: ( rule__FR__NameAliasAssignment_4 )
             {
-             before(grammarAccess.getFRAccess().getNameAssignment_4()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9961:1: ( rule__FR__NameAssignment_4 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9961:2: rule__FR__NameAssignment_4
+             before(grammarAccess.getFRAccess().getNameAliasAssignment_4()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9961:1: ( rule__FR__NameAliasAssignment_4 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:9961:2: rule__FR__NameAliasAssignment_4
             {
-            pushFollow(FOLLOW_rule__FR__NameAssignment_4_in_rule__FR__Group__4__Impl20122);
-            rule__FR__NameAssignment_4();
+            pushFollow(FOLLOW_rule__FR__NameAliasAssignment_4_in_rule__FR__Group__4__Impl20122);
+            rule__FR__NameAliasAssignment_4();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getFRAccess().getNameAssignment_4()); 
+             after(grammarAccess.getFRAccess().getNameAliasAssignment_4()); 
 
             }
 
@@ -27819,31 +27819,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NFR__Group__1__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10564:1: rule__NFR__Group__1__Impl : ( ( rule__NFR__IdAssignment_1 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10564:1: rule__NFR__Group__1__Impl : ( ( rule__NFR__NameAssignment_1 ) ) ;
     public final void rule__NFR__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10568:1: ( ( ( rule__NFR__IdAssignment_1 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10569:1: ( ( rule__NFR__IdAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10568:1: ( ( ( rule__NFR__NameAssignment_1 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10569:1: ( ( rule__NFR__NameAssignment_1 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10569:1: ( ( rule__NFR__IdAssignment_1 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10570:1: ( rule__NFR__IdAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10569:1: ( ( rule__NFR__NameAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10570:1: ( rule__NFR__NameAssignment_1 )
             {
-             before(grammarAccess.getNFRAccess().getIdAssignment_1()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10571:1: ( rule__NFR__IdAssignment_1 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10571:2: rule__NFR__IdAssignment_1
+             before(grammarAccess.getNFRAccess().getNameAssignment_1()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10571:1: ( rule__NFR__NameAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10571:2: rule__NFR__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__NFR__IdAssignment_1_in_rule__NFR__Group__1__Impl21317);
-            rule__NFR__IdAssignment_1();
+            pushFollow(FOLLOW_rule__NFR__NameAssignment_1_in_rule__NFR__Group__1__Impl21317);
+            rule__NFR__NameAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getNFRAccess().getIdAssignment_1()); 
+             after(grammarAccess.getNFRAccess().getNameAssignment_1()); 
 
             }
 
@@ -28054,31 +28054,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NFR__Group__4__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10655:1: rule__NFR__Group__4__Impl : ( ( rule__NFR__NameAssignment_4 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10655:1: rule__NFR__Group__4__Impl : ( ( rule__NFR__NameAliasAssignment_4 ) ) ;
     public final void rule__NFR__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10659:1: ( ( ( rule__NFR__NameAssignment_4 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10660:1: ( ( rule__NFR__NameAssignment_4 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10659:1: ( ( ( rule__NFR__NameAliasAssignment_4 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10660:1: ( ( rule__NFR__NameAliasAssignment_4 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10660:1: ( ( rule__NFR__NameAssignment_4 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10661:1: ( rule__NFR__NameAssignment_4 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10660:1: ( ( rule__NFR__NameAliasAssignment_4 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10661:1: ( rule__NFR__NameAliasAssignment_4 )
             {
-             before(grammarAccess.getNFRAccess().getNameAssignment_4()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10662:1: ( rule__NFR__NameAssignment_4 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10662:2: rule__NFR__NameAssignment_4
+             before(grammarAccess.getNFRAccess().getNameAliasAssignment_4()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10662:1: ( rule__NFR__NameAliasAssignment_4 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:10662:2: rule__NFR__NameAliasAssignment_4
             {
-            pushFollow(FOLLOW_rule__NFR__NameAssignment_4_in_rule__NFR__Group__4__Impl21501);
-            rule__NFR__NameAssignment_4();
+            pushFollow(FOLLOW_rule__NFR__NameAliasAssignment_4_in_rule__NFR__Group__4__Impl21501);
+            rule__NFR__NameAliasAssignment_4();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getNFRAccess().getNameAssignment_4()); 
+             after(grammarAccess.getNFRAccess().getNameAliasAssignment_4()); 
 
             }
 
@@ -30540,9 +30540,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Model__NfrsAssignment_9"
 
 
-    // $ANTLR start "rule__Project__IdAssignment_1"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11625:1: rule__Project__IdAssignment_1 : ( RULE_ID ) ;
-    public final void rule__Project__IdAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Project__NameAssignment_1"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11625:1: rule__Project__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__Project__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -30553,9 +30553,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11630:1: ( RULE_ID )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11631:1: RULE_ID
             {
-             before(grammarAccess.getProjectAccess().getIdIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Project__IdAssignment_123416); 
-             after(grammarAccess.getProjectAccess().getIdIDTerminalRuleCall_1_0()); 
+             before(grammarAccess.getProjectAccess().getNameIDTerminalRuleCall_1_0()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Project__NameAssignment_123416); 
+             after(grammarAccess.getProjectAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
 
@@ -30574,12 +30574,12 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Project__IdAssignment_1"
+    // $ANTLR end "rule__Project__NameAssignment_1"
 
 
-    // $ANTLR start "rule__Project__NameAssignment_4"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11640:1: rule__Project__NameAssignment_4 : ( RULE_STRING ) ;
-    public final void rule__Project__NameAssignment_4() throws RecognitionException {
+    // $ANTLR start "rule__Project__NameAliasAssignment_4"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11640:1: rule__Project__NameAliasAssignment_4 : ( RULE_STRING ) ;
+    public final void rule__Project__NameAliasAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -30590,9 +30590,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11645:1: ( RULE_STRING )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11646:1: RULE_STRING
             {
-             before(grammarAccess.getProjectAccess().getNameSTRINGTerminalRuleCall_4_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Project__NameAssignment_423447); 
-             after(grammarAccess.getProjectAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+             before(grammarAccess.getProjectAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Project__NameAliasAssignment_423447); 
+             after(grammarAccess.getProjectAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
 
             }
 
@@ -30611,7 +30611,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Project__NameAssignment_4"
+    // $ANTLR end "rule__Project__NameAliasAssignment_4"
 
 
     // $ANTLR start "rule__Project__DescriptionAssignment_6"
@@ -30692,9 +30692,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Project__RefSystemAssignment_7_1"
 
 
-    // $ANTLR start "rule__System__IdAssignment_1"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11685:1: rule__System__IdAssignment_1 : ( RULE_ID ) ;
-    public final void rule__System__IdAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__System__NameAssignment_1"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11685:1: rule__System__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__System__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -30705,9 +30705,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11690:1: ( RULE_ID )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11691:1: RULE_ID
             {
-             before(grammarAccess.getSystemAccess().getIdIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__System__IdAssignment_123540); 
-             after(grammarAccess.getSystemAccess().getIdIDTerminalRuleCall_1_0()); 
+             before(grammarAccess.getSystemAccess().getNameIDTerminalRuleCall_1_0()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__System__NameAssignment_123540); 
+             after(grammarAccess.getSystemAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
 
@@ -30726,12 +30726,12 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__System__IdAssignment_1"
+    // $ANTLR end "rule__System__NameAssignment_1"
 
 
-    // $ANTLR start "rule__System__NameAssignment_4"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11700:1: rule__System__NameAssignment_4 : ( RULE_STRING ) ;
-    public final void rule__System__NameAssignment_4() throws RecognitionException {
+    // $ANTLR start "rule__System__NameAliasAssignment_4"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11700:1: rule__System__NameAliasAssignment_4 : ( RULE_STRING ) ;
+    public final void rule__System__NameAliasAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -30742,9 +30742,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11705:1: ( RULE_STRING )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11706:1: RULE_STRING
             {
-             before(grammarAccess.getSystemAccess().getNameSTRINGTerminalRuleCall_4_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__System__NameAssignment_423571); 
-             after(grammarAccess.getSystemAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+             before(grammarAccess.getSystemAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__System__NameAliasAssignment_423571); 
+             after(grammarAccess.getSystemAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
 
             }
 
@@ -30763,7 +30763,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__System__NameAssignment_4"
+    // $ANTLR end "rule__System__NameAliasAssignment_4"
 
 
     // $ANTLR start "rule__System__DescriptionAssignment_6"
@@ -30938,9 +30938,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__RefSystem__RefsAssignment_1_1"
 
 
-    // $ANTLR start "rule__Glossary__IdAssignment_1"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11787:1: rule__Glossary__IdAssignment_1 : ( RULE_ID ) ;
-    public final void rule__Glossary__IdAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Glossary__NameAssignment_1"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11787:1: rule__Glossary__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__Glossary__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -30951,9 +30951,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11792:1: ( RULE_ID )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11793:1: RULE_ID
             {
-             before(grammarAccess.getGlossaryAccess().getIdIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Glossary__IdAssignment_123750); 
-             after(grammarAccess.getGlossaryAccess().getIdIDTerminalRuleCall_1_0()); 
+             before(grammarAccess.getGlossaryAccess().getNameIDTerminalRuleCall_1_0()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Glossary__NameAssignment_123750); 
+             after(grammarAccess.getGlossaryAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
 
@@ -30972,12 +30972,12 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Glossary__IdAssignment_1"
+    // $ANTLR end "rule__Glossary__NameAssignment_1"
 
 
-    // $ANTLR start "rule__Glossary__NameAssignment_4"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11802:1: rule__Glossary__NameAssignment_4 : ( RULE_STRING ) ;
-    public final void rule__Glossary__NameAssignment_4() throws RecognitionException {
+    // $ANTLR start "rule__Glossary__NameAliasAssignment_4"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11802:1: rule__Glossary__NameAliasAssignment_4 : ( RULE_STRING ) ;
+    public final void rule__Glossary__NameAliasAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -30988,9 +30988,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11807:1: ( RULE_STRING )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:11808:1: RULE_STRING
             {
-             before(grammarAccess.getGlossaryAccess().getNameSTRINGTerminalRuleCall_4_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Glossary__NameAssignment_423781); 
-             after(grammarAccess.getGlossaryAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+             before(grammarAccess.getGlossaryAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Glossary__NameAliasAssignment_423781); 
+             after(grammarAccess.getGlossaryAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
 
             }
 
@@ -31009,7 +31009,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Glossary__NameAssignment_4"
+    // $ANTLR end "rule__Glossary__NameAliasAssignment_4"
 
 
     // $ANTLR start "rule__Glossary__TypeAssignment_6"
@@ -31543,9 +31543,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Term__RefsAssignment_1_1"
 
 
-    // $ANTLR start "rule__Stakeholder__IdAssignment_1"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12015:1: rule__Stakeholder__IdAssignment_1 : ( RULE_ID ) ;
-    public final void rule__Stakeholder__IdAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Stakeholder__NameAssignment_1"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12015:1: rule__Stakeholder__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__Stakeholder__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -31556,9 +31556,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12020:1: ( RULE_ID )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12021:1: RULE_ID
             {
-             before(grammarAccess.getStakeholderAccess().getIdIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Stakeholder__IdAssignment_124221); 
-             after(grammarAccess.getStakeholderAccess().getIdIDTerminalRuleCall_1_0()); 
+             before(grammarAccess.getStakeholderAccess().getNameIDTerminalRuleCall_1_0()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Stakeholder__NameAssignment_124221); 
+             after(grammarAccess.getStakeholderAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
 
@@ -31577,12 +31577,12 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Stakeholder__IdAssignment_1"
+    // $ANTLR end "rule__Stakeholder__NameAssignment_1"
 
 
-    // $ANTLR start "rule__Stakeholder__NameAssignment_4"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12030:1: rule__Stakeholder__NameAssignment_4 : ( RULE_STRING ) ;
-    public final void rule__Stakeholder__NameAssignment_4() throws RecognitionException {
+    // $ANTLR start "rule__Stakeholder__NameAliasAssignment_4"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12030:1: rule__Stakeholder__NameAliasAssignment_4 : ( RULE_STRING ) ;
+    public final void rule__Stakeholder__NameAliasAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -31593,9 +31593,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12035:1: ( RULE_STRING )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12036:1: RULE_STRING
             {
-             before(grammarAccess.getStakeholderAccess().getNameSTRINGTerminalRuleCall_4_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Stakeholder__NameAssignment_424252); 
-             after(grammarAccess.getStakeholderAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+             before(grammarAccess.getStakeholderAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Stakeholder__NameAliasAssignment_424252); 
+             after(grammarAccess.getStakeholderAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
 
             }
 
@@ -31614,7 +31614,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Stakeholder__NameAssignment_4"
+    // $ANTLR end "rule__Stakeholder__NameAliasAssignment_4"
 
 
     // $ANTLR start "rule__Stakeholder__TypeAssignment_6"
@@ -31793,9 +31793,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Stakeholder__PartOfAssignment_10_1"
 
 
-    // $ANTLR start "rule__Goal__IdAssignment_1"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12111:1: rule__Goal__IdAssignment_1 : ( RULE_ID ) ;
-    public final void rule__Goal__IdAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Goal__NameAssignment_1"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12111:1: rule__Goal__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__Goal__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -31806,9 +31806,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12116:1: ( RULE_ID )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12117:1: RULE_ID
             {
-             before(grammarAccess.getGoalAccess().getIdIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Goal__IdAssignment_124419); 
-             after(grammarAccess.getGoalAccess().getIdIDTerminalRuleCall_1_0()); 
+             before(grammarAccess.getGoalAccess().getNameIDTerminalRuleCall_1_0()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Goal__NameAssignment_124419); 
+             after(grammarAccess.getGoalAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
 
@@ -31827,7 +31827,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Goal__IdAssignment_1"
+    // $ANTLR end "rule__Goal__NameAssignment_1"
 
 
     // $ANTLR start "rule__Goal__DescriptionAssignment_4"
@@ -32225,9 +32225,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__ComposedBy__RefGoalAssignment_2"
 
 
-    // $ANTLR start "rule__Entity__IdAssignment_1"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12276:1: rule__Entity__IdAssignment_1 : ( RULE_ID ) ;
-    public final void rule__Entity__IdAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Entity__NameAssignment_1"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12276:1: rule__Entity__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__Entity__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -32238,9 +32238,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12281:1: ( RULE_ID )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12282:1: RULE_ID
             {
-             before(grammarAccess.getEntityAccess().getIdIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Entity__IdAssignment_124759); 
-             after(grammarAccess.getEntityAccess().getIdIDTerminalRuleCall_1_0()); 
+             before(grammarAccess.getEntityAccess().getNameIDTerminalRuleCall_1_0()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Entity__NameAssignment_124759); 
+             after(grammarAccess.getEntityAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
 
@@ -32259,12 +32259,12 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Entity__IdAssignment_1"
+    // $ANTLR end "rule__Entity__NameAssignment_1"
 
 
-    // $ANTLR start "rule__Entity__NameAssignment_4"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12291:1: rule__Entity__NameAssignment_4 : ( RULE_STRING ) ;
-    public final void rule__Entity__NameAssignment_4() throws RecognitionException {
+    // $ANTLR start "rule__Entity__NameAliasAssignment_4"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12291:1: rule__Entity__NameAliasAssignment_4 : ( RULE_STRING ) ;
+    public final void rule__Entity__NameAliasAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -32275,9 +32275,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12296:1: ( RULE_STRING )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12297:1: RULE_STRING
             {
-             before(grammarAccess.getEntityAccess().getNameSTRINGTerminalRuleCall_4_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Entity__NameAssignment_424790); 
-             after(grammarAccess.getEntityAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+             before(grammarAccess.getEntityAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Entity__NameAliasAssignment_424790); 
+             after(grammarAccess.getEntityAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
 
             }
 
@@ -32296,7 +32296,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Entity__NameAssignment_4"
+    // $ANTLR end "rule__Entity__NameAliasAssignment_4"
 
 
     // $ANTLR start "rule__Entity__DescriptionAssignment_6"
@@ -32879,9 +32879,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__RefAttribute__RefsAssignment_1_1"
 
 
-    // $ANTLR start "rule__Actor__IdAssignment_1"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12527:1: rule__Actor__IdAssignment_1 : ( RULE_ID ) ;
-    public final void rule__Actor__IdAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Actor__NameAssignment_1"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12527:1: rule__Actor__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__Actor__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -32892,9 +32892,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12532:1: ( RULE_ID )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12533:1: RULE_ID
             {
-             before(grammarAccess.getActorAccess().getIdIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Actor__IdAssignment_125277); 
-             after(grammarAccess.getActorAccess().getIdIDTerminalRuleCall_1_0()); 
+             before(grammarAccess.getActorAccess().getNameIDTerminalRuleCall_1_0()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Actor__NameAssignment_125277); 
+             after(grammarAccess.getActorAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
 
@@ -32913,12 +32913,12 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Actor__IdAssignment_1"
+    // $ANTLR end "rule__Actor__NameAssignment_1"
 
 
-    // $ANTLR start "rule__Actor__NameAssignment_4"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12542:1: rule__Actor__NameAssignment_4 : ( RULE_STRING ) ;
-    public final void rule__Actor__NameAssignment_4() throws RecognitionException {
+    // $ANTLR start "rule__Actor__NameAliasAssignment_4"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12542:1: rule__Actor__NameAliasAssignment_4 : ( RULE_STRING ) ;
+    public final void rule__Actor__NameAliasAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -32929,9 +32929,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12547:1: ( RULE_STRING )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12548:1: RULE_STRING
             {
-             before(grammarAccess.getActorAccess().getNameSTRINGTerminalRuleCall_4_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Actor__NameAssignment_425308); 
-             after(grammarAccess.getActorAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+             before(grammarAccess.getActorAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Actor__NameAliasAssignment_425308); 
+             after(grammarAccess.getActorAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
 
             }
 
@@ -32950,7 +32950,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Actor__NameAssignment_4"
+    // $ANTLR end "rule__Actor__NameAliasAssignment_4"
 
 
     // $ANTLR start "rule__Actor__TypeAssignment_6"
@@ -33215,9 +33215,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DependsOnActor__StakeholderAssignment_1"
 
 
-    // $ANTLR start "rule__UseCase__IdAssignment_1"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12657:1: rule__UseCase__IdAssignment_1 : ( RULE_ID ) ;
-    public final void rule__UseCase__IdAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__UseCase__NameAssignment_1"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12657:1: rule__UseCase__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__UseCase__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -33228,9 +33228,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12662:1: ( RULE_ID )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12663:1: RULE_ID
             {
-             before(grammarAccess.getUseCaseAccess().getIdIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__UseCase__IdAssignment_125545); 
-             after(grammarAccess.getUseCaseAccess().getIdIDTerminalRuleCall_1_0()); 
+             before(grammarAccess.getUseCaseAccess().getNameIDTerminalRuleCall_1_0()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__UseCase__NameAssignment_125545); 
+             after(grammarAccess.getUseCaseAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
 
@@ -33249,12 +33249,12 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__UseCase__IdAssignment_1"
+    // $ANTLR end "rule__UseCase__NameAssignment_1"
 
 
-    // $ANTLR start "rule__UseCase__NameAssignment_4"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12672:1: rule__UseCase__NameAssignment_4 : ( RULE_STRING ) ;
-    public final void rule__UseCase__NameAssignment_4() throws RecognitionException {
+    // $ANTLR start "rule__UseCase__NameAliasAssignment_4"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12672:1: rule__UseCase__NameAliasAssignment_4 : ( RULE_STRING ) ;
+    public final void rule__UseCase__NameAliasAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -33265,9 +33265,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12677:1: ( RULE_STRING )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:12678:1: RULE_STRING
             {
-             before(grammarAccess.getUseCaseAccess().getNameSTRINGTerminalRuleCall_4_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__UseCase__NameAssignment_425576); 
-             after(grammarAccess.getUseCaseAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+             before(grammarAccess.getUseCaseAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__UseCase__NameAliasAssignment_425576); 
+             after(grammarAccess.getUseCaseAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
 
             }
 
@@ -33286,7 +33286,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__UseCase__NameAssignment_4"
+    // $ANTLR end "rule__UseCase__NameAliasAssignment_4"
 
 
     // $ANTLR start "rule__UseCase__TypeAssignment_6"
@@ -34268,9 +34268,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__ExtensionPoint__NameAssignment_1"
 
 
-    // $ANTLR start "rule__Scenario__IdAssignment_1"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13074:1: rule__Scenario__IdAssignment_1 : ( RULE_ID ) ;
-    public final void rule__Scenario__IdAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Scenario__NameAssignment_1"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13074:1: rule__Scenario__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__Scenario__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -34281,9 +34281,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13079:1: ( RULE_ID )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13080:1: RULE_ID
             {
-             before(grammarAccess.getScenarioAccess().getIdIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Scenario__IdAssignment_126404); 
-             after(grammarAccess.getScenarioAccess().getIdIDTerminalRuleCall_1_0()); 
+             before(grammarAccess.getScenarioAccess().getNameIDTerminalRuleCall_1_0()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Scenario__NameAssignment_126404); 
+             after(grammarAccess.getScenarioAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
 
@@ -34302,7 +34302,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Scenario__IdAssignment_1"
+    // $ANTLR end "rule__Scenario__NameAssignment_1"
 
 
     // $ANTLR start "rule__Scenario__DescriptionAssignment_3_1"
@@ -34477,9 +34477,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Scenario__StepsAssignment_8"
 
 
-    // $ANTLR start "rule__Step__IdAssignment_1"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13151:1: rule__Step__IdAssignment_1 : ( RULE_ID ) ;
-    public final void rule__Step__IdAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Step__NameAssignment_1"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13151:1: rule__Step__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__Step__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -34490,9 +34490,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13156:1: ( RULE_ID )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13157:1: RULE_ID
             {
-             before(grammarAccess.getStepAccess().getIdIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Step__IdAssignment_126563); 
-             after(grammarAccess.getStepAccess().getIdIDTerminalRuleCall_1_0()); 
+             before(grammarAccess.getStepAccess().getNameIDTerminalRuleCall_1_0()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Step__NameAssignment_126563); 
+             after(grammarAccess.getStepAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
 
@@ -34511,7 +34511,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Step__IdAssignment_1"
+    // $ANTLR end "rule__Step__NameAssignment_1"
 
 
     // $ANTLR start "rule__Step__TypeAssignment_4"
@@ -34840,9 +34840,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__ActionType__TypeAssignment"
 
 
-    // $ANTLR start "rule__FR__IdAssignment_1"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13291:1: rule__FR__IdAssignment_1 : ( RULE_ID ) ;
-    public final void rule__FR__IdAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__FR__NameAssignment_1"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13291:1: rule__FR__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__FR__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -34853,9 +34853,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13296:1: ( RULE_ID )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13297:1: RULE_ID
             {
-             before(grammarAccess.getFRAccess().getIdIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__FR__IdAssignment_126852); 
-             after(grammarAccess.getFRAccess().getIdIDTerminalRuleCall_1_0()); 
+             before(grammarAccess.getFRAccess().getNameIDTerminalRuleCall_1_0()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__FR__NameAssignment_126852); 
+             after(grammarAccess.getFRAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
 
@@ -34874,12 +34874,12 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__FR__IdAssignment_1"
+    // $ANTLR end "rule__FR__NameAssignment_1"
 
 
-    // $ANTLR start "rule__FR__NameAssignment_4"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13306:1: rule__FR__NameAssignment_4 : ( RULE_STRING ) ;
-    public final void rule__FR__NameAssignment_4() throws RecognitionException {
+    // $ANTLR start "rule__FR__NameAliasAssignment_4"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13306:1: rule__FR__NameAliasAssignment_4 : ( RULE_STRING ) ;
+    public final void rule__FR__NameAliasAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -34890,9 +34890,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13311:1: ( RULE_STRING )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13312:1: RULE_STRING
             {
-             before(grammarAccess.getFRAccess().getNameSTRINGTerminalRuleCall_4_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__FR__NameAssignment_426883); 
-             after(grammarAccess.getFRAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+             before(grammarAccess.getFRAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__FR__NameAliasAssignment_426883); 
+             after(grammarAccess.getFRAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
 
             }
 
@@ -34911,7 +34911,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__FR__NameAssignment_4"
+    // $ANTLR end "rule__FR__NameAliasAssignment_4"
 
 
     // $ANTLR start "rule__FR__DescriptionAssignment_6"
@@ -35223,9 +35223,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__FR__PartOfAssignment_16_1"
 
 
-    // $ANTLR start "rule__NFR__IdAssignment_1"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13437:1: rule__NFR__IdAssignment_1 : ( RULE_ID ) ;
-    public final void rule__NFR__IdAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__NFR__NameAssignment_1"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13437:1: rule__NFR__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__NFR__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -35236,9 +35236,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13442:1: ( RULE_ID )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13443:1: RULE_ID
             {
-             before(grammarAccess.getNFRAccess().getIdIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__NFR__IdAssignment_127153); 
-             after(grammarAccess.getNFRAccess().getIdIDTerminalRuleCall_1_0()); 
+             before(grammarAccess.getNFRAccess().getNameIDTerminalRuleCall_1_0()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__NFR__NameAssignment_127153); 
+             after(grammarAccess.getNFRAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
 
@@ -35257,12 +35257,12 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__NFR__IdAssignment_1"
+    // $ANTLR end "rule__NFR__NameAssignment_1"
 
 
-    // $ANTLR start "rule__NFR__NameAssignment_4"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13452:1: rule__NFR__NameAssignment_4 : ( RULE_STRING ) ;
-    public final void rule__NFR__NameAssignment_4() throws RecognitionException {
+    // $ANTLR start "rule__NFR__NameAliasAssignment_4"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13452:1: rule__NFR__NameAliasAssignment_4 : ( RULE_STRING ) ;
+    public final void rule__NFR__NameAliasAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -35273,9 +35273,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13457:1: ( RULE_STRING )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:13458:1: RULE_STRING
             {
-             before(grammarAccess.getNFRAccess().getNameSTRINGTerminalRuleCall_4_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__NFR__NameAssignment_427184); 
-             after(grammarAccess.getNFRAccess().getNameSTRINGTerminalRuleCall_4_0()); 
+             before(grammarAccess.getNFRAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__NFR__NameAliasAssignment_427184); 
+             after(grammarAccess.getNFRAccess().getNameAliasSTRINGTerminalRuleCall_4_0()); 
 
             }
 
@@ -35294,7 +35294,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__NFR__NameAssignment_4"
+    // $ANTLR end "rule__NFR__NameAliasAssignment_4"
 
 
     // $ANTLR start "rule__NFR__DescriptionAssignment_6"
@@ -36033,7 +36033,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_99_in_rule__Project__Group__0__Impl5394 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Project__Group__1__Impl_in_rule__Project__Group__15425 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_rule__Project__Group__2_in_rule__Project__Group__15428 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Project__IdAssignment_1_in_rule__Project__Group__1__Impl5455 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Project__NameAssignment_1_in_rule__Project__Group__1__Impl5455 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Project__Group__2__Impl_in_rule__Project__Group__25485 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L});
     public static final BitSet FOLLOW_rule__Project__Group__3_in_rule__Project__Group__25488 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_100_in_rule__Project__Group__2__Impl5516 = new BitSet(new long[]{0x0000000000000002L});
@@ -36042,7 +36042,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_101_in_rule__Project__Group__3__Impl5578 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Project__Group__4__Impl_in_rule__Project__Group__45609 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L});
     public static final BitSet FOLLOW_rule__Project__Group__5_in_rule__Project__Group__45612 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Project__NameAssignment_4_in_rule__Project__Group__4__Impl5639 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Project__NameAliasAssignment_4_in_rule__Project__Group__4__Impl5639 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Project__Group__5__Impl_in_rule__Project__Group__55669 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__Project__Group__6_in_rule__Project__Group__55672 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_102_in_rule__Project__Group__5__Impl5700 = new BitSet(new long[]{0x0000000000000002L});
@@ -36064,7 +36064,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_105_in_rule__System__Group__0__Impl6083 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__System__Group__1__Impl_in_rule__System__Group__16114 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_rule__System__Group__2_in_rule__System__Group__16117 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__System__IdAssignment_1_in_rule__System__Group__1__Impl6144 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__System__NameAssignment_1_in_rule__System__Group__1__Impl6144 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__System__Group__2__Impl_in_rule__System__Group__26174 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L});
     public static final BitSet FOLLOW_rule__System__Group__3_in_rule__System__Group__26177 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_100_in_rule__System__Group__2__Impl6205 = new BitSet(new long[]{0x0000000000000002L});
@@ -36073,7 +36073,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_101_in_rule__System__Group__3__Impl6267 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__System__Group__4__Impl_in_rule__System__Group__46298 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L});
     public static final BitSet FOLLOW_rule__System__Group__5_in_rule__System__Group__46301 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__System__NameAssignment_4_in_rule__System__Group__4__Impl6328 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__System__NameAliasAssignment_4_in_rule__System__Group__4__Impl6328 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__System__Group__5__Impl_in_rule__System__Group__56358 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__System__Group__6_in_rule__System__Group__56361 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_102_in_rule__System__Group__5__Impl6389 = new BitSet(new long[]{0x0000000000000002L});
@@ -36105,7 +36105,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_107_in_rule__Glossary__Group__0__Impl7017 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Glossary__Group__1__Impl_in_rule__Glossary__Group__17048 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_rule__Glossary__Group__2_in_rule__Glossary__Group__17051 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Glossary__IdAssignment_1_in_rule__Glossary__Group__1__Impl7078 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Glossary__NameAssignment_1_in_rule__Glossary__Group__1__Impl7078 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Glossary__Group__2__Impl_in_rule__Glossary__Group__27108 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L});
     public static final BitSet FOLLOW_rule__Glossary__Group__3_in_rule__Glossary__Group__27111 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_100_in_rule__Glossary__Group__2__Impl7139 = new BitSet(new long[]{0x0000000000000002L});
@@ -36114,7 +36114,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_101_in_rule__Glossary__Group__3__Impl7201 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Glossary__Group__4__Impl_in_rule__Glossary__Group__47232 = new BitSet(new long[]{0x0000000000000000L,0x0000100000000000L});
     public static final BitSet FOLLOW_rule__Glossary__Group__5_in_rule__Glossary__Group__47235 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Glossary__NameAssignment_4_in_rule__Glossary__Group__4__Impl7262 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Glossary__NameAliasAssignment_4_in_rule__Glossary__Group__4__Impl7262 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Glossary__Group__5__Impl_in_rule__Glossary__Group__57292 = new BitSet(new long[]{0x0000000000078000L});
     public static final BitSet FOLLOW_rule__Glossary__Group__6_in_rule__Glossary__Group__57295 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_108_in_rule__Glossary__Group__5__Impl7323 = new BitSet(new long[]{0x0000000000000002L});
@@ -36187,7 +36187,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_15_in_rule__Stakeholder__Group__0__Impl8882 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Stakeholder__Group__1__Impl_in_rule__Stakeholder__Group__18913 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_rule__Stakeholder__Group__2_in_rule__Stakeholder__Group__18916 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Stakeholder__IdAssignment_1_in_rule__Stakeholder__Group__1__Impl8943 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Stakeholder__NameAssignment_1_in_rule__Stakeholder__Group__1__Impl8943 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Stakeholder__Group__2__Impl_in_rule__Stakeholder__Group__28973 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L});
     public static final BitSet FOLLOW_rule__Stakeholder__Group__3_in_rule__Stakeholder__Group__28976 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_100_in_rule__Stakeholder__Group__2__Impl9004 = new BitSet(new long[]{0x0000000000000002L});
@@ -36196,7 +36196,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_101_in_rule__Stakeholder__Group__3__Impl9066 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Stakeholder__Group__4__Impl_in_rule__Stakeholder__Group__49097 = new BitSet(new long[]{0x0000000000000000L,0x0000100000000000L});
     public static final BitSet FOLLOW_rule__Stakeholder__Group__5_in_rule__Stakeholder__Group__49100 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Stakeholder__NameAssignment_4_in_rule__Stakeholder__Group__4__Impl9127 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Stakeholder__NameAliasAssignment_4_in_rule__Stakeholder__Group__4__Impl9127 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Stakeholder__Group__5__Impl_in_rule__Stakeholder__Group__59157 = new BitSet(new long[]{0x0000000007C00000L});
     public static final BitSet FOLLOW_rule__Stakeholder__Group__6_in_rule__Stakeholder__Group__59160 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_108_in_rule__Stakeholder__Group__5__Impl9188 = new BitSet(new long[]{0x0000000000000002L});
@@ -36232,7 +36232,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_114_in_rule__Goal__Group__0__Impl9883 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Goal__Group__1__Impl_in_rule__Goal__Group__19914 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_rule__Goal__Group__2_in_rule__Goal__Group__19917 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Goal__IdAssignment_1_in_rule__Goal__Group__1__Impl9944 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Goal__NameAssignment_1_in_rule__Goal__Group__1__Impl9944 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Goal__Group__2__Impl_in_rule__Goal__Group__29974 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L});
     public static final BitSet FOLLOW_rule__Goal__Group__3_in_rule__Goal__Group__29977 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_100_in_rule__Goal__Group__2__Impl10005 = new BitSet(new long[]{0x0000000000000002L});
@@ -36280,7 +36280,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_16_in_rule__Entity__Group__0__Impl10944 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Entity__Group__1__Impl_in_rule__Entity__Group__110975 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_rule__Entity__Group__2_in_rule__Entity__Group__110978 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__IdAssignment_1_in_rule__Entity__Group__1__Impl11005 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Entity__NameAssignment_1_in_rule__Entity__Group__1__Impl11005 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Entity__Group__2__Impl_in_rule__Entity__Group__211035 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L});
     public static final BitSet FOLLOW_rule__Entity__Group__3_in_rule__Entity__Group__211038 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_100_in_rule__Entity__Group__2__Impl11066 = new BitSet(new long[]{0x0000000000000002L});
@@ -36289,7 +36289,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_101_in_rule__Entity__Group__3__Impl11128 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Entity__Group__4__Impl_in_rule__Entity__Group__411159 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L});
     public static final BitSet FOLLOW_rule__Entity__Group__5_in_rule__Entity__Group__411162 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__NameAssignment_4_in_rule__Entity__Group__4__Impl11189 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Entity__NameAliasAssignment_4_in_rule__Entity__Group__4__Impl11189 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Entity__Group__5__Impl_in_rule__Entity__Group__511219 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__Entity__Group__6_in_rule__Entity__Group__511222 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_102_in_rule__Entity__Group__5__Impl11250 = new BitSet(new long[]{0x0000000000000002L});
@@ -36386,7 +36386,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_18_in_rule__Actor__Group__0__Impl13279 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Actor__Group__1__Impl_in_rule__Actor__Group__113310 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_rule__Actor__Group__2_in_rule__Actor__Group__113313 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Actor__IdAssignment_1_in_rule__Actor__Group__1__Impl13340 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Actor__NameAssignment_1_in_rule__Actor__Group__1__Impl13340 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Actor__Group__2__Impl_in_rule__Actor__Group__213370 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L});
     public static final BitSet FOLLOW_rule__Actor__Group__3_in_rule__Actor__Group__213373 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_100_in_rule__Actor__Group__2__Impl13401 = new BitSet(new long[]{0x0000000000000002L});
@@ -36395,7 +36395,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_101_in_rule__Actor__Group__3__Impl13463 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Actor__Group__4__Impl_in_rule__Actor__Group__413494 = new BitSet(new long[]{0x0000000000000000L,0x0000100000000000L});
     public static final BitSet FOLLOW_rule__Actor__Group__5_in_rule__Actor__Group__413497 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Actor__NameAssignment_4_in_rule__Actor__Group__4__Impl13524 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Actor__NameAliasAssignment_4_in_rule__Actor__Group__4__Impl13524 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Actor__Group__5__Impl_in_rule__Actor__Group__513554 = new BitSet(new long[]{0x0E00000000000000L});
     public static final BitSet FOLLOW_rule__Actor__Group__6_in_rule__Actor__Group__513557 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_108_in_rule__Actor__Group__5__Impl13585 = new BitSet(new long[]{0x0000000000000002L});
@@ -36431,7 +36431,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_123_in_rule__UseCase__Group__0__Impl14278 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__UseCase__Group__1__Impl_in_rule__UseCase__Group__114309 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_rule__UseCase__Group__2_in_rule__UseCase__Group__114312 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__UseCase__IdAssignment_1_in_rule__UseCase__Group__1__Impl14339 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__UseCase__NameAssignment_1_in_rule__UseCase__Group__1__Impl14339 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__UseCase__Group__2__Impl_in_rule__UseCase__Group__214369 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L});
     public static final BitSet FOLLOW_rule__UseCase__Group__3_in_rule__UseCase__Group__214372 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_100_in_rule__UseCase__Group__2__Impl14400 = new BitSet(new long[]{0x0000000000000002L});
@@ -36440,7 +36440,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_101_in_rule__UseCase__Group__3__Impl14462 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__UseCase__Group__4__Impl_in_rule__UseCase__Group__414493 = new BitSet(new long[]{0x0000000000000000L,0x0000100000000000L});
     public static final BitSet FOLLOW_rule__UseCase__Group__5_in_rule__UseCase__Group__414496 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__UseCase__NameAssignment_4_in_rule__UseCase__Group__4__Impl14523 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__UseCase__NameAliasAssignment_4_in_rule__UseCase__Group__4__Impl14523 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__UseCase__Group__5__Impl_in_rule__UseCase__Group__514553 = new BitSet(new long[]{0xC000000000000000L,0x000000000000001FL});
     public static final BitSet FOLLOW_rule__UseCase__Group__6_in_rule__UseCase__Group__514556 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_108_in_rule__UseCase__Group__5__Impl14584 = new BitSet(new long[]{0x0000000000000002L});
@@ -36585,7 +36585,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_134_in_rule__Scenario__Group__0__Impl17819 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Scenario__Group__1__Impl_in_rule__Scenario__Group__117850 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_rule__Scenario__Group__2_in_rule__Scenario__Group__117853 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Scenario__IdAssignment_1_in_rule__Scenario__Group__1__Impl17880 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Scenario__NameAssignment_1_in_rule__Scenario__Group__1__Impl17880 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Scenario__Group__2__Impl_in_rule__Scenario__Group__217910 = new BitSet(new long[]{0x0000000000000000L,0x0000104000000000L});
     public static final BitSet FOLLOW_rule__Scenario__Group__3_in_rule__Scenario__Group__217913 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_100_in_rule__Scenario__Group__2__Impl17941 = new BitSet(new long[]{0x0000000000000002L});
@@ -36619,7 +36619,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_136_in_rule__Step__Group__0__Impl18571 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Step__Group__1__Impl_in_rule__Step__Group__118602 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_rule__Step__Group__2_in_rule__Step__Group__118605 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Step__IdAssignment_1_in_rule__Step__Group__1__Impl18632 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Step__NameAssignment_1_in_rule__Step__Group__1__Impl18632 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Step__Group__2__Impl_in_rule__Step__Group__218662 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
     public static final BitSet FOLLOW_rule__Step__Group__3_in_rule__Step__Group__218665 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_100_in_rule__Step__Group__2__Impl18693 = new BitSet(new long[]{0x0000000000000002L});
@@ -36676,7 +36676,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_138_in_rule__FR__Group__0__Impl19877 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__FR__Group__1__Impl_in_rule__FR__Group__119908 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_rule__FR__Group__2_in_rule__FR__Group__119911 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FR__IdAssignment_1_in_rule__FR__Group__1__Impl19938 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FR__NameAssignment_1_in_rule__FR__Group__1__Impl19938 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__FR__Group__2__Impl_in_rule__FR__Group__219968 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L});
     public static final BitSet FOLLOW_rule__FR__Group__3_in_rule__FR__Group__219971 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_100_in_rule__FR__Group__2__Impl19999 = new BitSet(new long[]{0x0000000000000002L});
@@ -36685,7 +36685,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_101_in_rule__FR__Group__3__Impl20061 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__FR__Group__4__Impl_in_rule__FR__Group__420092 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L});
     public static final BitSet FOLLOW_rule__FR__Group__5_in_rule__FR__Group__420095 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FR__NameAssignment_4_in_rule__FR__Group__4__Impl20122 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FR__NameAliasAssignment_4_in_rule__FR__Group__4__Impl20122 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__FR__Group__5__Impl_in_rule__FR__Group__520152 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__FR__Group__6_in_rule__FR__Group__520155 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_102_in_rule__FR__Group__5__Impl20183 = new BitSet(new long[]{0x0000000000000002L});
@@ -36739,7 +36739,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_141_in_rule__NFR__Group__0__Impl21256 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__NFR__Group__1__Impl_in_rule__NFR__Group__121287 = new BitSet(new long[]{0x0000000000000000L,0x0000001000000000L});
     public static final BitSet FOLLOW_rule__NFR__Group__2_in_rule__NFR__Group__121290 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NFR__IdAssignment_1_in_rule__NFR__Group__1__Impl21317 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__NFR__NameAssignment_1_in_rule__NFR__Group__1__Impl21317 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__NFR__Group__2__Impl_in_rule__NFR__Group__221347 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L});
     public static final BitSet FOLLOW_rule__NFR__Group__3_in_rule__NFR__Group__221350 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_100_in_rule__NFR__Group__2__Impl21378 = new BitSet(new long[]{0x0000000000000002L});
@@ -36748,7 +36748,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_101_in_rule__NFR__Group__3__Impl21440 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__NFR__Group__4__Impl_in_rule__NFR__Group__421471 = new BitSet(new long[]{0x0000000000000000L,0x0000004000000000L});
     public static final BitSet FOLLOW_rule__NFR__Group__5_in_rule__NFR__Group__421474 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NFR__NameAssignment_4_in_rule__NFR__Group__4__Impl21501 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__NFR__NameAliasAssignment_4_in_rule__NFR__Group__4__Impl21501 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__NFR__Group__5__Impl_in_rule__NFR__Group__521531 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__NFR__Group__6_in_rule__NFR__Group__521534 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_102_in_rule__NFR__Group__5__Impl21562 = new BitSet(new long[]{0x0000000000000002L});
@@ -36829,18 +36829,18 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_ruleUseCase_in_rule__Model__UseCasesAssignment_723323 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFR_in_rule__Model__FrsAssignment_823354 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleNFR_in_rule__Model__NfrsAssignment_923385 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Project__IdAssignment_123416 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Project__NameAssignment_423447 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Project__NameAssignment_123416 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Project__NameAliasAssignment_423447 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Project__DescriptionAssignment_623478 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleRefSystem_in_rule__Project__RefSystemAssignment_7_123509 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__System__IdAssignment_123540 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__System__NameAssignment_423571 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__System__NameAssignment_123540 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__System__NameAliasAssignment_423571 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__System__DescriptionAssignment_623602 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__System__PartOfAssignment_7_123637 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__RefSystem__RefSystemAssignment_023676 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__RefSystem__RefsAssignment_1_123715 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Glossary__IdAssignment_123750 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Glossary__NameAssignment_423781 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Glossary__NameAssignment_123750 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Glossary__NameAliasAssignment_423781 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleRefGlossaryType_in_rule__Glossary__TypeAssignment_623812 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Glossary__AcronymAssignment_823843 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Glossary__DescriptionAssignment_1023874 = new BitSet(new long[]{0x0000000000000002L});
@@ -36854,13 +36854,13 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_ruleTerm_in_rule__TermRelation__TermAssignment_224128 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Term__RefTermAssignment_024159 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Term__RefsAssignment_1_124190 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Stakeholder__IdAssignment_124221 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Stakeholder__NameAssignment_424252 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Stakeholder__NameAssignment_124221 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Stakeholder__NameAliasAssignment_424252 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Stakeholder__TypeAlternatives_6_0_in_rule__Stakeholder__TypeAssignment_624283 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Stakeholder__CategoryAlternatives_8_0_in_rule__Stakeholder__CategoryAssignment_824316 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Stakeholder__DescriptionAssignment_9_124349 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__Stakeholder__PartOfAssignment_10_124384 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Goal__IdAssignment_124419 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Goal__NameAssignment_124419 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Goal__DescriptionAssignment_424450 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__Goal__StakeholderAssignment_624485 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Goal__PriorityAlternatives_8_0_in_rule__Goal__PriorityAssignment_824520 = new BitSet(new long[]{0x0000000000000002L});
@@ -36870,8 +36870,8 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_RULE_ID_in_rule__DependsOnGoal__RefGoalAssignment_124652 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ComposedBy__TypeAlternatives_1_0_in_rule__ComposedBy__TypeAssignment_124687 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__ComposedBy__RefGoalAssignment_224724 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Entity__IdAssignment_124759 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Entity__NameAssignment_424790 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Entity__NameAssignment_124759 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Entity__NameAliasAssignment_424790 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Entity__DescriptionAssignment_624821 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAttribute_in_rule__Entity__AttributesAssignment_724852 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Attribute__NameAssignment_324883 = new BitSet(new long[]{0x0000000000000002L});
@@ -36886,16 +36886,16 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rule__Reference__MultiplicityAlternatives_3_0_in_rule__Reference__MultiplicityAssignment_325166 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__RefAttribute__RefAttrAssignment_025203 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__RefAttribute__RefsAssignment_1_125242 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Actor__IdAssignment_125277 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Actor__NameAssignment_425308 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Actor__NameAssignment_125277 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Actor__NameAliasAssignment_425308 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Actor__TypeAlternatives_6_0_in_rule__Actor__TypeAssignment_625339 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Actor__DescriptionAssignment_825372 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__Actor__StakeholderAssignment_9_125407 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleDependsOnActor_in_rule__Actor__DependsOnAssignment_1025442 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__DependsOnActor__TypeAlternatives_0_0_in_rule__DependsOnActor__TypeAssignment_025473 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__DependsOnActor__StakeholderAssignment_125510 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__UseCase__IdAssignment_125545 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__UseCase__NameAssignment_425576 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__UseCase__NameAssignment_125545 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__UseCase__NameAliasAssignment_425576 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__UseCase__TypeAlternatives_6_0_in_rule__UseCase__TypeAssignment_625607 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__UseCase__DescriptionAssignment_825640 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__UseCase__PriotityAlternatives_10_0_in_rule__UseCase__PriotityAssignment_1025671 = new BitSet(new long[]{0x0000000000000002L});
@@ -36919,12 +36919,12 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_RULE_ID_in_rule__RefUC__RefUCAssignment_026299 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__RefUC__RefsAssignment_1_126338 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__ExtensionPoint__NameAssignment_126373 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Scenario__IdAssignment_126404 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Scenario__NameAssignment_126404 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Scenario__DescriptionAssignment_3_126435 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Scenario__TypeAlternatives_5_0_in_rule__Scenario__TypeAssignment_526466 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Scenario__ModeAlternatives_7_0_in_rule__Scenario__ModeAssignment_726499 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleStep_in_rule__Scenario__StepsAssignment_826532 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Step__IdAssignment_126563 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Step__NameAssignment_126563 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleRefActionType_in_rule__Step__TypeAssignment_426594 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Step__DescriptionAssignment_626625 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__Step__ActorAssignment_7_126660 = new BitSet(new long[]{0x0000000000000002L});
@@ -36933,8 +36933,8 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_ruleActionType_in_rule__RefActionType__RefTypeAssignment_026757 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleActionType_in_rule__RefActionType__RefsAssignment_1_126788 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ActionType__TypeAlternatives_0_in_rule__ActionType__TypeAssignment26819 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__FR__IdAssignment_126852 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__FR__NameAssignment_426883 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__FR__NameAssignment_126852 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__FR__NameAliasAssignment_426883 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__FR__DescriptionAssignment_626914 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__FR__ModalityAlternatives_8_0_in_rule__FR__ModalityAssignment_826945 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__FR__ActionTypeAlternatives_10_0_in_rule__FR__ActionTypeAssignment_1026978 = new BitSet(new long[]{0x0000000000000002L});
@@ -36942,8 +36942,8 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rule__FR__PriorityAlternatives_14_0_in_rule__FR__PriorityAssignment_1427050 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleRefFR_in_rule__FR__DependsAssignment_15_127083 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__FR__PartOfAssignment_16_127118 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__NFR__IdAssignment_127153 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__NFR__NameAssignment_427184 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__NFR__NameAssignment_127153 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__NFR__NameAliasAssignment_427184 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__NFR__DescriptionAssignment_627215 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__NFR__TypeAlternatives_8_0_in_rule__NFR__TypeAssignment_827246 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__NFR__SubTypeAlternatives_10_0_in_rule__NFR__SubTypeAssignment_1027279 = new BitSet(new long[]{0x0000000000000002L});

@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.NFR#getId <em>Id</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.NFR#getName <em>Name</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.NFR#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.NFR#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.NFR#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.NFR#getSubType <em>Sub Type</em>}</li>
@@ -34,32 +34,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface NFR extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Id</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Id</em>' attribute.
-   * @see #setId(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getNFR_Id()
-   * @model
-   * @generated
-   */
-  String getId();
-
-  /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.NFR#getId <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Id</em>' attribute.
-   * @see #getId()
-   * @generated
-   */
-  void setId(String value);
-
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -85,6 +59,32 @@ public interface NFR extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Name Alias</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name Alias</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name Alias</em>' attribute.
+   * @see #setNameAlias(String)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getNFR_NameAlias()
+   * @model
+   * @generated
+   */
+  String getNameAlias();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.NFR#getNameAlias <em>Name Alias</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name Alias</em>' attribute.
+   * @see #getNameAlias()
+   * @generated
+   */
+  void setNameAlias(String value);
 
   /**
    * Returns the value of the '<em><b>Description</b></em>' attribute.

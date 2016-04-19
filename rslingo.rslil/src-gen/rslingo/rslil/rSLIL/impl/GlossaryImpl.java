@@ -31,8 +31,8 @@ import rslingo.rslil.rSLIL.TermRelation;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryImpl#getId <em>Id</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryImpl#getName <em>Name</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryImpl#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryImpl#getAcronym <em>Acronym</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryImpl#getDescription <em>Description</em>}</li>
@@ -45,26 +45,6 @@ import rslingo.rslil.rSLIL.TermRelation;
  */
 public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossary
 {
-  /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected static final String ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected String id = ID_EDEFAULT;
-
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -84,6 +64,26 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getNameAlias() <em>Name Alias</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNameAlias()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_ALIAS_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getNameAlias() <em>Name Alias</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNameAlias()
+   * @generated
+   * @ordered
+   */
+  protected String nameAlias = NAME_ALIAS_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -211,29 +211,6 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getId()
-  {
-    return id;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setId(String newId)
-  {
-    String oldId = id;
-    id = newId;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY__ID, oldId, id));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getName()
   {
     return name;
@@ -250,6 +227,29 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getNameAlias()
+  {
+    return nameAlias;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNameAlias(String newNameAlias)
+  {
+    String oldNameAlias = nameAlias;
+    nameAlias = newNameAlias;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY__NAME_ALIAS, oldNameAlias, nameAlias));
   }
 
   /**
@@ -434,10 +434,10 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
   {
     switch (featureID)
     {
-      case RSLILPackage.GLOSSARY__ID:
-        return getId();
       case RSLILPackage.GLOSSARY__NAME:
         return getName();
+      case RSLILPackage.GLOSSARY__NAME_ALIAS:
+        return getNameAlias();
       case RSLILPackage.GLOSSARY__TYPE:
         return getType();
       case RSLILPackage.GLOSSARY__ACRONYM:
@@ -465,11 +465,11 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
   {
     switch (featureID)
     {
-      case RSLILPackage.GLOSSARY__ID:
-        setId((String)newValue);
-        return;
       case RSLILPackage.GLOSSARY__NAME:
         setName((String)newValue);
+        return;
+      case RSLILPackage.GLOSSARY__NAME_ALIAS:
+        setNameAlias((String)newValue);
         return;
       case RSLILPackage.GLOSSARY__TYPE:
         setType((RefGlossaryType)newValue);
@@ -504,11 +504,11 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
   {
     switch (featureID)
     {
-      case RSLILPackage.GLOSSARY__ID:
-        setId(ID_EDEFAULT);
-        return;
       case RSLILPackage.GLOSSARY__NAME:
         setName(NAME_EDEFAULT);
+        return;
+      case RSLILPackage.GLOSSARY__NAME_ALIAS:
+        setNameAlias(NAME_ALIAS_EDEFAULT);
         return;
       case RSLILPackage.GLOSSARY__TYPE:
         setType((RefGlossaryType)null);
@@ -542,10 +542,10 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
   {
     switch (featureID)
     {
-      case RSLILPackage.GLOSSARY__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
       case RSLILPackage.GLOSSARY__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case RSLILPackage.GLOSSARY__NAME_ALIAS:
+        return NAME_ALIAS_EDEFAULT == null ? nameAlias != null : !NAME_ALIAS_EDEFAULT.equals(nameAlias);
       case RSLILPackage.GLOSSARY__TYPE:
         return type != null;
       case RSLILPackage.GLOSSARY__ACRONYM:
@@ -573,10 +573,10 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
-    result.append(", name: ");
+    result.append(" (name: ");
     result.append(name);
+    result.append(", nameAlias: ");
+    result.append(nameAlias);
     result.append(", acronym: ");
     result.append(acronym);
     result.append(", description: ");

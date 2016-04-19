@@ -20,8 +20,8 @@ import rslingo.rslil.rSLIL.RSLILPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.impl.SystemImpl#getId <em>Id</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.SystemImpl#getName <em>Name</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.SystemImpl#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.SystemImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.SystemImpl#getPartOf <em>Part Of</em>}</li>
  * </ul>
@@ -30,26 +30,6 @@ import rslingo.rslil.rSLIL.RSLILPackage;
  */
 public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.rslil.rSLIL.System
 {
-  /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected static final String ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected String id = ID_EDEFAULT;
-
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -69,6 +49,26 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getNameAlias() <em>Name Alias</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNameAlias()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_ALIAS_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getNameAlias() <em>Name Alias</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNameAlias()
+   * @generated
+   * @ordered
+   */
+  protected String nameAlias = NAME_ALIAS_EDEFAULT;
 
   /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -126,29 +126,6 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getId()
-  {
-    return id;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setId(String newId)
-  {
-    String oldId = id;
-    id = newId;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.SYSTEM__ID, oldId, id));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getName()
   {
     return name;
@@ -165,6 +142,29 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.SYSTEM__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getNameAlias()
+  {
+    return nameAlias;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNameAlias(String newNameAlias)
+  {
+    String oldNameAlias = nameAlias;
+    nameAlias = newNameAlias;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.SYSTEM__NAME_ALIAS, oldNameAlias, nameAlias));
   }
 
   /**
@@ -243,10 +243,10 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
   {
     switch (featureID)
     {
-      case RSLILPackage.SYSTEM__ID:
-        return getId();
       case RSLILPackage.SYSTEM__NAME:
         return getName();
+      case RSLILPackage.SYSTEM__NAME_ALIAS:
+        return getNameAlias();
       case RSLILPackage.SYSTEM__DESCRIPTION:
         return getDescription();
       case RSLILPackage.SYSTEM__PART_OF:
@@ -266,11 +266,11 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
   {
     switch (featureID)
     {
-      case RSLILPackage.SYSTEM__ID:
-        setId((String)newValue);
-        return;
       case RSLILPackage.SYSTEM__NAME:
         setName((String)newValue);
+        return;
+      case RSLILPackage.SYSTEM__NAME_ALIAS:
+        setNameAlias((String)newValue);
         return;
       case RSLILPackage.SYSTEM__DESCRIPTION:
         setDescription((String)newValue);
@@ -292,11 +292,11 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
   {
     switch (featureID)
     {
-      case RSLILPackage.SYSTEM__ID:
-        setId(ID_EDEFAULT);
-        return;
       case RSLILPackage.SYSTEM__NAME:
         setName(NAME_EDEFAULT);
+        return;
+      case RSLILPackage.SYSTEM__NAME_ALIAS:
+        setNameAlias(NAME_ALIAS_EDEFAULT);
         return;
       case RSLILPackage.SYSTEM__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
@@ -318,10 +318,10 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
   {
     switch (featureID)
     {
-      case RSLILPackage.SYSTEM__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
       case RSLILPackage.SYSTEM__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case RSLILPackage.SYSTEM__NAME_ALIAS:
+        return NAME_ALIAS_EDEFAULT == null ? nameAlias != null : !NAME_ALIAS_EDEFAULT.equals(nameAlias);
       case RSLILPackage.SYSTEM__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case RSLILPackage.SYSTEM__PART_OF:
@@ -341,10 +341,10 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
-    result.append(", name: ");
+    result.append(" (name: ");
     result.append(name);
+    result.append(", nameAlias: ");
+    result.append(nameAlias);
     result.append(", description: ");
     result.append(description);
     result.append(')');

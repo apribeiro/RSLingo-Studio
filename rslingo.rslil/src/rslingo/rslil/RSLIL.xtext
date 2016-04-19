@@ -17,15 +17,15 @@ Model:
 	nfrs+=NFR*;
 
 Project:
-	'Project' id=ID '{'
-		'Name' name=STRING
+	'Project' name=ID '{'
+		'Name' nameAlias=STRING
 		'Description' description=STRING
 		('DecomposedBy' refSystem=RefSystem)?
 	'}';
 
 System:
-	'System' id=ID '{'
-		'Name' name=STRING
+	'System' name=ID '{'
+		'Name' nameAlias=STRING
 		'Description' description=STRING
 		('PartOf' partOf=[System])?
 	'}';
@@ -34,8 +34,8 @@ RefSystem:
 	refSystem=[System](',' refs+=[System])*;
 	
 Glossary:
-	'Glossary' id=ID '{'
-		'Name' name=STRING
+	'Glossary' name=ID '{'
+		'Name' nameAlias=STRING
 		'Type' type=RefGlossaryType
 		'Acronym' acronym=STRING
 		'Description' description=STRING
@@ -57,8 +57,8 @@ Term:
 	refTerm=STRING(',' refs+=STRING)*;
 
 Stakeholder:
-	'Stakeholder' id=ID '{'
-		'Name' name=STRING
+	'Stakeholder' name=ID '{'
+		'Name' nameAlias=STRING
 		'Type' type=('Group.Organization'|'Group.BusinessUnit'|'Group.Team'|'Individual.Person'|'Individual.ExternalSystem')
 		'Category' category=('Business.User.Direct'|'System.Engine')
 		('Description' description=STRING)?
@@ -66,7 +66,7 @@ Stakeholder:
 	'}';
 
 Goal:
-	'Goal' id=ID '{'
+	'Goal' name=ID '{'
 		'Description' description=STRING
 		'Stakeholder' stakeholder=[Stakeholder]
 		'Priority' priority=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
@@ -81,8 +81,8 @@ ComposedBy:
 	'ComposedBy' type=('And'|'Or') refGoal=[Goal];
 
 Entity:
-	'Entity' id=ID '{'
-		'Name' name=STRING
+	'Entity' name=ID '{'
+		'Name' nameAlias=STRING
 		'Description' description=STRING
 		attributes+=Attribute+
 	'}';
@@ -110,8 +110,8 @@ RefAttribute:
 	refAttr=[Attribute](',' refs+=[Attribute])*;
 
 Actor:
-	'Actor' id=ID '{'
-		'Name' name=STRING
+	'Actor' name=ID '{'
+		'Name' nameAlias=STRING
 		'Type' type=('User'|'ExternalSystem'|'Timer')
 		'Description' description=STRING
 		('Stakeholder' stakeholder=[Stakeholder])?
@@ -123,8 +123,8 @@ DependsOnActor:
 	type=('PartOf'|'SpecializedFrom') stakeholder=[Stakeholder];
 
 UseCase:
-	'UseCase' id=ID '{'
-		'Name' name=STRING
+	'UseCase' name=ID '{'
+		'Name' nameAlias=STRING
 		'Type' type=('EntityManage'|'EntityBrowse'|'EntitySearch'|'EntityCreate'|'EntityDelete'|'EntitySync'|'Report')
 		'Description' description=STRING
 		'Priority' priotity=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
@@ -156,7 +156,7 @@ ExtensionPoint:
 	'ExtensionPoint' name=STRING;
 
 Scenario:
-	'Scenario' id=ID '{'
+	'Scenario' name=ID '{'
 		('Description' description=STRING)?
 		'Type' type=('Main'|'Alternative'|'Exception')
 		'Mode' mode=('Sequential'|'Parallel')
@@ -164,7 +164,7 @@ Scenario:
 	'}';
 
 Step:
-	'Step' id=ID '{'
+	'Step' name=ID '{'
 		'ActionType' type=RefActionType
 		'Description' description=STRING
 		('Actor' actor=[Actor])?
@@ -179,8 +179,8 @@ ActionType:
 	type=('ActorPrepareData'|'ActorCallSystem'|'SystemExecutes'|'SystemReturnResult');
 
 FR:
-	'FunctionalRequirement' id=ID '{'
-		'Name' name=STRING
+	'FunctionalRequirement' name=ID '{'
+		'Name' nameAlias=STRING
 		'Description' description=STRING
 		'Modality' modality=('Obligation'|'Permission'|'Prohibition')
 		'ActionType' actionType=('EntityManage'|'EntityBrowse'|'EntitySearch'|'EntityCreate'|'EntityDelete'|'EntitySync'|'Report')
@@ -192,8 +192,8 @@ FR:
 	'}';
 
 NFR:
-	'Non-FunctionalRequirement' id=ID '{'
-		'Name' name=STRING
+	'Non-FunctionalRequirement' name=ID '{'
+		'Name' nameAlias=STRING
 		'Description' description=STRING
 		'Type' type=('Security'|'Performance'|'Usability'|'Appearance'|'Operational'|'Maintenance'|'Cultural'|'Legal')
 		'Sub-Type' subType=('Security.Privacy'|'Security.Integrity'|'Usability.EaseOfUse'|'Usability.EaseOfLean'|'Usability.Accessibility')

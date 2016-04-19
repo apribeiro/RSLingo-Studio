@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.Step#getId <em>Id</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Step#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Step#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Step#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Step#getActor <em>Actor</em>}</li>
@@ -28,30 +28,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Step extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Id</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Id</em>' attribute isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Id</em>' attribute.
-   * @see #setId(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getStep_Id()
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getStep_Name()
    * @model
    * @generated
    */
-  String getId();
+  String getName();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Step#getId <em>Id</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Step#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Id</em>' attribute.
-   * @see #getId()
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
    * @generated
    */
-  void setId(String value);
+  void setName(String value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.

@@ -176,22 +176,22 @@ public interface RSLILPackage extends EPackage
   int PROJECT = 1;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PROJECT__ID = 0;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROJECT__NAME = 1;
+  int PROJECT__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Name Alias</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT__NAME_ALIAS = 1;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -231,22 +231,22 @@ public interface RSLILPackage extends EPackage
   int SYSTEM = 2;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SYSTEM__ID = 0;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SYSTEM__NAME = 1;
+  int SYSTEM__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Name Alias</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYSTEM__NAME_ALIAS = 1;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -323,22 +323,22 @@ public interface RSLILPackage extends EPackage
   int GLOSSARY = 4;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GLOSSARY__ID = 0;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GLOSSARY__NAME = 1;
+  int GLOSSARY__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Name Alias</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GLOSSARY__NAME_ALIAS = 1;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -553,22 +553,22 @@ public interface RSLILPackage extends EPackage
   int STAKEHOLDER = 9;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STAKEHOLDER__ID = 0;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STAKEHOLDER__NAME = 1;
+  int STAKEHOLDER__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Name Alias</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STAKEHOLDER__NAME_ALIAS = 1;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -626,13 +626,13 @@ public interface RSLILPackage extends EPackage
   int GOAL = 10;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GOAL__ID = 0;
+  int GOAL__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -773,22 +773,22 @@ public interface RSLILPackage extends EPackage
   int ENTITY = 13;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENTITY__ID = 0;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENTITY__NAME = 1;
+  int ENTITY__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Name Alias</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY__NAME_ALIAS = 1;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1012,22 +1012,22 @@ public interface RSLILPackage extends EPackage
   int ACTOR = 18;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTOR__ID = 0;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTOR__NAME = 1;
+  int ACTOR__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Name Alias</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTOR__NAME_ALIAS = 1;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1122,22 +1122,22 @@ public interface RSLILPackage extends EPackage
   int USE_CASE = 20;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int USE_CASE__ID = 0;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USE_CASE__NAME = 1;
+  int USE_CASE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Name Alias</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE__NAME_ALIAS = 1;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1461,13 +1461,13 @@ public interface RSLILPackage extends EPackage
   int SCENARIO = 26;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SCENARIO__ID = 0;
+  int SCENARIO__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1525,13 +1525,13 @@ public interface RSLILPackage extends EPackage
   int STEP = 27;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STEP__ID = 0;
+  int STEP__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -1663,22 +1663,22 @@ public interface RSLILPackage extends EPackage
   int FR = 30;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FR__ID = 0;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FR__NAME = 1;
+  int FR__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Name Alias</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FR__NAME_ALIAS = 1;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1763,22 +1763,22 @@ public interface RSLILPackage extends EPackage
   int NFR = 31;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NFR__ID = 0;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NFR__NAME = 1;
+  int NFR__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Name Alias</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NFR__NAME_ALIAS = 1;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2039,17 +2039,6 @@ public interface RSLILPackage extends EPackage
   EClass getProject();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Project#getId <em>Id</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see rslingo.rslil.rSLIL.Project#getId()
-   * @see #getProject()
-   * @generated
-   */
-  EAttribute getProject_Id();
-
-  /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Project#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2059,6 +2048,17 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EAttribute getProject_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Project#getNameAlias <em>Name Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name Alias</em>'.
+   * @see rslingo.rslil.rSLIL.Project#getNameAlias()
+   * @see #getProject()
+   * @generated
+   */
+  EAttribute getProject_NameAlias();
 
   /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Project#getDescription <em>Description</em>}'.
@@ -2093,17 +2093,6 @@ public interface RSLILPackage extends EPackage
   EClass getSystem();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.System#getId <em>Id</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see rslingo.rslil.rSLIL.System#getId()
-   * @see #getSystem()
-   * @generated
-   */
-  EAttribute getSystem_Id();
-
-  /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.System#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2113,6 +2102,17 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EAttribute getSystem_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.System#getNameAlias <em>Name Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name Alias</em>'.
+   * @see rslingo.rslil.rSLIL.System#getNameAlias()
+   * @see #getSystem()
+   * @generated
+   */
+  EAttribute getSystem_NameAlias();
 
   /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.System#getDescription <em>Description</em>}'.
@@ -2179,17 +2179,6 @@ public interface RSLILPackage extends EPackage
   EClass getGlossary();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Glossary#getId <em>Id</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see rslingo.rslil.rSLIL.Glossary#getId()
-   * @see #getGlossary()
-   * @generated
-   */
-  EAttribute getGlossary_Id();
-
-  /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Glossary#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2199,6 +2188,17 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EAttribute getGlossary_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Glossary#getNameAlias <em>Name Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name Alias</em>'.
+   * @see rslingo.rslil.rSLIL.Glossary#getNameAlias()
+   * @see #getGlossary()
+   * @generated
+   */
+  EAttribute getGlossary_NameAlias();
 
   /**
    * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Glossary#getType <em>Type</em>}'.
@@ -2394,17 +2394,6 @@ public interface RSLILPackage extends EPackage
   EClass getStakeholder();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Stakeholder#getId <em>Id</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see rslingo.rslil.rSLIL.Stakeholder#getId()
-   * @see #getStakeholder()
-   * @generated
-   */
-  EAttribute getStakeholder_Id();
-
-  /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Stakeholder#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2414,6 +2403,17 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EAttribute getStakeholder_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Stakeholder#getNameAlias <em>Name Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name Alias</em>'.
+   * @see rslingo.rslil.rSLIL.Stakeholder#getNameAlias()
+   * @see #getStakeholder()
+   * @generated
+   */
+  EAttribute getStakeholder_NameAlias();
 
   /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Stakeholder#getType <em>Type</em>}'.
@@ -2470,15 +2470,15 @@ public interface RSLILPackage extends EPackage
   EClass getGoal();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Goal#getId <em>Id</em>}'.
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Goal#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see rslingo.rslil.rSLIL.Goal#getId()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see rslingo.rslil.rSLIL.Goal#getName()
    * @see #getGoal()
    * @generated
    */
-  EAttribute getGoal_Id();
+  EAttribute getGoal_Name();
 
   /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Goal#getDescription <em>Description</em>}'.
@@ -2610,17 +2610,6 @@ public interface RSLILPackage extends EPackage
   EClass getEntity();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Entity#getId <em>Id</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see rslingo.rslil.rSLIL.Entity#getId()
-   * @see #getEntity()
-   * @generated
-   */
-  EAttribute getEntity_Id();
-
-  /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Entity#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2630,6 +2619,17 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EAttribute getEntity_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Entity#getNameAlias <em>Name Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name Alias</em>'.
+   * @see rslingo.rslil.rSLIL.Entity#getNameAlias()
+   * @see #getEntity()
+   * @generated
+   */
+  EAttribute getEntity_NameAlias();
 
   /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Entity#getDescription <em>Description</em>}'.
@@ -2836,17 +2836,6 @@ public interface RSLILPackage extends EPackage
   EClass getActor();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Actor#getId <em>Id</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see rslingo.rslil.rSLIL.Actor#getId()
-   * @see #getActor()
-   * @generated
-   */
-  EAttribute getActor_Id();
-
-  /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Actor#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2856,6 +2845,17 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EAttribute getActor_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Actor#getNameAlias <em>Name Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name Alias</em>'.
+   * @see rslingo.rslil.rSLIL.Actor#getNameAlias()
+   * @see #getActor()
+   * @generated
+   */
+  EAttribute getActor_NameAlias();
 
   /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Actor#getType <em>Type</em>}'.
@@ -2944,17 +2944,6 @@ public interface RSLILPackage extends EPackage
   EClass getUseCase();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.UseCase#getId <em>Id</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see rslingo.rslil.rSLIL.UseCase#getId()
-   * @see #getUseCase()
-   * @generated
-   */
-  EAttribute getUseCase_Id();
-
-  /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.UseCase#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2964,6 +2953,17 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EAttribute getUseCase_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.UseCase#getNameAlias <em>Name Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name Alias</em>'.
+   * @see rslingo.rslil.rSLIL.UseCase#getNameAlias()
+   * @see #getUseCase()
+   * @generated
+   */
+  EAttribute getUseCase_NameAlias();
 
   /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.UseCase#getType <em>Type</em>}'.
@@ -3279,15 +3279,15 @@ public interface RSLILPackage extends EPackage
   EClass getScenario();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Scenario#getId <em>Id</em>}'.
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Scenario#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see rslingo.rslil.rSLIL.Scenario#getId()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see rslingo.rslil.rSLIL.Scenario#getName()
    * @see #getScenario()
    * @generated
    */
-  EAttribute getScenario_Id();
+  EAttribute getScenario_Name();
 
   /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Scenario#getDescription <em>Description</em>}'.
@@ -3344,15 +3344,15 @@ public interface RSLILPackage extends EPackage
   EClass getStep();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Step#getId <em>Id</em>}'.
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Step#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see rslingo.rslil.rSLIL.Step#getId()
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see rslingo.rslil.rSLIL.Step#getName()
    * @see #getStep()
    * @generated
    */
-  EAttribute getStep_Id();
+  EAttribute getStep_Name();
 
   /**
    * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Step#getType <em>Type</em>}'.
@@ -3473,17 +3473,6 @@ public interface RSLILPackage extends EPackage
   EClass getFR();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.FR#getId <em>Id</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see rslingo.rslil.rSLIL.FR#getId()
-   * @see #getFR()
-   * @generated
-   */
-  EAttribute getFR_Id();
-
-  /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.FR#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3493,6 +3482,17 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EAttribute getFR_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.FR#getNameAlias <em>Name Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name Alias</em>'.
+   * @see rslingo.rslil.rSLIL.FR#getNameAlias()
+   * @see #getFR()
+   * @generated
+   */
+  EAttribute getFR_NameAlias();
 
   /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.FR#getDescription <em>Description</em>}'.
@@ -3582,17 +3582,6 @@ public interface RSLILPackage extends EPackage
   EClass getNFR();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.NFR#getId <em>Id</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see rslingo.rslil.rSLIL.NFR#getId()
-   * @see #getNFR()
-   * @generated
-   */
-  EAttribute getNFR_Id();
-
-  /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.NFR#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3602,6 +3591,17 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EAttribute getNFR_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.NFR#getNameAlias <em>Name Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name Alias</em>'.
+   * @see rslingo.rslil.rSLIL.NFR#getNameAlias()
+   * @see #getNFR()
+   * @generated
+   */
+  EAttribute getNFR_NameAlias();
 
   /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.NFR#getDescription <em>Description</em>}'.
@@ -3858,20 +3858,20 @@ public interface RSLILPackage extends EPackage
     EClass PROJECT = eINSTANCE.getProject();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PROJECT__ID = eINSTANCE.getProject_Id();
-
-    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute PROJECT__NAME = eINSTANCE.getProject_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Name Alias</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROJECT__NAME_ALIAS = eINSTANCE.getProject_NameAlias();
 
     /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -3900,20 +3900,20 @@ public interface RSLILPackage extends EPackage
     EClass SYSTEM = eINSTANCE.getSystem();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SYSTEM__ID = eINSTANCE.getSystem_Id();
-
-    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute SYSTEM__NAME = eINSTANCE.getSystem_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Name Alias</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SYSTEM__NAME_ALIAS = eINSTANCE.getSystem_NameAlias();
 
     /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -3968,20 +3968,20 @@ public interface RSLILPackage extends EPackage
     EClass GLOSSARY = eINSTANCE.getGlossary();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute GLOSSARY__ID = eINSTANCE.getGlossary_Id();
-
-    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute GLOSSARY__NAME = eINSTANCE.getGlossary_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Name Alias</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GLOSSARY__NAME_ALIAS = eINSTANCE.getGlossary_NameAlias();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
@@ -4138,20 +4138,20 @@ public interface RSLILPackage extends EPackage
     EClass STAKEHOLDER = eINSTANCE.getStakeholder();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute STAKEHOLDER__ID = eINSTANCE.getStakeholder_Id();
-
-    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute STAKEHOLDER__NAME = eINSTANCE.getStakeholder_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Name Alias</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STAKEHOLDER__NAME_ALIAS = eINSTANCE.getStakeholder_NameAlias();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -4196,12 +4196,12 @@ public interface RSLILPackage extends EPackage
     EClass GOAL = eINSTANCE.getGoal();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GOAL__ID = eINSTANCE.getGoal_Id();
+    EAttribute GOAL__NAME = eINSTANCE.getGoal_Name();
 
     /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -4306,20 +4306,20 @@ public interface RSLILPackage extends EPackage
     EClass ENTITY = eINSTANCE.getEntity();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ENTITY__ID = eINSTANCE.getEntity_Id();
-
-    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute ENTITY__NAME = eINSTANCE.getEntity_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Name Alias</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENTITY__NAME_ALIAS = eINSTANCE.getEntity_NameAlias();
 
     /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -4484,20 +4484,20 @@ public interface RSLILPackage extends EPackage
     EClass ACTOR = eINSTANCE.getActor();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ACTOR__ID = eINSTANCE.getActor_Id();
-
-    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute ACTOR__NAME = eINSTANCE.getActor_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Name Alias</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTOR__NAME_ALIAS = eINSTANCE.getActor_NameAlias();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -4568,20 +4568,20 @@ public interface RSLILPackage extends EPackage
     EClass USE_CASE = eINSTANCE.getUseCase();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute USE_CASE__ID = eINSTANCE.getUseCase_Id();
-
-    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute USE_CASE__NAME = eINSTANCE.getUseCase_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Name Alias</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute USE_CASE__NAME_ALIAS = eINSTANCE.getUseCase_NameAlias();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -4828,12 +4828,12 @@ public interface RSLILPackage extends EPackage
     EClass SCENARIO = eINSTANCE.getScenario();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SCENARIO__ID = eINSTANCE.getScenario_Id();
+    EAttribute SCENARIO__NAME = eINSTANCE.getScenario_Name();
 
     /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -4878,12 +4878,12 @@ public interface RSLILPackage extends EPackage
     EClass STEP = eINSTANCE.getStep();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STEP__ID = eINSTANCE.getStep_Id();
+    EAttribute STEP__NAME = eINSTANCE.getStep_Name();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
@@ -4980,20 +4980,20 @@ public interface RSLILPackage extends EPackage
     EClass FR = eINSTANCE.getFR();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FR__ID = eINSTANCE.getFR_Id();
-
-    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute FR__NAME = eINSTANCE.getFR_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Name Alias</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FR__NAME_ALIAS = eINSTANCE.getFR_NameAlias();
 
     /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -5062,20 +5062,20 @@ public interface RSLILPackage extends EPackage
     EClass NFR = eINSTANCE.getNFR();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute NFR__ID = eINSTANCE.getNFR_Id();
-
-    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute NFR__NAME = eINSTANCE.getNFR_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Name Alias</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NFR__NAME_ALIAS = eINSTANCE.getNFR_NameAlias();
 
     /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.

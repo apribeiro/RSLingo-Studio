@@ -23,8 +23,8 @@ import rslingo.rslil.rSLIL.RefSystem;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ProjectImpl#getId <em>Id</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ProjectImpl#getName <em>Name</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ProjectImpl#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ProjectImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ProjectImpl#getRefSystem <em>Ref System</em>}</li>
  * </ul>
@@ -33,26 +33,6 @@ import rslingo.rslil.rSLIL.RefSystem;
  */
 public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 {
-  /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected static final String ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected String id = ID_EDEFAULT;
-
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -72,6 +52,26 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getNameAlias() <em>Name Alias</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNameAlias()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_ALIAS_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getNameAlias() <em>Name Alias</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNameAlias()
+   * @generated
+   * @ordered
+   */
+  protected String nameAlias = NAME_ALIAS_EDEFAULT;
 
   /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -129,29 +129,6 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getId()
-  {
-    return id;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setId(String newId)
-  {
-    String oldId = id;
-    id = newId;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.PROJECT__ID, oldId, id));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getName()
   {
     return name;
@@ -168,6 +145,29 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.PROJECT__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getNameAlias()
+  {
+    return nameAlias;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNameAlias(String newNameAlias)
+  {
+    String oldNameAlias = nameAlias;
+    nameAlias = newNameAlias;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.PROJECT__NAME_ALIAS, oldNameAlias, nameAlias));
   }
 
   /**
@@ -267,10 +267,10 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
   {
     switch (featureID)
     {
-      case RSLILPackage.PROJECT__ID:
-        return getId();
       case RSLILPackage.PROJECT__NAME:
         return getName();
+      case RSLILPackage.PROJECT__NAME_ALIAS:
+        return getNameAlias();
       case RSLILPackage.PROJECT__DESCRIPTION:
         return getDescription();
       case RSLILPackage.PROJECT__REF_SYSTEM:
@@ -289,11 +289,11 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
   {
     switch (featureID)
     {
-      case RSLILPackage.PROJECT__ID:
-        setId((String)newValue);
-        return;
       case RSLILPackage.PROJECT__NAME:
         setName((String)newValue);
+        return;
+      case RSLILPackage.PROJECT__NAME_ALIAS:
+        setNameAlias((String)newValue);
         return;
       case RSLILPackage.PROJECT__DESCRIPTION:
         setDescription((String)newValue);
@@ -315,11 +315,11 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
   {
     switch (featureID)
     {
-      case RSLILPackage.PROJECT__ID:
-        setId(ID_EDEFAULT);
-        return;
       case RSLILPackage.PROJECT__NAME:
         setName(NAME_EDEFAULT);
+        return;
+      case RSLILPackage.PROJECT__NAME_ALIAS:
+        setNameAlias(NAME_ALIAS_EDEFAULT);
         return;
       case RSLILPackage.PROJECT__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
@@ -341,10 +341,10 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
   {
     switch (featureID)
     {
-      case RSLILPackage.PROJECT__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
       case RSLILPackage.PROJECT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case RSLILPackage.PROJECT__NAME_ALIAS:
+        return NAME_ALIAS_EDEFAULT == null ? nameAlias != null : !NAME_ALIAS_EDEFAULT.equals(nameAlias);
       case RSLILPackage.PROJECT__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case RSLILPackage.PROJECT__REF_SYSTEM:
@@ -364,10 +364,10 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
-    result.append(", name: ");
+    result.append(" (name: ");
     result.append(name);
+    result.append(", nameAlias: ");
+    result.append(nameAlias);
     result.append(", description: ");
     result.append(description);
     result.append(')');

@@ -30,7 +30,7 @@ import rslingo.rslil.rSLIL.Step;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ScenarioImpl#getId <em>Id</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ScenarioImpl#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ScenarioImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ScenarioImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ScenarioImpl#getMode <em>Mode</em>}</li>
@@ -42,24 +42,24 @@ import rslingo.rslil.rSLIL.Step;
 public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenario
 {
   /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String ID_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String id = ID_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -157,9 +157,9 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getId()
+  public String getName()
   {
-    return id;
+    return name;
   }
 
   /**
@@ -167,12 +167,12 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setId(String newId)
+  public void setName(String newName)
   {
-    String oldId = id;
-    id = newId;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.SCENARIO__ID, oldId, id));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.SCENARIO__NAME, oldName, name));
   }
 
   /**
@@ -284,8 +284,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
   {
     switch (featureID)
     {
-      case RSLILPackage.SCENARIO__ID:
-        return getId();
+      case RSLILPackage.SCENARIO__NAME:
+        return getName();
       case RSLILPackage.SCENARIO__DESCRIPTION:
         return getDescription();
       case RSLILPackage.SCENARIO__TYPE:
@@ -309,8 +309,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
   {
     switch (featureID)
     {
-      case RSLILPackage.SCENARIO__ID:
-        setId((String)newValue);
+      case RSLILPackage.SCENARIO__NAME:
+        setName((String)newValue);
         return;
       case RSLILPackage.SCENARIO__DESCRIPTION:
         setDescription((String)newValue);
@@ -339,8 +339,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
   {
     switch (featureID)
     {
-      case RSLILPackage.SCENARIO__ID:
-        setId(ID_EDEFAULT);
+      case RSLILPackage.SCENARIO__NAME:
+        setName(NAME_EDEFAULT);
         return;
       case RSLILPackage.SCENARIO__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
@@ -368,8 +368,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
   {
     switch (featureID)
     {
-      case RSLILPackage.SCENARIO__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+      case RSLILPackage.SCENARIO__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RSLILPackage.SCENARIO__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case RSLILPackage.SCENARIO__TYPE:
@@ -393,8 +393,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
+    result.append(" (name: ");
+    result.append(name);
     result.append(", description: ");
     result.append(description);
     result.append(", type: ");
