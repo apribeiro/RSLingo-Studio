@@ -167,18 +167,12 @@ Scenario:
 
 Step:
 	'Step' name=ID '{'
-		'ActionType' type=RefActionType
+		'ActionType' type=('ActorPrepareData'|'ActorCallSystem'|'SystemExecutes'|'SystemReturnResult')
 		'Description' description=STRING
 		('Actor' actor=[Actor])?
 		('Pre-Conditions' preConditions=STRING)?
 		('Post-Conditions' postConditions=STRING)?
 	'}';
-
-RefActionType:
-	refType=ActionType(',' refs+=ActionType)*;
-
-ActionType:
-	type=('ActorPrepareData'|'ActorCallSystem'|'SystemExecutes'|'SystemReturnResult');
 
 FR:
 	'FunctionalRequirement' name=ID '{'
