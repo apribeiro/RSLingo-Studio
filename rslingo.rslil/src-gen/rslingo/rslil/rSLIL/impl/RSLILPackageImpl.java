@@ -1289,7 +1289,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDependsOnActor_Stakeholder()
+  public EReference getDependsOnActor_Actor()
   {
     return (EReference)dependsOnActorEClass.getEStructuralFeatures().get(1);
   }
@@ -2177,7 +2177,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
 
     dependsOnActorEClass = createEClass(DEPENDS_ON_ACTOR);
     createEAttribute(dependsOnActorEClass, DEPENDS_ON_ACTOR__TYPE);
-    createEReference(dependsOnActorEClass, DEPENDS_ON_ACTOR__STAKEHOLDER);
+    createEReference(dependsOnActorEClass, DEPENDS_ON_ACTOR__ACTOR);
 
     useCaseEClass = createEClass(USE_CASE);
     createEAttribute(useCaseEClass, USE_CASE__NAME);
@@ -2411,7 +2411,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
 
     initEClass(dependsOnActorEClass, DependsOnActor.class, "DependsOnActor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDependsOnActor_Type(), ecorePackage.getEString(), "type", null, 0, 1, DependsOnActor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDependsOnActor_Stakeholder(), this.getStakeholder(), null, "stakeholder", null, 0, 1, DependsOnActor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDependsOnActor_Actor(), this.getActor(), null, "actor", null, 0, 1, DependsOnActor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(useCaseEClass, UseCase.class, "UseCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUseCase_Name(), ecorePackage.getEString(), "name", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

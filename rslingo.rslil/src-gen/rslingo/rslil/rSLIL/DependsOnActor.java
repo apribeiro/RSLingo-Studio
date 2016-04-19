@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.DependsOnActor#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.DependsOnActor#getStakeholder <em>Stakeholder</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.DependsOnActor#getActor <em>Actor</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getDependsOnActor()
@@ -50,29 +50,29 @@ public interface DependsOnActor extends EObject
   void setType(String value);
 
   /**
-   * Returns the value of the '<em><b>Stakeholder</b></em>' reference.
+   * Returns the value of the '<em><b>Actor</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Stakeholder</em>' reference isn't clear,
+   * If the meaning of the '<em>Actor</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Stakeholder</em>' reference.
-   * @see #setStakeholder(Stakeholder)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getDependsOnActor_Stakeholder()
+   * @return the value of the '<em>Actor</em>' reference.
+   * @see #setActor(Actor)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getDependsOnActor_Actor()
    * @model
    * @generated
    */
-  Stakeholder getStakeholder();
+  Actor getActor();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.DependsOnActor#getStakeholder <em>Stakeholder</em>}' reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.DependsOnActor#getActor <em>Actor</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Stakeholder</em>' reference.
-   * @see #getStakeholder()
+   * @param value the new value of the '<em>Actor</em>' reference.
+   * @see #getActor()
    * @generated
    */
-  void setStakeholder(Stakeholder value);
+  void setActor(Actor value);
 
 } // DependsOnActor

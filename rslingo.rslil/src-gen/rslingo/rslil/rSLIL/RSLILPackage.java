@@ -1094,13 +1094,13 @@ public interface RSLILPackage extends EPackage
   int DEPENDS_ON_ACTOR__TYPE = 0;
 
   /**
-   * The feature id for the '<em><b>Stakeholder</b></em>' reference.
+   * The feature id for the '<em><b>Actor</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEPENDS_ON_ACTOR__STAKEHOLDER = 1;
+  int DEPENDS_ON_ACTOR__ACTOR = 1;
 
   /**
    * The number of structural features of the '<em>Depends On Actor</em>' class.
@@ -2923,15 +2923,15 @@ public interface RSLILPackage extends EPackage
   EAttribute getDependsOnActor_Type();
 
   /**
-   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.DependsOnActor#getStakeholder <em>Stakeholder</em>}'.
+   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.DependsOnActor#getActor <em>Actor</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Stakeholder</em>'.
-   * @see rslingo.rslil.rSLIL.DependsOnActor#getStakeholder()
+   * @return the meta object for the reference '<em>Actor</em>'.
+   * @see rslingo.rslil.rSLIL.DependsOnActor#getActor()
    * @see #getDependsOnActor()
    * @generated
    */
-  EReference getDependsOnActor_Stakeholder();
+  EReference getDependsOnActor_Actor();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.UseCase <em>Use Case</em>}'.
@@ -4550,12 +4550,12 @@ public interface RSLILPackage extends EPackage
     EAttribute DEPENDS_ON_ACTOR__TYPE = eINSTANCE.getDependsOnActor_Type();
 
     /**
-     * The meta object literal for the '<em><b>Stakeholder</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Actor</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DEPENDS_ON_ACTOR__STAKEHOLDER = eINSTANCE.getDependsOnActor_Stakeholder();
+    EReference DEPENDS_ON_ACTOR__ACTOR = eINSTANCE.getDependsOnActor_Actor();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.UseCaseImpl <em>Use Case</em>}' class.

@@ -10,9 +10,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.DependsOnActor;
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.Stakeholder;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +23,7 @@ import rslingo.rslil.rSLIL.Stakeholder;
  * </p>
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.impl.DependsOnActorImpl#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.DependsOnActorImpl#getStakeholder <em>Stakeholder</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.DependsOnActorImpl#getActor <em>Actor</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,14 +51,14 @@ public class DependsOnActorImpl extends MinimalEObjectImpl.Container implements 
   protected String type = TYPE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getStakeholder() <em>Stakeholder</em>}' reference.
+   * The cached value of the '{@link #getActor() <em>Actor</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStakeholder()
+   * @see #getActor()
    * @generated
    * @ordered
    */
-  protected Stakeholder stakeholder;
+  protected Actor actor;
 
   /**
    * <!-- begin-user-doc -->
@@ -109,19 +109,19 @@ public class DependsOnActorImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public Stakeholder getStakeholder()
+  public Actor getActor()
   {
-    if (stakeholder != null && stakeholder.eIsProxy())
+    if (actor != null && actor.eIsProxy())
     {
-      InternalEObject oldStakeholder = (InternalEObject)stakeholder;
-      stakeholder = (Stakeholder)eResolveProxy(oldStakeholder);
-      if (stakeholder != oldStakeholder)
+      InternalEObject oldActor = (InternalEObject)actor;
+      actor = (Actor)eResolveProxy(oldActor);
+      if (actor != oldActor)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.DEPENDS_ON_ACTOR__STAKEHOLDER, oldStakeholder, stakeholder));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.DEPENDS_ON_ACTOR__ACTOR, oldActor, actor));
       }
     }
-    return stakeholder;
+    return actor;
   }
 
   /**
@@ -129,9 +129,9 @@ public class DependsOnActorImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public Stakeholder basicGetStakeholder()
+  public Actor basicGetActor()
   {
-    return stakeholder;
+    return actor;
   }
 
   /**
@@ -139,12 +139,12 @@ public class DependsOnActorImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setStakeholder(Stakeholder newStakeholder)
+  public void setActor(Actor newActor)
   {
-    Stakeholder oldStakeholder = stakeholder;
-    stakeholder = newStakeholder;
+    Actor oldActor = actor;
+    actor = newActor;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.DEPENDS_ON_ACTOR__STAKEHOLDER, oldStakeholder, stakeholder));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.DEPENDS_ON_ACTOR__ACTOR, oldActor, actor));
   }
 
   /**
@@ -159,9 +159,9 @@ public class DependsOnActorImpl extends MinimalEObjectImpl.Container implements 
     {
       case RSLILPackage.DEPENDS_ON_ACTOR__TYPE:
         return getType();
-      case RSLILPackage.DEPENDS_ON_ACTOR__STAKEHOLDER:
-        if (resolve) return getStakeholder();
-        return basicGetStakeholder();
+      case RSLILPackage.DEPENDS_ON_ACTOR__ACTOR:
+        if (resolve) return getActor();
+        return basicGetActor();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -179,8 +179,8 @@ public class DependsOnActorImpl extends MinimalEObjectImpl.Container implements 
       case RSLILPackage.DEPENDS_ON_ACTOR__TYPE:
         setType((String)newValue);
         return;
-      case RSLILPackage.DEPENDS_ON_ACTOR__STAKEHOLDER:
-        setStakeholder((Stakeholder)newValue);
+      case RSLILPackage.DEPENDS_ON_ACTOR__ACTOR:
+        setActor((Actor)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -199,8 +199,8 @@ public class DependsOnActorImpl extends MinimalEObjectImpl.Container implements 
       case RSLILPackage.DEPENDS_ON_ACTOR__TYPE:
         setType(TYPE_EDEFAULT);
         return;
-      case RSLILPackage.DEPENDS_ON_ACTOR__STAKEHOLDER:
-        setStakeholder((Stakeholder)null);
+      case RSLILPackage.DEPENDS_ON_ACTOR__ACTOR:
+        setActor((Actor)null);
         return;
     }
     super.eUnset(featureID);
@@ -218,8 +218,8 @@ public class DependsOnActorImpl extends MinimalEObjectImpl.Container implements 
     {
       case RSLILPackage.DEPENDS_ON_ACTOR__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-      case RSLILPackage.DEPENDS_ON_ACTOR__STAKEHOLDER:
-        return stakeholder != null;
+      case RSLILPackage.DEPENDS_ON_ACTOR__ACTOR:
+        return actor != null;
     }
     return super.eIsSet(featureID);
   }
