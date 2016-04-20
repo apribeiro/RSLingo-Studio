@@ -18,25 +18,25 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import rslingo.rslil.rSLIL.GlossaryType;
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.RefGlossaryType;
+import rslingo.rslil.rSLIL.RefTermType;
+import rslingo.rslil.rSLIL.TermType;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Ref Glossary Type</b></em>'.
+ * An implementation of the model object '<em><b>Ref Term Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.impl.RefGlossaryTypeImpl#getRefType <em>Ref Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.RefGlossaryTypeImpl#getRefs <em>Refs</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.RefTermTypeImpl#getRefType <em>Ref Type</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.RefTermTypeImpl#getRefs <em>Refs</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RefGlossaryTypeImpl extends MinimalEObjectImpl.Container implements RefGlossaryType
+public class RefTermTypeImpl extends MinimalEObjectImpl.Container implements RefTermType
 {
   /**
    * The cached value of the '{@link #getRefType() <em>Ref Type</em>}' containment reference.
@@ -46,7 +46,7 @@ public class RefGlossaryTypeImpl extends MinimalEObjectImpl.Container implements
    * @generated
    * @ordered
    */
-  protected GlossaryType refType;
+  protected TermType refType;
 
   /**
    * The cached value of the '{@link #getRefs() <em>Refs</em>}' containment reference list.
@@ -56,14 +56,14 @@ public class RefGlossaryTypeImpl extends MinimalEObjectImpl.Container implements
    * @generated
    * @ordered
    */
-  protected EList<GlossaryType> refs;
+  protected EList<TermType> refs;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected RefGlossaryTypeImpl()
+  protected RefTermTypeImpl()
   {
     super();
   }
@@ -76,7 +76,7 @@ public class RefGlossaryTypeImpl extends MinimalEObjectImpl.Container implements
   @Override
   protected EClass eStaticClass()
   {
-    return RSLILPackage.Literals.REF_GLOSSARY_TYPE;
+    return RSLILPackage.Literals.REF_TERM_TYPE;
   }
 
   /**
@@ -84,7 +84,7 @@ public class RefGlossaryTypeImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public GlossaryType getRefType()
+  public TermType getRefType()
   {
     return refType;
   }
@@ -94,13 +94,13 @@ public class RefGlossaryTypeImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRefType(GlossaryType newRefType, NotificationChain msgs)
+  public NotificationChain basicSetRefType(TermType newRefType, NotificationChain msgs)
   {
-    GlossaryType oldRefType = refType;
+    TermType oldRefType = refType;
     refType = newRefType;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.REF_GLOSSARY_TYPE__REF_TYPE, oldRefType, newRefType);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.REF_TERM_TYPE__REF_TYPE, oldRefType, newRefType);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -111,20 +111,20 @@ public class RefGlossaryTypeImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRefType(GlossaryType newRefType)
+  public void setRefType(TermType newRefType)
   {
     if (newRefType != refType)
     {
       NotificationChain msgs = null;
       if (refType != null)
-        msgs = ((InternalEObject)refType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.REF_GLOSSARY_TYPE__REF_TYPE, null, msgs);
+        msgs = ((InternalEObject)refType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.REF_TERM_TYPE__REF_TYPE, null, msgs);
       if (newRefType != null)
-        msgs = ((InternalEObject)newRefType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.REF_GLOSSARY_TYPE__REF_TYPE, null, msgs);
+        msgs = ((InternalEObject)newRefType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.REF_TERM_TYPE__REF_TYPE, null, msgs);
       msgs = basicSetRefType(newRefType, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.REF_GLOSSARY_TYPE__REF_TYPE, newRefType, newRefType));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.REF_TERM_TYPE__REF_TYPE, newRefType, newRefType));
   }
 
   /**
@@ -132,11 +132,11 @@ public class RefGlossaryTypeImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<GlossaryType> getRefs()
+  public EList<TermType> getRefs()
   {
     if (refs == null)
     {
-      refs = new EObjectContainmentEList<GlossaryType>(GlossaryType.class, this, RSLILPackage.REF_GLOSSARY_TYPE__REFS);
+      refs = new EObjectContainmentEList<TermType>(TermType.class, this, RSLILPackage.REF_TERM_TYPE__REFS);
     }
     return refs;
   }
@@ -151,9 +151,9 @@ public class RefGlossaryTypeImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case RSLILPackage.REF_GLOSSARY_TYPE__REF_TYPE:
+      case RSLILPackage.REF_TERM_TYPE__REF_TYPE:
         return basicSetRefType(null, msgs);
-      case RSLILPackage.REF_GLOSSARY_TYPE__REFS:
+      case RSLILPackage.REF_TERM_TYPE__REFS:
         return ((InternalEList<?>)getRefs()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -169,9 +169,9 @@ public class RefGlossaryTypeImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case RSLILPackage.REF_GLOSSARY_TYPE__REF_TYPE:
+      case RSLILPackage.REF_TERM_TYPE__REF_TYPE:
         return getRefType();
-      case RSLILPackage.REF_GLOSSARY_TYPE__REFS:
+      case RSLILPackage.REF_TERM_TYPE__REFS:
         return getRefs();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -188,12 +188,12 @@ public class RefGlossaryTypeImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case RSLILPackage.REF_GLOSSARY_TYPE__REF_TYPE:
-        setRefType((GlossaryType)newValue);
+      case RSLILPackage.REF_TERM_TYPE__REF_TYPE:
+        setRefType((TermType)newValue);
         return;
-      case RSLILPackage.REF_GLOSSARY_TYPE__REFS:
+      case RSLILPackage.REF_TERM_TYPE__REFS:
         getRefs().clear();
-        getRefs().addAll((Collection<? extends GlossaryType>)newValue);
+        getRefs().addAll((Collection<? extends TermType>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -209,10 +209,10 @@ public class RefGlossaryTypeImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case RSLILPackage.REF_GLOSSARY_TYPE__REF_TYPE:
-        setRefType((GlossaryType)null);
+      case RSLILPackage.REF_TERM_TYPE__REF_TYPE:
+        setRefType((TermType)null);
         return;
-      case RSLILPackage.REF_GLOSSARY_TYPE__REFS:
+      case RSLILPackage.REF_TERM_TYPE__REFS:
         getRefs().clear();
         return;
     }
@@ -229,12 +229,12 @@ public class RefGlossaryTypeImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case RSLILPackage.REF_GLOSSARY_TYPE__REF_TYPE:
+      case RSLILPackage.REF_TERM_TYPE__REF_TYPE:
         return refType != null;
-      case RSLILPackage.REF_GLOSSARY_TYPE__REFS:
+      case RSLILPackage.REF_TERM_TYPE__REFS:
         return refs != null && !refs.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //RefGlossaryTypeImpl
+} //RefTermTypeImpl

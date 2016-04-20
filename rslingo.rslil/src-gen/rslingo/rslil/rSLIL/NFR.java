@@ -199,12 +199,12 @@ public interface NFR extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(String)
+   * @see #setValue(int)
    * @see rslingo.rslil.rSLIL.RSLILPackage#getNFR_Value()
    * @model
    * @generated
    */
-  String getValue();
+  int getValue();
 
   /**
    * Sets the value of the '{@link rslingo.rslil.rSLIL.NFR#getValue <em>Value</em>}' attribute.
@@ -214,7 +214,7 @@ public interface NFR extends EObject
    * @see #getValue()
    * @generated
    */
-  void setValue(String value);
+  void setValue(int value);
 
   /**
    * Returns the value of the '<em><b>Stakeholder</b></em>' reference.
@@ -270,7 +270,7 @@ public interface NFR extends EObject
 
   /**
    * Returns the value of the '<em><b>Depends</b></em>' containment reference list.
-   * The list contents are of type {@link rslingo.rslil.rSLIL.RefNFR}.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.DependsOnNFR}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Depends</em>' containment reference list isn't clear,
@@ -282,7 +282,7 @@ public interface NFR extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<RefNFR> getDepends();
+  EList<DependsOnNFR> getDepends();
 
   /**
    * Returns the value of the '<em><b>Part Of</b></em>' reference.

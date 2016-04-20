@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.FR;
-import rslingo.rslil.rSLIL.Glossary;
+import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.NFR;
@@ -40,7 +40,7 @@ import rslingo.rslil.rSLIL.UseCase;
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getProject <em>Project</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getSystems <em>Systems</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getGlossaries <em>Glossaries</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getGlossaryTerms <em>Glossary Terms</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getStakeholders <em>Stakeholders</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getGoals <em>Goals</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getEntities <em>Entities</em>}</li>
@@ -75,14 +75,14 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected EList<rslingo.rslil.rSLIL.System> systems;
 
   /**
-   * The cached value of the '{@link #getGlossaries() <em>Glossaries</em>}' containment reference list.
+   * The cached value of the '{@link #getGlossaryTerms() <em>Glossary Terms</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGlossaries()
+   * @see #getGlossaryTerms()
    * @generated
    * @ordered
    */
-  protected EList<Glossary> glossaries;
+  protected EList<GlossaryTerm> glossaryTerms;
 
   /**
    * The cached value of the '{@link #getStakeholders() <em>Stakeholders</em>}' containment reference list.
@@ -242,13 +242,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Glossary> getGlossaries()
+  public EList<GlossaryTerm> getGlossaryTerms()
   {
-    if (glossaries == null)
+    if (glossaryTerms == null)
     {
-      glossaries = new EObjectContainmentEList<Glossary>(Glossary.class, this, RSLILPackage.MODEL__GLOSSARIES);
+      glossaryTerms = new EObjectContainmentEList<GlossaryTerm>(GlossaryTerm.class, this, RSLILPackage.MODEL__GLOSSARY_TERMS);
     }
-    return glossaries;
+    return glossaryTerms;
   }
 
   /**
@@ -363,8 +363,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return basicSetProject(null, msgs);
       case RSLILPackage.MODEL__SYSTEMS:
         return ((InternalEList<?>)getSystems()).basicRemove(otherEnd, msgs);
-      case RSLILPackage.MODEL__GLOSSARIES:
-        return ((InternalEList<?>)getGlossaries()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.MODEL__GLOSSARY_TERMS:
+        return ((InternalEList<?>)getGlossaryTerms()).basicRemove(otherEnd, msgs);
       case RSLILPackage.MODEL__STAKEHOLDERS:
         return ((InternalEList<?>)getStakeholders()).basicRemove(otherEnd, msgs);
       case RSLILPackage.MODEL__GOALS:
@@ -397,8 +397,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return getProject();
       case RSLILPackage.MODEL__SYSTEMS:
         return getSystems();
-      case RSLILPackage.MODEL__GLOSSARIES:
-        return getGlossaries();
+      case RSLILPackage.MODEL__GLOSSARY_TERMS:
+        return getGlossaryTerms();
       case RSLILPackage.MODEL__STAKEHOLDERS:
         return getStakeholders();
       case RSLILPackage.MODEL__GOALS:
@@ -435,9 +435,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         getSystems().clear();
         getSystems().addAll((Collection<? extends rslingo.rslil.rSLIL.System>)newValue);
         return;
-      case RSLILPackage.MODEL__GLOSSARIES:
-        getGlossaries().clear();
-        getGlossaries().addAll((Collection<? extends Glossary>)newValue);
+      case RSLILPackage.MODEL__GLOSSARY_TERMS:
+        getGlossaryTerms().clear();
+        getGlossaryTerms().addAll((Collection<? extends GlossaryTerm>)newValue);
         return;
       case RSLILPackage.MODEL__STAKEHOLDERS:
         getStakeholders().clear();
@@ -487,8 +487,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case RSLILPackage.MODEL__SYSTEMS:
         getSystems().clear();
         return;
-      case RSLILPackage.MODEL__GLOSSARIES:
-        getGlossaries().clear();
+      case RSLILPackage.MODEL__GLOSSARY_TERMS:
+        getGlossaryTerms().clear();
         return;
       case RSLILPackage.MODEL__STAKEHOLDERS:
         getStakeholders().clear();
@@ -529,8 +529,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return project != null;
       case RSLILPackage.MODEL__SYSTEMS:
         return systems != null && !systems.isEmpty();
-      case RSLILPackage.MODEL__GLOSSARIES:
-        return glossaries != null && !glossaries.isEmpty();
+      case RSLILPackage.MODEL__GLOSSARY_TERMS:
+        return glossaryTerms != null && !glossaryTerms.isEmpty();
       case RSLILPackage.MODEL__STAKEHOLDERS:
         return stakeholders != null && !stakeholders.isEmpty();
       case RSLILPackage.MODEL__GOALS:

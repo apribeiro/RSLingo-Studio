@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link rslingo.rslil.rSLIL.Reference#getEntity <em>Entity</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Reference#getRefTo <em>Ref To</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Reference#getMultiplicity <em>Multiplicity</em>}</li>
  * </ul>
@@ -23,6 +24,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Reference extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Entity</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Entity</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Entity</em>' reference.
+   * @see #setEntity(Entity)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getReference_Entity()
+   * @model
+   * @generated
+   */
+  Entity getEntity();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Reference#getEntity <em>Entity</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Entity</em>' reference.
+   * @see #getEntity()
+   * @generated
+   */
+  void setEntity(Entity value);
+
   /**
    * Returns the value of the '<em><b>Ref To</b></em>' containment reference.
    * <!-- begin-user-doc -->

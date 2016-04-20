@@ -8,28 +8,28 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Glossary</b></em>'.
+ * A representation of the model object '<em><b>Glossary Term</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.Glossary#getName <em>Name</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Glossary#getNameAlias <em>Name Alias</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Glossary#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Glossary#getAcronym <em>Acronym</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Glossary#getDescription <em>Description</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Glossary#getPos <em>Pos</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Glossary#getSynset <em>Synset</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Glossary#getTermRelation <em>Term Relation</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getName <em>Name</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getNameAlias <em>Name Alias</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getType <em>Type</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getAcronym <em>Acronym</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getDescription <em>Description</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getPos <em>Pos</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getSynset <em>Synset</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getTermRelation <em>Term Relation</em>}</li>
  * </ul>
  *
- * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossary()
+ * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossaryTerm()
  * @model
  * @generated
  */
-public interface Glossary extends EObject
+public interface GlossaryTerm extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -41,14 +41,14 @@ public interface Glossary extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossary_Name()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossaryTerm_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Glossary#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.GlossaryTerm#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -67,14 +67,14 @@ public interface Glossary extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name Alias</em>' attribute.
    * @see #setNameAlias(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossary_NameAlias()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossaryTerm_NameAlias()
    * @model
    * @generated
    */
   String getNameAlias();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Glossary#getNameAlias <em>Name Alias</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.GlossaryTerm#getNameAlias <em>Name Alias</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name Alias</em>' attribute.
@@ -92,22 +92,22 @@ public interface Glossary extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' containment reference.
-   * @see #setType(RefGlossaryType)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossary_Type()
+   * @see #setType(RefTermType)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossaryTerm_Type()
    * @model containment="true"
    * @generated
    */
-  RefGlossaryType getType();
+  RefTermType getType();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Glossary#getType <em>Type</em>}' containment reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.GlossaryTerm#getType <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Type</em>' containment reference.
    * @see #getType()
    * @generated
    */
-  void setType(RefGlossaryType value);
+  void setType(RefTermType value);
 
   /**
    * Returns the value of the '<em><b>Acronym</b></em>' attribute.
@@ -119,14 +119,14 @@ public interface Glossary extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Acronym</em>' attribute.
    * @see #setAcronym(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossary_Acronym()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossaryTerm_Acronym()
    * @model
    * @generated
    */
   String getAcronym();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Glossary#getAcronym <em>Acronym</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.GlossaryTerm#getAcronym <em>Acronym</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Acronym</em>' attribute.
@@ -145,14 +145,14 @@ public interface Glossary extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Description</em>' attribute.
    * @see #setDescription(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossary_Description()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossaryTerm_Description()
    * @model
    * @generated
    */
   String getDescription();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Glossary#getDescription <em>Description</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.GlossaryTerm#getDescription <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Description</em>' attribute.
@@ -171,14 +171,14 @@ public interface Glossary extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Pos</em>' attribute.
    * @see #setPos(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossary_Pos()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossaryTerm_Pos()
    * @model
    * @generated
    */
   String getPos();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Glossary#getPos <em>Pos</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.GlossaryTerm#getPos <em>Pos</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Pos</em>' attribute.
@@ -197,14 +197,14 @@ public interface Glossary extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Synset</em>' attribute.
    * @see #setSynset(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossary_Synset()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossaryTerm_Synset()
    * @model
    * @generated
    */
   String getSynset();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Glossary#getSynset <em>Synset</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.GlossaryTerm#getSynset <em>Synset</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Synset</em>' attribute.
@@ -223,10 +223,10 @@ public interface Glossary extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Term Relation</em>' containment reference list.
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossary_TermRelation()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossaryTerm_TermRelation()
    * @model containment="true"
    * @generated
    */
   EList<TermRelation> getTermRelation();
 
-} // Glossary
+} // GlossaryTerm

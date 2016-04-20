@@ -16,23 +16,23 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.Term;
+import rslingo.rslil.rSLIL.RefTerm;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Term</b></em>'.
+ * An implementation of the model object '<em><b>Ref Term</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.impl.TermImpl#getRefTerm <em>Ref Term</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.TermImpl#getRefs <em>Refs</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.RefTermImpl#getRefTerm <em>Ref Term</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.RefTermImpl#getRefs <em>Refs</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TermImpl extends MinimalEObjectImpl.Container implements Term
+public class RefTermImpl extends MinimalEObjectImpl.Container implements RefTerm
 {
   /**
    * The default value of the '{@link #getRefTerm() <em>Ref Term</em>}' attribute.
@@ -69,7 +69,7 @@ public class TermImpl extends MinimalEObjectImpl.Container implements Term
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TermImpl()
+  protected RefTermImpl()
   {
     super();
   }
@@ -82,7 +82,7 @@ public class TermImpl extends MinimalEObjectImpl.Container implements Term
   @Override
   protected EClass eStaticClass()
   {
-    return RSLILPackage.Literals.TERM;
+    return RSLILPackage.Literals.REF_TERM;
   }
 
   /**
@@ -105,7 +105,7 @@ public class TermImpl extends MinimalEObjectImpl.Container implements Term
     String oldRefTerm = refTerm;
     refTerm = newRefTerm;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.TERM__REF_TERM, oldRefTerm, refTerm));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.REF_TERM__REF_TERM, oldRefTerm, refTerm));
   }
 
   /**
@@ -117,7 +117,7 @@ public class TermImpl extends MinimalEObjectImpl.Container implements Term
   {
     if (refs == null)
     {
-      refs = new EDataTypeEList<String>(String.class, this, RSLILPackage.TERM__REFS);
+      refs = new EDataTypeEList<String>(String.class, this, RSLILPackage.REF_TERM__REFS);
     }
     return refs;
   }
@@ -132,9 +132,9 @@ public class TermImpl extends MinimalEObjectImpl.Container implements Term
   {
     switch (featureID)
     {
-      case RSLILPackage.TERM__REF_TERM:
+      case RSLILPackage.REF_TERM__REF_TERM:
         return getRefTerm();
-      case RSLILPackage.TERM__REFS:
+      case RSLILPackage.REF_TERM__REFS:
         return getRefs();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -151,10 +151,10 @@ public class TermImpl extends MinimalEObjectImpl.Container implements Term
   {
     switch (featureID)
     {
-      case RSLILPackage.TERM__REF_TERM:
+      case RSLILPackage.REF_TERM__REF_TERM:
         setRefTerm((String)newValue);
         return;
-      case RSLILPackage.TERM__REFS:
+      case RSLILPackage.REF_TERM__REFS:
         getRefs().clear();
         getRefs().addAll((Collection<? extends String>)newValue);
         return;
@@ -172,10 +172,10 @@ public class TermImpl extends MinimalEObjectImpl.Container implements Term
   {
     switch (featureID)
     {
-      case RSLILPackage.TERM__REF_TERM:
+      case RSLILPackage.REF_TERM__REF_TERM:
         setRefTerm(REF_TERM_EDEFAULT);
         return;
-      case RSLILPackage.TERM__REFS:
+      case RSLILPackage.REF_TERM__REFS:
         getRefs().clear();
         return;
     }
@@ -192,9 +192,9 @@ public class TermImpl extends MinimalEObjectImpl.Container implements Term
   {
     switch (featureID)
     {
-      case RSLILPackage.TERM__REF_TERM:
+      case RSLILPackage.REF_TERM__REF_TERM:
         return REF_TERM_EDEFAULT == null ? refTerm != null : !REF_TERM_EDEFAULT.equals(refTerm);
-      case RSLILPackage.TERM__REFS:
+      case RSLILPackage.REF_TERM__REFS:
         return refs != null && !refs.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -219,4 +219,4 @@ public class TermImpl extends MinimalEObjectImpl.Container implements Term
     return result.toString();
   }
 
-} //TermImpl
+} //RefTermImpl

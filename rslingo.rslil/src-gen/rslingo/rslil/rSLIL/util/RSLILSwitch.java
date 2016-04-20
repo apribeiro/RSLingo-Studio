@@ -10,14 +10,14 @@ import org.eclipse.emf.ecore.util.Switch;
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.ComposedBy;
-import rslingo.rslil.rSLIL.DependsOnActor;
+import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.DependsOnGoal;
+import rslingo.rslil.rSLIL.DependsOnNFR;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.ExtensionPoint;
 import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.Field;
-import rslingo.rslil.rSLIL.Glossary;
-import rslingo.rslil.rSLIL.GlossaryType;
+import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.NFR;
@@ -26,17 +26,18 @@ import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
 import rslingo.rslil.rSLIL.RefFR;
-import rslingo.rslil.rSLIL.RefGlossaryType;
 import rslingo.rslil.rSLIL.RefGoal;
 import rslingo.rslil.rSLIL.RefNFR;
 import rslingo.rslil.rSLIL.RefSystem;
+import rslingo.rslil.rSLIL.RefTerm;
+import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
 import rslingo.rslil.rSLIL.Reference;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.Step;
-import rslingo.rslil.rSLIL.Term;
 import rslingo.rslil.rSLIL.TermRelation;
+import rslingo.rslil.rSLIL.TermType;
 import rslingo.rslil.rSLIL.UseCase;
 
 /**
@@ -130,24 +131,24 @@ public class RSLILSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RSLILPackage.GLOSSARY:
+      case RSLILPackage.GLOSSARY_TERM:
       {
-        Glossary glossary = (Glossary)theEObject;
-        T result = caseGlossary(glossary);
+        GlossaryTerm glossaryTerm = (GlossaryTerm)theEObject;
+        T result = caseGlossaryTerm(glossaryTerm);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RSLILPackage.REF_GLOSSARY_TYPE:
+      case RSLILPackage.REF_TERM_TYPE:
       {
-        RefGlossaryType refGlossaryType = (RefGlossaryType)theEObject;
-        T result = caseRefGlossaryType(refGlossaryType);
+        RefTermType refTermType = (RefTermType)theEObject;
+        T result = caseRefTermType(refTermType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RSLILPackage.GLOSSARY_TYPE:
+      case RSLILPackage.TERM_TYPE:
       {
-        GlossaryType glossaryType = (GlossaryType)theEObject;
-        T result = caseGlossaryType(glossaryType);
+        TermType termType = (TermType)theEObject;
+        T result = caseTermType(termType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -158,10 +159,10 @@ public class RSLILSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RSLILPackage.TERM:
+      case RSLILPackage.REF_TERM:
       {
-        Term term = (Term)theEObject;
-        T result = caseTerm(term);
+        RefTerm refTerm = (RefTerm)theEObject;
+        T result = caseRefTerm(refTerm);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -190,6 +191,13 @@ public class RSLILSwitch<T> extends Switch<T>
       {
         ComposedBy composedBy = (ComposedBy)theEObject;
         T result = caseComposedBy(composedBy);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.REF_GOAL:
+      {
+        RefGoal refGoal = (RefGoal)theEObject;
+        T result = caseRefGoal(refGoal);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -235,24 +243,10 @@ public class RSLILSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RSLILPackage.DEPENDS_ON_ACTOR:
-      {
-        DependsOnActor dependsOnActor = (DependsOnActor)theEObject;
-        T result = caseDependsOnActor(dependsOnActor);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case RSLILPackage.USE_CASE:
       {
         UseCase useCase = (UseCase)theEObject;
         T result = caseUseCase(useCase);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case RSLILPackage.REF_GOAL:
-      {
-        RefGoal refGoal = (RefGoal)theEObject;
-        T result = caseRefGoal(refGoal);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -305,10 +299,24 @@ public class RSLILSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case RSLILPackage.DEPENDS_ON_FR:
+      {
+        DependsOnFR dependsOnFR = (DependsOnFR)theEObject;
+        T result = caseDependsOnFR(dependsOnFR);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case RSLILPackage.NFR:
       {
         NFR nfr = (NFR)theEObject;
         T result = caseNFR(nfr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.DEPENDS_ON_NFR:
+      {
+        DependsOnNFR dependsOnNFR = (DependsOnNFR)theEObject;
+        T result = caseDependsOnNFR(dependsOnNFR);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -388,49 +396,49 @@ public class RSLILSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Glossary</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Glossary Term</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Glossary</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Glossary Term</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseGlossary(Glossary object)
+  public T caseGlossaryTerm(GlossaryTerm object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Ref Glossary Type</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Ref Term Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Ref Glossary Type</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Ref Term Type</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseRefGlossaryType(RefGlossaryType object)
+  public T caseRefTermType(RefTermType object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Glossary Type</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Term Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Glossary Type</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Term Type</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseGlossaryType(GlossaryType object)
+  public T caseTermType(TermType object)
   {
     return null;
   }
@@ -452,17 +460,17 @@ public class RSLILSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Term</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Ref Term</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Term</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Ref Term</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTerm(Term object)
+  public T caseRefTerm(RefTerm object)
   {
     return null;
   }
@@ -527,6 +535,22 @@ public class RSLILSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseComposedBy(ComposedBy object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ref Goal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ref Goal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRefGoal(RefGoal object)
   {
     return null;
   }
@@ -628,22 +652,6 @@ public class RSLILSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Depends On Actor</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Depends On Actor</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDependsOnActor(DependsOnActor object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Use Case</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -655,22 +663,6 @@ public class RSLILSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseUseCase(UseCase object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Ref Goal</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Ref Goal</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRefGoal(RefGoal object)
   {
     return null;
   }
@@ -788,6 +780,22 @@ public class RSLILSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Depends On FR</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Depends On FR</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDependsOnFR(DependsOnFR object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>NFR</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -799,6 +807,22 @@ public class RSLILSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseNFR(NFR object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Depends On NFR</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Depends On NFR</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDependsOnNFR(DependsOnNFR object)
   {
     return null;
   }

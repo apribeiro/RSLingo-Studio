@@ -33,12 +33,12 @@ public interface Field extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Size</em>' attribute.
-   * @see #setSize(int)
+   * @see #setSize(String)
    * @see rslingo.rslil.rSLIL.RSLILPackage#getField_Size()
    * @model
    * @generated
    */
-  int getSize();
+  String getSize();
 
   /**
    * Sets the value of the '{@link rslingo.rslil.rSLIL.Field#getSize <em>Size</em>}' attribute.
@@ -48,7 +48,7 @@ public interface Field extends EObject
    * @see #getSize()
    * @generated
    */
-  void setSize(int value);
+  void setSize(String value);
 
   /**
    * Returns the value of the '<em><b>Multiplicity</b></em>' attribute.

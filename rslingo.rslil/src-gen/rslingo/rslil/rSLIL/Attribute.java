@@ -14,10 +14,10 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.Attribute#getName <em>Name</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Attribute#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Attribute#getDescrition <em>Descrition</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Attribute#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Attribute#getField <em>Field</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Attribute#getReference <em>Reference</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getAttribute()
@@ -51,6 +51,32 @@ public interface Attribute extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Name Alias</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name Alias</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name Alias</em>' attribute.
+   * @see #setNameAlias(String)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getAttribute_NameAlias()
+   * @model
+   * @generated
+   */
+  String getNameAlias();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Attribute#getNameAlias <em>Name Alias</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name Alias</em>' attribute.
+   * @see #getNameAlias()
+   * @generated
+   */
+  void setNameAlias(String value);
 
   /**
    * Returns the value of the '<em><b>Descrition</b></em>' attribute.
@@ -129,31 +155,5 @@ public interface Attribute extends EObject
    * @generated
    */
   void setField(Field value);
-
-  /**
-   * Returns the value of the '<em><b>Reference</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Reference</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Reference</em>' containment reference.
-   * @see #setReference(Reference)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getAttribute_Reference()
-   * @model containment="true"
-   * @generated
-   */
-  Reference getReference();
-
-  /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Attribute#getReference <em>Reference</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Reference</em>' containment reference.
-   * @see #getReference()
-   * @generated
-   */
-  void setReference(Reference value);
 
 } // Attribute

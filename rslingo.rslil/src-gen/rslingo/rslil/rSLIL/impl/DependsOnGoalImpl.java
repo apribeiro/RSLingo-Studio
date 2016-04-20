@@ -3,6 +3,7 @@
 package rslingo.rslil.rSLIL.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -11,8 +12,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import rslingo.rslil.rSLIL.DependsOnGoal;
-import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.RSLILPackage;
+import rslingo.rslil.rSLIL.RefGoal;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,14 +52,14 @@ public class DependsOnGoalImpl extends MinimalEObjectImpl.Container implements D
   protected String type = TYPE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getRefGoal() <em>Ref Goal</em>}' reference.
+   * The cached value of the '{@link #getRefGoal() <em>Ref Goal</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getRefGoal()
    * @generated
    * @ordered
    */
-  protected Goal refGoal;
+  protected RefGoal refGoal;
 
   /**
    * <!-- begin-user-doc -->
@@ -109,27 +110,7 @@ public class DependsOnGoalImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public Goal getRefGoal()
-  {
-    if (refGoal != null && refGoal.eIsProxy())
-    {
-      InternalEObject oldRefGoal = (InternalEObject)refGoal;
-      refGoal = (Goal)eResolveProxy(oldRefGoal);
-      if (refGoal != oldRefGoal)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.DEPENDS_ON_GOAL__REF_GOAL, oldRefGoal, refGoal));
-      }
-    }
-    return refGoal;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Goal basicGetRefGoal()
+  public RefGoal getRefGoal()
   {
     return refGoal;
   }
@@ -139,12 +120,53 @@ public class DependsOnGoalImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRefGoal(Goal newRefGoal)
+  public NotificationChain basicSetRefGoal(RefGoal newRefGoal, NotificationChain msgs)
   {
-    Goal oldRefGoal = refGoal;
+    RefGoal oldRefGoal = refGoal;
     refGoal = newRefGoal;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.DEPENDS_ON_GOAL__REF_GOAL, oldRefGoal, refGoal));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.DEPENDS_ON_GOAL__REF_GOAL, oldRefGoal, newRefGoal);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRefGoal(RefGoal newRefGoal)
+  {
+    if (newRefGoal != refGoal)
+    {
+      NotificationChain msgs = null;
+      if (refGoal != null)
+        msgs = ((InternalEObject)refGoal).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.DEPENDS_ON_GOAL__REF_GOAL, null, msgs);
+      if (newRefGoal != null)
+        msgs = ((InternalEObject)newRefGoal).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.DEPENDS_ON_GOAL__REF_GOAL, null, msgs);
+      msgs = basicSetRefGoal(newRefGoal, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.DEPENDS_ON_GOAL__REF_GOAL, newRefGoal, newRefGoal));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case RSLILPackage.DEPENDS_ON_GOAL__REF_GOAL:
+        return basicSetRefGoal(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -160,8 +182,7 @@ public class DependsOnGoalImpl extends MinimalEObjectImpl.Container implements D
       case RSLILPackage.DEPENDS_ON_GOAL__TYPE:
         return getType();
       case RSLILPackage.DEPENDS_ON_GOAL__REF_GOAL:
-        if (resolve) return getRefGoal();
-        return basicGetRefGoal();
+        return getRefGoal();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -180,7 +201,7 @@ public class DependsOnGoalImpl extends MinimalEObjectImpl.Container implements D
         setType((String)newValue);
         return;
       case RSLILPackage.DEPENDS_ON_GOAL__REF_GOAL:
-        setRefGoal((Goal)newValue);
+        setRefGoal((RefGoal)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -200,7 +221,7 @@ public class DependsOnGoalImpl extends MinimalEObjectImpl.Container implements D
         setType(TYPE_EDEFAULT);
         return;
       case RSLILPackage.DEPENDS_ON_GOAL__REF_GOAL:
-        setRefGoal((Goal)null);
+        setRefGoal((RefGoal)null);
         return;
     }
     super.eUnset(featureID);

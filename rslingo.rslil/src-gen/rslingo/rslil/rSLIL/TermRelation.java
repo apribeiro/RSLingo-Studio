@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.TermRelation#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.TermRelation#getTerm <em>Term</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.TermRelation#getRefTerm <em>Ref Term</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getTermRelation()
@@ -50,29 +50,29 @@ public interface TermRelation extends EObject
   void setType(String value);
 
   /**
-   * Returns the value of the '<em><b>Term</b></em>' containment reference.
+   * Returns the value of the '<em><b>Ref Term</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Term</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Ref Term</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Term</em>' containment reference.
-   * @see #setTerm(Term)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getTermRelation_Term()
+   * @return the value of the '<em>Ref Term</em>' containment reference.
+   * @see #setRefTerm(RefTerm)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getTermRelation_RefTerm()
    * @model containment="true"
    * @generated
    */
-  Term getTerm();
+  RefTerm getRefTerm();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.TermRelation#getTerm <em>Term</em>}' containment reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.TermRelation#getRefTerm <em>Ref Term</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Term</em>' containment reference.
-   * @see #getTerm()
+   * @param value the new value of the '<em>Ref Term</em>' containment reference.
+   * @see #getRefTerm()
    * @generated
    */
-  void setTerm(Term value);
+  void setRefTerm(RefTerm value);
 
 } // TermRelation

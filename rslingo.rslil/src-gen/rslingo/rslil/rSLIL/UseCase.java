@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getPriotity <em>Priotity</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.UseCase#getExtensionnPoints <em>Extensionn Points</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getGoals <em>Goals</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getFrs <em>Frs</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getActorInitiates <em>Actor Initiates</em>}</li>
@@ -29,7 +30,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getIncludes <em>Includes</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getExtends <em>Extends</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getExtPoint <em>Ext Point</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.UseCase#getExtensionnPoints <em>Extensionn Points</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getScenarios <em>Scenarios</em>}</li>
  * </ul>
  *
@@ -168,6 +168,22 @@ public interface UseCase extends EObject
    * @generated
    */
   void setPriotity(String value);
+
+  /**
+   * Returns the value of the '<em><b>Extensionn Points</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.ExtensionPoint}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Extensionn Points</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Extensionn Points</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getUseCase_ExtensionnPoints()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ExtensionPoint> getExtensionnPoints();
 
   /**
    * Returns the value of the '<em><b>Goals</b></em>' containment reference list.
@@ -362,22 +378,6 @@ public interface UseCase extends EObject
    * @generated
    */
   void setExtPoint(ExtensionPoint value);
-
-  /**
-   * Returns the value of the '<em><b>Extensionn Points</b></em>' containment reference list.
-   * The list contents are of type {@link rslingo.rslil.rSLIL.ExtensionPoint}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Extensionn Points</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Extensionn Points</em>' containment reference list.
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getUseCase_ExtensionnPoints()
-   * @model containment="true"
-   * @generated
-   */
-  EList<ExtensionPoint> getExtensionnPoints();
 
   /**
    * Returns the value of the '<em><b>Scenarios</b></em>' containment reference list.

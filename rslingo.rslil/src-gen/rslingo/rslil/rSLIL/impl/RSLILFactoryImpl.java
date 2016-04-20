@@ -13,14 +13,14 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.ComposedBy;
-import rslingo.rslil.rSLIL.DependsOnActor;
+import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.DependsOnGoal;
+import rslingo.rslil.rSLIL.DependsOnNFR;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.ExtensionPoint;
 import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.Field;
-import rslingo.rslil.rSLIL.Glossary;
-import rslingo.rslil.rSLIL.GlossaryType;
+import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.NFR;
@@ -30,17 +30,18 @@ import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
 import rslingo.rslil.rSLIL.RefFR;
-import rslingo.rslil.rSLIL.RefGlossaryType;
 import rslingo.rslil.rSLIL.RefGoal;
 import rslingo.rslil.rSLIL.RefNFR;
 import rslingo.rslil.rSLIL.RefSystem;
+import rslingo.rslil.rSLIL.RefTerm;
+import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
 import rslingo.rslil.rSLIL.Reference;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.Step;
-import rslingo.rslil.rSLIL.Term;
 import rslingo.rslil.rSLIL.TermRelation;
+import rslingo.rslil.rSLIL.TermType;
 import rslingo.rslil.rSLIL.UseCase;
 
 /**
@@ -99,24 +100,23 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
       case RSLILPackage.PROJECT: return createProject();
       case RSLILPackage.SYSTEM: return createSystem();
       case RSLILPackage.REF_SYSTEM: return createRefSystem();
-      case RSLILPackage.GLOSSARY: return createGlossary();
-      case RSLILPackage.REF_GLOSSARY_TYPE: return createRefGlossaryType();
-      case RSLILPackage.GLOSSARY_TYPE: return createGlossaryType();
+      case RSLILPackage.GLOSSARY_TERM: return createGlossaryTerm();
+      case RSLILPackage.REF_TERM_TYPE: return createRefTermType();
+      case RSLILPackage.TERM_TYPE: return createTermType();
       case RSLILPackage.TERM_RELATION: return createTermRelation();
-      case RSLILPackage.TERM: return createTerm();
+      case RSLILPackage.REF_TERM: return createRefTerm();
       case RSLILPackage.STAKEHOLDER: return createStakeholder();
       case RSLILPackage.GOAL: return createGoal();
       case RSLILPackage.DEPENDS_ON_GOAL: return createDependsOnGoal();
       case RSLILPackage.COMPOSED_BY: return createComposedBy();
+      case RSLILPackage.REF_GOAL: return createRefGoal();
       case RSLILPackage.ENTITY: return createEntity();
       case RSLILPackage.ATTRIBUTE: return createAttribute();
       case RSLILPackage.FIELD: return createField();
       case RSLILPackage.REFERENCE: return createReference();
       case RSLILPackage.REF_ATTRIBUTE: return createRefAttribute();
       case RSLILPackage.ACTOR: return createActor();
-      case RSLILPackage.DEPENDS_ON_ACTOR: return createDependsOnActor();
       case RSLILPackage.USE_CASE: return createUseCase();
-      case RSLILPackage.REF_GOAL: return createRefGoal();
       case RSLILPackage.REF_FR: return createRefFR();
       case RSLILPackage.REF_ACTOR: return createRefActor();
       case RSLILPackage.REF_UC: return createRefUC();
@@ -124,7 +124,9 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
       case RSLILPackage.SCENARIO: return createScenario();
       case RSLILPackage.STEP: return createStep();
       case RSLILPackage.FR: return createFR();
+      case RSLILPackage.DEPENDS_ON_FR: return createDependsOnFR();
       case RSLILPackage.NFR: return createNFR();
+      case RSLILPackage.DEPENDS_ON_NFR: return createDependsOnNFR();
       case RSLILPackage.REF_NFR: return createRefNFR();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -180,10 +182,10 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Glossary createGlossary()
+  public GlossaryTerm createGlossaryTerm()
   {
-    GlossaryImpl glossary = new GlossaryImpl();
-    return glossary;
+    GlossaryTermImpl glossaryTerm = new GlossaryTermImpl();
+    return glossaryTerm;
   }
 
   /**
@@ -191,10 +193,10 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public RefGlossaryType createRefGlossaryType()
+  public RefTermType createRefTermType()
   {
-    RefGlossaryTypeImpl refGlossaryType = new RefGlossaryTypeImpl();
-    return refGlossaryType;
+    RefTermTypeImpl refTermType = new RefTermTypeImpl();
+    return refTermType;
   }
 
   /**
@@ -202,10 +204,10 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public GlossaryType createGlossaryType()
+  public TermType createTermType()
   {
-    GlossaryTypeImpl glossaryType = new GlossaryTypeImpl();
-    return glossaryType;
+    TermTypeImpl termType = new TermTypeImpl();
+    return termType;
   }
 
   /**
@@ -224,10 +226,10 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Term createTerm()
+  public RefTerm createRefTerm()
   {
-    TermImpl term = new TermImpl();
-    return term;
+    RefTermImpl refTerm = new RefTermImpl();
+    return refTerm;
   }
 
   /**
@@ -272,6 +274,17 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
   {
     ComposedByImpl composedBy = new ComposedByImpl();
     return composedBy;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RefGoal createRefGoal()
+  {
+    RefGoalImpl refGoal = new RefGoalImpl();
+    return refGoal;
   }
 
   /**
@@ -345,32 +358,10 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DependsOnActor createDependsOnActor()
-  {
-    DependsOnActorImpl dependsOnActor = new DependsOnActorImpl();
-    return dependsOnActor;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public UseCase createUseCase()
   {
     UseCaseImpl useCase = new UseCaseImpl();
     return useCase;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RefGoal createRefGoal()
-  {
-    RefGoalImpl refGoal = new RefGoalImpl();
-    return refGoal;
   }
 
   /**
@@ -455,10 +446,32 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public DependsOnFR createDependsOnFR()
+  {
+    DependsOnFRImpl dependsOnFR = new DependsOnFRImpl();
+    return dependsOnFR;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public NFR createNFR()
   {
     NFRImpl nfr = new NFRImpl();
     return nfr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DependsOnNFR createDependsOnNFR()
+  {
+    DependsOnNFRImpl dependsOnNFR = new DependsOnNFRImpl();
+    return dependsOnNFR;
   }
 
   /**

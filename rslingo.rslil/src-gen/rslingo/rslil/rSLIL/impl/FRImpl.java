@@ -18,9 +18,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.Stakeholder;
 
 /**
@@ -34,8 +34,8 @@ import rslingo.rslil.rSLIL.Stakeholder;
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getModality <em>Modality</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getActionType <em>Action Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getStakeholder <em>Stakeholder</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getDepends <em>Depends</em>}</li>
@@ -107,6 +107,26 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
   protected String description = DESCRIPTION_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected static final String TYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected String type = TYPE_EDEFAULT;
+
+  /**
    * The default value of the '{@link #getModality() <em>Modality</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -125,26 +145,6 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
    * @ordered
    */
   protected String modality = MODALITY_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getActionType() <em>Action Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getActionType()
-   * @generated
-   * @ordered
-   */
-  protected static final String ACTION_TYPE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getActionType() <em>Action Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getActionType()
-   * @generated
-   * @ordered
-   */
-  protected String actionType = ACTION_TYPE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getStakeholder() <em>Stakeholder</em>}' reference.
@@ -184,7 +184,7 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
    * @generated
    * @ordered
    */
-  protected EList<RefFR> depends;
+  protected EList<DependsOnFR> depends;
 
   /**
    * The cached value of the '{@link #getPartOf() <em>Part Of</em>}' reference.
@@ -291,6 +291,29 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getType()
+  {
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setType(String newType)
+  {
+    String oldType = type;
+    type = newType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.FR__TYPE, oldType, type));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getModality()
   {
     return modality;
@@ -307,29 +330,6 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
     modality = newModality;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.FR__MODALITY, oldModality, modality));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getActionType()
-  {
-    return actionType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setActionType(String newActionType)
-  {
-    String oldActionType = actionType;
-    actionType = newActionType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.FR__ACTION_TYPE, oldActionType, actionType));
   }
 
   /**
@@ -403,11 +403,11 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<RefFR> getDepends()
+  public EList<DependsOnFR> getDepends()
   {
     if (depends == null)
     {
-      depends = new EObjectContainmentEList<RefFR>(RefFR.class, this, RSLILPackage.FR__DEPENDS);
+      depends = new EObjectContainmentEList<DependsOnFR>(DependsOnFR.class, this, RSLILPackage.FR__DEPENDS);
     }
     return depends;
   }
@@ -487,10 +487,10 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
         return getNameAlias();
       case RSLILPackage.FR__DESCRIPTION:
         return getDescription();
+      case RSLILPackage.FR__TYPE:
+        return getType();
       case RSLILPackage.FR__MODALITY:
         return getModality();
-      case RSLILPackage.FR__ACTION_TYPE:
-        return getActionType();
       case RSLILPackage.FR__STAKEHOLDER:
         if (resolve) return getStakeholder();
         return basicGetStakeholder();
@@ -525,11 +525,11 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
       case RSLILPackage.FR__DESCRIPTION:
         setDescription((String)newValue);
         return;
+      case RSLILPackage.FR__TYPE:
+        setType((String)newValue);
+        return;
       case RSLILPackage.FR__MODALITY:
         setModality((String)newValue);
-        return;
-      case RSLILPackage.FR__ACTION_TYPE:
-        setActionType((String)newValue);
         return;
       case RSLILPackage.FR__STAKEHOLDER:
         setStakeholder((Stakeholder)newValue);
@@ -539,7 +539,7 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
         return;
       case RSLILPackage.FR__DEPENDS:
         getDepends().clear();
-        getDepends().addAll((Collection<? extends RefFR>)newValue);
+        getDepends().addAll((Collection<? extends DependsOnFR>)newValue);
         return;
       case RSLILPackage.FR__PART_OF:
         setPartOf((FR)newValue);
@@ -567,11 +567,11 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
       case RSLILPackage.FR__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
+      case RSLILPackage.FR__TYPE:
+        setType(TYPE_EDEFAULT);
+        return;
       case RSLILPackage.FR__MODALITY:
         setModality(MODALITY_EDEFAULT);
-        return;
-      case RSLILPackage.FR__ACTION_TYPE:
-        setActionType(ACTION_TYPE_EDEFAULT);
         return;
       case RSLILPackage.FR__STAKEHOLDER:
         setStakeholder((Stakeholder)null);
@@ -605,10 +605,10 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
         return NAME_ALIAS_EDEFAULT == null ? nameAlias != null : !NAME_ALIAS_EDEFAULT.equals(nameAlias);
       case RSLILPackage.FR__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case RSLILPackage.FR__TYPE:
+        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case RSLILPackage.FR__MODALITY:
         return MODALITY_EDEFAULT == null ? modality != null : !MODALITY_EDEFAULT.equals(modality);
-      case RSLILPackage.FR__ACTION_TYPE:
-        return ACTION_TYPE_EDEFAULT == null ? actionType != null : !ACTION_TYPE_EDEFAULT.equals(actionType);
       case RSLILPackage.FR__STAKEHOLDER:
         return stakeholder != null;
       case RSLILPackage.FR__PRIORITY:
@@ -638,10 +638,10 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
     result.append(nameAlias);
     result.append(", description: ");
     result.append(description);
+    result.append(", type: ");
+    result.append(type);
     result.append(", modality: ");
     result.append(modality);
-    result.append(", actionType: ");
-    result.append(actionType);
     result.append(", priority: ");
     result.append(priority);
     result.append(')');

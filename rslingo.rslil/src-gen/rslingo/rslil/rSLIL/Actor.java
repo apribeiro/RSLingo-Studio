@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.Actor#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Actor#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Actor#getStakeholder <em>Stakeholder</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Actor#getDependsOn <em>Depends On</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Actor#getActor <em>Actor</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getActor()
@@ -158,29 +158,29 @@ public interface Actor extends EObject
   void setStakeholder(Stakeholder value);
 
   /**
-   * Returns the value of the '<em><b>Depends On</b></em>' containment reference.
+   * Returns the value of the '<em><b>Actor</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Depends On</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Actor</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Depends On</em>' containment reference.
-   * @see #setDependsOn(DependsOnActor)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getActor_DependsOn()
-   * @model containment="true"
+   * @return the value of the '<em>Actor</em>' reference.
+   * @see #setActor(Actor)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getActor_Actor()
+   * @model
    * @generated
    */
-  DependsOnActor getDependsOn();
+  Actor getActor();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Actor#getDependsOn <em>Depends On</em>}' containment reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Actor#getActor <em>Actor</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Depends On</em>' containment reference.
-   * @see #getDependsOn()
+   * @param value the new value of the '<em>Actor</em>' reference.
+   * @see #getActor()
    * @generated
    */
-  void setDependsOn(DependsOnActor value);
+  void setActor(Actor value);
 
 } // Actor

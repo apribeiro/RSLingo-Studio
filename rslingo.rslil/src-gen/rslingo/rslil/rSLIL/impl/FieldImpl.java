@@ -37,7 +37,7 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * @generated
    * @ordered
    */
-  protected static final int SIZE_EDEFAULT = 0;
+  protected static final String SIZE_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getSize() <em>Size</em>}' attribute.
@@ -47,7 +47,7 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * @generated
    * @ordered
    */
-  protected int size = SIZE_EDEFAULT;
+  protected String size = SIZE_EDEFAULT;
 
   /**
    * The default value of the '{@link #getMultiplicity() <em>Multiplicity</em>}' attribute.
@@ -115,7 +115,7 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getSize()
+  public String getSize()
   {
     return size;
   }
@@ -125,9 +125,9 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSize(int newSize)
+  public void setSize(String newSize)
   {
-    int oldSize = size;
+    String oldSize = size;
     size = newSize;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.FIELD__SIZE, oldSize, size));
@@ -210,7 +210,7 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
     switch (featureID)
     {
       case RSLILPackage.FIELD__SIZE:
-        setSize((Integer)newValue);
+        setSize((String)newValue);
         return;
       case RSLILPackage.FIELD__MULTIPLICITY:
         setMultiplicity((String)newValue);
@@ -256,7 +256,7 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
     switch (featureID)
     {
       case RSLILPackage.FIELD__SIZE:
-        return size != SIZE_EDEFAULT;
+        return SIZE_EDEFAULT == null ? size != null : !SIZE_EDEFAULT.equals(size);
       case RSLILPackage.FIELD__MULTIPLICITY:
         return MULTIPLICITY_EDEFAULT == null ? multiplicity != null : !MULTIPLICITY_EDEFAULT.equals(multiplicity);
       case RSLILPackage.FIELD__DEFAULT_VALUE:

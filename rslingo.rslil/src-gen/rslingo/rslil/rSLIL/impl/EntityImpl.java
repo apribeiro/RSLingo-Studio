@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.RSLILPackage;
+import rslingo.rslil.rSLIL.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +34,9 @@ import rslingo.rslil.rSLIL.RSLILPackage;
  *   <li>{@link rslingo.rslil.rSLIL.impl.EntityImpl#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.EntityImpl#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.EntityImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.EntityImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.EntityImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.EntityImpl#getReference <em>Reference</em>}</li>
  * </ul>
  *
  * @generated
@@ -101,6 +104,26 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
   protected String description = DESCRIPTION_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected static final String TYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected String type = TYPE_EDEFAULT;
+
+  /**
    * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -109,6 +132,16 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
    * @ordered
    */
   protected EList<Attribute> attributes;
+
+  /**
+   * The cached value of the '{@link #getReference() <em>Reference</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getReference()
+   * @generated
+   * @ordered
+   */
+  protected Reference reference;
 
   /**
    * <!-- begin-user-doc -->
@@ -205,6 +238,29 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getType()
+  {
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setType(String newType)
+  {
+    String oldType = type;
+    type = newType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.ENTITY__TYPE, oldType, type));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Attribute> getAttributes()
   {
     if (attributes == null)
@@ -219,6 +275,54 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
    * <!-- end-user-doc -->
    * @generated
    */
+  public Reference getReference()
+  {
+    return reference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetReference(Reference newReference, NotificationChain msgs)
+  {
+    Reference oldReference = reference;
+    reference = newReference;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.ENTITY__REFERENCE, oldReference, newReference);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setReference(Reference newReference)
+  {
+    if (newReference != reference)
+    {
+      NotificationChain msgs = null;
+      if (reference != null)
+        msgs = ((InternalEObject)reference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.ENTITY__REFERENCE, null, msgs);
+      if (newReference != null)
+        msgs = ((InternalEObject)newReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.ENTITY__REFERENCE, null, msgs);
+      msgs = basicSetReference(newReference, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.ENTITY__REFERENCE, newReference, newReference));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -226,6 +330,8 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
     {
       case RSLILPackage.ENTITY__ATTRIBUTES:
         return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.ENTITY__REFERENCE:
+        return basicSetReference(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -246,8 +352,12 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
         return getNameAlias();
       case RSLILPackage.ENTITY__DESCRIPTION:
         return getDescription();
+      case RSLILPackage.ENTITY__TYPE:
+        return getType();
       case RSLILPackage.ENTITY__ATTRIBUTES:
         return getAttributes();
+      case RSLILPackage.ENTITY__REFERENCE:
+        return getReference();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -272,9 +382,15 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
       case RSLILPackage.ENTITY__DESCRIPTION:
         setDescription((String)newValue);
         return;
+      case RSLILPackage.ENTITY__TYPE:
+        setType((String)newValue);
+        return;
       case RSLILPackage.ENTITY__ATTRIBUTES:
         getAttributes().clear();
         getAttributes().addAll((Collection<? extends Attribute>)newValue);
+        return;
+      case RSLILPackage.ENTITY__REFERENCE:
+        setReference((Reference)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -299,8 +415,14 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
       case RSLILPackage.ENTITY__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
+      case RSLILPackage.ENTITY__TYPE:
+        setType(TYPE_EDEFAULT);
+        return;
       case RSLILPackage.ENTITY__ATTRIBUTES:
         getAttributes().clear();
+        return;
+      case RSLILPackage.ENTITY__REFERENCE:
+        setReference((Reference)null);
         return;
     }
     super.eUnset(featureID);
@@ -322,8 +444,12 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
         return NAME_ALIAS_EDEFAULT == null ? nameAlias != null : !NAME_ALIAS_EDEFAULT.equals(nameAlias);
       case RSLILPackage.ENTITY__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case RSLILPackage.ENTITY__TYPE:
+        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case RSLILPackage.ENTITY__ATTRIBUTES:
         return attributes != null && !attributes.isEmpty();
+      case RSLILPackage.ENTITY__REFERENCE:
+        return reference != null;
     }
     return super.eIsSet(featureID);
   }
@@ -345,6 +471,8 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
     result.append(nameAlias);
     result.append(", description: ");
     result.append(description);
+    result.append(", type: ");
+    result.append(type);
     result.append(')');
     return result.toString();
   }

@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.Model#getProject <em>Project</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Model#getSystems <em>Systems</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Model#getGlossaries <em>Glossaries</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Model#getGlossaryTerms <em>Glossary Terms</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Model#getStakeholders <em>Stakeholders</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Model#getGoals <em>Goals</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Model#getEntities <em>Entities</em>}</li>
@@ -76,20 +76,20 @@ public interface Model extends EObject
   EList<rslingo.rslil.rSLIL.System> getSystems();
 
   /**
-   * Returns the value of the '<em><b>Glossaries</b></em>' containment reference list.
-   * The list contents are of type {@link rslingo.rslil.rSLIL.Glossary}.
+   * Returns the value of the '<em><b>Glossary Terms</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.GlossaryTerm}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Glossaries</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Glossary Terms</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Glossaries</em>' containment reference list.
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getModel_Glossaries()
+   * @return the value of the '<em>Glossary Terms</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getModel_GlossaryTerms()
    * @model containment="true"
    * @generated
    */
-  EList<Glossary> getGlossaries();
+  EList<GlossaryTerm> getGlossaryTerms();
 
   /**
    * Returns the value of the '<em><b>Stakeholders</b></em>' containment reference list.

@@ -18,32 +18,32 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import rslingo.rslil.rSLIL.Glossary;
+import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.RefGlossaryType;
+import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.TermRelation;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Glossary</b></em>'.
+ * An implementation of the model object '<em><b>Glossary Term</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryImpl#getName <em>Name</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryImpl#getNameAlias <em>Name Alias</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryImpl#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryImpl#getAcronym <em>Acronym</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryImpl#getPos <em>Pos</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryImpl#getSynset <em>Synset</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryImpl#getTermRelation <em>Term Relation</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getName <em>Name</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getNameAlias <em>Name Alias</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getType <em>Type</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getAcronym <em>Acronym</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getPos <em>Pos</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getSynset <em>Synset</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getTermRelation <em>Term Relation</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossary
+public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements GlossaryTerm
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -93,7 +93,7 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
    * @generated
    * @ordered
    */
-  protected RefGlossaryType type;
+  protected RefTermType type;
 
   /**
    * The default value of the '{@link #getAcronym() <em>Acronym</em>}' attribute.
@@ -190,7 +190,7 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
    * <!-- end-user-doc -->
    * @generated
    */
-  protected GlossaryImpl()
+  protected GlossaryTermImpl()
   {
     super();
   }
@@ -203,7 +203,7 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
   @Override
   protected EClass eStaticClass()
   {
-    return RSLILPackage.Literals.GLOSSARY;
+    return RSLILPackage.Literals.GLOSSARY_TERM;
   }
 
   /**
@@ -226,7 +226,7 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY_TERM__NAME, oldName, name));
   }
 
   /**
@@ -249,7 +249,7 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
     String oldNameAlias = nameAlias;
     nameAlias = newNameAlias;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY__NAME_ALIAS, oldNameAlias, nameAlias));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY_TERM__NAME_ALIAS, oldNameAlias, nameAlias));
   }
 
   /**
@@ -257,7 +257,7 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
    * <!-- end-user-doc -->
    * @generated
    */
-  public RefGlossaryType getType()
+  public RefTermType getType()
   {
     return type;
   }
@@ -267,13 +267,13 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(RefGlossaryType newType, NotificationChain msgs)
+  public NotificationChain basicSetType(RefTermType newType, NotificationChain msgs)
   {
-    RefGlossaryType oldType = type;
+    RefTermType oldType = type;
     type = newType;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY__TYPE, oldType, newType);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY_TERM__TYPE, oldType, newType);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -284,20 +284,20 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(RefGlossaryType newType)
+  public void setType(RefTermType newType)
   {
     if (newType != type)
     {
       NotificationChain msgs = null;
       if (type != null)
-        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.GLOSSARY__TYPE, null, msgs);
+        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.GLOSSARY_TERM__TYPE, null, msgs);
       if (newType != null)
-        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.GLOSSARY__TYPE, null, msgs);
+        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.GLOSSARY_TERM__TYPE, null, msgs);
       msgs = basicSetType(newType, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY__TYPE, newType, newType));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY_TERM__TYPE, newType, newType));
   }
 
   /**
@@ -320,7 +320,7 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
     String oldAcronym = acronym;
     acronym = newAcronym;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY__ACRONYM, oldAcronym, acronym));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY_TERM__ACRONYM, oldAcronym, acronym));
   }
 
   /**
@@ -343,7 +343,7 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
     String oldDescription = description;
     description = newDescription;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY__DESCRIPTION, oldDescription, description));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY_TERM__DESCRIPTION, oldDescription, description));
   }
 
   /**
@@ -366,7 +366,7 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
     String oldPos = pos;
     pos = newPos;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY__POS, oldPos, pos));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY_TERM__POS, oldPos, pos));
   }
 
   /**
@@ -389,7 +389,7 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
     String oldSynset = synset;
     synset = newSynset;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY__SYNSET, oldSynset, synset));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY_TERM__SYNSET, oldSynset, synset));
   }
 
   /**
@@ -401,7 +401,7 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
   {
     if (termRelation == null)
     {
-      termRelation = new EObjectContainmentEList<TermRelation>(TermRelation.class, this, RSLILPackage.GLOSSARY__TERM_RELATION);
+      termRelation = new EObjectContainmentEList<TermRelation>(TermRelation.class, this, RSLILPackage.GLOSSARY_TERM__TERM_RELATION);
     }
     return termRelation;
   }
@@ -416,9 +416,9 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
   {
     switch (featureID)
     {
-      case RSLILPackage.GLOSSARY__TYPE:
+      case RSLILPackage.GLOSSARY_TERM__TYPE:
         return basicSetType(null, msgs);
-      case RSLILPackage.GLOSSARY__TERM_RELATION:
+      case RSLILPackage.GLOSSARY_TERM__TERM_RELATION:
         return ((InternalEList<?>)getTermRelation()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -434,21 +434,21 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
   {
     switch (featureID)
     {
-      case RSLILPackage.GLOSSARY__NAME:
+      case RSLILPackage.GLOSSARY_TERM__NAME:
         return getName();
-      case RSLILPackage.GLOSSARY__NAME_ALIAS:
+      case RSLILPackage.GLOSSARY_TERM__NAME_ALIAS:
         return getNameAlias();
-      case RSLILPackage.GLOSSARY__TYPE:
+      case RSLILPackage.GLOSSARY_TERM__TYPE:
         return getType();
-      case RSLILPackage.GLOSSARY__ACRONYM:
+      case RSLILPackage.GLOSSARY_TERM__ACRONYM:
         return getAcronym();
-      case RSLILPackage.GLOSSARY__DESCRIPTION:
+      case RSLILPackage.GLOSSARY_TERM__DESCRIPTION:
         return getDescription();
-      case RSLILPackage.GLOSSARY__POS:
+      case RSLILPackage.GLOSSARY_TERM__POS:
         return getPos();
-      case RSLILPackage.GLOSSARY__SYNSET:
+      case RSLILPackage.GLOSSARY_TERM__SYNSET:
         return getSynset();
-      case RSLILPackage.GLOSSARY__TERM_RELATION:
+      case RSLILPackage.GLOSSARY_TERM__TERM_RELATION:
         return getTermRelation();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -465,28 +465,28 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
   {
     switch (featureID)
     {
-      case RSLILPackage.GLOSSARY__NAME:
+      case RSLILPackage.GLOSSARY_TERM__NAME:
         setName((String)newValue);
         return;
-      case RSLILPackage.GLOSSARY__NAME_ALIAS:
+      case RSLILPackage.GLOSSARY_TERM__NAME_ALIAS:
         setNameAlias((String)newValue);
         return;
-      case RSLILPackage.GLOSSARY__TYPE:
-        setType((RefGlossaryType)newValue);
+      case RSLILPackage.GLOSSARY_TERM__TYPE:
+        setType((RefTermType)newValue);
         return;
-      case RSLILPackage.GLOSSARY__ACRONYM:
+      case RSLILPackage.GLOSSARY_TERM__ACRONYM:
         setAcronym((String)newValue);
         return;
-      case RSLILPackage.GLOSSARY__DESCRIPTION:
+      case RSLILPackage.GLOSSARY_TERM__DESCRIPTION:
         setDescription((String)newValue);
         return;
-      case RSLILPackage.GLOSSARY__POS:
+      case RSLILPackage.GLOSSARY_TERM__POS:
         setPos((String)newValue);
         return;
-      case RSLILPackage.GLOSSARY__SYNSET:
+      case RSLILPackage.GLOSSARY_TERM__SYNSET:
         setSynset((String)newValue);
         return;
-      case RSLILPackage.GLOSSARY__TERM_RELATION:
+      case RSLILPackage.GLOSSARY_TERM__TERM_RELATION:
         getTermRelation().clear();
         getTermRelation().addAll((Collection<? extends TermRelation>)newValue);
         return;
@@ -504,28 +504,28 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
   {
     switch (featureID)
     {
-      case RSLILPackage.GLOSSARY__NAME:
+      case RSLILPackage.GLOSSARY_TERM__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case RSLILPackage.GLOSSARY__NAME_ALIAS:
+      case RSLILPackage.GLOSSARY_TERM__NAME_ALIAS:
         setNameAlias(NAME_ALIAS_EDEFAULT);
         return;
-      case RSLILPackage.GLOSSARY__TYPE:
-        setType((RefGlossaryType)null);
+      case RSLILPackage.GLOSSARY_TERM__TYPE:
+        setType((RefTermType)null);
         return;
-      case RSLILPackage.GLOSSARY__ACRONYM:
+      case RSLILPackage.GLOSSARY_TERM__ACRONYM:
         setAcronym(ACRONYM_EDEFAULT);
         return;
-      case RSLILPackage.GLOSSARY__DESCRIPTION:
+      case RSLILPackage.GLOSSARY_TERM__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case RSLILPackage.GLOSSARY__POS:
+      case RSLILPackage.GLOSSARY_TERM__POS:
         setPos(POS_EDEFAULT);
         return;
-      case RSLILPackage.GLOSSARY__SYNSET:
+      case RSLILPackage.GLOSSARY_TERM__SYNSET:
         setSynset(SYNSET_EDEFAULT);
         return;
-      case RSLILPackage.GLOSSARY__TERM_RELATION:
+      case RSLILPackage.GLOSSARY_TERM__TERM_RELATION:
         getTermRelation().clear();
         return;
     }
@@ -542,21 +542,21 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
   {
     switch (featureID)
     {
-      case RSLILPackage.GLOSSARY__NAME:
+      case RSLILPackage.GLOSSARY_TERM__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case RSLILPackage.GLOSSARY__NAME_ALIAS:
+      case RSLILPackage.GLOSSARY_TERM__NAME_ALIAS:
         return NAME_ALIAS_EDEFAULT == null ? nameAlias != null : !NAME_ALIAS_EDEFAULT.equals(nameAlias);
-      case RSLILPackage.GLOSSARY__TYPE:
+      case RSLILPackage.GLOSSARY_TERM__TYPE:
         return type != null;
-      case RSLILPackage.GLOSSARY__ACRONYM:
+      case RSLILPackage.GLOSSARY_TERM__ACRONYM:
         return ACRONYM_EDEFAULT == null ? acronym != null : !ACRONYM_EDEFAULT.equals(acronym);
-      case RSLILPackage.GLOSSARY__DESCRIPTION:
+      case RSLILPackage.GLOSSARY_TERM__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case RSLILPackage.GLOSSARY__POS:
+      case RSLILPackage.GLOSSARY_TERM__POS:
         return POS_EDEFAULT == null ? pos != null : !POS_EDEFAULT.equals(pos);
-      case RSLILPackage.GLOSSARY__SYNSET:
+      case RSLILPackage.GLOSSARY_TERM__SYNSET:
         return SYNSET_EDEFAULT == null ? synset != null : !SYNSET_EDEFAULT.equals(synset);
-      case RSLILPackage.GLOSSARY__TERM_RELATION:
+      case RSLILPackage.GLOSSARY_TERM__TERM_RELATION:
         return termRelation != null && !termRelation.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -589,4 +589,4 @@ public class GlossaryImpl extends MinimalEObjectImpl.Container implements Glossa
     return result.toString();
   }
 
-} //GlossaryImpl
+} //GlossaryTermImpl

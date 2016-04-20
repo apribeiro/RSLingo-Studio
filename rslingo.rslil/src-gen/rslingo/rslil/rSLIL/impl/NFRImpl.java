@@ -18,9 +18,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import rslingo.rslil.rSLIL.DependsOnNFR;
 import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.RefNFR;
 import rslingo.rslil.rSLIL.Stakeholder;
 
 /**
@@ -176,7 +176,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
    * @generated
    * @ordered
    */
-  protected static final String VALUE_EDEFAULT = null;
+  protected static final int VALUE_EDEFAULT = 0;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -186,7 +186,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
    * @generated
    * @ordered
    */
-  protected String value = VALUE_EDEFAULT;
+  protected int value = VALUE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getStakeholder() <em>Stakeholder</em>}' reference.
@@ -226,7 +226,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
    * @generated
    * @ordered
    */
-  protected EList<RefNFR> depends;
+  protected EList<DependsOnNFR> depends;
 
   /**
    * The cached value of the '{@link #getPartOf() <em>Part Of</em>}' reference.
@@ -402,7 +402,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValue()
+  public int getValue()
   {
     return value;
   }
@@ -412,9 +412,9 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(String newValue)
+  public void setValue(int newValue)
   {
-    String oldValue = value;
+    int oldValue = value;
     value = newValue;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.NFR__VALUE, oldValue, value));
@@ -491,11 +491,11 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<RefNFR> getDepends()
+  public EList<DependsOnNFR> getDepends()
   {
     if (depends == null)
     {
-      depends = new EObjectContainmentEList<RefNFR>(RefNFR.class, this, RSLILPackage.NFR__DEPENDS);
+      depends = new EObjectContainmentEList<DependsOnNFR>(DependsOnNFR.class, this, RSLILPackage.NFR__DEPENDS);
     }
     return depends;
   }
@@ -627,7 +627,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
         setMetric((String)newValue);
         return;
       case RSLILPackage.NFR__VALUE:
-        setValue((String)newValue);
+        setValue((Integer)newValue);
         return;
       case RSLILPackage.NFR__STAKEHOLDER:
         setStakeholder((Stakeholder)newValue);
@@ -637,7 +637,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
         return;
       case RSLILPackage.NFR__DEPENDS:
         getDepends().clear();
-        getDepends().addAll((Collection<? extends RefNFR>)newValue);
+        getDepends().addAll((Collection<? extends DependsOnNFR>)newValue);
         return;
       case RSLILPackage.NFR__PART_OF:
         setPartOf((NFR)newValue);
@@ -716,7 +716,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
       case RSLILPackage.NFR__METRIC:
         return METRIC_EDEFAULT == null ? metric != null : !METRIC_EDEFAULT.equals(metric);
       case RSLILPackage.NFR__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+        return value != VALUE_EDEFAULT;
       case RSLILPackage.NFR__STAKEHOLDER:
         return stakeholder != null;
       case RSLILPackage.NFR__PRIORITY:

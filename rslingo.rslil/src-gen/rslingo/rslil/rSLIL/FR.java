@@ -18,8 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.FR#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.FR#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.FR#getDescription <em>Description</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.FR#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.FR#getModality <em>Modality</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.FR#getActionType <em>Action Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.FR#getStakeholder <em>Stakeholder</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.FR#getPriority <em>Priority</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.FR#getDepends <em>Depends</em>}</li>
@@ -111,6 +111,32 @@ public interface FR extends EObject
   void setDescription(String value);
 
   /**
+   * Returns the value of the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' attribute.
+   * @see #setType(String)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getFR_Type()
+   * @model
+   * @generated
+   */
+  String getType();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.FR#getType <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type</em>' attribute.
+   * @see #getType()
+   * @generated
+   */
+  void setType(String value);
+
+  /**
    * Returns the value of the '<em><b>Modality</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
@@ -135,32 +161,6 @@ public interface FR extends EObject
    * @generated
    */
   void setModality(String value);
-
-  /**
-   * Returns the value of the '<em><b>Action Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Action Type</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Action Type</em>' attribute.
-   * @see #setActionType(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getFR_ActionType()
-   * @model
-   * @generated
-   */
-  String getActionType();
-
-  /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.FR#getActionType <em>Action Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Action Type</em>' attribute.
-   * @see #getActionType()
-   * @generated
-   */
-  void setActionType(String value);
 
   /**
    * Returns the value of the '<em><b>Stakeholder</b></em>' reference.
@@ -216,7 +216,7 @@ public interface FR extends EObject
 
   /**
    * Returns the value of the '<em><b>Depends</b></em>' containment reference list.
-   * The list contents are of type {@link rslingo.rslil.rSLIL.RefFR}.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.DependsOnFR}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Depends</em>' containment reference list isn't clear,
@@ -228,7 +228,7 @@ public interface FR extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<RefFR> getDepends();
+  EList<DependsOnFR> getDepends();
 
   /**
    * Returns the value of the '<em><b>Part Of</b></em>' reference.

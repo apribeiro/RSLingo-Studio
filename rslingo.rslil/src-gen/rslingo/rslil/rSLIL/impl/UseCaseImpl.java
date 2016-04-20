@@ -42,6 +42,7 @@ import rslingo.rslil.rSLIL.UseCase;
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getPriotity <em>Priotity</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getExtensionnPoints <em>Extensionn Points</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getGoals <em>Goals</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getFrs <em>Frs</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getActorInitiates <em>Actor Initiates</em>}</li>
@@ -51,7 +52,6 @@ import rslingo.rslil.rSLIL.UseCase;
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getIncludes <em>Includes</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getExtends <em>Extends</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getExtPoint <em>Ext Point</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getExtensionnPoints <em>Extensionn Points</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getScenarios <em>Scenarios</em>}</li>
  * </ul>
  *
@@ -158,6 +158,16 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * @ordered
    */
   protected String priotity = PRIOTITY_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getExtensionnPoints() <em>Extensionn Points</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExtensionnPoints()
+   * @generated
+   * @ordered
+   */
+  protected EList<ExtensionPoint> extensionnPoints;
 
   /**
    * The cached value of the '{@link #getGoals() <em>Goals</em>}' containment reference list.
@@ -268,16 +278,6 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * @ordered
    */
   protected ExtensionPoint extPoint;
-
-  /**
-   * The cached value of the '{@link #getExtensionnPoints() <em>Extensionn Points</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExtensionnPoints()
-   * @generated
-   * @ordered
-   */
-  protected EList<ExtensionPoint> extensionnPoints;
 
   /**
    * The cached value of the '{@link #getScenarios() <em>Scenarios</em>}' containment reference list.
@@ -423,6 +423,20 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
     priotity = newPriotity;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.USE_CASE__PRIOTITY, oldPriotity, priotity));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ExtensionPoint> getExtensionnPoints()
+  {
+    if (extensionnPoints == null)
+    {
+      extensionnPoints = new EObjectContainmentEList<ExtensionPoint>(ExtensionPoint.class, this, RSLILPackage.USE_CASE__EXTENSIONN_POINTS);
+    }
+    return extensionnPoints;
   }
 
   /**
@@ -666,20 +680,6 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ExtensionPoint> getExtensionnPoints()
-  {
-    if (extensionnPoints == null)
-    {
-      extensionnPoints = new EObjectContainmentEList<ExtensionPoint>(ExtensionPoint.class, this, RSLILPackage.USE_CASE__EXTENSIONN_POINTS);
-    }
-    return extensionnPoints;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Scenario> getScenarios()
   {
     if (scenarios == null)
@@ -699,6 +699,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   {
     switch (featureID)
     {
+      case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
+        return ((InternalEList<?>)getExtensionnPoints()).basicRemove(otherEnd, msgs);
       case RSLILPackage.USE_CASE__GOALS:
         return ((InternalEList<?>)getGoals()).basicRemove(otherEnd, msgs);
       case RSLILPackage.USE_CASE__FRS:
@@ -707,8 +709,6 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return basicSetActors(null, msgs);
       case RSLILPackage.USE_CASE__INCLUDES:
         return ((InternalEList<?>)getIncludes()).basicRemove(otherEnd, msgs);
-      case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
-        return ((InternalEList<?>)getExtensionnPoints()).basicRemove(otherEnd, msgs);
       case RSLILPackage.USE_CASE__SCENARIOS:
         return ((InternalEList<?>)getScenarios()).basicRemove(otherEnd, msgs);
     }
@@ -735,6 +735,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return getDescription();
       case RSLILPackage.USE_CASE__PRIOTITY:
         return getPriotity();
+      case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
+        return getExtensionnPoints();
       case RSLILPackage.USE_CASE__GOALS:
         return getGoals();
       case RSLILPackage.USE_CASE__FRS:
@@ -755,8 +757,6 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case RSLILPackage.USE_CASE__EXT_POINT:
         if (resolve) return getExtPoint();
         return basicGetExtPoint();
-      case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
-        return getExtensionnPoints();
       case RSLILPackage.USE_CASE__SCENARIOS:
         return getScenarios();
     }
@@ -789,6 +789,10 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case RSLILPackage.USE_CASE__PRIOTITY:
         setPriotity((String)newValue);
         return;
+      case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
+        getExtensionnPoints().clear();
+        getExtensionnPoints().addAll((Collection<? extends ExtensionPoint>)newValue);
+        return;
       case RSLILPackage.USE_CASE__GOALS:
         getGoals().clear();
         getGoals().addAll((Collection<? extends RefGoal>)newValue);
@@ -819,10 +823,6 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return;
       case RSLILPackage.USE_CASE__EXT_POINT:
         setExtPoint((ExtensionPoint)newValue);
-        return;
-      case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
-        getExtensionnPoints().clear();
-        getExtensionnPoints().addAll((Collection<? extends ExtensionPoint>)newValue);
         return;
       case RSLILPackage.USE_CASE__SCENARIOS:
         getScenarios().clear();
@@ -857,6 +857,9 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case RSLILPackage.USE_CASE__PRIOTITY:
         setPriotity(PRIOTITY_EDEFAULT);
         return;
+      case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
+        getExtensionnPoints().clear();
+        return;
       case RSLILPackage.USE_CASE__GOALS:
         getGoals().clear();
         return;
@@ -883,9 +886,6 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return;
       case RSLILPackage.USE_CASE__EXT_POINT:
         setExtPoint((ExtensionPoint)null);
-        return;
-      case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
-        getExtensionnPoints().clear();
         return;
       case RSLILPackage.USE_CASE__SCENARIOS:
         getScenarios().clear();
@@ -914,6 +914,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case RSLILPackage.USE_CASE__PRIOTITY:
         return PRIOTITY_EDEFAULT == null ? priotity != null : !PRIOTITY_EDEFAULT.equals(priotity);
+      case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
+        return extensionnPoints != null && !extensionnPoints.isEmpty();
       case RSLILPackage.USE_CASE__GOALS:
         return goals != null && !goals.isEmpty();
       case RSLILPackage.USE_CASE__FRS:
@@ -932,8 +934,6 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return extends_ != null && !extends_.isEmpty();
       case RSLILPackage.USE_CASE__EXT_POINT:
         return extPoint != null;
-      case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
-        return extensionnPoints != null && !extensionnPoints.isEmpty();
       case RSLILPackage.USE_CASE__SCENARIOS:
         return scenarios != null && !scenarios.isEmpty();
     }

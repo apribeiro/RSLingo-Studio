@@ -5,30 +5,27 @@ package rslingo.rslil.rSLIL.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import rslingo.rslil.rSLIL.Actor;
-import rslingo.rslil.rSLIL.DependsOnActor;
 import rslingo.rslil.rSLIL.RSLILPackage;
+import rslingo.rslil.rSLIL.TermType;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Depends On Actor</b></em>'.
+ * An implementation of the model object '<em><b>Term Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.impl.DependsOnActorImpl#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.DependsOnActorImpl#getActor <em>Actor</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.TermTypeImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DependsOnActorImpl extends MinimalEObjectImpl.Container implements DependsOnActor
+public class TermTypeImpl extends MinimalEObjectImpl.Container implements TermType
 {
   /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -51,21 +48,11 @@ public class DependsOnActorImpl extends MinimalEObjectImpl.Container implements 
   protected String type = TYPE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getActor() <em>Actor</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getActor()
-   * @generated
-   * @ordered
-   */
-  protected Actor actor;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DependsOnActorImpl()
+  protected TermTypeImpl()
   {
     super();
   }
@@ -78,7 +65,7 @@ public class DependsOnActorImpl extends MinimalEObjectImpl.Container implements 
   @Override
   protected EClass eStaticClass()
   {
-    return RSLILPackage.Literals.DEPENDS_ON_ACTOR;
+    return RSLILPackage.Literals.TERM_TYPE;
   }
 
   /**
@@ -101,50 +88,7 @@ public class DependsOnActorImpl extends MinimalEObjectImpl.Container implements 
     String oldType = type;
     type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.DEPENDS_ON_ACTOR__TYPE, oldType, type));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Actor getActor()
-  {
-    if (actor != null && actor.eIsProxy())
-    {
-      InternalEObject oldActor = (InternalEObject)actor;
-      actor = (Actor)eResolveProxy(oldActor);
-      if (actor != oldActor)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.DEPENDS_ON_ACTOR__ACTOR, oldActor, actor));
-      }
-    }
-    return actor;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Actor basicGetActor()
-  {
-    return actor;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setActor(Actor newActor)
-  {
-    Actor oldActor = actor;
-    actor = newActor;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.DEPENDS_ON_ACTOR__ACTOR, oldActor, actor));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.TERM_TYPE__TYPE, oldType, type));
   }
 
   /**
@@ -157,11 +101,8 @@ public class DependsOnActorImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case RSLILPackage.DEPENDS_ON_ACTOR__TYPE:
+      case RSLILPackage.TERM_TYPE__TYPE:
         return getType();
-      case RSLILPackage.DEPENDS_ON_ACTOR__ACTOR:
-        if (resolve) return getActor();
-        return basicGetActor();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -176,11 +117,8 @@ public class DependsOnActorImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case RSLILPackage.DEPENDS_ON_ACTOR__TYPE:
+      case RSLILPackage.TERM_TYPE__TYPE:
         setType((String)newValue);
-        return;
-      case RSLILPackage.DEPENDS_ON_ACTOR__ACTOR:
-        setActor((Actor)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -196,11 +134,8 @@ public class DependsOnActorImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case RSLILPackage.DEPENDS_ON_ACTOR__TYPE:
+      case RSLILPackage.TERM_TYPE__TYPE:
         setType(TYPE_EDEFAULT);
-        return;
-      case RSLILPackage.DEPENDS_ON_ACTOR__ACTOR:
-        setActor((Actor)null);
         return;
     }
     super.eUnset(featureID);
@@ -216,10 +151,8 @@ public class DependsOnActorImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case RSLILPackage.DEPENDS_ON_ACTOR__TYPE:
+      case RSLILPackage.TERM_TYPE__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-      case RSLILPackage.DEPENDS_ON_ACTOR__ACTOR:
-        return actor != null;
     }
     return super.eIsSet(featureID);
   }
@@ -241,4 +174,4 @@ public class DependsOnActorImpl extends MinimalEObjectImpl.Container implements 
     return result.toString();
   }
 
-} //DependsOnActorImpl
+} //TermTypeImpl

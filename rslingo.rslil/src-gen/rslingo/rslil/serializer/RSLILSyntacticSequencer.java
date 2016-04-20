@@ -59,6 +59,7 @@ public class RSLILSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'FunctionalRequirements'?
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     extensionnPoints+=ExtensionPoint 'Goals'? (ambiguity) 'ActorInitiates' actorInitiates=[Actor|ID]
 	 *     goals+=RefGoal (ambiguity) 'ActorInitiates' actorInitiates=[Actor|ID]
 	 *     priotity='High' 'Goals'? (ambiguity) 'ActorInitiates' actorInitiates=[Actor|ID]
 	 *     priotity='Low' 'Goals'? (ambiguity) 'ActorInitiates' actorInitiates=[Actor|ID]
@@ -75,6 +76,8 @@ public class RSLILSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'Goals'?
 	 *
 	 * This ambiguous syntax occurs at:
+	 *     extensionnPoints+=ExtensionPoint (ambiguity) 'FunctionalRequirements' frs+=RefFR
+	 *     extensionnPoints+=ExtensionPoint (ambiguity) 'FunctionalRequirements'? 'ActorInitiates' actorInitiates=[Actor|ID]
 	 *     priotity='High' (ambiguity) 'FunctionalRequirements' frs+=RefFR
 	 *     priotity='High' (ambiguity) 'FunctionalRequirements'? 'ActorInitiates' actorInitiates=[Actor|ID]
 	 *     priotity='Low' (ambiguity) 'FunctionalRequirements' frs+=RefFR
@@ -97,19 +100,15 @@ public class RSLILSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     actorInitiates=[Actor|ID] (ambiguity) 'Extend' extends+=[UseCase|ID]
 	 *     actorInitiates=[Actor|ID] (ambiguity) '}' (rule end)
-	 *     actorInitiates=[Actor|ID] (ambiguity) extensionnPoints+=ExtensionPoint
 	 *     actorInitiates=[Actor|ID] (ambiguity) scenarios+=Scenario
 	 *     actors=RefActor (ambiguity) 'Extend' extends+=[UseCase|ID]
 	 *     actors=RefActor (ambiguity) '}' (rule end)
-	 *     actors=RefActor (ambiguity) extensionnPoints+=ExtensionPoint
 	 *     actors=RefActor (ambiguity) scenarios+=Scenario
 	 *     postConditions=STRING (ambiguity) 'Extend' extends+=[UseCase|ID]
 	 *     postConditions=STRING (ambiguity) '}' (rule end)
-	 *     postConditions=STRING (ambiguity) extensionnPoints+=ExtensionPoint
 	 *     postConditions=STRING (ambiguity) scenarios+=Scenario
 	 *     preConditions=STRING (ambiguity) 'Extend' extends+=[UseCase|ID]
 	 *     preConditions=STRING (ambiguity) '}' (rule end)
-	 *     preConditions=STRING (ambiguity) extensionnPoints+=ExtensionPoint
 	 *     preConditions=STRING (ambiguity) scenarios+=Scenario
 	 */
 	protected void emit_UseCase_IncludeKeyword_18_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {

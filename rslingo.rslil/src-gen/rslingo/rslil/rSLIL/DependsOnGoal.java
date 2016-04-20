@@ -50,29 +50,29 @@ public interface DependsOnGoal extends EObject
   void setType(String value);
 
   /**
-   * Returns the value of the '<em><b>Ref Goal</b></em>' reference.
+   * Returns the value of the '<em><b>Ref Goal</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Ref Goal</em>' reference isn't clear,
+   * If the meaning of the '<em>Ref Goal</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Ref Goal</em>' reference.
-   * @see #setRefGoal(Goal)
+   * @return the value of the '<em>Ref Goal</em>' containment reference.
+   * @see #setRefGoal(RefGoal)
    * @see rslingo.rslil.rSLIL.RSLILPackage#getDependsOnGoal_RefGoal()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  Goal getRefGoal();
+  RefGoal getRefGoal();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.DependsOnGoal#getRefGoal <em>Ref Goal</em>}' reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.DependsOnGoal#getRefGoal <em>Ref Goal</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Ref Goal</em>' reference.
+   * @param value the new value of the '<em>Ref Goal</em>' containment reference.
    * @see #getRefGoal()
    * @generated
    */
-  void setRefGoal(Goal value);
+  void setRefGoal(RefGoal value);
 
 } // DependsOnGoal

@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefAttribute;
 import rslingo.rslil.rSLIL.Reference;
@@ -23,6 +24,7 @@ import rslingo.rslil.rSLIL.Reference;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ReferenceImpl#getEntity <em>Entity</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ReferenceImpl#getRefTo <em>Ref To</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ReferenceImpl#getMultiplicity <em>Multiplicity</em>}</li>
  * </ul>
@@ -31,6 +33,16 @@ import rslingo.rslil.rSLIL.Reference;
  */
 public class ReferenceImpl extends MinimalEObjectImpl.Container implements Reference
 {
+  /**
+   * The cached value of the '{@link #getEntity() <em>Entity</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEntity()
+   * @generated
+   * @ordered
+   */
+  protected Entity entity;
+
   /**
    * The cached value of the '{@link #getRefTo() <em>Ref To</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -80,6 +92,49 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
   protected EClass eStaticClass()
   {
     return RSLILPackage.Literals.REFERENCE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Entity getEntity()
+  {
+    if (entity != null && entity.eIsProxy())
+    {
+      InternalEObject oldEntity = (InternalEObject)entity;
+      entity = (Entity)eResolveProxy(oldEntity);
+      if (entity != oldEntity)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.REFERENCE__ENTITY, oldEntity, entity));
+      }
+    }
+    return entity;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Entity basicGetEntity()
+  {
+    return entity;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEntity(Entity newEntity)
+  {
+    Entity oldEntity = entity;
+    entity = newEntity;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.REFERENCE__ENTITY, oldEntity, entity));
   }
 
   /**
@@ -179,6 +234,9 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
   {
     switch (featureID)
     {
+      case RSLILPackage.REFERENCE__ENTITY:
+        if (resolve) return getEntity();
+        return basicGetEntity();
       case RSLILPackage.REFERENCE__REF_TO:
         return getRefTo();
       case RSLILPackage.REFERENCE__MULTIPLICITY:
@@ -197,6 +255,9 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
   {
     switch (featureID)
     {
+      case RSLILPackage.REFERENCE__ENTITY:
+        setEntity((Entity)newValue);
+        return;
       case RSLILPackage.REFERENCE__REF_TO:
         setRefTo((RefAttribute)newValue);
         return;
@@ -217,6 +278,9 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
   {
     switch (featureID)
     {
+      case RSLILPackage.REFERENCE__ENTITY:
+        setEntity((Entity)null);
+        return;
       case RSLILPackage.REFERENCE__REF_TO:
         setRefTo((RefAttribute)null);
         return;
@@ -237,6 +301,8 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
   {
     switch (featureID)
     {
+      case RSLILPackage.REFERENCE__ENTITY:
+        return entity != null;
       case RSLILPackage.REFERENCE__REF_TO:
         return refTo != null;
       case RSLILPackage.REFERENCE__MULTIPLICITY:

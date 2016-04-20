@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.Term;
+import rslingo.rslil.rSLIL.RefTerm;
 import rslingo.rslil.rSLIL.TermRelation;
 
 /**
@@ -24,7 +24,7 @@ import rslingo.rslil.rSLIL.TermRelation;
  * </p>
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.impl.TermRelationImpl#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.TermRelationImpl#getTerm <em>Term</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.TermRelationImpl#getRefTerm <em>Ref Term</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,14 +52,14 @@ public class TermRelationImpl extends MinimalEObjectImpl.Container implements Te
   protected String type = TYPE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getTerm() <em>Term</em>}' containment reference.
+   * The cached value of the '{@link #getRefTerm() <em>Ref Term</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTerm()
+   * @see #getRefTerm()
    * @generated
    * @ordered
    */
-  protected Term term;
+  protected RefTerm refTerm;
 
   /**
    * <!-- begin-user-doc -->
@@ -110,9 +110,9 @@ public class TermRelationImpl extends MinimalEObjectImpl.Container implements Te
    * <!-- end-user-doc -->
    * @generated
    */
-  public Term getTerm()
+  public RefTerm getRefTerm()
   {
-    return term;
+    return refTerm;
   }
 
   /**
@@ -120,13 +120,13 @@ public class TermRelationImpl extends MinimalEObjectImpl.Container implements Te
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetTerm(Term newTerm, NotificationChain msgs)
+  public NotificationChain basicSetRefTerm(RefTerm newRefTerm, NotificationChain msgs)
   {
-    Term oldTerm = term;
-    term = newTerm;
+    RefTerm oldRefTerm = refTerm;
+    refTerm = newRefTerm;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.TERM_RELATION__TERM, oldTerm, newTerm);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.TERM_RELATION__REF_TERM, oldRefTerm, newRefTerm);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -137,20 +137,20 @@ public class TermRelationImpl extends MinimalEObjectImpl.Container implements Te
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTerm(Term newTerm)
+  public void setRefTerm(RefTerm newRefTerm)
   {
-    if (newTerm != term)
+    if (newRefTerm != refTerm)
     {
       NotificationChain msgs = null;
-      if (term != null)
-        msgs = ((InternalEObject)term).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.TERM_RELATION__TERM, null, msgs);
-      if (newTerm != null)
-        msgs = ((InternalEObject)newTerm).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.TERM_RELATION__TERM, null, msgs);
-      msgs = basicSetTerm(newTerm, msgs);
+      if (refTerm != null)
+        msgs = ((InternalEObject)refTerm).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.TERM_RELATION__REF_TERM, null, msgs);
+      if (newRefTerm != null)
+        msgs = ((InternalEObject)newRefTerm).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.TERM_RELATION__REF_TERM, null, msgs);
+      msgs = basicSetRefTerm(newRefTerm, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.TERM_RELATION__TERM, newTerm, newTerm));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.TERM_RELATION__REF_TERM, newRefTerm, newRefTerm));
   }
 
   /**
@@ -163,8 +163,8 @@ public class TermRelationImpl extends MinimalEObjectImpl.Container implements Te
   {
     switch (featureID)
     {
-      case RSLILPackage.TERM_RELATION__TERM:
-        return basicSetTerm(null, msgs);
+      case RSLILPackage.TERM_RELATION__REF_TERM:
+        return basicSetRefTerm(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -181,8 +181,8 @@ public class TermRelationImpl extends MinimalEObjectImpl.Container implements Te
     {
       case RSLILPackage.TERM_RELATION__TYPE:
         return getType();
-      case RSLILPackage.TERM_RELATION__TERM:
-        return getTerm();
+      case RSLILPackage.TERM_RELATION__REF_TERM:
+        return getRefTerm();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -200,8 +200,8 @@ public class TermRelationImpl extends MinimalEObjectImpl.Container implements Te
       case RSLILPackage.TERM_RELATION__TYPE:
         setType((String)newValue);
         return;
-      case RSLILPackage.TERM_RELATION__TERM:
-        setTerm((Term)newValue);
+      case RSLILPackage.TERM_RELATION__REF_TERM:
+        setRefTerm((RefTerm)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -220,8 +220,8 @@ public class TermRelationImpl extends MinimalEObjectImpl.Container implements Te
       case RSLILPackage.TERM_RELATION__TYPE:
         setType(TYPE_EDEFAULT);
         return;
-      case RSLILPackage.TERM_RELATION__TERM:
-        setTerm((Term)null);
+      case RSLILPackage.TERM_RELATION__REF_TERM:
+        setRefTerm((RefTerm)null);
         return;
     }
     super.eUnset(featureID);
@@ -239,8 +239,8 @@ public class TermRelationImpl extends MinimalEObjectImpl.Container implements Te
     {
       case RSLILPackage.TERM_RELATION__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-      case RSLILPackage.TERM_RELATION__TERM:
-        return term != null;
+      case RSLILPackage.TERM_RELATION__REF_TERM:
+        return refTerm != null;
     }
     return super.eIsSet(featureID);
   }

@@ -6,21 +6,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Glossary Type</b></em>'.
+ * A representation of the model object '<em><b>Term Type</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.GlossaryType#getType <em>Type</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.TermType#getType <em>Type</em>}</li>
  * </ul>
  *
- * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossaryType()
+ * @see rslingo.rslil.rSLIL.RSLILPackage#getTermType()
  * @model
  * @generated
  */
-public interface GlossaryType extends EObject
+public interface TermType extends EObject
 {
   /**
    * Returns the value of the '<em><b>Type</b></em>' attribute.
@@ -32,14 +32,14 @@ public interface GlossaryType extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' attribute.
    * @see #setType(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossaryType_Type()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getTermType_Type()
    * @model
    * @generated
    */
   String getType();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.GlossaryType#getType <em>Type</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.TermType#getType <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Type</em>' attribute.
@@ -48,4 +48,4 @@ public interface GlossaryType extends EObject
    */
   void setType(String value);
 
-} // GlossaryType
+} // TermType

@@ -31,6 +31,7 @@ import rslingo.rslil.rSLIL.Step;
  * </p>
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ScenarioImpl#getName <em>Name</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ScenarioImpl#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ScenarioImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ScenarioImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ScenarioImpl#getMode <em>Mode</em>}</li>
@@ -60,6 +61,26 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getNameAlias() <em>Name Alias</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNameAlias()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_ALIAS_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getNameAlias() <em>Name Alias</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getNameAlias()
+   * @generated
+   * @ordered
+   */
+  protected String nameAlias = NAME_ALIAS_EDEFAULT;
 
   /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -180,6 +201,29 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getNameAlias()
+  {
+    return nameAlias;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNameAlias(String newNameAlias)
+  {
+    String oldNameAlias = nameAlias;
+    nameAlias = newNameAlias;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.SCENARIO__NAME_ALIAS, oldNameAlias, nameAlias));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getDescription()
   {
     return description;
@@ -286,6 +330,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
     {
       case RSLILPackage.SCENARIO__NAME:
         return getName();
+      case RSLILPackage.SCENARIO__NAME_ALIAS:
+        return getNameAlias();
       case RSLILPackage.SCENARIO__DESCRIPTION:
         return getDescription();
       case RSLILPackage.SCENARIO__TYPE:
@@ -311,6 +357,9 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
     {
       case RSLILPackage.SCENARIO__NAME:
         setName((String)newValue);
+        return;
+      case RSLILPackage.SCENARIO__NAME_ALIAS:
+        setNameAlias((String)newValue);
         return;
       case RSLILPackage.SCENARIO__DESCRIPTION:
         setDescription((String)newValue);
@@ -342,6 +391,9 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
       case RSLILPackage.SCENARIO__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case RSLILPackage.SCENARIO__NAME_ALIAS:
+        setNameAlias(NAME_ALIAS_EDEFAULT);
+        return;
       case RSLILPackage.SCENARIO__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
@@ -370,6 +422,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
     {
       case RSLILPackage.SCENARIO__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case RSLILPackage.SCENARIO__NAME_ALIAS:
+        return NAME_ALIAS_EDEFAULT == null ? nameAlias != null : !NAME_ALIAS_EDEFAULT.equals(nameAlias);
       case RSLILPackage.SCENARIO__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case RSLILPackage.SCENARIO__TYPE:
@@ -395,6 +449,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", nameAlias: ");
+    result.append(nameAlias);
     result.append(", description: ");
     result.append(description);
     result.append(", type: ");

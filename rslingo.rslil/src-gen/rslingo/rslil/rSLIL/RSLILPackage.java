@@ -85,13 +85,13 @@ public interface RSLILPackage extends EPackage
   int MODEL__SYSTEMS = 1;
 
   /**
-   * The feature id for the '<em><b>Glossaries</b></em>' containment reference list.
+   * The feature id for the '<em><b>Glossary Terms</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__GLOSSARIES = 2;
+  int MODEL__GLOSSARY_TERMS = 2;
 
   /**
    * The feature id for the '<em><b>Stakeholders</b></em>' containment reference list.
@@ -313,14 +313,14 @@ public interface RSLILPackage extends EPackage
   int REF_SYSTEM_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.GlossaryImpl <em>Glossary</em>}' class.
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl <em>Glossary Term</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see rslingo.rslil.rSLIL.impl.GlossaryImpl
-   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getGlossary()
+   * @see rslingo.rslil.rSLIL.impl.GlossaryTermImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getGlossaryTerm()
    * @generated
    */
-  int GLOSSARY = 4;
+  int GLOSSARY_TERM = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -329,7 +329,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GLOSSARY__NAME = 0;
+  int GLOSSARY_TERM__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Name Alias</b></em>' attribute.
@@ -338,7 +338,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GLOSSARY__NAME_ALIAS = 1;
+  int GLOSSARY_TERM__NAME_ALIAS = 1;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -347,7 +347,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GLOSSARY__TYPE = 2;
+  int GLOSSARY_TERM__TYPE = 2;
 
   /**
    * The feature id for the '<em><b>Acronym</b></em>' attribute.
@@ -356,7 +356,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GLOSSARY__ACRONYM = 3;
+  int GLOSSARY_TERM__ACRONYM = 3;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -365,7 +365,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GLOSSARY__DESCRIPTION = 4;
+  int GLOSSARY_TERM__DESCRIPTION = 4;
 
   /**
    * The feature id for the '<em><b>Pos</b></em>' attribute.
@@ -374,7 +374,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GLOSSARY__POS = 5;
+  int GLOSSARY_TERM__POS = 5;
 
   /**
    * The feature id for the '<em><b>Synset</b></em>' attribute.
@@ -383,7 +383,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GLOSSARY__SYNSET = 6;
+  int GLOSSARY_TERM__SYNSET = 6;
 
   /**
    * The feature id for the '<em><b>Term Relation</b></em>' containment reference list.
@@ -392,26 +392,26 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GLOSSARY__TERM_RELATION = 7;
+  int GLOSSARY_TERM__TERM_RELATION = 7;
 
   /**
-   * The number of structural features of the '<em>Glossary</em>' class.
+   * The number of structural features of the '<em>Glossary Term</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GLOSSARY_FEATURE_COUNT = 8;
+  int GLOSSARY_TERM_FEATURE_COUNT = 8;
 
   /**
-   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.RefGlossaryTypeImpl <em>Ref Glossary Type</em>}' class.
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.RefTermTypeImpl <em>Ref Term Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see rslingo.rslil.rSLIL.impl.RefGlossaryTypeImpl
-   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefGlossaryType()
+   * @see rslingo.rslil.rSLIL.impl.RefTermTypeImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefTermType()
    * @generated
    */
-  int REF_GLOSSARY_TYPE = 5;
+  int REF_TERM_TYPE = 5;
 
   /**
    * The feature id for the '<em><b>Ref Type</b></em>' containment reference.
@@ -420,7 +420,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REF_GLOSSARY_TYPE__REF_TYPE = 0;
+  int REF_TERM_TYPE__REF_TYPE = 0;
 
   /**
    * The feature id for the '<em><b>Refs</b></em>' containment reference list.
@@ -429,26 +429,26 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REF_GLOSSARY_TYPE__REFS = 1;
+  int REF_TERM_TYPE__REFS = 1;
 
   /**
-   * The number of structural features of the '<em>Ref Glossary Type</em>' class.
+   * The number of structural features of the '<em>Ref Term Type</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REF_GLOSSARY_TYPE_FEATURE_COUNT = 2;
+  int REF_TERM_TYPE_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.GlossaryTypeImpl <em>Glossary Type</em>}' class.
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.TermTypeImpl <em>Term Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see rslingo.rslil.rSLIL.impl.GlossaryTypeImpl
-   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getGlossaryType()
+   * @see rslingo.rslil.rSLIL.impl.TermTypeImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getTermType()
    * @generated
    */
-  int GLOSSARY_TYPE = 6;
+  int TERM_TYPE = 6;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -457,16 +457,16 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GLOSSARY_TYPE__TYPE = 0;
+  int TERM_TYPE__TYPE = 0;
 
   /**
-   * The number of structural features of the '<em>Glossary Type</em>' class.
+   * The number of structural features of the '<em>Term Type</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GLOSSARY_TYPE_FEATURE_COUNT = 1;
+  int TERM_TYPE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.TermRelationImpl <em>Term Relation</em>}' class.
@@ -488,13 +488,13 @@ public interface RSLILPackage extends EPackage
   int TERM_RELATION__TYPE = 0;
 
   /**
-   * The feature id for the '<em><b>Term</b></em>' containment reference.
+   * The feature id for the '<em><b>Ref Term</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TERM_RELATION__TERM = 1;
+  int TERM_RELATION__REF_TERM = 1;
 
   /**
    * The number of structural features of the '<em>Term Relation</em>' class.
@@ -506,14 +506,14 @@ public interface RSLILPackage extends EPackage
   int TERM_RELATION_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.TermImpl <em>Term</em>}' class.
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.RefTermImpl <em>Ref Term</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see rslingo.rslil.rSLIL.impl.TermImpl
-   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getTerm()
+   * @see rslingo.rslil.rSLIL.impl.RefTermImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefTerm()
    * @generated
    */
-  int TERM = 8;
+  int REF_TERM = 8;
 
   /**
    * The feature id for the '<em><b>Ref Term</b></em>' attribute.
@@ -522,7 +522,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TERM__REF_TERM = 0;
+  int REF_TERM__REF_TERM = 0;
 
   /**
    * The feature id for the '<em><b>Refs</b></em>' attribute list.
@@ -531,16 +531,16 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TERM__REFS = 1;
+  int REF_TERM__REFS = 1;
 
   /**
-   * The number of structural features of the '<em>Term</em>' class.
+   * The number of structural features of the '<em>Ref Term</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TERM_FEATURE_COUNT = 2;
+  int REF_TERM_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.StakeholderImpl <em>Stakeholder</em>}' class.
@@ -635,13 +635,22 @@ public interface RSLILPackage extends EPackage
   int GOAL__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Name Alias</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GOAL__NAME_ALIAS = 1;
+
+  /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GOAL__DESCRIPTION = 1;
+  int GOAL__DESCRIPTION = 2;
 
   /**
    * The feature id for the '<em><b>Stakeholder</b></em>' reference.
@@ -650,7 +659,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GOAL__STAKEHOLDER = 2;
+  int GOAL__STAKEHOLDER = 3;
 
   /**
    * The feature id for the '<em><b>Priority</b></em>' attribute.
@@ -659,7 +668,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GOAL__PRIORITY = 3;
+  int GOAL__PRIORITY = 4;
 
   /**
    * The feature id for the '<em><b>Depends On</b></em>' containment reference list.
@@ -668,7 +677,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GOAL__DEPENDS_ON = 4;
+  int GOAL__DEPENDS_ON = 5;
 
   /**
    * The feature id for the '<em><b>Composed By</b></em>' containment reference list.
@@ -677,7 +686,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GOAL__COMPOSED_BY = 5;
+  int GOAL__COMPOSED_BY = 6;
 
   /**
    * The number of structural features of the '<em>Goal</em>' class.
@@ -686,7 +695,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GOAL_FEATURE_COUNT = 6;
+  int GOAL_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.DependsOnGoalImpl <em>Depends On Goal</em>}' class.
@@ -708,7 +717,7 @@ public interface RSLILPackage extends EPackage
   int DEPENDS_ON_GOAL__TYPE = 0;
 
   /**
-   * The feature id for the '<em><b>Ref Goal</b></em>' reference.
+   * The feature id for the '<em><b>Ref Goal</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -745,7 +754,7 @@ public interface RSLILPackage extends EPackage
   int COMPOSED_BY__TYPE = 0;
 
   /**
-   * The feature id for the '<em><b>Ref Goal</b></em>' reference.
+   * The feature id for the '<em><b>Ref Goal</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -763,6 +772,43 @@ public interface RSLILPackage extends EPackage
   int COMPOSED_BY_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.RefGoalImpl <em>Ref Goal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see rslingo.rslil.rSLIL.impl.RefGoalImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefGoal()
+   * @generated
+   */
+  int REF_GOAL = 13;
+
+  /**
+   * The feature id for the '<em><b>Ref Goal</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_GOAL__REF_GOAL = 0;
+
+  /**
+   * The feature id for the '<em><b>Refs</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_GOAL__REFS = 1;
+
+  /**
+   * The number of structural features of the '<em>Ref Goal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_GOAL_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.EntityImpl <em>Entity</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -770,7 +816,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getEntity()
    * @generated
    */
-  int ENTITY = 13;
+  int ENTITY = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -800,13 +846,31 @@ public interface RSLILPackage extends EPackage
   int ENTITY__DESCRIPTION = 2;
 
   /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY__TYPE = 3;
+
+  /**
    * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENTITY__ATTRIBUTES = 3;
+  int ENTITY__ATTRIBUTES = 4;
+
+  /**
+   * The feature id for the '<em><b>Reference</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY__REFERENCE = 5;
 
   /**
    * The number of structural features of the '<em>Entity</em>' class.
@@ -815,7 +879,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENTITY_FEATURE_COUNT = 4;
+  int ENTITY_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -825,7 +889,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 14;
+  int ATTRIBUTE = 15;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -837,13 +901,22 @@ public interface RSLILPackage extends EPackage
   int ATTRIBUTE__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Name Alias</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__NAME_ALIAS = 1;
+
+  /**
    * The feature id for the '<em><b>Descrition</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__DESCRITION = 1;
+  int ATTRIBUTE__DESCRITION = 2;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -852,7 +925,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__TYPE = 2;
+  int ATTRIBUTE__TYPE = 3;
 
   /**
    * The feature id for the '<em><b>Field</b></em>' containment reference.
@@ -861,16 +934,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__FIELD = 3;
-
-  /**
-   * The feature id for the '<em><b>Reference</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ATTRIBUTE__REFERENCE = 4;
+  int ATTRIBUTE__FIELD = 4;
 
   /**
    * The number of structural features of the '<em>Attribute</em>' class.
@@ -889,7 +953,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getField()
    * @generated
    */
-  int FIELD = 15;
+  int FIELD = 16;
 
   /**
    * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -935,7 +999,16 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getReference()
    * @generated
    */
-  int REFERENCE = 16;
+  int REFERENCE = 17;
+
+  /**
+   * The feature id for the '<em><b>Entity</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REFERENCE__ENTITY = 0;
 
   /**
    * The feature id for the '<em><b>Ref To</b></em>' containment reference.
@@ -944,7 +1017,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REFERENCE__REF_TO = 0;
+  int REFERENCE__REF_TO = 1;
 
   /**
    * The feature id for the '<em><b>Multiplicity</b></em>' attribute.
@@ -953,7 +1026,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REFERENCE__MULTIPLICITY = 1;
+  int REFERENCE__MULTIPLICITY = 2;
 
   /**
    * The number of structural features of the '<em>Reference</em>' class.
@@ -962,7 +1035,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REFERENCE_FEATURE_COUNT = 2;
+  int REFERENCE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.RefAttributeImpl <em>Ref Attribute</em>}' class.
@@ -972,7 +1045,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefAttribute()
    * @generated
    */
-  int REF_ATTRIBUTE = 17;
+  int REF_ATTRIBUTE = 18;
 
   /**
    * The feature id for the '<em><b>Ref Attr</b></em>' reference.
@@ -1009,7 +1082,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getActor()
    * @generated
    */
-  int ACTOR = 18;
+  int ACTOR = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1057,13 +1130,13 @@ public interface RSLILPackage extends EPackage
   int ACTOR__STAKEHOLDER = 4;
 
   /**
-   * The feature id for the '<em><b>Depends On</b></em>' containment reference.
+   * The feature id for the '<em><b>Actor</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTOR__DEPENDS_ON = 5;
+  int ACTOR__ACTOR = 5;
 
   /**
    * The number of structural features of the '<em>Actor</em>' class.
@@ -1073,43 +1146,6 @@ public interface RSLILPackage extends EPackage
    * @ordered
    */
   int ACTOR_FEATURE_COUNT = 6;
-
-  /**
-   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.DependsOnActorImpl <em>Depends On Actor</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see rslingo.rslil.rSLIL.impl.DependsOnActorImpl
-   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getDependsOnActor()
-   * @generated
-   */
-  int DEPENDS_ON_ACTOR = 19;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEPENDS_ON_ACTOR__TYPE = 0;
-
-  /**
-   * The feature id for the '<em><b>Actor</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEPENDS_ON_ACTOR__ACTOR = 1;
-
-  /**
-   * The number of structural features of the '<em>Depends On Actor</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEPENDS_ON_ACTOR_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.UseCaseImpl <em>Use Case</em>}' class.
@@ -1167,13 +1203,22 @@ public interface RSLILPackage extends EPackage
   int USE_CASE__PRIOTITY = 4;
 
   /**
+   * The feature id for the '<em><b>Extensionn Points</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE__EXTENSIONN_POINTS = 5;
+
+  /**
    * The feature id for the '<em><b>Goals</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USE_CASE__GOALS = 5;
+  int USE_CASE__GOALS = 6;
 
   /**
    * The feature id for the '<em><b>Frs</b></em>' containment reference list.
@@ -1182,7 +1227,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE__FRS = 6;
+  int USE_CASE__FRS = 7;
 
   /**
    * The feature id for the '<em><b>Actor Initiates</b></em>' reference.
@@ -1191,7 +1236,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE__ACTOR_INITIATES = 7;
+  int USE_CASE__ACTOR_INITIATES = 8;
 
   /**
    * The feature id for the '<em><b>Actors</b></em>' containment reference.
@@ -1200,7 +1245,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE__ACTORS = 8;
+  int USE_CASE__ACTORS = 9;
 
   /**
    * The feature id for the '<em><b>Pre Conditions</b></em>' attribute.
@@ -1209,7 +1254,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE__PRE_CONDITIONS = 9;
+  int USE_CASE__PRE_CONDITIONS = 10;
 
   /**
    * The feature id for the '<em><b>Post Conditions</b></em>' attribute.
@@ -1218,7 +1263,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE__POST_CONDITIONS = 10;
+  int USE_CASE__POST_CONDITIONS = 11;
 
   /**
    * The feature id for the '<em><b>Includes</b></em>' containment reference list.
@@ -1227,7 +1272,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE__INCLUDES = 11;
+  int USE_CASE__INCLUDES = 12;
 
   /**
    * The feature id for the '<em><b>Extends</b></em>' reference list.
@@ -1236,7 +1281,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE__EXTENDS = 12;
+  int USE_CASE__EXTENDS = 13;
 
   /**
    * The feature id for the '<em><b>Ext Point</b></em>' reference.
@@ -1245,16 +1290,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE__EXT_POINT = 13;
-
-  /**
-   * The feature id for the '<em><b>Extensionn Points</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int USE_CASE__EXTENSIONN_POINTS = 14;
+  int USE_CASE__EXT_POINT = 14;
 
   /**
    * The feature id for the '<em><b>Scenarios</b></em>' containment reference list.
@@ -1275,43 +1311,6 @@ public interface RSLILPackage extends EPackage
   int USE_CASE_FEATURE_COUNT = 16;
 
   /**
-   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.RefGoalImpl <em>Ref Goal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see rslingo.rslil.rSLIL.impl.RefGoalImpl
-   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefGoal()
-   * @generated
-   */
-  int REF_GOAL = 21;
-
-  /**
-   * The feature id for the '<em><b>Ref Goal</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_GOAL__REF_GOAL = 0;
-
-  /**
-   * The feature id for the '<em><b>Refs</b></em>' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_GOAL__REFS = 1;
-
-  /**
-   * The number of structural features of the '<em>Ref Goal</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_GOAL_FEATURE_COUNT = 2;
-
-  /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.RefFRImpl <em>Ref FR</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1319,7 +1318,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefFR()
    * @generated
    */
-  int REF_FR = 22;
+  int REF_FR = 21;
 
   /**
    * The feature id for the '<em><b>Ref FR</b></em>' reference.
@@ -1356,7 +1355,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefActor()
    * @generated
    */
-  int REF_ACTOR = 23;
+  int REF_ACTOR = 22;
 
   /**
    * The feature id for the '<em><b>Ref Actor</b></em>' reference.
@@ -1393,7 +1392,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefUC()
    * @generated
    */
-  int REF_UC = 24;
+  int REF_UC = 23;
 
   /**
    * The feature id for the '<em><b>Ref UC</b></em>' reference.
@@ -1430,7 +1429,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getExtensionPoint()
    * @generated
    */
-  int EXTENSION_POINT = 25;
+  int EXTENSION_POINT = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1458,7 +1457,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getScenario()
    * @generated
    */
-  int SCENARIO = 26;
+  int SCENARIO = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1470,13 +1469,22 @@ public interface RSLILPackage extends EPackage
   int SCENARIO__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Name Alias</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCENARIO__NAME_ALIAS = 1;
+
+  /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SCENARIO__DESCRIPTION = 1;
+  int SCENARIO__DESCRIPTION = 2;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1485,7 +1493,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SCENARIO__TYPE = 2;
+  int SCENARIO__TYPE = 3;
 
   /**
    * The feature id for the '<em><b>Mode</b></em>' attribute.
@@ -1494,7 +1502,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SCENARIO__MODE = 3;
+  int SCENARIO__MODE = 4;
 
   /**
    * The feature id for the '<em><b>Steps</b></em>' containment reference list.
@@ -1503,7 +1511,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SCENARIO__STEPS = 4;
+  int SCENARIO__STEPS = 5;
 
   /**
    * The number of structural features of the '<em>Scenario</em>' class.
@@ -1512,7 +1520,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SCENARIO_FEATURE_COUNT = 5;
+  int SCENARIO_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.StepImpl <em>Step</em>}' class.
@@ -1522,7 +1530,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getStep()
    * @generated
    */
-  int STEP = 27;
+  int STEP = 26;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1534,13 +1542,22 @@ public interface RSLILPackage extends EPackage
   int STEP__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Name Alias</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STEP__NAME_ALIAS = 1;
+
+  /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STEP__TYPE = 1;
+  int STEP__TYPE = 2;
 
   /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1549,7 +1566,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STEP__DESCRIPTION = 2;
+  int STEP__DESCRIPTION = 3;
 
   /**
    * The feature id for the '<em><b>Actor</b></em>' reference.
@@ -1558,7 +1575,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STEP__ACTOR = 3;
+  int STEP__ACTOR = 4;
 
   /**
    * The feature id for the '<em><b>Pre Conditions</b></em>' attribute.
@@ -1567,7 +1584,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STEP__PRE_CONDITIONS = 4;
+  int STEP__PRE_CONDITIONS = 5;
 
   /**
    * The feature id for the '<em><b>Post Conditions</b></em>' attribute.
@@ -1576,7 +1593,16 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STEP__POST_CONDITIONS = 5;
+  int STEP__POST_CONDITIONS = 6;
+
+  /**
+   * The feature id for the '<em><b>Next</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STEP__NEXT = 7;
 
   /**
    * The number of structural features of the '<em>Step</em>' class.
@@ -1585,7 +1611,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STEP_FEATURE_COUNT = 6;
+  int STEP_FEATURE_COUNT = 8;
 
   /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.FRImpl <em>FR</em>}' class.
@@ -1595,7 +1621,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getFR()
    * @generated
    */
-  int FR = 28;
+  int FR = 27;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1625,22 +1651,22 @@ public interface RSLILPackage extends EPackage
   int FR__DESCRIPTION = 2;
 
   /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FR__TYPE = 3;
+
+  /**
    * The feature id for the '<em><b>Modality</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FR__MODALITY = 3;
-
-  /**
-   * The feature id for the '<em><b>Action Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FR__ACTION_TYPE = 4;
+  int FR__MODALITY = 4;
 
   /**
    * The feature id for the '<em><b>Stakeholder</b></em>' reference.
@@ -1686,6 +1712,43 @@ public interface RSLILPackage extends EPackage
    * @ordered
    */
   int FR_FEATURE_COUNT = 9;
+
+  /**
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.DependsOnFRImpl <em>Depends On FR</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see rslingo.rslil.rSLIL.impl.DependsOnFRImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getDependsOnFR()
+   * @generated
+   */
+  int DEPENDS_ON_FR = 28;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPENDS_ON_FR__TYPE = 0;
+
+  /**
+   * The feature id for the '<em><b>Ref Fr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPENDS_ON_FR__REF_FR = 1;
+
+  /**
+   * The number of structural features of the '<em>Depends On FR</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPENDS_ON_FR_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.NFRImpl <em>NFR</em>}' class.
@@ -1806,6 +1869,43 @@ public interface RSLILPackage extends EPackage
   int NFR_FEATURE_COUNT = 11;
 
   /**
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.DependsOnNFRImpl <em>Depends On NFR</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see rslingo.rslil.rSLIL.impl.DependsOnNFRImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getDependsOnNFR()
+   * @generated
+   */
+  int DEPENDS_ON_NFR = 30;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPENDS_ON_NFR__TYPE = 0;
+
+  /**
+   * The feature id for the '<em><b>Ref Fr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPENDS_ON_NFR__REF_FR = 1;
+
+  /**
+   * The number of structural features of the '<em>Depends On NFR</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPENDS_ON_NFR_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.RefNFRImpl <em>Ref NFR</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1813,7 +1913,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefNFR()
    * @generated
    */
-  int REF_NFR = 30;
+  int REF_NFR = 31;
 
   /**
    * The feature id for the '<em><b>Ref NFR</b></em>' reference.
@@ -1876,15 +1976,15 @@ public interface RSLILPackage extends EPackage
   EReference getModel_Systems();
 
   /**
-   * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.Model#getGlossaries <em>Glossaries</em>}'.
+   * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.Model#getGlossaryTerms <em>Glossary Terms</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Glossaries</em>'.
-   * @see rslingo.rslil.rSLIL.Model#getGlossaries()
+   * @return the meta object for the containment reference list '<em>Glossary Terms</em>'.
+   * @see rslingo.rslil.rSLIL.Model#getGlossaryTerms()
    * @see #getModel()
    * @generated
    */
-  EReference getModel_Glossaries();
+  EReference getModel_GlossaryTerms();
 
   /**
    * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.Model#getStakeholders <em>Stakeholders</em>}'.
@@ -2104,155 +2204,155 @@ public interface RSLILPackage extends EPackage
   EReference getRefSystem_Refs();
 
   /**
-   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.Glossary <em>Glossary</em>}'.
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.GlossaryTerm <em>Glossary Term</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Glossary</em>'.
-   * @see rslingo.rslil.rSLIL.Glossary
+   * @return the meta object for class '<em>Glossary Term</em>'.
+   * @see rslingo.rslil.rSLIL.GlossaryTerm
    * @generated
    */
-  EClass getGlossary();
+  EClass getGlossaryTerm();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Glossary#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.GlossaryTerm#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see rslingo.rslil.rSLIL.Glossary#getName()
-   * @see #getGlossary()
+   * @see rslingo.rslil.rSLIL.GlossaryTerm#getName()
+   * @see #getGlossaryTerm()
    * @generated
    */
-  EAttribute getGlossary_Name();
+  EAttribute getGlossaryTerm_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Glossary#getNameAlias <em>Name Alias</em>}'.
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.GlossaryTerm#getNameAlias <em>Name Alias</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name Alias</em>'.
-   * @see rslingo.rslil.rSLIL.Glossary#getNameAlias()
-   * @see #getGlossary()
+   * @see rslingo.rslil.rSLIL.GlossaryTerm#getNameAlias()
+   * @see #getGlossaryTerm()
    * @generated
    */
-  EAttribute getGlossary_NameAlias();
+  EAttribute getGlossaryTerm_NameAlias();
 
   /**
-   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Glossary#getType <em>Type</em>}'.
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.GlossaryTerm#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Type</em>'.
-   * @see rslingo.rslil.rSLIL.Glossary#getType()
-   * @see #getGlossary()
+   * @see rslingo.rslil.rSLIL.GlossaryTerm#getType()
+   * @see #getGlossaryTerm()
    * @generated
    */
-  EReference getGlossary_Type();
+  EReference getGlossaryTerm_Type();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Glossary#getAcronym <em>Acronym</em>}'.
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.GlossaryTerm#getAcronym <em>Acronym</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Acronym</em>'.
-   * @see rslingo.rslil.rSLIL.Glossary#getAcronym()
-   * @see #getGlossary()
+   * @see rslingo.rslil.rSLIL.GlossaryTerm#getAcronym()
+   * @see #getGlossaryTerm()
    * @generated
    */
-  EAttribute getGlossary_Acronym();
+  EAttribute getGlossaryTerm_Acronym();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Glossary#getDescription <em>Description</em>}'.
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.GlossaryTerm#getDescription <em>Description</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Description</em>'.
-   * @see rslingo.rslil.rSLIL.Glossary#getDescription()
-   * @see #getGlossary()
+   * @see rslingo.rslil.rSLIL.GlossaryTerm#getDescription()
+   * @see #getGlossaryTerm()
    * @generated
    */
-  EAttribute getGlossary_Description();
+  EAttribute getGlossaryTerm_Description();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Glossary#getPos <em>Pos</em>}'.
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.GlossaryTerm#getPos <em>Pos</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Pos</em>'.
-   * @see rslingo.rslil.rSLIL.Glossary#getPos()
-   * @see #getGlossary()
+   * @see rslingo.rslil.rSLIL.GlossaryTerm#getPos()
+   * @see #getGlossaryTerm()
    * @generated
    */
-  EAttribute getGlossary_Pos();
+  EAttribute getGlossaryTerm_Pos();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Glossary#getSynset <em>Synset</em>}'.
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.GlossaryTerm#getSynset <em>Synset</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Synset</em>'.
-   * @see rslingo.rslil.rSLIL.Glossary#getSynset()
-   * @see #getGlossary()
+   * @see rslingo.rslil.rSLIL.GlossaryTerm#getSynset()
+   * @see #getGlossaryTerm()
    * @generated
    */
-  EAttribute getGlossary_Synset();
+  EAttribute getGlossaryTerm_Synset();
 
   /**
-   * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.Glossary#getTermRelation <em>Term Relation</em>}'.
+   * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.GlossaryTerm#getTermRelation <em>Term Relation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Term Relation</em>'.
-   * @see rslingo.rslil.rSLIL.Glossary#getTermRelation()
-   * @see #getGlossary()
+   * @see rslingo.rslil.rSLIL.GlossaryTerm#getTermRelation()
+   * @see #getGlossaryTerm()
    * @generated
    */
-  EReference getGlossary_TermRelation();
+  EReference getGlossaryTerm_TermRelation();
 
   /**
-   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.RefGlossaryType <em>Ref Glossary Type</em>}'.
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.RefTermType <em>Ref Term Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Ref Glossary Type</em>'.
-   * @see rslingo.rslil.rSLIL.RefGlossaryType
+   * @return the meta object for class '<em>Ref Term Type</em>'.
+   * @see rslingo.rslil.rSLIL.RefTermType
    * @generated
    */
-  EClass getRefGlossaryType();
+  EClass getRefTermType();
 
   /**
-   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.RefGlossaryType#getRefType <em>Ref Type</em>}'.
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.RefTermType#getRefType <em>Ref Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Ref Type</em>'.
-   * @see rslingo.rslil.rSLIL.RefGlossaryType#getRefType()
-   * @see #getRefGlossaryType()
+   * @see rslingo.rslil.rSLIL.RefTermType#getRefType()
+   * @see #getRefTermType()
    * @generated
    */
-  EReference getRefGlossaryType_RefType();
+  EReference getRefTermType_RefType();
 
   /**
-   * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.RefGlossaryType#getRefs <em>Refs</em>}'.
+   * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.RefTermType#getRefs <em>Refs</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Refs</em>'.
-   * @see rslingo.rslil.rSLIL.RefGlossaryType#getRefs()
-   * @see #getRefGlossaryType()
+   * @see rslingo.rslil.rSLIL.RefTermType#getRefs()
+   * @see #getRefTermType()
    * @generated
    */
-  EReference getRefGlossaryType_Refs();
+  EReference getRefTermType_Refs();
 
   /**
-   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.GlossaryType <em>Glossary Type</em>}'.
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.TermType <em>Term Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Glossary Type</em>'.
-   * @see rslingo.rslil.rSLIL.GlossaryType
+   * @return the meta object for class '<em>Term Type</em>'.
+   * @see rslingo.rslil.rSLIL.TermType
    * @generated
    */
-  EClass getGlossaryType();
+  EClass getTermType();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.GlossaryType#getType <em>Type</em>}'.
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.TermType#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Type</em>'.
-   * @see rslingo.rslil.rSLIL.GlossaryType#getType()
-   * @see #getGlossaryType()
+   * @see rslingo.rslil.rSLIL.TermType#getType()
+   * @see #getTermType()
    * @generated
    */
-  EAttribute getGlossaryType_Type();
+  EAttribute getTermType_Type();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.TermRelation <em>Term Relation</em>}'.
@@ -2276,47 +2376,47 @@ public interface RSLILPackage extends EPackage
   EAttribute getTermRelation_Type();
 
   /**
-   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.TermRelation#getTerm <em>Term</em>}'.
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.TermRelation#getRefTerm <em>Ref Term</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Term</em>'.
-   * @see rslingo.rslil.rSLIL.TermRelation#getTerm()
+   * @return the meta object for the containment reference '<em>Ref Term</em>'.
+   * @see rslingo.rslil.rSLIL.TermRelation#getRefTerm()
    * @see #getTermRelation()
    * @generated
    */
-  EReference getTermRelation_Term();
+  EReference getTermRelation_RefTerm();
 
   /**
-   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.Term <em>Term</em>}'.
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.RefTerm <em>Ref Term</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Term</em>'.
-   * @see rslingo.rslil.rSLIL.Term
+   * @return the meta object for class '<em>Ref Term</em>'.
+   * @see rslingo.rslil.rSLIL.RefTerm
    * @generated
    */
-  EClass getTerm();
+  EClass getRefTerm();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Term#getRefTerm <em>Ref Term</em>}'.
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.RefTerm#getRefTerm <em>Ref Term</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Ref Term</em>'.
-   * @see rslingo.rslil.rSLIL.Term#getRefTerm()
-   * @see #getTerm()
+   * @see rslingo.rslil.rSLIL.RefTerm#getRefTerm()
+   * @see #getRefTerm()
    * @generated
    */
-  EAttribute getTerm_RefTerm();
+  EAttribute getRefTerm_RefTerm();
 
   /**
-   * Returns the meta object for the attribute list '{@link rslingo.rslil.rSLIL.Term#getRefs <em>Refs</em>}'.
+   * Returns the meta object for the attribute list '{@link rslingo.rslil.rSLIL.RefTerm#getRefs <em>Refs</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute list '<em>Refs</em>'.
-   * @see rslingo.rslil.rSLIL.Term#getRefs()
-   * @see #getTerm()
+   * @see rslingo.rslil.rSLIL.RefTerm#getRefs()
+   * @see #getRefTerm()
    * @generated
    */
-  EAttribute getTerm_Refs();
+  EAttribute getRefTerm_Refs();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.Stakeholder <em>Stakeholder</em>}'.
@@ -2416,6 +2516,17 @@ public interface RSLILPackage extends EPackage
   EAttribute getGoal_Name();
 
   /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Goal#getNameAlias <em>Name Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name Alias</em>'.
+   * @see rslingo.rslil.rSLIL.Goal#getNameAlias()
+   * @see #getGoal()
+   * @generated
+   */
+  EAttribute getGoal_NameAlias();
+
+  /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Goal#getDescription <em>Description</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2492,10 +2603,10 @@ public interface RSLILPackage extends EPackage
   EAttribute getDependsOnGoal_Type();
 
   /**
-   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.DependsOnGoal#getRefGoal <em>Ref Goal</em>}'.
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.DependsOnGoal#getRefGoal <em>Ref Goal</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Ref Goal</em>'.
+   * @return the meta object for the containment reference '<em>Ref Goal</em>'.
    * @see rslingo.rslil.rSLIL.DependsOnGoal#getRefGoal()
    * @see #getDependsOnGoal()
    * @generated
@@ -2524,15 +2635,47 @@ public interface RSLILPackage extends EPackage
   EAttribute getComposedBy_Type();
 
   /**
-   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.ComposedBy#getRefGoal <em>Ref Goal</em>}'.
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.ComposedBy#getRefGoal <em>Ref Goal</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Ref Goal</em>'.
+   * @return the meta object for the containment reference '<em>Ref Goal</em>'.
    * @see rslingo.rslil.rSLIL.ComposedBy#getRefGoal()
    * @see #getComposedBy()
    * @generated
    */
   EReference getComposedBy_RefGoal();
+
+  /**
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.RefGoal <em>Ref Goal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ref Goal</em>'.
+   * @see rslingo.rslil.rSLIL.RefGoal
+   * @generated
+   */
+  EClass getRefGoal();
+
+  /**
+   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.RefGoal#getRefGoal <em>Ref Goal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ref Goal</em>'.
+   * @see rslingo.rslil.rSLIL.RefGoal#getRefGoal()
+   * @see #getRefGoal()
+   * @generated
+   */
+  EReference getRefGoal_RefGoal();
+
+  /**
+   * Returns the meta object for the reference list '{@link rslingo.rslil.rSLIL.RefGoal#getRefs <em>Refs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Refs</em>'.
+   * @see rslingo.rslil.rSLIL.RefGoal#getRefs()
+   * @see #getRefGoal()
+   * @generated
+   */
+  EReference getRefGoal_Refs();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.Entity <em>Entity</em>}'.
@@ -2578,6 +2721,17 @@ public interface RSLILPackage extends EPackage
   EAttribute getEntity_Description();
 
   /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Entity#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see rslingo.rslil.rSLIL.Entity#getType()
+   * @see #getEntity()
+   * @generated
+   */
+  EAttribute getEntity_Type();
+
+  /**
    * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.Entity#getAttributes <em>Attributes</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2587,6 +2741,17 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EReference getEntity_Attributes();
+
+  /**
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Entity#getReference <em>Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Reference</em>'.
+   * @see rslingo.rslil.rSLIL.Entity#getReference()
+   * @see #getEntity()
+   * @generated
+   */
+  EReference getEntity_Reference();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.Attribute <em>Attribute</em>}'.
@@ -2608,6 +2773,17 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EAttribute getAttribute_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Attribute#getNameAlias <em>Name Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name Alias</em>'.
+   * @see rslingo.rslil.rSLIL.Attribute#getNameAlias()
+   * @see #getAttribute()
+   * @generated
+   */
+  EAttribute getAttribute_NameAlias();
 
   /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Attribute#getDescrition <em>Descrition</em>}'.
@@ -2641,17 +2817,6 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EReference getAttribute_Field();
-
-  /**
-   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Attribute#getReference <em>Reference</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Reference</em>'.
-   * @see rslingo.rslil.rSLIL.Attribute#getReference()
-   * @see #getAttribute()
-   * @generated
-   */
-  EReference getAttribute_Reference();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.Field <em>Field</em>}'.
@@ -2705,6 +2870,17 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EClass getReference();
+
+  /**
+   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.Reference#getEntity <em>Entity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Entity</em>'.
+   * @see rslingo.rslil.rSLIL.Reference#getEntity()
+   * @see #getReference()
+   * @generated
+   */
+  EReference getReference_Entity();
 
   /**
    * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Reference#getRefTo <em>Ref To</em>}'.
@@ -2826,47 +3002,15 @@ public interface RSLILPackage extends EPackage
   EReference getActor_Stakeholder();
 
   /**
-   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Actor#getDependsOn <em>Depends On</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Depends On</em>'.
-   * @see rslingo.rslil.rSLIL.Actor#getDependsOn()
-   * @see #getActor()
-   * @generated
-   */
-  EReference getActor_DependsOn();
-
-  /**
-   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.DependsOnActor <em>Depends On Actor</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Depends On Actor</em>'.
-   * @see rslingo.rslil.rSLIL.DependsOnActor
-   * @generated
-   */
-  EClass getDependsOnActor();
-
-  /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.DependsOnActor#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see rslingo.rslil.rSLIL.DependsOnActor#getType()
-   * @see #getDependsOnActor()
-   * @generated
-   */
-  EAttribute getDependsOnActor_Type();
-
-  /**
-   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.DependsOnActor#getActor <em>Actor</em>}'.
+   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.Actor#getActor <em>Actor</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Actor</em>'.
-   * @see rslingo.rslil.rSLIL.DependsOnActor#getActor()
-   * @see #getDependsOnActor()
+   * @see rslingo.rslil.rSLIL.Actor#getActor()
+   * @see #getActor()
    * @generated
    */
-  EReference getDependsOnActor_Actor();
+  EReference getActor_Actor();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.UseCase <em>Use Case</em>}'.
@@ -2932,6 +3076,17 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EAttribute getUseCase_Priotity();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.UseCase#getExtensionnPoints <em>Extensionn Points</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Extensionn Points</em>'.
+   * @see rslingo.rslil.rSLIL.UseCase#getExtensionnPoints()
+   * @see #getUseCase()
+   * @generated
+   */
+  EReference getUseCase_ExtensionnPoints();
 
   /**
    * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.UseCase#getGoals <em>Goals</em>}'.
@@ -3033,17 +3188,6 @@ public interface RSLILPackage extends EPackage
   EReference getUseCase_ExtPoint();
 
   /**
-   * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.UseCase#getExtensionnPoints <em>Extensionn Points</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Extensionn Points</em>'.
-   * @see rslingo.rslil.rSLIL.UseCase#getExtensionnPoints()
-   * @see #getUseCase()
-   * @generated
-   */
-  EReference getUseCase_ExtensionnPoints();
-
-  /**
    * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.UseCase#getScenarios <em>Scenarios</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3053,38 +3197,6 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EReference getUseCase_Scenarios();
-
-  /**
-   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.RefGoal <em>Ref Goal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Ref Goal</em>'.
-   * @see rslingo.rslil.rSLIL.RefGoal
-   * @generated
-   */
-  EClass getRefGoal();
-
-  /**
-   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.RefGoal#getRefGoal <em>Ref Goal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Ref Goal</em>'.
-   * @see rslingo.rslil.rSLIL.RefGoal#getRefGoal()
-   * @see #getRefGoal()
-   * @generated
-   */
-  EReference getRefGoal_RefGoal();
-
-  /**
-   * Returns the meta object for the reference list '{@link rslingo.rslil.rSLIL.RefGoal#getRefs <em>Refs</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Refs</em>'.
-   * @see rslingo.rslil.rSLIL.RefGoal#getRefs()
-   * @see #getRefGoal()
-   * @generated
-   */
-  EReference getRefGoal_Refs();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.RefFR <em>Ref FR</em>}'.
@@ -3225,6 +3337,17 @@ public interface RSLILPackage extends EPackage
   EAttribute getScenario_Name();
 
   /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Scenario#getNameAlias <em>Name Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name Alias</em>'.
+   * @see rslingo.rslil.rSLIL.Scenario#getNameAlias()
+   * @see #getScenario()
+   * @generated
+   */
+  EAttribute getScenario_NameAlias();
+
+  /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Scenario#getDescription <em>Description</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3290,6 +3413,17 @@ public interface RSLILPackage extends EPackage
   EAttribute getStep_Name();
 
   /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Step#getNameAlias <em>Name Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name Alias</em>'.
+   * @see rslingo.rslil.rSLIL.Step#getNameAlias()
+   * @see #getStep()
+   * @generated
+   */
+  EAttribute getStep_NameAlias();
+
+  /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Step#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3345,6 +3479,17 @@ public interface RSLILPackage extends EPackage
   EAttribute getStep_PostConditions();
 
   /**
+   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.Step#getNext <em>Next</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Next</em>'.
+   * @see rslingo.rslil.rSLIL.Step#getNext()
+   * @see #getStep()
+   * @generated
+   */
+  EReference getStep_Next();
+
+  /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.FR <em>FR</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3388,6 +3533,17 @@ public interface RSLILPackage extends EPackage
   EAttribute getFR_Description();
 
   /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.FR#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see rslingo.rslil.rSLIL.FR#getType()
+   * @see #getFR()
+   * @generated
+   */
+  EAttribute getFR_Type();
+
+  /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.FR#getModality <em>Modality</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3397,17 +3553,6 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EAttribute getFR_Modality();
-
-  /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.FR#getActionType <em>Action Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Action Type</em>'.
-   * @see rslingo.rslil.rSLIL.FR#getActionType()
-   * @see #getFR()
-   * @generated
-   */
-  EAttribute getFR_ActionType();
 
   /**
    * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.FR#getStakeholder <em>Stakeholder</em>}'.
@@ -3452,6 +3597,38 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EReference getFR_PartOf();
+
+  /**
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.DependsOnFR <em>Depends On FR</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Depends On FR</em>'.
+   * @see rslingo.rslil.rSLIL.DependsOnFR
+   * @generated
+   */
+  EClass getDependsOnFR();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.DependsOnFR#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see rslingo.rslil.rSLIL.DependsOnFR#getType()
+   * @see #getDependsOnFR()
+   * @generated
+   */
+  EAttribute getDependsOnFR_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.DependsOnFR#getRefFr <em>Ref Fr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Ref Fr</em>'.
+   * @see rslingo.rslil.rSLIL.DependsOnFR#getRefFr()
+   * @see #getDependsOnFR()
+   * @generated
+   */
+  EReference getDependsOnFR_RefFr();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.NFR <em>NFR</em>}'.
@@ -3585,6 +3762,38 @@ public interface RSLILPackage extends EPackage
   EReference getNFR_PartOf();
 
   /**
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.DependsOnNFR <em>Depends On NFR</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Depends On NFR</em>'.
+   * @see rslingo.rslil.rSLIL.DependsOnNFR
+   * @generated
+   */
+  EClass getDependsOnNFR();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.DependsOnNFR#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see rslingo.rslil.rSLIL.DependsOnNFR#getType()
+   * @see #getDependsOnNFR()
+   * @generated
+   */
+  EAttribute getDependsOnNFR_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.DependsOnNFR#getRefFr <em>Ref Fr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Ref Fr</em>'.
+   * @see rslingo.rslil.rSLIL.DependsOnNFR#getRefFr()
+   * @see #getDependsOnNFR()
+   * @generated
+   */
+  EReference getDependsOnNFR_RefFr();
+
+  /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.RefNFR <em>Ref NFR</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3666,12 +3875,12 @@ public interface RSLILPackage extends EPackage
     EReference MODEL__SYSTEMS = eINSTANCE.getModel_Systems();
 
     /**
-     * The meta object literal for the '<em><b>Glossaries</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Glossary Terms</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__GLOSSARIES = eINSTANCE.getModel_Glossaries();
+    EReference MODEL__GLOSSARY_TERMS = eINSTANCE.getModel_GlossaryTerms();
 
     /**
      * The meta object literal for the '<em><b>Stakeholders</b></em>' containment reference list feature.
@@ -3840,14 +4049,14 @@ public interface RSLILPackage extends EPackage
     EReference REF_SYSTEM__REFS = eINSTANCE.getRefSystem_Refs();
 
     /**
-     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.GlossaryImpl <em>Glossary</em>}' class.
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl <em>Glossary Term</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see rslingo.rslil.rSLIL.impl.GlossaryImpl
-     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getGlossary()
+     * @see rslingo.rslil.rSLIL.impl.GlossaryTermImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getGlossaryTerm()
      * @generated
      */
-    EClass GLOSSARY = eINSTANCE.getGlossary();
+    EClass GLOSSARY_TERM = eINSTANCE.getGlossaryTerm();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -3855,7 +4064,7 @@ public interface RSLILPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GLOSSARY__NAME = eINSTANCE.getGlossary_Name();
+    EAttribute GLOSSARY_TERM__NAME = eINSTANCE.getGlossaryTerm_Name();
 
     /**
      * The meta object literal for the '<em><b>Name Alias</b></em>' attribute feature.
@@ -3863,7 +4072,7 @@ public interface RSLILPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GLOSSARY__NAME_ALIAS = eINSTANCE.getGlossary_NameAlias();
+    EAttribute GLOSSARY_TERM__NAME_ALIAS = eINSTANCE.getGlossaryTerm_NameAlias();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
@@ -3871,7 +4080,7 @@ public interface RSLILPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference GLOSSARY__TYPE = eINSTANCE.getGlossary_Type();
+    EReference GLOSSARY_TERM__TYPE = eINSTANCE.getGlossaryTerm_Type();
 
     /**
      * The meta object literal for the '<em><b>Acronym</b></em>' attribute feature.
@@ -3879,7 +4088,7 @@ public interface RSLILPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GLOSSARY__ACRONYM = eINSTANCE.getGlossary_Acronym();
+    EAttribute GLOSSARY_TERM__ACRONYM = eINSTANCE.getGlossaryTerm_Acronym();
 
     /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -3887,7 +4096,7 @@ public interface RSLILPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GLOSSARY__DESCRIPTION = eINSTANCE.getGlossary_Description();
+    EAttribute GLOSSARY_TERM__DESCRIPTION = eINSTANCE.getGlossaryTerm_Description();
 
     /**
      * The meta object literal for the '<em><b>Pos</b></em>' attribute feature.
@@ -3895,7 +4104,7 @@ public interface RSLILPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GLOSSARY__POS = eINSTANCE.getGlossary_Pos();
+    EAttribute GLOSSARY_TERM__POS = eINSTANCE.getGlossaryTerm_Pos();
 
     /**
      * The meta object literal for the '<em><b>Synset</b></em>' attribute feature.
@@ -3903,7 +4112,7 @@ public interface RSLILPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GLOSSARY__SYNSET = eINSTANCE.getGlossary_Synset();
+    EAttribute GLOSSARY_TERM__SYNSET = eINSTANCE.getGlossaryTerm_Synset();
 
     /**
      * The meta object literal for the '<em><b>Term Relation</b></em>' containment reference list feature.
@@ -3911,17 +4120,17 @@ public interface RSLILPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference GLOSSARY__TERM_RELATION = eINSTANCE.getGlossary_TermRelation();
+    EReference GLOSSARY_TERM__TERM_RELATION = eINSTANCE.getGlossaryTerm_TermRelation();
 
     /**
-     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.RefGlossaryTypeImpl <em>Ref Glossary Type</em>}' class.
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.RefTermTypeImpl <em>Ref Term Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see rslingo.rslil.rSLIL.impl.RefGlossaryTypeImpl
-     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefGlossaryType()
+     * @see rslingo.rslil.rSLIL.impl.RefTermTypeImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefTermType()
      * @generated
      */
-    EClass REF_GLOSSARY_TYPE = eINSTANCE.getRefGlossaryType();
+    EClass REF_TERM_TYPE = eINSTANCE.getRefTermType();
 
     /**
      * The meta object literal for the '<em><b>Ref Type</b></em>' containment reference feature.
@@ -3929,7 +4138,7 @@ public interface RSLILPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REF_GLOSSARY_TYPE__REF_TYPE = eINSTANCE.getRefGlossaryType_RefType();
+    EReference REF_TERM_TYPE__REF_TYPE = eINSTANCE.getRefTermType_RefType();
 
     /**
      * The meta object literal for the '<em><b>Refs</b></em>' containment reference list feature.
@@ -3937,17 +4146,17 @@ public interface RSLILPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REF_GLOSSARY_TYPE__REFS = eINSTANCE.getRefGlossaryType_Refs();
+    EReference REF_TERM_TYPE__REFS = eINSTANCE.getRefTermType_Refs();
 
     /**
-     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.GlossaryTypeImpl <em>Glossary Type</em>}' class.
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.TermTypeImpl <em>Term Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see rslingo.rslil.rSLIL.impl.GlossaryTypeImpl
-     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getGlossaryType()
+     * @see rslingo.rslil.rSLIL.impl.TermTypeImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getTermType()
      * @generated
      */
-    EClass GLOSSARY_TYPE = eINSTANCE.getGlossaryType();
+    EClass TERM_TYPE = eINSTANCE.getTermType();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -3955,7 +4164,7 @@ public interface RSLILPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute GLOSSARY_TYPE__TYPE = eINSTANCE.getGlossaryType_Type();
+    EAttribute TERM_TYPE__TYPE = eINSTANCE.getTermType_Type();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.TermRelationImpl <em>Term Relation</em>}' class.
@@ -3976,22 +4185,22 @@ public interface RSLILPackage extends EPackage
     EAttribute TERM_RELATION__TYPE = eINSTANCE.getTermRelation_Type();
 
     /**
-     * The meta object literal for the '<em><b>Term</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Ref Term</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TERM_RELATION__TERM = eINSTANCE.getTermRelation_Term();
+    EReference TERM_RELATION__REF_TERM = eINSTANCE.getTermRelation_RefTerm();
 
     /**
-     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.TermImpl <em>Term</em>}' class.
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.RefTermImpl <em>Ref Term</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see rslingo.rslil.rSLIL.impl.TermImpl
-     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getTerm()
+     * @see rslingo.rslil.rSLIL.impl.RefTermImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefTerm()
      * @generated
      */
-    EClass TERM = eINSTANCE.getTerm();
+    EClass REF_TERM = eINSTANCE.getRefTerm();
 
     /**
      * The meta object literal for the '<em><b>Ref Term</b></em>' attribute feature.
@@ -3999,7 +4208,7 @@ public interface RSLILPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TERM__REF_TERM = eINSTANCE.getTerm_RefTerm();
+    EAttribute REF_TERM__REF_TERM = eINSTANCE.getRefTerm_RefTerm();
 
     /**
      * The meta object literal for the '<em><b>Refs</b></em>' attribute list feature.
@@ -4007,7 +4216,7 @@ public interface RSLILPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TERM__REFS = eINSTANCE.getTerm_Refs();
+    EAttribute REF_TERM__REFS = eINSTANCE.getRefTerm_Refs();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.StakeholderImpl <em>Stakeholder</em>}' class.
@@ -4086,6 +4295,14 @@ public interface RSLILPackage extends EPackage
     EAttribute GOAL__NAME = eINSTANCE.getGoal_Name();
 
     /**
+     * The meta object literal for the '<em><b>Name Alias</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GOAL__NAME_ALIAS = eINSTANCE.getGoal_NameAlias();
+
+    /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4144,7 +4361,7 @@ public interface RSLILPackage extends EPackage
     EAttribute DEPENDS_ON_GOAL__TYPE = eINSTANCE.getDependsOnGoal_Type();
 
     /**
-     * The meta object literal for the '<em><b>Ref Goal</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Ref Goal</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -4170,12 +4387,38 @@ public interface RSLILPackage extends EPackage
     EAttribute COMPOSED_BY__TYPE = eINSTANCE.getComposedBy_Type();
 
     /**
-     * The meta object literal for the '<em><b>Ref Goal</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Ref Goal</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference COMPOSED_BY__REF_GOAL = eINSTANCE.getComposedBy_RefGoal();
+
+    /**
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.RefGoalImpl <em>Ref Goal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see rslingo.rslil.rSLIL.impl.RefGoalImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefGoal()
+     * @generated
+     */
+    EClass REF_GOAL = eINSTANCE.getRefGoal();
+
+    /**
+     * The meta object literal for the '<em><b>Ref Goal</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REF_GOAL__REF_GOAL = eINSTANCE.getRefGoal_RefGoal();
+
+    /**
+     * The meta object literal for the '<em><b>Refs</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REF_GOAL__REFS = eINSTANCE.getRefGoal_Refs();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.EntityImpl <em>Entity</em>}' class.
@@ -4212,12 +4455,28 @@ public interface RSLILPackage extends EPackage
     EAttribute ENTITY__DESCRIPTION = eINSTANCE.getEntity_Description();
 
     /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENTITY__TYPE = eINSTANCE.getEntity_Type();
+
+    /**
      * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference ENTITY__ATTRIBUTES = eINSTANCE.getEntity_Attributes();
+
+    /**
+     * The meta object literal for the '<em><b>Reference</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENTITY__REFERENCE = eINSTANCE.getEntity_Reference();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -4236,6 +4495,14 @@ public interface RSLILPackage extends EPackage
      * @generated
      */
     EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Name Alias</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATTRIBUTE__NAME_ALIAS = eINSTANCE.getAttribute_NameAlias();
 
     /**
      * The meta object literal for the '<em><b>Descrition</b></em>' attribute feature.
@@ -4260,14 +4527,6 @@ public interface RSLILPackage extends EPackage
      * @generated
      */
     EReference ATTRIBUTE__FIELD = eINSTANCE.getAttribute_Field();
-
-    /**
-     * The meta object literal for the '<em><b>Reference</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ATTRIBUTE__REFERENCE = eINSTANCE.getAttribute_Reference();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.FieldImpl <em>Field</em>}' class.
@@ -4312,6 +4571,14 @@ public interface RSLILPackage extends EPackage
      * @generated
      */
     EClass REFERENCE = eINSTANCE.getReference();
+
+    /**
+     * The meta object literal for the '<em><b>Entity</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REFERENCE__ENTITY = eINSTANCE.getReference_Entity();
 
     /**
      * The meta object literal for the '<em><b>Ref To</b></em>' containment reference feature.
@@ -4406,38 +4673,12 @@ public interface RSLILPackage extends EPackage
     EReference ACTOR__STAKEHOLDER = eINSTANCE.getActor_Stakeholder();
 
     /**
-     * The meta object literal for the '<em><b>Depends On</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ACTOR__DEPENDS_ON = eINSTANCE.getActor_DependsOn();
-
-    /**
-     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.DependsOnActorImpl <em>Depends On Actor</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see rslingo.rslil.rSLIL.impl.DependsOnActorImpl
-     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getDependsOnActor()
-     * @generated
-     */
-    EClass DEPENDS_ON_ACTOR = eINSTANCE.getDependsOnActor();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DEPENDS_ON_ACTOR__TYPE = eINSTANCE.getDependsOnActor_Type();
-
-    /**
      * The meta object literal for the '<em><b>Actor</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DEPENDS_ON_ACTOR__ACTOR = eINSTANCE.getDependsOnActor_Actor();
+    EReference ACTOR__ACTOR = eINSTANCE.getActor_Actor();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.UseCaseImpl <em>Use Case</em>}' class.
@@ -4488,6 +4729,14 @@ public interface RSLILPackage extends EPackage
      * @generated
      */
     EAttribute USE_CASE__PRIOTITY = eINSTANCE.getUseCase_Priotity();
+
+    /**
+     * The meta object literal for the '<em><b>Extensionn Points</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USE_CASE__EXTENSIONN_POINTS = eINSTANCE.getUseCase_ExtensionnPoints();
 
     /**
      * The meta object literal for the '<em><b>Goals</b></em>' containment reference list feature.
@@ -4562,46 +4811,12 @@ public interface RSLILPackage extends EPackage
     EReference USE_CASE__EXT_POINT = eINSTANCE.getUseCase_ExtPoint();
 
     /**
-     * The meta object literal for the '<em><b>Extensionn Points</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference USE_CASE__EXTENSIONN_POINTS = eINSTANCE.getUseCase_ExtensionnPoints();
-
-    /**
      * The meta object literal for the '<em><b>Scenarios</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference USE_CASE__SCENARIOS = eINSTANCE.getUseCase_Scenarios();
-
-    /**
-     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.RefGoalImpl <em>Ref Goal</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see rslingo.rslil.rSLIL.impl.RefGoalImpl
-     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefGoal()
-     * @generated
-     */
-    EClass REF_GOAL = eINSTANCE.getRefGoal();
-
-    /**
-     * The meta object literal for the '<em><b>Ref Goal</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference REF_GOAL__REF_GOAL = eINSTANCE.getRefGoal_RefGoal();
-
-    /**
-     * The meta object literal for the '<em><b>Refs</b></em>' reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference REF_GOAL__REFS = eINSTANCE.getRefGoal_Refs();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.RefFRImpl <em>Ref FR</em>}' class.
@@ -4718,6 +4933,14 @@ public interface RSLILPackage extends EPackage
     EAttribute SCENARIO__NAME = eINSTANCE.getScenario_Name();
 
     /**
+     * The meta object literal for the '<em><b>Name Alias</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCENARIO__NAME_ALIAS = eINSTANCE.getScenario_NameAlias();
+
+    /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4768,6 +4991,14 @@ public interface RSLILPackage extends EPackage
     EAttribute STEP__NAME = eINSTANCE.getStep_Name();
 
     /**
+     * The meta object literal for the '<em><b>Name Alias</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STEP__NAME_ALIAS = eINSTANCE.getStep_NameAlias();
+
+    /**
      * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4808,6 +5039,14 @@ public interface RSLILPackage extends EPackage
     EAttribute STEP__POST_CONDITIONS = eINSTANCE.getStep_PostConditions();
 
     /**
+     * The meta object literal for the '<em><b>Next</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STEP__NEXT = eINSTANCE.getStep_Next();
+
+    /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.FRImpl <em>FR</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4842,20 +5081,20 @@ public interface RSLILPackage extends EPackage
     EAttribute FR__DESCRIPTION = eINSTANCE.getFR_Description();
 
     /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FR__TYPE = eINSTANCE.getFR_Type();
+
+    /**
      * The meta object literal for the '<em><b>Modality</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute FR__MODALITY = eINSTANCE.getFR_Modality();
-
-    /**
-     * The meta object literal for the '<em><b>Action Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FR__ACTION_TYPE = eINSTANCE.getFR_ActionType();
 
     /**
      * The meta object literal for the '<em><b>Stakeholder</b></em>' reference feature.
@@ -4888,6 +5127,32 @@ public interface RSLILPackage extends EPackage
      * @generated
      */
     EReference FR__PART_OF = eINSTANCE.getFR_PartOf();
+
+    /**
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.DependsOnFRImpl <em>Depends On FR</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see rslingo.rslil.rSLIL.impl.DependsOnFRImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getDependsOnFR()
+     * @generated
+     */
+    EClass DEPENDS_ON_FR = eINSTANCE.getDependsOnFR();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEPENDS_ON_FR__TYPE = eINSTANCE.getDependsOnFR_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Ref Fr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEPENDS_ON_FR__REF_FR = eINSTANCE.getDependsOnFR_RefFr();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.NFRImpl <em>NFR</em>}' class.
@@ -4986,6 +5251,32 @@ public interface RSLILPackage extends EPackage
      * @generated
      */
     EReference NFR__PART_OF = eINSTANCE.getNFR_PartOf();
+
+    /**
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.DependsOnNFRImpl <em>Depends On NFR</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see rslingo.rslil.rSLIL.impl.DependsOnNFRImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getDependsOnNFR()
+     * @generated
+     */
+    EClass DEPENDS_ON_NFR = eINSTANCE.getDependsOnNFR();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEPENDS_ON_NFR__TYPE = eINSTANCE.getDependsOnNFR_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Ref Fr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEPENDS_ON_NFR__REF_FR = eINSTANCE.getDependsOnNFR_RefFr();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.RefNFRImpl <em>Ref NFR</em>}' class.

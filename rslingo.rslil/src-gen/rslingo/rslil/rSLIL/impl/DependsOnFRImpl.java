@@ -11,25 +11,25 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import rslingo.rslil.rSLIL.ComposedBy;
+import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.RefGoal;
+import rslingo.rslil.rSLIL.RefFR;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Composed By</b></em>'.
+ * An implementation of the model object '<em><b>Depends On FR</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ComposedByImpl#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ComposedByImpl#getRefGoal <em>Ref Goal</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.DependsOnFRImpl#getType <em>Type</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.DependsOnFRImpl#getRefFr <em>Ref Fr</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ComposedByImpl extends MinimalEObjectImpl.Container implements ComposedBy
+public class DependsOnFRImpl extends MinimalEObjectImpl.Container implements DependsOnFR
 {
   /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -52,21 +52,21 @@ public class ComposedByImpl extends MinimalEObjectImpl.Container implements Comp
   protected String type = TYPE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getRefGoal() <em>Ref Goal</em>}' containment reference.
+   * The cached value of the '{@link #getRefFr() <em>Ref Fr</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRefGoal()
+   * @see #getRefFr()
    * @generated
    * @ordered
    */
-  protected RefGoal refGoal;
+  protected RefFR refFr;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ComposedByImpl()
+  protected DependsOnFRImpl()
   {
     super();
   }
@@ -79,7 +79,7 @@ public class ComposedByImpl extends MinimalEObjectImpl.Container implements Comp
   @Override
   protected EClass eStaticClass()
   {
-    return RSLILPackage.Literals.COMPOSED_BY;
+    return RSLILPackage.Literals.DEPENDS_ON_FR;
   }
 
   /**
@@ -102,7 +102,7 @@ public class ComposedByImpl extends MinimalEObjectImpl.Container implements Comp
     String oldType = type;
     type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.COMPOSED_BY__TYPE, oldType, type));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.DEPENDS_ON_FR__TYPE, oldType, type));
   }
 
   /**
@@ -110,9 +110,9 @@ public class ComposedByImpl extends MinimalEObjectImpl.Container implements Comp
    * <!-- end-user-doc -->
    * @generated
    */
-  public RefGoal getRefGoal()
+  public RefFR getRefFr()
   {
-    return refGoal;
+    return refFr;
   }
 
   /**
@@ -120,13 +120,13 @@ public class ComposedByImpl extends MinimalEObjectImpl.Container implements Comp
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRefGoal(RefGoal newRefGoal, NotificationChain msgs)
+  public NotificationChain basicSetRefFr(RefFR newRefFr, NotificationChain msgs)
   {
-    RefGoal oldRefGoal = refGoal;
-    refGoal = newRefGoal;
+    RefFR oldRefFr = refFr;
+    refFr = newRefFr;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.COMPOSED_BY__REF_GOAL, oldRefGoal, newRefGoal);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.DEPENDS_ON_FR__REF_FR, oldRefFr, newRefFr);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -137,20 +137,20 @@ public class ComposedByImpl extends MinimalEObjectImpl.Container implements Comp
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRefGoal(RefGoal newRefGoal)
+  public void setRefFr(RefFR newRefFr)
   {
-    if (newRefGoal != refGoal)
+    if (newRefFr != refFr)
     {
       NotificationChain msgs = null;
-      if (refGoal != null)
-        msgs = ((InternalEObject)refGoal).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.COMPOSED_BY__REF_GOAL, null, msgs);
-      if (newRefGoal != null)
-        msgs = ((InternalEObject)newRefGoal).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.COMPOSED_BY__REF_GOAL, null, msgs);
-      msgs = basicSetRefGoal(newRefGoal, msgs);
+      if (refFr != null)
+        msgs = ((InternalEObject)refFr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.DEPENDS_ON_FR__REF_FR, null, msgs);
+      if (newRefFr != null)
+        msgs = ((InternalEObject)newRefFr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.DEPENDS_ON_FR__REF_FR, null, msgs);
+      msgs = basicSetRefFr(newRefFr, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.COMPOSED_BY__REF_GOAL, newRefGoal, newRefGoal));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.DEPENDS_ON_FR__REF_FR, newRefFr, newRefFr));
   }
 
   /**
@@ -163,8 +163,8 @@ public class ComposedByImpl extends MinimalEObjectImpl.Container implements Comp
   {
     switch (featureID)
     {
-      case RSLILPackage.COMPOSED_BY__REF_GOAL:
-        return basicSetRefGoal(null, msgs);
+      case RSLILPackage.DEPENDS_ON_FR__REF_FR:
+        return basicSetRefFr(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -179,10 +179,10 @@ public class ComposedByImpl extends MinimalEObjectImpl.Container implements Comp
   {
     switch (featureID)
     {
-      case RSLILPackage.COMPOSED_BY__TYPE:
+      case RSLILPackage.DEPENDS_ON_FR__TYPE:
         return getType();
-      case RSLILPackage.COMPOSED_BY__REF_GOAL:
-        return getRefGoal();
+      case RSLILPackage.DEPENDS_ON_FR__REF_FR:
+        return getRefFr();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -197,11 +197,11 @@ public class ComposedByImpl extends MinimalEObjectImpl.Container implements Comp
   {
     switch (featureID)
     {
-      case RSLILPackage.COMPOSED_BY__TYPE:
+      case RSLILPackage.DEPENDS_ON_FR__TYPE:
         setType((String)newValue);
         return;
-      case RSLILPackage.COMPOSED_BY__REF_GOAL:
-        setRefGoal((RefGoal)newValue);
+      case RSLILPackage.DEPENDS_ON_FR__REF_FR:
+        setRefFr((RefFR)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -217,11 +217,11 @@ public class ComposedByImpl extends MinimalEObjectImpl.Container implements Comp
   {
     switch (featureID)
     {
-      case RSLILPackage.COMPOSED_BY__TYPE:
+      case RSLILPackage.DEPENDS_ON_FR__TYPE:
         setType(TYPE_EDEFAULT);
         return;
-      case RSLILPackage.COMPOSED_BY__REF_GOAL:
-        setRefGoal((RefGoal)null);
+      case RSLILPackage.DEPENDS_ON_FR__REF_FR:
+        setRefFr((RefFR)null);
         return;
     }
     super.eUnset(featureID);
@@ -237,10 +237,10 @@ public class ComposedByImpl extends MinimalEObjectImpl.Container implements Comp
   {
     switch (featureID)
     {
-      case RSLILPackage.COMPOSED_BY__TYPE:
+      case RSLILPackage.DEPENDS_ON_FR__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-      case RSLILPackage.COMPOSED_BY__REF_GOAL:
-        return refGoal != null;
+      case RSLILPackage.DEPENDS_ON_FR__REF_FR:
+        return refFr != null;
     }
     return super.eIsSet(featureID);
   }
@@ -262,4 +262,4 @@ public class ComposedByImpl extends MinimalEObjectImpl.Container implements Comp
     return result.toString();
   }
 
-} //ComposedByImpl
+} //DependsOnFRImpl

@@ -8,22 +8,22 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Term</b></em>'.
+ * A representation of the model object '<em><b>Ref Term</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.Term#getRefTerm <em>Ref Term</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Term#getRefs <em>Refs</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.RefTerm#getRefTerm <em>Ref Term</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.RefTerm#getRefs <em>Refs</em>}</li>
  * </ul>
  *
- * @see rslingo.rslil.rSLIL.RSLILPackage#getTerm()
+ * @see rslingo.rslil.rSLIL.RSLILPackage#getRefTerm()
  * @model
  * @generated
  */
-public interface Term extends EObject
+public interface RefTerm extends EObject
 {
   /**
    * Returns the value of the '<em><b>Ref Term</b></em>' attribute.
@@ -35,14 +35,14 @@ public interface Term extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Ref Term</em>' attribute.
    * @see #setRefTerm(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getTerm_RefTerm()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getRefTerm_RefTerm()
    * @model
    * @generated
    */
   String getRefTerm();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Term#getRefTerm <em>Ref Term</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.RefTerm#getRefTerm <em>Ref Term</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Ref Term</em>' attribute.
@@ -61,10 +61,10 @@ public interface Term extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Refs</em>' attribute list.
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getTerm_Refs()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getRefTerm_Refs()
    * @model unique="false"
    * @generated
    */
   EList<String> getRefs();
 
-} // Term
+} // RefTerm

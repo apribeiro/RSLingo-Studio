@@ -3,6 +3,12 @@
  */
 package rslingo.rslil.scoping
 
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.scoping.IScope
+import org.eclipse.xtext.scoping.Scopes
+import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
+import rslingo.rslil.rSLIL.Reference
+
 /**
  * This class contains custom scoping description.
  * 
@@ -10,6 +16,25 @@ package rslingo.rslil.scoping
  * on how and when to use it.
  *
  */
-class RSLILScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider {
+class RSLILScopeProvider extends AbstractDeclarativeScopeProvider {
 
+	def IScope scope_RefAttribute_refAttr(Reference ctx, EReference ref) {
+        return Scopes.scopeFor(ctx.entity.attributes)
+    }
+	
+	def IScope scope_RefAttribute_refs(Reference ctx, EReference ref) {
+        return Scopes.scopeFor(ctx.entity.attributes)
+    }
+	
+	/*
+	@Override
+  	public IScope getScope(EObject context, EReference reference) {
+		System.out.println(
+			"scope_" + reference.getEContainingClass().getName()
+			+ "_" + reference.getName()
+			+ "(" + context.eClass().getName() + ", ..)"
+	 	);
+	 	return super.getScope(context, reference);
+  	}
+	*/
 }

@@ -59,31 +59,31 @@ public interface RSLILFactory extends EFactory
   RefSystem createRefSystem();
 
   /**
-   * Returns a new object of class '<em>Glossary</em>'.
+   * Returns a new object of class '<em>Glossary Term</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Glossary</em>'.
+   * @return a new object of class '<em>Glossary Term</em>'.
    * @generated
    */
-  Glossary createGlossary();
+  GlossaryTerm createGlossaryTerm();
 
   /**
-   * Returns a new object of class '<em>Ref Glossary Type</em>'.
+   * Returns a new object of class '<em>Ref Term Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Ref Glossary Type</em>'.
+   * @return a new object of class '<em>Ref Term Type</em>'.
    * @generated
    */
-  RefGlossaryType createRefGlossaryType();
+  RefTermType createRefTermType();
 
   /**
-   * Returns a new object of class '<em>Glossary Type</em>'.
+   * Returns a new object of class '<em>Term Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Glossary Type</em>'.
+   * @return a new object of class '<em>Term Type</em>'.
    * @generated
    */
-  GlossaryType createGlossaryType();
+  TermType createTermType();
 
   /**
    * Returns a new object of class '<em>Term Relation</em>'.
@@ -95,13 +95,13 @@ public interface RSLILFactory extends EFactory
   TermRelation createTermRelation();
 
   /**
-   * Returns a new object of class '<em>Term</em>'.
+   * Returns a new object of class '<em>Ref Term</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Term</em>'.
+   * @return a new object of class '<em>Ref Term</em>'.
    * @generated
    */
-  Term createTerm();
+  RefTerm createRefTerm();
 
   /**
    * Returns a new object of class '<em>Stakeholder</em>'.
@@ -138,6 +138,15 @@ public interface RSLILFactory extends EFactory
    * @generated
    */
   ComposedBy createComposedBy();
+
+  /**
+   * Returns a new object of class '<em>Ref Goal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ref Goal</em>'.
+   * @generated
+   */
+  RefGoal createRefGoal();
 
   /**
    * Returns a new object of class '<em>Entity</em>'.
@@ -194,15 +203,6 @@ public interface RSLILFactory extends EFactory
   Actor createActor();
 
   /**
-   * Returns a new object of class '<em>Depends On Actor</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Depends On Actor</em>'.
-   * @generated
-   */
-  DependsOnActor createDependsOnActor();
-
-  /**
    * Returns a new object of class '<em>Use Case</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -210,15 +210,6 @@ public interface RSLILFactory extends EFactory
    * @generated
    */
   UseCase createUseCase();
-
-  /**
-   * Returns a new object of class '<em>Ref Goal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Ref Goal</em>'.
-   * @generated
-   */
-  RefGoal createRefGoal();
 
   /**
    * Returns a new object of class '<em>Ref FR</em>'.
@@ -284,6 +275,15 @@ public interface RSLILFactory extends EFactory
   FR createFR();
 
   /**
+   * Returns a new object of class '<em>Depends On FR</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Depends On FR</em>'.
+   * @generated
+   */
+  DependsOnFR createDependsOnFR();
+
+  /**
    * Returns a new object of class '<em>NFR</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -291,6 +291,15 @@ public interface RSLILFactory extends EFactory
    * @generated
    */
   NFR createNFR();
+
+  /**
+   * Returns a new object of class '<em>Depends On NFR</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Depends On NFR</em>'.
+   * @generated
+   */
+  DependsOnNFR createDependsOnNFR();
 
   /**
    * Returns a new object of class '<em>Ref NFR</em>'.

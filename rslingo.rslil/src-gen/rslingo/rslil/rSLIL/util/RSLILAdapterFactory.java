@@ -12,14 +12,14 @@ import org.eclipse.emf.ecore.EObject;
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.ComposedBy;
-import rslingo.rslil.rSLIL.DependsOnActor;
+import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.DependsOnGoal;
+import rslingo.rslil.rSLIL.DependsOnNFR;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.ExtensionPoint;
 import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.Field;
-import rslingo.rslil.rSLIL.Glossary;
-import rslingo.rslil.rSLIL.GlossaryType;
+import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.NFR;
@@ -28,17 +28,18 @@ import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
 import rslingo.rslil.rSLIL.RefFR;
-import rslingo.rslil.rSLIL.RefGlossaryType;
 import rslingo.rslil.rSLIL.RefGoal;
 import rslingo.rslil.rSLIL.RefNFR;
 import rslingo.rslil.rSLIL.RefSystem;
+import rslingo.rslil.rSLIL.RefTerm;
+import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
 import rslingo.rslil.rSLIL.Reference;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.Step;
-import rslingo.rslil.rSLIL.Term;
 import rslingo.rslil.rSLIL.TermRelation;
+import rslingo.rslil.rSLIL.TermType;
 import rslingo.rslil.rSLIL.UseCase;
 
 /**
@@ -125,19 +126,19 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
         return createRefSystemAdapter();
       }
       @Override
-      public Adapter caseGlossary(Glossary object)
+      public Adapter caseGlossaryTerm(GlossaryTerm object)
       {
-        return createGlossaryAdapter();
+        return createGlossaryTermAdapter();
       }
       @Override
-      public Adapter caseRefGlossaryType(RefGlossaryType object)
+      public Adapter caseRefTermType(RefTermType object)
       {
-        return createRefGlossaryTypeAdapter();
+        return createRefTermTypeAdapter();
       }
       @Override
-      public Adapter caseGlossaryType(GlossaryType object)
+      public Adapter caseTermType(TermType object)
       {
-        return createGlossaryTypeAdapter();
+        return createTermTypeAdapter();
       }
       @Override
       public Adapter caseTermRelation(TermRelation object)
@@ -145,9 +146,9 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
         return createTermRelationAdapter();
       }
       @Override
-      public Adapter caseTerm(Term object)
+      public Adapter caseRefTerm(RefTerm object)
       {
-        return createTermAdapter();
+        return createRefTermAdapter();
       }
       @Override
       public Adapter caseStakeholder(Stakeholder object)
@@ -168,6 +169,11 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
       public Adapter caseComposedBy(ComposedBy object)
       {
         return createComposedByAdapter();
+      }
+      @Override
+      public Adapter caseRefGoal(RefGoal object)
+      {
+        return createRefGoalAdapter();
       }
       @Override
       public Adapter caseEntity(Entity object)
@@ -200,19 +206,9 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
         return createActorAdapter();
       }
       @Override
-      public Adapter caseDependsOnActor(DependsOnActor object)
-      {
-        return createDependsOnActorAdapter();
-      }
-      @Override
       public Adapter caseUseCase(UseCase object)
       {
         return createUseCaseAdapter();
-      }
-      @Override
-      public Adapter caseRefGoal(RefGoal object)
-      {
-        return createRefGoalAdapter();
       }
       @Override
       public Adapter caseRefFR(RefFR object)
@@ -250,9 +246,19 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
         return createFRAdapter();
       }
       @Override
+      public Adapter caseDependsOnFR(DependsOnFR object)
+      {
+        return createDependsOnFRAdapter();
+      }
+      @Override
       public Adapter caseNFR(NFR object)
       {
         return createNFRAdapter();
+      }
+      @Override
+      public Adapter caseDependsOnNFR(DependsOnNFR object)
+      {
+        return createDependsOnNFRAdapter();
       }
       @Override
       public Adapter caseRefNFR(RefNFR object)
@@ -342,46 +348,46 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.Glossary <em>Glossary</em>}'.
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.GlossaryTerm <em>Glossary Term</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.Glossary
+   * @see rslingo.rslil.rSLIL.GlossaryTerm
    * @generated
    */
-  public Adapter createGlossaryAdapter()
+  public Adapter createGlossaryTermAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.RefGlossaryType <em>Ref Glossary Type</em>}'.
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.RefTermType <em>Ref Term Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.RefGlossaryType
+   * @see rslingo.rslil.rSLIL.RefTermType
    * @generated
    */
-  public Adapter createRefGlossaryTypeAdapter()
+  public Adapter createRefTermTypeAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.GlossaryType <em>Glossary Type</em>}'.
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.TermType <em>Term Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.GlossaryType
+   * @see rslingo.rslil.rSLIL.TermType
    * @generated
    */
-  public Adapter createGlossaryTypeAdapter()
+  public Adapter createTermTypeAdapter()
   {
     return null;
   }
@@ -402,16 +408,16 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.Term <em>Term</em>}'.
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.RefTerm <em>Ref Term</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.Term
+   * @see rslingo.rslil.rSLIL.RefTerm
    * @generated
    */
-  public Adapter createTermAdapter()
+  public Adapter createRefTermAdapter()
   {
     return null;
   }
@@ -472,6 +478,21 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createComposedByAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.RefGoal <em>Ref Goal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.RefGoal
+   * @generated
+   */
+  public Adapter createRefGoalAdapter()
   {
     return null;
   }
@@ -567,21 +588,6 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.DependsOnActor <em>Depends On Actor</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.DependsOnActor
-   * @generated
-   */
-  public Adapter createDependsOnActorAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.UseCase <em>Use Case</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -592,21 +598,6 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createUseCaseAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.RefGoal <em>Ref Goal</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.RefGoal
-   * @generated
-   */
-  public Adapter createRefGoalAdapter()
   {
     return null;
   }
@@ -717,6 +708,21 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.DependsOnFR <em>Depends On FR</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.DependsOnFR
+   * @generated
+   */
+  public Adapter createDependsOnFRAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.NFR <em>NFR</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -727,6 +733,21 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNFRAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.DependsOnNFR <em>Depends On NFR</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.DependsOnNFR
+   * @generated
+   */
+  public Adapter createDependsOnNFRAdapter()
   {
     return null;
   }

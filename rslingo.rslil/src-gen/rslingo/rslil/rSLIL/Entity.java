@@ -18,7 +18,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.Entity#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Entity#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Entity#getDescription <em>Description</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Entity#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Entity#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Entity#getReference <em>Reference</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getEntity()
@@ -106,6 +108,32 @@ public interface Entity extends EObject
   void setDescription(String value);
 
   /**
+   * Returns the value of the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' attribute.
+   * @see #setType(String)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getEntity_Type()
+   * @model
+   * @generated
+   */
+  String getType();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Entity#getType <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type</em>' attribute.
+   * @see #getType()
+   * @generated
+   */
+  void setType(String value);
+
+  /**
    * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
    * The list contents are of type {@link rslingo.rslil.rSLIL.Attribute}.
    * <!-- begin-user-doc -->
@@ -120,5 +148,31 @@ public interface Entity extends EObject
    * @generated
    */
   EList<Attribute> getAttributes();
+
+  /**
+   * Returns the value of the '<em><b>Reference</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Reference</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Reference</em>' containment reference.
+   * @see #setReference(Reference)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getEntity_Reference()
+   * @model containment="true"
+   * @generated
+   */
+  Reference getReference();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Entity#getReference <em>Reference</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Reference</em>' containment reference.
+   * @see #getReference()
+   * @generated
+   */
+  void setReference(Reference value);
 
 } // Entity
