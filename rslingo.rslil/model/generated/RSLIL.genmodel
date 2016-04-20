@@ -168,18 +168,11 @@
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//Step">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Step/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Step/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Step/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Step/description"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Step/actor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Step/preConditions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Step/postConditions"/>
-    </genClasses>
-    <genClasses ecoreClass="RSLIL.ecore#//RefActionType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefActionType/refType"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefActionType/refs"/>
-    </genClasses>
-    <genClasses ecoreClass="RSLIL.ecore#//ActionType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//ActionType/type"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//FR">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//FR/name"/>

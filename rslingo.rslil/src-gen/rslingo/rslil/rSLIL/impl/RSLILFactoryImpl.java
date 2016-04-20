@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import rslingo.rslil.rSLIL.ActionType;
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.ComposedBy;
@@ -28,7 +27,6 @@ import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILFactory;
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.RefActionType;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
 import rslingo.rslil.rSLIL.RefFR;
@@ -125,8 +123,6 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
       case RSLILPackage.EXTENSION_POINT: return createExtensionPoint();
       case RSLILPackage.SCENARIO: return createScenario();
       case RSLILPackage.STEP: return createStep();
-      case RSLILPackage.REF_ACTION_TYPE: return createRefActionType();
-      case RSLILPackage.ACTION_TYPE: return createActionType();
       case RSLILPackage.FR: return createFR();
       case RSLILPackage.NFR: return createNFR();
       case RSLILPackage.REF_NFR: return createRefNFR();
@@ -441,28 +437,6 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
   {
     StepImpl step = new StepImpl();
     return step;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RefActionType createRefActionType()
-  {
-    RefActionTypeImpl refActionType = new RefActionTypeImpl();
-    return refActionType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ActionType createActionType()
-  {
-    ActionTypeImpl actionType = new ActionTypeImpl();
-    return actionType;
   }
 
   /**

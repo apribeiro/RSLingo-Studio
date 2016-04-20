@@ -54,7 +54,7 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUseCaseAccess().getPriotityAlternatives_10_0(), "rule__UseCase__PriotityAlternatives_10_0");
 					put(grammarAccess.getScenarioAccess().getTypeAlternatives_5_0(), "rule__Scenario__TypeAlternatives_5_0");
 					put(grammarAccess.getScenarioAccess().getModeAlternatives_7_0(), "rule__Scenario__ModeAlternatives_7_0");
-					put(grammarAccess.getActionTypeAccess().getTypeAlternatives_0(), "rule__ActionType__TypeAlternatives_0");
+					put(grammarAccess.getStepAccess().getTypeAlternatives_4_0(), "rule__Step__TypeAlternatives_4_0");
 					put(grammarAccess.getFRAccess().getModalityAlternatives_8_0(), "rule__FR__ModalityAlternatives_8_0");
 					put(grammarAccess.getFRAccess().getActionTypeAlternatives_10_0(), "rule__FR__ActionTypeAlternatives_10_0");
 					put(grammarAccess.getFRAccess().getPriorityAlternatives_14_0(), "rule__FR__PriorityAlternatives_14_0");
@@ -116,8 +116,6 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStepAccess().getGroup_7(), "rule__Step__Group_7__0");
 					put(grammarAccess.getStepAccess().getGroup_8(), "rule__Step__Group_8__0");
 					put(grammarAccess.getStepAccess().getGroup_9(), "rule__Step__Group_9__0");
-					put(grammarAccess.getRefActionTypeAccess().getGroup(), "rule__RefActionType__Group__0");
-					put(grammarAccess.getRefActionTypeAccess().getGroup_1(), "rule__RefActionType__Group_1__0");
 					put(grammarAccess.getFRAccess().getGroup(), "rule__FR__Group__0");
 					put(grammarAccess.getFRAccess().getGroup_15(), "rule__FR__Group_15__0");
 					put(grammarAccess.getFRAccess().getGroup_16(), "rule__FR__Group_16__0");
@@ -237,9 +235,6 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStepAccess().getActorAssignment_7_1(), "rule__Step__ActorAssignment_7_1");
 					put(grammarAccess.getStepAccess().getPreConditionsAssignment_8_1(), "rule__Step__PreConditionsAssignment_8_1");
 					put(grammarAccess.getStepAccess().getPostConditionsAssignment_9_1(), "rule__Step__PostConditionsAssignment_9_1");
-					put(grammarAccess.getRefActionTypeAccess().getRefTypeAssignment_0(), "rule__RefActionType__RefTypeAssignment_0");
-					put(grammarAccess.getRefActionTypeAccess().getRefsAssignment_1_1(), "rule__RefActionType__RefsAssignment_1_1");
-					put(grammarAccess.getActionTypeAccess().getTypeAssignment(), "rule__ActionType__TypeAssignment");
 					put(grammarAccess.getFRAccess().getNameAssignment_1(), "rule__FR__NameAssignment_1");
 					put(grammarAccess.getFRAccess().getNameAliasAssignment_4(), "rule__FR__NameAliasAssignment_4");
 					put(grammarAccess.getFRAccess().getDescriptionAssignment_6(), "rule__FR__DescriptionAssignment_6");

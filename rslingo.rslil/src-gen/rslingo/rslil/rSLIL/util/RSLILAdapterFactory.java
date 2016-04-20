@@ -9,7 +9,6 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import rslingo.rslil.rSLIL.ActionType;
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.ComposedBy;
@@ -26,7 +25,6 @@ import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.RefActionType;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
 import rslingo.rslil.rSLIL.RefFR;
@@ -245,16 +243,6 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
       public Adapter caseStep(Step object)
       {
         return createStepAdapter();
-      }
-      @Override
-      public Adapter caseRefActionType(RefActionType object)
-      {
-        return createRefActionTypeAdapter();
-      }
-      @Override
-      public Adapter caseActionType(ActionType object)
-      {
-        return createActionTypeAdapter();
       }
       @Override
       public Adapter caseFR(FR object)
@@ -709,36 +697,6 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStepAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.RefActionType <em>Ref Action Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.RefActionType
-   * @generated
-   */
-  public Adapter createRefActionTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.ActionType <em>Action Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.ActionType
-   * @generated
-   */
-  public Adapter createActionTypeAdapter()
   {
     return null;
   }

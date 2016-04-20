@@ -3,7 +3,6 @@
 package rslingo.rslil.rSLIL.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -13,7 +12,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.RefActionType;
 import rslingo.rslil.rSLIL.Step;
 
 /**
@@ -57,14 +55,24 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getType()
    * @generated
    * @ordered
    */
-  protected RefActionType type;
+  protected static final String TYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected String type = TYPE_EDEFAULT;
 
   /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -185,7 +193,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * <!-- end-user-doc -->
    * @generated
    */
-  public RefActionType getType()
+  public String getType()
   {
     return type;
   }
@@ -195,37 +203,12 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(RefActionType newType, NotificationChain msgs)
+  public void setType(String newType)
   {
-    RefActionType oldType = type;
+    String oldType = type;
     type = newType;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.STEP__TYPE, oldType, newType);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setType(RefActionType newType)
-  {
-    if (newType != type)
-    {
-      NotificationChain msgs = null;
-      if (type != null)
-        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.STEP__TYPE, null, msgs);
-      if (newType != null)
-        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.STEP__TYPE, null, msgs);
-      msgs = basicSetType(newType, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.STEP__TYPE, newType, newType));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.STEP__TYPE, oldType, type));
   }
 
   /**
@@ -346,22 +329,6 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * @generated
    */
   @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case RSLILPackage.STEP__TYPE:
-        return basicSetType(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -397,7 +364,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
         setName((String)newValue);
         return;
       case RSLILPackage.STEP__TYPE:
-        setType((RefActionType)newValue);
+        setType((String)newValue);
         return;
       case RSLILPackage.STEP__DESCRIPTION:
         setDescription((String)newValue);
@@ -429,7 +396,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
         setName(NAME_EDEFAULT);
         return;
       case RSLILPackage.STEP__TYPE:
-        setType((RefActionType)null);
+        setType(TYPE_EDEFAULT);
         return;
       case RSLILPackage.STEP__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
@@ -460,7 +427,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
       case RSLILPackage.STEP__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RSLILPackage.STEP__TYPE:
-        return type != null;
+        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case RSLILPackage.STEP__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case RSLILPackage.STEP__ACTOR:
@@ -486,6 +453,8 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", type: ");
+    result.append(type);
     result.append(", description: ");
     result.append(description);
     result.append(", preConditions: ");

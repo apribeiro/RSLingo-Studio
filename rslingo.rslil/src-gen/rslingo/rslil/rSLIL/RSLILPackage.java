@@ -1534,7 +1534,7 @@ public interface RSLILPackage extends EPackage
   int STEP__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * The feature id for the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1588,71 +1588,6 @@ public interface RSLILPackage extends EPackage
   int STEP_FEATURE_COUNT = 6;
 
   /**
-   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.RefActionTypeImpl <em>Ref Action Type</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see rslingo.rslil.rSLIL.impl.RefActionTypeImpl
-   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefActionType()
-   * @generated
-   */
-  int REF_ACTION_TYPE = 28;
-
-  /**
-   * The feature id for the '<em><b>Ref Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_ACTION_TYPE__REF_TYPE = 0;
-
-  /**
-   * The feature id for the '<em><b>Refs</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_ACTION_TYPE__REFS = 1;
-
-  /**
-   * The number of structural features of the '<em>Ref Action Type</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_ACTION_TYPE_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.ActionTypeImpl <em>Action Type</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see rslingo.rslil.rSLIL.impl.ActionTypeImpl
-   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getActionType()
-   * @generated
-   */
-  int ACTION_TYPE = 29;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_TYPE__TYPE = 0;
-
-  /**
-   * The number of structural features of the '<em>Action Type</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ACTION_TYPE_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.FRImpl <em>FR</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1660,7 +1595,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getFR()
    * @generated
    */
-  int FR = 30;
+  int FR = 28;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1760,7 +1695,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getNFR()
    * @generated
    */
-  int NFR = 31;
+  int NFR = 29;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1878,7 +1813,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefNFR()
    * @generated
    */
-  int REF_NFR = 32;
+  int REF_NFR = 30;
 
   /**
    * The feature id for the '<em><b>Ref NFR</b></em>' reference.
@@ -3355,15 +3290,15 @@ public interface RSLILPackage extends EPackage
   EAttribute getStep_Name();
 
   /**
-   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Step#getType <em>Type</em>}'.
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Step#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @return the meta object for the attribute '<em>Type</em>'.
    * @see rslingo.rslil.rSLIL.Step#getType()
    * @see #getStep()
    * @generated
    */
-  EReference getStep_Type();
+  EAttribute getStep_Type();
 
   /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Step#getDescription <em>Description</em>}'.
@@ -3408,59 +3343,6 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EAttribute getStep_PostConditions();
-
-  /**
-   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.RefActionType <em>Ref Action Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Ref Action Type</em>'.
-   * @see rslingo.rslil.rSLIL.RefActionType
-   * @generated
-   */
-  EClass getRefActionType();
-
-  /**
-   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.RefActionType#getRefType <em>Ref Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Ref Type</em>'.
-   * @see rslingo.rslil.rSLIL.RefActionType#getRefType()
-   * @see #getRefActionType()
-   * @generated
-   */
-  EReference getRefActionType_RefType();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.RefActionType#getRefs <em>Refs</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Refs</em>'.
-   * @see rslingo.rslil.rSLIL.RefActionType#getRefs()
-   * @see #getRefActionType()
-   * @generated
-   */
-  EReference getRefActionType_Refs();
-
-  /**
-   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.ActionType <em>Action Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Action Type</em>'.
-   * @see rslingo.rslil.rSLIL.ActionType
-   * @generated
-   */
-  EClass getActionType();
-
-  /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.ActionType#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see rslingo.rslil.rSLIL.ActionType#getType()
-   * @see #getActionType()
-   * @generated
-   */
-  EAttribute getActionType_Type();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.FR <em>FR</em>}'.
@@ -4886,12 +4768,12 @@ public interface RSLILPackage extends EPackage
     EAttribute STEP__NAME = eINSTANCE.getStep_Name();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference STEP__TYPE = eINSTANCE.getStep_Type();
+    EAttribute STEP__TYPE = eINSTANCE.getStep_Type();
 
     /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -4924,50 +4806,6 @@ public interface RSLILPackage extends EPackage
      * @generated
      */
     EAttribute STEP__POST_CONDITIONS = eINSTANCE.getStep_PostConditions();
-
-    /**
-     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.RefActionTypeImpl <em>Ref Action Type</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see rslingo.rslil.rSLIL.impl.RefActionTypeImpl
-     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefActionType()
-     * @generated
-     */
-    EClass REF_ACTION_TYPE = eINSTANCE.getRefActionType();
-
-    /**
-     * The meta object literal for the '<em><b>Ref Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference REF_ACTION_TYPE__REF_TYPE = eINSTANCE.getRefActionType_RefType();
-
-    /**
-     * The meta object literal for the '<em><b>Refs</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference REF_ACTION_TYPE__REFS = eINSTANCE.getRefActionType_Refs();
-
-    /**
-     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.ActionTypeImpl <em>Action Type</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see rslingo.rslil.rSLIL.impl.ActionTypeImpl
-     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getActionType()
-     * @generated
-     */
-    EClass ACTION_TYPE = eINSTANCE.getActionType();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ACTION_TYPE__TYPE = eINSTANCE.getActionType_Type();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.FRImpl <em>FR</em>}' class.

@@ -2085,7 +2085,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cActionTypeKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cTypeAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cTypeRefActionTypeParserRuleCall_4_0 = (RuleCall)cTypeAssignment_4.eContents().get(0);
+		private final Alternatives cTypeAlternatives_4_0 = (Alternatives)cTypeAssignment_4.eContents().get(0);
+		private final Keyword cTypeActorPrepareDataKeyword_4_0_0 = (Keyword)cTypeAlternatives_4_0.eContents().get(0);
+		private final Keyword cTypeActorCallSystemKeyword_4_0_1 = (Keyword)cTypeAlternatives_4_0.eContents().get(1);
+		private final Keyword cTypeSystemExecutesKeyword_4_0_2 = (Keyword)cTypeAlternatives_4_0.eContents().get(2);
+		private final Keyword cTypeSystemReturnResultKeyword_4_0_3 = (Keyword)cTypeAlternatives_4_0.eContents().get(3);
 		private final Keyword cDescriptionKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cDescriptionAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cDescriptionSTRINGTerminalRuleCall_6_0 = (RuleCall)cDescriptionAssignment_6.eContents().get(0);
@@ -2105,12 +2109,14 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//Step:
-		//	"Step" name=ID "{" "ActionType" type=RefActionType "Description" description=STRING ("Actor" actor=[Actor])?
-		//	("Pre-Conditions" preConditions=STRING)? ("Post-Conditions" postConditions=STRING)? "}";
+		//	"Step" name=ID "{" "ActionType" type=("ActorPrepareData" | "ActorCallSystem" | "SystemExecutes" |
+		//	"SystemReturnResult") "Description" description=STRING ("Actor" actor=[Actor])? ("Pre-Conditions"
+		//	preConditions=STRING)? ("Post-Conditions" postConditions=STRING)? "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Step" name=ID "{" "ActionType" type=RefActionType "Description" description=STRING ("Actor" actor=[Actor])?
-		//("Pre-Conditions" preConditions=STRING)? ("Post-Conditions" postConditions=STRING)? "}"
+		//"Step" name=ID "{" "ActionType" type=("ActorPrepareData" | "ActorCallSystem" | "SystemExecutes" | "SystemReturnResult")
+		//"Description" description=STRING ("Actor" actor=[Actor])? ("Pre-Conditions" preConditions=STRING)? ("Post-Conditions"
+		//postConditions=STRING)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Step"
@@ -2128,11 +2134,23 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"ActionType"
 		public Keyword getActionTypeKeyword_3() { return cActionTypeKeyword_3; }
 
-		//type=RefActionType
+		//type=("ActorPrepareData" | "ActorCallSystem" | "SystemExecutes" | "SystemReturnResult")
 		public Assignment getTypeAssignment_4() { return cTypeAssignment_4; }
 
-		//RefActionType
-		public RuleCall getTypeRefActionTypeParserRuleCall_4_0() { return cTypeRefActionTypeParserRuleCall_4_0; }
+		//"ActorPrepareData" | "ActorCallSystem" | "SystemExecutes" | "SystemReturnResult"
+		public Alternatives getTypeAlternatives_4_0() { return cTypeAlternatives_4_0; }
+
+		//"ActorPrepareData"
+		public Keyword getTypeActorPrepareDataKeyword_4_0_0() { return cTypeActorPrepareDataKeyword_4_0_0; }
+
+		//"ActorCallSystem"
+		public Keyword getTypeActorCallSystemKeyword_4_0_1() { return cTypeActorCallSystemKeyword_4_0_1; }
+
+		//"SystemExecutes"
+		public Keyword getTypeSystemExecutesKeyword_4_0_2() { return cTypeSystemExecutesKeyword_4_0_2; }
+
+		//"SystemReturnResult"
+		public Keyword getTypeSystemReturnResultKeyword_4_0_3() { return cTypeSystemReturnResultKeyword_4_0_3; }
 
 		//"Description"
 		public Keyword getDescriptionKeyword_5() { return cDescriptionKeyword_5; }
@@ -2184,74 +2202,6 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
-	}
-
-	public class RefActionTypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RefActionType");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cRefTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cRefTypeActionTypeParserRuleCall_0_0 = (RuleCall)cRefTypeAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cCommaKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cRefsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cRefsActionTypeParserRuleCall_1_1_0 = (RuleCall)cRefsAssignment_1_1.eContents().get(0);
-		
-		//RefActionType:
-		//	refType=ActionType ("," refs+=ActionType)*;
-		@Override public ParserRule getRule() { return rule; }
-
-		//refType=ActionType ("," refs+=ActionType)*
-		public Group getGroup() { return cGroup; }
-
-		//refType=ActionType
-		public Assignment getRefTypeAssignment_0() { return cRefTypeAssignment_0; }
-
-		//ActionType
-		public RuleCall getRefTypeActionTypeParserRuleCall_0_0() { return cRefTypeActionTypeParserRuleCall_0_0; }
-
-		//("," refs+=ActionType)*
-		public Group getGroup_1() { return cGroup_1; }
-
-		//","
-		public Keyword getCommaKeyword_1_0() { return cCommaKeyword_1_0; }
-
-		//refs+=ActionType
-		public Assignment getRefsAssignment_1_1() { return cRefsAssignment_1_1; }
-
-		//ActionType
-		public RuleCall getRefsActionTypeParserRuleCall_1_1_0() { return cRefsActionTypeParserRuleCall_1_1_0; }
-	}
-
-	public class ActionTypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ActionType");
-		private final Assignment cTypeAssignment = (Assignment)rule.eContents().get(1);
-		private final Alternatives cTypeAlternatives_0 = (Alternatives)cTypeAssignment.eContents().get(0);
-		private final Keyword cTypeActorPrepareDataKeyword_0_0 = (Keyword)cTypeAlternatives_0.eContents().get(0);
-		private final Keyword cTypeActorCallSystemKeyword_0_1 = (Keyword)cTypeAlternatives_0.eContents().get(1);
-		private final Keyword cTypeSystemExecutesKeyword_0_2 = (Keyword)cTypeAlternatives_0.eContents().get(2);
-		private final Keyword cTypeSystemReturnResultKeyword_0_3 = (Keyword)cTypeAlternatives_0.eContents().get(3);
-		
-		//ActionType:
-		//	type=("ActorPrepareData" | "ActorCallSystem" | "SystemExecutes" | "SystemReturnResult");
-		@Override public ParserRule getRule() { return rule; }
-
-		//type=("ActorPrepareData" | "ActorCallSystem" | "SystemExecutes" | "SystemReturnResult")
-		public Assignment getTypeAssignment() { return cTypeAssignment; }
-
-		//"ActorPrepareData" | "ActorCallSystem" | "SystemExecutes" | "SystemReturnResult"
-		public Alternatives getTypeAlternatives_0() { return cTypeAlternatives_0; }
-
-		//"ActorPrepareData"
-		public Keyword getTypeActorPrepareDataKeyword_0_0() { return cTypeActorPrepareDataKeyword_0_0; }
-
-		//"ActorCallSystem"
-		public Keyword getTypeActorCallSystemKeyword_0_1() { return cTypeActorCallSystemKeyword_0_1; }
-
-		//"SystemExecutes"
-		public Keyword getTypeSystemExecutesKeyword_0_2() { return cTypeSystemExecutesKeyword_0_2; }
-
-		//"SystemReturnResult"
-		public Keyword getTypeSystemReturnResultKeyword_0_3() { return cTypeSystemReturnResultKeyword_0_3; }
 	}
 
 	public class FRElements extends AbstractParserRuleElementFinder {
@@ -2811,8 +2761,6 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	private final ExtensionPointElements pExtensionPoint;
 	private final ScenarioElements pScenario;
 	private final StepElements pStep;
-	private final RefActionTypeElements pRefActionType;
-	private final ActionTypeElements pActionType;
 	private final FRElements pFR;
 	private final NFRElements pNFR;
 	private final RefNFRElements pRefNFR;
@@ -2854,8 +2802,6 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		this.pExtensionPoint = new ExtensionPointElements();
 		this.pScenario = new ScenarioElements();
 		this.pStep = new StepElements();
-		this.pRefActionType = new RefActionTypeElements();
-		this.pActionType = new ActionTypeElements();
 		this.pFR = new FRElements();
 		this.pNFR = new NFRElements();
 		this.pRefNFR = new RefNFRElements();
@@ -3178,34 +3124,15 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Step:
-	//	"Step" name=ID "{" "ActionType" type=RefActionType "Description" description=STRING ("Actor" actor=[Actor])?
-	//	("Pre-Conditions" preConditions=STRING)? ("Post-Conditions" postConditions=STRING)? "}";
+	//	"Step" name=ID "{" "ActionType" type=("ActorPrepareData" | "ActorCallSystem" | "SystemExecutes" |
+	//	"SystemReturnResult") "Description" description=STRING ("Actor" actor=[Actor])? ("Pre-Conditions"
+	//	preConditions=STRING)? ("Post-Conditions" postConditions=STRING)? "}";
 	public StepElements getStepAccess() {
 		return pStep;
 	}
 	
 	public ParserRule getStepRule() {
 		return getStepAccess().getRule();
-	}
-
-	//RefActionType:
-	//	refType=ActionType ("," refs+=ActionType)*;
-	public RefActionTypeElements getRefActionTypeAccess() {
-		return pRefActionType;
-	}
-	
-	public ParserRule getRefActionTypeRule() {
-		return getRefActionTypeAccess().getRule();
-	}
-
-	//ActionType:
-	//	type=("ActorPrepareData" | "ActorCallSystem" | "SystemExecutes" | "SystemReturnResult");
-	public ActionTypeElements getActionTypeAccess() {
-		return pActionType;
-	}
-	
-	public ParserRule getActionTypeRule() {
-		return getActionTypeAccess().getRule();
 	}
 
 	//FR:

@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import rslingo.rslil.rSLIL.ActionType;
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.ComposedBy;
@@ -25,7 +24,6 @@ import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILFactory;
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.RefActionType;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
 import rslingo.rslil.rSLIL.RefFR;
@@ -245,20 +243,6 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * @generated
    */
   private EClass stepEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass refActionTypeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass actionTypeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1689,9 +1673,9 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStep_Type()
+  public EAttribute getStep_Type()
   {
-    return (EReference)stepEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)stepEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1732,56 +1716,6 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
   public EAttribute getStep_PostConditions()
   {
     return (EAttribute)stepEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getRefActionType()
-  {
-    return refActionTypeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getRefActionType_RefType()
-  {
-    return (EReference)refActionTypeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getRefActionType_Refs()
-  {
-    return (EReference)refActionTypeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getActionType()
-  {
-    return actionTypeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getActionType_Type()
-  {
-    return (EAttribute)actionTypeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2225,18 +2159,11 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
 
     stepEClass = createEClass(STEP);
     createEAttribute(stepEClass, STEP__NAME);
-    createEReference(stepEClass, STEP__TYPE);
+    createEAttribute(stepEClass, STEP__TYPE);
     createEAttribute(stepEClass, STEP__DESCRIPTION);
     createEReference(stepEClass, STEP__ACTOR);
     createEAttribute(stepEClass, STEP__PRE_CONDITIONS);
     createEAttribute(stepEClass, STEP__POST_CONDITIONS);
-
-    refActionTypeEClass = createEClass(REF_ACTION_TYPE);
-    createEReference(refActionTypeEClass, REF_ACTION_TYPE__REF_TYPE);
-    createEReference(refActionTypeEClass, REF_ACTION_TYPE__REFS);
-
-    actionTypeEClass = createEClass(ACTION_TYPE);
-    createEAttribute(actionTypeEClass, ACTION_TYPE__TYPE);
 
     frEClass = createEClass(FR);
     createEAttribute(frEClass, FR__NAME);
@@ -2459,18 +2386,11 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
 
     initEClass(stepEClass, Step.class, "Step", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStep_Name(), ecorePackage.getEString(), "name", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStep_Type(), this.getRefActionType(), null, "type", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStep_Type(), ecorePackage.getEString(), "type", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStep_Description(), ecorePackage.getEString(), "description", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStep_Actor(), this.getActor(), null, "actor", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStep_PreConditions(), ecorePackage.getEString(), "preConditions", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStep_PostConditions(), ecorePackage.getEString(), "postConditions", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(refActionTypeEClass, RefActionType.class, "RefActionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRefActionType_RefType(), this.getActionType(), null, "refType", null, 0, 1, RefActionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRefActionType_Refs(), this.getActionType(), null, "refs", null, 0, -1, RefActionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(actionTypeEClass, ActionType.class, "ActionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getActionType_Type(), ecorePackage.getEString(), "type", null, 0, 1, ActionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(frEClass, rslingo.rslil.rSLIL.FR.class, "FR", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFR_Name(), ecorePackage.getEString(), "name", null, 0, 1, rslingo.rslil.rSLIL.FR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

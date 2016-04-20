@@ -7,7 +7,6 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import rslingo.rslil.rSLIL.ActionType;
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.ComposedBy;
@@ -24,7 +23,6 @@ import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.RefActionType;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
 import rslingo.rslil.rSLIL.RefFR;
@@ -297,20 +295,6 @@ public class RSLILSwitch<T> extends Switch<T>
       {
         Step step = (Step)theEObject;
         T result = caseStep(step);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case RSLILPackage.REF_ACTION_TYPE:
-      {
-        RefActionType refActionType = (RefActionType)theEObject;
-        T result = caseRefActionType(refActionType);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case RSLILPackage.ACTION_TYPE:
-      {
-        ActionType actionType = (ActionType)theEObject;
-        T result = caseActionType(actionType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -783,38 +767,6 @@ public class RSLILSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStep(Step object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Ref Action Type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Ref Action Type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRefActionType(RefActionType object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Action Type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Action Type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseActionType(ActionType object)
   {
     return null;
   }

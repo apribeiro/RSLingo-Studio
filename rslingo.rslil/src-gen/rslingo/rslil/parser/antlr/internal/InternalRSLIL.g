@@ -3539,20 +3539,56 @@ ruleStep returns [EObject current=null]
     }
 (
 (
-		{ 
-	        newCompositeNode(grammarAccess.getStepAccess().getTypeRefActionTypeParserRuleCall_4_0()); 
-	    }
-		lv_type_4_0=ruleRefActionType		{
+(
+		lv_type_4_1=	'ActorPrepareData' 
+    {
+        newLeafNode(lv_type_4_1, grammarAccess.getStepAccess().getTypeActorPrepareDataKeyword_4_0_0());
+    }
+ 
+	    {
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getStepRule());
+	            $current = createModelElement(grammarAccess.getStepRule());
 	        }
-       		set(
-       			$current, 
-       			"type",
-        		lv_type_4_0, 
-        		"RefActionType");
-	        afterParserOrEnumRuleCall();
+       		setWithLastConsumed($current, "type", lv_type_4_1, null);
 	    }
+
+    |		lv_type_4_2=	'ActorCallSystem' 
+    {
+        newLeafNode(lv_type_4_2, grammarAccess.getStepAccess().getTypeActorCallSystemKeyword_4_0_1());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getStepRule());
+	        }
+       		setWithLastConsumed($current, "type", lv_type_4_2, null);
+	    }
+
+    |		lv_type_4_3=	'SystemExecutes' 
+    {
+        newLeafNode(lv_type_4_3, grammarAccess.getStepAccess().getTypeSystemExecutesKeyword_4_0_2());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getStepRule());
+	        }
+       		setWithLastConsumed($current, "type", lv_type_4_3, null);
+	    }
+
+    |		lv_type_4_4=	'SystemReturnResult' 
+    {
+        newLeafNode(lv_type_4_4, grammarAccess.getStepAccess().getTypeSystemReturnResultKeyword_4_0_3());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getStepRule());
+	        }
+       		setWithLastConsumed($current, "type", lv_type_4_4, null);
+	    }
+
+)
 
 )
 )	otherlv_5='Description' 
@@ -3642,142 +3678,6 @@ ruleStep returns [EObject current=null]
     {
     	newLeafNode(otherlv_13, grammarAccess.getStepAccess().getRightCurlyBracketKeyword_10());
     }
-)
-;
-
-
-
-
-
-// Entry rule entryRuleRefActionType
-entryRuleRefActionType returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getRefActionTypeRule()); }
-	 iv_ruleRefActionType=ruleRefActionType 
-	 { $current=$iv_ruleRefActionType.current; } 
-	 EOF 
-;
-
-// Rule RefActionType
-ruleRefActionType returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-((
-(
-		{ 
-	        newCompositeNode(grammarAccess.getRefActionTypeAccess().getRefTypeActionTypeParserRuleCall_0_0()); 
-	    }
-		lv_refType_0_0=ruleActionType		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getRefActionTypeRule());
-	        }
-       		set(
-       			$current, 
-       			"refType",
-        		lv_refType_0_0, 
-        		"ActionType");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)(	otherlv_1=',' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getRefActionTypeAccess().getCommaKeyword_1_0());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getRefActionTypeAccess().getRefsActionTypeParserRuleCall_1_1_0()); 
-	    }
-		lv_refs_2_0=ruleActionType		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getRefActionTypeRule());
-	        }
-       		add(
-       			$current, 
-       			"refs",
-        		lv_refs_2_0, 
-        		"ActionType");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))*)
-;
-
-
-
-
-
-// Entry rule entryRuleActionType
-entryRuleActionType returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getActionTypeRule()); }
-	 iv_ruleActionType=ruleActionType 
-	 { $current=$iv_ruleActionType.current; } 
-	 EOF 
-;
-
-// Rule ActionType
-ruleActionType returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-(
-(
-(
-		lv_type_0_1=	'ActorPrepareData' 
-    {
-        newLeafNode(lv_type_0_1, grammarAccess.getActionTypeAccess().getTypeActorPrepareDataKeyword_0_0());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getActionTypeRule());
-	        }
-       		setWithLastConsumed($current, "type", lv_type_0_1, null);
-	    }
-
-    |		lv_type_0_2=	'ActorCallSystem' 
-    {
-        newLeafNode(lv_type_0_2, grammarAccess.getActionTypeAccess().getTypeActorCallSystemKeyword_0_1());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getActionTypeRule());
-	        }
-       		setWithLastConsumed($current, "type", lv_type_0_2, null);
-	    }
-
-    |		lv_type_0_3=	'SystemExecutes' 
-    {
-        newLeafNode(lv_type_0_3, grammarAccess.getActionTypeAccess().getTypeSystemExecutesKeyword_0_2());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getActionTypeRule());
-	        }
-       		setWithLastConsumed($current, "type", lv_type_0_3, null);
-	    }
-
-    |		lv_type_0_4=	'SystemReturnResult' 
-    {
-        newLeafNode(lv_type_0_4, grammarAccess.getActionTypeAccess().getTypeSystemReturnResultKeyword_0_3());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getActionTypeRule());
-	        }
-       		setWithLastConsumed($current, "type", lv_type_0_4, null);
-	    }
-
-)
-
-)
 )
 ;
 

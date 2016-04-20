@@ -275,24 +275,6 @@ public interface RSLILFactory extends EFactory
   Step createStep();
 
   /**
-   * Returns a new object of class '<em>Ref Action Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Ref Action Type</em>'.
-   * @generated
-   */
-  RefActionType createRefActionType();
-
-  /**
-   * Returns a new object of class '<em>Action Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Action Type</em>'.
-   * @generated
-   */
-  ActionType createActionType();
-
-  /**
    * Returns a new object of class '<em>FR</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -16,7 +16,6 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEOb
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import rslingo.rslil.rSLIL.ActionType;
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.ComposedBy;
@@ -33,7 +32,6 @@ import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.RefActionType;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
 import rslingo.rslil.rSLIL.RefFR;
@@ -60,9 +58,6 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	@Override
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == RSLILPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case RSLILPackage.ACTION_TYPE:
-				sequence_ActionType(context, (ActionType) semanticObject); 
-				return; 
 			case RSLILPackage.ACTOR:
 				sequence_Actor(context, (Actor) semanticObject); 
 				return; 
@@ -107,9 +102,6 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case RSLILPackage.PROJECT:
 				sequence_Project(context, (Project) semanticObject); 
-				return; 
-			case RSLILPackage.REF_ACTION_TYPE:
-				sequence_RefActionType(context, (RefActionType) semanticObject); 
 				return; 
 			case RSLILPackage.REF_ACTOR:
 				sequence_RefActor(context, (RefActor) semanticObject); 
@@ -162,15 +154,6 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
-	
-	/**
-	 * Constraint:
-	 *     (type='ActorPrepareData' | type='ActorCallSystem' | type='SystemExecutes' | type='SystemReturnResult')
-	 */
-	protected void sequence_ActionType(EObject context, ActionType semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
 	
 	/**
 	 * Constraint:
@@ -414,15 +397,6 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (refType=ActionType refs+=ActionType*)
-	 */
-	protected void sequence_RefActionType(EObject context, RefActionType semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (refActor=[Actor|ID] refs+=Actor*)
 	 */
 	protected void sequence_RefActor(EObject context, RefActor semanticObject) {
@@ -531,7 +505,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         type=RefActionType 
+	 *         (type='ActorPrepareData' | type='ActorCallSystem' | type='SystemExecutes' | type='SystemReturnResult') 
 	 *         description=STRING 
 	 *         actor=[Actor|ID]? 
 	 *         preConditions=STRING? 
