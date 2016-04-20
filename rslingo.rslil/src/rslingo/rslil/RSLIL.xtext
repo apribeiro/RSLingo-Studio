@@ -6,7 +6,7 @@ Model:
 	// Business Level
 	project=Project
 	systems+=System*
-	glossaries+=Glossary*
+	glossaryTerms+=GlossaryTerm*
 	stakeholders+=Stakeholder*
 	goals+=Goal*
 	// System Level
@@ -18,48 +18,49 @@ Model:
 
 Project:
 	'Project' name=ID '{'
-		'Name' nameAlias=STRING
+		('Name' nameAlias=STRING)?
 		'Description' description=STRING
-		('DecomposedBy' refSystem=RefSystem)?
+		('HasSystems' refSystem=RefSystem)?
 	'}';
 
 System:
 	'System' name=ID '{'
-		'Name' nameAlias=STRING
+		('Name' nameAlias=STRING)?
 		'Description' description=STRING
 		('PartOf' partOf=[System])?
 	'}';
 
 RefSystem:
 	refSystem=[System](',' refs+=[System])*;
-	
-Glossary:
-	'Glossary' name=ID '{'
-		'Name' nameAlias=STRING
-		'Type' type=RefGlossaryType
-		'Acronym' acronym=STRING
+
+GlossaryTerm:
+	'GlossaryTerm' name=ID '{'
+		('Name' nameAlias=STRING)?
+		'Type' type=RefTermType
+		('Acronym' acronym=STRING)?
 		'Description' description=STRING
 		('POS' pos=('Adjective'|'Adverb'|'Noun'|'Verb'))?
 		('Synset' synset=STRING)?
 		termRelation+=TermRelation*
 	'}';
 
-RefGlossaryType:
-	refType=GlossaryType(',' refs+=GlossaryType)*;
+RefTermType:
+	refType=TermType(',' refs+=TermType)*;
 
-GlossaryType:
+TermType:
 	type=('Stakeholder'|'Entity'|'Architectural'|'Actor');
 
 TermRelation:
-	'TermRelation' type=('Antonym'|'Hypernym'|'Synonym') term=Term;
+	type=('Antonym'|'Hypernym'|'Synonym') term=Term;
 
 Term:
 	refTerm=STRING(',' refs+=STRING)*;
 
 Stakeholder:
 	'Stakeholder' name=ID '{'
-		'Name' nameAlias=STRING
+		('Name' nameAlias=STRING)?
 		'Type' type=('Group.Organization'|'Group.BusinessUnit'|'Group.Team'|'Individual.Person'|'Individual.ExternalSystem')
+		// FIXME Extend this list
 		'Category' category=('Business.User.Direct'|'Business.User.Indirect'|'System.Engine')
 		('Description' description=STRING)?
 		('PartOf' partOf=[Stakeholder])?
@@ -67,9 +68,11 @@ Stakeholder:
 
 Goal:
 	'Goal' name=ID '{'
+		('Name' nameAlias=STRING)?
 		'Description' description=STRING
-		'Stakeholder' stakeholder=[Stakeholder]
+		('Stakeholder' stakeholder=[Stakeholder])?
 		'Priority' priority=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
+		// TODO Lists
 		dependsOn+=DependsOnGoal*
 		composedBy+=ComposedBy*
 	'}';
@@ -78,23 +81,23 @@ DependsOnGoal:
 	type=('Requires'|'Supports'|'Obstructs'|'Conflicts'|'Identical') refGoal=[Goal];
 
 ComposedBy:
-	'ComposedBy' type=('And'|'Or') refGoal=[Goal];
+	'ComposedBy' type=('Logic-And'|'Logic-Or') refGoal=[Goal];
 
 Entity:
 	'Entity' name=ID '{'
-		'Name' nameAlias=STRING
+		('Name' nameAlias=STRING)?
 		'Description' description=STRING
 		attributes+=Attribute+
+		// FIXME Define how to properly represent this relation
+		(reference=Reference)?
 	'}';
 
 Attribute:
-	'Attribute' '{'
-		'Name' name=STRING
+	'Attribute' name=ID '{'
+		('Name' nameAlias=STRING)?
 		'Description' descrition=STRING
-		'Type' type=('Boolean'|'Integer'|'Decimal'|'Currency'|'Date'|'Time'|'Datetime'|'Enumeration'|'Text'|'Regex'|'Ref'|'Image')
+		'Type' type=('Boolean'|'Integer'|'Decimal'|'Currency'|'Date'|'Time'|'Datetime'|'Enumeration'|'Text'|'Regex'|'URL'|'Image')
 		field=Field
-		// FIXME Define how to properly represent this relation
-		(reference=Reference)?
 	'}';
 
 Field:
@@ -102,19 +105,20 @@ Field:
 		'Size' size=Size
 		'Multiplicity' multiplicity=('0'|'1'|'0..1'|'*'|STRING)
 		('DefaultValue' defaultValue=STRING)?
+		// TODO Constraints
 	'}';
 
 Size: INT | INT '.' INT;
 
 Reference:
-	'Reference' refTo=RefAttribute 'Multiplicity' multiplicity=('0'|'1'|'0..1'|'*'|STRING);
+	'Reference' entity=[Entity] '(' refTo=RefAttribute ')' 'Multiplicity' multiplicity=('0'|'1'|'0..1'|'*'|STRING);
 
 RefAttribute:
 	refAttr=[Attribute](',' refs+=[Attribute])*;
 
 Actor:
 	'Actor' name=ID '{'
-		'Name' nameAlias=STRING
+		('Name' nameAlias=STRING)?
 		'Type' type=('User'|'ExternalSystem'|'Timer')
 		'Description' description=STRING
 		('Stakeholder' stakeholder=[Stakeholder])?
@@ -127,10 +131,11 @@ DependsOnActor:
 
 UseCase:
 	'UseCase' name=ID '{'
-		'Name' nameAlias=STRING
+		('Name' nameAlias=STRING)?
 		'Type' type=('EntityManage'|'EntityBrowse'|'EntitySearch'|'EntityCreate'|'EntityDelete'|'EntitySync'|'Report')
 		'Description' description=STRING
 		'Priority' priotity=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
+		extensionnPoints+=ExtensionPoint*
 		('Goals' goals+=RefGoal*)?
 		('FunctionalRequirements' frs+=RefFR*)?
 		'ActorInitiates' actorInitiates=[Actor]
@@ -139,8 +144,7 @@ UseCase:
 		('Post-Conditions' postConditions=STRING)?
 		('Include' includes+=RefUC*)?
 		// FIXME Review this concept!
-		('Extend' extends+=[UseCase] 'using' extPoint=[ExtensionPoint])?
-		extensionnPoints+=ExtensionPoint*
+		('Extend' extends+=[UseCase] 'on' extPoint=[ExtensionPoint])?
 		scenarios+=Scenario*
 	'}';
 
@@ -161,44 +165,49 @@ ExtensionPoint:
 
 Scenario:
 	'Scenario' name=ID '{'
+		('Name' nameAlias=STRING)?
 		('Description' description=STRING)?
 		'Type' type=('Main'|'Alternative'|'Exception')
-		'Mode' mode=('Sequential'|'Parallel')
+		'ExecutionMode' mode=('Sequential'|'Parallel')
 		steps+=Step*
 	'}';
 
 Step:
-	'Step' '{'
-		'ActionType' type=('ActorPrepareData'|'ActorCallSystem'|'SystemExecutes'|'SystemReturnResult')
+	'Step' name=ID '{'
+		('Name' nameAlias=STRING)?
+		'Type' type=('ActorPrepareData'|'ActorCallSystem'|'SystemExecutes'|'SystemReturnResult'|'Other')
 		'Description' description=STRING
 		('Actor' actor=[Actor])?
 		('Pre-Conditions' preConditions=STRING)?
 		('Post-Conditions' postConditions=STRING)?
+		('NextStep' next=[Step])?
 	'}';
 
 FR:
 	'FunctionalRequirement' name=ID '{'
-		'Name' nameAlias=STRING
+		('Name' nameAlias=STRING)?
 		'Description' description=STRING
-		'Modality' modality=('Obligation'|'Permission'|'Prohibition')
-		'ActionType' actionType=('EntityManage'|'EntityBrowse'|'EntitySearch'|'EntityCreate'|'EntityDelete'|'EntitySync'|'Report')
-		'Stakeholder' stakeholder=[Stakeholder]
+		'Type' type=('Functional'|'Behavioral'|'Data')
+		'Modality' modality=('Mandatory'|'Desirable'|'Optional')
+		('Stakeholder' stakeholder=[Stakeholder])?
 		'Priority' priority=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
 		// FIXME Depends 1 or *?
+		// Requires, Refines, Conflicts 
 		('Depends' depends+=RefFR)?
 		('PartOf' partOf=[FR])?
 	'}';
 
 NFR:
 	'Non-FunctionalRequirement' name=ID '{'
-		'Name' nameAlias=STRING
+		('Name' nameAlias=STRING)?
 		'Description' description=STRING
 		'Type' type=('Security'|'Performance'|'Usability'|'Appearance'|'Operational'|'Maintenance'|'Cultural'|'Legal')
-		'Sub-Type' subType=('Security.Privacy'|'Security.Integrity'|'Usability.EaseOfUse'|'Usability.EaseOfLean'|'Usability.Accessibility')
-		'Metric' metric=('Hours'|'Mins'|'Secs'|'mSecs'|'Tasks')
-		'Value' value=STRING
-		'Stakeholder' stakeholder=[Stakeholder]
+		('Sub-Type' subType=('Security.Privacy'|'Security.Integrity'|'Usability.EaseOfUse'|'Usability.EaseOfLean'|'Usability.Accessibility'))?
+		'Metric' metric=('Hours'|'Mins'|'Secs'|'mSecs'|'Tasks'|'Other')
+		'Value' value=INT
+		('Stakeholder' stakeholder=[Stakeholder])?
 		'Priority' priority=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
+		// Requires, Refines, Conflicts 
 		('Depends' depends+=RefNFR)?
 		('PartOf' partOf=[NFR])?
 	'}';
