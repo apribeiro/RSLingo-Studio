@@ -51,9 +51,9 @@ TermType:
 	type=('Stakeholder'|'Entity'|'Architectural'|'Actor');
 
 TermRelation:
-	type=('Antonym'|'Hypernym'|'Synonym') term=Term;
+	type=('Antonym'|'Hypernym'|'Synonym') refTerm=RefTerm;
 
-Term:
+RefTerm:
 	refTerm=STRING(',' refs+=STRING)*;
 
 Stakeholder:
@@ -127,12 +127,8 @@ Actor:
 		'Type' type=('User'|'ExternalSystem'|'Timer')
 		'Description' description=STRING
 		('Stakeholder' stakeholder=[Stakeholder])?
-		// FIXME PartOf and SpecializedFrom?
-		(dependsOn=DependsOnActor)?
+		('SpecializedFrom' actor=[Actor])?
 	'}';
-
-DependsOnActor:
-	type=('PartOf'|'SpecializedFrom') actor=[Actor];
 
 UseCase:
 	'UseCase' name=ID '{'
@@ -192,12 +188,13 @@ FR:
 		'Type' type=('Functional'|'Behavioral'|'Data')
 		'Modality' modality=('Mandatory'|'Desirable'|'Optional')
 		('Stakeholder' stakeholder=[Stakeholder])?
-		'Priority' priority=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
-		// FIXME Depends 1 or *?
-		// Requires, Refines, Conflicts 
-		('Depends' depends+=RefFR)?
+		'Priority' priority=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh') 
+		depends+=DependsOnFR*
 		('PartOf' partOf=[FR])?
 	'}';
+
+DependsOnFR:
+	type=('Requires'|'Refines'|'Conflicts') refFr=RefFR;
 
 NFR:
 	'Non-FunctionalRequirement' name=ID '{'
@@ -209,10 +206,12 @@ NFR:
 		'Value' value=INT
 		('Stakeholder' stakeholder=[Stakeholder])?
 		'Priority' priority=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
-		// Requires, Refines, Conflicts 
-		('Depends' depends+=RefNFR)?
+		depends+=DependsOnNFR*
 		('PartOf' partOf=[NFR])?
 	'}';
+
+DependsOnNFR:
+	type=('Requires'|'Refines'|'Conflicts') refFr=RefNFR;
 
 RefNFR:
 	refNFR=[NFR](',' refs+=[NFR])*;
