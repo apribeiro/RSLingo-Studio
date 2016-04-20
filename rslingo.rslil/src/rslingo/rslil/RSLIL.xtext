@@ -60,8 +60,12 @@ Stakeholder:
 	'Stakeholder' name=ID '{'
 		('Name' nameAlias=STRING)?
 		'Type' type=('Group.Organization'|'Group.BusinessUnit'|'Group.Team'|'Individual.Person'|'Individual.ExternalSystem')
-		// FIXME Extend this list
-		'Category' category=('Business.User.Direct'|'Business.User.Indirect'|'System.Engine')
+		'Category' category=('Business'|'Business.Customer'|'Business.Customer.Sponsor'
+			|'Business.Customer.Champion'|'Business.User.Direct'|'Business.User.Indirect'
+			|'Business.Advisor.DomainExpert'|'Business.Advisor.Trainer'|'Business.Advisor.RegulatorAgent'
+			|'Business.System'|'Technical'|'Technical.BusinessAnalyst'|'Technical.Requirements.Engineer'
+			|'Technical.Software.Architect'|'Technical.Software.Designer'|'Technical.Software.Tester'
+		)
 		('Description' description=STRING)?
 		('PartOf' partOf=[Stakeholder])?
 	'}';
@@ -72,23 +76,24 @@ Goal:
 		'Description' description=STRING
 		('Stakeholder' stakeholder=[Stakeholder])?
 		'Priority' priority=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
-		// TODO Lists
 		dependsOn+=DependsOnGoal*
 		composedBy+=ComposedBy*
 	'}';
 
 DependsOnGoal:
-	type=('Requires'|'Supports'|'Obstructs'|'Conflicts'|'Identical') refGoal=[Goal];
+	type=('Requires'|'Supports'|'Obstructs'|'Conflicts'|'Identical') refGoal=RefGoal;
 
 ComposedBy:
-	'ComposedBy' type=('Logic-And'|'Logic-Or') refGoal=[Goal];
+	'ComposedBy' type=('Logic-And'|'Logic-Or') refGoal=RefGoal;
+
+RefGoal:
+	refGoal=[Goal](',' refs+=[Goal])*;
 
 Entity:
 	'Entity' name=ID '{'
 		('Name' nameAlias=STRING)?
 		'Description' description=STRING
 		attributes+=Attribute+
-		// FIXME Define how to properly represent this relation
 		(reference=Reference)?
 	'}';
 
@@ -147,9 +152,6 @@ UseCase:
 		('Extend' extends+=[UseCase] 'on' extPoint=[ExtensionPoint])?
 		scenarios+=Scenario*
 	'}';
-
-RefGoal:
-	refGoal=[Goal](',' refs+=[Goal])*;
 
 RefFR:
 	refFR=[FR](',' refs+=[FR])*;
