@@ -93,6 +93,7 @@ Entity:
 	'Entity' name=ID '{'
 		('Name' nameAlias=STRING)?
 		'Description' description=STRING
+		('Type' type=('Main'|'Secondary'))?
 		attributes+=Attribute+
 		(reference=Reference)?
 	'}';
@@ -108,15 +109,17 @@ Attribute:
 Field:
 	'Field' '{'
 		'Size' size=Size
-		'Multiplicity' multiplicity=('0'|'1'|'0..1'|'*'|STRING)
+		'Multiplicity' multiplicity=Multiplicity
 		('DefaultValue' defaultValue=STRING)?
 		// TODO Constraints
 	'}';
 
 Size: INT | INT '.' INT;
 
+Multiplicity: '0' | '1' | '0..1' | '*' | STRING;
+
 Reference:
-	'Reference' entity=[Entity] '(' refTo=RefAttribute ')' 'Multiplicity' multiplicity=('0'|'1'|'0..1'|'*'|STRING);
+	'Reference' entity=[Entity] '(' refTo=RefAttribute ')' 'Multiplicity' multiplicity=Multiplicity;
 
 RefAttribute:
 	refAttr=[Attribute](',' refs+=[Attribute])*;
