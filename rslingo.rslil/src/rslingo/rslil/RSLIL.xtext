@@ -99,10 +99,12 @@ Attribute:
 
 Field:
 	'Field' '{'
-		'Size' size=INT
+		'Size' size=Size
 		'Multiplicity' multiplicity=('0'|'1'|'0..1'|'*'|STRING)
 		('DefaultValue' defaultValue=STRING)?
 	'}';
+
+Size: INT | INT '.' INT;
 
 Reference:
 	'Reference' refTo=RefAttribute 'Multiplicity' multiplicity=('0'|'1'|'0..1'|'*'|STRING);
@@ -166,7 +168,7 @@ Scenario:
 	'}';
 
 Step:
-	'Step' name=ID '{'
+	'Step' '{'
 		'ActionType' type=('ActorPrepareData'|'ActorCallSystem'|'SystemExecutes'|'SystemReturnResult')
 		'Description' description=STRING
 		('Actor' actor=[Actor])?
