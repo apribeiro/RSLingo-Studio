@@ -176,6 +176,15 @@ public interface RSLILFactory extends EFactory
   Field createField();
 
   /**
+   * Returns a new object of class '<em>Multiplicity</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Multiplicity</em>'.
+   * @generated
+   */
+  Multiplicity createMultiplicity();
+
+  /**
    * Returns a new object of class '<em>Reference</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

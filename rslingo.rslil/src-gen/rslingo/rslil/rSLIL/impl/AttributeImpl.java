@@ -25,7 +25,7 @@ import rslingo.rslil.rSLIL.RSLILPackage;
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.impl.AttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.AttributeImpl#getNameAlias <em>Name Alias</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.AttributeImpl#getDescrition <em>Descrition</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.AttributeImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.AttributeImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.AttributeImpl#getField <em>Field</em>}</li>
  * </ul>
@@ -75,24 +75,24 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   protected String nameAlias = NAME_ALIAS_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getDescrition() <em>Descrition</em>}' attribute.
+   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDescrition()
+   * @see #getDescription()
    * @generated
    * @ordered
    */
-  protected static final String DESCRITION_EDEFAULT = null;
+  protected static final String DESCRIPTION_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getDescrition() <em>Descrition</em>}' attribute.
+   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDescrition()
+   * @see #getDescription()
    * @generated
    * @ordered
    */
-  protected String descrition = DESCRITION_EDEFAULT;
+  protected String description = DESCRIPTION_EDEFAULT;
 
   /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -196,9 +196,9 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDescrition()
+  public String getDescription()
   {
-    return descrition;
+    return description;
   }
 
   /**
@@ -206,12 +206,12 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDescrition(String newDescrition)
+  public void setDescription(String newDescription)
   {
-    String oldDescrition = descrition;
-    descrition = newDescrition;
+    String oldDescription = description;
+    description = newDescription;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.ATTRIBUTE__DESCRITION, oldDescrition, descrition));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.ATTRIBUTE__DESCRIPTION, oldDescription, description));
   }
 
   /**
@@ -315,8 +315,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
         return getName();
       case RSLILPackage.ATTRIBUTE__NAME_ALIAS:
         return getNameAlias();
-      case RSLILPackage.ATTRIBUTE__DESCRITION:
-        return getDescrition();
+      case RSLILPackage.ATTRIBUTE__DESCRIPTION:
+        return getDescription();
       case RSLILPackage.ATTRIBUTE__TYPE:
         return getType();
       case RSLILPackage.ATTRIBUTE__FIELD:
@@ -341,8 +341,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
       case RSLILPackage.ATTRIBUTE__NAME_ALIAS:
         setNameAlias((String)newValue);
         return;
-      case RSLILPackage.ATTRIBUTE__DESCRITION:
-        setDescrition((String)newValue);
+      case RSLILPackage.ATTRIBUTE__DESCRIPTION:
+        setDescription((String)newValue);
         return;
       case RSLILPackage.ATTRIBUTE__TYPE:
         setType((String)newValue);
@@ -370,8 +370,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
       case RSLILPackage.ATTRIBUTE__NAME_ALIAS:
         setNameAlias(NAME_ALIAS_EDEFAULT);
         return;
-      case RSLILPackage.ATTRIBUTE__DESCRITION:
-        setDescrition(DESCRITION_EDEFAULT);
+      case RSLILPackage.ATTRIBUTE__DESCRIPTION:
+        setDescription(DESCRIPTION_EDEFAULT);
         return;
       case RSLILPackage.ATTRIBUTE__TYPE:
         setType(TYPE_EDEFAULT);
@@ -397,8 +397,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RSLILPackage.ATTRIBUTE__NAME_ALIAS:
         return NAME_ALIAS_EDEFAULT == null ? nameAlias != null : !NAME_ALIAS_EDEFAULT.equals(nameAlias);
-      case RSLILPackage.ATTRIBUTE__DESCRITION:
-        return DESCRITION_EDEFAULT == null ? descrition != null : !DESCRITION_EDEFAULT.equals(descrition);
+      case RSLILPackage.ATTRIBUTE__DESCRIPTION:
+        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case RSLILPackage.ATTRIBUTE__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case RSLILPackage.ATTRIBUTE__FIELD:
@@ -422,8 +422,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
     result.append(name);
     result.append(", nameAlias: ");
     result.append(nameAlias);
-    result.append(", descrition: ");
-    result.append(descrition);
+    result.append(", description: ");
+    result.append(description);
     result.append(", type: ");
     result.append(type);
     result.append(')');

@@ -910,13 +910,13 @@ public interface RSLILPackage extends EPackage
   int ATTRIBUTE__NAME_ALIAS = 1;
 
   /**
-   * The feature id for the '<em><b>Descrition</b></em>' attribute.
+   * The feature id for the '<em><b>Description</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__DESCRITION = 2;
+  int ATTRIBUTE__DESCRIPTION = 2;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -965,7 +965,7 @@ public interface RSLILPackage extends EPackage
   int FIELD__SIZE = 0;
 
   /**
-   * The feature id for the '<em><b>Multiplicity</b></em>' attribute.
+   * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -992,6 +992,34 @@ public interface RSLILPackage extends EPackage
   int FIELD_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.MultiplicityImpl <em>Multiplicity</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see rslingo.rslil.rSLIL.impl.MultiplicityImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getMultiplicity()
+   * @generated
+   */
+  int MULTIPLICITY = 17;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICITY__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>Multiplicity</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICITY_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.ReferenceImpl <em>Reference</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -999,7 +1027,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getReference()
    * @generated
    */
-  int REFERENCE = 17;
+  int REFERENCE = 18;
 
   /**
    * The feature id for the '<em><b>Entity</b></em>' reference.
@@ -1020,7 +1048,7 @@ public interface RSLILPackage extends EPackage
   int REFERENCE__REF_TO = 1;
 
   /**
-   * The feature id for the '<em><b>Multiplicity</b></em>' attribute.
+   * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1045,7 +1073,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefAttribute()
    * @generated
    */
-  int REF_ATTRIBUTE = 18;
+  int REF_ATTRIBUTE = 19;
 
   /**
    * The feature id for the '<em><b>Ref Attr</b></em>' reference.
@@ -1082,7 +1110,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getActor()
    * @generated
    */
-  int ACTOR = 19;
+  int ACTOR = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1155,7 +1183,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getUseCase()
    * @generated
    */
-  int USE_CASE = 20;
+  int USE_CASE = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1318,7 +1346,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefFR()
    * @generated
    */
-  int REF_FR = 21;
+  int REF_FR = 22;
 
   /**
    * The feature id for the '<em><b>Ref FR</b></em>' reference.
@@ -1355,7 +1383,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefActor()
    * @generated
    */
-  int REF_ACTOR = 22;
+  int REF_ACTOR = 23;
 
   /**
    * The feature id for the '<em><b>Ref Actor</b></em>' reference.
@@ -1392,7 +1420,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefUC()
    * @generated
    */
-  int REF_UC = 23;
+  int REF_UC = 24;
 
   /**
    * The feature id for the '<em><b>Ref UC</b></em>' reference.
@@ -1429,7 +1457,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getExtensionPoint()
    * @generated
    */
-  int EXTENSION_POINT = 24;
+  int EXTENSION_POINT = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1466,7 +1494,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getScenario()
    * @generated
    */
-  int SCENARIO = 25;
+  int SCENARIO = 26;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1539,7 +1567,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getStep()
    * @generated
    */
-  int STEP = 26;
+  int STEP = 27;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1630,7 +1658,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getFR()
    * @generated
    */
-  int FR = 27;
+  int FR = 28;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1730,7 +1758,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getDependsOnFR()
    * @generated
    */
-  int DEPENDS_ON_FR = 28;
+  int DEPENDS_ON_FR = 29;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1767,7 +1795,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getNFR()
    * @generated
    */
-  int NFR = 29;
+  int NFR = 30;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1885,7 +1913,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getDependsOnNFR()
    * @generated
    */
-  int DEPENDS_ON_NFR = 30;
+  int DEPENDS_ON_NFR = 31;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1922,7 +1950,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefNFR()
    * @generated
    */
-  int REF_NFR = 31;
+  int REF_NFR = 32;
 
   /**
    * The feature id for the '<em><b>Ref NFR</b></em>' reference.
@@ -2795,15 +2823,15 @@ public interface RSLILPackage extends EPackage
   EAttribute getAttribute_NameAlias();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Attribute#getDescrition <em>Descrition</em>}'.
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Attribute#getDescription <em>Description</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Descrition</em>'.
-   * @see rslingo.rslil.rSLIL.Attribute#getDescrition()
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see rslingo.rslil.rSLIL.Attribute#getDescription()
    * @see #getAttribute()
    * @generated
    */
-  EAttribute getAttribute_Descrition();
+  EAttribute getAttribute_Description();
 
   /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Attribute#getType <em>Type</em>}'.
@@ -2849,15 +2877,15 @@ public interface RSLILPackage extends EPackage
   EAttribute getField_Size();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Field#getMultiplicity <em>Multiplicity</em>}'.
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Field#getMultiplicity <em>Multiplicity</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Multiplicity</em>'.
+   * @return the meta object for the containment reference '<em>Multiplicity</em>'.
    * @see rslingo.rslil.rSLIL.Field#getMultiplicity()
    * @see #getField()
    * @generated
    */
-  EAttribute getField_Multiplicity();
+  EReference getField_Multiplicity();
 
   /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Field#getDefaultValue <em>Default Value</em>}'.
@@ -2869,6 +2897,27 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EAttribute getField_DefaultValue();
+
+  /**
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.Multiplicity <em>Multiplicity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Multiplicity</em>'.
+   * @see rslingo.rslil.rSLIL.Multiplicity
+   * @generated
+   */
+  EClass getMultiplicity();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Multiplicity#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see rslingo.rslil.rSLIL.Multiplicity#getValue()
+   * @see #getMultiplicity()
+   * @generated
+   */
+  EAttribute getMultiplicity_Value();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.Reference <em>Reference</em>}'.
@@ -2903,15 +2952,15 @@ public interface RSLILPackage extends EPackage
   EReference getReference_RefTo();
 
   /**
-   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Reference#getMultiplicity <em>Multiplicity</em>}'.
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Reference#getMultiplicity <em>Multiplicity</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Multiplicity</em>'.
+   * @return the meta object for the containment reference '<em>Multiplicity</em>'.
    * @see rslingo.rslil.rSLIL.Reference#getMultiplicity()
    * @see #getReference()
    * @generated
    */
-  EAttribute getReference_Multiplicity();
+  EReference getReference_Multiplicity();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.RefAttribute <em>Ref Attribute</em>}'.
@@ -4525,12 +4574,12 @@ public interface RSLILPackage extends EPackage
     EAttribute ATTRIBUTE__NAME_ALIAS = eINSTANCE.getAttribute_NameAlias();
 
     /**
-     * The meta object literal for the '<em><b>Descrition</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ATTRIBUTE__DESCRITION = eINSTANCE.getAttribute_Descrition();
+    EAttribute ATTRIBUTE__DESCRIPTION = eINSTANCE.getAttribute_Description();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -4567,12 +4616,12 @@ public interface RSLILPackage extends EPackage
     EAttribute FIELD__SIZE = eINSTANCE.getField_Size();
 
     /**
-     * The meta object literal for the '<em><b>Multiplicity</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Multiplicity</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FIELD__MULTIPLICITY = eINSTANCE.getField_Multiplicity();
+    EReference FIELD__MULTIPLICITY = eINSTANCE.getField_Multiplicity();
 
     /**
      * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
@@ -4581,6 +4630,24 @@ public interface RSLILPackage extends EPackage
      * @generated
      */
     EAttribute FIELD__DEFAULT_VALUE = eINSTANCE.getField_DefaultValue();
+
+    /**
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.MultiplicityImpl <em>Multiplicity</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see rslingo.rslil.rSLIL.impl.MultiplicityImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getMultiplicity()
+     * @generated
+     */
+    EClass MULTIPLICITY = eINSTANCE.getMultiplicity();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MULTIPLICITY__VALUE = eINSTANCE.getMultiplicity_Value();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.ReferenceImpl <em>Reference</em>}' class.
@@ -4609,12 +4676,12 @@ public interface RSLILPackage extends EPackage
     EReference REFERENCE__REF_TO = eINSTANCE.getReference_RefTo();
 
     /**
-     * The meta object literal for the '<em><b>Multiplicity</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Multiplicity</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute REFERENCE__MULTIPLICITY = eINSTANCE.getReference_Multiplicity();
+    EReference REFERENCE__MULTIPLICITY = eINSTANCE.getReference_Multiplicity();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.RefAttributeImpl <em>Ref Attribute</em>}' class.

@@ -1199,8 +1199,8 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAliasAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cNameAliasSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cNameAliasAssignment_3_1.eContents().get(0);
 		private final Keyword cDescriptionKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cDescritionAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cDescritionSTRINGTerminalRuleCall_5_0 = (RuleCall)cDescritionAssignment_5.eContents().get(0);
+		private final Assignment cDescriptionAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_5_0 = (RuleCall)cDescriptionAssignment_5.eContents().get(0);
 		private final Keyword cTypeKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Assignment cTypeAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final Alternatives cTypeAlternatives_7_0 = (Alternatives)cTypeAssignment_7.eContents().get(0);
@@ -1221,12 +1221,12 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Attribute:
-		//	"Attribute" name=ID "{" ("Name" nameAlias=STRING)? "Description" descrition=STRING "Type" type=("Boolean" | "Integer"
-		//	| "Decimal" | "Currency" | "Date" | "Time" | "Datetime" | "Enumeration" | "Text" | "Regex" | "URL" | "Image")
-		//	field=Field "}";
+		//	"Attribute" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING "Type" type=("Boolean" |
+		//	"Integer" | "Decimal" | "Currency" | "Date" | "Time" | "Datetime" | "Enumeration" | "Text" | "Regex" | "URL" |
+		//	"Image") field=Field "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Attribute" name=ID "{" ("Name" nameAlias=STRING)? "Description" descrition=STRING "Type" type=("Boolean" | "Integer" |
+		//"Attribute" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING "Type" type=("Boolean" | "Integer" |
 		//"Decimal" | "Currency" | "Date" | "Time" | "Datetime" | "Enumeration" | "Text" | "Regex" | "URL" | "Image")
 		//field=Field "}"
 		public Group getGroup() { return cGroup; }
@@ -1258,11 +1258,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Description"
 		public Keyword getDescriptionKeyword_4() { return cDescriptionKeyword_4; }
 
-		//descrition=STRING
-		public Assignment getDescritionAssignment_5() { return cDescritionAssignment_5; }
+		//description=STRING
+		public Assignment getDescriptionAssignment_5() { return cDescriptionAssignment_5; }
 
 		//STRING
-		public RuleCall getDescritionSTRINGTerminalRuleCall_5_0() { return cDescritionSTRINGTerminalRuleCall_5_0; }
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_5_0() { return cDescriptionSTRINGTerminalRuleCall_5_0; }
 
 		//"Type"
 		public Keyword getTypeKeyword_6() { return cTypeKeyword_6; }
@@ -1328,7 +1328,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cSizeKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cSizeAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cSizeSizeParserRuleCall_3_0 = (RuleCall)cSizeAssignment_3.eContents().get(0);
+		private final RuleCall cSizeINTTerminalRuleCall_3_0 = (RuleCall)cSizeAssignment_3.eContents().get(0);
 		private final Keyword cMultiplicityKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cMultiplicityAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cMultiplicityMultiplicityParserRuleCall_5_0 = (RuleCall)cMultiplicityAssignment_5.eContents().get(0);
@@ -1339,11 +1339,19 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Field:
-		//	"Field" "{" "Size" size=Size "Multiplicity" multiplicity=Multiplicity ("DefaultValue" defaultValue=STRING)? // TODO Constraints
+		//	"Field" "{" "Size" size=INT "Multiplicity" multiplicity=Multiplicity ("DefaultValue" defaultValue=STRING)? // TODO Constraints
+		//	// NOT NULL
+		//	// UNIQUE
+		//	// PK
+		//	// CHECK
 		//	"}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Field" "{" "Size" size=Size "Multiplicity" multiplicity=Multiplicity ("DefaultValue" defaultValue=STRING)? // TODO Constraints
+		//"Field" "{" "Size" size=INT "Multiplicity" multiplicity=Multiplicity ("DefaultValue" defaultValue=STRING)? // TODO Constraints
+		//// NOT NULL
+		//// UNIQUE
+		//// PK
+		//// CHECK
 		//"}"
 		public Group getGroup() { return cGroup; }
 
@@ -1356,11 +1364,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Size"
 		public Keyword getSizeKeyword_2() { return cSizeKeyword_2; }
 
-		//size=Size
+		//size=INT
 		public Assignment getSizeAssignment_3() { return cSizeAssignment_3; }
 
-		//Size
-		public RuleCall getSizeSizeParserRuleCall_3_0() { return cSizeSizeParserRuleCall_3_0; }
+		//INT
+		public RuleCall getSizeINTTerminalRuleCall_3_0() { return cSizeINTTerminalRuleCall_3_0; }
 
 		//"Multiplicity"
 		public Keyword getMultiplicityKeyword_4() { return cMultiplicityKeyword_4; }
@@ -1384,72 +1392,48 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getDefaultValueSTRINGTerminalRuleCall_6_1_0() { return cDefaultValueSTRINGTerminalRuleCall_6_1_0; }
 
 		//// TODO Constraints
+		//// NOT NULL
+		//// UNIQUE
+		//// PK
+		//// CHECK
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 
-	public class SizeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Size");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
-		private final Keyword cFullStopKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final RuleCall cINTTerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
-		
-		//Size:
-		//	INT | INT "." INT;
-		@Override public ParserRule getRule() { return rule; }
-
-		//INT | INT "." INT
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//INT
-		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
-
-		//INT "." INT
-		public Group getGroup_1() { return cGroup_1; }
-
-		//INT
-		public RuleCall getINTTerminalRuleCall_1_0() { return cINTTerminalRuleCall_1_0; }
-
-		//"."
-		public Keyword getFullStopKeyword_1_1() { return cFullStopKeyword_1_1; }
-
-		//INT
-		public RuleCall getINTTerminalRuleCall_1_2() { return cINTTerminalRuleCall_1_2; }
-	}
-
 	public class MultiplicityElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Multiplicity");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cDigitZeroKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cDigitOneKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final Keyword cDigitZeroFullStopFullStopDigitOneKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
-		private final Keyword cAsteriskKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
-		private final RuleCall cSTRINGTerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
+		private final Alternatives cValueAlternatives_0 = (Alternatives)cValueAssignment.eContents().get(0);
+		private final Keyword cValue0Keyword_0_0 = (Keyword)cValueAlternatives_0.eContents().get(0);
+		private final Keyword cValue1Keyword_0_1 = (Keyword)cValueAlternatives_0.eContents().get(1);
+		private final Keyword cValue01Keyword_0_2 = (Keyword)cValueAlternatives_0.eContents().get(2);
+		private final Keyword cValueQuotationMarkAsteriskQuotationMarkKeyword_0_3 = (Keyword)cValueAlternatives_0.eContents().get(3);
+		private final RuleCall cValueSTRINGTerminalRuleCall_0_4 = (RuleCall)cValueAlternatives_0.eContents().get(4);
 		
 		//Multiplicity:
-		//	"0" | "1" | "0..1" | "*" | STRING;
+		//	value=("\"0\"" | "\"1\"" | "\"0..1\"" | "\"*\"" | STRING);
 		@Override public ParserRule getRule() { return rule; }
 
-		//"0" | "1" | "0..1" | "*" | STRING
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//value=("\"0\"" | "\"1\"" | "\"0..1\"" | "\"*\"" | STRING)
+		public Assignment getValueAssignment() { return cValueAssignment; }
 
-		//"0"
-		public Keyword getDigitZeroKeyword_0() { return cDigitZeroKeyword_0; }
+		//"\"0\"" | "\"1\"" | "\"0..1\"" | "\"*\"" | STRING
+		public Alternatives getValueAlternatives_0() { return cValueAlternatives_0; }
 
-		//"1"
-		public Keyword getDigitOneKeyword_1() { return cDigitOneKeyword_1; }
+		//"\"0\""
+		public Keyword getValue0Keyword_0_0() { return cValue0Keyword_0_0; }
 
-		//"0..1"
-		public Keyword getDigitZeroFullStopFullStopDigitOneKeyword_2() { return cDigitZeroFullStopFullStopDigitOneKeyword_2; }
+		//"\"1\""
+		public Keyword getValue1Keyword_0_1() { return cValue1Keyword_0_1; }
 
-		//"*"
-		public Keyword getAsteriskKeyword_3() { return cAsteriskKeyword_3; }
+		//"\"0..1\""
+		public Keyword getValue01Keyword_0_2() { return cValue01Keyword_0_2; }
+
+		//"\"*\""
+		public Keyword getValueQuotationMarkAsteriskQuotationMarkKeyword_0_3() { return cValueQuotationMarkAsteriskQuotationMarkKeyword_0_3; }
 
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_4() { return cSTRINGTerminalRuleCall_4; }
+		public RuleCall getValueSTRINGTerminalRuleCall_0_4() { return cValueSTRINGTerminalRuleCall_0_4; }
 	}
 
 	public class ReferenceElements extends AbstractParserRuleElementFinder {
@@ -1759,8 +1743,8 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//	priotity=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh") extensionnPoints+=ExtensionPoint* ("Goals"
 		//	goals+=RefGoal*)? ("FunctionalRequirements" frs+=RefFR*)? "ActorInitiates" actorInitiates=[Actor]
 		//	("ActorParticipates" actors=RefActor)? ("Pre-Conditions" preConditions=STRING)? ("Post-Conditions"
-		//	postConditions=STRING)? ("Include" includes+=RefUC*)? // FIXME Review this concept!
-		//	("Extend" extends=[UseCase] "on" extPoint=[ExtensionPoint])? scenarios+=Scenario* "}";
+		//	postConditions=STRING)? ("Include" includes+=RefUC*)? ("Extend" extends=[UseCase] "on" extPoint=[ExtensionPoint])?
+		//	scenarios+=Scenario* "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//"UseCase" name=ID "{" ("Name" nameAlias=STRING)? "Type" type=("EntityManage" | "EntityBrowse" | "EntitySearch" |
@@ -1768,8 +1752,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//priotity=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh") extensionnPoints+=ExtensionPoint* ("Goals"
 		//goals+=RefGoal*)? ("FunctionalRequirements" frs+=RefFR*)? "ActorInitiates" actorInitiates=[Actor] ("ActorParticipates"
 		//actors=RefActor)? ("Pre-Conditions" preConditions=STRING)? ("Post-Conditions" postConditions=STRING)? ("Include"
-		//includes+=RefUC*)? // FIXME Review this concept!
-		//("Extend" extends=[UseCase] "on" extPoint=[ExtensionPoint])? scenarios+=Scenario* "}"
+		//includes+=RefUC*)? ("Extend" extends=[UseCase] "on" extPoint=[ExtensionPoint])? scenarios+=Scenario* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"UseCase"
@@ -3056,7 +3039,6 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	private final EntityElements pEntity;
 	private final AttributeElements pAttribute;
 	private final FieldElements pField;
-	private final SizeElements pSize;
 	private final MultiplicityElements pMultiplicity;
 	private final ReferenceElements pReference;
 	private final RefAttributeElements pRefAttribute;
@@ -3100,7 +3082,6 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		this.pEntity = new EntityElements();
 		this.pAttribute = new AttributeElements();
 		this.pField = new FieldElements();
-		this.pSize = new SizeElements();
 		this.pMultiplicity = new MultiplicityElements();
 		this.pReference = new ReferenceElements();
 		this.pRefAttribute = new RefAttributeElements();
@@ -3310,9 +3291,9 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Attribute:
-	//	"Attribute" name=ID "{" ("Name" nameAlias=STRING)? "Description" descrition=STRING "Type" type=("Boolean" | "Integer"
-	//	| "Decimal" | "Currency" | "Date" | "Time" | "Datetime" | "Enumeration" | "Text" | "Regex" | "URL" | "Image")
-	//	field=Field "}";
+	//	"Attribute" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING "Type" type=("Boolean" |
+	//	"Integer" | "Decimal" | "Currency" | "Date" | "Time" | "Datetime" | "Enumeration" | "Text" | "Regex" | "URL" |
+	//	"Image") field=Field "}";
 	public AttributeElements getAttributeAccess() {
 		return pAttribute;
 	}
@@ -3322,7 +3303,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Field:
-	//	"Field" "{" "Size" size=Size "Multiplicity" multiplicity=Multiplicity ("DefaultValue" defaultValue=STRING)? // TODO Constraints
+	//	"Field" "{" "Size" size=INT "Multiplicity" multiplicity=Multiplicity ("DefaultValue" defaultValue=STRING)? // TODO Constraints
+	//	// NOT NULL
+	//	// UNIQUE
+	//	// PK
+	//	// CHECK
 	//	"}";
 	public FieldElements getFieldAccess() {
 		return pField;
@@ -3332,18 +3317,8 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		return getFieldAccess().getRule();
 	}
 
-	//Size:
-	//	INT | INT "." INT;
-	public SizeElements getSizeAccess() {
-		return pSize;
-	}
-	
-	public ParserRule getSizeRule() {
-		return getSizeAccess().getRule();
-	}
-
 	//Multiplicity:
-	//	"0" | "1" | "0..1" | "*" | STRING;
+	//	value=("\"0\"" | "\"1\"" | "\"0..1\"" | "\"*\"" | STRING);
 	public MultiplicityElements getMultiplicityAccess() {
 		return pMultiplicity;
 	}
@@ -3389,8 +3364,8 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	//	priotity=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh") extensionnPoints+=ExtensionPoint* ("Goals"
 	//	goals+=RefGoal*)? ("FunctionalRequirements" frs+=RefFR*)? "ActorInitiates" actorInitiates=[Actor]
 	//	("ActorParticipates" actors=RefActor)? ("Pre-Conditions" preConditions=STRING)? ("Post-Conditions"
-	//	postConditions=STRING)? ("Include" includes+=RefUC*)? // FIXME Review this concept!
-	//	("Extend" extends=[UseCase] "on" extPoint=[ExtensionPoint])? scenarios+=Scenario* "}";
+	//	postConditions=STRING)? ("Include" includes+=RefUC*)? ("Extend" extends=[UseCase] "on" extPoint=[ExtensionPoint])?
+	//	scenarios+=Scenario* "}";
 	public UseCaseElements getUseCaseAccess() {
 		return pUseCase;
 	}

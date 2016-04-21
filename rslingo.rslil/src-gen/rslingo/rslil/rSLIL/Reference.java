@@ -77,29 +77,29 @@ public interface Reference extends EObject
   void setRefTo(RefAttribute value);
 
   /**
-   * Returns the value of the '<em><b>Multiplicity</b></em>' attribute.
+   * Returns the value of the '<em><b>Multiplicity</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Multiplicity</em>' attribute isn't clear,
+   * If the meaning of the '<em>Multiplicity</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Multiplicity</em>' attribute.
-   * @see #setMultiplicity(String)
+   * @return the value of the '<em>Multiplicity</em>' containment reference.
+   * @see #setMultiplicity(Multiplicity)
    * @see rslingo.rslil.rSLIL.RSLILPackage#getReference_Multiplicity()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getMultiplicity();
+  Multiplicity getMultiplicity();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Reference#getMultiplicity <em>Multiplicity</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Reference#getMultiplicity <em>Multiplicity</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Multiplicity</em>' attribute.
+   * @param value the new value of the '<em>Multiplicity</em>' containment reference.
    * @see #getMultiplicity()
    * @generated
    */
-  void setMultiplicity(String value);
+  void setMultiplicity(Multiplicity value);
 
 } // Reference

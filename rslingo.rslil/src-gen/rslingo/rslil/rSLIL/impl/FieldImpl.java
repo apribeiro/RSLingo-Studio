@@ -3,13 +3,16 @@
 package rslingo.rslil.rSLIL.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import rslingo.rslil.rSLIL.Field;
+import rslingo.rslil.rSLIL.Multiplicity;
 import rslingo.rslil.rSLIL.RSLILPackage;
 
 /**
@@ -37,7 +40,7 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * @generated
    * @ordered
    */
-  protected static final String SIZE_EDEFAULT = null;
+  protected static final int SIZE_EDEFAULT = 0;
 
   /**
    * The cached value of the '{@link #getSize() <em>Size</em>}' attribute.
@@ -47,27 +50,17 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * @generated
    * @ordered
    */
-  protected String size = SIZE_EDEFAULT;
+  protected int size = SIZE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getMultiplicity() <em>Multiplicity</em>}' attribute.
+   * The cached value of the '{@link #getMultiplicity() <em>Multiplicity</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMultiplicity()
    * @generated
    * @ordered
    */
-  protected static final String MULTIPLICITY_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getMultiplicity() <em>Multiplicity</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMultiplicity()
-   * @generated
-   * @ordered
-   */
-  protected String multiplicity = MULTIPLICITY_EDEFAULT;
+  protected Multiplicity multiplicity;
 
   /**
    * The default value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
@@ -115,7 +108,7 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getSize()
+  public int getSize()
   {
     return size;
   }
@@ -125,9 +118,9 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSize(String newSize)
+  public void setSize(int newSize)
   {
-    String oldSize = size;
+    int oldSize = size;
     size = newSize;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.FIELD__SIZE, oldSize, size));
@@ -138,7 +131,7 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getMultiplicity()
+  public Multiplicity getMultiplicity()
   {
     return multiplicity;
   }
@@ -148,12 +141,37 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMultiplicity(String newMultiplicity)
+  public NotificationChain basicSetMultiplicity(Multiplicity newMultiplicity, NotificationChain msgs)
   {
-    String oldMultiplicity = multiplicity;
+    Multiplicity oldMultiplicity = multiplicity;
     multiplicity = newMultiplicity;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.FIELD__MULTIPLICITY, oldMultiplicity, multiplicity));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.FIELD__MULTIPLICITY, oldMultiplicity, newMultiplicity);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMultiplicity(Multiplicity newMultiplicity)
+  {
+    if (newMultiplicity != multiplicity)
+    {
+      NotificationChain msgs = null;
+      if (multiplicity != null)
+        msgs = ((InternalEObject)multiplicity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.FIELD__MULTIPLICITY, null, msgs);
+      if (newMultiplicity != null)
+        msgs = ((InternalEObject)newMultiplicity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.FIELD__MULTIPLICITY, null, msgs);
+      msgs = basicSetMultiplicity(newMultiplicity, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.FIELD__MULTIPLICITY, newMultiplicity, newMultiplicity));
   }
 
   /**
@@ -177,6 +195,22 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
     defaultValue = newDefaultValue;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.FIELD__DEFAULT_VALUE, oldDefaultValue, defaultValue));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case RSLILPackage.FIELD__MULTIPLICITY:
+        return basicSetMultiplicity(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -210,10 +244,10 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
     switch (featureID)
     {
       case RSLILPackage.FIELD__SIZE:
-        setSize((String)newValue);
+        setSize((Integer)newValue);
         return;
       case RSLILPackage.FIELD__MULTIPLICITY:
-        setMultiplicity((String)newValue);
+        setMultiplicity((Multiplicity)newValue);
         return;
       case RSLILPackage.FIELD__DEFAULT_VALUE:
         setDefaultValue((String)newValue);
@@ -236,7 +270,7 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
         setSize(SIZE_EDEFAULT);
         return;
       case RSLILPackage.FIELD__MULTIPLICITY:
-        setMultiplicity(MULTIPLICITY_EDEFAULT);
+        setMultiplicity((Multiplicity)null);
         return;
       case RSLILPackage.FIELD__DEFAULT_VALUE:
         setDefaultValue(DEFAULT_VALUE_EDEFAULT);
@@ -256,9 +290,9 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
     switch (featureID)
     {
       case RSLILPackage.FIELD__SIZE:
-        return SIZE_EDEFAULT == null ? size != null : !SIZE_EDEFAULT.equals(size);
+        return size != SIZE_EDEFAULT;
       case RSLILPackage.FIELD__MULTIPLICITY:
-        return MULTIPLICITY_EDEFAULT == null ? multiplicity != null : !MULTIPLICITY_EDEFAULT.equals(multiplicity);
+        return multiplicity != null;
       case RSLILPackage.FIELD__DEFAULT_VALUE:
         return DEFAULT_VALUE_EDEFAULT == null ? defaultValue != null : !DEFAULT_VALUE_EDEFAULT.equals(defaultValue);
     }
@@ -278,8 +312,6 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (size: ");
     result.append(size);
-    result.append(", multiplicity: ");
-    result.append(multiplicity);
     result.append(", defaultValue: ");
     result.append(defaultValue);
     result.append(')');

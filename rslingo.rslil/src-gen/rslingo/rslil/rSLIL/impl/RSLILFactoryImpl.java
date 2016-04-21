@@ -23,6 +23,7 @@ import rslingo.rslil.rSLIL.Field;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
+import rslingo.rslil.rSLIL.Multiplicity;
 import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILFactory;
@@ -113,6 +114,7 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
       case RSLILPackage.ENTITY: return createEntity();
       case RSLILPackage.ATTRIBUTE: return createAttribute();
       case RSLILPackage.FIELD: return createField();
+      case RSLILPackage.MULTIPLICITY: return createMultiplicity();
       case RSLILPackage.REFERENCE: return createReference();
       case RSLILPackage.REF_ATTRIBUTE: return createRefAttribute();
       case RSLILPackage.ACTOR: return createActor();
@@ -318,6 +320,17 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
   {
     FieldImpl field = new FieldImpl();
     return field;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Multiplicity createMultiplicity()
+  {
+    MultiplicityImpl multiplicity = new MultiplicityImpl();
+    return multiplicity;
   }
 
   /**

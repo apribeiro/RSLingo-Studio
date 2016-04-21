@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.Attribute#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Attribute#getNameAlias <em>Name Alias</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Attribute#getDescrition <em>Descrition</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Attribute#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Attribute#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Attribute#getField <em>Field</em>}</li>
  * </ul>
@@ -79,30 +79,30 @@ public interface Attribute extends EObject
   void setNameAlias(String value);
 
   /**
-   * Returns the value of the '<em><b>Descrition</b></em>' attribute.
+   * Returns the value of the '<em><b>Description</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Descrition</em>' attribute isn't clear,
+   * If the meaning of the '<em>Description</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Descrition</em>' attribute.
-   * @see #setDescrition(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getAttribute_Descrition()
+   * @return the value of the '<em>Description</em>' attribute.
+   * @see #setDescription(String)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getAttribute_Description()
    * @model
    * @generated
    */
-  String getDescrition();
+  String getDescription();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Attribute#getDescrition <em>Descrition</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Attribute#getDescription <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Descrition</em>' attribute.
-   * @see #getDescrition()
+   * @param value the new value of the '<em>Description</em>' attribute.
+   * @see #getDescription()
    * @generated
    */
-  void setDescrition(String value);
+  void setDescription(String value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' attribute.

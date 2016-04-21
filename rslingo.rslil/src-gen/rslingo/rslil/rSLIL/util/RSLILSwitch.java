@@ -20,6 +20,7 @@ import rslingo.rslil.rSLIL.Field;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
+import rslingo.rslil.rSLIL.Multiplicity;
 import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
@@ -219,6 +220,13 @@ public class RSLILSwitch<T> extends Switch<T>
       {
         Field field = (Field)theEObject;
         T result = caseField(field);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.MULTIPLICITY:
+      {
+        Multiplicity multiplicity = (Multiplicity)theEObject;
+        T result = caseMultiplicity(multiplicity);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -599,6 +607,22 @@ public class RSLILSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseField(Field object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Multiplicity</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Multiplicity</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMultiplicity(Multiplicity object)
   {
     return null;
   }

@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import rslingo.rslil.rSLIL.Entity;
+import rslingo.rslil.rSLIL.Multiplicity;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefAttribute;
 import rslingo.rslil.rSLIL.Reference;
@@ -54,24 +55,14 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
   protected RefAttribute refTo;
 
   /**
-   * The default value of the '{@link #getMultiplicity() <em>Multiplicity</em>}' attribute.
+   * The cached value of the '{@link #getMultiplicity() <em>Multiplicity</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMultiplicity()
    * @generated
    * @ordered
    */
-  protected static final String MULTIPLICITY_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getMultiplicity() <em>Multiplicity</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMultiplicity()
-   * @generated
-   * @ordered
-   */
-  protected String multiplicity = MULTIPLICITY_EDEFAULT;
+  protected Multiplicity multiplicity;
 
   /**
    * <!-- begin-user-doc -->
@@ -190,7 +181,7 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getMultiplicity()
+  public Multiplicity getMultiplicity()
   {
     return multiplicity;
   }
@@ -200,12 +191,37 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMultiplicity(String newMultiplicity)
+  public NotificationChain basicSetMultiplicity(Multiplicity newMultiplicity, NotificationChain msgs)
   {
-    String oldMultiplicity = multiplicity;
+    Multiplicity oldMultiplicity = multiplicity;
     multiplicity = newMultiplicity;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.REFERENCE__MULTIPLICITY, oldMultiplicity, multiplicity));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.REFERENCE__MULTIPLICITY, oldMultiplicity, newMultiplicity);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMultiplicity(Multiplicity newMultiplicity)
+  {
+    if (newMultiplicity != multiplicity)
+    {
+      NotificationChain msgs = null;
+      if (multiplicity != null)
+        msgs = ((InternalEObject)multiplicity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.REFERENCE__MULTIPLICITY, null, msgs);
+      if (newMultiplicity != null)
+        msgs = ((InternalEObject)newMultiplicity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.REFERENCE__MULTIPLICITY, null, msgs);
+      msgs = basicSetMultiplicity(newMultiplicity, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.REFERENCE__MULTIPLICITY, newMultiplicity, newMultiplicity));
   }
 
   /**
@@ -220,6 +236,8 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
     {
       case RSLILPackage.REFERENCE__REF_TO:
         return basicSetRefTo(null, msgs);
+      case RSLILPackage.REFERENCE__MULTIPLICITY:
+        return basicSetMultiplicity(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -262,7 +280,7 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
         setRefTo((RefAttribute)newValue);
         return;
       case RSLILPackage.REFERENCE__MULTIPLICITY:
-        setMultiplicity((String)newValue);
+        setMultiplicity((Multiplicity)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -285,7 +303,7 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
         setRefTo((RefAttribute)null);
         return;
       case RSLILPackage.REFERENCE__MULTIPLICITY:
-        setMultiplicity(MULTIPLICITY_EDEFAULT);
+        setMultiplicity((Multiplicity)null);
         return;
     }
     super.eUnset(featureID);
@@ -306,26 +324,9 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
       case RSLILPackage.REFERENCE__REF_TO:
         return refTo != null;
       case RSLILPackage.REFERENCE__MULTIPLICITY:
-        return MULTIPLICITY_EDEFAULT == null ? multiplicity != null : !MULTIPLICITY_EDEFAULT.equals(multiplicity);
+        return multiplicity != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (multiplicity: ");
-    result.append(multiplicity);
-    result.append(')');
-    return result.toString();
   }
 
 } //ReferenceImpl

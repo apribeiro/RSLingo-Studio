@@ -4,7 +4,6 @@
 package rslingo.rslil.scoping;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
@@ -40,14 +39,4 @@ public class RSLILScopeProvider extends AbstractDeclarativeScopeProvider {
     EList<ExtensionPoint> _extensionnPoints = _extends.getExtensionnPoints();
     return Scopes.scopeFor(_extensionnPoints);
   }
-  
-  @Override
-	public IScope getScope(EObject context, EReference reference) {
-		System.out.println(
-			"scope_" + reference.getEContainingClass().getName()
-			+ "_" + reference.getName()
-			+ "(" + context.eClass().getName() + ", ..)"
-	 	);
-	 	return super.getScope(context, reference);
-	}
 }

@@ -29,6 +29,7 @@ import rslingo.rslil.rSLIL.Field;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
+import rslingo.rslil.rSLIL.Multiplicity;
 import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
@@ -97,6 +98,9 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case RSLILPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
+				return; 
+			case RSLILPackage.MULTIPLICITY:
+				sequence_Multiplicity(context, (Multiplicity) semanticObject); 
 				return; 
 			case RSLILPackage.NFR:
 				sequence_NFR(context, (NFR) semanticObject); 
@@ -180,7 +184,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (
 	 *         name=ID 
 	 *         nameAlias=STRING? 
-	 *         descrition=STRING 
+	 *         description=STRING 
 	 *         (
 	 *             type='Boolean' | 
 	 *             type='Integer' | 
@@ -285,7 +289,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (size=Size multiplicity=Multiplicity defaultValue=STRING?)
+	 *     (size=INT multiplicity=Multiplicity defaultValue=STRING?)
 	 */
 	protected void sequence_Field(EObject context, Field semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -343,6 +347,15 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     )
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (value='"0"' | value='"1"' | value='"0..1"' | value='"*"' | value=STRING)
+	 */
+	protected void sequence_Multiplicity(EObject context, Multiplicity semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

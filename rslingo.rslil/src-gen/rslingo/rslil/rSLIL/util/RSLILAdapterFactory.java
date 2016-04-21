@@ -22,6 +22,7 @@ import rslingo.rslil.rSLIL.Field;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
+import rslingo.rslil.rSLIL.Multiplicity;
 import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
@@ -189,6 +190,11 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
       public Adapter caseField(Field object)
       {
         return createFieldAdapter();
+      }
+      @Override
+      public Adapter caseMultiplicity(Multiplicity object)
+      {
+        return createMultiplicityAdapter();
       }
       @Override
       public Adapter caseReference(Reference object)
@@ -538,6 +544,21 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFieldAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.Multiplicity <em>Multiplicity</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.Multiplicity
+   * @generated
+   */
+  public Adapter createMultiplicityAdapter()
   {
     return null;
   }
