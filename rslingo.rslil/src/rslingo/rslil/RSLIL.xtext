@@ -101,22 +101,24 @@ Entity:
 Attribute:
 	'Attribute' name=ID '{'
 		('Name' nameAlias=STRING)?
-		'Description' descrition=STRING
+		'Description' description=STRING
 		'Type' type=('Boolean'|'Integer'|'Decimal'|'Currency'|'Date'|'Time'|'Datetime'|'Enumeration'|'Text'|'Regex'|'URL'|'Image')
 		field=Field
 	'}';
 
 Field:
 	'Field' '{'
-		'Size' size=Size
+		'Size' size=INT
 		'Multiplicity' multiplicity=Multiplicity
 		('DefaultValue' defaultValue=STRING)?
 		// TODO Constraints
+		// NOT NULL
+		// UNIQUE
+		// PK
+		// CHECK
 	'}';
 
-Size: INT | INT '.' INT;
-
-Multiplicity: '0' | '1' | '0..1' | '*' | STRING;
+Multiplicity: value=('"0"' | '"1"' | '"0..1"' | '"*"' | STRING);
 
 Reference:
 	'Reference' entity=[Entity] '(' refTo=RefAttribute ')' 'Multiplicity' multiplicity=Multiplicity;
@@ -147,7 +149,6 @@ UseCase:
 		('Pre-Conditions' preConditions=STRING)?
 		('Post-Conditions' postConditions=STRING)?
 		('Include' includes+=RefUC*)?
-		// FIXME Review this concept!
 		('Extend' extends=[UseCase] 'on' extPoint=[ExtensionPoint])?
 		scenarios+=Scenario*
 	'}';
