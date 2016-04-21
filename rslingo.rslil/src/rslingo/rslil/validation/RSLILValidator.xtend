@@ -3,7 +3,9 @@
  */
 package rslingo.rslil.validation
 
-//import org.eclipse.xtext.validation.Check
+import org.eclipse.xtext.validation.Check
+import rslingo.rslil.rSLIL.NFR
+import rslingo.rslil.rSLIL.RSLILPackage
 
 /**
  * This class contains custom validation rules. 
@@ -12,14 +14,19 @@ package rslingo.rslil.validation
  */
 class RSLILValidator extends AbstractRSLILValidator {
 
-//  public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					MyDslPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
+	@Check
+	def checkNFRSubType(NFR nfr) {
+		if (nfr.type.equals("Security") && nfr.subType != null) {
+			if (!nfr.subType.equals("Security.Privacy")
+				&& !nfr.subType.equals("Security.Integrity")) {
+				error('A Non-FunctionalRequirement of type \'Security\' can only have the following sub-types: Security.Privacy or Security.Integrity.', RSLILPackage.Literals.NFR__SUB_TYPE)	
+			}
+		} else if (nfr.type.equals("Usability") && nfr.subType != null) {
+			if (!nfr.subType.equals("Usability.EaseOfUse")
+				&& !nfr.subType.equals("Usability.EaseOfLearn")
+				&& !nfr.subType.equals("Usability.Accessibility")) {
+				error('A Non-FunctionalRequirement of type \'Usability\' can only have the following sub-types: Usability.EaseOfUse, Usability.EaseOfLearn or Usability.Accessibility.', RSLILPackage.Literals.NFR__SUB_TYPE)	
+			}
+		}
+	}
 }

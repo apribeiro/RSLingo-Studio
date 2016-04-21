@@ -3,6 +3,10 @@
  */
 package rslingo.rslil.validation;
 
+import com.google.common.base.Objects;
+import org.eclipse.xtext.validation.Check;
+import rslingo.rslil.rSLIL.NFR;
+import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.validation.AbstractRSLILValidator;
 
 /**
@@ -12,4 +16,71 @@ import rslingo.rslil.validation.AbstractRSLILValidator;
  */
 @SuppressWarnings("all")
 public class RSLILValidator extends AbstractRSLILValidator {
+  @Check
+  public void checkNFRSubType(final NFR nfr) {
+    boolean _and = false;
+    String _type = nfr.getType();
+    boolean _equals = _type.equals("Security");
+    if (!_equals) {
+      _and = false;
+    } else {
+      String _subType = nfr.getSubType();
+      boolean _notEquals = (!Objects.equal(_subType, null));
+      _and = _notEquals;
+    }
+    if (_and) {
+      boolean _and_1 = false;
+      String _subType_1 = nfr.getSubType();
+      boolean _equals_1 = _subType_1.equals("Security.Privacy");
+      boolean _not = (!_equals_1);
+      if (!_not) {
+        _and_1 = false;
+      } else {
+        String _subType_2 = nfr.getSubType();
+        boolean _equals_2 = _subType_2.equals("Security.Integrity");
+        boolean _not_1 = (!_equals_2);
+        _and_1 = _not_1;
+      }
+      if (_and_1) {
+        this.error("A Non-FunctionalRequirement of type \'Security\' can only have the following sub-types: Security.Privacy or Security.Integrity.", RSLILPackage.Literals.NFR__SUB_TYPE);
+      }
+    } else {
+      boolean _and_2 = false;
+      String _type_1 = nfr.getType();
+      boolean _equals_3 = _type_1.equals("Usability");
+      if (!_equals_3) {
+        _and_2 = false;
+      } else {
+        String _subType_3 = nfr.getSubType();
+        boolean _notEquals_1 = (!Objects.equal(_subType_3, null));
+        _and_2 = _notEquals_1;
+      }
+      if (_and_2) {
+        boolean _and_3 = false;
+        boolean _and_4 = false;
+        String _subType_4 = nfr.getSubType();
+        boolean _equals_4 = _subType_4.equals("Usability.EaseOfUse");
+        boolean _not_2 = (!_equals_4);
+        if (!_not_2) {
+          _and_4 = false;
+        } else {
+          String _subType_5 = nfr.getSubType();
+          boolean _equals_5 = _subType_5.equals("Usability.EaseOfLearn");
+          boolean _not_3 = (!_equals_5);
+          _and_4 = _not_3;
+        }
+        if (!_and_4) {
+          _and_3 = false;
+        } else {
+          String _subType_6 = nfr.getSubType();
+          boolean _equals_6 = _subType_6.equals("Usability.Accessibility");
+          boolean _not_4 = (!_equals_6);
+          _and_3 = _not_4;
+        }
+        if (_and_3) {
+          this.error("A Non-FunctionalRequirement of type \'Usability\' can only have the following sub-types: Usability.EaseOfUse, Usability.EaseOfLearn or Usability.Accessibility.", RSLILPackage.Literals.NFR__SUB_TYPE);
+        }
+      }
+    }
+  }
 }
