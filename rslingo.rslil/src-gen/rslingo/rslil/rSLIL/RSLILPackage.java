@@ -1275,7 +1275,7 @@ public interface RSLILPackage extends EPackage
   int USE_CASE__INCLUDES = 12;
 
   /**
-   * The feature id for the '<em><b>Extends</b></em>' reference list.
+   * The feature id for the '<em><b>Extends</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1441,13 +1441,22 @@ public interface RSLILPackage extends EPackage
   int EXTENSION_POINT__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTENSION_POINT__DESCRIPTION = 1;
+
+  /**
    * The number of structural features of the '<em>Extension Point</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXTENSION_POINT_FEATURE_COUNT = 1;
+  int EXTENSION_POINT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.ScenarioImpl <em>Scenario</em>}' class.
@@ -3166,10 +3175,10 @@ public interface RSLILPackage extends EPackage
   EReference getUseCase_Includes();
 
   /**
-   * Returns the meta object for the reference list '{@link rslingo.rslil.rSLIL.UseCase#getExtends <em>Extends</em>}'.
+   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.UseCase#getExtends <em>Extends</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Extends</em>'.
+   * @return the meta object for the reference '<em>Extends</em>'.
    * @see rslingo.rslil.rSLIL.UseCase#getExtends()
    * @see #getUseCase()
    * @generated
@@ -3314,6 +3323,17 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EAttribute getExtensionPoint_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.ExtensionPoint#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see rslingo.rslil.rSLIL.ExtensionPoint#getDescription()
+   * @see #getExtensionPoint()
+   * @generated
+   */
+  EAttribute getExtensionPoint_Description();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.Scenario <em>Scenario</em>}'.
@@ -4795,7 +4815,7 @@ public interface RSLILPackage extends EPackage
     EReference USE_CASE__INCLUDES = eINSTANCE.getUseCase_Includes();
 
     /**
-     * The meta object literal for the '<em><b>Extends</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Extends</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -4913,6 +4933,14 @@ public interface RSLILPackage extends EPackage
      * @generated
      */
     EAttribute EXTENSION_POINT__NAME = eINSTANCE.getExtensionPoint_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXTENSION_POINT__DESCRIPTION = eINSTANCE.getExtensionPoint_Description();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.ScenarioImpl <em>Scenario</em>}' class.

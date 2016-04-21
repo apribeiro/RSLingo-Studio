@@ -158,6 +158,7 @@
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//ExtensionPoint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//ExtensionPoint/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//ExtensionPoint/description"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//Scenario">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Scenario/name"/>

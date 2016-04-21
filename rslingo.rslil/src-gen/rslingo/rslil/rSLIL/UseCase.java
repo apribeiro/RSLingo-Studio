@@ -338,20 +338,30 @@ public interface UseCase extends EObject
   EList<RefUC> getIncludes();
 
   /**
-   * Returns the value of the '<em><b>Extends</b></em>' reference list.
-   * The list contents are of type {@link rslingo.rslil.rSLIL.UseCase}.
+   * Returns the value of the '<em><b>Extends</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Extends</em>' reference list isn't clear,
+   * If the meaning of the '<em>Extends</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Extends</em>' reference list.
+   * @return the value of the '<em>Extends</em>' reference.
+   * @see #setExtends(UseCase)
    * @see rslingo.rslil.rSLIL.RSLILPackage#getUseCase_Extends()
    * @model
    * @generated
    */
-  EList<UseCase> getExtends();
+  UseCase getExtends();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.UseCase#getExtends <em>Extends</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Extends</em>' reference.
+   * @see #getExtends()
+   * @generated
+   */
+  void setExtends(UseCase value);
 
   /**
    * Returns the value of the '<em><b>Ext Point</b></em>' reference.

@@ -148,7 +148,7 @@ UseCase:
 		('Post-Conditions' postConditions=STRING)?
 		('Include' includes+=RefUC*)?
 		// FIXME Review this concept!
-		('Extend' extends+=[UseCase] 'on' extPoint=[ExtensionPoint])?
+		('Extend' extends=[UseCase] 'on' extPoint=[ExtensionPoint])?
 		scenarios+=Scenario*
 	'}';
 
@@ -162,7 +162,7 @@ RefUC:
 	refUC=[UseCase](',' refs+=[UseCase])*;
 
 ExtensionPoint:
-	'ExtensionPoint' name=STRING;
+	'ExtensionPoint' name=ID ('Description' description=STRING)?;
 
 Scenario:
 	'Scenario' name=ID '{'

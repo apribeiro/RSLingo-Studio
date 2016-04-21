@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import rslingo.rslil.rSLIL.Actor;
@@ -260,14 +259,14 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   protected EList<RefUC> includes;
 
   /**
-   * The cached value of the '{@link #getExtends() <em>Extends</em>}' reference list.
+   * The cached value of the '{@link #getExtends() <em>Extends</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getExtends()
    * @generated
    * @ordered
    */
-  protected EList<UseCase> extends_;
+  protected UseCase extends_;
 
   /**
    * The cached value of the '{@link #getExtPoint() <em>Ext Point</em>}' reference.
@@ -623,13 +622,42 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<UseCase> getExtends()
+  public UseCase getExtends()
   {
-    if (extends_ == null)
+    if (extends_ != null && extends_.eIsProxy())
     {
-      extends_ = new EObjectResolvingEList<UseCase>(UseCase.class, this, RSLILPackage.USE_CASE__EXTENDS);
+      InternalEObject oldExtends = (InternalEObject)extends_;
+      extends_ = (UseCase)eResolveProxy(oldExtends);
+      if (extends_ != oldExtends)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.USE_CASE__EXTENDS, oldExtends, extends_));
+      }
     }
     return extends_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UseCase basicGetExtends()
+  {
+    return extends_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExtends(UseCase newExtends)
+  {
+    UseCase oldExtends = extends_;
+    extends_ = newExtends;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.USE_CASE__EXTENDS, oldExtends, extends_));
   }
 
   /**
@@ -753,7 +781,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case RSLILPackage.USE_CASE__INCLUDES:
         return getIncludes();
       case RSLILPackage.USE_CASE__EXTENDS:
-        return getExtends();
+        if (resolve) return getExtends();
+        return basicGetExtends();
       case RSLILPackage.USE_CASE__EXT_POINT:
         if (resolve) return getExtPoint();
         return basicGetExtPoint();
@@ -818,8 +847,7 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         getIncludes().addAll((Collection<? extends RefUC>)newValue);
         return;
       case RSLILPackage.USE_CASE__EXTENDS:
-        getExtends().clear();
-        getExtends().addAll((Collection<? extends UseCase>)newValue);
+        setExtends((UseCase)newValue);
         return;
       case RSLILPackage.USE_CASE__EXT_POINT:
         setExtPoint((ExtensionPoint)newValue);
@@ -882,7 +910,7 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         getIncludes().clear();
         return;
       case RSLILPackage.USE_CASE__EXTENDS:
-        getExtends().clear();
+        setExtends((UseCase)null);
         return;
       case RSLILPackage.USE_CASE__EXT_POINT:
         setExtPoint((ExtensionPoint)null);
@@ -931,7 +959,7 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case RSLILPackage.USE_CASE__INCLUDES:
         return includes != null && !includes.isEmpty();
       case RSLILPackage.USE_CASE__EXTENDS:
-        return extends_ != null && !extends_.isEmpty();
+        return extends_ != null;
       case RSLILPackage.USE_CASE__EXT_POINT:
         return extPoint != null;
       case RSLILPackage.USE_CASE__SCENARIOS:

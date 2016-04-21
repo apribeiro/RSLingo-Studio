@@ -125,6 +125,7 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRefUCAccess().getGroup(), "rule__RefUC__Group__0");
 					put(grammarAccess.getRefUCAccess().getGroup_1(), "rule__RefUC__Group_1__0");
 					put(grammarAccess.getExtensionPointAccess().getGroup(), "rule__ExtensionPoint__Group__0");
+					put(grammarAccess.getExtensionPointAccess().getGroup_2(), "rule__ExtensionPoint__Group_2__0");
 					put(grammarAccess.getScenarioAccess().getGroup(), "rule__Scenario__Group__0");
 					put(grammarAccess.getScenarioAccess().getGroup_3(), "rule__Scenario__Group_3__0");
 					put(grammarAccess.getScenarioAccess().getGroup_4(), "rule__Scenario__Group_4__0");
@@ -249,6 +250,7 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRefUCAccess().getRefUCAssignment_0(), "rule__RefUC__RefUCAssignment_0");
 					put(grammarAccess.getRefUCAccess().getRefsAssignment_1_1(), "rule__RefUC__RefsAssignment_1_1");
 					put(grammarAccess.getExtensionPointAccess().getNameAssignment_1(), "rule__ExtensionPoint__NameAssignment_1");
+					put(grammarAccess.getExtensionPointAccess().getDescriptionAssignment_2_1(), "rule__ExtensionPoint__DescriptionAssignment_2_1");
 					put(grammarAccess.getScenarioAccess().getNameAssignment_1(), "rule__Scenario__NameAssignment_1");
 					put(grammarAccess.getScenarioAccess().getNameAliasAssignment_3_1(), "rule__Scenario__NameAliasAssignment_3_1");
 					put(grammarAccess.getScenarioAccess().getDescriptionAssignment_4_1(), "rule__Scenario__DescriptionAssignment_4_1");

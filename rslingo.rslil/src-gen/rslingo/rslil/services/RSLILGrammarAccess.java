@@ -1760,7 +1760,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//	goals+=RefGoal*)? ("FunctionalRequirements" frs+=RefFR*)? "ActorInitiates" actorInitiates=[Actor]
 		//	("ActorParticipates" actors=RefActor)? ("Pre-Conditions" preConditions=STRING)? ("Post-Conditions"
 		//	postConditions=STRING)? ("Include" includes+=RefUC*)? // FIXME Review this concept!
-		//	("Extend" extends+=[UseCase] "on" extPoint=[ExtensionPoint])? scenarios+=Scenario* "}";
+		//	("Extend" extends=[UseCase] "on" extPoint=[ExtensionPoint])? scenarios+=Scenario* "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//"UseCase" name=ID "{" ("Name" nameAlias=STRING)? "Type" type=("EntityManage" | "EntityBrowse" | "EntitySearch" |
@@ -1769,7 +1769,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//goals+=RefGoal*)? ("FunctionalRequirements" frs+=RefFR*)? "ActorInitiates" actorInitiates=[Actor] ("ActorParticipates"
 		//actors=RefActor)? ("Pre-Conditions" preConditions=STRING)? ("Post-Conditions" postConditions=STRING)? ("Include"
 		//includes+=RefUC*)? // FIXME Review this concept!
-		//("Extend" extends+=[UseCase] "on" extPoint=[ExtensionPoint])? scenarios+=Scenario* "}"
+		//("Extend" extends=[UseCase] "on" extPoint=[ExtensionPoint])? scenarios+=Scenario* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"UseCase"
@@ -1949,13 +1949,13 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//RefUC
 		public RuleCall getIncludesRefUCParserRuleCall_18_1_0() { return cIncludesRefUCParserRuleCall_18_1_0; }
 
-		//("Extend" extends+=[UseCase] "on" extPoint=[ExtensionPoint])?
+		//("Extend" extends=[UseCase] "on" extPoint=[ExtensionPoint])?
 		public Group getGroup_19() { return cGroup_19; }
 
 		//"Extend"
 		public Keyword getExtendKeyword_19_0() { return cExtendKeyword_19_0; }
 
-		//extends+=[UseCase]
+		//extends=[UseCase]
 		public Assignment getExtendsAssignment_19_1() { return cExtendsAssignment_19_1; }
 
 		//[UseCase]
@@ -2119,23 +2119,39 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cExtensionPointKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cDescriptionKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cDescriptionAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cDescriptionAssignment_2_1.eContents().get(0);
 		
 		//ExtensionPoint:
-		//	"ExtensionPoint" name=STRING;
+		//	"ExtensionPoint" name=ID ("Description" description=STRING)?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"ExtensionPoint" name=STRING
+		//"ExtensionPoint" name=ID ("Description" description=STRING)?
 		public Group getGroup() { return cGroup; }
 
 		//"ExtensionPoint"
 		public Keyword getExtensionPointKeyword_0() { return cExtensionPointKeyword_0; }
 
-		//name=STRING
+		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//("Description" description=STRING)?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"Description"
+		public Keyword getDescriptionKeyword_2_0() { return cDescriptionKeyword_2_0; }
+
+		//description=STRING
+		public Assignment getDescriptionAssignment_2_1() { return cDescriptionAssignment_2_1; }
+
 		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_2_1_0() { return cDescriptionSTRINGTerminalRuleCall_2_1_0; }
 	}
 
 	public class ScenarioElements extends AbstractParserRuleElementFinder {
@@ -3374,7 +3390,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	//	goals+=RefGoal*)? ("FunctionalRequirements" frs+=RefFR*)? "ActorInitiates" actorInitiates=[Actor]
 	//	("ActorParticipates" actors=RefActor)? ("Pre-Conditions" preConditions=STRING)? ("Post-Conditions"
 	//	postConditions=STRING)? ("Include" includes+=RefUC*)? // FIXME Review this concept!
-	//	("Extend" extends+=[UseCase] "on" extPoint=[ExtensionPoint])? scenarios+=Scenario* "}";
+	//	("Extend" extends=[UseCase] "on" extPoint=[ExtensionPoint])? scenarios+=Scenario* "}";
 	public UseCaseElements getUseCaseAccess() {
 		return pUseCase;
 	}
@@ -3414,7 +3430,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ExtensionPoint:
-	//	"ExtensionPoint" name=STRING;
+	//	"ExtensionPoint" name=ID ("Description" description=STRING)?;
 	public ExtensionPointElements getExtensionPointAccess() {
 		return pExtensionPoint;
 	}

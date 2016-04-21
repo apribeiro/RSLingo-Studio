@@ -257,17 +257,10 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     name=STRING
+	 *     (name=ID description=STRING?)
 	 */
 	protected void sequence_ExtensionPoint(EObject context, ExtensionPoint semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.EXTENSION_POINT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.EXTENSION_POINT__NAME));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getExtensionPointAccess().getNameSTRINGTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -627,7 +620,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         preConditions=STRING? 
 	 *         postConditions=STRING? 
 	 *         includes+=RefUC* 
-	 *         (extends+=[UseCase|ID] extPoint=[ExtensionPoint|ID])? 
+	 *         (extends=[UseCase|ID] extPoint=[ExtensionPoint|ID])? 
 	 *         scenarios+=Scenario*
 	 *     )
 	 */

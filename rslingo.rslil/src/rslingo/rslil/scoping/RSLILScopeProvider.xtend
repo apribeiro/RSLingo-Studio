@@ -8,6 +8,7 @@ import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 import rslingo.rslil.rSLIL.Reference
+import rslingo.rslil.rSLIL.UseCase
 
 /**
  * This class contains custom scoping description.
@@ -24,6 +25,10 @@ class RSLILScopeProvider extends AbstractDeclarativeScopeProvider {
 	
 	def IScope scope_RefAttribute_refs(Reference ctx, EReference ref) {
         return Scopes.scopeFor(ctx.entity.attributes)
+    }
+    
+    def IScope scope_UseCase_extPoint(UseCase ctx, EReference ref) {
+        return Scopes.scopeFor(ctx.extends.extensionnPoints)
     }
 	
 	/*

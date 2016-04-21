@@ -4,13 +4,16 @@
 package rslingo.rslil.scoping;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.Entity;
+import rslingo.rslil.rSLIL.ExtensionPoint;
 import rslingo.rslil.rSLIL.Reference;
+import rslingo.rslil.rSLIL.UseCase;
 
 /**
  * This class contains custom scoping description.
@@ -31,4 +34,20 @@ public class RSLILScopeProvider extends AbstractDeclarativeScopeProvider {
     EList<Attribute> _attributes = _entity.getAttributes();
     return Scopes.scopeFor(_attributes);
   }
+  
+  public IScope scope_UseCase_extPoint(final UseCase ctx, final EReference ref) {
+    UseCase _extends = ctx.getExtends();
+    EList<ExtensionPoint> _extensionnPoints = _extends.getExtensionnPoints();
+    return Scopes.scopeFor(_extensionnPoints);
+  }
+  
+  @Override
+	public IScope getScope(EObject context, EReference reference) {
+		System.out.println(
+			"scope_" + reference.getEContainingClass().getName()
+			+ "_" + reference.getName()
+			+ "(" + context.eClass().getName() + ", ..)"
+	 	);
+	 	return super.getScope(context, reference);
+	}
 }

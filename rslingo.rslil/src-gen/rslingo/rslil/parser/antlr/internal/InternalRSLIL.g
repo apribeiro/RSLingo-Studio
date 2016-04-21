@@ -3494,9 +3494,9 @@ ruleExtensionPoint returns [EObject current=null]
     }
 (
 (
-		lv_name_1_0=RULE_STRING
+		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_name_1_0, grammarAccess.getExtensionPointAccess().getNameSTRINGTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getExtensionPointAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3506,11 +3506,33 @@ ruleExtensionPoint returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
+        		"ID");
+	    }
+
+)
+)(	otherlv_2='Description' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getExtensionPointAccess().getDescriptionKeyword_2_0());
+    }
+(
+(
+		lv_description_3_0=RULE_STRING
+		{
+			newLeafNode(lv_description_3_0, grammarAccess.getExtensionPointAccess().getDescriptionSTRINGTerminalRuleCall_2_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getExtensionPointRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"description",
+        		lv_description_3_0, 
         		"STRING");
 	    }
 
 )
-))
+))?)
 ;
 
 

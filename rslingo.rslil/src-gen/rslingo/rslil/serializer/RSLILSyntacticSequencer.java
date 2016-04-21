@@ -98,16 +98,16 @@ public class RSLILSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'Include'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     actorInitiates=[Actor|ID] (ambiguity) 'Extend' extends+=[UseCase|ID]
+	 *     actorInitiates=[Actor|ID] (ambiguity) 'Extend' extends=[UseCase|ID]
 	 *     actorInitiates=[Actor|ID] (ambiguity) '}' (rule end)
 	 *     actorInitiates=[Actor|ID] (ambiguity) scenarios+=Scenario
-	 *     actors=RefActor (ambiguity) 'Extend' extends+=[UseCase|ID]
+	 *     actors=RefActor (ambiguity) 'Extend' extends=[UseCase|ID]
 	 *     actors=RefActor (ambiguity) '}' (rule end)
 	 *     actors=RefActor (ambiguity) scenarios+=Scenario
-	 *     postConditions=STRING (ambiguity) 'Extend' extends+=[UseCase|ID]
+	 *     postConditions=STRING (ambiguity) 'Extend' extends=[UseCase|ID]
 	 *     postConditions=STRING (ambiguity) '}' (rule end)
 	 *     postConditions=STRING (ambiguity) scenarios+=Scenario
-	 *     preConditions=STRING (ambiguity) 'Extend' extends+=[UseCase|ID]
+	 *     preConditions=STRING (ambiguity) 'Extend' extends=[UseCase|ID]
 	 *     preConditions=STRING (ambiguity) '}' (rule end)
 	 *     preConditions=STRING (ambiguity) scenarios+=Scenario
 	 */
