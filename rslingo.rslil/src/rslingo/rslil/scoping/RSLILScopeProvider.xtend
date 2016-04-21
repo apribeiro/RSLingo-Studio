@@ -9,6 +9,7 @@ import org.eclipse.xtext.scoping.Scopes
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 import rslingo.rslil.rSLIL.Reference
 import rslingo.rslil.rSLIL.UseCase
+import org.eclipse.emf.ecore.EObject
 
 /**
  * This class contains custom scoping description.
@@ -19,7 +20,17 @@ import rslingo.rslil.rSLIL.UseCase
  */
 class RSLILScopeProvider extends AbstractDeclarativeScopeProvider {
 
-	def IScope scope_RefAttribute_refAttr(Reference ctx, EReference ref) {
+	@Override
+  	override IScope getScope(EObject context, EReference reference) {
+		System.out.println(
+			"scope_" + reference.getEContainingClass().getName()
+			+ "_" + reference.getName()
+			+ "(" + context.eClass().getName() + ", ..)"
+	 	);
+	 	return super.getScope(context, reference);
+  	}
+  	
+  	def IScope scope_RefAttribute_refAttr(Reference ctx, EReference ref) {
         return Scopes.scopeFor(ctx.entity.attributes)
     }
 	
@@ -30,16 +41,6 @@ class RSLILScopeProvider extends AbstractDeclarativeScopeProvider {
     def IScope scope_UseCase_extPoint(UseCase ctx, EReference ref) {
         return Scopes.scopeFor(ctx.extends.extensionnPoints)
     }
-	
-	/*
-	@Override
-  	public IScope getScope(EObject context, EReference reference) {
-		System.out.println(
-			"scope_" + reference.getEContainingClass().getName()
-			+ "_" + reference.getName()
-			+ "(" + context.eClass().getName() + ", ..)"
-	 	);
-	 	return super.getScope(context, reference);
-  	}
-	*/
+    
+    // TODO Define NFR sub-type scope 
 }

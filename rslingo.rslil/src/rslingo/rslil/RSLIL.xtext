@@ -95,6 +95,7 @@ Entity:
 		'Description' description=STRING
 		('Type' type=('Main'|'Secondary'))?
 		attributes+=Attribute+
+		// TODO PrimaryKey
 		(reference=Reference)?
 	'}';
 
@@ -114,14 +115,13 @@ Field:
 		// TODO Constraints
 		// NOT NULL
 		// UNIQUE
-		// PK
 		// CHECK
 	'}';
 
 Multiplicity: value=('"0"' | '"1"' | '"0..1"' | '"*"' | STRING);
 
 Reference:
-	'Reference' entity=[Entity] '(' refTo=RefAttribute ')' 'Multiplicity' multiplicity=Multiplicity;
+	'ForeignKey' entity=[Entity] '(' refTo=RefAttribute ')' 'Multiplicity' multiplicity=Multiplicity;
 
 RefAttribute:
 	refAttr=[Attribute](',' refs+=[Attribute])*;
@@ -139,6 +139,7 @@ UseCase:
 	'UseCase' name=ID '{'
 		('Name' nameAlias=STRING)?
 		'Type' type=('EntityManage'|'EntityBrowse'|'EntitySearch'|'EntityCreate'|'EntityDelete'|'EntitySync'|'Report')
+		// TODO Entities Products as Master, ProductLine as Detail, ... 
 		'Description' description=STRING
 		'Priority' priotity=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
 		extensionnPoints+=ExtensionPoint*
@@ -205,7 +206,7 @@ NFR:
 		('Name' nameAlias=STRING)?
 		'Description' description=STRING
 		'Type' type=('Security'|'Performance'|'Usability'|'Appearance'|'Operational'|'Maintenance'|'Cultural'|'Legal')
-		('Sub-Type' subType=('Security.Privacy'|'Security.Integrity'|'Usability.EaseOfUse'|'Usability.EaseOfLean'|'Usability.Accessibility'))?
+		('Sub-Type' subType=('Security.Privacy'|'Security.Integrity'|'Usability.EaseOfUse'|'Usability.EaseOfLearn'|'Usability.Accessibility'))?
 		'Metric' metric=('Hours'|'Mins'|'Secs'|'mSecs'|'Tasks'|'Other')
 		'Value' value=INT
 		('Stakeholder' stakeholder=[Stakeholder])?
