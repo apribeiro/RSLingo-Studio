@@ -3,13 +3,13 @@
  */
 package rslingo.rslil.scoping
 
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
-import rslingo.rslil.rSLIL.Reference
+import rslingo.rslil.rSLIL.ForeignKey
 import rslingo.rslil.rSLIL.UseCase
-import org.eclipse.emf.ecore.EObject
 
 /**
  * This class contains custom scoping description.
@@ -30,11 +30,11 @@ class RSLILScopeProvider extends AbstractDeclarativeScopeProvider {
 	 	return super.getScope(context, reference);
   	}
   	
-  	def IScope scope_RefAttribute_refAttr(Reference ctx, EReference ref) {
+  	def IScope scope_RefAttribute_refAttr(ForeignKey ctx, EReference ref) {
         return Scopes.scopeFor(ctx.entity.attributes)
     }
 	
-	def IScope scope_RefAttribute_refs(Reference ctx, EReference ref) {
+	def IScope scope_RefAttribute_refs(ForeignKey ctx, EReference ref) {
         return Scopes.scopeFor(ctx.entity.attributes)
     }
     
@@ -42,5 +42,5 @@ class RSLILScopeProvider extends AbstractDeclarativeScopeProvider {
         return Scopes.scopeFor(ctx.extends.extensionnPoints)
     }
     
-    // TODO Define NFR sub-type scope 
+    // TODO Define NFR sub-type scope
 }

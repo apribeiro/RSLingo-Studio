@@ -13,7 +13,7 @@ import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.ExtensionPoint;
-import rslingo.rslil.rSLIL.Reference;
+import rslingo.rslil.rSLIL.ForeignKey;
 import rslingo.rslil.rSLIL.UseCase;
 
 /**
@@ -41,13 +41,13 @@ public class RSLILScopeProvider extends AbstractDeclarativeScopeProvider {
     return super.getScope(context, reference);
   }
   
-  public IScope scope_RefAttribute_refAttr(final Reference ctx, final EReference ref) {
+  public IScope scope_RefAttribute_refAttr(final ForeignKey ctx, final EReference ref) {
     Entity _entity = ctx.getEntity();
     EList<Attribute> _attributes = _entity.getAttributes();
     return Scopes.scopeFor(_attributes);
   }
   
-  public IScope scope_RefAttribute_refs(final Reference ctx, final EReference ref) {
+  public IScope scope_RefAttribute_refs(final ForeignKey ctx, final EReference ref) {
     Entity _entity = ctx.getEntity();
     EList<Attribute> _attributes = _entity.getAttributes();
     return Scopes.scopeFor(_attributes);

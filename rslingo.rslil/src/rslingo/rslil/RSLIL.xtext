@@ -96,7 +96,7 @@ Entity:
 		('Type' type=('Main'|'Secondary'))?
 		attributes+=Attribute+
 		// TODO PrimaryKey
-		(reference=Reference)?
+		(foreignKey=ForeignKey)?
 	'}';
 
 Attribute:
@@ -113,14 +113,14 @@ Field:
 		'Multiplicity' multiplicity=Multiplicity
 		('DefaultValue' defaultValue=STRING)?
 		// TODO Constraints
-		// NOT NULL
-		// UNIQUE
-		// CHECK
+		('NotNull')?
+		('Unique')?
+		('Check' value=STRING)?
 	'}';
 
 Multiplicity: value=('"0"' | '"1"' | '"0..1"' | '"*"' | STRING);
 
-Reference:
+ForeignKey:
 	'ForeignKey' entity=[Entity] '(' refTo=RefAttribute ')' 'Multiplicity' multiplicity=Multiplicity;
 
 RefAttribute:
