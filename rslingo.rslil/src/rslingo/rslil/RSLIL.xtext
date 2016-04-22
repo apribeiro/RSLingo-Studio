@@ -96,6 +96,8 @@ Entity:
 		('Type' type=('Main'|'Secondary'))?
 		attributes+=Attribute+
 		(primaryKey=PrimaryKey)?
+		foreignKeys+=ForeignKey*
+		checks+=Check*
 	'}';
 
 Attribute:
