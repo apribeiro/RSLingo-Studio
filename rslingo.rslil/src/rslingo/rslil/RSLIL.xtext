@@ -95,7 +95,7 @@ Entity:
 		'Description' description=STRING
 		('Type' type=('Main'|'Secondary'))?
 		attributes+=Attribute+
-		// TODO PrimaryKey
+		(primaryKey=PrimaryKey)?
 		(foreignKey=ForeignKey)?
 	'}';
 
@@ -113,13 +113,15 @@ Field:
 		'Multiplicity' multiplicity=Multiplicity
 		('DefaultValue' defaultValue=STRING)?
 		// TODO Constraints
-		('NotNull')?
-		('Unique')?
-		('Check' value=STRING)?
+		(notNull='NotNull')?
+		(unique='Unique')?
+		('Check' checkExpression=STRING)?
 	'}';
 
 Multiplicity: value=('"0"' | '"1"' | '"0..1"' | '"*"' | STRING);
 
+PrimaryKey:
+	'PrimaryKey' '(' refTo=RefAttribute ')';
 ForeignKey:
 	'ForeignKey' entity=[Entity] '(' refTo=RefAttribute ')' 'Multiplicity' multiplicity=Multiplicity;
 
@@ -140,6 +142,7 @@ UseCase:
 		('Name' nameAlias=STRING)?
 		'Type' type=('EntityManage'|'EntityBrowse'|'EntitySearch'|'EntityCreate'|'EntityDelete'|'EntitySync'|'Report')
 		// TODO Entities Products as Master, ProductLine as Detail, ... 
+		('Entities' entities=RefEntity)?
 		'Description' description=STRING
 		'Priority' priotity=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
 		extensionnPoints+=ExtensionPoint*
@@ -154,11 +157,17 @@ UseCase:
 		scenarios+=Scenario*
 	'}';
 
+RefEntity:
+	refEntity=[Entity] 'as' type=EntityType (',' refs+=[Entity] 'as' refType+=EntityType)*;
+
+EntityType:
+	type=('Master'|'Detail'|'Reference');
+
 RefFR:
 	refFR=[FR](',' refs+=[FR])*;
 
 RefActor:
-	refActor=[Actor](',' refs+=Actor)*;
+	refActor=[Actor](',' refs+=[Actor])*;
 
 RefUC:
 	refUC=[UseCase](',' refs+=[UseCase])*;
@@ -176,6 +185,7 @@ Scenario:
 	'}';
 
 Step:
+	// FIXME Review StepID and NextStep
 	'Step' name=ID '{'
 		('Name' nameAlias=STRING)?
 		'Type' type=('ActorPrepareData'|'ActorCallSystem'|'SystemExecutes'|'SystemReturnResult'|'Other')
