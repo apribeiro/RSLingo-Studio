@@ -6,6 +6,8 @@ package rslingo.rslil.validation
 import org.eclipse.xtext.validation.Check
 import rslingo.rslil.rSLIL.NFR
 import rslingo.rslil.rSLIL.RSLILPackage
+import rslingo.rslil.rSLIL.UseCase
+import rslingo.rslil.rSLIL.EntityType
 
 /**
  * This class contains custom validation rules. 
@@ -26,6 +28,33 @@ class RSLILValidator extends AbstractRSLILValidator {
 				&& !nfr.subType.equals("Usability.EaseOfLearn")
 				&& !nfr.subType.equals("Usability.Accessibility")) {
 				error('A Non-FunctionalRequirement of type \'Usability\' can only have the following sub-types: Usability.EaseOfUse, Usability.EaseOfLearn or Usability.Accessibility.', RSLILPackage.Literals.NFR__SUB_TYPE)	
+			}
+		}
+	}
+	
+	@Check
+	def checkUseCaseEntities(UseCase uc) {
+		if (!uc.type.equals("Report")) {
+			if (uc.entities == null) {
+				error('A Use Case of type \'' + uc.type + '\' should be associated to an Entity with the role Master.', RSLILPackage.Literals.USE_CASE__ENTITIES)	
+			} else {
+				if (!uc.entities.type.type.equals("Master")) {
+					if (uc.entities.refs.isEmpty()) {
+						error('A Use Case of type \'' + uc.type + '\' should be associated to an Entity with the role Master.', RSLILPackage.Literals.USE_CASE__ENTITIES)		
+					} else {
+						var hasMaster = false
+						
+						for (EntityType type : uc.entities.refType) {
+							if (type.type.equals("Master")) {
+								hasMaster = true
+							}
+						}
+						
+						if (!hasMaster) {
+							error('A Use Case of type \'' + uc.type + '\' should be associated to an Entity with the role Master.', RSLILPackage.Literals.USE_CASE__ENTITIES)	
+						}
+					}
+				}
 			}
 		}
 	}
