@@ -6,23 +6,23 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Reference</b></em>'.
+ * A representation of the model object '<em><b>Foreign Key</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.Reference#getEntity <em>Entity</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Reference#getRefTo <em>Ref To</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Reference#getMultiplicity <em>Multiplicity</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.ForeignKey#getEntity <em>Entity</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.ForeignKey#getRefTo <em>Ref To</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.ForeignKey#getMultiplicity <em>Multiplicity</em>}</li>
  * </ul>
  *
- * @see rslingo.rslil.rSLIL.RSLILPackage#getReference()
+ * @see rslingo.rslil.rSLIL.RSLILPackage#getForeignKey()
  * @model
  * @generated
  */
-public interface Reference extends EObject
+public interface ForeignKey extends EObject
 {
   /**
    * Returns the value of the '<em><b>Entity</b></em>' reference.
@@ -34,14 +34,14 @@ public interface Reference extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Entity</em>' reference.
    * @see #setEntity(Entity)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getReference_Entity()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getForeignKey_Entity()
    * @model
    * @generated
    */
   Entity getEntity();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Reference#getEntity <em>Entity</em>}' reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.ForeignKey#getEntity <em>Entity</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Entity</em>' reference.
@@ -60,14 +60,14 @@ public interface Reference extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Ref To</em>' containment reference.
    * @see #setRefTo(RefAttribute)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getReference_RefTo()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getForeignKey_RefTo()
    * @model containment="true"
    * @generated
    */
   RefAttribute getRefTo();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Reference#getRefTo <em>Ref To</em>}' containment reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.ForeignKey#getRefTo <em>Ref To</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Ref To</em>' containment reference.
@@ -86,14 +86,14 @@ public interface Reference extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Multiplicity</em>' containment reference.
    * @see #setMultiplicity(Multiplicity)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getReference_Multiplicity()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getForeignKey_Multiplicity()
    * @model containment="true"
    * @generated
    */
   Multiplicity getMultiplicity();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Reference#getMultiplicity <em>Multiplicity</em>}' containment reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.ForeignKey#getMultiplicity <em>Multiplicity</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Multiplicity</em>' containment reference.
@@ -102,4 +102,4 @@ public interface Reference extends EObject
    */
   void setMultiplicity(Multiplicity value);
 
-} // Reference
+} // ForeignKey

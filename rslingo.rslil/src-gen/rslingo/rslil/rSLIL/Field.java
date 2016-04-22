@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.Field#getSize <em>Size</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Field#getMultiplicity <em>Multiplicity</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Field#getDefaultValue <em>Default Value</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Field#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getField()
@@ -101,5 +102,31 @@ public interface Field extends EObject
    * @generated
    */
   void setDefaultValue(String value);
+
+  /**
+   * Returns the value of the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Value</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Value</em>' attribute.
+   * @see #setValue(String)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getField_Value()
+   * @model
+   * @generated
+   */
+  String getValue();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Field#getValue <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Value</em>' attribute.
+   * @see #getValue()
+   * @generated
+   */
+  void setValue(String value);
 
 } // Field

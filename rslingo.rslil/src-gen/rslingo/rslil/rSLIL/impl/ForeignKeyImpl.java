@@ -12,27 +12,27 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import rslingo.rslil.rSLIL.Entity;
+import rslingo.rslil.rSLIL.ForeignKey;
 import rslingo.rslil.rSLIL.Multiplicity;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefAttribute;
-import rslingo.rslil.rSLIL.Reference;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Reference</b></em>'.
+ * An implementation of the model object '<em><b>Foreign Key</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ReferenceImpl#getEntity <em>Entity</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ReferenceImpl#getRefTo <em>Ref To</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ReferenceImpl#getMultiplicity <em>Multiplicity</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ForeignKeyImpl#getEntity <em>Entity</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ForeignKeyImpl#getRefTo <em>Ref To</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ForeignKeyImpl#getMultiplicity <em>Multiplicity</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ReferenceImpl extends MinimalEObjectImpl.Container implements Reference
+public class ForeignKeyImpl extends MinimalEObjectImpl.Container implements ForeignKey
 {
   /**
    * The cached value of the '{@link #getEntity() <em>Entity</em>}' reference.
@@ -69,7 +69,7 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ReferenceImpl()
+  protected ForeignKeyImpl()
   {
     super();
   }
@@ -82,7 +82,7 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
   @Override
   protected EClass eStaticClass()
   {
-    return RSLILPackage.Literals.REFERENCE;
+    return RSLILPackage.Literals.FOREIGN_KEY;
   }
 
   /**
@@ -99,7 +99,7 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
       if (entity != oldEntity)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.REFERENCE__ENTITY, oldEntity, entity));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.FOREIGN_KEY__ENTITY, oldEntity, entity));
       }
     }
     return entity;
@@ -125,7 +125,7 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
     Entity oldEntity = entity;
     entity = newEntity;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.REFERENCE__ENTITY, oldEntity, entity));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.FOREIGN_KEY__ENTITY, oldEntity, entity));
   }
 
   /**
@@ -149,7 +149,7 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
     refTo = newRefTo;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.REFERENCE__REF_TO, oldRefTo, newRefTo);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.FOREIGN_KEY__REF_TO, oldRefTo, newRefTo);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -166,14 +166,14 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
     {
       NotificationChain msgs = null;
       if (refTo != null)
-        msgs = ((InternalEObject)refTo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.REFERENCE__REF_TO, null, msgs);
+        msgs = ((InternalEObject)refTo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.FOREIGN_KEY__REF_TO, null, msgs);
       if (newRefTo != null)
-        msgs = ((InternalEObject)newRefTo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.REFERENCE__REF_TO, null, msgs);
+        msgs = ((InternalEObject)newRefTo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.FOREIGN_KEY__REF_TO, null, msgs);
       msgs = basicSetRefTo(newRefTo, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.REFERENCE__REF_TO, newRefTo, newRefTo));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.FOREIGN_KEY__REF_TO, newRefTo, newRefTo));
   }
 
   /**
@@ -197,7 +197,7 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
     multiplicity = newMultiplicity;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.REFERENCE__MULTIPLICITY, oldMultiplicity, newMultiplicity);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.FOREIGN_KEY__MULTIPLICITY, oldMultiplicity, newMultiplicity);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -214,14 +214,14 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
     {
       NotificationChain msgs = null;
       if (multiplicity != null)
-        msgs = ((InternalEObject)multiplicity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.REFERENCE__MULTIPLICITY, null, msgs);
+        msgs = ((InternalEObject)multiplicity).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.FOREIGN_KEY__MULTIPLICITY, null, msgs);
       if (newMultiplicity != null)
-        msgs = ((InternalEObject)newMultiplicity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.REFERENCE__MULTIPLICITY, null, msgs);
+        msgs = ((InternalEObject)newMultiplicity).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.FOREIGN_KEY__MULTIPLICITY, null, msgs);
       msgs = basicSetMultiplicity(newMultiplicity, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.REFERENCE__MULTIPLICITY, newMultiplicity, newMultiplicity));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.FOREIGN_KEY__MULTIPLICITY, newMultiplicity, newMultiplicity));
   }
 
   /**
@@ -234,9 +234,9 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
   {
     switch (featureID)
     {
-      case RSLILPackage.REFERENCE__REF_TO:
+      case RSLILPackage.FOREIGN_KEY__REF_TO:
         return basicSetRefTo(null, msgs);
-      case RSLILPackage.REFERENCE__MULTIPLICITY:
+      case RSLILPackage.FOREIGN_KEY__MULTIPLICITY:
         return basicSetMultiplicity(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -252,12 +252,12 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
   {
     switch (featureID)
     {
-      case RSLILPackage.REFERENCE__ENTITY:
+      case RSLILPackage.FOREIGN_KEY__ENTITY:
         if (resolve) return getEntity();
         return basicGetEntity();
-      case RSLILPackage.REFERENCE__REF_TO:
+      case RSLILPackage.FOREIGN_KEY__REF_TO:
         return getRefTo();
-      case RSLILPackage.REFERENCE__MULTIPLICITY:
+      case RSLILPackage.FOREIGN_KEY__MULTIPLICITY:
         return getMultiplicity();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -273,13 +273,13 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
   {
     switch (featureID)
     {
-      case RSLILPackage.REFERENCE__ENTITY:
+      case RSLILPackage.FOREIGN_KEY__ENTITY:
         setEntity((Entity)newValue);
         return;
-      case RSLILPackage.REFERENCE__REF_TO:
+      case RSLILPackage.FOREIGN_KEY__REF_TO:
         setRefTo((RefAttribute)newValue);
         return;
-      case RSLILPackage.REFERENCE__MULTIPLICITY:
+      case RSLILPackage.FOREIGN_KEY__MULTIPLICITY:
         setMultiplicity((Multiplicity)newValue);
         return;
     }
@@ -296,13 +296,13 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
   {
     switch (featureID)
     {
-      case RSLILPackage.REFERENCE__ENTITY:
+      case RSLILPackage.FOREIGN_KEY__ENTITY:
         setEntity((Entity)null);
         return;
-      case RSLILPackage.REFERENCE__REF_TO:
+      case RSLILPackage.FOREIGN_KEY__REF_TO:
         setRefTo((RefAttribute)null);
         return;
-      case RSLILPackage.REFERENCE__MULTIPLICITY:
+      case RSLILPackage.FOREIGN_KEY__MULTIPLICITY:
         setMultiplicity((Multiplicity)null);
         return;
     }
@@ -319,14 +319,14 @@ public class ReferenceImpl extends MinimalEObjectImpl.Container implements Refer
   {
     switch (featureID)
     {
-      case RSLILPackage.REFERENCE__ENTITY:
+      case RSLILPackage.FOREIGN_KEY__ENTITY:
         return entity != null;
-      case RSLILPackage.REFERENCE__REF_TO:
+      case RSLILPackage.FOREIGN_KEY__REF_TO:
         return refTo != null;
-      case RSLILPackage.REFERENCE__MULTIPLICITY:
+      case RSLILPackage.FOREIGN_KEY__MULTIPLICITY:
         return multiplicity != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //ReferenceImpl
+} //ForeignKeyImpl

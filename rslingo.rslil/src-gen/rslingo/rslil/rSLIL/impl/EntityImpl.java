@@ -20,8 +20,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.Entity;
+import rslingo.rslil.rSLIL.ForeignKey;
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +36,7 @@ import rslingo.rslil.rSLIL.Reference;
  *   <li>{@link rslingo.rslil.rSLIL.impl.EntityImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.EntityImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.EntityImpl#getAttributes <em>Attributes</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.EntityImpl#getReference <em>Reference</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.EntityImpl#getForeignKey <em>Foreign Key</em>}</li>
  * </ul>
  *
  * @generated
@@ -134,14 +134,14 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
   protected EList<Attribute> attributes;
 
   /**
-   * The cached value of the '{@link #getReference() <em>Reference</em>}' containment reference.
+   * The cached value of the '{@link #getForeignKey() <em>Foreign Key</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getReference()
+   * @see #getForeignKey()
    * @generated
    * @ordered
    */
-  protected Reference reference;
+  protected ForeignKey foreignKey;
 
   /**
    * <!-- begin-user-doc -->
@@ -275,9 +275,9 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
    * <!-- end-user-doc -->
    * @generated
    */
-  public Reference getReference()
+  public ForeignKey getForeignKey()
   {
-    return reference;
+    return foreignKey;
   }
 
   /**
@@ -285,13 +285,13 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetReference(Reference newReference, NotificationChain msgs)
+  public NotificationChain basicSetForeignKey(ForeignKey newForeignKey, NotificationChain msgs)
   {
-    Reference oldReference = reference;
-    reference = newReference;
+    ForeignKey oldForeignKey = foreignKey;
+    foreignKey = newForeignKey;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.ENTITY__REFERENCE, oldReference, newReference);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.ENTITY__FOREIGN_KEY, oldForeignKey, newForeignKey);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -302,20 +302,20 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setReference(Reference newReference)
+  public void setForeignKey(ForeignKey newForeignKey)
   {
-    if (newReference != reference)
+    if (newForeignKey != foreignKey)
     {
       NotificationChain msgs = null;
-      if (reference != null)
-        msgs = ((InternalEObject)reference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.ENTITY__REFERENCE, null, msgs);
-      if (newReference != null)
-        msgs = ((InternalEObject)newReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.ENTITY__REFERENCE, null, msgs);
-      msgs = basicSetReference(newReference, msgs);
+      if (foreignKey != null)
+        msgs = ((InternalEObject)foreignKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.ENTITY__FOREIGN_KEY, null, msgs);
+      if (newForeignKey != null)
+        msgs = ((InternalEObject)newForeignKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.ENTITY__FOREIGN_KEY, null, msgs);
+      msgs = basicSetForeignKey(newForeignKey, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.ENTITY__REFERENCE, newReference, newReference));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.ENTITY__FOREIGN_KEY, newForeignKey, newForeignKey));
   }
 
   /**
@@ -330,8 +330,8 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
     {
       case RSLILPackage.ENTITY__ATTRIBUTES:
         return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
-      case RSLILPackage.ENTITY__REFERENCE:
-        return basicSetReference(null, msgs);
+      case RSLILPackage.ENTITY__FOREIGN_KEY:
+        return basicSetForeignKey(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -356,8 +356,8 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
         return getType();
       case RSLILPackage.ENTITY__ATTRIBUTES:
         return getAttributes();
-      case RSLILPackage.ENTITY__REFERENCE:
-        return getReference();
+      case RSLILPackage.ENTITY__FOREIGN_KEY:
+        return getForeignKey();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -389,8 +389,8 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
         getAttributes().clear();
         getAttributes().addAll((Collection<? extends Attribute>)newValue);
         return;
-      case RSLILPackage.ENTITY__REFERENCE:
-        setReference((Reference)newValue);
+      case RSLILPackage.ENTITY__FOREIGN_KEY:
+        setForeignKey((ForeignKey)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -421,8 +421,8 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
       case RSLILPackage.ENTITY__ATTRIBUTES:
         getAttributes().clear();
         return;
-      case RSLILPackage.ENTITY__REFERENCE:
-        setReference((Reference)null);
+      case RSLILPackage.ENTITY__FOREIGN_KEY:
+        setForeignKey((ForeignKey)null);
         return;
     }
     super.eUnset(featureID);
@@ -448,8 +448,8 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case RSLILPackage.ENTITY__ATTRIBUTES:
         return attributes != null && !attributes.isEmpty();
-      case RSLILPackage.ENTITY__REFERENCE:
-        return reference != null;
+      case RSLILPackage.ENTITY__FOREIGN_KEY:
+        return foreignKey != null;
     }
     return super.eIsSet(featureID);
   }

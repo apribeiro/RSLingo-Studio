@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.Entity#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Entity#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Entity#getAttributes <em>Attributes</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Entity#getReference <em>Reference</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Entity#getForeignKey <em>Foreign Key</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getEntity()
@@ -150,29 +150,29 @@ public interface Entity extends EObject
   EList<Attribute> getAttributes();
 
   /**
-   * Returns the value of the '<em><b>Reference</b></em>' containment reference.
+   * Returns the value of the '<em><b>Foreign Key</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Reference</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Foreign Key</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Reference</em>' containment reference.
-   * @see #setReference(Reference)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getEntity_Reference()
+   * @return the value of the '<em>Foreign Key</em>' containment reference.
+   * @see #setForeignKey(ForeignKey)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getEntity_ForeignKey()
    * @model containment="true"
    * @generated
    */
-  Reference getReference();
+  ForeignKey getForeignKey();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Entity#getReference <em>Reference</em>}' containment reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Entity#getForeignKey <em>Foreign Key</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Reference</em>' containment reference.
-   * @see #getReference()
+   * @param value the new value of the '<em>Foreign Key</em>' containment reference.
+   * @see #getForeignKey()
    * @generated
    */
-  void setReference(Reference value);
+  void setForeignKey(ForeignKey value);
 
 } // Entity

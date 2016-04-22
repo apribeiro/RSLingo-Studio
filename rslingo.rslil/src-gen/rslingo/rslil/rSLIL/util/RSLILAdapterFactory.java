@@ -19,6 +19,7 @@ import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.ExtensionPoint;
 import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.Field;
+import rslingo.rslil.rSLIL.ForeignKey;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
@@ -35,7 +36,6 @@ import rslingo.rslil.rSLIL.RefSystem;
 import rslingo.rslil.rSLIL.RefTerm;
 import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
-import rslingo.rslil.rSLIL.Reference;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.Step;
@@ -197,9 +197,9 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
         return createMultiplicityAdapter();
       }
       @Override
-      public Adapter caseReference(Reference object)
+      public Adapter caseForeignKey(ForeignKey object)
       {
-        return createReferenceAdapter();
+        return createForeignKeyAdapter();
       }
       @Override
       public Adapter caseRefAttribute(RefAttribute object)
@@ -564,16 +564,16 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.Reference <em>Reference</em>}'.
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.ForeignKey <em>Foreign Key</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.Reference
+   * @see rslingo.rslil.rSLIL.ForeignKey
    * @generated
    */
-  public Adapter createReferenceAdapter()
+  public Adapter createForeignKeyAdapter()
   {
     return null;
   }

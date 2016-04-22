@@ -100,7 +100,8 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAttributeAccess().getGroup_3(), "rule__Attribute__Group_3__0");
 					put(grammarAccess.getFieldAccess().getGroup(), "rule__Field__Group__0");
 					put(grammarAccess.getFieldAccess().getGroup_6(), "rule__Field__Group_6__0");
-					put(grammarAccess.getReferenceAccess().getGroup(), "rule__Reference__Group__0");
+					put(grammarAccess.getFieldAccess().getGroup_9(), "rule__Field__Group_9__0");
+					put(grammarAccess.getForeignKeyAccess().getGroup(), "rule__ForeignKey__Group__0");
 					put(grammarAccess.getRefAttributeAccess().getGroup(), "rule__RefAttribute__Group__0");
 					put(grammarAccess.getRefAttributeAccess().getGroup_1(), "rule__RefAttribute__Group_1__0");
 					put(grammarAccess.getActorAccess().getGroup(), "rule__Actor__Group__0");
@@ -205,7 +206,7 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEntityAccess().getDescriptionAssignment_5(), "rule__Entity__DescriptionAssignment_5");
 					put(grammarAccess.getEntityAccess().getTypeAssignment_6_1(), "rule__Entity__TypeAssignment_6_1");
 					put(grammarAccess.getEntityAccess().getAttributesAssignment_7(), "rule__Entity__AttributesAssignment_7");
-					put(grammarAccess.getEntityAccess().getReferenceAssignment_8(), "rule__Entity__ReferenceAssignment_8");
+					put(grammarAccess.getEntityAccess().getForeignKeyAssignment_8(), "rule__Entity__ForeignKeyAssignment_8");
 					put(grammarAccess.getAttributeAccess().getNameAssignment_1(), "rule__Attribute__NameAssignment_1");
 					put(grammarAccess.getAttributeAccess().getNameAliasAssignment_3_1(), "rule__Attribute__NameAliasAssignment_3_1");
 					put(grammarAccess.getAttributeAccess().getDescriptionAssignment_5(), "rule__Attribute__DescriptionAssignment_5");
@@ -214,10 +215,11 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFieldAccess().getSizeAssignment_3(), "rule__Field__SizeAssignment_3");
 					put(grammarAccess.getFieldAccess().getMultiplicityAssignment_5(), "rule__Field__MultiplicityAssignment_5");
 					put(grammarAccess.getFieldAccess().getDefaultValueAssignment_6_1(), "rule__Field__DefaultValueAssignment_6_1");
+					put(grammarAccess.getFieldAccess().getValueAssignment_9_1(), "rule__Field__ValueAssignment_9_1");
 					put(grammarAccess.getMultiplicityAccess().getValueAssignment(), "rule__Multiplicity__ValueAssignment");
-					put(grammarAccess.getReferenceAccess().getEntityAssignment_1(), "rule__Reference__EntityAssignment_1");
-					put(grammarAccess.getReferenceAccess().getRefToAssignment_3(), "rule__Reference__RefToAssignment_3");
-					put(grammarAccess.getReferenceAccess().getMultiplicityAssignment_6(), "rule__Reference__MultiplicityAssignment_6");
+					put(grammarAccess.getForeignKeyAccess().getEntityAssignment_1(), "rule__ForeignKey__EntityAssignment_1");
+					put(grammarAccess.getForeignKeyAccess().getRefToAssignment_3(), "rule__ForeignKey__RefToAssignment_3");
+					put(grammarAccess.getForeignKeyAccess().getMultiplicityAssignment_6(), "rule__ForeignKey__MultiplicityAssignment_6");
 					put(grammarAccess.getRefAttributeAccess().getRefAttrAssignment_0(), "rule__RefAttribute__RefAttrAssignment_0");
 					put(grammarAccess.getRefAttributeAccess().getRefsAssignment_1_1(), "rule__RefAttribute__RefsAssignment_1_1");
 					put(grammarAccess.getActorAccess().getNameAssignment_1(), "rule__Actor__NameAssignment_1");

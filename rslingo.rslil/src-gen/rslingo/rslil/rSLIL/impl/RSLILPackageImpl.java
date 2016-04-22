@@ -18,6 +18,7 @@ import rslingo.rslil.rSLIL.DependsOnNFR;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.ExtensionPoint;
 import rslingo.rslil.rSLIL.Field;
+import rslingo.rslil.rSLIL.ForeignKey;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
@@ -34,7 +35,6 @@ import rslingo.rslil.rSLIL.RefSystem;
 import rslingo.rslil.rSLIL.RefTerm;
 import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
-import rslingo.rslil.rSLIL.Reference;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.Step;
@@ -181,7 +181,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass referenceEClass = null;
+  private EClass foreignKeyEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1089,7 +1089,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getEntity_Reference()
+  public EReference getEntity_ForeignKey()
   {
     return (EReference)entityEClass.getEStructuralFeatures().get(5);
   }
@@ -1199,6 +1199,16 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getField_Value()
+  {
+    return (EAttribute)fieldEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getMultiplicity()
   {
     return multiplicityEClass;
@@ -1219,9 +1229,9 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getReference()
+  public EClass getForeignKey()
   {
-    return referenceEClass;
+    return foreignKeyEClass;
   }
 
   /**
@@ -1229,9 +1239,9 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getReference_Entity()
+  public EReference getForeignKey_Entity()
   {
-    return (EReference)referenceEClass.getEStructuralFeatures().get(0);
+    return (EReference)foreignKeyEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1239,9 +1249,9 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getReference_RefTo()
+  public EReference getForeignKey_RefTo()
   {
-    return (EReference)referenceEClass.getEStructuralFeatures().get(1);
+    return (EReference)foreignKeyEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1249,9 +1259,9 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getReference_Multiplicity()
+  public EReference getForeignKey_Multiplicity()
   {
-    return (EReference)referenceEClass.getEStructuralFeatures().get(2);
+    return (EReference)foreignKeyEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2232,7 +2242,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     createEAttribute(entityEClass, ENTITY__DESCRIPTION);
     createEAttribute(entityEClass, ENTITY__TYPE);
     createEReference(entityEClass, ENTITY__ATTRIBUTES);
-    createEReference(entityEClass, ENTITY__REFERENCE);
+    createEReference(entityEClass, ENTITY__FOREIGN_KEY);
 
     attributeEClass = createEClass(ATTRIBUTE);
     createEAttribute(attributeEClass, ATTRIBUTE__NAME);
@@ -2245,14 +2255,15 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     createEAttribute(fieldEClass, FIELD__SIZE);
     createEReference(fieldEClass, FIELD__MULTIPLICITY);
     createEAttribute(fieldEClass, FIELD__DEFAULT_VALUE);
+    createEAttribute(fieldEClass, FIELD__VALUE);
 
     multiplicityEClass = createEClass(MULTIPLICITY);
     createEAttribute(multiplicityEClass, MULTIPLICITY__VALUE);
 
-    referenceEClass = createEClass(REFERENCE);
-    createEReference(referenceEClass, REFERENCE__ENTITY);
-    createEReference(referenceEClass, REFERENCE__REF_TO);
-    createEReference(referenceEClass, REFERENCE__MULTIPLICITY);
+    foreignKeyEClass = createEClass(FOREIGN_KEY);
+    createEReference(foreignKeyEClass, FOREIGN_KEY__ENTITY);
+    createEReference(foreignKeyEClass, FOREIGN_KEY__REF_TO);
+    createEReference(foreignKeyEClass, FOREIGN_KEY__MULTIPLICITY);
 
     refAttributeEClass = createEClass(REF_ATTRIBUTE);
     createEReference(refAttributeEClass, REF_ATTRIBUTE__REF_ATTR);
@@ -2474,7 +2485,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     initEAttribute(getEntity_Description(), ecorePackage.getEString(), "description", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEntity_Type(), ecorePackage.getEString(), "type", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntity_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEntity_Reference(), this.getReference(), null, "reference", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEntity_ForeignKey(), this.getForeignKey(), null, "foreignKey", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2487,14 +2498,15 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     initEAttribute(getField_Size(), ecorePackage.getEInt(), "size", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getField_Multiplicity(), this.getMultiplicity(), null, "multiplicity", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getField_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getField_Value(), ecorePackage.getEString(), "value", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(multiplicityEClass, Multiplicity.class, "Multiplicity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMultiplicity_Value(), ecorePackage.getEString(), "value", null, 0, 1, Multiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getReference_Entity(), this.getEntity(), null, "entity", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getReference_RefTo(), this.getRefAttribute(), null, "refTo", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getReference_Multiplicity(), this.getMultiplicity(), null, "multiplicity", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(foreignKeyEClass, ForeignKey.class, "ForeignKey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getForeignKey_Entity(), this.getEntity(), null, "entity", null, 0, 1, ForeignKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForeignKey_RefTo(), this.getRefAttribute(), null, "refTo", null, 0, 1, ForeignKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getForeignKey_Multiplicity(), this.getMultiplicity(), null, "multiplicity", null, 0, 1, ForeignKey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(refAttributeEClass, RefAttribute.class, "RefAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRefAttribute_RefAttr(), this.getAttribute(), null, "refAttr", null, 0, 1, RefAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

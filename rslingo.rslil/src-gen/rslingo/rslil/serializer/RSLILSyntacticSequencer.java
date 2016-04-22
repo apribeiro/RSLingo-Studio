@@ -20,6 +20,8 @@ import rslingo.rslil.services.RSLILGrammarAccess;
 public class RSLILSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected RSLILGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Field_NotNullKeyword_7_q;
+	protected AbstractElementAlias match_Field_UniqueKeyword_8_q;
 	protected AbstractElementAlias match_UseCase_FunctionalRequirementsKeyword_12_0_q;
 	protected AbstractElementAlias match_UseCase_GoalsKeyword_11_0_q;
 	protected AbstractElementAlias match_UseCase_IncludeKeyword_18_0_q;
@@ -27,6 +29,8 @@ public class RSLILSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (RSLILGrammarAccess) access;
+		match_Field_NotNullKeyword_7_q = new TokenAlias(false, true, grammarAccess.getFieldAccess().getNotNullKeyword_7());
+		match_Field_UniqueKeyword_8_q = new TokenAlias(false, true, grammarAccess.getFieldAccess().getUniqueKeyword_8());
 		match_UseCase_FunctionalRequirementsKeyword_12_0_q = new TokenAlias(false, true, grammarAccess.getUseCaseAccess().getFunctionalRequirementsKeyword_12_0());
 		match_UseCase_GoalsKeyword_11_0_q = new TokenAlias(false, true, grammarAccess.getUseCaseAccess().getGoalsKeyword_11_0());
 		match_UseCase_IncludeKeyword_18_0_q = new TokenAlias(false, true, grammarAccess.getUseCaseAccess().getIncludeKeyword_18_0());
@@ -44,7 +48,11 @@ public class RSLILSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_UseCase_FunctionalRequirementsKeyword_12_0_q.equals(syntax))
+			if(match_Field_NotNullKeyword_7_q.equals(syntax))
+				emit_Field_NotNullKeyword_7_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Field_UniqueKeyword_8_q.equals(syntax))
+				emit_Field_UniqueKeyword_8_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UseCase_FunctionalRequirementsKeyword_12_0_q.equals(syntax))
 				emit_UseCase_FunctionalRequirementsKeyword_12_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_UseCase_GoalsKeyword_11_0_q.equals(syntax))
 				emit_UseCase_GoalsKeyword_11_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -54,6 +62,34 @@ public class RSLILSyntacticSequencer extends AbstractSyntacticSequencer {
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     'NotNull'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     defaultValue=STRING (ambiguity) 'Unique'? 'Check' value=STRING
+	 *     defaultValue=STRING (ambiguity) 'Unique'? '}' (rule end)
+	 *     multiplicity=Multiplicity (ambiguity) 'Unique'? 'Check' value=STRING
+	 *     multiplicity=Multiplicity (ambiguity) 'Unique'? '}' (rule end)
+	 */
+	protected void emit_Field_NotNullKeyword_7_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     'Unique'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     defaultValue=STRING 'NotNull'? (ambiguity) 'Check' value=STRING
+	 *     defaultValue=STRING 'NotNull'? (ambiguity) '}' (rule end)
+	 *     multiplicity=Multiplicity 'NotNull'? (ambiguity) 'Check' value=STRING
+	 *     multiplicity=Multiplicity 'NotNull'? (ambiguity) '}' (rule end)
+	 */
+	protected void emit_Field_UniqueKeyword_8_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * Ambiguous syntax:
 	 *     'FunctionalRequirements'?

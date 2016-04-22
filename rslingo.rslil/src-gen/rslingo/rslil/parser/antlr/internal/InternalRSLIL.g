@@ -2029,17 +2029,17 @@ ruleEntity returns [EObject current=null]
 )+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getEntityAccess().getReferenceReferenceParserRuleCall_8_0()); 
+	        newCompositeNode(grammarAccess.getEntityAccess().getForeignKeyForeignKeyParserRuleCall_8_0()); 
 	    }
-		lv_reference_10_0=ruleReference		{
+		lv_foreignKey_10_0=ruleForeignKey		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getEntityRule());
 	        }
        		set(
        			$current, 
-       			"reference",
-        		lv_reference_10_0, 
-        		"Reference");
+       			"foreignKey",
+        		lv_foreignKey_10_0, 
+        		"ForeignKey");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2410,9 +2410,39 @@ ruleField returns [EObject current=null]
 	    }
 
 )
-))?	otherlv_8='}' 
+))?(	otherlv_8='NotNull' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getFieldAccess().getRightCurlyBracketKeyword_7());
+    	newLeafNode(otherlv_8, grammarAccess.getFieldAccess().getNotNullKeyword_7());
+    }
+)?(	otherlv_9='Unique' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getFieldAccess().getUniqueKeyword_8());
+    }
+)?(	otherlv_10='Check' 
+    {
+    	newLeafNode(otherlv_10, grammarAccess.getFieldAccess().getCheckKeyword_9_0());
+    }
+(
+(
+		lv_value_11_0=RULE_STRING
+		{
+			newLeafNode(lv_value_11_0, grammarAccess.getFieldAccess().getValueSTRINGTerminalRuleCall_9_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"value",
+        		lv_value_11_0, 
+        		"STRING");
+	    }
+
+)
+))?	otherlv_12='}' 
+    {
+    	newLeafNode(otherlv_12, grammarAccess.getFieldAccess().getRightCurlyBracketKeyword_10());
     }
 )
 ;
@@ -2511,49 +2541,49 @@ ruleMultiplicity returns [EObject current=null]
 
 
 
-// Entry rule entryRuleReference
-entryRuleReference returns [EObject current=null] 
+// Entry rule entryRuleForeignKey
+entryRuleForeignKey returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getReferenceRule()); }
-	 iv_ruleReference=ruleReference 
-	 { $current=$iv_ruleReference.current; } 
+	{ newCompositeNode(grammarAccess.getForeignKeyRule()); }
+	 iv_ruleForeignKey=ruleForeignKey 
+	 { $current=$iv_ruleForeignKey.current; } 
 	 EOF 
 ;
 
-// Rule Reference
-ruleReference returns [EObject current=null] 
+// Rule ForeignKey
+ruleForeignKey returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='Reference' 
+(	otherlv_0='ForeignKey' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getReferenceAccess().getReferenceKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getForeignKeyAccess().getForeignKeyKeyword_0());
     }
 (
 (
 		{
 			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getReferenceRule());
+	            $current = createModelElement(grammarAccess.getForeignKeyRule());
 	        }
         }
 	otherlv_1=RULE_ID
 	{
-		newLeafNode(otherlv_1, grammarAccess.getReferenceAccess().getEntityEntityCrossReference_1_0()); 
+		newLeafNode(otherlv_1, grammarAccess.getForeignKeyAccess().getEntityEntityCrossReference_1_0()); 
 	}
 
 )
 )	otherlv_2='(' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getReferenceAccess().getLeftParenthesisKeyword_2());
+    	newLeafNode(otherlv_2, grammarAccess.getForeignKeyAccess().getLeftParenthesisKeyword_2());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getReferenceAccess().getRefToRefAttributeParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getForeignKeyAccess().getRefToRefAttributeParserRuleCall_3_0()); 
 	    }
 		lv_refTo_3_0=ruleRefAttribute		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getReferenceRule());
+	            $current = createModelElementForParent(grammarAccess.getForeignKeyRule());
 	        }
        		set(
        			$current, 
@@ -2566,20 +2596,20 @@ ruleReference returns [EObject current=null]
 )
 )	otherlv_4=')' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getReferenceAccess().getRightParenthesisKeyword_4());
+    	newLeafNode(otherlv_4, grammarAccess.getForeignKeyAccess().getRightParenthesisKeyword_4());
     }
 	otherlv_5='Multiplicity' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getReferenceAccess().getMultiplicityKeyword_5());
+    	newLeafNode(otherlv_5, grammarAccess.getForeignKeyAccess().getMultiplicityKeyword_5());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getReferenceAccess().getMultiplicityMultiplicityParserRuleCall_6_0()); 
+	        newCompositeNode(grammarAccess.getForeignKeyAccess().getMultiplicityMultiplicityParserRuleCall_6_0()); 
 	    }
 		lv_multiplicity_6_0=ruleMultiplicity		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getReferenceRule());
+	            $current = createModelElementForParent(grammarAccess.getForeignKeyRule());
 	        }
        		set(
        			$current, 
@@ -4583,9 +4613,9 @@ ruleNFR returns [EObject current=null]
        		setWithLastConsumed($current, "subType", lv_subType_10_3, null);
 	    }
 
-    |		lv_subType_10_4=	'Usability.EaseOfLean' 
+    |		lv_subType_10_4=	'Usability.EaseOfLearn' 
     {
-        newLeafNode(lv_subType_10_4, grammarAccess.getNFRAccess().getSubTypeUsabilityEaseOfLeanKeyword_8_1_0_3());
+        newLeafNode(lv_subType_10_4, grammarAccess.getNFRAccess().getSubTypeUsabilityEaseOfLearnKeyword_8_1_0_3());
     }
  
 	    {

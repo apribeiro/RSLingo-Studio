@@ -17,6 +17,7 @@ import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.ExtensionPoint;
 import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.Field;
+import rslingo.rslil.rSLIL.ForeignKey;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
@@ -33,7 +34,6 @@ import rslingo.rslil.rSLIL.RefSystem;
 import rslingo.rslil.rSLIL.RefTerm;
 import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
-import rslingo.rslil.rSLIL.Reference;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.Step;
@@ -230,10 +230,10 @@ public class RSLILSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RSLILPackage.REFERENCE:
+      case RSLILPackage.FOREIGN_KEY:
       {
-        Reference reference = (Reference)theEObject;
-        T result = caseReference(reference);
+        ForeignKey foreignKey = (ForeignKey)theEObject;
+        T result = caseForeignKey(foreignKey);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -628,17 +628,17 @@ public class RSLILSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Reference</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Foreign Key</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Reference</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Foreign Key</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseReference(Reference object)
+  public T caseForeignKey(ForeignKey object)
   {
     return null;
   }

@@ -95,7 +95,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Entity/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Entity/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Entity/attributes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Entity/reference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Entity/foreignKey"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Attribute/name"/>
@@ -108,14 +108,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Field/size"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Field/multiplicity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Field/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Field/value"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//Multiplicity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Multiplicity/value"/>
     </genClasses>
-    <genClasses ecoreClass="RSLIL.ecore#//Reference">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Reference/entity"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Reference/refTo"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Reference/multiplicity"/>
+    <genClasses ecoreClass="RSLIL.ecore#//ForeignKey">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//ForeignKey/entity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//ForeignKey/refTo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//ForeignKey/multiplicity"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//RefAttribute">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefAttribute/refAttr"/>

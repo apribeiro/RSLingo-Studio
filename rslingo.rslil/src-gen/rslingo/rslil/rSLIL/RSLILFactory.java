@@ -185,13 +185,13 @@ public interface RSLILFactory extends EFactory
   Multiplicity createMultiplicity();
 
   /**
-   * Returns a new object of class '<em>Reference</em>'.
+   * Returns a new object of class '<em>Foreign Key</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Reference</em>'.
+   * @return a new object of class '<em>Foreign Key</em>'.
    * @generated
    */
-  Reference createReference();
+  ForeignKey createForeignKey();
 
   /**
    * Returns a new object of class '<em>Ref Attribute</em>'.

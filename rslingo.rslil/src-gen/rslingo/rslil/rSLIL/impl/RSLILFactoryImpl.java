@@ -20,6 +20,7 @@ import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.ExtensionPoint;
 import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.Field;
+import rslingo.rslil.rSLIL.ForeignKey;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
@@ -37,7 +38,6 @@ import rslingo.rslil.rSLIL.RefSystem;
 import rslingo.rslil.rSLIL.RefTerm;
 import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
-import rslingo.rslil.rSLIL.Reference;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.Step;
@@ -115,7 +115,7 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
       case RSLILPackage.ATTRIBUTE: return createAttribute();
       case RSLILPackage.FIELD: return createField();
       case RSLILPackage.MULTIPLICITY: return createMultiplicity();
-      case RSLILPackage.REFERENCE: return createReference();
+      case RSLILPackage.FOREIGN_KEY: return createForeignKey();
       case RSLILPackage.REF_ATTRIBUTE: return createRefAttribute();
       case RSLILPackage.ACTOR: return createActor();
       case RSLILPackage.USE_CASE: return createUseCase();
@@ -338,10 +338,10 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Reference createReference()
+  public ForeignKey createForeignKey()
   {
-    ReferenceImpl reference = new ReferenceImpl();
-    return reference;
+    ForeignKeyImpl foreignKey = new ForeignKeyImpl();
+    return foreignKey;
   }
 
   /**

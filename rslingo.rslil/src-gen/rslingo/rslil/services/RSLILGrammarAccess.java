@@ -1107,17 +1107,19 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTypeSecondaryKeyword_6_1_0_1 = (Keyword)cTypeAlternatives_6_1_0.eContents().get(1);
 		private final Assignment cAttributesAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cAttributesAttributeParserRuleCall_7_0 = (RuleCall)cAttributesAssignment_7.eContents().get(0);
-		private final Assignment cReferenceAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cReferenceReferenceParserRuleCall_8_0 = (RuleCall)cReferenceAssignment_8.eContents().get(0);
+		private final Assignment cForeignKeyAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cForeignKeyForeignKeyParserRuleCall_8_0 = (RuleCall)cForeignKeyAssignment_8.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Entity:
 		//	"Entity" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING ("Type" type=("Main" |
-		//	"Secondary"))? attributes+=Attribute+ reference=Reference? "}";
+		//	"Secondary"))? attributes+=Attribute+ // TODO PrimaryKey
+		//	foreignKey=ForeignKey? "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//"Entity" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING ("Type" type=("Main" | "Secondary"))?
-		//attributes+=Attribute+ reference=Reference? "}"
+		//attributes+=Attribute+ // TODO PrimaryKey
+		//foreignKey=ForeignKey? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Entity"
@@ -1177,11 +1179,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//Attribute
 		public RuleCall getAttributesAttributeParserRuleCall_7_0() { return cAttributesAttributeParserRuleCall_7_0; }
 
-		//reference=Reference?
-		public Assignment getReferenceAssignment_8() { return cReferenceAssignment_8; }
+		//foreignKey=ForeignKey?
+		public Assignment getForeignKeyAssignment_8() { return cForeignKeyAssignment_8; }
 
-		//Reference
-		public RuleCall getReferenceReferenceParserRuleCall_8_0() { return cReferenceReferenceParserRuleCall_8_0; }
+		//ForeignKey
+		public RuleCall getForeignKeyForeignKeyParserRuleCall_8_0() { return cForeignKeyForeignKeyParserRuleCall_8_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
@@ -1336,23 +1338,21 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDefaultValueKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cDefaultValueAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
 		private final RuleCall cDefaultValueSTRINGTerminalRuleCall_6_1_0 = (RuleCall)cDefaultValueAssignment_6_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cNotNullKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cUniqueKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Keyword cCheckKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cValueAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_9_1_0 = (RuleCall)cValueAssignment_9_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//Field:
 		//	"Field" "{" "Size" size=INT "Multiplicity" multiplicity=Multiplicity ("DefaultValue" defaultValue=STRING)? // TODO Constraints
-		//	// NOT NULL
-		//	// UNIQUE
-		//	// PK
-		//	// CHECK
-		//	"}";
+		//	"NotNull"? "Unique"? ("Check" value=STRING)? "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//"Field" "{" "Size" size=INT "Multiplicity" multiplicity=Multiplicity ("DefaultValue" defaultValue=STRING)? // TODO Constraints
-		//// NOT NULL
-		//// UNIQUE
-		//// PK
-		//// CHECK
-		//"}"
+		//"NotNull"? "Unique"? ("Check" value=STRING)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Field"
@@ -1391,13 +1391,26 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getDefaultValueSTRINGTerminalRuleCall_6_1_0() { return cDefaultValueSTRINGTerminalRuleCall_6_1_0; }
 
-		//// TODO Constraints
-		//// NOT NULL
-		//// UNIQUE
-		//// PK
-		//// CHECK
+		//"NotNull"?
+		public Keyword getNotNullKeyword_7() { return cNotNullKeyword_7; }
+
+		//"Unique"?
+		public Keyword getUniqueKeyword_8() { return cUniqueKeyword_8; }
+
+		//("Check" value=STRING)?
+		public Group getGroup_9() { return cGroup_9; }
+
+		//"Check"
+		public Keyword getCheckKeyword_9_0() { return cCheckKeyword_9_0; }
+
+		//value=STRING
+		public Assignment getValueAssignment_9_1() { return cValueAssignment_9_1; }
+
+		//STRING
+		public RuleCall getValueSTRINGTerminalRuleCall_9_1_0() { return cValueSTRINGTerminalRuleCall_9_1_0; }
+
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
 	}
 
 	public class MultiplicityElements extends AbstractParserRuleElementFinder {
@@ -1436,10 +1449,10 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getValueSTRINGTerminalRuleCall_0_4() { return cValueSTRINGTerminalRuleCall_0_4; }
 	}
 
-	public class ReferenceElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Reference");
+	public class ForeignKeyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ForeignKey");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cReferenceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cForeignKeyKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cEntityAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cEntityEntityCrossReference_1_0 = (CrossReference)cEntityAssignment_1.eContents().get(0);
 		private final RuleCall cEntityEntityIDTerminalRuleCall_1_0_1 = (RuleCall)cEntityEntityCrossReference_1_0.eContents().get(1);
@@ -1451,15 +1464,15 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cMultiplicityAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cMultiplicityMultiplicityParserRuleCall_6_0 = (RuleCall)cMultiplicityAssignment_6.eContents().get(0);
 		
-		//Reference:
-		//	"Reference" entity=[Entity] "(" refTo=RefAttribute ")" "Multiplicity" multiplicity=Multiplicity;
+		//ForeignKey:
+		//	"ForeignKey" entity=[Entity] "(" refTo=RefAttribute ")" "Multiplicity" multiplicity=Multiplicity;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Reference" entity=[Entity] "(" refTo=RefAttribute ")" "Multiplicity" multiplicity=Multiplicity
+		//"ForeignKey" entity=[Entity] "(" refTo=RefAttribute ")" "Multiplicity" multiplicity=Multiplicity
 		public Group getGroup() { return cGroup; }
 
-		//"Reference"
-		public Keyword getReferenceKeyword_0() { return cReferenceKeyword_0; }
+		//"ForeignKey"
+		public Keyword getForeignKeyKeyword_0() { return cForeignKeyKeyword_0; }
 
 		//entity=[Entity]
 		public Assignment getEntityAssignment_1() { return cEntityAssignment_1; }
@@ -1739,20 +1752,21 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//UseCase:
 		//	"UseCase" name=ID "{" ("Name" nameAlias=STRING)? "Type" type=("EntityManage" | "EntityBrowse" | "EntitySearch" |
-		//	"EntityCreate" | "EntityDelete" | "EntitySync" | "Report") "Description" description=STRING "Priority"
-		//	priotity=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh") extensionnPoints+=ExtensionPoint* ("Goals"
-		//	goals+=RefGoal*)? ("FunctionalRequirements" frs+=RefFR*)? "ActorInitiates" actorInitiates=[Actor]
-		//	("ActorParticipates" actors=RefActor)? ("Pre-Conditions" preConditions=STRING)? ("Post-Conditions"
-		//	postConditions=STRING)? ("Include" includes+=RefUC*)? ("Extend" extends=[UseCase] "on" extPoint=[ExtensionPoint])?
-		//	scenarios+=Scenario* "}";
+		//	"EntityCreate" | "EntityDelete" | "EntitySync" | "Report") // TODO Entities Products as Master, ProductLine as Detail, ... 
+		//	"Description" description=STRING "Priority" priotity=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh")
+		//	extensionnPoints+=ExtensionPoint* ("Goals" goals+=RefGoal*)? ("FunctionalRequirements" frs+=RefFR*)? "ActorInitiates"
+		//	actorInitiates=[Actor] ("ActorParticipates" actors=RefActor)? ("Pre-Conditions" preConditions=STRING)?
+		//	("Post-Conditions" postConditions=STRING)? ("Include" includes+=RefUC*)? ("Extend" extends=[UseCase] "on"
+		//	extPoint=[ExtensionPoint])? scenarios+=Scenario* "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//"UseCase" name=ID "{" ("Name" nameAlias=STRING)? "Type" type=("EntityManage" | "EntityBrowse" | "EntitySearch" |
-		//"EntityCreate" | "EntityDelete" | "EntitySync" | "Report") "Description" description=STRING "Priority"
-		//priotity=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh") extensionnPoints+=ExtensionPoint* ("Goals"
-		//goals+=RefGoal*)? ("FunctionalRequirements" frs+=RefFR*)? "ActorInitiates" actorInitiates=[Actor] ("ActorParticipates"
-		//actors=RefActor)? ("Pre-Conditions" preConditions=STRING)? ("Post-Conditions" postConditions=STRING)? ("Include"
-		//includes+=RefUC*)? ("Extend" extends=[UseCase] "on" extPoint=[ExtensionPoint])? scenarios+=Scenario* "}"
+		//"EntityCreate" | "EntityDelete" | "EntitySync" | "Report") // TODO Entities Products as Master, ProductLine as Detail, ... 
+		//"Description" description=STRING "Priority" priotity=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh")
+		//extensionnPoints+=ExtensionPoint* ("Goals" goals+=RefGoal*)? ("FunctionalRequirements" frs+=RefFR*)? "ActorInitiates"
+		//actorInitiates=[Actor] ("ActorParticipates" actors=RefActor)? ("Pre-Conditions" preConditions=STRING)?
+		//("Post-Conditions" postConditions=STRING)? ("Include" includes+=RefUC*)? ("Extend" extends=[UseCase] "on"
+		//extPoint=[ExtensionPoint])? scenarios+=Scenario* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"UseCase"
@@ -1809,6 +1823,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Report"
 		public Keyword getTypeReportKeyword_5_0_6() { return cTypeReportKeyword_5_0_6; }
 
+		//// TODO Entities Products as Master, ProductLine as Detail, ... 
 		//"Description"
 		public Keyword getDescriptionKeyword_6() { return cDescriptionKeyword_6; }
 
@@ -2689,7 +2704,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSubTypeSecurityPrivacyKeyword_8_1_0_0 = (Keyword)cSubTypeAlternatives_8_1_0.eContents().get(0);
 		private final Keyword cSubTypeSecurityIntegrityKeyword_8_1_0_1 = (Keyword)cSubTypeAlternatives_8_1_0.eContents().get(1);
 		private final Keyword cSubTypeUsabilityEaseOfUseKeyword_8_1_0_2 = (Keyword)cSubTypeAlternatives_8_1_0.eContents().get(2);
-		private final Keyword cSubTypeUsabilityEaseOfLeanKeyword_8_1_0_3 = (Keyword)cSubTypeAlternatives_8_1_0.eContents().get(3);
+		private final Keyword cSubTypeUsabilityEaseOfLearnKeyword_8_1_0_3 = (Keyword)cSubTypeAlternatives_8_1_0.eContents().get(3);
 		private final Keyword cSubTypeUsabilityAccessibilityKeyword_8_1_0_4 = (Keyword)cSubTypeAlternatives_8_1_0.eContents().get(4);
 		private final Keyword cMetricKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		private final Assignment cMetricAssignment_10 = (Assignment)cGroup.eContents().get(10);
@@ -2728,7 +2743,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//NFR:
 		//	"Non-FunctionalRequirement" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING "Type"
 		//	type=("Security" | "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal")
-		//	("Sub-Type" subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLean" |
+		//	("Sub-Type" subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLearn" |
 		//	"Usability.Accessibility"))? "Metric" metric=("Hours" | "Mins" | "Secs" | "mSecs" | "Tasks" | "Other") "Value"
 		//	value=INT ("Stakeholder" stakeholder=[Stakeholder])? "Priority" priority=("VeryLow" | "Low" | "Medium" | "High" |
 		//	"VeryHigh") depends+=DependsOnNFR* ("PartOf" partOf=[NFR])? "}";
@@ -2736,7 +2751,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"Non-FunctionalRequirement" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING "Type"
 		//type=("Security" | "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal")
-		//("Sub-Type" subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLean" |
+		//("Sub-Type" subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLearn" |
 		//"Usability.Accessibility"))? "Metric" metric=("Hours" | "Mins" | "Secs" | "mSecs" | "Tasks" | "Other") "Value"
 		//value=INT ("Stakeholder" stakeholder=[Stakeholder])? "Priority" priority=("VeryLow" | "Low" | "Medium" | "High" |
 		//"VeryHigh") depends+=DependsOnNFR* ("PartOf" partOf=[NFR])? "}"
@@ -2808,18 +2823,18 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Legal"
 		public Keyword getTypeLegalKeyword_7_0_7() { return cTypeLegalKeyword_7_0_7; }
 
-		//("Sub-Type" subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLean" |
+		//("Sub-Type" subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLearn" |
 		//"Usability.Accessibility"))?
 		public Group getGroup_8() { return cGroup_8; }
 
 		//"Sub-Type"
 		public Keyword getSubTypeKeyword_8_0() { return cSubTypeKeyword_8_0; }
 
-		//subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLean" |
+		//subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLearn" |
 		//"Usability.Accessibility")
 		public Assignment getSubTypeAssignment_8_1() { return cSubTypeAssignment_8_1; }
 
-		//"Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLean" | "Usability.Accessibility"
+		//"Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLearn" | "Usability.Accessibility"
 		public Alternatives getSubTypeAlternatives_8_1_0() { return cSubTypeAlternatives_8_1_0; }
 
 		//"Security.Privacy"
@@ -2831,8 +2846,8 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Usability.EaseOfUse"
 		public Keyword getSubTypeUsabilityEaseOfUseKeyword_8_1_0_2() { return cSubTypeUsabilityEaseOfUseKeyword_8_1_0_2; }
 
-		//"Usability.EaseOfLean"
-		public Keyword getSubTypeUsabilityEaseOfLeanKeyword_8_1_0_3() { return cSubTypeUsabilityEaseOfLeanKeyword_8_1_0_3; }
+		//"Usability.EaseOfLearn"
+		public Keyword getSubTypeUsabilityEaseOfLearnKeyword_8_1_0_3() { return cSubTypeUsabilityEaseOfLearnKeyword_8_1_0_3; }
 
 		//"Usability.Accessibility"
 		public Keyword getSubTypeUsabilityAccessibilityKeyword_8_1_0_4() { return cSubTypeUsabilityAccessibilityKeyword_8_1_0_4; }
@@ -3040,7 +3055,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	private final AttributeElements pAttribute;
 	private final FieldElements pField;
 	private final MultiplicityElements pMultiplicity;
-	private final ReferenceElements pReference;
+	private final ForeignKeyElements pForeignKey;
 	private final RefAttributeElements pRefAttribute;
 	private final ActorElements pActor;
 	private final UseCaseElements pUseCase;
@@ -3083,7 +3098,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		this.pAttribute = new AttributeElements();
 		this.pField = new FieldElements();
 		this.pMultiplicity = new MultiplicityElements();
-		this.pReference = new ReferenceElements();
+		this.pForeignKey = new ForeignKeyElements();
 		this.pRefAttribute = new RefAttributeElements();
 		this.pActor = new ActorElements();
 		this.pUseCase = new UseCaseElements();
@@ -3281,7 +3296,8 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Entity:
 	//	"Entity" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING ("Type" type=("Main" |
-	//	"Secondary"))? attributes+=Attribute+ reference=Reference? "}";
+	//	"Secondary"))? attributes+=Attribute+ // TODO PrimaryKey
+	//	foreignKey=ForeignKey? "}";
 	public EntityElements getEntityAccess() {
 		return pEntity;
 	}
@@ -3304,11 +3320,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Field:
 	//	"Field" "{" "Size" size=INT "Multiplicity" multiplicity=Multiplicity ("DefaultValue" defaultValue=STRING)? // TODO Constraints
-	//	// NOT NULL
-	//	// UNIQUE
-	//	// PK
-	//	// CHECK
-	//	"}";
+	//	"NotNull"? "Unique"? ("Check" value=STRING)? "}";
 	public FieldElements getFieldAccess() {
 		return pField;
 	}
@@ -3327,14 +3339,14 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		return getMultiplicityAccess().getRule();
 	}
 
-	//Reference:
-	//	"Reference" entity=[Entity] "(" refTo=RefAttribute ")" "Multiplicity" multiplicity=Multiplicity;
-	public ReferenceElements getReferenceAccess() {
-		return pReference;
+	//ForeignKey:
+	//	"ForeignKey" entity=[Entity] "(" refTo=RefAttribute ")" "Multiplicity" multiplicity=Multiplicity;
+	public ForeignKeyElements getForeignKeyAccess() {
+		return pForeignKey;
 	}
 	
-	public ParserRule getReferenceRule() {
-		return getReferenceAccess().getRule();
+	public ParserRule getForeignKeyRule() {
+		return getForeignKeyAccess().getRule();
 	}
 
 	//RefAttribute:
@@ -3360,12 +3372,12 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 
 	//UseCase:
 	//	"UseCase" name=ID "{" ("Name" nameAlias=STRING)? "Type" type=("EntityManage" | "EntityBrowse" | "EntitySearch" |
-	//	"EntityCreate" | "EntityDelete" | "EntitySync" | "Report") "Description" description=STRING "Priority"
-	//	priotity=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh") extensionnPoints+=ExtensionPoint* ("Goals"
-	//	goals+=RefGoal*)? ("FunctionalRequirements" frs+=RefFR*)? "ActorInitiates" actorInitiates=[Actor]
-	//	("ActorParticipates" actors=RefActor)? ("Pre-Conditions" preConditions=STRING)? ("Post-Conditions"
-	//	postConditions=STRING)? ("Include" includes+=RefUC*)? ("Extend" extends=[UseCase] "on" extPoint=[ExtensionPoint])?
-	//	scenarios+=Scenario* "}";
+	//	"EntityCreate" | "EntityDelete" | "EntitySync" | "Report") // TODO Entities Products as Master, ProductLine as Detail, ... 
+	//	"Description" description=STRING "Priority" priotity=("VeryLow" | "Low" | "Medium" | "High" | "VeryHigh")
+	//	extensionnPoints+=ExtensionPoint* ("Goals" goals+=RefGoal*)? ("FunctionalRequirements" frs+=RefFR*)? "ActorInitiates"
+	//	actorInitiates=[Actor] ("ActorParticipates" actors=RefActor)? ("Pre-Conditions" preConditions=STRING)?
+	//	("Post-Conditions" postConditions=STRING)? ("Include" includes+=RefUC*)? ("Extend" extends=[UseCase] "on"
+	//	extPoint=[ExtensionPoint])? scenarios+=Scenario* "}";
 	public UseCaseElements getUseCaseAccess() {
 		return pUseCase;
 	}
@@ -3463,7 +3475,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	//NFR:
 	//	"Non-FunctionalRequirement" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING "Type"
 	//	type=("Security" | "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal")
-	//	("Sub-Type" subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLean" |
+	//	("Sub-Type" subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLearn" |
 	//	"Usability.Accessibility"))? "Metric" metric=("Hours" | "Mins" | "Secs" | "mSecs" | "Tasks" | "Other") "Value"
 	//	value=INT ("Stakeholder" stakeholder=[Stakeholder])? "Priority" priority=("VeryLow" | "Low" | "Medium" | "High" |
 	//	"VeryHigh") depends+=DependsOnNFR* ("PartOf" partOf=[NFR])? "}";

@@ -864,13 +864,13 @@ public interface RSLILPackage extends EPackage
   int ENTITY__ATTRIBUTES = 4;
 
   /**
-   * The feature id for the '<em><b>Reference</b></em>' containment reference.
+   * The feature id for the '<em><b>Foreign Key</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENTITY__REFERENCE = 5;
+  int ENTITY__FOREIGN_KEY = 5;
 
   /**
    * The number of structural features of the '<em>Entity</em>' class.
@@ -983,13 +983,22 @@ public interface RSLILPackage extends EPackage
   int FIELD__DEFAULT_VALUE = 2;
 
   /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD__VALUE = 3;
+
+  /**
    * The number of structural features of the '<em>Field</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD_FEATURE_COUNT = 3;
+  int FIELD_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.MultiplicityImpl <em>Multiplicity</em>}' class.
@@ -1020,14 +1029,14 @@ public interface RSLILPackage extends EPackage
   int MULTIPLICITY_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.ReferenceImpl <em>Reference</em>}' class.
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.ForeignKeyImpl <em>Foreign Key</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see rslingo.rslil.rSLIL.impl.ReferenceImpl
-   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getReference()
+   * @see rslingo.rslil.rSLIL.impl.ForeignKeyImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getForeignKey()
    * @generated
    */
-  int REFERENCE = 18;
+  int FOREIGN_KEY = 18;
 
   /**
    * The feature id for the '<em><b>Entity</b></em>' reference.
@@ -1036,7 +1045,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REFERENCE__ENTITY = 0;
+  int FOREIGN_KEY__ENTITY = 0;
 
   /**
    * The feature id for the '<em><b>Ref To</b></em>' containment reference.
@@ -1045,7 +1054,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REFERENCE__REF_TO = 1;
+  int FOREIGN_KEY__REF_TO = 1;
 
   /**
    * The feature id for the '<em><b>Multiplicity</b></em>' containment reference.
@@ -1054,16 +1063,16 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REFERENCE__MULTIPLICITY = 2;
+  int FOREIGN_KEY__MULTIPLICITY = 2;
 
   /**
-   * The number of structural features of the '<em>Reference</em>' class.
+   * The number of structural features of the '<em>Foreign Key</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REFERENCE_FEATURE_COUNT = 3;
+  int FOREIGN_KEY_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.RefAttributeImpl <em>Ref Attribute</em>}' class.
@@ -2780,15 +2789,15 @@ public interface RSLILPackage extends EPackage
   EReference getEntity_Attributes();
 
   /**
-   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Entity#getReference <em>Reference</em>}'.
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Entity#getForeignKey <em>Foreign Key</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Reference</em>'.
-   * @see rslingo.rslil.rSLIL.Entity#getReference()
+   * @return the meta object for the containment reference '<em>Foreign Key</em>'.
+   * @see rslingo.rslil.rSLIL.Entity#getForeignKey()
    * @see #getEntity()
    * @generated
    */
-  EReference getEntity_Reference();
+  EReference getEntity_ForeignKey();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.Attribute <em>Attribute</em>}'.
@@ -2899,6 +2908,17 @@ public interface RSLILPackage extends EPackage
   EAttribute getField_DefaultValue();
 
   /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Field#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see rslingo.rslil.rSLIL.Field#getValue()
+   * @see #getField()
+   * @generated
+   */
+  EAttribute getField_Value();
+
+  /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.Multiplicity <em>Multiplicity</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2920,47 +2940,47 @@ public interface RSLILPackage extends EPackage
   EAttribute getMultiplicity_Value();
 
   /**
-   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.Reference <em>Reference</em>}'.
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.ForeignKey <em>Foreign Key</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Reference</em>'.
-   * @see rslingo.rslil.rSLIL.Reference
+   * @return the meta object for class '<em>Foreign Key</em>'.
+   * @see rslingo.rslil.rSLIL.ForeignKey
    * @generated
    */
-  EClass getReference();
+  EClass getForeignKey();
 
   /**
-   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.Reference#getEntity <em>Entity</em>}'.
+   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.ForeignKey#getEntity <em>Entity</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Entity</em>'.
-   * @see rslingo.rslil.rSLIL.Reference#getEntity()
-   * @see #getReference()
+   * @see rslingo.rslil.rSLIL.ForeignKey#getEntity()
+   * @see #getForeignKey()
    * @generated
    */
-  EReference getReference_Entity();
+  EReference getForeignKey_Entity();
 
   /**
-   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Reference#getRefTo <em>Ref To</em>}'.
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.ForeignKey#getRefTo <em>Ref To</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Ref To</em>'.
-   * @see rslingo.rslil.rSLIL.Reference#getRefTo()
-   * @see #getReference()
+   * @see rslingo.rslil.rSLIL.ForeignKey#getRefTo()
+   * @see #getForeignKey()
    * @generated
    */
-  EReference getReference_RefTo();
+  EReference getForeignKey_RefTo();
 
   /**
-   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Reference#getMultiplicity <em>Multiplicity</em>}'.
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.ForeignKey#getMultiplicity <em>Multiplicity</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Multiplicity</em>'.
-   * @see rslingo.rslil.rSLIL.Reference#getMultiplicity()
-   * @see #getReference()
+   * @see rslingo.rslil.rSLIL.ForeignKey#getMultiplicity()
+   * @see #getForeignKey()
    * @generated
    */
-  EReference getReference_Multiplicity();
+  EReference getForeignKey_Multiplicity();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.RefAttribute <em>Ref Attribute</em>}'.
@@ -4540,12 +4560,12 @@ public interface RSLILPackage extends EPackage
     EReference ENTITY__ATTRIBUTES = eINSTANCE.getEntity_Attributes();
 
     /**
-     * The meta object literal for the '<em><b>Reference</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Foreign Key</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ENTITY__REFERENCE = eINSTANCE.getEntity_Reference();
+    EReference ENTITY__FOREIGN_KEY = eINSTANCE.getEntity_ForeignKey();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -4632,6 +4652,14 @@ public interface RSLILPackage extends EPackage
     EAttribute FIELD__DEFAULT_VALUE = eINSTANCE.getField_DefaultValue();
 
     /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FIELD__VALUE = eINSTANCE.getField_Value();
+
+    /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.MultiplicityImpl <em>Multiplicity</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4650,14 +4678,14 @@ public interface RSLILPackage extends EPackage
     EAttribute MULTIPLICITY__VALUE = eINSTANCE.getMultiplicity_Value();
 
     /**
-     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.ReferenceImpl <em>Reference</em>}' class.
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.ForeignKeyImpl <em>Foreign Key</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see rslingo.rslil.rSLIL.impl.ReferenceImpl
-     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getReference()
+     * @see rslingo.rslil.rSLIL.impl.ForeignKeyImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getForeignKey()
      * @generated
      */
-    EClass REFERENCE = eINSTANCE.getReference();
+    EClass FOREIGN_KEY = eINSTANCE.getForeignKey();
 
     /**
      * The meta object literal for the '<em><b>Entity</b></em>' reference feature.
@@ -4665,7 +4693,7 @@ public interface RSLILPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REFERENCE__ENTITY = eINSTANCE.getReference_Entity();
+    EReference FOREIGN_KEY__ENTITY = eINSTANCE.getForeignKey_Entity();
 
     /**
      * The meta object literal for the '<em><b>Ref To</b></em>' containment reference feature.
@@ -4673,7 +4701,7 @@ public interface RSLILPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REFERENCE__REF_TO = eINSTANCE.getReference_RefTo();
+    EReference FOREIGN_KEY__REF_TO = eINSTANCE.getForeignKey_RefTo();
 
     /**
      * The meta object literal for the '<em><b>Multiplicity</b></em>' containment reference feature.
@@ -4681,7 +4709,7 @@ public interface RSLILPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REFERENCE__MULTIPLICITY = eINSTANCE.getReference_Multiplicity();
+    EReference FOREIGN_KEY__MULTIPLICITY = eINSTANCE.getForeignKey_Multiplicity();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.RefAttributeImpl <em>Ref Attribute</em>}' class.

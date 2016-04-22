@@ -26,6 +26,7 @@ import rslingo.rslil.rSLIL.RSLILPackage;
  *   <li>{@link rslingo.rslil.rSLIL.impl.FieldImpl#getSize <em>Size</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.FieldImpl#getMultiplicity <em>Multiplicity</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.FieldImpl#getDefaultValue <em>Default Value</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.FieldImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,6 +82,26 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * @ordered
    */
   protected String defaultValue = DEFAULT_VALUE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected static final String VALUE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -202,6 +223,29 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getValue()
+  {
+    return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setValue(String newValue)
+  {
+    String oldValue = value;
+    value = newValue;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.FIELD__VALUE, oldValue, value));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -229,6 +273,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
         return getMultiplicity();
       case RSLILPackage.FIELD__DEFAULT_VALUE:
         return getDefaultValue();
+      case RSLILPackage.FIELD__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -251,6 +297,9 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
         return;
       case RSLILPackage.FIELD__DEFAULT_VALUE:
         setDefaultValue((String)newValue);
+        return;
+      case RSLILPackage.FIELD__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -275,6 +324,9 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
       case RSLILPackage.FIELD__DEFAULT_VALUE:
         setDefaultValue(DEFAULT_VALUE_EDEFAULT);
         return;
+      case RSLILPackage.FIELD__VALUE:
+        setValue(VALUE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -295,6 +347,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
         return multiplicity != null;
       case RSLILPackage.FIELD__DEFAULT_VALUE:
         return DEFAULT_VALUE_EDEFAULT == null ? defaultValue != null : !DEFAULT_VALUE_EDEFAULT.equals(defaultValue);
+      case RSLILPackage.FIELD__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -314,6 +368,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
     result.append(size);
     result.append(", defaultValue: ");
     result.append(defaultValue);
+    result.append(", value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }
