@@ -96,7 +96,6 @@ Entity:
 		('Type' type=('Main'|'Secondary'))?
 		attributes+=Attribute+
 		(primaryKey=PrimaryKey)?
-		(foreignKey=ForeignKey)?
 	'}';
 
 Attribute:
@@ -104,29 +103,26 @@ Attribute:
 		('Name' nameAlias=STRING)?
 		'Description' description=STRING
 		'Type' type=('Boolean'|'Integer'|'Decimal'|'Currency'|'Date'|'Time'|'Datetime'|'Enumeration'|'Text'|'Regex'|'URL'|'Image')
-		field=Field
-	'}';
-
-Field:
-	'Field' '{'
 		'Size' size=INT
 		'Multiplicity' multiplicity=Multiplicity
 		('DefaultValue' defaultValue=STRING)?
-		// TODO Constraints
 		(notNull='NotNull')?
 		(unique='Unique')?
-		('Check' checkExpression=STRING)?
 	'}';
 
 Multiplicity: value=('"0"' | '"1"' | '"0..1"' | '"*"' | STRING);
 
 PrimaryKey:
 	'PrimaryKey' '(' refTo=RefAttribute ')';
+
 ForeignKey:
 	'ForeignKey' entity=[Entity] '(' refTo=RefAttribute ')' 'Multiplicity' multiplicity=Multiplicity;
 
 RefAttribute:
 	refAttr=[Attribute](',' refs+=[Attribute])*;
+
+Check:
+	'Check' name=ID checkExpression=STRING;
 
 Actor:
 	'Actor' name=ID '{'
@@ -140,8 +136,7 @@ Actor:
 UseCase:
 	'UseCase' name=ID '{'
 		('Name' nameAlias=STRING)?
-		'Type' type=('EntityManage'|'EntityBrowse'|'EntitySearch'|'EntityCreate'|'EntityDelete'|'EntitySync'|'Report')
-		// TODO Entities Products as Master, ProductLine as Detail, ... 
+		'Type' type=('EntityManage'|'EntityBrowse'|'EntitySearch'|'EntityCreate'|'EntityDelete'|'EntitySync'|'Report') 
 		('Entities' entities=RefEntity)?
 		'Description' description=STRING
 		'Priority' priotity=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
