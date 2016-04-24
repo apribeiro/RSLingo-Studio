@@ -20,7 +20,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.Entity#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Entity#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Entity#getAttributes <em>Attributes</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Entity#getForeignKey <em>Foreign Key</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Entity#getPrimaryKey <em>Primary Key</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Entity#getForeignKeys <em>Foreign Keys</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Entity#getChecks <em>Checks</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getEntity()
@@ -150,29 +152,61 @@ public interface Entity extends EObject
   EList<Attribute> getAttributes();
 
   /**
-   * Returns the value of the '<em><b>Foreign Key</b></em>' containment reference.
+   * Returns the value of the '<em><b>Primary Key</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Foreign Key</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Primary Key</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Foreign Key</em>' containment reference.
-   * @see #setForeignKey(ForeignKey)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getEntity_ForeignKey()
+   * @return the value of the '<em>Primary Key</em>' containment reference.
+   * @see #setPrimaryKey(PrimaryKey)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getEntity_PrimaryKey()
    * @model containment="true"
    * @generated
    */
-  ForeignKey getForeignKey();
+  PrimaryKey getPrimaryKey();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Entity#getForeignKey <em>Foreign Key</em>}' containment reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Entity#getPrimaryKey <em>Primary Key</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Foreign Key</em>' containment reference.
-   * @see #getForeignKey()
+   * @param value the new value of the '<em>Primary Key</em>' containment reference.
+   * @see #getPrimaryKey()
    * @generated
    */
-  void setForeignKey(ForeignKey value);
+  void setPrimaryKey(PrimaryKey value);
+
+  /**
+   * Returns the value of the '<em><b>Foreign Keys</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.ForeignKey}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Foreign Keys</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Foreign Keys</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getEntity_ForeignKeys()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ForeignKey> getForeignKeys();
+
+  /**
+   * Returns the value of the '<em><b>Checks</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.Check}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Checks</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Checks</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getEntity_Checks()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Check> getChecks();
 
 } // Entity

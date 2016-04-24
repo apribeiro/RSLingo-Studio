@@ -17,7 +17,11 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.Attribute#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Attribute#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Attribute#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Attribute#getField <em>Field</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Attribute#getSize <em>Size</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Attribute#getMultiplicity <em>Multiplicity</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Attribute#getDefaultValue <em>Default Value</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Attribute#getNotNull <em>Not Null</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Attribute#getUnique <em>Unique</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getAttribute()
@@ -131,29 +135,133 @@ public interface Attribute extends EObject
   void setType(String value);
 
   /**
-   * Returns the value of the '<em><b>Field</b></em>' containment reference.
+   * Returns the value of the '<em><b>Size</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Field</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Size</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Field</em>' containment reference.
-   * @see #setField(Field)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getAttribute_Field()
+   * @return the value of the '<em>Size</em>' attribute.
+   * @see #setSize(int)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getAttribute_Size()
+   * @model
+   * @generated
+   */
+  int getSize();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Attribute#getSize <em>Size</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Size</em>' attribute.
+   * @see #getSize()
+   * @generated
+   */
+  void setSize(int value);
+
+  /**
+   * Returns the value of the '<em><b>Multiplicity</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Multiplicity</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Multiplicity</em>' containment reference.
+   * @see #setMultiplicity(Multiplicity)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getAttribute_Multiplicity()
    * @model containment="true"
    * @generated
    */
-  Field getField();
+  Multiplicity getMultiplicity();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Attribute#getField <em>Field</em>}' containment reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Attribute#getMultiplicity <em>Multiplicity</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Field</em>' containment reference.
-   * @see #getField()
+   * @param value the new value of the '<em>Multiplicity</em>' containment reference.
+   * @see #getMultiplicity()
    * @generated
    */
-  void setField(Field value);
+  void setMultiplicity(Multiplicity value);
+
+  /**
+   * Returns the value of the '<em><b>Default Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Default Value</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Default Value</em>' attribute.
+   * @see #setDefaultValue(String)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getAttribute_DefaultValue()
+   * @model
+   * @generated
+   */
+  String getDefaultValue();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Attribute#getDefaultValue <em>Default Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Default Value</em>' attribute.
+   * @see #getDefaultValue()
+   * @generated
+   */
+  void setDefaultValue(String value);
+
+  /**
+   * Returns the value of the '<em><b>Not Null</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Not Null</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Not Null</em>' attribute.
+   * @see #setNotNull(String)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getAttribute_NotNull()
+   * @model
+   * @generated
+   */
+  String getNotNull();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Attribute#getNotNull <em>Not Null</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Not Null</em>' attribute.
+   * @see #getNotNull()
+   * @generated
+   */
+  void setNotNull(String value);
+
+  /**
+   * Returns the value of the '<em><b>Unique</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Unique</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Unique</em>' attribute.
+   * @see #setUnique(String)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getAttribute_Unique()
+   * @model
+   * @generated
+   */
+  String getUnique();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Attribute#getUnique <em>Unique</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Unique</em>' attribute.
+   * @see #getUnique()
+   * @generated
+   */
+  void setUnique(String value);
 
 } // Attribute

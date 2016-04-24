@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getType <em>Type</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.UseCase#getEntities <em>Entities</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getPriotity <em>Priotity</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getExtensionnPoints <em>Extensionn Points</em>}</li>
@@ -116,6 +117,32 @@ public interface UseCase extends EObject
    * @generated
    */
   void setType(String value);
+
+  /**
+   * Returns the value of the '<em><b>Entities</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Entities</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Entities</em>' containment reference.
+   * @see #setEntities(RefEntity)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getUseCase_Entities()
+   * @model containment="true"
+   * @generated
+   */
+  RefEntity getEntities();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.UseCase#getEntities <em>Entities</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Entities</em>' containment reference.
+   * @see #getEntities()
+   * @generated
+   */
+  void setEntities(RefEntity value);
 
   /**
    * Returns the value of the '<em><b>Description</b></em>' attribute.

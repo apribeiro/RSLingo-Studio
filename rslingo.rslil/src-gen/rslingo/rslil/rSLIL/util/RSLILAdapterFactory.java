@@ -11,24 +11,27 @@ import org.eclipse.emf.ecore.EObject;
 
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Attribute;
+import rslingo.rslil.rSLIL.Check;
 import rslingo.rslil.rSLIL.ComposedBy;
 import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.DependsOnGoal;
 import rslingo.rslil.rSLIL.DependsOnNFR;
 import rslingo.rslil.rSLIL.Entity;
+import rslingo.rslil.rSLIL.EntityType;
 import rslingo.rslil.rSLIL.ExtensionPoint;
 import rslingo.rslil.rSLIL.FR;
-import rslingo.rslil.rSLIL.Field;
 import rslingo.rslil.rSLIL.ForeignKey;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.Multiplicity;
 import rslingo.rslil.rSLIL.NFR;
+import rslingo.rslil.rSLIL.PrimaryKey;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
+import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
 import rslingo.rslil.rSLIL.RefNFR;
@@ -187,14 +190,14 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
         return createAttributeAdapter();
       }
       @Override
-      public Adapter caseField(Field object)
-      {
-        return createFieldAdapter();
-      }
-      @Override
       public Adapter caseMultiplicity(Multiplicity object)
       {
         return createMultiplicityAdapter();
+      }
+      @Override
+      public Adapter casePrimaryKey(PrimaryKey object)
+      {
+        return createPrimaryKeyAdapter();
       }
       @Override
       public Adapter caseForeignKey(ForeignKey object)
@@ -207,6 +210,11 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
         return createRefAttributeAdapter();
       }
       @Override
+      public Adapter caseCheck(Check object)
+      {
+        return createCheckAdapter();
+      }
+      @Override
       public Adapter caseActor(Actor object)
       {
         return createActorAdapter();
@@ -215,6 +223,16 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
       public Adapter caseUseCase(UseCase object)
       {
         return createUseCaseAdapter();
+      }
+      @Override
+      public Adapter caseRefEntity(RefEntity object)
+      {
+        return createRefEntityAdapter();
+      }
+      @Override
+      public Adapter caseEntityType(EntityType object)
+      {
+        return createEntityTypeAdapter();
       }
       @Override
       public Adapter caseRefFR(RefFR object)
@@ -534,21 +552,6 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.Field <em>Field</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.Field
-   * @generated
-   */
-  public Adapter createFieldAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.Multiplicity <em>Multiplicity</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -559,6 +562,21 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMultiplicityAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.PrimaryKey <em>Primary Key</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.PrimaryKey
+   * @generated
+   */
+  public Adapter createPrimaryKeyAdapter()
   {
     return null;
   }
@@ -594,6 +612,21 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.Check <em>Check</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.Check
+   * @generated
+   */
+  public Adapter createCheckAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.Actor <em>Actor</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -619,6 +652,36 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createUseCaseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.RefEntity <em>Ref Entity</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.RefEntity
+   * @generated
+   */
+  public Adapter createRefEntityAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.EntityType <em>Entity Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.EntityType
+   * @generated
+   */
+  public Adapter createEntityTypeAdapter()
   {
     return null;
   }

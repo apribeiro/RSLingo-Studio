@@ -167,15 +167,6 @@ public interface RSLILFactory extends EFactory
   Attribute createAttribute();
 
   /**
-   * Returns a new object of class '<em>Field</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Field</em>'.
-   * @generated
-   */
-  Field createField();
-
-  /**
    * Returns a new object of class '<em>Multiplicity</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -183,6 +174,15 @@ public interface RSLILFactory extends EFactory
    * @generated
    */
   Multiplicity createMultiplicity();
+
+  /**
+   * Returns a new object of class '<em>Primary Key</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Primary Key</em>'.
+   * @generated
+   */
+  PrimaryKey createPrimaryKey();
 
   /**
    * Returns a new object of class '<em>Foreign Key</em>'.
@@ -203,6 +203,15 @@ public interface RSLILFactory extends EFactory
   RefAttribute createRefAttribute();
 
   /**
+   * Returns a new object of class '<em>Check</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Check</em>'.
+   * @generated
+   */
+  Check createCheck();
+
+  /**
    * Returns a new object of class '<em>Actor</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -219,6 +228,24 @@ public interface RSLILFactory extends EFactory
    * @generated
    */
   UseCase createUseCase();
+
+  /**
+   * Returns a new object of class '<em>Ref Entity</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ref Entity</em>'.
+   * @generated
+   */
+  RefEntity createRefEntity();
+
+  /**
+   * Returns a new object of class '<em>Entity Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Entity Type</em>'.
+   * @generated
+   */
+  EntityType createEntityType();
 
   /**
    * Returns a new object of class '<em>Ref FR</em>'.

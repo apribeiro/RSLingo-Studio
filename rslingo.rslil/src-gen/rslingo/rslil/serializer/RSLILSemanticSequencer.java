@@ -18,24 +18,27 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Attribute;
+import rslingo.rslil.rSLIL.Check;
 import rslingo.rslil.rSLIL.ComposedBy;
 import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.DependsOnGoal;
 import rslingo.rslil.rSLIL.DependsOnNFR;
 import rslingo.rslil.rSLIL.Entity;
+import rslingo.rslil.rSLIL.EntityType;
 import rslingo.rslil.rSLIL.ExtensionPoint;
 import rslingo.rslil.rSLIL.FR;
-import rslingo.rslil.rSLIL.Field;
 import rslingo.rslil.rSLIL.ForeignKey;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.Multiplicity;
 import rslingo.rslil.rSLIL.NFR;
+import rslingo.rslil.rSLIL.PrimaryKey;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
+import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
 import rslingo.rslil.rSLIL.RefNFR;
@@ -66,6 +69,9 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case RSLILPackage.ATTRIBUTE:
 				sequence_Attribute(context, (Attribute) semanticObject); 
 				return; 
+			case RSLILPackage.CHECK:
+				sequence_Check(context, (Check) semanticObject); 
+				return; 
 			case RSLILPackage.COMPOSED_BY:
 				sequence_ComposedBy(context, (ComposedBy) semanticObject); 
 				return; 
@@ -81,14 +87,14 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case RSLILPackage.ENTITY:
 				sequence_Entity(context, (Entity) semanticObject); 
 				return; 
+			case RSLILPackage.ENTITY_TYPE:
+				sequence_EntityType(context, (EntityType) semanticObject); 
+				return; 
 			case RSLILPackage.EXTENSION_POINT:
 				sequence_ExtensionPoint(context, (ExtensionPoint) semanticObject); 
 				return; 
 			case RSLILPackage.FR:
 				sequence_FR(context, (FR) semanticObject); 
-				return; 
-			case RSLILPackage.FIELD:
-				sequence_Field(context, (Field) semanticObject); 
 				return; 
 			case RSLILPackage.FOREIGN_KEY:
 				sequence_ForeignKey(context, (ForeignKey) semanticObject); 
@@ -108,6 +114,9 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case RSLILPackage.NFR:
 				sequence_NFR(context, (NFR) semanticObject); 
 				return; 
+			case RSLILPackage.PRIMARY_KEY:
+				sequence_PrimaryKey(context, (PrimaryKey) semanticObject); 
+				return; 
 			case RSLILPackage.PROJECT:
 				sequence_Project(context, (Project) semanticObject); 
 				return; 
@@ -116,6 +125,9 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case RSLILPackage.REF_ATTRIBUTE:
 				sequence_RefAttribute(context, (RefAttribute) semanticObject); 
+				return; 
+			case RSLILPackage.REF_ENTITY:
+				sequence_RefEntity(context, (RefEntity) semanticObject); 
 				return; 
 			case RSLILPackage.REF_FR:
 				sequence_RefFR(context, (RefFR) semanticObject); 
@@ -199,11 +211,34 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *             type='URL' | 
 	 *             type='Image'
 	 *         ) 
-	 *         field=Field
+	 *         size=INT 
+	 *         multiplicity=Multiplicity 
+	 *         defaultValue=STRING? 
+	 *         notNull='NotNull'? 
+	 *         unique='Unique'?
 	 *     )
 	 */
 	protected void sequence_Attribute(EObject context, Attribute semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID checkExpression=STRING)
+	 */
+	protected void sequence_Check(EObject context, Check semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.CHECK__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.CHECK__NAME));
+			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.CHECK__CHECK_EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.CHECK__CHECK_EXPRESSION));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getCheckAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getCheckAccess().getCheckExpressionSTRINGTerminalRuleCall_2_0(), semanticObject.getCheckExpression());
+		feeder.finish();
 	}
 	
 	
@@ -245,13 +280,24 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
+	 *     (type='Master' | type='Detail' | type='Reference')
+	 */
+	protected void sequence_EntityType(EObject context, EntityType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
 	 *         name=ID 
 	 *         nameAlias=STRING? 
 	 *         description=STRING 
 	 *         (type='Main' | type='Secondary')? 
 	 *         attributes+=Attribute+ 
-	 *         foreignKey=ForeignKey?
+	 *         primaryKey=PrimaryKey? 
+	 *         foreignKeys+=ForeignKey* 
+	 *         checks+=Check*
 	 *     )
 	 */
 	protected void sequence_Entity(EObject context, Entity semanticObject) {
@@ -283,15 +329,6 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     )
 	 */
 	protected void sequence_FR(EObject context, FR semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (size=INT multiplicity=Multiplicity defaultValue=STRING? value=STRING?)
-	 */
-	protected void sequence_Field(EObject context, Field semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -427,6 +464,22 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
+	 *     refTo=RefAttribute
+	 */
+	protected void sequence_PrimaryKey(EObject context, PrimaryKey semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.PRIMARY_KEY__REF_TO) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.PRIMARY_KEY__REF_TO));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getPrimaryKeyAccess().getRefToRefAttributeParserRuleCall_2_0(), semanticObject.getRefTo());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID nameAlias=STRING? description=STRING refSystem=RefSystem?)
 	 */
 	protected void sequence_Project(EObject context, Project semanticObject) {
@@ -436,7 +489,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (refActor=[Actor|ID] refs+=Actor*)
+	 *     (refActor=[Actor|ID] refs+=[Actor|ID]*)
 	 */
 	protected void sequence_RefActor(EObject context, RefActor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -448,6 +501,15 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (refAttr=[Attribute|ID] refs+=[Attribute|ID]*)
 	 */
 	protected void sequence_RefAttribute(EObject context, RefAttribute semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (refEntity=[Entity|ID] type=EntityType (refs+=[Entity|ID] refType+=EntityType)*)
+	 */
+	protected void sequence_RefEntity(EObject context, RefEntity semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -623,6 +685,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *             type='EntitySync' | 
 	 *             type='Report'
 	 *         ) 
+	 *         entities=RefEntity? 
 	 *         description=STRING 
 	 *         (priotity='VeryLow' | priotity='Low' | priotity='Medium' | priotity='High' | priotity='VeryHigh') 
 	 *         extensionnPoints+=ExtensionPoint* 

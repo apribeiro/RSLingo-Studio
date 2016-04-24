@@ -19,8 +19,10 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import rslingo.rslil.rSLIL.Attribute;
+import rslingo.rslil.rSLIL.Check;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.ForeignKey;
+import rslingo.rslil.rSLIL.PrimaryKey;
 import rslingo.rslil.rSLIL.RSLILPackage;
 
 /**
@@ -36,7 +38,9 @@ import rslingo.rslil.rSLIL.RSLILPackage;
  *   <li>{@link rslingo.rslil.rSLIL.impl.EntityImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.EntityImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.EntityImpl#getAttributes <em>Attributes</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.EntityImpl#getForeignKey <em>Foreign Key</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.EntityImpl#getPrimaryKey <em>Primary Key</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.EntityImpl#getForeignKeys <em>Foreign Keys</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.EntityImpl#getChecks <em>Checks</em>}</li>
  * </ul>
  *
  * @generated
@@ -134,14 +138,34 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
   protected EList<Attribute> attributes;
 
   /**
-   * The cached value of the '{@link #getForeignKey() <em>Foreign Key</em>}' containment reference.
+   * The cached value of the '{@link #getPrimaryKey() <em>Primary Key</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getForeignKey()
+   * @see #getPrimaryKey()
    * @generated
    * @ordered
    */
-  protected ForeignKey foreignKey;
+  protected PrimaryKey primaryKey;
+
+  /**
+   * The cached value of the '{@link #getForeignKeys() <em>Foreign Keys</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getForeignKeys()
+   * @generated
+   * @ordered
+   */
+  protected EList<ForeignKey> foreignKeys;
+
+  /**
+   * The cached value of the '{@link #getChecks() <em>Checks</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getChecks()
+   * @generated
+   * @ordered
+   */
+  protected EList<Check> checks;
 
   /**
    * <!-- begin-user-doc -->
@@ -275,9 +299,9 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
    * <!-- end-user-doc -->
    * @generated
    */
-  public ForeignKey getForeignKey()
+  public PrimaryKey getPrimaryKey()
   {
-    return foreignKey;
+    return primaryKey;
   }
 
   /**
@@ -285,13 +309,13 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetForeignKey(ForeignKey newForeignKey, NotificationChain msgs)
+  public NotificationChain basicSetPrimaryKey(PrimaryKey newPrimaryKey, NotificationChain msgs)
   {
-    ForeignKey oldForeignKey = foreignKey;
-    foreignKey = newForeignKey;
+    PrimaryKey oldPrimaryKey = primaryKey;
+    primaryKey = newPrimaryKey;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.ENTITY__FOREIGN_KEY, oldForeignKey, newForeignKey);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.ENTITY__PRIMARY_KEY, oldPrimaryKey, newPrimaryKey);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -302,20 +326,48 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setForeignKey(ForeignKey newForeignKey)
+  public void setPrimaryKey(PrimaryKey newPrimaryKey)
   {
-    if (newForeignKey != foreignKey)
+    if (newPrimaryKey != primaryKey)
     {
       NotificationChain msgs = null;
-      if (foreignKey != null)
-        msgs = ((InternalEObject)foreignKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.ENTITY__FOREIGN_KEY, null, msgs);
-      if (newForeignKey != null)
-        msgs = ((InternalEObject)newForeignKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.ENTITY__FOREIGN_KEY, null, msgs);
-      msgs = basicSetForeignKey(newForeignKey, msgs);
+      if (primaryKey != null)
+        msgs = ((InternalEObject)primaryKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.ENTITY__PRIMARY_KEY, null, msgs);
+      if (newPrimaryKey != null)
+        msgs = ((InternalEObject)newPrimaryKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.ENTITY__PRIMARY_KEY, null, msgs);
+      msgs = basicSetPrimaryKey(newPrimaryKey, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.ENTITY__FOREIGN_KEY, newForeignKey, newForeignKey));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.ENTITY__PRIMARY_KEY, newPrimaryKey, newPrimaryKey));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ForeignKey> getForeignKeys()
+  {
+    if (foreignKeys == null)
+    {
+      foreignKeys = new EObjectContainmentEList<ForeignKey>(ForeignKey.class, this, RSLILPackage.ENTITY__FOREIGN_KEYS);
+    }
+    return foreignKeys;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Check> getChecks()
+  {
+    if (checks == null)
+    {
+      checks = new EObjectContainmentEList<Check>(Check.class, this, RSLILPackage.ENTITY__CHECKS);
+    }
+    return checks;
   }
 
   /**
@@ -330,8 +382,12 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
     {
       case RSLILPackage.ENTITY__ATTRIBUTES:
         return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
-      case RSLILPackage.ENTITY__FOREIGN_KEY:
-        return basicSetForeignKey(null, msgs);
+      case RSLILPackage.ENTITY__PRIMARY_KEY:
+        return basicSetPrimaryKey(null, msgs);
+      case RSLILPackage.ENTITY__FOREIGN_KEYS:
+        return ((InternalEList<?>)getForeignKeys()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.ENTITY__CHECKS:
+        return ((InternalEList<?>)getChecks()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -356,8 +412,12 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
         return getType();
       case RSLILPackage.ENTITY__ATTRIBUTES:
         return getAttributes();
-      case RSLILPackage.ENTITY__FOREIGN_KEY:
-        return getForeignKey();
+      case RSLILPackage.ENTITY__PRIMARY_KEY:
+        return getPrimaryKey();
+      case RSLILPackage.ENTITY__FOREIGN_KEYS:
+        return getForeignKeys();
+      case RSLILPackage.ENTITY__CHECKS:
+        return getChecks();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -389,8 +449,16 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
         getAttributes().clear();
         getAttributes().addAll((Collection<? extends Attribute>)newValue);
         return;
-      case RSLILPackage.ENTITY__FOREIGN_KEY:
-        setForeignKey((ForeignKey)newValue);
+      case RSLILPackage.ENTITY__PRIMARY_KEY:
+        setPrimaryKey((PrimaryKey)newValue);
+        return;
+      case RSLILPackage.ENTITY__FOREIGN_KEYS:
+        getForeignKeys().clear();
+        getForeignKeys().addAll((Collection<? extends ForeignKey>)newValue);
+        return;
+      case RSLILPackage.ENTITY__CHECKS:
+        getChecks().clear();
+        getChecks().addAll((Collection<? extends Check>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -421,8 +489,14 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
       case RSLILPackage.ENTITY__ATTRIBUTES:
         getAttributes().clear();
         return;
-      case RSLILPackage.ENTITY__FOREIGN_KEY:
-        setForeignKey((ForeignKey)null);
+      case RSLILPackage.ENTITY__PRIMARY_KEY:
+        setPrimaryKey((PrimaryKey)null);
+        return;
+      case RSLILPackage.ENTITY__FOREIGN_KEYS:
+        getForeignKeys().clear();
+        return;
+      case RSLILPackage.ENTITY__CHECKS:
+        getChecks().clear();
         return;
     }
     super.eUnset(featureID);
@@ -448,8 +522,12 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case RSLILPackage.ENTITY__ATTRIBUTES:
         return attributes != null && !attributes.isEmpty();
-      case RSLILPackage.ENTITY__FOREIGN_KEY:
-        return foreignKey != null;
+      case RSLILPackage.ENTITY__PRIMARY_KEY:
+        return primaryKey != null;
+      case RSLILPackage.ENTITY__FOREIGN_KEYS:
+        return foreignKeys != null && !foreignKeys.isEmpty();
+      case RSLILPackage.ENTITY__CHECKS:
+        return checks != null && !checks.isEmpty();
     }
     return super.eIsSet(featureID);
   }

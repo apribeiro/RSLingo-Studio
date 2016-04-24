@@ -5,7 +5,6 @@ package rslingo.rslil.rSLIL.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -15,8 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.RSLILPackage;
@@ -49,7 +47,7 @@ public class RefActorImpl extends MinimalEObjectImpl.Container implements RefAct
   protected Actor refActor;
 
   /**
-   * The cached value of the '{@link #getRefs() <em>Refs</em>}' containment reference list.
+   * The cached value of the '{@link #getRefs() <em>Refs</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getRefs()
@@ -131,25 +129,9 @@ public class RefActorImpl extends MinimalEObjectImpl.Container implements RefAct
   {
     if (refs == null)
     {
-      refs = new EObjectContainmentEList<Actor>(Actor.class, this, RSLILPackage.REF_ACTOR__REFS);
+      refs = new EObjectResolvingEList<Actor>(Actor.class, this, RSLILPackage.REF_ACTOR__REFS);
     }
     return refs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case RSLILPackage.REF_ACTOR__REFS:
-        return ((InternalEList<?>)getRefs()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**

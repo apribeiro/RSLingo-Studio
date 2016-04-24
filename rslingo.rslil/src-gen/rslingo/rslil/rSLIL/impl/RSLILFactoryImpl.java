@@ -12,25 +12,28 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Attribute;
+import rslingo.rslil.rSLIL.Check;
 import rslingo.rslil.rSLIL.ComposedBy;
 import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.DependsOnGoal;
 import rslingo.rslil.rSLIL.DependsOnNFR;
 import rslingo.rslil.rSLIL.Entity;
+import rslingo.rslil.rSLIL.EntityType;
 import rslingo.rslil.rSLIL.ExtensionPoint;
 import rslingo.rslil.rSLIL.FR;
-import rslingo.rslil.rSLIL.Field;
 import rslingo.rslil.rSLIL.ForeignKey;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.Multiplicity;
 import rslingo.rslil.rSLIL.NFR;
+import rslingo.rslil.rSLIL.PrimaryKey;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILFactory;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
+import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
 import rslingo.rslil.rSLIL.RefNFR;
@@ -113,12 +116,15 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
       case RSLILPackage.REF_GOAL: return createRefGoal();
       case RSLILPackage.ENTITY: return createEntity();
       case RSLILPackage.ATTRIBUTE: return createAttribute();
-      case RSLILPackage.FIELD: return createField();
       case RSLILPackage.MULTIPLICITY: return createMultiplicity();
+      case RSLILPackage.PRIMARY_KEY: return createPrimaryKey();
       case RSLILPackage.FOREIGN_KEY: return createForeignKey();
       case RSLILPackage.REF_ATTRIBUTE: return createRefAttribute();
+      case RSLILPackage.CHECK: return createCheck();
       case RSLILPackage.ACTOR: return createActor();
       case RSLILPackage.USE_CASE: return createUseCase();
+      case RSLILPackage.REF_ENTITY: return createRefEntity();
+      case RSLILPackage.ENTITY_TYPE: return createEntityType();
       case RSLILPackage.REF_FR: return createRefFR();
       case RSLILPackage.REF_ACTOR: return createRefActor();
       case RSLILPackage.REF_UC: return createRefUC();
@@ -316,10 +322,10 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Field createField()
+  public Multiplicity createMultiplicity()
   {
-    FieldImpl field = new FieldImpl();
-    return field;
+    MultiplicityImpl multiplicity = new MultiplicityImpl();
+    return multiplicity;
   }
 
   /**
@@ -327,10 +333,10 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Multiplicity createMultiplicity()
+  public PrimaryKey createPrimaryKey()
   {
-    MultiplicityImpl multiplicity = new MultiplicityImpl();
-    return multiplicity;
+    PrimaryKeyImpl primaryKey = new PrimaryKeyImpl();
+    return primaryKey;
   }
 
   /**
@@ -360,6 +366,17 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Check createCheck()
+  {
+    CheckImpl check = new CheckImpl();
+    return check;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Actor createActor()
   {
     ActorImpl actor = new ActorImpl();
@@ -375,6 +392,28 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
   {
     UseCaseImpl useCase = new UseCaseImpl();
     return useCase;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RefEntity createRefEntity()
+  {
+    RefEntityImpl refEntity = new RefEntityImpl();
+    return refEntity;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EntityType createEntityType()
+  {
+    EntityTypeImpl entityType = new EntityTypeImpl();
+    return entityType;
   }
 
   /**

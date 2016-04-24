@@ -22,6 +22,7 @@ import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.ExtensionPoint;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefActor;
+import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
 import rslingo.rslil.rSLIL.RefUC;
@@ -39,6 +40,7 @@ import rslingo.rslil.rSLIL.UseCase;
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getType <em>Type</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getEntities <em>Entities</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getPriotity <em>Priotity</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getExtensionnPoints <em>Extensionn Points</em>}</li>
@@ -117,6 +119,16 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * @ordered
    */
   protected String type = TYPE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getEntities() <em>Entities</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEntities()
+   * @generated
+   * @ordered
+   */
+  protected RefEntity entities;
 
   /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -376,6 +388,54 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
     type = newType;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.USE_CASE__TYPE, oldType, type));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RefEntity getEntities()
+  {
+    return entities;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetEntities(RefEntity newEntities, NotificationChain msgs)
+  {
+    RefEntity oldEntities = entities;
+    entities = newEntities;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.USE_CASE__ENTITIES, oldEntities, newEntities);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEntities(RefEntity newEntities)
+  {
+    if (newEntities != entities)
+    {
+      NotificationChain msgs = null;
+      if (entities != null)
+        msgs = ((InternalEObject)entities).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.USE_CASE__ENTITIES, null, msgs);
+      if (newEntities != null)
+        msgs = ((InternalEObject)newEntities).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.USE_CASE__ENTITIES, null, msgs);
+      msgs = basicSetEntities(newEntities, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.USE_CASE__ENTITIES, newEntities, newEntities));
   }
 
   /**
@@ -727,6 +787,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   {
     switch (featureID)
     {
+      case RSLILPackage.USE_CASE__ENTITIES:
+        return basicSetEntities(null, msgs);
       case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
         return ((InternalEList<?>)getExtensionnPoints()).basicRemove(otherEnd, msgs);
       case RSLILPackage.USE_CASE__GOALS:
@@ -759,6 +821,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return getNameAlias();
       case RSLILPackage.USE_CASE__TYPE:
         return getType();
+      case RSLILPackage.USE_CASE__ENTITIES:
+        return getEntities();
       case RSLILPackage.USE_CASE__DESCRIPTION:
         return getDescription();
       case RSLILPackage.USE_CASE__PRIOTITY:
@@ -811,6 +875,9 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return;
       case RSLILPackage.USE_CASE__TYPE:
         setType((String)newValue);
+        return;
+      case RSLILPackage.USE_CASE__ENTITIES:
+        setEntities((RefEntity)newValue);
         return;
       case RSLILPackage.USE_CASE__DESCRIPTION:
         setDescription((String)newValue);
@@ -879,6 +946,9 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case RSLILPackage.USE_CASE__TYPE:
         setType(TYPE_EDEFAULT);
         return;
+      case RSLILPackage.USE_CASE__ENTITIES:
+        setEntities((RefEntity)null);
+        return;
       case RSLILPackage.USE_CASE__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
@@ -938,6 +1008,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return NAME_ALIAS_EDEFAULT == null ? nameAlias != null : !NAME_ALIAS_EDEFAULT.equals(nameAlias);
       case RSLILPackage.USE_CASE__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+      case RSLILPackage.USE_CASE__ENTITIES:
+        return entities != null;
       case RSLILPackage.USE_CASE__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case RSLILPackage.USE_CASE__PRIOTITY:

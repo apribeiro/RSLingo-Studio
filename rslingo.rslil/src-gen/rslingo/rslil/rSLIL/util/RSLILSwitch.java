@@ -9,24 +9,27 @@ import org.eclipse.emf.ecore.util.Switch;
 
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Attribute;
+import rslingo.rslil.rSLIL.Check;
 import rslingo.rslil.rSLIL.ComposedBy;
 import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.DependsOnGoal;
 import rslingo.rslil.rSLIL.DependsOnNFR;
 import rslingo.rslil.rSLIL.Entity;
+import rslingo.rslil.rSLIL.EntityType;
 import rslingo.rslil.rSLIL.ExtensionPoint;
 import rslingo.rslil.rSLIL.FR;
-import rslingo.rslil.rSLIL.Field;
 import rslingo.rslil.rSLIL.ForeignKey;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.Multiplicity;
 import rslingo.rslil.rSLIL.NFR;
+import rslingo.rslil.rSLIL.PrimaryKey;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
+import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
 import rslingo.rslil.rSLIL.RefNFR;
@@ -216,17 +219,17 @@ public class RSLILSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RSLILPackage.FIELD:
-      {
-        Field field = (Field)theEObject;
-        T result = caseField(field);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case RSLILPackage.MULTIPLICITY:
       {
         Multiplicity multiplicity = (Multiplicity)theEObject;
         T result = caseMultiplicity(multiplicity);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.PRIMARY_KEY:
+      {
+        PrimaryKey primaryKey = (PrimaryKey)theEObject;
+        T result = casePrimaryKey(primaryKey);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -244,6 +247,13 @@ public class RSLILSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case RSLILPackage.CHECK:
+      {
+        Check check = (Check)theEObject;
+        T result = caseCheck(check);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case RSLILPackage.ACTOR:
       {
         Actor actor = (Actor)theEObject;
@@ -255,6 +265,20 @@ public class RSLILSwitch<T> extends Switch<T>
       {
         UseCase useCase = (UseCase)theEObject;
         T result = caseUseCase(useCase);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.REF_ENTITY:
+      {
+        RefEntity refEntity = (RefEntity)theEObject;
+        T result = caseRefEntity(refEntity);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.ENTITY_TYPE:
+      {
+        EntityType entityType = (EntityType)theEObject;
+        T result = caseEntityType(entityType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -596,22 +620,6 @@ public class RSLILSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Field</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Field</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseField(Field object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Multiplicity</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -623,6 +631,22 @@ public class RSLILSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMultiplicity(Multiplicity object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Primary Key</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Primary Key</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePrimaryKey(PrimaryKey object)
   {
     return null;
   }
@@ -660,6 +684,22 @@ public class RSLILSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Check</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Check</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCheck(Check object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Actor</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -687,6 +727,38 @@ public class RSLILSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseUseCase(UseCase object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ref Entity</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ref Entity</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRefEntity(RefEntity object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Entity Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Entity Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEntityType(EntityType object)
   {
     return null;
   }

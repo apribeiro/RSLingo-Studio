@@ -95,23 +95,26 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Entity/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Entity/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Entity/attributes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Entity/foreignKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Entity/primaryKey"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Entity/foreignKeys"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Entity/checks"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Attribute/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Attribute/nameAlias"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Attribute/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Attribute/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Attribute/field"/>
-    </genClasses>
-    <genClasses ecoreClass="RSLIL.ecore#//Field">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Field/size"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Field/multiplicity"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Field/defaultValue"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Field/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Attribute/size"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Attribute/multiplicity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Attribute/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Attribute/notNull"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Attribute/unique"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//Multiplicity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Multiplicity/value"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//PrimaryKey">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PrimaryKey/refTo"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//ForeignKey">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//ForeignKey/entity"/>
@@ -121,6 +124,10 @@
     <genClasses ecoreClass="RSLIL.ecore#//RefAttribute">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefAttribute/refAttr"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefAttribute/refs"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//Check">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Check/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Check/checkExpression"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//Actor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Actor/name"/>
@@ -134,6 +141,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//UseCase/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//UseCase/nameAlias"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//UseCase/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//UseCase/entities"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//UseCase/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//UseCase/priotity"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//UseCase/extensionnPoints"/>
@@ -148,13 +156,22 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//UseCase/extPoint"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//UseCase/scenarios"/>
     </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//RefEntity">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefEntity/refEntity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefEntity/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefEntity/refs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefEntity/refType"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//EntityType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//EntityType/type"/>
+    </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//RefFR">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefFR/refFR"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefFR/refs"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//RefActor">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefActor/refActor"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefActor/refs"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefActor/refs"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//RefUC">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefUC/refUC"/>

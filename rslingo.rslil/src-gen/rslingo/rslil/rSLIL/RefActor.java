@@ -52,17 +52,17 @@ public interface RefActor extends EObject
   void setRefActor(Actor value);
 
   /**
-   * Returns the value of the '<em><b>Refs</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Refs</b></em>' reference list.
    * The list contents are of type {@link rslingo.rslil.rSLIL.Actor}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Refs</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Refs</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Refs</em>' containment reference list.
+   * @return the value of the '<em>Refs</em>' reference list.
    * @see rslingo.rslil.rSLIL.RSLILPackage#getRefActor_Refs()
-   * @model containment="true"
+   * @model
    * @generated
    */
   EList<Actor> getRefs();
