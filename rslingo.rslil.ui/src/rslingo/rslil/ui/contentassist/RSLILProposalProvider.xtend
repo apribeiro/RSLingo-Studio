@@ -3,11 +3,52 @@
  */
 package rslingo.rslil.ui.contentassist
 
-import rslingo.rslil.ui.contentassist.AbstractRSLILProposalProvider
+import com.google.common.collect.Sets
+import java.util.Set
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.Alternatives
+import org.eclipse.xtext.Assignment
+import org.eclipse.xtext.Keyword
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
+import rslingo.rslil.rSLIL.NFR
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
  * on how to customize the content assistant.
  */
 class RSLILProposalProvider extends AbstractRSLILProposalProvider {
+	
+	final static private Set<String> SUBTYPES = Sets.newHashSet("Security.Privacy",
+		"Security.Integrity", "Usability.EaseOfUse",
+		"Usability.EaseOfLearn", "Usability.Accessibility")
+	
+	override completeKeyword(Keyword keyword, ContentAssistContext contentAssistContext,
+		ICompletionProposalAcceptor acceptor) {
+		if (SUBTYPES.contains(keyword.value)) {
+			// Don't propose keyword
+			return 
+		} else {
+			super.completeKeyword(keyword, contentAssistContext, acceptor)	
+		}
+	}
+	
+	override completeNFR_SubType(EObject model, Assignment assignment,
+		ContentAssistContext context, ICompletionProposalAcceptor acceptor) { 
+		val nfrType = (model as NFR).type;
+		
+		if (nfrType.equals("Security") || nfrType.equals("Usability")) {
+			(assignment.terminal as Alternatives).elements.forEach[e |
+				var option = (e as Keyword).value 
+				 
+				if (option.contains(nfrType)) {
+					acceptor.accept(createCompletionProposal(option,
+						option, null, context)
+					)
+				}
+			]	
+		} else {
+			super.completeNFR_SubType(model, assignment, context, acceptor)
+		}
+	}
 }
