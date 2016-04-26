@@ -30,6 +30,7 @@ class RSLILValidator extends AbstractRSLILValidator {
 				error('A Non-FunctionalRequirement of type \'Usability\' can only have the following sub-types: Usability.EaseOfUse, Usability.EaseOfLearn or Usability.Accessibility.', RSLILPackage.Literals.NFR__SUB_TYPE)	
 			}
 		}
+		// TODO Don't allow Sub-Type when Type != of Security and Usability
 	}
 	
 	@Check

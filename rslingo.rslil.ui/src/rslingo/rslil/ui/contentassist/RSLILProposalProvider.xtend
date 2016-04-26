@@ -42,6 +42,7 @@ class RSLILProposalProvider extends AbstractRSLILProposalProvider {
 				var option = (e as Keyword).value 
 				 
 				if (option.contains(nfrType)) {
+					// FIXME See how to add the default icon image
 					acceptor.accept(createCompletionProposal(option,
 						option, null, context)
 					)
