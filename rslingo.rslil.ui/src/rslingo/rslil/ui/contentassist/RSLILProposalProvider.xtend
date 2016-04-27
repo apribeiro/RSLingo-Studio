@@ -12,6 +12,8 @@ import org.eclipse.xtext.Keyword
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
 import rslingo.rslil.rSLIL.NFR
+import rslingo.rslil.rSLIL.Scenario
+import rslingo.rslil.rSLIL.Step
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
@@ -27,15 +29,47 @@ class RSLILProposalProvider extends AbstractRSLILProposalProvider {
 		ICompletionProposalAcceptor acceptor) {
 		if (SUBTYPES.contains(keyword.value)) {
 			// Don't propose keyword
-			return 
+			return
 		} else {
 			super.completeKeyword(keyword, contentAssistContext, acceptor)	
 		}
 	}
 	
+	override completeStep_Name(EObject model, Assignment assignment,
+		ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if (model instanceof Step) {
+			val step = model as Step
+			var scenario = step.eContainer as Scenario
+			var stepName = "s"
+			
+			if (scenario.steps.size > 1) {
+				// Step Name must be in the format 's<int>'
+				if (!scenario.steps.last.equals(step)) {
+					stepName += Integer.parseInt(scenario.steps.last.name.split("s").get(1)) + 1
+				} else {
+					var last = scenario.steps.get(scenario.steps.size - 1)
+					stepName += Integer.parseInt(last.name.split("s").get(1)) + 1
+				}
+			} else {
+				stepName += 1
+			}
+			acceptor.accept(createCompletionProposal(stepName, stepName, null, context))
+		} else if (model instanceof Scenario) {
+			var scenario = model as Scenario
+			var stepName = "s"
+			
+			if (scenario.steps.size > 0) {
+				stepName += Integer.parseInt(scenario.steps.last.name.split("s").get(1)) + 1
+			} else {
+				stepName += 1
+			}
+			acceptor.accept(createCompletionProposal(stepName, stepName, null, context))
+		}
+	}
+	
 	override completeNFR_SubType(EObject model, Assignment assignment,
 		ContentAssistContext context, ICompletionProposalAcceptor acceptor) { 
-		val nfrType = (model as NFR).type;
+		val nfrType = (model as NFR).type
 		
 		if (nfrType.equals("Security") || nfrType.equals("Usability")) {
 			(assignment.terminal as Alternatives).elements.forEach[e |
@@ -43,9 +77,7 @@ class RSLILProposalProvider extends AbstractRSLILProposalProvider {
 				 
 				if (option.contains(nfrType)) {
 					// FIXME See how to add the default icon image
-					acceptor.accept(createCompletionProposal(option,
-						option, null, context)
-					)
+					acceptor.accept(createCompletionProposal(option, option, null, context))
 				}
 			]	
 		} else {
