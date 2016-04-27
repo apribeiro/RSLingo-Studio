@@ -18,19 +18,23 @@ class RSLILValidator extends AbstractRSLILValidator {
 
 	@Check
 	def checkNFRSubType(NFR nfr) {
-		if (nfr.type.equals("Security") && nfr.subType != null) {
-			if (!nfr.subType.equals("Security.Privacy")
-				&& !nfr.subType.equals("Security.Integrity")) {
-				error('A Non-FunctionalRequirement of type \'Security\' can only have the following sub-types: Security.Privacy or Security.Integrity.', RSLILPackage.Literals.NFR__SUB_TYPE)	
-			}
-		} else if (nfr.type.equals("Usability") && nfr.subType != null) {
-			if (!nfr.subType.equals("Usability.EaseOfUse")
-				&& !nfr.subType.equals("Usability.EaseOfLearn")
-				&& !nfr.subType.equals("Usability.Accessibility")) {
-				error('A Non-FunctionalRequirement of type \'Usability\' can only have the following sub-types: Usability.EaseOfUse, Usability.EaseOfLearn or Usability.Accessibility.', RSLILPackage.Literals.NFR__SUB_TYPE)	
+		if (nfr.subType != null) {
+			if (nfr.type.equals("Security")) {
+				if (!nfr.subType.equals("Security.Privacy")
+					&& !nfr.subType.equals("Security.Integrity")) {
+					error('A Non-FunctionalRequirement of type \'Security\' can only have the following sub-types: Security.Privacy or Security.Integrity.', RSLILPackage.Literals.NFR__SUB_TYPE)	
+				}	
+			} else if (nfr.type.equals("Usability")) {
+				if (!nfr.subType.equals("Usability.EaseOfUse")
+					&& !nfr.subType.equals("Usability.EaseOfLearn")
+					&& !nfr.subType.equals("Usability.Accessibility")) {
+					error('A Non-FunctionalRequirement of type \'Usability\' can only have the following sub-types: Usability.EaseOfUse, Usability.EaseOfLearn or Usability.Accessibility.', RSLILPackage.Literals.NFR__SUB_TYPE)	
+				}
+			} else {
+				// Don't allow Sub-Type when Type != of Security and Usability
+				error('A Non-FunctionalRequirement of type \'' + nfr.type + '\' cannot have a sub-type.', RSLILPackage.Literals.NFR__SUB_TYPE)		
 			}
 		}
-		// TODO Don't allow Sub-Type when Type != of Security and Usability
 	}
 	
 	@Check
