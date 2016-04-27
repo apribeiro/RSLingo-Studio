@@ -66,7 +66,8 @@ class RSLILProposalProvider extends AbstractRSLILProposalProvider {
 				if (!scenario.steps.last.equals(step)) {
 					stepName += Integer.parseInt(scenario.steps.last.name.split("s").get(1)) + 1
 				} else {
-					var last = scenario.steps.get(scenario.steps.size - 1)
+					// Get penultimate Step
+					var last = scenario.steps.get(scenario.steps.size - 2)
 					stepName += Integer.parseInt(last.name.split("s").get(1)) + 1
 				}
 			} else {

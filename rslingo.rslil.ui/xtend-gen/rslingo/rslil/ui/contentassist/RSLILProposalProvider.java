@@ -102,7 +102,7 @@ public class RSLILProposalProvider extends AbstractRSLILProposalProvider {
             EList<Step> _steps_5 = scenario_1.getSteps();
             EList<Step> _steps_6 = scenario_1.getSteps();
             int _size_2 = _steps_6.size();
-            int _minus = (_size_2 - 1);
+            int _minus = (_size_2 - 2);
             Step last = _steps_5.get(_minus);
             String _stepName_3 = stepName_1;
             String _name_2 = last.getName();
