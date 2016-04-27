@@ -14,6 +14,7 @@ import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
 import rslingo.rslil.rSLIL.NFR
 import rslingo.rslil.rSLIL.Scenario
 import rslingo.rslil.rSLIL.Step
+import org.eclipse.xtext.RuleCall
 
 /**
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#content-assist
@@ -35,9 +36,27 @@ class RSLILProposalProvider extends AbstractRSLILProposalProvider {
 		}
 	}
 	
+	override complete_ID(EObject model, RuleCall ruleCall,
+		ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if (!(model instanceof Scenario) && !(model instanceof Step)) {
+			// Don't show the default proposal for the Step Name
+			super.complete_ID(model, ruleCall, context, acceptor)	
+		}
+	}
+	
 	override completeStep_Name(EObject model, Assignment assignment,
 		ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		if (model instanceof Step) {
+		if (model instanceof Scenario) {
+			var scenario = model as Scenario
+			var stepName = "s"
+			
+			if (scenario.steps.size > 0) {
+				stepName += Integer.parseInt(scenario.steps.last.name.split("s").get(1)) + 1
+			} else {
+				stepName += 1
+			}
+			acceptor.accept(createCompletionProposal(stepName, stepName, null, context))
+		} else if (model instanceof Step) {
 			val step = model as Step
 			var scenario = step.eContainer as Scenario
 			var stepName = "s"
@@ -50,16 +69,6 @@ class RSLILProposalProvider extends AbstractRSLILProposalProvider {
 					var last = scenario.steps.get(scenario.steps.size - 1)
 					stepName += Integer.parseInt(last.name.split("s").get(1)) + 1
 				}
-			} else {
-				stepName += 1
-			}
-			acceptor.accept(createCompletionProposal(stepName, stepName, null, context))
-		} else if (model instanceof Scenario) {
-			var scenario = model as Scenario
-			var stepName = "s"
-			
-			if (scenario.steps.size > 0) {
-				stepName += Integer.parseInt(scenario.steps.last.name.split("s").get(1)) + 1
 			} else {
 				stepName += 1
 			}
