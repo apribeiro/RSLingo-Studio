@@ -88,7 +88,7 @@ class RSLILProposalProvider extends AbstractRSLILProposalProvider {
 		
 		if (step != null) {
 			if (scenario.steps.size > 1) {
-				// Step Name must be in the format 's<int>'
+				// Step Name must be in the format 's<integer>'
 				if (!scenario.steps.last.equals(step)) {
 					stepName += Integer.parseInt(scenario.steps.last.name.split("s").get(1)) + 1
 				} else {

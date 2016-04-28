@@ -8,6 +8,7 @@ import rslingo.rslil.rSLIL.NFR
 import rslingo.rslil.rSLIL.RSLILPackage
 import rslingo.rslil.rSLIL.UseCase
 import rslingo.rslil.rSLIL.EntityType
+import rslingo.rslil.rSLIL.Step
 
 /**
  * This class contains custom validation rules. 
@@ -43,7 +44,22 @@ class RSLILValidator extends AbstractRSLILValidator {
 		}
 	}
 	
-	// TODO Validate Step Name format 's<int>'
+	@Check
+	def checkStepName(Step step) {
+		if (step.name != null) {
+			var parts = step.name.split("s")
+			
+			if (parts.size == 2 && parts.get(0).empty) {
+				try {
+					Integer.parseInt(parts.get(1))
+				} catch (Exception e) {
+					error('The Step name must be in the format \'s<integer>\'.', RSLILPackage.Literals.STEP__NAME)	
+				}
+			} else {
+				error('The Step name must be in the format \'s<integer>\'.', RSLILPackage.Literals.STEP__NAME)
+			}
+		}
+	}
 	
 	@Check
 	def checkNFRSubType(NFR nfr) {

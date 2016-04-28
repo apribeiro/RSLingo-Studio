@@ -4,13 +4,17 @@
 package rslingo.rslil.validation;
 
 import com.google.common.base.Objects;
+import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.EntityType;
 import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefEntity;
+import rslingo.rslil.rSLIL.Step;
 import rslingo.rslil.rSLIL.UseCase;
 import rslingo.rslil.validation.AbstractRSLILValidator;
 
@@ -70,6 +74,52 @@ public class RSLILValidator extends AbstractRSLILValidator {
         }
       }
     }
+  }
+  
+  @Check
+  public Integer checkStepName(final Step step) {
+    int _xifexpression = (int) 0;
+    String _name = step.getName();
+    boolean _notEquals = (!Objects.equal(_name, null));
+    if (_notEquals) {
+      int _xblockexpression = (int) 0;
+      {
+        String _name_1 = step.getName();
+        String[] parts = _name_1.split("s");
+        int _xifexpression_1 = (int) 0;
+        boolean _and = false;
+        final String[] _converted_parts = (String[])parts;
+        int _size = ((List<String>)Conversions.doWrapArray(_converted_parts)).size();
+        boolean _equals = (_size == 2);
+        if (!_equals) {
+          _and = false;
+        } else {
+          String _get = parts[0];
+          boolean _isEmpty = _get.isEmpty();
+          _and = _isEmpty;
+        }
+        if (_and) {
+          int _xtrycatchfinallyexpression = (int) 0;
+          try {
+            String _get_1 = parts[1];
+            _xtrycatchfinallyexpression = Integer.parseInt(_get_1);
+          } catch (final Throwable _t) {
+            if (_t instanceof Exception) {
+              final Exception e = (Exception)_t;
+              this.error("The Step name must be in the format \'s<integer>\'.", RSLILPackage.Literals.STEP__NAME);
+            } else {
+              throw Exceptions.sneakyThrow(_t);
+            }
+          }
+          _xifexpression_1 = _xtrycatchfinallyexpression;
+        } else {
+          this.error("The Step name must be in the format \'s<integer>\'.", RSLILPackage.Literals.STEP__NAME);
+        }
+        _xblockexpression = _xifexpression_1;
+      }
+      _xifexpression = _xblockexpression;
+    }
+    return Integer.valueOf(_xifexpression);
   }
   
   @Check
