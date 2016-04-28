@@ -9,6 +9,7 @@ import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.text.contentassist.ICompletionProposal;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.xtext.AbstractElement;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
@@ -72,7 +73,8 @@ public class RSLILProposalProvider extends AbstractRSLILProposalProvider {
         String _stepName_1 = stepName;
         stepName = (_stepName_1 + Integer.valueOf(1));
       }
-      ICompletionProposal _createCompletionProposal = this.createCompletionProposal(stepName, stepName, null, context);
+      Image _image = this.getImage(model);
+      ICompletionProposal _createCompletionProposal = this.createCompletionProposal(stepName, stepName, _image, context);
       acceptor.accept(_createCompletionProposal);
     } else {
       if ((model instanceof Step)) {
@@ -116,7 +118,8 @@ public class RSLILProposalProvider extends AbstractRSLILProposalProvider {
           String _stepName_4 = stepName_1;
           stepName_1 = (_stepName_4 + Integer.valueOf(1));
         }
-        ICompletionProposal _createCompletionProposal_1 = this.createCompletionProposal(stepName_1, stepName_1, null, context);
+        Image _image_1 = this.getImage(model);
+        ICompletionProposal _createCompletionProposal_1 = this.createCompletionProposal(stepName_1, stepName_1, _image_1, context);
         acceptor.accept(_createCompletionProposal_1);
       }
     }
@@ -140,7 +143,8 @@ public class RSLILProposalProvider extends AbstractRSLILProposalProvider {
         String option = ((Keyword) e).getValue();
         boolean _contains = option.contains(nfrType);
         if (_contains) {
-          ICompletionProposal _createCompletionProposal = this.createCompletionProposal(option, option, null, context);
+          Image _image = this.getImage(model);
+          ICompletionProposal _createCompletionProposal = this.createCompletionProposal(option, option, _image, context);
           acceptor.accept(_createCompletionProposal);
         }
       };

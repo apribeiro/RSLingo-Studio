@@ -55,7 +55,9 @@ class RSLILProposalProvider extends AbstractRSLILProposalProvider {
 			} else {
 				stepName += 1
 			}
-			acceptor.accept(createCompletionProposal(stepName, stepName, null, context))
+			acceptor.accept(createCompletionProposal(stepName, stepName,
+				getImage(model), context
+			))
 		} else if (model instanceof Step) {
 			val step = model as Step
 			var scenario = step.eContainer as Scenario
@@ -73,7 +75,9 @@ class RSLILProposalProvider extends AbstractRSLILProposalProvider {
 			} else {
 				stepName += 1
 			}
-			acceptor.accept(createCompletionProposal(stepName, stepName, null, context))
+			acceptor.accept(createCompletionProposal(stepName, stepName,
+				getImage(model), context
+			))
 		}
 	}
 	
@@ -86,8 +90,9 @@ class RSLILProposalProvider extends AbstractRSLILProposalProvider {
 				var option = (e as Keyword).value 
 				 
 				if (option.contains(nfrType)) {
-					// FIXME See how to add the default icon image
-					acceptor.accept(createCompletionProposal(option, option, null, context))
+					acceptor.accept(createCompletionProposal(option, option,
+						getImage(model), context
+					))
 				}
 			]	
 		} else {

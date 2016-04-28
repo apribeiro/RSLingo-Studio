@@ -182,7 +182,6 @@ Scenario:
 	'}';
 
 Step:
-	// FIXME Review StepID and NextStep
 	'Step' name=ID '{'
 		('Name' nameAlias=STRING)?
 		'Type' type=('ActorPrepareData'|'ActorCallSystem'|'SystemExecutes'|'SystemReturnResult'|'Other')
