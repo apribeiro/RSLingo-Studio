@@ -48,33 +48,16 @@ class RSLILProposalProvider extends AbstractRSLILProposalProvider {
 		ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if (model instanceof Scenario) {
 			var scenario = model as Scenario
-			var stepName = "s"
+			var stepName = getStepName(scenario, null)
 			
-			if (scenario.steps.size > 0) {
-				stepName += Integer.parseInt(scenario.steps.last.name.split("s").get(1)) + 1
-			} else {
-				stepName += 1
-			}
 			acceptor.accept(createCompletionProposal(stepName, stepName,
 				getImage(model), context
 			))
 		} else if (model instanceof Step) {
 			val step = model as Step
 			var scenario = step.eContainer as Scenario
-			var stepName = "s"
+			var stepName = getStepName(scenario, step)
 			
-			if (scenario.steps.size > 1) {
-				// Step Name must be in the format 's<int>'
-				if (!scenario.steps.last.equals(step)) {
-					stepName += Integer.parseInt(scenario.steps.last.name.split("s").get(1)) + 1
-				} else {
-					// Get penultimate Step
-					var last = scenario.steps.get(scenario.steps.size - 2)
-					stepName += Integer.parseInt(last.name.split("s").get(1)) + 1
-				}
-			} else {
-				stepName += 1
-			}
 			acceptor.accept(createCompletionProposal(stepName, stepName,
 				getImage(model), context
 			))
@@ -98,5 +81,31 @@ class RSLILProposalProvider extends AbstractRSLILProposalProvider {
 		} else {
 			super.completeNFR_SubType(model, assignment, context, acceptor)
 		}
+	}
+	
+	def private String getStepName(Scenario scenario, Step step) {
+		var stepName = "s"
+		
+		if (step != null) {
+			if (scenario.steps.size > 1) {
+				// Step Name must be in the format 's<int>'
+				if (!scenario.steps.last.equals(step)) {
+					stepName += Integer.parseInt(scenario.steps.last.name.split("s").get(1)) + 1
+				} else {
+					// Get penultimate Step
+					var last = scenario.steps.get(scenario.steps.size - 2)
+					stepName += Integer.parseInt(last.name.split("s").get(1)) + 1
+				}
+			} else {
+				stepName += 1
+			}
+		} else {
+			if (scenario.steps.size > 0) {
+				stepName += Integer.parseInt(scenario.steps.last.name.split("s").get(1)) + 1
+			} else {
+				stepName += 1
+			}
+		}
+		return stepName
 	}
 }
