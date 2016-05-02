@@ -1,0 +1,6 @@
+setpref targetPlatformPath="${target.platform}"
+resolve "${projects.location}/rslingo.rslil.buckminster/projects-platform.cquery"
+resolve "${projects.location}/rslingo.rslil.buckminster/project.cquery"
+build
+junit -l "rslingo.rslil.tests/rslingo.rslil.tests.launch"  --flatXML --output "${buckminster.output.root}/test.results/rslingo.rslil.tests.launch.xml"
+perform "rslingo.rslil.site#site.p2"

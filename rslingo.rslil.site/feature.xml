@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="rslingo.rslil.site"
+	label="rslingo.rslil.site Feature"
+	version="1.0.0.qualifier">
+	<includes
+		id="rslingo.rslil.sdk"
+		version="0.0.0"/>
+</feature>
