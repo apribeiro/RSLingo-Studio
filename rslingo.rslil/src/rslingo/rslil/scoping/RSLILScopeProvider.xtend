@@ -41,6 +41,4 @@ class RSLILScopeProvider extends AbstractDeclarativeScopeProvider {
     def IScope scope_UseCase_extPoint(UseCase ctx, EReference ref) {
         return Scopes.scopeFor(ctx.extends.extensionnPoints)
     }
-    
-    // TODO Define NFR sub-type scope
 }

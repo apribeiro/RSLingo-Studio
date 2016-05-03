@@ -2465,19 +2465,17 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNextStepIDTerminalRuleCall_11_1_0_1 = (RuleCall)cNextStepCrossReference_11_1_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		
-		//Step: // FIXME Review StepID and NextStep
-		//	"Step" name=ID "{" ("Name" nameAlias=STRING)? "Type" type=("ActorPrepareData" | "ActorCallSystem" | "SystemExecutes" |
-		//	"SystemReturnResult" | "Other") "Description" description=STRING ("Actor" actor=[Actor])? ("Pre-Conditions"
+		//Step:
+		//	"Step" name=ID "{" ("Name" nameAlias=STRING)? "Type" type=("ActorPrepareData" | "ActorCallSystem" | "SystemExecutes"
+		//	| "SystemReturnResult" | "Other") "Description" description=STRING ("Actor" actor=[Actor])? ("Pre-Conditions"
 		//	preConditions=STRING)? ("Post-Conditions" postConditions=STRING)? ("NextStep" next=[Step])? "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//// FIXME Review StepID and NextStep
 		//"Step" name=ID "{" ("Name" nameAlias=STRING)? "Type" type=("ActorPrepareData" | "ActorCallSystem" | "SystemExecutes" |
 		//"SystemReturnResult" | "Other") "Description" description=STRING ("Actor" actor=[Actor])? ("Pre-Conditions"
 		//preConditions=STRING)? ("Post-Conditions" postConditions=STRING)? ("NextStep" next=[Step])? "}"
 		public Group getGroup() { return cGroup; }
 
-		//// FIXME Review StepID and NextStep
 		//"Step"
 		public Keyword getStepKeyword_0() { return cStepKeyword_0; }
 
@@ -3627,9 +3625,9 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		return getScenarioAccess().getRule();
 	}
 
-	//Step: // FIXME Review StepID and NextStep
-	//	"Step" name=ID "{" ("Name" nameAlias=STRING)? "Type" type=("ActorPrepareData" | "ActorCallSystem" | "SystemExecutes" |
-	//	"SystemReturnResult" | "Other") "Description" description=STRING ("Actor" actor=[Actor])? ("Pre-Conditions"
+	//Step:
+	//	"Step" name=ID "{" ("Name" nameAlias=STRING)? "Type" type=("ActorPrepareData" | "ActorCallSystem" | "SystemExecutes"
+	//	| "SystemReturnResult" | "Other") "Description" description=STRING ("Actor" actor=[Actor])? ("Pre-Conditions"
 	//	preConditions=STRING)? ("Post-Conditions" postConditions=STRING)? ("NextStep" next=[Step])? "}";
 	public StepElements getStepAccess() {
 		return pStep;
