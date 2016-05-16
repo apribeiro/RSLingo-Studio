@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature id="rslingo.rslil.sdk" version="0.0.0">
-      <category name="main"/>
-   </feature>
-   <feature id="rslingo.rslil.sdk.source" version="0.0.0">
-      <category name="main.source"/>
-   </feature>
-   <category-def name="main" label="RSL-IL"/>
-   <category-def name="main.source" label="Source for RSL-IL"/>
+   	<feature id="rslingo.rslil.sdk" version="0.0.0">
+      	<category name="main"/>
+   	</feature>
+   	<feature id="rslingo.rslil.sdk.source" version="0.0.0">
+      	<category name="main.source"/>
+   	</feature>
+   	<category-def name="main" label="RSL-IL">
+   	  	<description>
+         	RSL-IL4Privacy
+      	</description>
+   	</category-def>
+	<category-def name="main.source" label="Source for RSL-IL">
+		<description>
+			Source for RSL-IL
+      	</description>
+	</category-def>
 </site>
