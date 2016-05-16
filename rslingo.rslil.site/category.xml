@@ -8,7 +8,7 @@
    	</feature>
    	<category-def name="main" label="RSL-IL">
    	  	<description>
-         	RSL-IL4Privacy
+         	RSL-IL
       	</description>
    	</category-def>
 	<category-def name="main.source" label="Source for RSL-IL">
