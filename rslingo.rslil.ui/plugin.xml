@@ -3,228 +3,228 @@
 
 <plugin>
 
-    <extension
-            point="org.eclipse.ui.editors">
-        <editor
-            class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
-            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
-            default="true"
-            extensions="rslil"
-            id="rslingo.rslil.RSLIL"
-            name="RSLIL Editor">
-        </editor>
-    </extension>
-    <extension
-        point="org.eclipse.ui.handlers">
-        <handler
-            class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
-            commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
-            <activeWhen>
-                <reference
-                    definitionId="rslingo.rslil.RSLIL.Editor.opened">
-                </reference>
-            </activeWhen>
-        </handler>
-        <handler
-            class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
-            commandId="rslingo.rslil.RSLIL.validate">
-         <activeWhen>
-            <reference
-                    definitionId="rslingo.rslil.RSLIL.Editor.opened">
-            </reference>
-         </activeWhen>
-      	</handler>
-      	<!-- copy qualified name -->
-        <handler
-            class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
-            commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName">
-            <activeWhen>
+	<extension
+		point="org.eclipse.ui.editors">
+		<editor
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+			contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+			default="true"
+			extensions="rslil"
+			id="rslingo.rslil.RSLIL"
+			name="RSLIL Editor">
+		</editor>
+	</extension>
+	<extension
+		point="org.eclipse.ui.handlers">
+		<handler
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclarationHandler"
+			commandId="org.eclipse.xtext.ui.editor.hyperlinking.OpenDeclaration">
+			<activeWhen>
+				<reference
+					definitionId="rslingo.rslil.RSLIL.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+		<handler
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.handler.ValidateActionHandler"
+			commandId="rslingo.rslil.RSLIL.validate">
+			<activeWhen>
+				<reference
+					definitionId="rslingo.rslil.RSLIL.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+		<!-- copy qualified name -->
+		<handler
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedNameHandler"
+			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName">
+			<activeWhen>
 				<reference definitionId="rslingo.rslil.RSLIL.Editor.opened" />
-            </activeWhen>
-        </handler>
-        <handler
-            class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
-            commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName">
-            <activeWhen>
-            	<and>
-            		<reference definitionId="rslingo.rslil.RSLIL.XtextEditor.opened" />
-	                <iterate>
+			</activeWhen>
+		</handler>
+		<handler
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedNameHandler"
+			commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName">
+			<activeWhen>
+				<and>
+					<reference definitionId="rslingo.rslil.RSLIL.XtextEditor.opened" />
+					<iterate>
 						<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
 					</iterate>
 				</and>
-            </activeWhen>
-        </handler>
-        <!-- RSL-IL Handlers -->
-        <handler
-        	class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:rslingo.rslil.ui.handlers.JSONHandler"
-            commandId="rslingo.rslil.ui.commandJSON">
-        </handler>
-        <handler
-        	class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:rslingo.rslil.ui.handlers.TextHandler"
-            commandId="rslingo.rslil.ui.commandText">
-        </handler>
-        <handler
-        	class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:rslingo.rslil.ui.handlers.WordHandler"
-            commandId="rslingo.rslil.ui.commandWord">
-        </handler>
-        <handler
-        	class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:rslingo.rslil.ui.handlers.ExportExcelHandler"
-            commandId="rslingo.rslil.ui.commandExportExcel">
-        </handler>
-    </extension>
-    <extension point="org.eclipse.core.expressions.definitions">
-        <definition id="rslingo.rslil.RSLIL.Editor.opened">
-            <and>
-                <reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
-                <with variable="activeEditor">
-                    <test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
-                        value="rslingo.rslil.RSLIL" 
-                        forcePluginActivation="true"/>
-                </with>        
-            </and>
-        </definition>
-        <definition id="rslingo.rslil.RSLIL.XtextEditor.opened">
-            <and>
-                <reference definitionId="isXtextEditorActive"/>
-                <with variable="activeEditor">
-                    <test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
-                        value="rslingo.rslil.RSLIL" 
-                        forcePluginActivation="true"/>
-                </with>        
-            </and>
-        </definition>
-    </extension>
-    <extension
-            point="org.eclipse.ui.preferencePages">
-        <page
-            class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-            id="rslingo.rslil.RSLIL"
-            name="RSLIL">
-            <keywordReference id="rslingo.rslil.ui.keyword_RSLIL"/>
-        </page>
-        <page
-            category="rslingo.rslil.RSLIL"
-            class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
-            id="rslingo.rslil.RSLIL.coloring"
-            name="Syntax Coloring">
-            <keywordReference id="rslingo.rslil.ui.keyword_RSLIL"/>
-        </page>
-        <page
-            category="rslingo.rslil.RSLIL"
-            class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
-            id="rslingo.rslil.RSLIL.templates"
-            name="Templates">
-            <keywordReference id="rslingo.rslil.ui.keyword_RSLIL"/>
-        </page>
-    </extension>
-    <extension
-            point="org.eclipse.ui.propertyPages">
-        <page
-            class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
-            id="rslingo.rslil.RSLIL"
-            name="RSLIL">
-            <keywordReference id="rslingo.rslil.ui.keyword_RSLIL"/>
-            <enabledWhen>
-	            <adapt type="org.eclipse.core.resources.IProject"/>
+			</activeWhen>
+		</handler>
+		<!-- RSL-IL Handlers -->
+		<handler
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:rslingo.rslil.ui.handlers.JSONHandler"
+			commandId="rslingo.rslil.ui.commandJSON">
+		</handler>
+		<handler
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:rslingo.rslil.ui.handlers.TextHandler"
+			commandId="rslingo.rslil.ui.commandText">
+		</handler>
+		<handler
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:rslingo.rslil.ui.handlers.WordHandler"
+			commandId="rslingo.rslil.ui.commandWord">
+		</handler>
+		<handler
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:rslingo.rslil.ui.handlers.ExportExcelHandler"
+			commandId="rslingo.rslil.ui.commandExportExcel">
+		</handler>
+	</extension>
+	<extension point="org.eclipse.core.expressions.definitions">
+		<definition id="rslingo.rslil.RSLIL.Editor.opened">
+			<and>
+				<reference definitionId="isActiveEditorAnInstanceOfXtextEditor"/>
+				<with variable="activeEditor">
+					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
+						value="rslingo.rslil.RSLIL" 
+						forcePluginActivation="true"/>
+				</with>        
+			</and>
+		</definition>
+		<definition id="rslingo.rslil.RSLIL.XtextEditor.opened">
+			<and>
+				<reference definitionId="isXtextEditorActive"/>
+				<with variable="activeEditor">
+					<test property="org.eclipse.xtext.ui.editor.XtextEditor.languageName" 
+						value="rslingo.rslil.RSLIL" 
+						forcePluginActivation="true"/>
+				</with>        
+			</and>
+		</definition>
+	</extension>
+	<extension
+		point="org.eclipse.ui.preferencePages">
+		<page
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			id="rslingo.rslil.RSLIL"
+			name="RSLIL">
+			<keywordReference id="rslingo.rslil.ui.keyword_RSLIL"/>
+		</page>
+		<page
+			category="rslingo.rslil.RSLIL"
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.syntaxcoloring.SyntaxColoringPreferencePage"
+			id="rslingo.rslil.RSLIL.coloring"
+			name="Syntax Coloring">
+			<keywordReference id="rslingo.rslil.ui.keyword_RSLIL"/>
+		</page>
+		<page
+			category="rslingo.rslil.RSLIL"
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage"
+			id="rslingo.rslil.RSLIL.templates"
+			name="Templates">
+			<keywordReference id="rslingo.rslil.ui.keyword_RSLIL"/>
+		</page>
+	</extension>
+	<extension
+		point="org.eclipse.ui.propertyPages">
+		<page
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
+			id="rslingo.rslil.RSLIL"
+			name="RSLIL">
+			<keywordReference id="rslingo.rslil.ui.keyword_RSLIL"/>
+			<enabledWhen>
+				<adapt type="org.eclipse.core.resources.IProject"/>
 			</enabledWhen>
-	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
-        </page>
-    </extension>
-    <extension
-        point="org.eclipse.ui.keywords">
-        <keyword
-            id="rslingo.rslil.ui.keyword_RSLIL"
-            label="RSLIL"/>
-    </extension>
-    <extension
-         point="org.eclipse.ui.commands">
-      <command
-            description="Trigger expensive validation"
-            id="rslingo.rslil.RSLIL.validate"
-            name="Validate">
-      </command>
-      <!-- copy qualified name -->
-      <command
-            id="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
-            categoryId="org.eclipse.ui.category.edit"
-            description="Copy the qualified name for the selected element"
-            name="Copy Qualified Name">
-      </command>
-      <command
-            id="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName"
-            categoryId="org.eclipse.ui.category.edit"
-            description="Copy the qualified name for the selected element"
-            name="Copy Qualified Name">
-      </command>
-    </extension>
-    <extension point="org.eclipse.ui.menus">
-        <menuContribution
-            locationURI="popup:#TextEditorContext?after=group.edit">
-             <command
-                 commandId="rslingo.rslil.RSLIL.validate"
-                 style="push"
-                 tooltip="Trigger expensive validation">
-            <visibleWhen checkEnabled="false">
-                <reference
-                    definitionId="rslingo.rslil.RSLIL.Editor.opened">
-                </reference>
-            </visibleWhen>
-         </command>  
-         </menuContribution>
-         <!-- copy qualified name -->
-         <menuContribution locationURI="popup:#TextEditorContext?after=copy">
-         	<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName" 
-         		style="push" tooltip="Copy Qualified Name">
-            	<visibleWhen checkEnabled="false">
-                	<reference definitionId="rslingo.rslil.RSLIL.Editor.opened" />
-            	</visibleWhen>
-         	</command>  
-         </menuContribution>
-         <menuContribution locationURI="menu:edit?after=copy">
-         	<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
-            	style="push" tooltip="Copy Qualified Name">
-            	<visibleWhen checkEnabled="false">
-                	<reference definitionId="rslingo.rslil.RSLIL.Editor.opened" />
-            	</visibleWhen>
-         	</command>  
-         </menuContribution>
-         <menuContribution locationURI="popup:org.eclipse.xtext.ui.outline?after=additions">
+			<filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+		</page>
+	</extension>
+	<extension
+		point="org.eclipse.ui.keywords">
+		<keyword
+			id="rslingo.rslil.ui.keyword_RSLIL"
+			label="RSLIL"/>
+	</extension>
+	<extension
+		point="org.eclipse.ui.commands">
+		<command
+			description="Trigger expensive validation"
+			id="rslingo.rslil.RSLIL.validate"
+			name="Validate">
+		</command>
+		<!-- copy qualified name -->
+		<command
+			id="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
+			categoryId="org.eclipse.ui.category.edit"
+			description="Copy the qualified name for the selected element"
+			name="Copy Qualified Name">
+		</command>
+		<command
+			id="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName"
+			categoryId="org.eclipse.ui.category.edit"
+			description="Copy the qualified name for the selected element"
+			name="Copy Qualified Name">
+		</command>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.edit">
+			<command
+				commandId="rslingo.rslil.RSLIL.validate"
+				style="push"
+				tooltip="Trigger expensive validation">
+				<visibleWhen checkEnabled="false">
+					<reference
+						definitionId="rslingo.rslil.RSLIL.Editor.opened">
+					</reference>
+				</visibleWhen>
+			</command>  
+		</menuContribution>
+		<!-- copy qualified name -->
+		<menuContribution locationURI="popup:#TextEditorContext?after=copy">
+			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName" 
+				style="push" tooltip="Copy Qualified Name">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="rslingo.rslil.RSLIL.Editor.opened" />
+				</visibleWhen>
+			</command>  
+		</menuContribution>
+		<menuContribution locationURI="menu:edit?after=copy">
+			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
+				style="push" tooltip="Copy Qualified Name">
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="rslingo.rslil.RSLIL.Editor.opened" />
+				</visibleWhen>
+			</command>  
+		</menuContribution>
+		<menuContribution locationURI="popup:org.eclipse.xtext.ui.outline?after=additions">
 			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName" 
 				style="push" tooltip="Copy Qualified Name">
-         		<visibleWhen checkEnabled="false">
-	            	<and>
-	            		<reference definitionId="rslingo.rslil.RSLIL.XtextEditor.opened" />
+				<visibleWhen checkEnabled="false">
+					<and>
+						<reference definitionId="rslingo.rslil.RSLIL.XtextEditor.opened" />
 						<iterate>
 							<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
 						</iterate>
 					</and>
 				</visibleWhen>
 			</command>
-         </menuContribution>
-    </extension>
-    <extension point="org.eclipse.ui.menus">
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
 		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
 			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
 				<visibleWhen checkEnabled="false">
-                	<reference definitionId="rslingo.rslil.RSLIL.Editor.opened">
-                	</reference>
-            	</visibleWhen>
+					<reference definitionId="rslingo.rslil.RSLIL.Editor.opened">
+					</reference>
+				</visibleWhen>
 			</command>
 		</menuContribution>
 	</extension>
 	<extension point="org.eclipse.ui.handlers">
-	    <handler
-            class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
-            commandId="org.eclipse.xtext.ui.editor.FindReferences">
-            <activeWhen>
-                <reference
-                    definitionId="rslingo.rslil.RSLIL.Editor.opened">
-                </reference>
-            </activeWhen>
-        </handler>
-    </extension>   
+		<handler
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.findrefs.FindReferencesHandler"
+			commandId="org.eclipse.xtext.ui.editor.FindReferences">
+			<activeWhen>
+				<reference
+					definitionId="rslingo.rslil.RSLIL.Editor.opened">
+				</reference>
+			</activeWhen>
+		</handler>
+	</extension>   
 
-<!-- adding resource factories -->
+	<!-- adding resource factories -->
 
 	<extension
 		point="org.eclipse.emf.ecore.extension_parser">
@@ -234,77 +234,75 @@
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
-        <resourceServiceProvider
-            class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
-            uriExtension="rslil">
-        </resourceServiceProvider>
-    </extension>
-
+		<resourceServiceProvider
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
+			uriExtension="rslil">
+		</resourceServiceProvider>
+	</extension>
 
 	<!-- marker definitions for rslingo.rslil.RSLIL -->
 	<extension
-	        id="rslil.check.fast"
-	        name="RSLIL Problem"
-	        point="org.eclipse.core.resources.markers">
-	    <super type="org.eclipse.xtext.ui.check.fast"/>
-	    <persistent value="true"/>
+		id="rslil.check.fast"
+		name="RSLIL Problem"
+		point="org.eclipse.core.resources.markers">
+		<super type="org.eclipse.xtext.ui.check.fast"/>
+		<persistent value="true"/>
 	</extension>
 	<extension
-	        id="rslil.check.normal"
-	        name="RSLIL Problem"
-	        point="org.eclipse.core.resources.markers">
-	    <super type="org.eclipse.xtext.ui.check.normal"/>
-	    <persistent value="true"/>
+		id="rslil.check.normal"
+		name="RSLIL Problem"
+		point="org.eclipse.core.resources.markers">
+		<super type="org.eclipse.xtext.ui.check.normal"/>
+		<persistent value="true"/>
 	</extension>
 	<extension
-	        id="rslil.check.expensive"
-	        name="RSLIL Problem"
-	        point="org.eclipse.core.resources.markers">
-	    <super type="org.eclipse.xtext.ui.check.expensive"/>
-	    <persistent value="true"/>
+		id="rslil.check.expensive"
+		name="RSLIL Problem"
+		point="org.eclipse.core.resources.markers">
+		<super type="org.eclipse.xtext.ui.check.expensive"/>
+		<persistent value="true"/>
 	</extension>
 
-   <extension
-         point="org.eclipse.xtext.builder.participant">
-      <participant
-            class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
-            fileExtensions="rslil"
-            >
-      </participant>
-   </extension>
-   <extension
-            point="org.eclipse.ui.preferencePages">
-        <page
-            category="rslingo.rslil.RSLIL"
-            class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-            id="rslingo.rslil.RSLIL.compiler.preferencePage"
-            name="Compiler">
-            <keywordReference id="rslingo.rslil.ui.keyword_RSLIL"/>
-        </page>
-    </extension>
-    <extension
-            point="org.eclipse.ui.propertyPages">
-        <page
-            category="rslingo.rslil.RSLIL"
-            class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-            id="rslingo.rslil.RSLIL.compiler.propertyPage"
-            name="Compiler">
-            <keywordReference id="rslingo.rslil.ui.keyword_RSLIL"/>
-            <enabledWhen>
-	            <adapt type="org.eclipse.core.resources.IProject"/>
+	<extension
+		point="org.eclipse.xtext.builder.participant">
+		<participant
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
+			fileExtensions="rslil">
+		</participant>
+	</extension>
+	<extension
+		point="org.eclipse.ui.preferencePages">
+		<page
+			category="rslingo.rslil.RSLIL"
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			id="rslingo.rslil.RSLIL.compiler.preferencePage"
+			name="Compiler">
+			<keywordReference id="rslingo.rslil.ui.keyword_RSLIL"/>
+		</page>
+	</extension>
+	<extension
+		point="org.eclipse.ui.propertyPages">
+		<page
+			category="rslingo.rslil.RSLIL"
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
+			id="rslingo.rslil.RSLIL.compiler.propertyPage"
+			name="Compiler">
+			<keywordReference id="rslingo.rslil.ui.keyword_RSLIL"/>
+			<enabledWhen>
+				<adapt type="org.eclipse.core.resources.IProject"/>
 			</enabledWhen>
-	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
-        </page>
-    </extension>
-    <extension point="org.eclipse.ui.menus">
+			<filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
+		</page>
+	</extension>
+	<extension point="org.eclipse.ui.menus">
 		<menuContribution locationURI="popup:#TextEditorContext?after=xtext.ui.openDeclaration">
 			<command
 				commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand"
 				id="rslingo.rslil.RSLIL.OpenGeneratedCode"
 				style="push">
-					<visibleWhen checkEnabled="false">
-						<reference definitionId="rslingo.rslil.RSLIL.Editor.opened" />
-					</visibleWhen>
+				<visibleWhen checkEnabled="false">
+					<reference definitionId="rslingo.rslil.RSLIL.Editor.opened" />
+				</visibleWhen>
 			</command>
 		</menuContribution>
 	</extension>
@@ -312,9 +310,9 @@
 		<handler
 			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler"
 			commandId="org.eclipse.xtext.ui.OpenGeneratedFileCommand">
-				<activeWhen>
-					<reference definitionId="rslingo.rslil.RSLIL.Editor.opened" />
-				</activeWhen>
+			<activeWhen>
+				<reference definitionId="rslingo.rslil.RSLIL.Editor.opened" />
+			</activeWhen>
 		</handler>
 	</extension>
 
@@ -350,36 +348,169 @@
 				</visibleWhen>
 			</command>
 		</menuContribution>
+		<menuContribution locationURI="popup:#TextEditorContext?after=additions">
+			<menu
+				id="rslingoTextEditorPopupMenu"
+				label="RSLingo">
+				<menu
+					id="exportToPopupMenu"
+					label="Export To...">
+					<command
+						commandId="rslingo.rslil.ui.commandWord"
+						label="Word"
+						style="push">
+					</command>
+					<command
+						commandId="rslingo.rslil.ui.commandExportExcel"
+						label="Excel"
+						style="push">
+					</command>
+					<command
+						commandId="rslingo.rslil.ui.commandJSON"
+						label="JSON"
+						style="push">
+					</command>
+					<command
+						commandId="rslingo.rslil.ui.commandText"
+						label="Text"
+						style="push">
+					</command>
+					<visibleWhen
+						checkEnabled="false">
+						<reference
+							definitionId="rslingo.rslil.RSLIL.Editor.opened">
+						</reference>
+					</visibleWhen>
+				</menu>
+			</menu>
+		</menuContribution>
+		<menuContribution
+			allPopups="false"
+			locationURI="menu:org.eclipse.ui.main.menu">
+			<menu
+				id="rslingoMenu"
+				label="RSLingo">
+				<menu
+					id="importFromMenu"
+					label="Import From...">
+					<command
+						commandId="rslingo.rslil.ui.commandImportExcel"
+						label="Excel"
+						style="push">
+					</command>
+				</menu>
+				<menu
+					id="exportToMenu"
+					label="Export To...">
+					<command
+						commandId="rslingo.rslil.ui.commandWord"
+						label="Word"
+						style="push">
+					</command>
+					<command
+						commandId="rslingo.rslil.ui.commandExportExcel"
+						label="Excel"
+						style="push">
+					</command>
+					<command
+						commandId="rslingo.rslil.ui.commandJSON"
+						label="JSON"
+						style="push">
+					</command>
+					<command
+						commandId="rslingo.rslil.ui.commandText"
+						label="Text"
+						style="push">
+					</command>
+				</menu>
+				<separator
+					name="rslingo.rslil.ui.separator1"
+					visible="true">
+				</separator>
+				<command
+					commandId="rslingo.rslil.ui.commandConfiguration"
+					label="Configuration"
+					style="push">
+				</command>
+				<command
+					commandId="rslingo.rslil.ui.commandExit"
+					label="Exit"
+					style="push"
+					tooltip="Exits the application">
+				</command>
+			</menu>
+		</menuContribution>
+		<menuContribution
+			allPopups="false"
+			locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+			<menu
+				id="rslingoPopupMenu"
+				label="RSLingo">
+				<menu
+					id="exportToPopupMenu"
+					label="Export To...">
+					<command
+						commandId="rslingo.rslil.ui.commandWord"
+						label="Word"
+						style="push">
+					</command>
+					<command
+						commandId="rslingo.rslil.ui.commandExportExcel"
+						label="Excel"
+						style="push">
+					</command>
+					<command
+						commandId="rslingo.rslil.ui.commandJSON"
+						label="JSON"
+						style="push">
+					</command>
+					<command
+						commandId="rslingo.rslil.ui.commandText"
+						label="Text"
+						style="push">
+					</command>
+					<visibleWhen
+						checkEnabled="false">
+						<iterate>
+							<adapt type="org.eclipse.core.resources.IResource">
+								<test property="org.eclipse.core.resources.name" 
+									value="*.rslil"/>
+							</adapt>
+						</iterate>
+					</visibleWhen>
+				</menu>
+			</menu>
+		</menuContribution>
 	</extension>
-    <!-- quickfix marker resolution generator for rslingo.rslil.RSLIL -->
-    <extension
-            point="org.eclipse.ui.ide.markerResolution">
-        <markerResolutionGenerator
-            class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="rslingo.rslil.ui.rslil.check.fast">
-            <attribute
-                name="FIXABLE_KEY"
-                value="true">
-            </attribute>
-        </markerResolutionGenerator>
-        <markerResolutionGenerator
-            class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="rslingo.rslil.ui.rslil.check.normal">
-            <attribute
-                name="FIXABLE_KEY"
-                value="true">
-            </attribute>
-        </markerResolutionGenerator>
-        <markerResolutionGenerator
-            class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
-            markerType="rslingo.rslil.ui.rslil.check.expensive">
-            <attribute
-                name="FIXABLE_KEY"
-                value="true">
-            </attribute>
-        </markerResolutionGenerator>
-    </extension>
-   	<!-- Rename Refactoring -->
+	<!-- quickfix marker resolution generator for rslingo.rslil.RSLIL -->
+	<extension
+		point="org.eclipse.ui.ide.markerResolution">
+		<markerResolutionGenerator
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="rslingo.rslil.ui.rslil.check.fast">
+			<attribute
+				name="FIXABLE_KEY"
+				value="true">
+			</attribute>
+		</markerResolutionGenerator>
+		<markerResolutionGenerator
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="rslingo.rslil.ui.rslil.check.normal">
+			<attribute
+				name="FIXABLE_KEY"
+				value="true">
+			</attribute>
+		</markerResolutionGenerator>
+		<markerResolutionGenerator
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.quickfix.MarkerResolutionGenerator"
+			markerType="rslingo.rslil.ui.rslil.check.expensive">
+			<attribute
+				name="FIXABLE_KEY"
+				value="true">
+			</attribute>
+		</markerResolutionGenerator>
+	</extension>
+	<!-- Rename Refactoring -->
 	<extension point="org.eclipse.ui.handlers">
 		<handler 
 			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.DefaultRenameElementHandler"
@@ -391,115 +522,115 @@
 			</activeWhen>
 		</handler>
 	</extension>
-    <extension point="org.eclipse.ui.menus">
-         <menuContribution
-            locationURI="popup:#TextEditorContext?after=group.edit">
-         <command commandId="org.eclipse.xtext.ui.refactoring.RenameElement"
-               style="push">
-            <visibleWhen checkEnabled="false">
-               <reference
-                     definitionId="rslingo.rslil.RSLIL.Editor.opened">
-               </reference>
-            </visibleWhen>
-         </command>
-      </menuContribution>
-   </extension>
-   <extension point="org.eclipse.ui.preferencePages">
-	    <page
-	        category="rslingo.rslil.RSLIL"
-	        class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
-	        id="rslingo.rslil.RSLIL.refactoring"
-	        name="Refactoring">
-	        <keywordReference id="rslingo.rslil.ui.keyword_RSLIL"/>
-	    </page>
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+			locationURI="popup:#TextEditorContext?after=group.edit">
+			<command commandId="org.eclipse.xtext.ui.refactoring.RenameElement"
+				style="push">
+				<visibleWhen checkEnabled="false">
+					<reference
+						definitionId="rslingo.rslil.RSLIL.Editor.opened">
+					</reference>
+				</visibleWhen>
+			</command>
+		</menuContribution>
+	</extension>
+	<extension point="org.eclipse.ui.preferencePages">
+		<page
+			category="rslingo.rslil.RSLIL"
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
+			id="rslingo.rslil.RSLIL.refactoring"
+			name="Refactoring">
+			<keywordReference id="rslingo.rslil.ui.keyword_RSLIL"/>
+		</page>
 	</extension>
 
-  <extension point="org.eclipse.compare.contentViewers">
-    <viewer id="rslingo.rslil.RSLIL.compare.contentViewers"
-            class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="rslil">
-    </viewer>
-  </extension>
-  <extension point="org.eclipse.compare.contentMergeViewers">
-    <viewer id="rslingo.rslil.RSLIL.compare.contentMergeViewers"
-            class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="rslil" label="RSLIL Compare">
-     </viewer>
-  </extension>
-  <extension point="org.eclipse.ui.editors.documentProviders">
-    <provider id="rslingo.rslil.RSLIL.editors.documentProviders"
-            class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
-            extensions="rslil">
-    </provider>
-  </extension>
-  <extension point="org.eclipse.team.core.fileTypes">
-    <fileTypes
-            extension="rslil"
-            type="text">
-    </fileTypes>
-  </extension>
-  <extension
-        point="org.eclipse.ui.commands">
-     <command
-           defaultHandler="rslingo.rslil.ui.handlers.ExitHandler"
-           id="rslingo.rslil.ui.commandExit"
-           name="Exit">
-     </command>
-     <command
-           id="rslingo.rslil.ui.commandGenerateExcel"
-           name="GenerateExcel">
-     </command>
-     <command
-           defaultHandler="rslingo.rslil.ui.handlers.ImportExcelHandler"
-           id="rslingo.rslil.ui.commandImportExcel"
-           name="ImportExcel">
-     </command>
-     <command
-           id="rslingo.rslil.ui.commandExportExcel"
-           name="ExportExcel">
-     </command>
-     <command
-           id="rslingo.rslil.ui.commandWord"
-           name="Word">
-     </command>
-     <command
-           id="rslingo.rslil.ui.commandJSON"
-           name="JSON">
-     </command>
-     <command
-           id="rslingo.rslil.ui.commandText"
-           name="Text">
-     </command>
-     <command
-           defaultHandler="rslingo.rslil.ui.handlers.ConfigurationHandler"
-           id="rslingo.rslil.ui.commandConfiguration"
-           name="Configuration">
-     </command>
-  </extension>
-  <!-- Wizards -->
-  <extension
-         point="org.eclipse.ui.newWizards">
-      <category
-            name="RSLingo"
-            id="RSLingo">
-      </category>
-      <wizard
-            name="RSL-IL file"
-            icon="icons/req.png"
-            category="RSLingo"
-            class="rslingo.rslil.ui.wizards.NewRSLIL4PrivacyWizard"
-            finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
-            id="rslingo.rslil.ui.wizards.NewRSLIL4PrivacyWizard">
-      </wizard>
-      <wizard
-            name="RSLingo Project"
-            icon="icons/rslingo-icon.png"
-            category="RSLingo"
-            class="rslingo.rslil.ui.wizards.NewRSLingoProjectWizard"
-            finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
-            id="rslingo.rslil.ui.wizards.NewRSLingoProjectWizard"
-            project="true">
-      </wizard>
-   </extension> 
+	<extension point="org.eclipse.compare.contentViewers">
+		<viewer id="rslingo.rslil.RSLIL.compare.contentViewers"
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+			extensions="rslil">
+		</viewer>
+	</extension>
+	<extension point="org.eclipse.compare.contentMergeViewers">
+		<viewer id="rslingo.rslil.RSLIL.compare.contentMergeViewers"
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
+			extensions="rslil" label="RSLIL Compare">
+		</viewer>
+	</extension>
+	<extension point="org.eclipse.ui.editors.documentProviders">
+		<provider id="rslingo.rslil.RSLIL.editors.documentProviders"
+			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
+			extensions="rslil">
+		</provider>
+	</extension>
+	<extension point="org.eclipse.team.core.fileTypes">
+		<fileTypes
+			extension="rslil"
+			type="text">
+		</fileTypes>
+	</extension>
+	<extension
+		point="org.eclipse.ui.commands">
+		<command
+			defaultHandler="rslingo.rslil.ui.handlers.ExitHandler"
+			id="rslingo.rslil.ui.commandExit"
+			name="Exit">
+		</command>
+		<command
+			id="rslingo.rslil.ui.commandGenerateExcel"
+			name="GenerateExcel">
+		</command>
+		<command
+			defaultHandler="rslingo.rslil.ui.handlers.ImportExcelHandler"
+			id="rslingo.rslil.ui.commandImportExcel"
+			name="ImportExcel">
+		</command>
+		<command
+			id="rslingo.rslil.ui.commandExportExcel"
+			name="ExportExcel">
+		</command>
+		<command
+			id="rslingo.rslil.ui.commandWord"
+			name="Word">
+		</command>
+		<command
+			id="rslingo.rslil.ui.commandJSON"
+			name="JSON">
+		</command>
+		<command
+			id="rslingo.rslil.ui.commandText"
+			name="Text">
+		</command>
+		<command
+			defaultHandler="rslingo.rslil.ui.handlers.ConfigurationHandler"
+			id="rslingo.rslil.ui.commandConfiguration"
+			name="Configuration">
+		</command>
+	</extension>
+	<!-- Wizards -->
+	<extension
+		point="org.eclipse.ui.newWizards">
+		<category
+			name="RSLingo"
+			id="RSLingo">
+		</category>
+		<wizard
+			name="RSL-IL file"
+			icon="icons/req.png"
+			category="RSLingo"
+			class="rslingo.rslil.ui.wizards.NewRSLILWizard"
+			finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
+			id="rslingo.rslil.ui.wizards.NewRSLIL4PrivacyWizard">
+		</wizard>
+		<wizard
+			name="RSLingo Project"
+			icon="icons/rslingo-icon.png"
+			category="RSLingo"
+			class="rslingo.rslil.ui.wizards.NewRSLingoProjectWizard"
+			finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
+			id="rslingo.rslil.ui.wizards.NewRSLingoProjectWizard"
+			project="true">
+		</wizard>
+	</extension> 
 
 </plugin>
