@@ -33,9 +33,8 @@ import org.w3c.dom.NodeList;
 public class ConfigurationWindow {
 
 	private static final String CONFIG_PATH = "config.xml";
-	private static final String DEF_WORD_PATH = "RSL-IL4Privacy-WordTemplate.docx";
-	private static final String DEF_EXCEL_PATH = "RSL-IL4Privacy-ExcelTemplate-v1.1.xlsx";
-	private static final String DEF_GRAPHVIZ_PATH = "C:/Program Files (x86)/Graphviz2.24/bin/dot.exe";
+	private static final String DEF_WORD_PATH = "RSL-IL-WordTemplate.docx";
+	private static final String DEF_EXCEL_PATH = "RSL-IL-ExcelTemplate-v1.1.xlsx";
 	
 	private final String RSLINGO_PATH = Platform.getInstallLocation()
 			.getURL().getPath().substring(1)
@@ -146,52 +145,6 @@ public class ConfigurationWindow {
 			}
 		});
 		
-		Group grpGraphviz = new Group(shell, SWT.NONE);
-		grpGraphviz.setText("Graphviz");
-		grpGraphviz.setBounds(10, 98, 414, 82);
-		
-		Label lblGraphvizPath = formToolkit.createLabel(grpGraphviz, "dot.exe Path:", SWT.ALPHA);
-		lblGraphvizPath.setBounds(10, 52, 75, 15);
-		
-		Text txtGraphviz = formToolkit.createText(grpGraphviz, configs.get("graphviz-path"), SWT.NONE);
-		txtGraphviz.setBounds(91, 49, 224, 21);
-		txtGraphviz.setEnabled(false);
-		txtGraphviz.setText(DEF_GRAPHVIZ_PATH);
-		
-		Button btnBrowseGraphviz = new Button(grpGraphviz, SWT.NONE);
-		btnBrowseGraphviz.setBounds(321, 47, 75, 25);
-		formToolkit.adapt(btnBrowseGraphviz, true, true);
-		btnBrowseGraphviz.setText("Browse...");
-		btnBrowseGraphviz.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				FileDialog dialog = new FileDialog(shell, SWT.OPEN);
-				dialog.setFilterExtensions(new String[] { "*.exe" });
-				dialog.setText("Select the Graphviz dot.exe file to upload");
-				String path = dialog.open();
-				
-				if (path != null) {
-					txtGraphviz.setText(path);
-				}
-			}
-		});
-		
-		Button btnUseGraphviz = new Button(grpGraphviz, SWT.CHECK);
-		btnUseGraphviz.setBounds(10, 23, 93, 16);
-		formToolkit.adapt(btnUseGraphviz, true, true);
-		btnUseGraphviz.setText("Use Graphviz?");
-		btnUseGraphviz.setSelection(true);
-		btnUseGraphviz.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				if (btnUseGraphviz.getSelection()) {
-					btnBrowseGraphviz.setEnabled(true);
-				} else {
-					btnBrowseGraphviz.setEnabled(false);
-				}
-			}
-		});
-		
 		Button btnOk = new Button(shell, SWT.NONE);
 		btnOk.setBounds(268, 227, 75, 25);
 		btnOk.setText("OK");
@@ -201,9 +154,6 @@ public class ConfigurationWindow {
 				HashMap<String, String> configs = new HashMap<String, String>();
 				configs.put("word-path", txtWord.getText());
 				configs.put("excel-path", txtExcel.getText());
-				String use = btnUseGraphviz.getSelection() ? "true": "false";
-				configs.put("use-graphviz", use);
-				configs.put("graphviz-path", txtGraphviz.getText());
 				saveConfigurations(configs);
 				shell.close();
 			}
@@ -248,16 +198,6 @@ public class ConfigurationWindow {
 				excelConfig.setAttribute("name", "excel-path");
 				excelConfig.setAttribute("value", DEF_EXCEL_PATH);
 				config.appendChild(excelConfig);
-				// Use Graphviz?
-				Element useGraphvizConfig = doc.createElement("configuration");
-				useGraphvizConfig.setAttribute("name", "use-graphviz");
-				useGraphvizConfig.setAttribute("value", "true");
-				config.appendChild(useGraphvizConfig);
-				// Graphviz path
-				Element graphvizConfig = doc.createElement("configuration");
-				graphvizConfig.setAttribute("name", "graphviz-path");
-				graphvizConfig.setAttribute("value", DEF_GRAPHVIZ_PATH);
-				config.appendChild(graphvizConfig);
 				
 				// Write the content into the config.xml file
 				TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -291,10 +231,6 @@ public class ConfigurationWindow {
 			configs.put("word-path", wordConfig.getAttribute("value"));
 			Element excelConfig = (Element) nodes.item(1);
 			configs.put("excel-path", excelConfig.getAttribute("value"));
-			Element useGraphvizConfig = (Element) nodes.item(2);
-			configs.put("use-graphviz", useGraphvizConfig.getAttribute("value"));
-			Element graphvizConfig = (Element) nodes.item(3);
-			configs.put("graphviz-path", graphvizConfig.getAttribute("value"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -306,9 +242,7 @@ public class ConfigurationWindow {
 		File configFile = new File(RSLINGO_PATH + CONFIG_PATH);
 
 		if (!configs.get("word-path").equals(DEF_WORD_PATH)
-			|| !configs.get("excel-path").equals(DEF_EXCEL_PATH)
-			|| !configs.get("use-graphviz").equals("true")
-			|| !configs.get("graphviz-path").equals(DEF_GRAPHVIZ_PATH)) {
+			|| !configs.get("excel-path").equals(DEF_EXCEL_PATH)) {
 			try {
 				DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 				DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -327,16 +261,6 @@ public class ConfigurationWindow {
 				if (!configs.get("excel-path").equals(DEF_EXCEL_PATH)) {
 					Element excelConfig = (Element) nodes.item(1);
 					excelConfig.setAttribute("value", configs.get("excel-path"));
-				}
-				
-				if (!configs.get("use-graphviz").equals("true")) {
-					Element graphvizConfig = (Element) nodes.item(2);
-					graphvizConfig.setAttribute("value", configs.get("use-graphviz"));
-				}
-				
-				if (!configs.get("graphviz-path").equals(DEF_GRAPHVIZ_PATH)) {
-					Element graphvizConfig = (Element) nodes.item(3);
-					graphvizConfig.setAttribute("value", configs.get("graphviz-path"));
 				}
 				
 				// Write the content into the config.xml file

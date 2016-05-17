@@ -54,9 +54,9 @@ public class ImportWindow {
 		shell.setSize(411, 160);
 		shell.setText("RSLingo Studio");
 		
-		Label lblRslilprivacyFileGeneration = new Label(shell, SWT.NONE);
-		lblRslilprivacyFileGeneration.setBounds(10, 13, 197, 15);
-		lblRslilprivacyFileGeneration.setText("RSL-IL4Privacy File Generation Mode:");
+		Label lblRslilFileGeneration = new Label(shell, SWT.NONE);
+		lblRslilFileGeneration.setBounds(10, 13, 197, 15);
+		lblRslilFileGeneration.setText("RSL-IL File Generation Mode:");
 		
 		Combo combo = new Combo(shell, SWT.NONE | SWT.READ_ONLY);
 		combo.setBounds(223, 10, 165, 23);
