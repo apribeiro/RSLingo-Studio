@@ -54,6 +54,23 @@
 				</and>
             </activeWhen>
         </handler>
+        <!-- RSL-IL Handlers -->
+        <handler
+        	class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:rslingo.rslil.ui.handlers.JSONHandler"
+            commandId="rslingo.rslil.ui.commandJSON">
+        </handler>
+        <handler
+        	class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:rslingo.rslil.ui.handlers.TextHandler"
+            commandId="rslingo.rslil.ui.commandText">
+        </handler>
+        <handler
+        	class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:rslingo.rslil.ui.handlers.WordHandler"
+            commandId="rslingo.rslil.ui.commandWord">
+        </handler>
+        <handler
+        	class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:rslingo.rslil.ui.handlers.ExportExcelHandler"
+            commandId="rslingo.rslil.ui.commandExportExcel">
+        </handler>
     </extension>
     <extension point="org.eclipse.core.expressions.definitions">
         <definition id="rslingo.rslil.RSLIL.Editor.opened">
@@ -421,5 +438,68 @@
             type="text">
     </fileTypes>
   </extension>
+  <extension
+        point="org.eclipse.ui.commands">
+     <command
+           defaultHandler="rslingo.rslil.ui.handlers.ExitHandler"
+           id="rslingo.rslil.ui.commandExit"
+           name="Exit">
+     </command>
+     <command
+           id="rslingo.rslil.ui.commandGenerateExcel"
+           name="GenerateExcel">
+     </command>
+     <command
+           defaultHandler="rslingo.rslil.ui.handlers.ImportExcelHandler"
+           id="rslingo.rslil.ui.commandImportExcel"
+           name="ImportExcel">
+     </command>
+     <command
+           id="rslingo.rslil.ui.commandExportExcel"
+           name="ExportExcel">
+     </command>
+     <command
+           id="rslingo.rslil.ui.commandWord"
+           name="Word">
+     </command>
+     <command
+           id="rslingo.rslil.ui.commandJSON"
+           name="JSON">
+     </command>
+     <command
+           id="rslingo.rslil.ui.commandText"
+           name="Text">
+     </command>
+     <command
+           defaultHandler="rslingo.rslil.ui.handlers.ConfigurationHandler"
+           id="rslingo.rslil.ui.commandConfiguration"
+           name="Configuration">
+     </command>
+  </extension>
+  <!-- Wizards -->
+  <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            name="RSLingo"
+            id="RSLingo">
+      </category>
+      <wizard
+            name="RSL-IL file"
+            icon="icons/req.png"
+            category="RSLingo"
+            class="rslingo.rslil.ui.wizards.NewRSLIL4PrivacyWizard"
+            finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
+            id="rslingo.rslil.ui.wizards.NewRSLIL4PrivacyWizard">
+      </wizard>
+      <wizard
+            name="RSLingo Project"
+            icon="icons/rslingo-icon.png"
+            category="RSLingo"
+            class="rslingo.rslil.ui.wizards.NewRSLingoProjectWizard"
+            finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
+            id="rslingo.rslil.ui.wizards.NewRSLingoProjectWizard"
+            project="true">
+      </wizard>
+   </extension> 
 
 </plugin>
