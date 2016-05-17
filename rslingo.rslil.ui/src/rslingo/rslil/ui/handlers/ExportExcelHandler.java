@@ -68,7 +68,7 @@ public class ExportExcelHandler extends AbstractHandler {
 
 	private final String RSLINGO_PATH = Platform.getInstallLocation()
 			.getURL().getPath().substring(1)
-			+ "RSLingo4Privacy/";
+			+ "RSLingo/";
 	
 	@Inject
     IResourceSetProvider resourceSetProvider;
@@ -140,7 +140,7 @@ public class ExportExcelHandler extends AbstractHandler {
 						@Override
 						public void run() {
 							String message = "You should run this command using the Main file associated to this file!";
-							MessageDialog errorDialog = new MessageDialog(shell, "RSLingo4Privacy Studio",
+							MessageDialog errorDialog = new MessageDialog(shell, "RSLingo Studio",
 						    		null, message, MessageDialog.ERROR, new String[] { "OK" }, 0);
 						    errorDialog.open();
 						}

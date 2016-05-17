@@ -52,7 +52,7 @@ public class ImportWindow {
 	protected void createContents() {
 		shell = new Shell();
 		shell.setSize(411, 160);
-		shell.setText("RSLingo4Privacy Studio");
+		shell.setText("RSLingo Studio");
 		
 		Label lblRslilprivacyFileGeneration = new Label(shell, SWT.NONE);
 		lblRslilprivacyFileGeneration.setBounds(10, 13, 197, 15);

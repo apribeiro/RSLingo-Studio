@@ -169,7 +169,7 @@ public class MenuCommandWindow {
 					}
 				} catch (Exception e2) {
 					e2.printStackTrace();
-				    MessageDialog errorDialog = new MessageDialog(parent, "RSLingo4Privacy Studio",
+				    MessageDialog errorDialog = new MessageDialog(parent, "RSLingo Studio",
 				    		null, e2.getMessage(), MessageDialog.ERROR, new String[] { "OK" }, 0);
 				    errorDialog.open();
 				}

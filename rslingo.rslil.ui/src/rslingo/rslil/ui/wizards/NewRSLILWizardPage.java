@@ -20,16 +20,16 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
 
-public class NewRSLIL4PrivacyWizardPage extends WizardPage {
+public class NewRSLILWizardPage extends WizardPage {
 	
 	private ISelection selection;
 	private Text containerText;
 	private Text fileText;
 
-	public NewRSLIL4PrivacyWizardPage(ISelection selection) {
+	public NewRSLILWizardPage(ISelection selection) {
 		super("wizardPage");
-		setTitle("RSL-IL4Privacy File");
-		setDescription("This wizard creates a new RSL-IL4Privacy file with the *.rslil extension.");
+		setTitle("RSL-IL File");
+		setDescription("This wizard creates a new RSL-IL file with the *.rslil extension.");
 		this.selection = selection;
 	}
 

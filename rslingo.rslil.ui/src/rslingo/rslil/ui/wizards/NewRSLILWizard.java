@@ -15,18 +15,18 @@ import java.io.*;
 import org.eclipse.ui.*;
 import org.eclipse.ui.ide.IDE;
 
-public class NewRSLIL4PrivacyWizard extends Wizard implements INewWizard {
-	private NewRSLIL4PrivacyWizardPage page;
+public class NewRSLILWizard extends Wizard implements INewWizard {
+	private NewRSLILWizardPage page;
 	private ISelection selection;
 
-	public NewRSLIL4PrivacyWizard() {
+	public NewRSLILWizard() {
 		super();
-		setWindowTitle("New RSL-IL4Privacy File");
+		setWindowTitle("New RSL-IL File");
 		setNeedsProgressMonitor(true);
 	}
 	
 	public void addPages() {
-		page = new NewRSLIL4PrivacyWizardPage(selection);
+		page = new NewRSLILWizardPage(selection);
 		addPage(page);
 	}
 	
@@ -113,7 +113,7 @@ public class NewRSLIL4PrivacyWizard extends Wizard implements INewWizard {
 
 	private void throwCoreException(String message) throws CoreException {
 		IStatus status = 
-				new Status(IStatus.ERROR, "rslingo.rslil4privacy", IStatus.OK, message, null);
+				new Status(IStatus.ERROR, "rslingo.rslil", IStatus.OK, message, null);
 		throw new CoreException(status);
 	}
 }

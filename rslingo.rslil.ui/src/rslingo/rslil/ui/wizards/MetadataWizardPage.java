@@ -27,8 +27,8 @@ public class MetadataWizardPage extends WizardPage {
 	
 	public MetadataWizardPage() {
 		super("MetadataWizardPage");
-		setTitle("RSL-IL4Privacy Policy Metadata");
-		setDescription("Define the RSL-IL4Privacy policy metadata.");
+		setTitle("RSL-IL Policy Metadata");
+		setDescription("Define the RSL-IL policy metadata.");
 	}
 
 	public void createControl(Composite parent) {

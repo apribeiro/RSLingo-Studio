@@ -39,7 +39,7 @@ public class ConfigurationWindow {
 	
 	private final String RSLINGO_PATH = Platform.getInstallLocation()
 			.getURL().getPath().substring(1)
-			+ "RSLingo4Privacy/";
+			+ "RSLingo/";
 	private final FormToolkit formToolkit = new FormToolkit(Display.getDefault());
 	
 	private Shell shell;
@@ -86,7 +86,7 @@ public class ConfigurationWindow {
 		shell = new Shell(parent, SWT.CLOSE | SWT.TITLE | SWT.MAX 
 				| SWT.RESIZE | SWT.APPLICATION_MODAL);
 		shell.setSize(450, 300);
-		shell.setText("RSLingo4Privacy Studio");
+		shell.setText("RSLingo Studio");
 		
 		Group grpTemplates = new Group(shell, SWT.NONE);
 		grpTemplates.setText("Templates");
@@ -236,7 +236,7 @@ public class ConfigurationWindow {
 				
 				// Configuration elements
 				Element config = doc.createElement("configurations");
-				config.setAttribute("description", "File containing the configurations for RSLingo4Privacy");
+				config.setAttribute("description", "File containing the configurations for RSLingo");
 				doc.appendChild(config);
 				// Word template path
 				Element wordConfig = doc.createElement("configuration");
