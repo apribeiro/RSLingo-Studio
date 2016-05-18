@@ -36,13 +36,13 @@ public class RSLILValidator extends AbstractRSLILValidator {
       if (_equals_1) {
         String _type_1 = uc.getType();
         String _plus = ("A Use Case of type \'" + _type_1);
-        String _plus_1 = (_plus + "\' should be associated to an Entity with the role Principal.");
+        String _plus_1 = (_plus + "\' should be associated to an Entity with the role Master.");
         this.error(_plus_1, RSLILPackage.Literals.USE_CASE__ENTITIES);
       } else {
         RefEntity _entities_1 = uc.getEntities();
         EntityType _type_2 = _entities_1.getType();
         String _type_3 = _type_2.getType();
-        boolean _equals_2 = _type_3.equals("Principal");
+        boolean _equals_2 = _type_3.equals("Master");
         boolean _not_1 = (!_equals_2);
         if (_not_1) {
           RefEntity _entities_2 = uc.getEntities();
@@ -51,23 +51,23 @@ public class RSLILValidator extends AbstractRSLILValidator {
           if (_isEmpty) {
             String _type_4 = uc.getType();
             String _plus_2 = ("A Use Case of type \'" + _type_4);
-            String _plus_3 = (_plus_2 + "\' should be associated to an Entity with the role Principal.");
+            String _plus_3 = (_plus_2 + "\' should be associated to an Entity with the role Master.");
             this.error(_plus_3, RSLILPackage.Literals.USE_CASE__ENTITIES);
           } else {
-            boolean hasPrincipal = false;
+            boolean hasMaster = false;
             RefEntity _entities_3 = uc.getEntities();
             EList<EntityType> _refType = _entities_3.getRefType();
             for (final EntityType type : _refType) {
               String _type_5 = type.getType();
-              boolean _equals_3 = _type_5.equals("Principal");
+              boolean _equals_3 = _type_5.equals("Master");
               if (_equals_3) {
-                hasPrincipal = true;
+                hasMaster = true;
               }
             }
-            if ((!hasPrincipal)) {
+            if ((!hasMaster)) {
               String _type_6 = uc.getType();
               String _plus_4 = ("A Use Case of type \'" + _type_6);
-              String _plus_5 = (_plus_4 + "\' should be associated to an Entity with the role Principal.");
+              String _plus_5 = (_plus_4 + "\' should be associated to an Entity with the role Master.");
               this.error(_plus_5, RSLILPackage.Literals.USE_CASE__ENTITIES);
             }
           }

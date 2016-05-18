@@ -21,22 +21,22 @@ class RSLILValidator extends AbstractRSLILValidator {
 	def checkUseCaseEntities(UseCase uc) {
 		if (!uc.type.equals("Report")) {
 			if (uc.entities == null) {
-				error('A Use Case of type \'' + uc.type + '\' should be associated to an Entity with the role Principal.', RSLILPackage.Literals.USE_CASE__ENTITIES)	
+				error('A Use Case of type \'' + uc.type + '\' should be associated to an Entity with the role Master.', RSLILPackage.Literals.USE_CASE__ENTITIES)	
 			} else {
-				if (!uc.entities.type.type.equals("Principal")) {
+				if (!uc.entities.type.type.equals("Master")) {
 					if (uc.entities.refs.isEmpty()) {
-						error('A Use Case of type \'' + uc.type + '\' should be associated to an Entity with the role Principal.', RSLILPackage.Literals.USE_CASE__ENTITIES)		
+						error('A Use Case of type \'' + uc.type + '\' should be associated to an Entity with the role Master.', RSLILPackage.Literals.USE_CASE__ENTITIES)		
 					} else {
-						var hasPrincipal = false
+						var hasMaster = false
 						
 						for (EntityType type : uc.entities.refType) {
-							if (type.type.equals("Principal")) {
-								hasPrincipal = true
+							if (type.type.equals("Master")) {
+								hasMaster = true
 							}
 						}
 						
-						if (!hasPrincipal) {
-							error('A Use Case of type \'' + uc.type + '\' should be associated to an Entity with the role Principal.', RSLILPackage.Literals.USE_CASE__ENTITIES)	
+						if (!hasMaster) {
+							error('A Use Case of type \'' + uc.type + '\' should be associated to an Entity with the role Master.', RSLILPackage.Literals.USE_CASE__ENTITIES)	
 						}
 					}
 				}
