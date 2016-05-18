@@ -3,9 +3,12 @@
  */
 package rslingo.rslil.generator;
 
+import com.google.inject.Inject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
+import rslingo.rslil.generator.RSLIL2JsonGenerator;
+import rslingo.rslil.generator.RSLIL2TextGenerator;
 
 /**
  * Generates code from your model files on save.
@@ -14,7 +17,24 @@ import org.eclipse.xtext.generator.IGenerator;
  */
 @SuppressWarnings("all")
 public class RSLILGenerator implements IGenerator {
+  @Inject
+  private RSLIL2JsonGenerator jsonGen;
+  
+  @Inject
+  private RSLIL2TextGenerator textGen;
+  
+  private boolean inTextMode;
+  
+  public void setInTextMode(final boolean inTextMode) {
+    this.inTextMode = inTextMode;
+  }
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
+    if ((!this.inTextMode)) {
+      this.jsonGen.doGenerate(resource, fsa);
+    } else {
+      this.textGen.doGenerate(resource, fsa);
+    }
   }
 }

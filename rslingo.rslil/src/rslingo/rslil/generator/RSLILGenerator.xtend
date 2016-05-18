@@ -6,6 +6,9 @@ package rslingo.rslil.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
+import com.google.inject.Inject
+import rslingo.rslil.generator.RSLIL2TextGenerator
+import rslingo.rslil.generator.RSLIL2JsonGenerator
 
 /**
  * Generates code from your model files on save.
@@ -14,11 +17,22 @@ import org.eclipse.xtext.generator.IFileSystemAccess
  */
 class RSLILGenerator implements IGenerator {
 	
+	@Inject
+	RSLIL2JsonGenerator jsonGen
+	@Inject
+	RSLIL2TextGenerator textGen
+	
+	private boolean inTextMode;
+	
+	def public void setInTextMode(boolean inTextMode) {
+		this.inTextMode = inTextMode;
+	}
+	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(typeof(Greeting))
-//				.map[name]
-//				.join(', '))
+		if (!inTextMode) {
+			jsonGen.doGenerate(resource, fsa);
+		} else {
+			textGen.doGenerate(resource, fsa);
+		}
 	}
 }
