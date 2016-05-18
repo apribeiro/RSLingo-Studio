@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.FR#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.FR#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.FR#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.FR#getModality <em>Modality</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.FR#getStakeholder <em>Stakeholder</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.FR#getPriority <em>Priority</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.FR#getDepends <em>Depends</em>}</li>
@@ -137,32 +136,6 @@ public interface FR extends EObject
   void setType(String value);
 
   /**
-   * Returns the value of the '<em><b>Modality</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Modality</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Modality</em>' attribute.
-   * @see #setModality(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getFR_Modality()
-   * @model
-   * @generated
-   */
-  String getModality();
-
-  /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.FR#getModality <em>Modality</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Modality</em>' attribute.
-   * @see #getModality()
-   * @generated
-   */
-  void setModality(String value);
-
-  /**
    * Returns the value of the '<em><b>Stakeholder</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
@@ -189,30 +162,30 @@ public interface FR extends EObject
   void setStakeholder(Stakeholder value);
 
   /**
-   * Returns the value of the '<em><b>Priority</b></em>' attribute.
+   * Returns the value of the '<em><b>Priority</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Priority</em>' attribute isn't clear,
+   * If the meaning of the '<em>Priority</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Priority</em>' attribute.
-   * @see #setPriority(String)
+   * @return the value of the '<em>Priority</em>' containment reference.
+   * @see #setPriority(Priority)
    * @see rslingo.rslil.rSLIL.RSLILPackage#getFR_Priority()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getPriority();
+  Priority getPriority();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.FR#getPriority <em>Priority</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.FR#getPriority <em>Priority</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Priority</em>' attribute.
+   * @param value the new value of the '<em>Priority</em>' containment reference.
    * @see #getPriority()
    * @generated
    */
-  void setPriority(String value);
+  void setPriority(Priority value);
 
   /**
    * Returns the value of the '<em><b>Depends</b></em>' containment reference list.

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.FR;
+import rslingo.rslil.rSLIL.Priority;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.Stakeholder;
 
@@ -35,7 +36,6 @@ import rslingo.rslil.rSLIL.Stakeholder;
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getModality <em>Modality</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getStakeholder <em>Stakeholder</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getPriority <em>Priority</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.FRImpl#getDepends <em>Depends</em>}</li>
@@ -127,26 +127,6 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
   protected String type = TYPE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getModality() <em>Modality</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getModality()
-   * @generated
-   * @ordered
-   */
-  protected static final String MODALITY_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getModality() <em>Modality</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getModality()
-   * @generated
-   * @ordered
-   */
-  protected String modality = MODALITY_EDEFAULT;
-
-  /**
    * The cached value of the '{@link #getStakeholder() <em>Stakeholder</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -157,24 +137,14 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
   protected Stakeholder stakeholder;
 
   /**
-   * The default value of the '{@link #getPriority() <em>Priority</em>}' attribute.
+   * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getPriority()
    * @generated
    * @ordered
    */
-  protected static final String PRIORITY_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getPriority() <em>Priority</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPriority()
-   * @generated
-   * @ordered
-   */
-  protected String priority = PRIORITY_EDEFAULT;
+  protected Priority priority;
 
   /**
    * The cached value of the '{@link #getDepends() <em>Depends</em>}' containment reference list.
@@ -314,29 +284,6 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getModality()
-  {
-    return modality;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setModality(String newModality)
-  {
-    String oldModality = modality;
-    modality = newModality;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.FR__MODALITY, oldModality, modality));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Stakeholder getStakeholder()
   {
     if (stakeholder != null && stakeholder.eIsProxy())
@@ -380,7 +327,7 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getPriority()
+  public Priority getPriority()
   {
     return priority;
   }
@@ -390,12 +337,37 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPriority(String newPriority)
+  public NotificationChain basicSetPriority(Priority newPriority, NotificationChain msgs)
   {
-    String oldPriority = priority;
+    Priority oldPriority = priority;
     priority = newPriority;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.FR__PRIORITY, oldPriority, priority));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.FR__PRIORITY, oldPriority, newPriority);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPriority(Priority newPriority)
+  {
+    if (newPriority != priority)
+    {
+      NotificationChain msgs = null;
+      if (priority != null)
+        msgs = ((InternalEObject)priority).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.FR__PRIORITY, null, msgs);
+      if (newPriority != null)
+        msgs = ((InternalEObject)newPriority).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.FR__PRIORITY, null, msgs);
+      msgs = basicSetPriority(newPriority, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.FR__PRIORITY, newPriority, newPriority));
   }
 
   /**
@@ -465,6 +437,8 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
   {
     switch (featureID)
     {
+      case RSLILPackage.FR__PRIORITY:
+        return basicSetPriority(null, msgs);
       case RSLILPackage.FR__DEPENDS:
         return ((InternalEList<?>)getDepends()).basicRemove(otherEnd, msgs);
     }
@@ -489,8 +463,6 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
         return getDescription();
       case RSLILPackage.FR__TYPE:
         return getType();
-      case RSLILPackage.FR__MODALITY:
-        return getModality();
       case RSLILPackage.FR__STAKEHOLDER:
         if (resolve) return getStakeholder();
         return basicGetStakeholder();
@@ -528,14 +500,11 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
       case RSLILPackage.FR__TYPE:
         setType((String)newValue);
         return;
-      case RSLILPackage.FR__MODALITY:
-        setModality((String)newValue);
-        return;
       case RSLILPackage.FR__STAKEHOLDER:
         setStakeholder((Stakeholder)newValue);
         return;
       case RSLILPackage.FR__PRIORITY:
-        setPriority((String)newValue);
+        setPriority((Priority)newValue);
         return;
       case RSLILPackage.FR__DEPENDS:
         getDepends().clear();
@@ -570,14 +539,11 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
       case RSLILPackage.FR__TYPE:
         setType(TYPE_EDEFAULT);
         return;
-      case RSLILPackage.FR__MODALITY:
-        setModality(MODALITY_EDEFAULT);
-        return;
       case RSLILPackage.FR__STAKEHOLDER:
         setStakeholder((Stakeholder)null);
         return;
       case RSLILPackage.FR__PRIORITY:
-        setPriority(PRIORITY_EDEFAULT);
+        setPriority((Priority)null);
         return;
       case RSLILPackage.FR__DEPENDS:
         getDepends().clear();
@@ -607,12 +573,10 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case RSLILPackage.FR__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-      case RSLILPackage.FR__MODALITY:
-        return MODALITY_EDEFAULT == null ? modality != null : !MODALITY_EDEFAULT.equals(modality);
       case RSLILPackage.FR__STAKEHOLDER:
         return stakeholder != null;
       case RSLILPackage.FR__PRIORITY:
-        return PRIORITY_EDEFAULT == null ? priority != null : !PRIORITY_EDEFAULT.equals(priority);
+        return priority != null;
       case RSLILPackage.FR__DEPENDS:
         return depends != null && !depends.isEmpty();
       case RSLILPackage.FR__PART_OF:
@@ -640,10 +604,6 @@ public class FRImpl extends MinimalEObjectImpl.Container implements FR
     result.append(description);
     result.append(", type: ");
     result.append(type);
-    result.append(", modality: ");
-    result.append(modality);
-    result.append(", priority: ");
-    result.append(priority);
     result.append(')');
     return result.toString();
   }

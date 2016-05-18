@@ -17,7 +17,7 @@ import rslingo.rslil.rSLIL.Constraint;
 import rslingo.rslil.rSLIL.DependsOnConstraint;
 import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.DependsOnGoal;
-import rslingo.rslil.rSLIL.DependsOnNFR;
+import rslingo.rslil.rSLIL.DependsOnQR;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.EntityType;
 import rslingo.rslil.rSLIL.ExtensionPoint;
@@ -27,9 +27,10 @@ import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.Multiplicity;
-import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.PrimaryKey;
+import rslingo.rslil.rSLIL.Priority;
 import rslingo.rslil.rSLIL.Project;
+import rslingo.rslil.rSLIL.QR;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
@@ -37,7 +38,7 @@ import rslingo.rslil.rSLIL.RefConstraint;
 import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
-import rslingo.rslil.rSLIL.RefNFR;
+import rslingo.rslil.rSLIL.RefQR;
 import rslingo.rslil.rSLIL.RefSystem;
 import rslingo.rslil.rSLIL.RefTerm;
 import rslingo.rslil.rSLIL.RefTermType;
@@ -168,6 +169,11 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
         return createGoalAdapter();
       }
       @Override
+      public Adapter casePriority(Priority object)
+      {
+        return createPriorityAdapter();
+      }
+      @Override
       public Adapter caseDependsOnGoal(DependsOnGoal object)
       {
         return createDependsOnGoalAdapter();
@@ -278,19 +284,19 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
         return createDependsOnFRAdapter();
       }
       @Override
-      public Adapter caseNFR(NFR object)
+      public Adapter caseQR(QR object)
       {
-        return createNFRAdapter();
+        return createQRAdapter();
       }
       @Override
-      public Adapter caseDependsOnNFR(DependsOnNFR object)
+      public Adapter caseDependsOnQR(DependsOnQR object)
       {
-        return createDependsOnNFRAdapter();
+        return createDependsOnQRAdapter();
       }
       @Override
-      public Adapter caseRefNFR(RefNFR object)
+      public Adapter caseRefQR(RefQR object)
       {
-        return createRefNFRAdapter();
+        return createRefQRAdapter();
       }
       @Override
       public Adapter caseConstraint(Constraint object)
@@ -490,6 +496,21 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createGoalAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.Priority <em>Priority</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.Priority
+   * @generated
+   */
+  public Adapter createPriorityAdapter()
   {
     return null;
   }
@@ -825,46 +846,46 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.NFR <em>NFR</em>}'.
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.QR <em>QR</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.NFR
+   * @see rslingo.rslil.rSLIL.QR
    * @generated
    */
-  public Adapter createNFRAdapter()
+  public Adapter createQRAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.DependsOnNFR <em>Depends On NFR</em>}'.
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.DependsOnQR <em>Depends On QR</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.DependsOnNFR
+   * @see rslingo.rslil.rSLIL.DependsOnQR
    * @generated
    */
-  public Adapter createDependsOnNFRAdapter()
+  public Adapter createDependsOnQRAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.RefNFR <em>Ref NFR</em>}'.
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.RefQR <em>Ref QR</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.RefNFR
+   * @see rslingo.rslil.rSLIL.RefQR
    * @generated
    */
-  public Adapter createRefNFRAdapter()
+  public Adapter createRefQRAdapter()
   {
     return null;
   }

@@ -15,7 +15,7 @@ import rslingo.rslil.rSLIL.Constraint;
 import rslingo.rslil.rSLIL.DependsOnConstraint;
 import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.DependsOnGoal;
-import rslingo.rslil.rSLIL.DependsOnNFR;
+import rslingo.rslil.rSLIL.DependsOnQR;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.EntityType;
 import rslingo.rslil.rSLIL.ExtensionPoint;
@@ -25,9 +25,10 @@ import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.Multiplicity;
-import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.PrimaryKey;
+import rslingo.rslil.rSLIL.Priority;
 import rslingo.rslil.rSLIL.Project;
+import rslingo.rslil.rSLIL.QR;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
@@ -35,7 +36,7 @@ import rslingo.rslil.rSLIL.RefConstraint;
 import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
-import rslingo.rslil.rSLIL.RefNFR;
+import rslingo.rslil.rSLIL.RefQR;
 import rslingo.rslil.rSLIL.RefSystem;
 import rslingo.rslil.rSLIL.RefTerm;
 import rslingo.rslil.rSLIL.RefTermType;
@@ -184,6 +185,13 @@ public class RSLILSwitch<T> extends Switch<T>
       {
         Goal goal = (Goal)theEObject;
         T result = caseGoal(goal);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.PRIORITY:
+      {
+        Priority priority = (Priority)theEObject;
+        T result = casePriority(priority);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -341,24 +349,24 @@ public class RSLILSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RSLILPackage.NFR:
+      case RSLILPackage.QR:
       {
-        NFR nfr = (NFR)theEObject;
-        T result = caseNFR(nfr);
+        QR qr = (QR)theEObject;
+        T result = caseQR(qr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RSLILPackage.DEPENDS_ON_NFR:
+      case RSLILPackage.DEPENDS_ON_QR:
       {
-        DependsOnNFR dependsOnNFR = (DependsOnNFR)theEObject;
-        T result = caseDependsOnNFR(dependsOnNFR);
+        DependsOnQR dependsOnQR = (DependsOnQR)theEObject;
+        T result = caseDependsOnQR(dependsOnQR);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RSLILPackage.REF_NFR:
+      case RSLILPackage.REF_QR:
       {
-        RefNFR refNFR = (RefNFR)theEObject;
-        T result = caseRefNFR(refNFR);
+        RefQR refQR = (RefQR)theEObject;
+        T result = caseRefQR(refQR);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -559,6 +567,22 @@ public class RSLILSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseGoal(Goal object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Priority</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Priority</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePriority(Priority object)
   {
     return null;
   }
@@ -916,49 +940,49 @@ public class RSLILSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>NFR</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>QR</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>NFR</em>'.
+   * @return the result of interpreting the object as an instance of '<em>QR</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNFR(NFR object)
+  public T caseQR(QR object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Depends On NFR</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Depends On QR</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Depends On NFR</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Depends On QR</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDependsOnNFR(DependsOnNFR object)
+  public T caseDependsOnQR(DependsOnQR object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Ref NFR</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Ref QR</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Ref NFR</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Ref QR</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseRefNFR(RefNFR object)
+  public T caseRefQR(RefQR object)
   {
     return null;
   }

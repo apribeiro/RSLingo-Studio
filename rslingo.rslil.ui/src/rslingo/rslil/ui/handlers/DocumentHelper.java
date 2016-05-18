@@ -38,9 +38,6 @@ import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTRPr;
 
 import com.google.common.io.CharStreams;
 
-import rslingo.rslil4privacy.rSLIL4Privacy.Import;
-import rslingo.rslil4privacy.rSLIL4Privacy.Policy;
-
 public class DocumentHelper {
 
 	public static void replaceText(XWPFDocument doc, String tag, String value) {
@@ -364,7 +361,7 @@ public class DocumentHelper {
 		}
 	}
 	
-	public static boolean belongsToMainFile(Import imp, IFile file) {
+	/*public static boolean belongsToMainFile(Import imp, IFile file) {
 		String ns = "Package " + imp.getImportedNamespace().replace(".*", "");
 		boolean belongs = false;
         
@@ -432,5 +429,5 @@ public class DocumentHelper {
 			}
 		}
 		return policy;
-	}
+	}*/
 }

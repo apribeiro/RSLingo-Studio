@@ -25,8 +25,8 @@ import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
-import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.Project;
+import rslingo.rslil.rSLIL.QR;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.UseCase;
@@ -48,7 +48,7 @@ import rslingo.rslil.rSLIL.UseCase;
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getActors <em>Actors</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getUseCases <em>Use Cases</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getFrs <em>Frs</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getNfrs <em>Nfrs</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getQrs <em>Qrs</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getConstraints <em>Constraints</em>}</li>
  * </ul>
  *
@@ -147,14 +147,14 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected EList<FR> frs;
 
   /**
-   * The cached value of the '{@link #getNfrs() <em>Nfrs</em>}' containment reference list.
+   * The cached value of the '{@link #getQrs() <em>Qrs</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNfrs()
+   * @see #getQrs()
    * @generated
    * @ordered
    */
-  protected EList<NFR> nfrs;
+  protected EList<QR> qrs;
 
   /**
    * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference list.
@@ -352,13 +352,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<NFR> getNfrs()
+  public EList<QR> getQrs()
   {
-    if (nfrs == null)
+    if (qrs == null)
     {
-      nfrs = new EObjectContainmentEList<NFR>(NFR.class, this, RSLILPackage.MODEL__NFRS);
+      qrs = new EObjectContainmentEList<QR>(QR.class, this, RSLILPackage.MODEL__QRS);
     }
-    return nfrs;
+    return qrs;
   }
 
   /**
@@ -403,8 +403,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return ((InternalEList<?>)getUseCases()).basicRemove(otherEnd, msgs);
       case RSLILPackage.MODEL__FRS:
         return ((InternalEList<?>)getFrs()).basicRemove(otherEnd, msgs);
-      case RSLILPackage.MODEL__NFRS:
-        return ((InternalEList<?>)getNfrs()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.MODEL__QRS:
+        return ((InternalEList<?>)getQrs()).basicRemove(otherEnd, msgs);
       case RSLILPackage.MODEL__CONSTRAINTS:
         return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
     }
@@ -439,8 +439,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return getUseCases();
       case RSLILPackage.MODEL__FRS:
         return getFrs();
-      case RSLILPackage.MODEL__NFRS:
-        return getNfrs();
+      case RSLILPackage.MODEL__QRS:
+        return getQrs();
       case RSLILPackage.MODEL__CONSTRAINTS:
         return getConstraints();
     }
@@ -493,9 +493,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         getFrs().clear();
         getFrs().addAll((Collection<? extends FR>)newValue);
         return;
-      case RSLILPackage.MODEL__NFRS:
-        getNfrs().clear();
-        getNfrs().addAll((Collection<? extends NFR>)newValue);
+      case RSLILPackage.MODEL__QRS:
+        getQrs().clear();
+        getQrs().addAll((Collection<? extends QR>)newValue);
         return;
       case RSLILPackage.MODEL__CONSTRAINTS:
         getConstraints().clear();
@@ -542,8 +542,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case RSLILPackage.MODEL__FRS:
         getFrs().clear();
         return;
-      case RSLILPackage.MODEL__NFRS:
-        getNfrs().clear();
+      case RSLILPackage.MODEL__QRS:
+        getQrs().clear();
         return;
       case RSLILPackage.MODEL__CONSTRAINTS:
         getConstraints().clear();
@@ -580,8 +580,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return useCases != null && !useCases.isEmpty();
       case RSLILPackage.MODEL__FRS:
         return frs != null && !frs.isEmpty();
-      case RSLILPackage.MODEL__NFRS:
-        return nfrs != null && !nfrs.isEmpty();
+      case RSLILPackage.MODEL__QRS:
+        return qrs != null && !qrs.isEmpty();
       case RSLILPackage.MODEL__CONSTRAINTS:
         return constraints != null && !constraints.isEmpty();
     }

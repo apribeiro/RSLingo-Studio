@@ -122,6 +122,15 @@ public interface RSLILFactory extends EFactory
   Goal createGoal();
 
   /**
+   * Returns a new object of class '<em>Priority</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Priority</em>'.
+   * @generated
+   */
+  Priority createPriority();
+
+  /**
    * Returns a new object of class '<em>Depends On Goal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -320,31 +329,31 @@ public interface RSLILFactory extends EFactory
   DependsOnFR createDependsOnFR();
 
   /**
-   * Returns a new object of class '<em>NFR</em>'.
+   * Returns a new object of class '<em>QR</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>NFR</em>'.
+   * @return a new object of class '<em>QR</em>'.
    * @generated
    */
-  NFR createNFR();
+  QR createQR();
 
   /**
-   * Returns a new object of class '<em>Depends On NFR</em>'.
+   * Returns a new object of class '<em>Depends On QR</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Depends On NFR</em>'.
+   * @return a new object of class '<em>Depends On QR</em>'.
    * @generated
    */
-  DependsOnNFR createDependsOnNFR();
+  DependsOnQR createDependsOnQR();
 
   /**
-   * Returns a new object of class '<em>Ref NFR</em>'.
+   * Returns a new object of class '<em>Ref QR</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Ref NFR</em>'.
+   * @return a new object of class '<em>Ref QR</em>'.
    * @generated
    */
-  RefNFR createRefNFR();
+  RefQR createRefQR();
 
   /**
    * Returns a new object of class '<em>Constraint</em>'.

@@ -19,7 +19,7 @@ import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import rslingo.rslil.rSLIL.NFR;
+import rslingo.rslil.rSLIL.QR;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Step;
 import rslingo.rslil.ui.contentassist.AbstractRSLILProposalProvider;
@@ -74,14 +74,14 @@ public class RSLILProposalProvider extends AbstractRSLILProposalProvider {
   }
   
   @Override
-  public void completeNFR_SubType(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-    final String nfrType = ((NFR) model).getType();
+  public void completeQR_SubType(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    final String qrType = ((QR) model).getType();
     boolean _or = false;
-    boolean _equals = nfrType.equals("Security");
+    boolean _equals = qrType.equals("Security");
     if (_equals) {
       _or = true;
     } else {
-      boolean _equals_1 = nfrType.equals("Usability");
+      boolean _equals_1 = qrType.equals("Usability");
       _or = _equals_1;
     }
     if (_or) {
@@ -89,7 +89,7 @@ public class RSLILProposalProvider extends AbstractRSLILProposalProvider {
       EList<AbstractElement> _elements = ((Alternatives) _terminal).getElements();
       final Consumer<AbstractElement> _function = (AbstractElement e) -> {
         String option = ((Keyword) e).getValue();
-        boolean _contains = option.contains(nfrType);
+        boolean _contains = option.contains(qrType);
         if (_contains) {
           Image _image = this.getImage(model);
           ICompletionProposal _createCompletionProposal = this.createCompletionProposal(option, option, _image, context);
@@ -98,7 +98,7 @@ public class RSLILProposalProvider extends AbstractRSLILProposalProvider {
       };
       _elements.forEach(_function);
     } else {
-      super.completeNFR_SubType(model, assignment, context, acceptor);
+      super.completeQR_SubType(model, assignment, context, acceptor);
     }
   }
   

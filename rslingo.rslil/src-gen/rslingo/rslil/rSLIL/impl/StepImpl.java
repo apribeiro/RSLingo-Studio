@@ -24,8 +24,8 @@ import rslingo.rslil.rSLIL.Step;
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StepImpl#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StepImpl#getNameAlias <em>Name Alias</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.StepImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StepImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.StepImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StepImpl#getActor <em>Actor</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StepImpl#getPreConditions <em>Pre Conditions</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StepImpl#getPostConditions <em>Post Conditions</em>}</li>
@@ -77,26 +77,6 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
   protected String nameAlias = NAME_ALIAS_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected static final String TYPE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected String type = TYPE_EDEFAULT;
-
-  /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -115,6 +95,26 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * @ordered
    */
   protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected static final String TYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected String type = TYPE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getActor() <em>Actor</em>}' reference.
@@ -248,29 +248,6 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getType()
-  {
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setType(String newType)
-  {
-    String oldType = type;
-    type = newType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.STEP__TYPE, oldType, type));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getDescription()
   {
     return description;
@@ -287,6 +264,29 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
     description = newDescription;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.STEP__DESCRIPTION, oldDescription, description));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getType()
+  {
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setType(String newType)
+  {
+    String oldType = type;
+    type = newType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.STEP__TYPE, oldType, type));
   }
 
   /**
@@ -435,10 +435,10 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
         return getName();
       case RSLILPackage.STEP__NAME_ALIAS:
         return getNameAlias();
-      case RSLILPackage.STEP__TYPE:
-        return getType();
       case RSLILPackage.STEP__DESCRIPTION:
         return getDescription();
+      case RSLILPackage.STEP__TYPE:
+        return getType();
       case RSLILPackage.STEP__ACTOR:
         if (resolve) return getActor();
         return basicGetActor();
@@ -469,11 +469,11 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
       case RSLILPackage.STEP__NAME_ALIAS:
         setNameAlias((String)newValue);
         return;
-      case RSLILPackage.STEP__TYPE:
-        setType((String)newValue);
-        return;
       case RSLILPackage.STEP__DESCRIPTION:
         setDescription((String)newValue);
+        return;
+      case RSLILPackage.STEP__TYPE:
+        setType((String)newValue);
         return;
       case RSLILPackage.STEP__ACTOR:
         setActor((Actor)newValue);
@@ -507,11 +507,11 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
       case RSLILPackage.STEP__NAME_ALIAS:
         setNameAlias(NAME_ALIAS_EDEFAULT);
         return;
-      case RSLILPackage.STEP__TYPE:
-        setType(TYPE_EDEFAULT);
-        return;
       case RSLILPackage.STEP__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
+        return;
+      case RSLILPackage.STEP__TYPE:
+        setType(TYPE_EDEFAULT);
         return;
       case RSLILPackage.STEP__ACTOR:
         setActor((Actor)null);
@@ -543,10 +543,10 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RSLILPackage.STEP__NAME_ALIAS:
         return NAME_ALIAS_EDEFAULT == null ? nameAlias != null : !NAME_ALIAS_EDEFAULT.equals(nameAlias);
-      case RSLILPackage.STEP__TYPE:
-        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case RSLILPackage.STEP__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case RSLILPackage.STEP__TYPE:
+        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case RSLILPackage.STEP__ACTOR:
         return actor != null;
       case RSLILPackage.STEP__PRE_CONDITIONS:
@@ -574,10 +574,10 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
     result.append(name);
     result.append(", nameAlias: ");
     result.append(nameAlias);
-    result.append(", type: ");
-    result.append(type);
     result.append(", description: ");
     result.append(description);
+    result.append(", type: ");
+    result.append(type);
     result.append(", preConditions: ");
     result.append(preConditions);
     result.append(", postConditions: ");

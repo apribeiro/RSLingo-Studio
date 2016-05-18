@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import rslingo.rslil.rSLIL.ComposedBy;
 import rslingo.rslil.rSLIL.DependsOnGoal;
 import rslingo.rslil.rSLIL.Goal;
+import rslingo.rslil.rSLIL.Priority;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.Stakeholder;
 
@@ -116,24 +117,14 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
   protected Stakeholder stakeholder;
 
   /**
-   * The default value of the '{@link #getPriority() <em>Priority</em>}' attribute.
+   * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getPriority()
    * @generated
    * @ordered
    */
-  protected static final String PRIORITY_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getPriority() <em>Priority</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPriority()
-   * @generated
-   * @ordered
-   */
-  protected String priority = PRIORITY_EDEFAULT;
+  protected Priority priority;
 
   /**
    * The cached value of the '{@link #getDependsOn() <em>Depends On</em>}' containment reference list.
@@ -293,7 +284,7 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getPriority()
+  public Priority getPriority()
   {
     return priority;
   }
@@ -303,12 +294,37 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPriority(String newPriority)
+  public NotificationChain basicSetPriority(Priority newPriority, NotificationChain msgs)
   {
-    String oldPriority = priority;
+    Priority oldPriority = priority;
     priority = newPriority;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GOAL__PRIORITY, oldPriority, priority));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.GOAL__PRIORITY, oldPriority, newPriority);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPriority(Priority newPriority)
+  {
+    if (newPriority != priority)
+    {
+      NotificationChain msgs = null;
+      if (priority != null)
+        msgs = ((InternalEObject)priority).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.GOAL__PRIORITY, null, msgs);
+      if (newPriority != null)
+        msgs = ((InternalEObject)newPriority).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.GOAL__PRIORITY, null, msgs);
+      msgs = basicSetPriority(newPriority, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GOAL__PRIORITY, newPriority, newPriority));
   }
 
   /**
@@ -349,6 +365,8 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
   {
     switch (featureID)
     {
+      case RSLILPackage.GOAL__PRIORITY:
+        return basicSetPriority(null, msgs);
       case RSLILPackage.GOAL__DEPENDS_ON:
         return ((InternalEList<?>)getDependsOn()).basicRemove(otherEnd, msgs);
       case RSLILPackage.GOAL__COMPOSED_BY:
@@ -410,7 +428,7 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
         setStakeholder((Stakeholder)newValue);
         return;
       case RSLILPackage.GOAL__PRIORITY:
-        setPriority((String)newValue);
+        setPriority((Priority)newValue);
         return;
       case RSLILPackage.GOAL__DEPENDS_ON:
         getDependsOn().clear();
@@ -447,7 +465,7 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
         setStakeholder((Stakeholder)null);
         return;
       case RSLILPackage.GOAL__PRIORITY:
-        setPriority(PRIORITY_EDEFAULT);
+        setPriority((Priority)null);
         return;
       case RSLILPackage.GOAL__DEPENDS_ON:
         getDependsOn().clear();
@@ -478,7 +496,7 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
       case RSLILPackage.GOAL__STAKEHOLDER:
         return stakeholder != null;
       case RSLILPackage.GOAL__PRIORITY:
-        return PRIORITY_EDEFAULT == null ? priority != null : !PRIORITY_EDEFAULT.equals(priority);
+        return priority != null;
       case RSLILPackage.GOAL__DEPENDS_ON:
         return dependsOn != null && !dependsOn.isEmpty();
       case RSLILPackage.GOAL__COMPOSED_BY:
@@ -504,8 +522,6 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
     result.append(nameAlias);
     result.append(", description: ");
     result.append(description);
-    result.append(", priority: ");
-    result.append(priority);
     result.append(')');
     return result.toString();
   }

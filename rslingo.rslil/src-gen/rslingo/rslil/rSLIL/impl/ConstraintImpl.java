@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import rslingo.rslil.rSLIL.Constraint;
 import rslingo.rslil.rSLIL.DependsOnConstraint;
+import rslingo.rslil.rSLIL.Priority;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.Stakeholder;
 
@@ -136,24 +137,14 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
   protected Stakeholder stakeholder;
 
   /**
-   * The default value of the '{@link #getPriority() <em>Priority</em>}' attribute.
+   * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getPriority()
    * @generated
    * @ordered
    */
-  protected static final String PRIORITY_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getPriority() <em>Priority</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPriority()
-   * @generated
-   * @ordered
-   */
-  protected String priority = PRIORITY_EDEFAULT;
+  protected Priority priority;
 
   /**
    * The cached value of the '{@link #getDepends() <em>Depends</em>}' containment reference list.
@@ -336,7 +327,7 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getPriority()
+  public Priority getPriority()
   {
     return priority;
   }
@@ -346,12 +337,37 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPriority(String newPriority)
+  public NotificationChain basicSetPriority(Priority newPriority, NotificationChain msgs)
   {
-    String oldPriority = priority;
+    Priority oldPriority = priority;
     priority = newPriority;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.CONSTRAINT__PRIORITY, oldPriority, priority));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.CONSTRAINT__PRIORITY, oldPriority, newPriority);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPriority(Priority newPriority)
+  {
+    if (newPriority != priority)
+    {
+      NotificationChain msgs = null;
+      if (priority != null)
+        msgs = ((InternalEObject)priority).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.CONSTRAINT__PRIORITY, null, msgs);
+      if (newPriority != null)
+        msgs = ((InternalEObject)newPriority).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.CONSTRAINT__PRIORITY, null, msgs);
+      msgs = basicSetPriority(newPriority, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.CONSTRAINT__PRIORITY, newPriority, newPriority));
   }
 
   /**
@@ -421,6 +437,8 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
   {
     switch (featureID)
     {
+      case RSLILPackage.CONSTRAINT__PRIORITY:
+        return basicSetPriority(null, msgs);
       case RSLILPackage.CONSTRAINT__DEPENDS:
         return ((InternalEList<?>)getDepends()).basicRemove(otherEnd, msgs);
     }
@@ -486,7 +504,7 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
         setStakeholder((Stakeholder)newValue);
         return;
       case RSLILPackage.CONSTRAINT__PRIORITY:
-        setPriority((String)newValue);
+        setPriority((Priority)newValue);
         return;
       case RSLILPackage.CONSTRAINT__DEPENDS:
         getDepends().clear();
@@ -525,7 +543,7 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
         setStakeholder((Stakeholder)null);
         return;
       case RSLILPackage.CONSTRAINT__PRIORITY:
-        setPriority(PRIORITY_EDEFAULT);
+        setPriority((Priority)null);
         return;
       case RSLILPackage.CONSTRAINT__DEPENDS:
         getDepends().clear();
@@ -558,7 +576,7 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
       case RSLILPackage.CONSTRAINT__STAKEHOLDER:
         return stakeholder != null;
       case RSLILPackage.CONSTRAINT__PRIORITY:
-        return PRIORITY_EDEFAULT == null ? priority != null : !PRIORITY_EDEFAULT.equals(priority);
+        return priority != null;
       case RSLILPackage.CONSTRAINT__DEPENDS:
         return depends != null && !depends.isEmpty();
       case RSLILPackage.CONSTRAINT__PART_OF:
@@ -586,8 +604,6 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
     result.append(description);
     result.append(", type: ");
     result.append(type);
-    result.append(", priority: ");
-    result.append(priority);
     result.append(')');
     return result.toString();
   }

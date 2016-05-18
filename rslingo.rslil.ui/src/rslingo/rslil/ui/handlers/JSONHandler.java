@@ -30,7 +30,6 @@ import com.google.inject.Provider;
 import rslingo.rslil.generator.RSLILGenerator;
 import rslingo.rslil.ui.windows.MenuCommand;
 import rslingo.rslil.ui.windows.MenuCommandWindow;
-import rslingo.rslil4privacy.rSLIL4Privacy.Policy;
 
 public class JSONHandler extends AbstractHandler {
 
@@ -98,7 +97,7 @@ public class JSONHandler extends AbstractHandler {
         URI uri = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
         ResourceSet rs = resourceSetProvider.get(project);
         Resource resource = rs.getResource(uri, true);
-        Policy policy = (Policy) resource.getContents().get(0);
+        /*Policy policy = (Policy) resource.getContents().get(0);
         
         if (policy.getMetadata() != null) {
 			if (policy.getImportelements().size() == 0) {
@@ -134,6 +133,6 @@ public class JSONHandler extends AbstractHandler {
 				    errorDialog.open();
 				}
 			});
-		}
+		}*/
 	}
 }

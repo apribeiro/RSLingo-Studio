@@ -162,30 +162,30 @@ public interface Constraint extends EObject
   void setStakeholder(Stakeholder value);
 
   /**
-   * Returns the value of the '<em><b>Priority</b></em>' attribute.
+   * Returns the value of the '<em><b>Priority</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Priority</em>' attribute isn't clear,
+   * If the meaning of the '<em>Priority</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Priority</em>' attribute.
-   * @see #setPriority(String)
+   * @return the value of the '<em>Priority</em>' containment reference.
+   * @see #setPriority(Priority)
    * @see rslingo.rslil.rSLIL.RSLILPackage#getConstraint_Priority()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getPriority();
+  Priority getPriority();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Constraint#getPriority <em>Priority</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Constraint#getPriority <em>Priority</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Priority</em>' attribute.
+   * @param value the new value of the '<em>Priority</em>' containment reference.
    * @see #getPriority()
    * @generated
    */
-  void setPriority(String value);
+  void setPriority(Priority value);
 
   /**
    * Returns the value of the '<em><b>Depends</b></em>' containment reference list.

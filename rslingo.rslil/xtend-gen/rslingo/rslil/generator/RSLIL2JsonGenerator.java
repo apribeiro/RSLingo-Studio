@@ -1,16 +1,33 @@
 package rslingo.rslil.generator;
 
+import com.google.common.collect.Iterators;
+import java.util.Iterator;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import rslingo.rslil.rSLIL.Model;
+import rslingo.rslil.rSLIL.Project;
 
 @SuppressWarnings("all")
 public class RSLIL2JsonGenerator implements IGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nPolicy cannot be resolved to a type.");
+    String _className = this.className(resource);
+    String _plus = (_className + ".json");
+    TreeIterator<EObject> _allContents = resource.getAllContents();
+    Iterator<Model> _filter = Iterators.<Model>filter(_allContents, Model.class);
+    final Function1<Model, CharSequence> _function = (Model it) -> {
+      return this.compile(it);
+    };
+    Iterator<CharSequence> _map = IteratorExtensions.<Model, CharSequence>map(_filter, _function);
+    String _join = IteratorExtensions.join(_map, " ");
+    fsa.generateFile(_plus, _join);
   }
   
   public String className(final Resource res) {
@@ -20,379 +37,22 @@ public class RSLIL2JsonGenerator implements IGenerator {
     return name.substring(0, _indexOf);
   }
   
-  public CharSequence compile(final /* Policy */Object policy) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nmetadata cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\ncollection cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\ncollection cannot be resolved"
-      + "\ncompileCollection cannot be resolved"
-      + "\ndisclosure cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\ndisclosure cannot be resolved"
-      + "\ncompileDisclosure cannot be resolved"
-      + "\nretention cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nretention cannot be resolved"
-      + "\ncompileRetention cannot be resolved"
-      + "\nusage cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nusage cannot be resolved"
-      + "\ncompileUsage cannot be resolved"
-      + "\ninformative cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\ninformative cannot be resolved"
-      + "\ncompileInformative cannot be resolved"
-      + "\nprivateData cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nprivateData cannot be resolved"
-      + "\ncompilePrivateData cannot be resolved"
-      + "\nrecipient cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nrecipient cannot be resolved"
-      + "\ncompileRecipient cannot be resolved"
-      + "\nservice cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nservice cannot be resolved"
-      + "\ncompileService cannot be resolved"
-      + "\nenforcement cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nenforcement cannot be resolved"
-      + "\ncompileEnforcement cannot be resolved");
-  }
-  
-  public CharSequence compileCollection(final /* Collection */Object c) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved"
-      + "\ndescription cannot be resolved"
-      + "\ncondition cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\ncompileRefPrivateData cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\ncompileRefPrivateData cannot be resolved"
-      + "\nrefPDAll cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nrefService cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nrefService cannot be resolved"
-      + "\nrefService cannot be resolved"
-      + "\ncompileRefService cannot be resolved"
-      + "\nrefService cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\ncompileRefService cannot be resolved"
-      + "\nrefSAll cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nrefEnforcement cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nrefEnforcement cannot be resolved"
-      + "\nrefEnforcement cannot be resolved"
-      + "\ncompileRefEnforcement cannot be resolved"
-      + "\nrefEnforcement cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\ncompileRefEnforcement cannot be resolved"
-      + "\nrefEAll cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nmodality cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nmodality cannot be resolved"
-      + "\n== cannot be resolved");
-  }
-  
-  public CharSequence compileDisclosure(final /* Disclosure */Object d) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved"
-      + "\ndescription cannot be resolved"
-      + "\ncondition cannot be resolved"
-      + "\nrefRecipient cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nrefRecipient cannot be resolved"
-      + "\nrefRecipient cannot be resolved"
-      + "\ncompileRefRecipient cannot be resolved"
-      + "\nrefRecipient cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\ncompileRefRecipient cannot be resolved"
-      + "\nrefRAll cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\ncompileRefPrivateData cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\ncompileRefPrivateData cannot be resolved"
-      + "\nrefPDAll cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nrefService cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nrefService cannot be resolved"
-      + "\nrefService cannot be resolved"
-      + "\ncompileRefService cannot be resolved"
-      + "\nrefService cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\ncompileRefService cannot be resolved"
-      + "\nrefSAll cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nrefEnforcement cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nrefEnforcement cannot be resolved"
-      + "\nrefEnforcement cannot be resolved"
-      + "\ncompileRefEnforcement cannot be resolved"
-      + "\nrefEnforcement cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\ncompileRefEnforcement cannot be resolved"
-      + "\nrefEAll cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nmodality cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nmodality cannot be resolved"
-      + "\n== cannot be resolved");
-  }
-  
-  public CharSequence compileRetention(final /* Retention */Object r) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved"
-      + "\ndescription cannot be resolved"
-      + "\ncondition cannot be resolved"
-      + "\nperiod cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\nperiod cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\ncompileRefPrivateData cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\ncompileRefPrivateData cannot be resolved"
-      + "\nrefPDAll cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nrefService cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nrefService cannot be resolved"
-      + "\nrefService cannot be resolved"
-      + "\ncompileRefService cannot be resolved"
-      + "\nrefService cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\ncompileRefService cannot be resolved"
-      + "\nrefSAll cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nrefEnforcement cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nrefEnforcement cannot be resolved"
-      + "\nrefEnforcement cannot be resolved"
-      + "\ncompileRefEnforcement cannot be resolved"
-      + "\nrefEnforcement cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\ncompileRefEnforcement cannot be resolved"
-      + "\nrefEAll cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nmodality cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nmodality cannot be resolved"
-      + "\n== cannot be resolved");
-  }
-  
-  public CharSequence compileUsage(final /* Usage */Object u) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved"
-      + "\ndescription cannot be resolved"
-      + "\ncondition cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\ncompileRefPrivateData cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\ncompileRefPrivateData cannot be resolved"
-      + "\nrefPDAll cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nrefService cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nrefService cannot be resolved"
-      + "\nrefService cannot be resolved"
-      + "\ncompileRefService cannot be resolved"
-      + "\nrefService cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\ncompileRefService cannot be resolved"
-      + "\nrefSAll cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nrefEnforcement cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nrefEnforcement cannot be resolved"
-      + "\nrefEnforcement cannot be resolved"
-      + "\ncompileRefEnforcement cannot be resolved"
-      + "\nrefEnforcement cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\ncompileRefEnforcement cannot be resolved"
-      + "\nrefEAll cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nmodality cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nmodality cannot be resolved"
-      + "\n== cannot be resolved");
-  }
-  
-  public CharSequence compileInformative(final /* Informative */Object i) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved"
-      + "\ndescription cannot be resolved"
-      + "\ncondition cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\ncompileRefPrivateData cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\ncompileRefPrivateData cannot be resolved"
-      + "\nrefPDAll cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nrefService cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nrefService cannot be resolved"
-      + "\nrefService cannot be resolved"
-      + "\ncompileRefService cannot be resolved"
-      + "\nrefService cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\ncompileRefService cannot be resolved"
-      + "\nrefSAll cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nrefEnforcement cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nrefEnforcement cannot be resolved"
-      + "\nrefEnforcement cannot be resolved"
-      + "\ncompileRefEnforcement cannot be resolved"
-      + "\nrefEnforcement cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\ncompileRefEnforcement cannot be resolved"
-      + "\nrefEAll cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nmodality cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nmodality cannot be resolved"
-      + "\n== cannot be resolved");
-  }
-  
-  public CharSequence compileRefRecipient(final /* Recipient */Object r) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
-  }
-  
-  public CharSequence compileRefPrivateData(final /* PrivateData */Object p) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
-  }
-  
-  public CharSequence compileRefService(final /* Service */Object s) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
-  }
-  
-  public CharSequence compileRefEnforcement(final /* Enforcement */Object e) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved");
-  }
-  
-  public CharSequence compilePrivateData(final /* PrivateData */Object p) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved"
-      + "\ndescription cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nattribute cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nattribute cannot be resolved"
-      + "\ncompileAttr cannot be resolved");
-  }
-  
-  public CharSequence compileAttr(final /* Attribute */Object a) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved"
-      + "\ndescription cannot be resolved");
-  }
-  
-  public CharSequence compileRecipient(final /* Recipient */Object r) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved"
-      + "\nrecipientName cannot be resolved"
-      + "\ndescription cannot be resolved"
-      + "\nrecipientPart cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nrecipientPart cannot be resolved"
-      + "\ncompilerpartr cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nscope cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nscope cannot be resolved"
-      + "\n== cannot be resolved");
-  }
-  
-  public CharSequence compilerpartr(final /* RecipientPart */Object r) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nrecipientPart cannot be resolved"
-      + "\nrecipientName cannot be resolved");
-  }
-  
-  public CharSequence compileService(final /* Service */Object s) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved"
-      + "\ndescription cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\n!= cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\ncompileRefPrivateData cannot be resolved"
-      + "\nrefPrivateData cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\ncompileRefPrivateData cannot be resolved"
-      + "\nrefPDAll cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\nservicePart cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nservicePart cannot be resolved"
-      + "\ncompilerservicePart cannot be resolved");
-  }
-  
-  public CharSequence compilerservicePart(final /* ServicePart */Object s) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nservicePart cannot be resolved"
-      + "\nname cannot be resolved");
-  }
-  
-  public CharSequence compileEnforcement(final /* Enforcement */Object e) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nname cannot be resolved"
-      + "\nenforcementName cannot be resolved"
-      + "\ndescription cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\n== cannot be resolved"
-      + "\ntype cannot be resolved"
-      + "\n== cannot be resolved");
+  public CharSequence compile(final Model model) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("\"name\": \"");
+    Project _project = model.getProject();
+    String _name = _project.getName();
+    _builder.append(_name, "\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
   }
 }

@@ -18,35 +18,36 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import rslingo.rslil.rSLIL.DependsOnNFR;
-import rslingo.rslil.rSLIL.NFR;
+import rslingo.rslil.rSLIL.DependsOnQR;
+import rslingo.rslil.rSLIL.Priority;
+import rslingo.rslil.rSLIL.QR;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.Stakeholder;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>NFR</b></em>'.
+ * An implementation of the model object '<em><b>QR</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getName <em>Name</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getNameAlias <em>Name Alias</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getSubType <em>Sub Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getMetric <em>Metric</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getValue <em>Value</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getStakeholder <em>Stakeholder</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getPriority <em>Priority</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getDepends <em>Depends</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.NFRImpl#getPartOf <em>Part Of</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.QRImpl#getName <em>Name</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.QRImpl#getNameAlias <em>Name Alias</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.QRImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.QRImpl#getType <em>Type</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.QRImpl#getSubType <em>Sub Type</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.QRImpl#getMetric <em>Metric</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.QRImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.QRImpl#getStakeholder <em>Stakeholder</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.QRImpl#getPriority <em>Priority</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.QRImpl#getDepends <em>Depends</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.QRImpl#getPartOf <em>Part Of</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
+public class QRImpl extends MinimalEObjectImpl.Container implements QR
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -199,24 +200,14 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
   protected Stakeholder stakeholder;
 
   /**
-   * The default value of the '{@link #getPriority() <em>Priority</em>}' attribute.
+   * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getPriority()
    * @generated
    * @ordered
    */
-  protected static final String PRIORITY_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getPriority() <em>Priority</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPriority()
-   * @generated
-   * @ordered
-   */
-  protected String priority = PRIORITY_EDEFAULT;
+  protected Priority priority;
 
   /**
    * The cached value of the '{@link #getDepends() <em>Depends</em>}' containment reference list.
@@ -226,7 +217,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
    * @generated
    * @ordered
    */
-  protected EList<DependsOnNFR> depends;
+  protected EList<DependsOnQR> depends;
 
   /**
    * The cached value of the '{@link #getPartOf() <em>Part Of</em>}' reference.
@@ -236,14 +227,14 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
    * @generated
    * @ordered
    */
-  protected NFR partOf;
+  protected QR partOf;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected NFRImpl()
+  protected QRImpl()
   {
     super();
   }
@@ -256,7 +247,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
   @Override
   protected EClass eStaticClass()
   {
-    return RSLILPackage.Literals.NFR;
+    return RSLILPackage.Literals.QR;
   }
 
   /**
@@ -279,7 +270,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.NFR__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.QR__NAME, oldName, name));
   }
 
   /**
@@ -302,7 +293,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
     String oldNameAlias = nameAlias;
     nameAlias = newNameAlias;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.NFR__NAME_ALIAS, oldNameAlias, nameAlias));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.QR__NAME_ALIAS, oldNameAlias, nameAlias));
   }
 
   /**
@@ -325,7 +316,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
     String oldDescription = description;
     description = newDescription;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.NFR__DESCRIPTION, oldDescription, description));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.QR__DESCRIPTION, oldDescription, description));
   }
 
   /**
@@ -348,7 +339,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
     String oldType = type;
     type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.NFR__TYPE, oldType, type));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.QR__TYPE, oldType, type));
   }
 
   /**
@@ -371,7 +362,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
     String oldSubType = subType;
     subType = newSubType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.NFR__SUB_TYPE, oldSubType, subType));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.QR__SUB_TYPE, oldSubType, subType));
   }
 
   /**
@@ -394,7 +385,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
     String oldMetric = metric;
     metric = newMetric;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.NFR__METRIC, oldMetric, metric));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.QR__METRIC, oldMetric, metric));
   }
 
   /**
@@ -417,7 +408,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
     int oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.NFR__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.QR__VALUE, oldValue, value));
   }
 
   /**
@@ -434,7 +425,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
       if (stakeholder != oldStakeholder)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.NFR__STAKEHOLDER, oldStakeholder, stakeholder));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.QR__STAKEHOLDER, oldStakeholder, stakeholder));
       }
     }
     return stakeholder;
@@ -460,7 +451,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
     Stakeholder oldStakeholder = stakeholder;
     stakeholder = newStakeholder;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.NFR__STAKEHOLDER, oldStakeholder, stakeholder));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.QR__STAKEHOLDER, oldStakeholder, stakeholder));
   }
 
   /**
@@ -468,7 +459,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getPriority()
+  public Priority getPriority()
   {
     return priority;
   }
@@ -478,12 +469,16 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPriority(String newPriority)
+  public NotificationChain basicSetPriority(Priority newPriority, NotificationChain msgs)
   {
-    String oldPriority = priority;
+    Priority oldPriority = priority;
     priority = newPriority;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.NFR__PRIORITY, oldPriority, priority));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.QR__PRIORITY, oldPriority, newPriority);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -491,11 +486,32 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<DependsOnNFR> getDepends()
+  public void setPriority(Priority newPriority)
+  {
+    if (newPriority != priority)
+    {
+      NotificationChain msgs = null;
+      if (priority != null)
+        msgs = ((InternalEObject)priority).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.QR__PRIORITY, null, msgs);
+      if (newPriority != null)
+        msgs = ((InternalEObject)newPriority).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.QR__PRIORITY, null, msgs);
+      msgs = basicSetPriority(newPriority, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.QR__PRIORITY, newPriority, newPriority));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<DependsOnQR> getDepends()
   {
     if (depends == null)
     {
-      depends = new EObjectContainmentEList<DependsOnNFR>(DependsOnNFR.class, this, RSLILPackage.NFR__DEPENDS);
+      depends = new EObjectContainmentEList<DependsOnQR>(DependsOnQR.class, this, RSLILPackage.QR__DEPENDS);
     }
     return depends;
   }
@@ -505,16 +521,16 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
    * <!-- end-user-doc -->
    * @generated
    */
-  public NFR getPartOf()
+  public QR getPartOf()
   {
     if (partOf != null && partOf.eIsProxy())
     {
       InternalEObject oldPartOf = (InternalEObject)partOf;
-      partOf = (NFR)eResolveProxy(oldPartOf);
+      partOf = (QR)eResolveProxy(oldPartOf);
       if (partOf != oldPartOf)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.NFR__PART_OF, oldPartOf, partOf));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.QR__PART_OF, oldPartOf, partOf));
       }
     }
     return partOf;
@@ -525,7 +541,7 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
    * <!-- end-user-doc -->
    * @generated
    */
-  public NFR basicGetPartOf()
+  public QR basicGetPartOf()
   {
     return partOf;
   }
@@ -535,12 +551,12 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPartOf(NFR newPartOf)
+  public void setPartOf(QR newPartOf)
   {
-    NFR oldPartOf = partOf;
+    QR oldPartOf = partOf;
     partOf = newPartOf;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.NFR__PART_OF, oldPartOf, partOf));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.QR__PART_OF, oldPartOf, partOf));
   }
 
   /**
@@ -553,7 +569,9 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
   {
     switch (featureID)
     {
-      case RSLILPackage.NFR__DEPENDS:
+      case RSLILPackage.QR__PRIORITY:
+        return basicSetPriority(null, msgs);
+      case RSLILPackage.QR__DEPENDS:
         return ((InternalEList<?>)getDepends()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -569,28 +587,28 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
   {
     switch (featureID)
     {
-      case RSLILPackage.NFR__NAME:
+      case RSLILPackage.QR__NAME:
         return getName();
-      case RSLILPackage.NFR__NAME_ALIAS:
+      case RSLILPackage.QR__NAME_ALIAS:
         return getNameAlias();
-      case RSLILPackage.NFR__DESCRIPTION:
+      case RSLILPackage.QR__DESCRIPTION:
         return getDescription();
-      case RSLILPackage.NFR__TYPE:
+      case RSLILPackage.QR__TYPE:
         return getType();
-      case RSLILPackage.NFR__SUB_TYPE:
+      case RSLILPackage.QR__SUB_TYPE:
         return getSubType();
-      case RSLILPackage.NFR__METRIC:
+      case RSLILPackage.QR__METRIC:
         return getMetric();
-      case RSLILPackage.NFR__VALUE:
+      case RSLILPackage.QR__VALUE:
         return getValue();
-      case RSLILPackage.NFR__STAKEHOLDER:
+      case RSLILPackage.QR__STAKEHOLDER:
         if (resolve) return getStakeholder();
         return basicGetStakeholder();
-      case RSLILPackage.NFR__PRIORITY:
+      case RSLILPackage.QR__PRIORITY:
         return getPriority();
-      case RSLILPackage.NFR__DEPENDS:
+      case RSLILPackage.QR__DEPENDS:
         return getDepends();
-      case RSLILPackage.NFR__PART_OF:
+      case RSLILPackage.QR__PART_OF:
         if (resolve) return getPartOf();
         return basicGetPartOf();
     }
@@ -608,39 +626,39 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
   {
     switch (featureID)
     {
-      case RSLILPackage.NFR__NAME:
+      case RSLILPackage.QR__NAME:
         setName((String)newValue);
         return;
-      case RSLILPackage.NFR__NAME_ALIAS:
+      case RSLILPackage.QR__NAME_ALIAS:
         setNameAlias((String)newValue);
         return;
-      case RSLILPackage.NFR__DESCRIPTION:
+      case RSLILPackage.QR__DESCRIPTION:
         setDescription((String)newValue);
         return;
-      case RSLILPackage.NFR__TYPE:
+      case RSLILPackage.QR__TYPE:
         setType((String)newValue);
         return;
-      case RSLILPackage.NFR__SUB_TYPE:
+      case RSLILPackage.QR__SUB_TYPE:
         setSubType((String)newValue);
         return;
-      case RSLILPackage.NFR__METRIC:
+      case RSLILPackage.QR__METRIC:
         setMetric((String)newValue);
         return;
-      case RSLILPackage.NFR__VALUE:
+      case RSLILPackage.QR__VALUE:
         setValue((Integer)newValue);
         return;
-      case RSLILPackage.NFR__STAKEHOLDER:
+      case RSLILPackage.QR__STAKEHOLDER:
         setStakeholder((Stakeholder)newValue);
         return;
-      case RSLILPackage.NFR__PRIORITY:
-        setPriority((String)newValue);
+      case RSLILPackage.QR__PRIORITY:
+        setPriority((Priority)newValue);
         return;
-      case RSLILPackage.NFR__DEPENDS:
+      case RSLILPackage.QR__DEPENDS:
         getDepends().clear();
-        getDepends().addAll((Collection<? extends DependsOnNFR>)newValue);
+        getDepends().addAll((Collection<? extends DependsOnQR>)newValue);
         return;
-      case RSLILPackage.NFR__PART_OF:
-        setPartOf((NFR)newValue);
+      case RSLILPackage.QR__PART_OF:
+        setPartOf((QR)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -656,38 +674,38 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
   {
     switch (featureID)
     {
-      case RSLILPackage.NFR__NAME:
+      case RSLILPackage.QR__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case RSLILPackage.NFR__NAME_ALIAS:
+      case RSLILPackage.QR__NAME_ALIAS:
         setNameAlias(NAME_ALIAS_EDEFAULT);
         return;
-      case RSLILPackage.NFR__DESCRIPTION:
+      case RSLILPackage.QR__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case RSLILPackage.NFR__TYPE:
+      case RSLILPackage.QR__TYPE:
         setType(TYPE_EDEFAULT);
         return;
-      case RSLILPackage.NFR__SUB_TYPE:
+      case RSLILPackage.QR__SUB_TYPE:
         setSubType(SUB_TYPE_EDEFAULT);
         return;
-      case RSLILPackage.NFR__METRIC:
+      case RSLILPackage.QR__METRIC:
         setMetric(METRIC_EDEFAULT);
         return;
-      case RSLILPackage.NFR__VALUE:
+      case RSLILPackage.QR__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
-      case RSLILPackage.NFR__STAKEHOLDER:
+      case RSLILPackage.QR__STAKEHOLDER:
         setStakeholder((Stakeholder)null);
         return;
-      case RSLILPackage.NFR__PRIORITY:
-        setPriority(PRIORITY_EDEFAULT);
+      case RSLILPackage.QR__PRIORITY:
+        setPriority((Priority)null);
         return;
-      case RSLILPackage.NFR__DEPENDS:
+      case RSLILPackage.QR__DEPENDS:
         getDepends().clear();
         return;
-      case RSLILPackage.NFR__PART_OF:
-        setPartOf((NFR)null);
+      case RSLILPackage.QR__PART_OF:
+        setPartOf((QR)null);
         return;
     }
     super.eUnset(featureID);
@@ -703,27 +721,27 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
   {
     switch (featureID)
     {
-      case RSLILPackage.NFR__NAME:
+      case RSLILPackage.QR__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case RSLILPackage.NFR__NAME_ALIAS:
+      case RSLILPackage.QR__NAME_ALIAS:
         return NAME_ALIAS_EDEFAULT == null ? nameAlias != null : !NAME_ALIAS_EDEFAULT.equals(nameAlias);
-      case RSLILPackage.NFR__DESCRIPTION:
+      case RSLILPackage.QR__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case RSLILPackage.NFR__TYPE:
+      case RSLILPackage.QR__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-      case RSLILPackage.NFR__SUB_TYPE:
+      case RSLILPackage.QR__SUB_TYPE:
         return SUB_TYPE_EDEFAULT == null ? subType != null : !SUB_TYPE_EDEFAULT.equals(subType);
-      case RSLILPackage.NFR__METRIC:
+      case RSLILPackage.QR__METRIC:
         return METRIC_EDEFAULT == null ? metric != null : !METRIC_EDEFAULT.equals(metric);
-      case RSLILPackage.NFR__VALUE:
+      case RSLILPackage.QR__VALUE:
         return value != VALUE_EDEFAULT;
-      case RSLILPackage.NFR__STAKEHOLDER:
+      case RSLILPackage.QR__STAKEHOLDER:
         return stakeholder != null;
-      case RSLILPackage.NFR__PRIORITY:
-        return PRIORITY_EDEFAULT == null ? priority != null : !PRIORITY_EDEFAULT.equals(priority);
-      case RSLILPackage.NFR__DEPENDS:
+      case RSLILPackage.QR__PRIORITY:
+        return priority != null;
+      case RSLILPackage.QR__DEPENDS:
         return depends != null && !depends.isEmpty();
-      case RSLILPackage.NFR__PART_OF:
+      case RSLILPackage.QR__PART_OF:
         return partOf != null;
     }
     return super.eIsSet(featureID);
@@ -754,10 +772,8 @@ public class NFRImpl extends MinimalEObjectImpl.Container implements NFR
     result.append(metric);
     result.append(", value: ");
     result.append(value);
-    result.append(", priority: ");
-    result.append(priority);
     result.append(')');
     return result.toString();
   }
 
-} //NFRImpl
+} //QRImpl

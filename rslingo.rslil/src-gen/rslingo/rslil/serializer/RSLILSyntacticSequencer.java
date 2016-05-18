@@ -20,16 +20,16 @@ import rslingo.rslil.services.RSLILGrammarAccess;
 public class RSLILSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected RSLILGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_UseCase_FunctionalRequirementsKeyword_13_0_q;
-	protected AbstractElementAlias match_UseCase_GoalsKeyword_12_0_q;
-	protected AbstractElementAlias match_UseCase_IncludeKeyword_19_0_q;
+	protected AbstractElementAlias match_UseCase_FunctionalRequirementsKeyword_12_0_q;
+	protected AbstractElementAlias match_UseCase_GoalsKeyword_11_0_q;
+	protected AbstractElementAlias match_UseCase_IncludeKeyword_18_0_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (RSLILGrammarAccess) access;
-		match_UseCase_FunctionalRequirementsKeyword_13_0_q = new TokenAlias(false, true, grammarAccess.getUseCaseAccess().getFunctionalRequirementsKeyword_13_0());
-		match_UseCase_GoalsKeyword_12_0_q = new TokenAlias(false, true, grammarAccess.getUseCaseAccess().getGoalsKeyword_12_0());
-		match_UseCase_IncludeKeyword_19_0_q = new TokenAlias(false, true, grammarAccess.getUseCaseAccess().getIncludeKeyword_19_0());
+		match_UseCase_FunctionalRequirementsKeyword_12_0_q = new TokenAlias(false, true, grammarAccess.getUseCaseAccess().getFunctionalRequirementsKeyword_12_0());
+		match_UseCase_GoalsKeyword_11_0_q = new TokenAlias(false, true, grammarAccess.getUseCaseAccess().getGoalsKeyword_11_0());
+		match_UseCase_IncludeKeyword_18_0_q = new TokenAlias(false, true, grammarAccess.getUseCaseAccess().getIncludeKeyword_18_0());
 	}
 	
 	@Override
@@ -44,12 +44,12 @@ public class RSLILSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_UseCase_FunctionalRequirementsKeyword_13_0_q.equals(syntax))
-				emit_UseCase_FunctionalRequirementsKeyword_13_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_UseCase_GoalsKeyword_12_0_q.equals(syntax))
-				emit_UseCase_GoalsKeyword_12_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_UseCase_IncludeKeyword_19_0_q.equals(syntax))
-				emit_UseCase_IncludeKeyword_19_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if(match_UseCase_FunctionalRequirementsKeyword_12_0_q.equals(syntax))
+				emit_UseCase_FunctionalRequirementsKeyword_12_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UseCase_GoalsKeyword_11_0_q.equals(syntax))
+				emit_UseCase_GoalsKeyword_11_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_UseCase_IncludeKeyword_18_0_q.equals(syntax))
+				emit_UseCase_IncludeKeyword_18_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -59,15 +59,11 @@ public class RSLILSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'FunctionalRequirements'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     extensionnPoints+=ExtensionPoint 'Goals'? (ambiguity) 'ActorInitiates' actorInitiates=[Actor|ID]
+	 *     extensionPoints+=ExtensionPoint 'Goals'? (ambiguity) 'ActorInitiates' actorInitiates=[Actor|ID]
 	 *     goals+=RefGoal (ambiguity) 'ActorInitiates' actorInitiates=[Actor|ID]
-	 *     priotity='High' 'Goals'? (ambiguity) 'ActorInitiates' actorInitiates=[Actor|ID]
-	 *     priotity='Low' 'Goals'? (ambiguity) 'ActorInitiates' actorInitiates=[Actor|ID]
-	 *     priotity='Medium' 'Goals'? (ambiguity) 'ActorInitiates' actorInitiates=[Actor|ID]
-	 *     priotity='VeryHigh' 'Goals'? (ambiguity) 'ActorInitiates' actorInitiates=[Actor|ID]
-	 *     priotity='VeryLow' 'Goals'? (ambiguity) 'ActorInitiates' actorInitiates=[Actor|ID]
+	 *     priority=Priority 'Goals'? (ambiguity) 'ActorInitiates' actorInitiates=[Actor|ID]
 	 */
-	protected void emit_UseCase_FunctionalRequirementsKeyword_13_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_UseCase_FunctionalRequirementsKeyword_12_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -76,20 +72,12 @@ public class RSLILSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     'Goals'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     extensionnPoints+=ExtensionPoint (ambiguity) 'FunctionalRequirements' frs+=RefFR
-	 *     extensionnPoints+=ExtensionPoint (ambiguity) 'FunctionalRequirements'? 'ActorInitiates' actorInitiates=[Actor|ID]
-	 *     priotity='High' (ambiguity) 'FunctionalRequirements' frs+=RefFR
-	 *     priotity='High' (ambiguity) 'FunctionalRequirements'? 'ActorInitiates' actorInitiates=[Actor|ID]
-	 *     priotity='Low' (ambiguity) 'FunctionalRequirements' frs+=RefFR
-	 *     priotity='Low' (ambiguity) 'FunctionalRequirements'? 'ActorInitiates' actorInitiates=[Actor|ID]
-	 *     priotity='Medium' (ambiguity) 'FunctionalRequirements' frs+=RefFR
-	 *     priotity='Medium' (ambiguity) 'FunctionalRequirements'? 'ActorInitiates' actorInitiates=[Actor|ID]
-	 *     priotity='VeryHigh' (ambiguity) 'FunctionalRequirements' frs+=RefFR
-	 *     priotity='VeryHigh' (ambiguity) 'FunctionalRequirements'? 'ActorInitiates' actorInitiates=[Actor|ID]
-	 *     priotity='VeryLow' (ambiguity) 'FunctionalRequirements' frs+=RefFR
-	 *     priotity='VeryLow' (ambiguity) 'FunctionalRequirements'? 'ActorInitiates' actorInitiates=[Actor|ID]
+	 *     extensionPoints+=ExtensionPoint (ambiguity) 'FunctionalRequirements' frs+=RefFR
+	 *     extensionPoints+=ExtensionPoint (ambiguity) 'FunctionalRequirements'? 'ActorInitiates' actorInitiates=[Actor|ID]
+	 *     priority=Priority (ambiguity) 'FunctionalRequirements' frs+=RefFR
+	 *     priority=Priority (ambiguity) 'FunctionalRequirements'? 'ActorInitiates' actorInitiates=[Actor|ID]
 	 */
-	protected void emit_UseCase_GoalsKeyword_12_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_UseCase_GoalsKeyword_11_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -111,7 +99,7 @@ public class RSLILSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     preConditions=STRING (ambiguity) '}' (rule end)
 	 *     preConditions=STRING (ambiguity) scenarios+=Scenario
 	 */
-	protected void emit_UseCase_IncludeKeyword_19_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_UseCase_IncludeKeyword_18_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

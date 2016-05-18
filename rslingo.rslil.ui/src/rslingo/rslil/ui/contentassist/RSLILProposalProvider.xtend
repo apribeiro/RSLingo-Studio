@@ -11,7 +11,7 @@ import org.eclipse.xtext.Assignment
 import org.eclipse.xtext.Keyword
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
-import rslingo.rslil.rSLIL.NFR
+import rslingo.rslil.rSLIL.QR
 import rslingo.rslil.rSLIL.Scenario
 import rslingo.rslil.rSLIL.Step
 import org.eclipse.xtext.RuleCall
@@ -64,22 +64,22 @@ class RSLILProposalProvider extends AbstractRSLILProposalProvider {
 		}
 	}
 	
-	override completeNFR_SubType(EObject model, Assignment assignment,
+	override completeQR_SubType(EObject model, Assignment assignment,
 		ContentAssistContext context, ICompletionProposalAcceptor acceptor) { 
-		val nfrType = (model as NFR).type
+		val qrType = (model as QR).type
 		
-		if (nfrType.equals("Security") || nfrType.equals("Usability")) {
+		if (qrType.equals("Security") || qrType.equals("Usability")) {
 			(assignment.terminal as Alternatives).elements.forEach[e |
 				var option = (e as Keyword).value 
 				 
-				if (option.contains(nfrType)) {
+				if (option.contains(qrType)) {
 					acceptor.accept(createCompletionProposal(option, option,
 						getImage(model), context
 					))
 				}
 			]	
 		} else {
-			super.completeNFR_SubType(model, assignment, context, acceptor)
+			super.completeQR_SubType(model, assignment, context, acceptor)
 		}
 	}
 	

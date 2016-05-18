@@ -18,7 +18,7 @@ import rslingo.rslil.rSLIL.Constraint;
 import rslingo.rslil.rSLIL.DependsOnConstraint;
 import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.DependsOnGoal;
-import rslingo.rslil.rSLIL.DependsOnNFR;
+import rslingo.rslil.rSLIL.DependsOnQR;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.EntityType;
 import rslingo.rslil.rSLIL.ExtensionPoint;
@@ -28,9 +28,10 @@ import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.Multiplicity;
-import rslingo.rslil.rSLIL.NFR;
 import rslingo.rslil.rSLIL.PrimaryKey;
+import rslingo.rslil.rSLIL.Priority;
 import rslingo.rslil.rSLIL.Project;
+import rslingo.rslil.rSLIL.QR;
 import rslingo.rslil.rSLIL.RSLILFactory;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefActor;
@@ -39,7 +40,7 @@ import rslingo.rslil.rSLIL.RefConstraint;
 import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
-import rslingo.rslil.rSLIL.RefNFR;
+import rslingo.rslil.rSLIL.RefQR;
 import rslingo.rslil.rSLIL.RefSystem;
 import rslingo.rslil.rSLIL.RefTerm;
 import rslingo.rslil.rSLIL.RefTermType;
@@ -114,6 +115,7 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
       case RSLILPackage.REF_TERM: return createRefTerm();
       case RSLILPackage.STAKEHOLDER: return createStakeholder();
       case RSLILPackage.GOAL: return createGoal();
+      case RSLILPackage.PRIORITY: return createPriority();
       case RSLILPackage.DEPENDS_ON_GOAL: return createDependsOnGoal();
       case RSLILPackage.COMPOSED_BY: return createComposedBy();
       case RSLILPackage.REF_GOAL: return createRefGoal();
@@ -136,9 +138,9 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
       case RSLILPackage.STEP: return createStep();
       case RSLILPackage.FR: return createFR();
       case RSLILPackage.DEPENDS_ON_FR: return createDependsOnFR();
-      case RSLILPackage.NFR: return createNFR();
-      case RSLILPackage.DEPENDS_ON_NFR: return createDependsOnNFR();
-      case RSLILPackage.REF_NFR: return createRefNFR();
+      case RSLILPackage.QR: return createQR();
+      case RSLILPackage.DEPENDS_ON_QR: return createDependsOnQR();
+      case RSLILPackage.REF_QR: return createRefQR();
       case RSLILPackage.CONSTRAINT: return createConstraint();
       case RSLILPackage.DEPENDS_ON_CONSTRAINT: return createDependsOnConstraint();
       case RSLILPackage.REF_CONSTRAINT: return createRefConstraint();
@@ -266,6 +268,17 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
   {
     GoalImpl goal = new GoalImpl();
     return goal;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Priority createPriority()
+  {
+    PriorityImpl priority = new PriorityImpl();
+    return priority;
   }
 
   /**
@@ -515,10 +528,10 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public NFR createNFR()
+  public QR createQR()
   {
-    NFRImpl nfr = new NFRImpl();
-    return nfr;
+    QRImpl qr = new QRImpl();
+    return qr;
   }
 
   /**
@@ -526,10 +539,10 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DependsOnNFR createDependsOnNFR()
+  public DependsOnQR createDependsOnQR()
   {
-    DependsOnNFRImpl dependsOnNFR = new DependsOnNFRImpl();
-    return dependsOnNFR;
+    DependsOnQRImpl dependsOnQR = new DependsOnQRImpl();
+    return dependsOnQR;
   }
 
   /**
@@ -537,10 +550,10 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public RefNFR createRefNFR()
+  public RefQR createRefQR()
   {
-    RefNFRImpl refNFR = new RefNFRImpl();
-    return refNFR;
+    RefQRImpl refQR = new RefQRImpl();
+    return refQR;
   }
 
   /**

@@ -17,11 +17,11 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getNameAlias <em>Name Alias</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.UseCase#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getEntities <em>Entities</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.UseCase#getDescription <em>Description</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.UseCase#getPriotity <em>Priotity</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.UseCase#getExtensionnPoints <em>Extensionn Points</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.UseCase#getPriority <em>Priority</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.UseCase#getExtensionPoints <em>Extension Points</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getGoals <em>Goals</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getFrs <em>Frs</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.UseCase#getActorInitiates <em>Actor Initiates</em>}</li>
@@ -93,6 +93,32 @@ public interface UseCase extends EObject
   void setNameAlias(String value);
 
   /**
+   * Returns the value of the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Description</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Description</em>' attribute.
+   * @see #setDescription(String)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getUseCase_Description()
+   * @model
+   * @generated
+   */
+  String getDescription();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.UseCase#getDescription <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Description</em>' attribute.
+   * @see #getDescription()
+   * @generated
+   */
+  void setDescription(String value);
+
+  /**
    * Returns the value of the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
@@ -145,72 +171,46 @@ public interface UseCase extends EObject
   void setEntities(RefEntity value);
 
   /**
-   * Returns the value of the '<em><b>Description</b></em>' attribute.
+   * Returns the value of the '<em><b>Priority</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Description</em>' attribute isn't clear,
+   * If the meaning of the '<em>Priority</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Description</em>' attribute.
-   * @see #setDescription(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getUseCase_Description()
-   * @model
-   * @generated
-   */
-  String getDescription();
-
-  /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.UseCase#getDescription <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Description</em>' attribute.
-   * @see #getDescription()
-   * @generated
-   */
-  void setDescription(String value);
-
-  /**
-   * Returns the value of the '<em><b>Priotity</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Priotity</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Priotity</em>' attribute.
-   * @see #setPriotity(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getUseCase_Priotity()
-   * @model
-   * @generated
-   */
-  String getPriotity();
-
-  /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.UseCase#getPriotity <em>Priotity</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Priotity</em>' attribute.
-   * @see #getPriotity()
-   * @generated
-   */
-  void setPriotity(String value);
-
-  /**
-   * Returns the value of the '<em><b>Extensionn Points</b></em>' containment reference list.
-   * The list contents are of type {@link rslingo.rslil.rSLIL.ExtensionPoint}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Extensionn Points</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Extensionn Points</em>' containment reference list.
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getUseCase_ExtensionnPoints()
+   * @return the value of the '<em>Priority</em>' containment reference.
+   * @see #setPriority(Priority)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getUseCase_Priority()
    * @model containment="true"
    * @generated
    */
-  EList<ExtensionPoint> getExtensionnPoints();
+  Priority getPriority();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.UseCase#getPriority <em>Priority</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Priority</em>' containment reference.
+   * @see #getPriority()
+   * @generated
+   */
+  void setPriority(Priority value);
+
+  /**
+   * Returns the value of the '<em><b>Extension Points</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.ExtensionPoint}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Extension Points</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Extension Points</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getUseCase_ExtensionPoints()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ExtensionPoint> getExtensionPoints();
 
   /**
    * Returns the value of the '<em><b>Goals</b></em>' containment reference list.

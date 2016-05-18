@@ -24,8 +24,8 @@ import rslingo.rslil.rSLIL.Stakeholder;
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ActorImpl#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ActorImpl#getNameAlias <em>Name Alias</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ActorImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ActorImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ActorImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ActorImpl#getStakeholder <em>Stakeholder</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ActorImpl#getActor <em>Actor</em>}</li>
  * </ul>
@@ -75,26 +75,6 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor
   protected String nameAlias = NAME_ALIAS_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected static final String TYPE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected String type = TYPE_EDEFAULT;
-
-  /**
    * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -113,6 +93,26 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor
    * @ordered
    */
   protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected static final String TYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected String type = TYPE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getStakeholder() <em>Stakeholder</em>}' reference.
@@ -206,29 +206,6 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getType()
-  {
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setType(String newType)
-  {
-    String oldType = type;
-    type = newType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.ACTOR__TYPE, oldType, type));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getDescription()
   {
     return description;
@@ -245,6 +222,29 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor
     description = newDescription;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.ACTOR__DESCRIPTION, oldDescription, description));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getType()
+  {
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setType(String newType)
+  {
+    String oldType = type;
+    type = newType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.ACTOR__TYPE, oldType, type));
   }
 
   /**
@@ -347,10 +347,10 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor
         return getName();
       case RSLILPackage.ACTOR__NAME_ALIAS:
         return getNameAlias();
-      case RSLILPackage.ACTOR__TYPE:
-        return getType();
       case RSLILPackage.ACTOR__DESCRIPTION:
         return getDescription();
+      case RSLILPackage.ACTOR__TYPE:
+        return getType();
       case RSLILPackage.ACTOR__STAKEHOLDER:
         if (resolve) return getStakeholder();
         return basicGetStakeholder();
@@ -377,11 +377,11 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor
       case RSLILPackage.ACTOR__NAME_ALIAS:
         setNameAlias((String)newValue);
         return;
-      case RSLILPackage.ACTOR__TYPE:
-        setType((String)newValue);
-        return;
       case RSLILPackage.ACTOR__DESCRIPTION:
         setDescription((String)newValue);
+        return;
+      case RSLILPackage.ACTOR__TYPE:
+        setType((String)newValue);
         return;
       case RSLILPackage.ACTOR__STAKEHOLDER:
         setStakeholder((Stakeholder)newValue);
@@ -409,11 +409,11 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor
       case RSLILPackage.ACTOR__NAME_ALIAS:
         setNameAlias(NAME_ALIAS_EDEFAULT);
         return;
-      case RSLILPackage.ACTOR__TYPE:
-        setType(TYPE_EDEFAULT);
-        return;
       case RSLILPackage.ACTOR__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
+        return;
+      case RSLILPackage.ACTOR__TYPE:
+        setType(TYPE_EDEFAULT);
         return;
       case RSLILPackage.ACTOR__STAKEHOLDER:
         setStakeholder((Stakeholder)null);
@@ -439,10 +439,10 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RSLILPackage.ACTOR__NAME_ALIAS:
         return NAME_ALIAS_EDEFAULT == null ? nameAlias != null : !NAME_ALIAS_EDEFAULT.equals(nameAlias);
-      case RSLILPackage.ACTOR__TYPE:
-        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case RSLILPackage.ACTOR__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case RSLILPackage.ACTOR__TYPE:
+        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case RSLILPackage.ACTOR__STAKEHOLDER:
         return stakeholder != null;
       case RSLILPackage.ACTOR__ACTOR:
@@ -466,10 +466,10 @@ public class ActorImpl extends MinimalEObjectImpl.Container implements Actor
     result.append(name);
     result.append(", nameAlias: ");
     result.append(nameAlias);
-    result.append(", type: ");
-    result.append(type);
     result.append(", description: ");
     result.append(description);
+    result.append(", type: ");
+    result.append(type);
     result.append(')');
     return result.toString();
   }

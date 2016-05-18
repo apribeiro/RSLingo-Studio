@@ -16,35 +16,35 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
-import rslingo.rslil.rSLIL.NFR;
+import rslingo.rslil.rSLIL.QR;
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.RefNFR;
+import rslingo.rslil.rSLIL.RefQR;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Ref NFR</b></em>'.
+ * An implementation of the model object '<em><b>Ref QR</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.impl.RefNFRImpl#getRefNFR <em>Ref NFR</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.RefNFRImpl#getRefs <em>Refs</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.RefQRImpl#getRefQR <em>Ref QR</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.RefQRImpl#getRefs <em>Refs</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RefNFRImpl extends MinimalEObjectImpl.Container implements RefNFR
+public class RefQRImpl extends MinimalEObjectImpl.Container implements RefQR
 {
   /**
-   * The cached value of the '{@link #getRefNFR() <em>Ref NFR</em>}' reference.
+   * The cached value of the '{@link #getRefQR() <em>Ref QR</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRefNFR()
+   * @see #getRefQR()
    * @generated
    * @ordered
    */
-  protected NFR refNFR;
+  protected QR refQR;
 
   /**
    * The cached value of the '{@link #getRefs() <em>Refs</em>}' reference list.
@@ -54,14 +54,14 @@ public class RefNFRImpl extends MinimalEObjectImpl.Container implements RefNFR
    * @generated
    * @ordered
    */
-  protected EList<NFR> refs;
+  protected EList<QR> refs;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected RefNFRImpl()
+  protected RefQRImpl()
   {
     super();
   }
@@ -74,7 +74,7 @@ public class RefNFRImpl extends MinimalEObjectImpl.Container implements RefNFR
   @Override
   protected EClass eStaticClass()
   {
-    return RSLILPackage.Literals.REF_NFR;
+    return RSLILPackage.Literals.REF_QR;
   }
 
   /**
@@ -82,19 +82,19 @@ public class RefNFRImpl extends MinimalEObjectImpl.Container implements RefNFR
    * <!-- end-user-doc -->
    * @generated
    */
-  public NFR getRefNFR()
+  public QR getRefQR()
   {
-    if (refNFR != null && refNFR.eIsProxy())
+    if (refQR != null && refQR.eIsProxy())
     {
-      InternalEObject oldRefNFR = (InternalEObject)refNFR;
-      refNFR = (NFR)eResolveProxy(oldRefNFR);
-      if (refNFR != oldRefNFR)
+      InternalEObject oldRefQR = (InternalEObject)refQR;
+      refQR = (QR)eResolveProxy(oldRefQR);
+      if (refQR != oldRefQR)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.REF_NFR__REF_NFR, oldRefNFR, refNFR));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.REF_QR__REF_QR, oldRefQR, refQR));
       }
     }
-    return refNFR;
+    return refQR;
   }
 
   /**
@@ -102,9 +102,9 @@ public class RefNFRImpl extends MinimalEObjectImpl.Container implements RefNFR
    * <!-- end-user-doc -->
    * @generated
    */
-  public NFR basicGetRefNFR()
+  public QR basicGetRefQR()
   {
-    return refNFR;
+    return refQR;
   }
 
   /**
@@ -112,12 +112,12 @@ public class RefNFRImpl extends MinimalEObjectImpl.Container implements RefNFR
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRefNFR(NFR newRefNFR)
+  public void setRefQR(QR newRefQR)
   {
-    NFR oldRefNFR = refNFR;
-    refNFR = newRefNFR;
+    QR oldRefQR = refQR;
+    refQR = newRefQR;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.REF_NFR__REF_NFR, oldRefNFR, refNFR));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.REF_QR__REF_QR, oldRefQR, refQR));
   }
 
   /**
@@ -125,11 +125,11 @@ public class RefNFRImpl extends MinimalEObjectImpl.Container implements RefNFR
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<NFR> getRefs()
+  public EList<QR> getRefs()
   {
     if (refs == null)
     {
-      refs = new EObjectResolvingEList<NFR>(NFR.class, this, RSLILPackage.REF_NFR__REFS);
+      refs = new EObjectResolvingEList<QR>(QR.class, this, RSLILPackage.REF_QR__REFS);
     }
     return refs;
   }
@@ -144,10 +144,10 @@ public class RefNFRImpl extends MinimalEObjectImpl.Container implements RefNFR
   {
     switch (featureID)
     {
-      case RSLILPackage.REF_NFR__REF_NFR:
-        if (resolve) return getRefNFR();
-        return basicGetRefNFR();
-      case RSLILPackage.REF_NFR__REFS:
+      case RSLILPackage.REF_QR__REF_QR:
+        if (resolve) return getRefQR();
+        return basicGetRefQR();
+      case RSLILPackage.REF_QR__REFS:
         return getRefs();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -164,12 +164,12 @@ public class RefNFRImpl extends MinimalEObjectImpl.Container implements RefNFR
   {
     switch (featureID)
     {
-      case RSLILPackage.REF_NFR__REF_NFR:
-        setRefNFR((NFR)newValue);
+      case RSLILPackage.REF_QR__REF_QR:
+        setRefQR((QR)newValue);
         return;
-      case RSLILPackage.REF_NFR__REFS:
+      case RSLILPackage.REF_QR__REFS:
         getRefs().clear();
-        getRefs().addAll((Collection<? extends NFR>)newValue);
+        getRefs().addAll((Collection<? extends QR>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -185,10 +185,10 @@ public class RefNFRImpl extends MinimalEObjectImpl.Container implements RefNFR
   {
     switch (featureID)
     {
-      case RSLILPackage.REF_NFR__REF_NFR:
-        setRefNFR((NFR)null);
+      case RSLILPackage.REF_QR__REF_QR:
+        setRefQR((QR)null);
         return;
-      case RSLILPackage.REF_NFR__REFS:
+      case RSLILPackage.REF_QR__REFS:
         getRefs().clear();
         return;
     }
@@ -205,12 +205,12 @@ public class RefNFRImpl extends MinimalEObjectImpl.Container implements RefNFR
   {
     switch (featureID)
     {
-      case RSLILPackage.REF_NFR__REF_NFR:
-        return refNFR != null;
-      case RSLILPackage.REF_NFR__REFS:
+      case RSLILPackage.REF_QR__REF_QR:
+        return refQR != null;
+      case RSLILPackage.REF_QR__REFS:
         return refs != null && !refs.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //RefNFRImpl
+} //RefQRImpl

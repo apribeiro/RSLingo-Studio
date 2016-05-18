@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.Model#getActors <em>Actors</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Model#getUseCases <em>Use Cases</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Model#getFrs <em>Frs</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Model#getNfrs <em>Nfrs</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Model#getQrs <em>Qrs</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Model#getConstraints <em>Constraints</em>}</li>
  * </ul>
  *
@@ -189,20 +189,20 @@ public interface Model extends EObject
   EList<FR> getFrs();
 
   /**
-   * Returns the value of the '<em><b>Nfrs</b></em>' containment reference list.
-   * The list contents are of type {@link rslingo.rslil.rSLIL.NFR}.
+   * Returns the value of the '<em><b>Qrs</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.QR}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Nfrs</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Qrs</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Nfrs</em>' containment reference list.
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getModel_Nfrs()
+   * @return the value of the '<em>Qrs</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getModel_Qrs()
    * @model containment="true"
    * @generated
    */
-  EList<NFR> getNfrs();
+  EList<QR> getQrs();
 
   /**
    * Returns the value of the '<em><b>Constraints</b></em>' containment reference list.

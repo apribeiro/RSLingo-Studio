@@ -6,22 +6,22 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Depends On NFR</b></em>'.
+ * A representation of the model object '<em><b>Depends On QR</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.DependsOnNFR#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.DependsOnNFR#getRefFr <em>Ref Fr</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.DependsOnQR#getType <em>Type</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.DependsOnQR#getRefQr <em>Ref Qr</em>}</li>
  * </ul>
  *
- * @see rslingo.rslil.rSLIL.RSLILPackage#getDependsOnNFR()
+ * @see rslingo.rslil.rSLIL.RSLILPackage#getDependsOnQR()
  * @model
  * @generated
  */
-public interface DependsOnNFR extends EObject
+public interface DependsOnQR extends EObject
 {
   /**
    * Returns the value of the '<em><b>Type</b></em>' attribute.
@@ -33,14 +33,14 @@ public interface DependsOnNFR extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' attribute.
    * @see #setType(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getDependsOnNFR_Type()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getDependsOnQR_Type()
    * @model
    * @generated
    */
   String getType();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.DependsOnNFR#getType <em>Type</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.DependsOnQR#getType <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Type</em>' attribute.
@@ -50,29 +50,29 @@ public interface DependsOnNFR extends EObject
   void setType(String value);
 
   /**
-   * Returns the value of the '<em><b>Ref Fr</b></em>' containment reference.
+   * Returns the value of the '<em><b>Ref Qr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Ref Fr</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Ref Qr</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Ref Fr</em>' containment reference.
-   * @see #setRefFr(RefNFR)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getDependsOnNFR_RefFr()
+   * @return the value of the '<em>Ref Qr</em>' containment reference.
+   * @see #setRefQr(RefQR)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getDependsOnQR_RefQr()
    * @model containment="true"
    * @generated
    */
-  RefNFR getRefFr();
+  RefQR getRefQr();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.DependsOnNFR#getRefFr <em>Ref Fr</em>}' containment reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.DependsOnQR#getRefQr <em>Ref Qr</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Ref Fr</em>' containment reference.
-   * @see #getRefFr()
+   * @param value the new value of the '<em>Ref Qr</em>' containment reference.
+   * @see #getRefQr()
    * @generated
    */
-  void setRefFr(RefNFR value);
+  void setRefQr(RefQR value);
 
-} // DependsOnNFR
+} // DependsOnQR

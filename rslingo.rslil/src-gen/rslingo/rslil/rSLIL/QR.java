@@ -8,31 +8,31 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>NFR</b></em>'.
+ * A representation of the model object '<em><b>QR</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.NFR#getName <em>Name</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.NFR#getNameAlias <em>Name Alias</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.NFR#getDescription <em>Description</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.NFR#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.NFR#getSubType <em>Sub Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.NFR#getMetric <em>Metric</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.NFR#getValue <em>Value</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.NFR#getStakeholder <em>Stakeholder</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.NFR#getPriority <em>Priority</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.NFR#getDepends <em>Depends</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.NFR#getPartOf <em>Part Of</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.QR#getName <em>Name</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.QR#getNameAlias <em>Name Alias</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.QR#getDescription <em>Description</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.QR#getType <em>Type</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.QR#getSubType <em>Sub Type</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.QR#getMetric <em>Metric</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.QR#getValue <em>Value</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.QR#getStakeholder <em>Stakeholder</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.QR#getPriority <em>Priority</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.QR#getDepends <em>Depends</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.QR#getPartOf <em>Part Of</em>}</li>
  * </ul>
  *
- * @see rslingo.rslil.rSLIL.RSLILPackage#getNFR()
+ * @see rslingo.rslil.rSLIL.RSLILPackage#getQR()
  * @model
  * @generated
  */
-public interface NFR extends EObject
+public interface QR extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -44,14 +44,14 @@ public interface NFR extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getNFR_Name()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getQR_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.NFR#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.QR#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -70,14 +70,14 @@ public interface NFR extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name Alias</em>' attribute.
    * @see #setNameAlias(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getNFR_NameAlias()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getQR_NameAlias()
    * @model
    * @generated
    */
   String getNameAlias();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.NFR#getNameAlias <em>Name Alias</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.QR#getNameAlias <em>Name Alias</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name Alias</em>' attribute.
@@ -96,14 +96,14 @@ public interface NFR extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Description</em>' attribute.
    * @see #setDescription(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getNFR_Description()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getQR_Description()
    * @model
    * @generated
    */
   String getDescription();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.NFR#getDescription <em>Description</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.QR#getDescription <em>Description</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Description</em>' attribute.
@@ -122,14 +122,14 @@ public interface NFR extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' attribute.
    * @see #setType(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getNFR_Type()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getQR_Type()
    * @model
    * @generated
    */
   String getType();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.NFR#getType <em>Type</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.QR#getType <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Type</em>' attribute.
@@ -148,14 +148,14 @@ public interface NFR extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Sub Type</em>' attribute.
    * @see #setSubType(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getNFR_SubType()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getQR_SubType()
    * @model
    * @generated
    */
   String getSubType();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.NFR#getSubType <em>Sub Type</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.QR#getSubType <em>Sub Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Sub Type</em>' attribute.
@@ -174,14 +174,14 @@ public interface NFR extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Metric</em>' attribute.
    * @see #setMetric(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getNFR_Metric()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getQR_Metric()
    * @model
    * @generated
    */
   String getMetric();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.NFR#getMetric <em>Metric</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.QR#getMetric <em>Metric</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Metric</em>' attribute.
@@ -200,14 +200,14 @@ public interface NFR extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
    * @see #setValue(int)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getNFR_Value()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getQR_Value()
    * @model
    * @generated
    */
   int getValue();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.NFR#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.QR#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' attribute.
@@ -226,14 +226,14 @@ public interface NFR extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Stakeholder</em>' reference.
    * @see #setStakeholder(Stakeholder)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getNFR_Stakeholder()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getQR_Stakeholder()
    * @model
    * @generated
    */
   Stakeholder getStakeholder();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.NFR#getStakeholder <em>Stakeholder</em>}' reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.QR#getStakeholder <em>Stakeholder</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Stakeholder</em>' reference.
@@ -243,34 +243,34 @@ public interface NFR extends EObject
   void setStakeholder(Stakeholder value);
 
   /**
-   * Returns the value of the '<em><b>Priority</b></em>' attribute.
+   * Returns the value of the '<em><b>Priority</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Priority</em>' attribute isn't clear,
+   * If the meaning of the '<em>Priority</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Priority</em>' attribute.
-   * @see #setPriority(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getNFR_Priority()
-   * @model
+   * @return the value of the '<em>Priority</em>' containment reference.
+   * @see #setPriority(Priority)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getQR_Priority()
+   * @model containment="true"
    * @generated
    */
-  String getPriority();
+  Priority getPriority();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.NFR#getPriority <em>Priority</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.QR#getPriority <em>Priority</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Priority</em>' attribute.
+   * @param value the new value of the '<em>Priority</em>' containment reference.
    * @see #getPriority()
    * @generated
    */
-  void setPriority(String value);
+  void setPriority(Priority value);
 
   /**
    * Returns the value of the '<em><b>Depends</b></em>' containment reference list.
-   * The list contents are of type {@link rslingo.rslil.rSLIL.DependsOnNFR}.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.DependsOnQR}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Depends</em>' containment reference list isn't clear,
@@ -278,11 +278,11 @@ public interface NFR extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Depends</em>' containment reference list.
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getNFR_Depends()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getQR_Depends()
    * @model containment="true"
    * @generated
    */
-  EList<DependsOnNFR> getDepends();
+  EList<DependsOnQR> getDepends();
 
   /**
    * Returns the value of the '<em><b>Part Of</b></em>' reference.
@@ -293,21 +293,21 @@ public interface NFR extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Part Of</em>' reference.
-   * @see #setPartOf(NFR)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getNFR_PartOf()
+   * @see #setPartOf(QR)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getQR_PartOf()
    * @model
    * @generated
    */
-  NFR getPartOf();
+  QR getPartOf();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.NFR#getPartOf <em>Part Of</em>}' reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.QR#getPartOf <em>Part Of</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Part Of</em>' reference.
    * @see #getPartOf()
    * @generated
    */
-  void setPartOf(NFR value);
+  void setPartOf(QR value);
 
-} // NFR
+} // QR

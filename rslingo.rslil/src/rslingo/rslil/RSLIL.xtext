@@ -81,7 +81,7 @@ Goal:
 		composedBy+=ComposedBy*
 	'}';
 
-Priority: ('Must'|'Should'|'Could'|'Won\'t');
+Priority: value=('Must'|'Should'|'Could'|'Won\'t');
 
 DependsOnGoal:
 	type=('Requires'|'Supports'|'Obstructs'|'Conflicts'|'Identical') refGoal=RefGoal;
@@ -233,7 +233,7 @@ Constraint:
 	'Constraint' name=ID '{'
 		('Name' nameAlias=STRING)?
 		('Description' description=STRING)?
-		'Type' type=('Security')
+		'Type' type=('Cultural'|'Legal'|'Organizational'|'Physical'|'Project'|'Technological'|'Other')
 		('Stakeholder' stakeholder=[Stakeholder])?
 		'Priority' priority=Priority
 		depends+=DependsOnConstraint*

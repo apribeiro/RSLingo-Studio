@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.ExtensionPoint;
+import rslingo.rslil.rSLIL.Priority;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefEntity;
@@ -39,11 +40,11 @@ import rslingo.rslil.rSLIL.UseCase;
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getNameAlias <em>Name Alias</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getEntities <em>Entities</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getPriotity <em>Priotity</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getExtensionnPoints <em>Extensionn Points</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getPriority <em>Priority</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getExtensionPoints <em>Extension Points</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getGoals <em>Goals</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getFrs <em>Frs</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.UseCaseImpl#getActorInitiates <em>Actor Initiates</em>}</li>
@@ -101,6 +102,26 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   protected String nameAlias = NAME_ALIAS_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected static final String DESCRIPTION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -131,54 +152,24 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   protected RefEntity entities;
 
   /**
-   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * The cached value of the '{@link #getPriority() <em>Priority</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDescription()
+   * @see #getPriority()
    * @generated
    * @ordered
    */
-  protected static final String DESCRIPTION_EDEFAULT = null;
+  protected Priority priority;
 
   /**
-   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * The cached value of the '{@link #getExtensionPoints() <em>Extension Points</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDescription()
+   * @see #getExtensionPoints()
    * @generated
    * @ordered
    */
-  protected String description = DESCRIPTION_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getPriotity() <em>Priotity</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPriotity()
-   * @generated
-   * @ordered
-   */
-  protected static final String PRIOTITY_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getPriotity() <em>Priotity</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPriotity()
-   * @generated
-   * @ordered
-   */
-  protected String priotity = PRIOTITY_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getExtensionnPoints() <em>Extensionn Points</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExtensionnPoints()
-   * @generated
-   * @ordered
-   */
-  protected EList<ExtensionPoint> extensionnPoints;
+  protected EList<ExtensionPoint> extensionPoints;
 
   /**
    * The cached value of the '{@link #getGoals() <em>Goals</em>}' containment reference list.
@@ -372,6 +363,29 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getDescription()
+  {
+    return description;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDescription(String newDescription)
+  {
+    String oldDescription = description;
+    description = newDescription;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.USE_CASE__DESCRIPTION, oldDescription, description));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getType()
   {
     return type;
@@ -443,9 +457,9 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDescription()
+  public Priority getPriority()
   {
-    return description;
+    return priority;
   }
 
   /**
@@ -453,49 +467,51 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDescription(String newDescription)
+  public NotificationChain basicSetPriority(Priority newPriority, NotificationChain msgs)
   {
-    String oldDescription = description;
-    description = newDescription;
+    Priority oldPriority = priority;
+    priority = newPriority;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.USE_CASE__DESCRIPTION, oldDescription, description));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getPriotity()
-  {
-    return priotity;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPriotity(String newPriotity)
-  {
-    String oldPriotity = priotity;
-    priotity = newPriotity;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.USE_CASE__PRIOTITY, oldPriotity, priotity));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<ExtensionPoint> getExtensionnPoints()
-  {
-    if (extensionnPoints == null)
     {
-      extensionnPoints = new EObjectContainmentEList<ExtensionPoint>(ExtensionPoint.class, this, RSLILPackage.USE_CASE__EXTENSIONN_POINTS);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.USE_CASE__PRIORITY, oldPriority, newPriority);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return extensionnPoints;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPriority(Priority newPriority)
+  {
+    if (newPriority != priority)
+    {
+      NotificationChain msgs = null;
+      if (priority != null)
+        msgs = ((InternalEObject)priority).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.USE_CASE__PRIORITY, null, msgs);
+      if (newPriority != null)
+        msgs = ((InternalEObject)newPriority).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.USE_CASE__PRIORITY, null, msgs);
+      msgs = basicSetPriority(newPriority, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.USE_CASE__PRIORITY, newPriority, newPriority));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ExtensionPoint> getExtensionPoints()
+  {
+    if (extensionPoints == null)
+    {
+      extensionPoints = new EObjectContainmentEList<ExtensionPoint>(ExtensionPoint.class, this, RSLILPackage.USE_CASE__EXTENSION_POINTS);
+    }
+    return extensionPoints;
   }
 
   /**
@@ -789,8 +805,10 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
     {
       case RSLILPackage.USE_CASE__ENTITIES:
         return basicSetEntities(null, msgs);
-      case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
-        return ((InternalEList<?>)getExtensionnPoints()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.USE_CASE__PRIORITY:
+        return basicSetPriority(null, msgs);
+      case RSLILPackage.USE_CASE__EXTENSION_POINTS:
+        return ((InternalEList<?>)getExtensionPoints()).basicRemove(otherEnd, msgs);
       case RSLILPackage.USE_CASE__GOALS:
         return ((InternalEList<?>)getGoals()).basicRemove(otherEnd, msgs);
       case RSLILPackage.USE_CASE__FRS:
@@ -819,16 +837,16 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return getName();
       case RSLILPackage.USE_CASE__NAME_ALIAS:
         return getNameAlias();
+      case RSLILPackage.USE_CASE__DESCRIPTION:
+        return getDescription();
       case RSLILPackage.USE_CASE__TYPE:
         return getType();
       case RSLILPackage.USE_CASE__ENTITIES:
         return getEntities();
-      case RSLILPackage.USE_CASE__DESCRIPTION:
-        return getDescription();
-      case RSLILPackage.USE_CASE__PRIOTITY:
-        return getPriotity();
-      case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
-        return getExtensionnPoints();
+      case RSLILPackage.USE_CASE__PRIORITY:
+        return getPriority();
+      case RSLILPackage.USE_CASE__EXTENSION_POINTS:
+        return getExtensionPoints();
       case RSLILPackage.USE_CASE__GOALS:
         return getGoals();
       case RSLILPackage.USE_CASE__FRS:
@@ -873,21 +891,21 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case RSLILPackage.USE_CASE__NAME_ALIAS:
         setNameAlias((String)newValue);
         return;
+      case RSLILPackage.USE_CASE__DESCRIPTION:
+        setDescription((String)newValue);
+        return;
       case RSLILPackage.USE_CASE__TYPE:
         setType((String)newValue);
         return;
       case RSLILPackage.USE_CASE__ENTITIES:
         setEntities((RefEntity)newValue);
         return;
-      case RSLILPackage.USE_CASE__DESCRIPTION:
-        setDescription((String)newValue);
+      case RSLILPackage.USE_CASE__PRIORITY:
+        setPriority((Priority)newValue);
         return;
-      case RSLILPackage.USE_CASE__PRIOTITY:
-        setPriotity((String)newValue);
-        return;
-      case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
-        getExtensionnPoints().clear();
-        getExtensionnPoints().addAll((Collection<? extends ExtensionPoint>)newValue);
+      case RSLILPackage.USE_CASE__EXTENSION_POINTS:
+        getExtensionPoints().clear();
+        getExtensionPoints().addAll((Collection<? extends ExtensionPoint>)newValue);
         return;
       case RSLILPackage.USE_CASE__GOALS:
         getGoals().clear();
@@ -943,20 +961,20 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case RSLILPackage.USE_CASE__NAME_ALIAS:
         setNameAlias(NAME_ALIAS_EDEFAULT);
         return;
+      case RSLILPackage.USE_CASE__DESCRIPTION:
+        setDescription(DESCRIPTION_EDEFAULT);
+        return;
       case RSLILPackage.USE_CASE__TYPE:
         setType(TYPE_EDEFAULT);
         return;
       case RSLILPackage.USE_CASE__ENTITIES:
         setEntities((RefEntity)null);
         return;
-      case RSLILPackage.USE_CASE__DESCRIPTION:
-        setDescription(DESCRIPTION_EDEFAULT);
+      case RSLILPackage.USE_CASE__PRIORITY:
+        setPriority((Priority)null);
         return;
-      case RSLILPackage.USE_CASE__PRIOTITY:
-        setPriotity(PRIOTITY_EDEFAULT);
-        return;
-      case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
-        getExtensionnPoints().clear();
+      case RSLILPackage.USE_CASE__EXTENSION_POINTS:
+        getExtensionPoints().clear();
         return;
       case RSLILPackage.USE_CASE__GOALS:
         getGoals().clear();
@@ -1006,16 +1024,16 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RSLILPackage.USE_CASE__NAME_ALIAS:
         return NAME_ALIAS_EDEFAULT == null ? nameAlias != null : !NAME_ALIAS_EDEFAULT.equals(nameAlias);
+      case RSLILPackage.USE_CASE__DESCRIPTION:
+        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case RSLILPackage.USE_CASE__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case RSLILPackage.USE_CASE__ENTITIES:
         return entities != null;
-      case RSLILPackage.USE_CASE__DESCRIPTION:
-        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case RSLILPackage.USE_CASE__PRIOTITY:
-        return PRIOTITY_EDEFAULT == null ? priotity != null : !PRIOTITY_EDEFAULT.equals(priotity);
-      case RSLILPackage.USE_CASE__EXTENSIONN_POINTS:
-        return extensionnPoints != null && !extensionnPoints.isEmpty();
+      case RSLILPackage.USE_CASE__PRIORITY:
+        return priority != null;
+      case RSLILPackage.USE_CASE__EXTENSION_POINTS:
+        return extensionPoints != null && !extensionPoints.isEmpty();
       case RSLILPackage.USE_CASE__GOALS:
         return goals != null && !goals.isEmpty();
       case RSLILPackage.USE_CASE__FRS:
@@ -1055,12 +1073,10 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
     result.append(name);
     result.append(", nameAlias: ");
     result.append(nameAlias);
-    result.append(", type: ");
-    result.append(type);
     result.append(", description: ");
     result.append(description);
-    result.append(", priotity: ");
-    result.append(priotity);
+    result.append(", type: ");
+    result.append(type);
     result.append(", preConditions: ");
     result.append(preConditions);
     result.append(", postConditions: ");

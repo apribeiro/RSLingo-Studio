@@ -20,9 +20,6 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 
-import rslingo.rslil4privacy.rSLIL4Privacy.Metadata;
-import rslingo.rslil4privacy.rSLIL4Privacy.impl.MetadataImpl;
-
 public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 	private NewRSLingoProjectWizardPage page;
 	private MetadataWizardPage metadataPage;
@@ -47,7 +44,7 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 	
 	@Override
 	public boolean performFinish() {
-		final String projectName = page.getProjectName();
+		/*final String projectName = page.getProjectName();
 		final String fileMode = page.getFileMode();
 		final Metadata metadata = new MetadataImpl() {};
 		metadata.setName(metadataPage.getPolicyName());
@@ -78,11 +75,11 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 			Throwable realException = e.getTargetException();
 			MessageDialog.openError(getShell(), "Error", realException.getMessage());
 			return false;
-		}
+		}*/
 		return true;
 	}
 	
-	private void doFinish(String projectName, String fileMode, String namespace,
+	/*private void doFinish(String projectName, String fileMode, String namespace,
 			Metadata metadata, String date, IProgressMonitor monitor)
 			throws CoreException {
 		// Create the Project structure
@@ -410,5 +407,5 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 		sb.append("\tType Action");
 		sb.append("\n}");
 		sb.append("\n\n");
-	}
+	}*/
 }

@@ -17,9 +17,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getNameAlias <em>Name Alias</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getAcronym <em>Acronym</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getPos <em>Pos</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getSynset <em>Synset</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getTermRelation <em>Term Relation</em>}</li>
@@ -84,6 +84,32 @@ public interface GlossaryTerm extends EObject
   void setNameAlias(String value);
 
   /**
+   * Returns the value of the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Description</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Description</em>' attribute.
+   * @see #setDescription(String)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossaryTerm_Description()
+   * @model
+   * @generated
+   */
+  String getDescription();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.GlossaryTerm#getDescription <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Description</em>' attribute.
+   * @see #getDescription()
+   * @generated
+   */
+  void setDescription(String value);
+
+  /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
@@ -134,32 +160,6 @@ public interface GlossaryTerm extends EObject
    * @generated
    */
   void setAcronym(String value);
-
-  /**
-   * Returns the value of the '<em><b>Description</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Description</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Description</em>' attribute.
-   * @see #setDescription(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossaryTerm_Description()
-   * @model
-   * @generated
-   */
-  String getDescription();
-
-  /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.GlossaryTerm#getDescription <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Description</em>' attribute.
-   * @see #getDescription()
-   * @generated
-   */
-  void setDescription(String value);
 
   /**
    * Returns the value of the '<em><b>Pos</b></em>' attribute.

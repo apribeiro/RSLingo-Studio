@@ -42,25 +42,6 @@ import com.google.inject.Inject;
 
 import rslingo.rslil.ui.windows.MenuCommand;
 import rslingo.rslil.ui.windows.MenuCommandWindow;
-import rslingo.rslil4privacy.rSLIL4Privacy.Attribute;
-import rslingo.rslil4privacy.rSLIL4Privacy.Collection;
-import rslingo.rslil4privacy.rSLIL4Privacy.Date;
-import rslingo.rslil4privacy.rSLIL4Privacy.Disclosure;
-import rslingo.rslil4privacy.rSLIL4Privacy.Enforcement;
-import rslingo.rslil4privacy.rSLIL4Privacy.Informative;
-import rslingo.rslil4privacy.rSLIL4Privacy.Metadata;
-import rslingo.rslil4privacy.rSLIL4Privacy.Policy;
-import rslingo.rslil4privacy.rSLIL4Privacy.PrivateData;
-import rslingo.rslil4privacy.rSLIL4Privacy.Recipient;
-import rslingo.rslil4privacy.rSLIL4Privacy.RecipientPart;
-import rslingo.rslil4privacy.rSLIL4Privacy.RefEnforcement;
-import rslingo.rslil4privacy.rSLIL4Privacy.RefPrivateData;
-import rslingo.rslil4privacy.rSLIL4Privacy.RefRecipient;
-import rslingo.rslil4privacy.rSLIL4Privacy.RefService;
-import rslingo.rslil4privacy.rSLIL4Privacy.Retention;
-import rslingo.rslil4privacy.rSLIL4Privacy.Service;
-import rslingo.rslil4privacy.rSLIL4Privacy.ServicePart;
-import rslingo.rslil4privacy.rSLIL4Privacy.Usage;
 
 public class WordHandler extends AbstractHandler {
 
@@ -133,7 +114,7 @@ public class WordHandler extends AbstractHandler {
 				//URI.createURI("platform:/resource/rslingo.rslil/src/example.rslil"), true);
 		        ResourceSet resourceSet = resourceSetProvider.get(project);
 		        Resource resource = resourceSet.getResource(uri, true);
-				Policy policy = (Policy) resource.getContents().get(0);
+				/*Policy policy = (Policy) resource.getContents().get(0);
 
 				// Deal with the Main file mode
 				if (policy.getMetadata() != null && policy.getImportelements().size() > 0) {
@@ -149,18 +130,18 @@ public class WordHandler extends AbstractHandler {
 						}
 					});
 				    return Status.OK_STATUS;
-				}
+				}*/
 				
 				try {
 					InputStream from = new FileInputStream(RSLINGO_PATH + DEF_WORD_PATH);
 					XWPFDocument document = new XWPFDocument(from);
 
-					writePolicyMetadata(policy.getMetadata(), document);
-					writePrivateData(policy, document);
-					writeServices(policy, document);
-					writeRecipients(policy, document);
-					writeEnforcements(policy, document);
-					writeStatements(policy, document);
+//					writePolicyMetadata(policy.getMetadata(), document);
+//					writePrivateData(policy, document);
+//					writeServices(policy, document);
+//					writeRecipients(policy, document);
+//					writeEnforcements(policy, document);
+//					writeStatements(policy, document);
 					
 					// Write the Document in file system
 					String fileName = file.getName().split(FILE_EXT)[0];
@@ -185,7 +166,7 @@ public class WordHandler extends AbstractHandler {
 	    job.schedule();
 	}	
 
-	private void writePolicyMetadata(Metadata metadata, XWPFDocument document) {
+	/*private void writePolicyMetadata(Metadata metadata, XWPFDocument document) {
 		if (metadata != null) {
 			XWPFParagraph tName = DocumentHelper.getParagraph(document, "@PolicyName");
 			DocumentHelper.replaceText(tName, "@PolicyName", metadata.getName());
@@ -1462,5 +1443,5 @@ public class WordHandler extends AbstractHandler {
 			// Add a newline to the last paragraph
 			DocumentHelper.addLineBreakToParagraph(last);
 		}
-	}
+	}*/
 }

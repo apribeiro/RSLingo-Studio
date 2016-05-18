@@ -40,23 +40,6 @@ import com.google.inject.Inject;
 
 import rslingo.rslil.ui.windows.MenuCommand;
 import rslingo.rslil.ui.windows.MenuCommandWindow;
-import rslingo.rslil4privacy.rSLIL4Privacy.Attribute;
-import rslingo.rslil4privacy.rSLIL4Privacy.Collection;
-import rslingo.rslil4privacy.rSLIL4Privacy.Date;
-import rslingo.rslil4privacy.rSLIL4Privacy.Disclosure;
-import rslingo.rslil4privacy.rSLIL4Privacy.Enforcement;
-import rslingo.rslil4privacy.rSLIL4Privacy.Informative;
-import rslingo.rslil4privacy.rSLIL4Privacy.Metadata;
-import rslingo.rslil4privacy.rSLIL4Privacy.Policy;
-import rslingo.rslil4privacy.rSLIL4Privacy.PrivateData;
-import rslingo.rslil4privacy.rSLIL4Privacy.Recipient;
-import rslingo.rslil4privacy.rSLIL4Privacy.RefEnforcement;
-import rslingo.rslil4privacy.rSLIL4Privacy.RefPrivateData;
-import rslingo.rslil4privacy.rSLIL4Privacy.RefRecipient;
-import rslingo.rslil4privacy.rSLIL4Privacy.RefService;
-import rslingo.rslil4privacy.rSLIL4Privacy.Retention;
-import rslingo.rslil4privacy.rSLIL4Privacy.Service;
-import rslingo.rslil4privacy.rSLIL4Privacy.Usage;
 
 public class ExportExcelHandler extends AbstractHandler {
 
@@ -130,7 +113,7 @@ public class ExportExcelHandler extends AbstractHandler {
 				//URI.createURI("platform:/resource/rslingo.rslil/src/example.rslil"), true);
 		        ResourceSet resourceSet = resourceSetProvider.get(project);
 		        Resource resource = resourceSet.getResource(uri, true);
-				Policy policy = (Policy) resource.getContents().get(0);
+				/*Policy policy = (Policy) resource.getContents().get(0);
 				
 				// Deal with the Main file mode
 				if (policy.getMetadata() != null && policy.getImportelements().size() > 0) {
@@ -146,18 +129,18 @@ public class ExportExcelHandler extends AbstractHandler {
 						}
 					});
 				    return Status.OK_STATUS;
-				}
+				}*/
 
 				try {
 					InputStream from = new FileInputStream(RSLINGO_PATH + DEF_WORD_PATH);
 					XSSFWorkbook workbook = new XSSFWorkbook(from);
 
-					writeMetadata(policy.getMetadata(), workbook);
-					writeStatements(policy, workbook);
-					writePrivateData(policy, workbook);
-					writeServices(policy, workbook);
-					writeRecipients(policy, workbook);
-					writeEnforcements(policy, workbook);
+//					writeMetadata(policy.getMetadata(), workbook);
+//					writeStatements(policy, workbook);
+//					writePrivateData(policy, workbook);
+//					writeServices(policy, workbook);
+//					writeRecipients(policy, workbook);
+//					writeEnforcements(policy, workbook);
 
 					// Write the Document in file system
 					String fileName = file.getName().split(FILE_EXT)[0];
@@ -182,7 +165,7 @@ public class ExportExcelHandler extends AbstractHandler {
 	    job.schedule();
 	}
 	
-	private void writeMetadata(Metadata metadata, XSSFWorkbook workbook) {
+	/*private void writeMetadata(Metadata metadata, XSSFWorkbook workbook) {
 		XSSFSheet sheet = workbook.getSheet("Home");
 		XSSFRow rowName = (XSSFRow) DocumentHelper.getCell(sheet, "HPolicyName").getRow();
 		DocumentHelper.replaceText(rowName, "HPolicyName", metadata.getName());
@@ -757,5 +740,5 @@ public class ExportExcelHandler extends AbstractHandler {
 		
 		// Delete the Template Row
 		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
-	}
+	}*/
 }

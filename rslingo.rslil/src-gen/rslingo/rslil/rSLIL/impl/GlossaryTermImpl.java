@@ -33,9 +33,9 @@ import rslingo.rslil.rSLIL.TermRelation;
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getNameAlias <em>Name Alias</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getAcronym <em>Acronym</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getPos <em>Pos</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getSynset <em>Synset</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getTermRelation <em>Term Relation</em>}</li>
@@ -86,6 +86,26 @@ public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements Gl
   protected String nameAlias = NAME_ALIAS_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected static final String DESCRIPTION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -114,26 +134,6 @@ public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements Gl
    * @ordered
    */
   protected String acronym = ACRONYM_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDescription()
-   * @generated
-   * @ordered
-   */
-  protected static final String DESCRIPTION_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDescription()
-   * @generated
-   * @ordered
-   */
-  protected String description = DESCRIPTION_EDEFAULT;
 
   /**
    * The default value of the '{@link #getPos() <em>Pos</em>}' attribute.
@@ -257,6 +257,29 @@ public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements Gl
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getDescription()
+  {
+    return description;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDescription(String newDescription)
+  {
+    String oldDescription = description;
+    description = newDescription;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY_TERM__DESCRIPTION, oldDescription, description));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public RefTermType getType()
   {
     return type;
@@ -321,29 +344,6 @@ public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements Gl
     acronym = newAcronym;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY_TERM__ACRONYM, oldAcronym, acronym));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getDescription()
-  {
-    return description;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDescription(String newDescription)
-  {
-    String oldDescription = description;
-    description = newDescription;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY_TERM__DESCRIPTION, oldDescription, description));
   }
 
   /**
@@ -438,12 +438,12 @@ public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements Gl
         return getName();
       case RSLILPackage.GLOSSARY_TERM__NAME_ALIAS:
         return getNameAlias();
+      case RSLILPackage.GLOSSARY_TERM__DESCRIPTION:
+        return getDescription();
       case RSLILPackage.GLOSSARY_TERM__TYPE:
         return getType();
       case RSLILPackage.GLOSSARY_TERM__ACRONYM:
         return getAcronym();
-      case RSLILPackage.GLOSSARY_TERM__DESCRIPTION:
-        return getDescription();
       case RSLILPackage.GLOSSARY_TERM__POS:
         return getPos();
       case RSLILPackage.GLOSSARY_TERM__SYNSET:
@@ -471,14 +471,14 @@ public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements Gl
       case RSLILPackage.GLOSSARY_TERM__NAME_ALIAS:
         setNameAlias((String)newValue);
         return;
+      case RSLILPackage.GLOSSARY_TERM__DESCRIPTION:
+        setDescription((String)newValue);
+        return;
       case RSLILPackage.GLOSSARY_TERM__TYPE:
         setType((RefTermType)newValue);
         return;
       case RSLILPackage.GLOSSARY_TERM__ACRONYM:
         setAcronym((String)newValue);
-        return;
-      case RSLILPackage.GLOSSARY_TERM__DESCRIPTION:
-        setDescription((String)newValue);
         return;
       case RSLILPackage.GLOSSARY_TERM__POS:
         setPos((String)newValue);
@@ -510,14 +510,14 @@ public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements Gl
       case RSLILPackage.GLOSSARY_TERM__NAME_ALIAS:
         setNameAlias(NAME_ALIAS_EDEFAULT);
         return;
+      case RSLILPackage.GLOSSARY_TERM__DESCRIPTION:
+        setDescription(DESCRIPTION_EDEFAULT);
+        return;
       case RSLILPackage.GLOSSARY_TERM__TYPE:
         setType((RefTermType)null);
         return;
       case RSLILPackage.GLOSSARY_TERM__ACRONYM:
         setAcronym(ACRONYM_EDEFAULT);
-        return;
-      case RSLILPackage.GLOSSARY_TERM__DESCRIPTION:
-        setDescription(DESCRIPTION_EDEFAULT);
         return;
       case RSLILPackage.GLOSSARY_TERM__POS:
         setPos(POS_EDEFAULT);
@@ -546,12 +546,12 @@ public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements Gl
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RSLILPackage.GLOSSARY_TERM__NAME_ALIAS:
         return NAME_ALIAS_EDEFAULT == null ? nameAlias != null : !NAME_ALIAS_EDEFAULT.equals(nameAlias);
+      case RSLILPackage.GLOSSARY_TERM__DESCRIPTION:
+        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case RSLILPackage.GLOSSARY_TERM__TYPE:
         return type != null;
       case RSLILPackage.GLOSSARY_TERM__ACRONYM:
         return ACRONYM_EDEFAULT == null ? acronym != null : !ACRONYM_EDEFAULT.equals(acronym);
-      case RSLILPackage.GLOSSARY_TERM__DESCRIPTION:
-        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case RSLILPackage.GLOSSARY_TERM__POS:
         return POS_EDEFAULT == null ? pos != null : !POS_EDEFAULT.equals(pos);
       case RSLILPackage.GLOSSARY_TERM__SYNSET:
@@ -577,10 +577,10 @@ public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements Gl
     result.append(name);
     result.append(", nameAlias: ");
     result.append(nameAlias);
-    result.append(", acronym: ");
-    result.append(acronym);
     result.append(", description: ");
     result.append(description);
+    result.append(", acronym: ");
+    result.append(acronym);
     result.append(", pos: ");
     result.append(pos);
     result.append(", synset: ");

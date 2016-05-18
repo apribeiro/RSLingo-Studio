@@ -13,7 +13,7 @@ import org.eclipse.swt.widgets.DateTime;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
-import rslingo.rslil4privacy.ui.handlers.DocumentHelper;
+import rslingo.rslil.ui.handlers.DocumentHelper;
 
 public class MetadataWizardPage extends WizardPage {
 

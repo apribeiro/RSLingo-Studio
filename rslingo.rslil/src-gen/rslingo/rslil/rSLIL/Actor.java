@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.Actor#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Actor#getNameAlias <em>Name Alias</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Actor#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Actor#getDescription <em>Description</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Actor#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Actor#getStakeholder <em>Stakeholder</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Actor#getActor <em>Actor</em>}</li>
  * </ul>
@@ -80,32 +80,6 @@ public interface Actor extends EObject
   void setNameAlias(String value);
 
   /**
-   * Returns the value of the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Type</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' attribute.
-   * @see #setType(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getActor_Type()
-   * @model
-   * @generated
-   */
-  String getType();
-
-  /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Actor#getType <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' attribute.
-   * @see #getType()
-   * @generated
-   */
-  void setType(String value);
-
-  /**
    * Returns the value of the '<em><b>Description</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
@@ -130,6 +104,32 @@ public interface Actor extends EObject
    * @generated
    */
   void setDescription(String value);
+
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' attribute.
+   * @see #setType(String)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getActor_Type()
+   * @model
+   * @generated
+   */
+  String getType();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Actor#getType <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type</em>' attribute.
+   * @see #getType()
+   * @generated
+   */
+  void setType(String value);
 
   /**
    * Returns the value of the '<em><b>Stakeholder</b></em>' reference.

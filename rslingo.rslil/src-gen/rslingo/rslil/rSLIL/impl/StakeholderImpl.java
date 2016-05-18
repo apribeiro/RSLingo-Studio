@@ -23,9 +23,9 @@ import rslingo.rslil.rSLIL.Stakeholder;
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getNameAlias <em>Name Alias</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getCategory <em>Category</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getPartOf <em>Part Of</em>}</li>
  * </ul>
  *
@@ -74,6 +74,26 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
   protected String nameAlias = NAME_ALIAS_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected static final String DESCRIPTION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescription()
+   * @generated
+   * @ordered
+   */
+  protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -112,26 +132,6 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
    * @ordered
    */
   protected String category = CATEGORY_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDescription()
-   * @generated
-   * @ordered
-   */
-  protected static final String DESCRIPTION_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDescription()
-   * @generated
-   * @ordered
-   */
-  protected String description = DESCRIPTION_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getPartOf() <em>Part Of</em>}' reference.
@@ -215,6 +215,29 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getDescription()
+  {
+    return description;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDescription(String newDescription)
+  {
+    String oldDescription = description;
+    description = newDescription;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.STAKEHOLDER__DESCRIPTION, oldDescription, description));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getType()
   {
     return type;
@@ -254,29 +277,6 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
     category = newCategory;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.STAKEHOLDER__CATEGORY, oldCategory, category));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getDescription()
-  {
-    return description;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDescription(String newDescription)
-  {
-    String oldDescription = description;
-    description = newDescription;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.STAKEHOLDER__DESCRIPTION, oldDescription, description));
   }
 
   /**
@@ -336,12 +336,12 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
         return getName();
       case RSLILPackage.STAKEHOLDER__NAME_ALIAS:
         return getNameAlias();
+      case RSLILPackage.STAKEHOLDER__DESCRIPTION:
+        return getDescription();
       case RSLILPackage.STAKEHOLDER__TYPE:
         return getType();
       case RSLILPackage.STAKEHOLDER__CATEGORY:
         return getCategory();
-      case RSLILPackage.STAKEHOLDER__DESCRIPTION:
-        return getDescription();
       case RSLILPackage.STAKEHOLDER__PART_OF:
         if (resolve) return getPartOf();
         return basicGetPartOf();
@@ -365,14 +365,14 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
       case RSLILPackage.STAKEHOLDER__NAME_ALIAS:
         setNameAlias((String)newValue);
         return;
+      case RSLILPackage.STAKEHOLDER__DESCRIPTION:
+        setDescription((String)newValue);
+        return;
       case RSLILPackage.STAKEHOLDER__TYPE:
         setType((String)newValue);
         return;
       case RSLILPackage.STAKEHOLDER__CATEGORY:
         setCategory((String)newValue);
-        return;
-      case RSLILPackage.STAKEHOLDER__DESCRIPTION:
-        setDescription((String)newValue);
         return;
       case RSLILPackage.STAKEHOLDER__PART_OF:
         setPartOf((Stakeholder)newValue);
@@ -397,14 +397,14 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
       case RSLILPackage.STAKEHOLDER__NAME_ALIAS:
         setNameAlias(NAME_ALIAS_EDEFAULT);
         return;
+      case RSLILPackage.STAKEHOLDER__DESCRIPTION:
+        setDescription(DESCRIPTION_EDEFAULT);
+        return;
       case RSLILPackage.STAKEHOLDER__TYPE:
         setType(TYPE_EDEFAULT);
         return;
       case RSLILPackage.STAKEHOLDER__CATEGORY:
         setCategory(CATEGORY_EDEFAULT);
-        return;
-      case RSLILPackage.STAKEHOLDER__DESCRIPTION:
-        setDescription(DESCRIPTION_EDEFAULT);
         return;
       case RSLILPackage.STAKEHOLDER__PART_OF:
         setPartOf((Stakeholder)null);
@@ -427,12 +427,12 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RSLILPackage.STAKEHOLDER__NAME_ALIAS:
         return NAME_ALIAS_EDEFAULT == null ? nameAlias != null : !NAME_ALIAS_EDEFAULT.equals(nameAlias);
+      case RSLILPackage.STAKEHOLDER__DESCRIPTION:
+        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case RSLILPackage.STAKEHOLDER__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case RSLILPackage.STAKEHOLDER__CATEGORY:
         return CATEGORY_EDEFAULT == null ? category != null : !CATEGORY_EDEFAULT.equals(category);
-      case RSLILPackage.STAKEHOLDER__DESCRIPTION:
-        return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
       case RSLILPackage.STAKEHOLDER__PART_OF:
         return partOf != null;
     }
@@ -454,12 +454,12 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
     result.append(name);
     result.append(", nameAlias: ");
     result.append(nameAlias);
+    result.append(", description: ");
+    result.append(description);
     result.append(", type: ");
     result.append(type);
     result.append(", category: ");
     result.append(category);
-    result.append(", description: ");
-    result.append(description);
     result.append(')');
     return result.toString();
   }
