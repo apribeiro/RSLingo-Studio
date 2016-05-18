@@ -17,21 +17,24 @@ import rslingo.rslil.generator.RSLIL2JsonGenerator
  */
 class RSLILGenerator implements IGenerator {
 	
+	public static final String JSON_MODE = "JsonMode";
+	public static final String TEXT_MODE = "TextMode";
+	
 	@Inject
 	RSLIL2JsonGenerator jsonGen
 	@Inject
 	RSLIL2TextGenerator textGen
 	
-	private boolean inTextMode;
+	private String genMode;
 	
-	def public void setInTextMode(boolean inTextMode) {
-		this.inTextMode = inTextMode;
+	def public void setGenMode(String mode) {
+		this.genMode = mode;
 	}
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		if (!inTextMode) {
+		if (genMode.equals(JSON_MODE)) {
 			jsonGen.doGenerate(resource, fsa);
-		} else {
+		} else if (genMode.equals(TEXT_MODE)) {
 			textGen.doGenerate(resource, fsa);
 		}
 	}
