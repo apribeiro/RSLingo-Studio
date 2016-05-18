@@ -263,13 +263,13 @@
 		<persistent value="true"/>
 	</extension>
 
-	<extension
+	<!--<extension
 		point="org.eclipse.xtext.builder.participant">
 		<participant
 			class="rslingo.rslil.ui.RSLILExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant"
 			fileExtensions="rslil">
 		</participant>
-	</extension>
+	</extension>-->
 	<extension
 		point="org.eclipse.ui.preferencePages">
 		<page
