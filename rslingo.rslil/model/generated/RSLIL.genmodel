@@ -18,6 +18,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Model/useCases"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Model/frs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Model/nfrs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Model/constraints"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//Project">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Project/name"/>
@@ -234,6 +235,24 @@
     <genClasses ecoreClass="RSLIL.ecore#//RefNFR">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefNFR/refNFR"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefNFR/refs"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//Constraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Constraint/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Constraint/nameAlias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Constraint/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Constraint/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Constraint/stakeholder"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Constraint/priority"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Constraint/depends"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Constraint/partOf"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//DependsOnConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//DependsOnConstraint/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//DependsOnConstraint/refConst"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//RefConstraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefConstraint/refConst"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefConstraint/refs"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -64,6 +64,8 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNFRAccess().getMetricAlternatives_10_0(), "rule__NFR__MetricAlternatives_10_0");
 					put(grammarAccess.getNFRAccess().getPriorityAlternatives_15_0(), "rule__NFR__PriorityAlternatives_15_0");
 					put(grammarAccess.getDependsOnNFRAccess().getTypeAlternatives_0_0(), "rule__DependsOnNFR__TypeAlternatives_0_0");
+					put(grammarAccess.getConstraintAccess().getPriorityAlternatives_10_0(), "rule__Constraint__PriorityAlternatives_10_0");
+					put(grammarAccess.getDependsOnConstraintAccess().getTypeAlternatives_0_0(), "rule__DependsOnConstraint__TypeAlternatives_0_0");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getProjectAccess().getGroup(), "rule__Project__Group__0");
 					put(grammarAccess.getProjectAccess().getGroup_3(), "rule__Project__Group_3__0");
@@ -151,6 +153,13 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDependsOnNFRAccess().getGroup(), "rule__DependsOnNFR__Group__0");
 					put(grammarAccess.getRefNFRAccess().getGroup(), "rule__RefNFR__Group__0");
 					put(grammarAccess.getRefNFRAccess().getGroup_1(), "rule__RefNFR__Group_1__0");
+					put(grammarAccess.getConstraintAccess().getGroup(), "rule__Constraint__Group__0");
+					put(grammarAccess.getConstraintAccess().getGroup_3(), "rule__Constraint__Group_3__0");
+					put(grammarAccess.getConstraintAccess().getGroup_8(), "rule__Constraint__Group_8__0");
+					put(grammarAccess.getConstraintAccess().getGroup_12(), "rule__Constraint__Group_12__0");
+					put(grammarAccess.getDependsOnConstraintAccess().getGroup(), "rule__DependsOnConstraint__Group__0");
+					put(grammarAccess.getRefConstraintAccess().getGroup(), "rule__RefConstraint__Group__0");
+					put(grammarAccess.getRefConstraintAccess().getGroup_1(), "rule__RefConstraint__Group_1__0");
 					put(grammarAccess.getModelAccess().getProjectAssignment_0(), "rule__Model__ProjectAssignment_0");
 					put(grammarAccess.getModelAccess().getSystemsAssignment_1(), "rule__Model__SystemsAssignment_1");
 					put(grammarAccess.getModelAccess().getGlossaryTermsAssignment_2(), "rule__Model__GlossaryTermsAssignment_2");
@@ -161,6 +170,7 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModelAccess().getUseCasesAssignment_7(), "rule__Model__UseCasesAssignment_7");
 					put(grammarAccess.getModelAccess().getFrsAssignment_8(), "rule__Model__FrsAssignment_8");
 					put(grammarAccess.getModelAccess().getNfrsAssignment_9(), "rule__Model__NfrsAssignment_9");
+					put(grammarAccess.getModelAccess().getConstraintsAssignment_10(), "rule__Model__ConstraintsAssignment_10");
 					put(grammarAccess.getProjectAccess().getNameAssignment_1(), "rule__Project__NameAssignment_1");
 					put(grammarAccess.getProjectAccess().getNameAliasAssignment_3_1(), "rule__Project__NameAliasAssignment_3_1");
 					put(grammarAccess.getProjectAccess().getDescriptionAssignment_5(), "rule__Project__DescriptionAssignment_5");
@@ -307,6 +317,18 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDependsOnNFRAccess().getRefFrAssignment_1(), "rule__DependsOnNFR__RefFrAssignment_1");
 					put(grammarAccess.getRefNFRAccess().getRefNFRAssignment_0(), "rule__RefNFR__RefNFRAssignment_0");
 					put(grammarAccess.getRefNFRAccess().getRefsAssignment_1_1(), "rule__RefNFR__RefsAssignment_1_1");
+					put(grammarAccess.getConstraintAccess().getNameAssignment_1(), "rule__Constraint__NameAssignment_1");
+					put(grammarAccess.getConstraintAccess().getNameAliasAssignment_3_1(), "rule__Constraint__NameAliasAssignment_3_1");
+					put(grammarAccess.getConstraintAccess().getDescriptionAssignment_5(), "rule__Constraint__DescriptionAssignment_5");
+					put(grammarAccess.getConstraintAccess().getTypeAssignment_7(), "rule__Constraint__TypeAssignment_7");
+					put(grammarAccess.getConstraintAccess().getStakeholderAssignment_8_1(), "rule__Constraint__StakeholderAssignment_8_1");
+					put(grammarAccess.getConstraintAccess().getPriorityAssignment_10(), "rule__Constraint__PriorityAssignment_10");
+					put(grammarAccess.getConstraintAccess().getDependsAssignment_11(), "rule__Constraint__DependsAssignment_11");
+					put(grammarAccess.getConstraintAccess().getPartOfAssignment_12_1(), "rule__Constraint__PartOfAssignment_12_1");
+					put(grammarAccess.getDependsOnConstraintAccess().getTypeAssignment_0(), "rule__DependsOnConstraint__TypeAssignment_0");
+					put(grammarAccess.getDependsOnConstraintAccess().getRefConstAssignment_1(), "rule__DependsOnConstraint__RefConstAssignment_1");
+					put(grammarAccess.getRefConstraintAccess().getRefConstAssignment_0(), "rule__RefConstraint__RefConstAssignment_0");
+					put(grammarAccess.getRefConstraintAccess().getRefsAssignment_1_1(), "rule__RefConstraint__RefsAssignment_1_1");
 				}
 			};
 		}

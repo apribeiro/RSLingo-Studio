@@ -34,6 +34,7 @@
 'Check'=146
 'ComposedBy'=137
 'Conflicts'=51
+'Constraint'=171
 'Cultural'=108
 'Currency'=60
 'Data'=97
@@ -94,7 +95,7 @@
 'Name'=124
 'NextStep'=164
 'Non-FunctionalRequirement'=167
-'NotNull'=171
+'NotNull'=172
 'Noun'=13
 'Obstructs'=50
 'Operational'=106
@@ -144,7 +145,7 @@
 'Timer'=75
 'Type'=130
 'URL'=67
-'Unique'=172
+'Unique'=173
 'Usability'=104
 'Usability.Accessibility'=114
 'Usability.EaseOfLearn'=113
@@ -246,6 +247,7 @@ T__16=16
 T__170=170
 T__171=171
 T__172=172
+T__173=173
 T__17=17
 T__18=18
 T__19=19

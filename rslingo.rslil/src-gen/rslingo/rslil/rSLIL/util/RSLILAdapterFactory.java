@@ -13,6 +13,8 @@ import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.Check;
 import rslingo.rslil.rSLIL.ComposedBy;
+import rslingo.rslil.rSLIL.Constraint;
+import rslingo.rslil.rSLIL.DependsOnConstraint;
 import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.DependsOnGoal;
 import rslingo.rslil.rSLIL.DependsOnNFR;
@@ -31,6 +33,7 @@ import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
+import rslingo.rslil.rSLIL.RefConstraint;
 import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
@@ -288,6 +291,21 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
       public Adapter caseRefNFR(RefNFR object)
       {
         return createRefNFRAdapter();
+      }
+      @Override
+      public Adapter caseConstraint(Constraint object)
+      {
+        return createConstraintAdapter();
+      }
+      @Override
+      public Adapter caseDependsOnConstraint(DependsOnConstraint object)
+      {
+        return createDependsOnConstraintAdapter();
+      }
+      @Override
+      public Adapter caseRefConstraint(RefConstraint object)
+      {
+        return createRefConstraintAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -847,6 +865,51 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRefNFRAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.Constraint <em>Constraint</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.Constraint
+   * @generated
+   */
+  public Adapter createConstraintAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.DependsOnConstraint <em>Depends On Constraint</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.DependsOnConstraint
+   * @generated
+   */
+  public Adapter createDependsOnConstraintAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.RefConstraint <em>Ref Constraint</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.RefConstraint
+   * @generated
+   */
+  public Adapter createRefConstraintAdapter()
   {
     return null;
   }

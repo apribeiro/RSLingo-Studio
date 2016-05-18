@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import rslingo.rslil.rSLIL.Actor;
+import rslingo.rslil.rSLIL.Constraint;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.GlossaryTerm;
@@ -48,6 +49,7 @@ import rslingo.rslil.rSLIL.UseCase;
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getUseCases <em>Use Cases</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getFrs <em>Frs</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getNfrs <em>Nfrs</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getConstraints <em>Constraints</em>}</li>
  * </ul>
  *
  * @generated
@@ -153,6 +155,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @ordered
    */
   protected EList<NFR> nfrs;
+
+  /**
+   * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConstraints()
+   * @generated
+   * @ordered
+   */
+  protected EList<Constraint> constraints;
 
   /**
    * <!-- begin-user-doc -->
@@ -354,6 +366,20 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Constraint> getConstraints()
+  {
+    if (constraints == null)
+    {
+      constraints = new EObjectContainmentEList<Constraint>(Constraint.class, this, RSLILPackage.MODEL__CONSTRAINTS);
+    }
+    return constraints;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -379,6 +405,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return ((InternalEList<?>)getFrs()).basicRemove(otherEnd, msgs);
       case RSLILPackage.MODEL__NFRS:
         return ((InternalEList<?>)getNfrs()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.MODEL__CONSTRAINTS:
+        return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -413,6 +441,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return getFrs();
       case RSLILPackage.MODEL__NFRS:
         return getNfrs();
+      case RSLILPackage.MODEL__CONSTRAINTS:
+        return getConstraints();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -467,6 +497,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         getNfrs().clear();
         getNfrs().addAll((Collection<? extends NFR>)newValue);
         return;
+      case RSLILPackage.MODEL__CONSTRAINTS:
+        getConstraints().clear();
+        getConstraints().addAll((Collection<? extends Constraint>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -511,6 +545,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case RSLILPackage.MODEL__NFRS:
         getNfrs().clear();
         return;
+      case RSLILPackage.MODEL__CONSTRAINTS:
+        getConstraints().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -545,6 +582,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return frs != null && !frs.isEmpty();
       case RSLILPackage.MODEL__NFRS:
         return nfrs != null && !nfrs.isEmpty();
+      case RSLILPackage.MODEL__CONSTRAINTS:
+        return constraints != null && !constraints.isEmpty();
     }
     return super.eIsSet(featureID);
   }

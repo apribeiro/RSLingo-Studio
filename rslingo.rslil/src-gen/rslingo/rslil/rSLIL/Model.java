@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.Model#getUseCases <em>Use Cases</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Model#getFrs <em>Frs</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Model#getNfrs <em>Nfrs</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Model#getConstraints <em>Constraints</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getModel()
@@ -202,5 +203,21 @@ public interface Model extends EObject
    * @generated
    */
   EList<NFR> getNfrs();
+
+  /**
+   * Returns the value of the '<em><b>Constraints</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.Constraint}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Constraints</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Constraints</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getModel_Constraints()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Constraint> getConstraints();
 
 } // Model

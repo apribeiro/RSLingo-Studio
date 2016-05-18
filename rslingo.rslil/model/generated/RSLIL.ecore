@@ -22,6 +22,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nfrs" upperBound="-1" eType="#//NFR"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
+        eType="#//Constraint" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Project">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -279,5 +281,26 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="refNFR" eType="#//NFR"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="refs" unique="false" upperBound="-1"
         eType="#//NFR"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameAlias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stakeholder" eType="#//Stakeholder"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="depends" upperBound="-1"
+        eType="#//DependsOnConstraint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="partOf" eType="#//Constraint"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DependsOnConstraint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refConst" eType="#//RefConstraint"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RefConstraint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refConst" eType="#//Constraint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refs" unique="false" upperBound="-1"
+        eType="#//Constraint"/>
   </eClassifiers>
 </ecore:EPackage>

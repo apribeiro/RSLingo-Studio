@@ -347,6 +347,33 @@ public interface RSLILFactory extends EFactory
   RefNFR createRefNFR();
 
   /**
+   * Returns a new object of class '<em>Constraint</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Constraint</em>'.
+   * @generated
+   */
+  Constraint createConstraint();
+
+  /**
+   * Returns a new object of class '<em>Depends On Constraint</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Depends On Constraint</em>'.
+   * @generated
+   */
+  DependsOnConstraint createDependsOnConstraint();
+
+  /**
+   * Returns a new object of class '<em>Ref Constraint</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ref Constraint</em>'.
+   * @generated
+   */
+  RefConstraint createRefConstraint();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

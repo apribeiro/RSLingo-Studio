@@ -257,6 +257,24 @@ ruleModel returns [EObject current=null]
 	    }
 
 )
+)*(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getModelAccess().getConstraintsConstraintParserRuleCall_10_0()); 
+	    }
+		lv_constraints_10_0=ruleConstraint		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getModelRule());
+	        }
+       		add(
+       			$current, 
+       			"constraints",
+        		lv_constraints_10_0, 
+        		"Constraint");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
 )*)
 ;
 
@@ -5271,6 +5289,374 @@ ruleRefNFR returns [EObject current=null]
 	otherlv_2=RULE_ID
 	{
 		newLeafNode(otherlv_2, grammarAccess.getRefNFRAccess().getRefsNFRCrossReference_1_1_0()); 
+	}
+
+)
+))*)
+;
+
+
+
+
+
+// Entry rule entryRuleConstraint
+entryRuleConstraint returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getConstraintRule()); }
+	 iv_ruleConstraint=ruleConstraint 
+	 { $current=$iv_ruleConstraint.current; } 
+	 EOF 
+;
+
+// Rule Constraint
+ruleConstraint returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='Constraint' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getConstraintAccess().getConstraintKeyword_0());
+    }
+(
+(
+		lv_name_1_0=RULE_ID
+		{
+			newLeafNode(lv_name_1_0, grammarAccess.getConstraintAccess().getNameIDTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstraintRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
+        		"ID");
+	    }
+
+)
+)	otherlv_2='{' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getConstraintAccess().getLeftCurlyBracketKeyword_2());
+    }
+(	otherlv_3='Name' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getConstraintAccess().getNameKeyword_3_0());
+    }
+(
+(
+		lv_nameAlias_4_0=RULE_STRING
+		{
+			newLeafNode(lv_nameAlias_4_0, grammarAccess.getConstraintAccess().getNameAliasSTRINGTerminalRuleCall_3_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstraintRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"nameAlias",
+        		lv_nameAlias_4_0, 
+        		"STRING");
+	    }
+
+)
+))?	otherlv_5='Description' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getConstraintAccess().getDescriptionKeyword_4());
+    }
+(
+(
+		lv_description_6_0=RULE_STRING
+		{
+			newLeafNode(lv_description_6_0, grammarAccess.getConstraintAccess().getDescriptionSTRINGTerminalRuleCall_5_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstraintRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"description",
+        		lv_description_6_0, 
+        		"STRING");
+	    }
+
+)
+)	otherlv_7='Type' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getConstraintAccess().getTypeKeyword_6());
+    }
+(
+(
+		lv_type_8_0=	'Security' 
+    {
+        newLeafNode(lv_type_8_0, grammarAccess.getConstraintAccess().getTypeSecurityKeyword_7_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstraintRule());
+	        }
+       		setWithLastConsumed($current, "type", lv_type_8_0, "Security");
+	    }
+
+)
+)(	otherlv_9='Stakeholder' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getConstraintAccess().getStakeholderKeyword_8_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstraintRule());
+	        }
+        }
+	otherlv_10=RULE_ID
+	{
+		newLeafNode(otherlv_10, grammarAccess.getConstraintAccess().getStakeholderStakeholderCrossReference_8_1_0()); 
+	}
+
+)
+))?	otherlv_11='Priority' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getConstraintAccess().getPriorityKeyword_9());
+    }
+(
+(
+(
+		lv_priority_12_1=	'VeryLow' 
+    {
+        newLeafNode(lv_priority_12_1, grammarAccess.getConstraintAccess().getPriorityVeryLowKeyword_10_0_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstraintRule());
+	        }
+       		setWithLastConsumed($current, "priority", lv_priority_12_1, null);
+	    }
+
+    |		lv_priority_12_2=	'Low' 
+    {
+        newLeafNode(lv_priority_12_2, grammarAccess.getConstraintAccess().getPriorityLowKeyword_10_0_1());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstraintRule());
+	        }
+       		setWithLastConsumed($current, "priority", lv_priority_12_2, null);
+	    }
+
+    |		lv_priority_12_3=	'Medium' 
+    {
+        newLeafNode(lv_priority_12_3, grammarAccess.getConstraintAccess().getPriorityMediumKeyword_10_0_2());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstraintRule());
+	        }
+       		setWithLastConsumed($current, "priority", lv_priority_12_3, null);
+	    }
+
+    |		lv_priority_12_4=	'High' 
+    {
+        newLeafNode(lv_priority_12_4, grammarAccess.getConstraintAccess().getPriorityHighKeyword_10_0_3());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstraintRule());
+	        }
+       		setWithLastConsumed($current, "priority", lv_priority_12_4, null);
+	    }
+
+    |		lv_priority_12_5=	'VeryHigh' 
+    {
+        newLeafNode(lv_priority_12_5, grammarAccess.getConstraintAccess().getPriorityVeryHighKeyword_10_0_4());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstraintRule());
+	        }
+       		setWithLastConsumed($current, "priority", lv_priority_12_5, null);
+	    }
+
+)
+
+)
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getConstraintAccess().getDependsDependsOnConstraintParserRuleCall_11_0()); 
+	    }
+		lv_depends_13_0=ruleDependsOnConstraint		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getConstraintRule());
+	        }
+       		add(
+       			$current, 
+       			"depends",
+        		lv_depends_13_0, 
+        		"DependsOnConstraint");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*(	otherlv_14='PartOf' 
+    {
+    	newLeafNode(otherlv_14, grammarAccess.getConstraintAccess().getPartOfKeyword_12_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getConstraintRule());
+	        }
+        }
+	otherlv_15=RULE_ID
+	{
+		newLeafNode(otherlv_15, grammarAccess.getConstraintAccess().getPartOfConstraintCrossReference_12_1_0()); 
+	}
+
+)
+))?	otherlv_16='}' 
+    {
+    	newLeafNode(otherlv_16, grammarAccess.getConstraintAccess().getRightCurlyBracketKeyword_13());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleDependsOnConstraint
+entryRuleDependsOnConstraint returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getDependsOnConstraintRule()); }
+	 iv_ruleDependsOnConstraint=ruleDependsOnConstraint 
+	 { $current=$iv_ruleDependsOnConstraint.current; } 
+	 EOF 
+;
+
+// Rule DependsOnConstraint
+ruleDependsOnConstraint returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+(
+		lv_type_0_1=	'Requires' 
+    {
+        newLeafNode(lv_type_0_1, grammarAccess.getDependsOnConstraintAccess().getTypeRequiresKeyword_0_0_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getDependsOnConstraintRule());
+	        }
+       		setWithLastConsumed($current, "type", lv_type_0_1, null);
+	    }
+
+    |		lv_type_0_2=	'Refines' 
+    {
+        newLeafNode(lv_type_0_2, grammarAccess.getDependsOnConstraintAccess().getTypeRefinesKeyword_0_0_1());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getDependsOnConstraintRule());
+	        }
+       		setWithLastConsumed($current, "type", lv_type_0_2, null);
+	    }
+
+    |		lv_type_0_3=	'Conflicts' 
+    {
+        newLeafNode(lv_type_0_3, grammarAccess.getDependsOnConstraintAccess().getTypeConflictsKeyword_0_0_2());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getDependsOnConstraintRule());
+	        }
+       		setWithLastConsumed($current, "type", lv_type_0_3, null);
+	    }
+
+)
+
+)
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getDependsOnConstraintAccess().getRefConstRefConstraintParserRuleCall_1_0()); 
+	    }
+		lv_refConst_1_0=ruleRefConstraint		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getDependsOnConstraintRule());
+	        }
+       		set(
+       			$current, 
+       			"refConst",
+        		lv_refConst_1_0, 
+        		"RefConstraint");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleRefConstraint
+entryRuleRefConstraint returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getRefConstraintRule()); }
+	 iv_ruleRefConstraint=ruleRefConstraint 
+	 { $current=$iv_ruleRefConstraint.current; } 
+	 EOF 
+;
+
+// Rule RefConstraint
+ruleRefConstraint returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getRefConstraintRule());
+	        }
+        }
+	otherlv_0=RULE_ID
+	{
+		newLeafNode(otherlv_0, grammarAccess.getRefConstraintAccess().getRefConstConstraintCrossReference_0_0()); 
+	}
+
+)
+)(	otherlv_1=',' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getRefConstraintAccess().getCommaKeyword_1_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getRefConstraintRule());
+	        }
+        }
+	otherlv_2=RULE_ID
+	{
+		newLeafNode(otherlv_2, grammarAccess.getRefConstraintAccess().getRefsConstraintCrossReference_1_1_0()); 
 	}
 
 )

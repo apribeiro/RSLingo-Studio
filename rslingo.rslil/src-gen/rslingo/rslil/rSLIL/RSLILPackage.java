@@ -157,13 +157,22 @@ public interface RSLILPackage extends EPackage
   int MODEL__NFRS = 9;
 
   /**
+   * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__CONSTRAINTS = 10;
+
+  /**
    * The number of structural features of the '<em>Model</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 10;
+  int MODEL_FEATURE_COUNT = 11;
 
   /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.ProjectImpl <em>Project</em>}' class.
@@ -2144,6 +2153,171 @@ public interface RSLILPackage extends EPackage
    */
   int REF_NFR_FEATURE_COUNT = 2;
 
+  /**
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.ConstraintImpl <em>Constraint</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see rslingo.rslil.rSLIL.impl.ConstraintImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getConstraint()
+   * @generated
+   */
+  int CONSTRAINT = 36;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAINT__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Name Alias</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAINT__NAME_ALIAS = 1;
+
+  /**
+   * The feature id for the '<em><b>Description</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAINT__DESCRIPTION = 2;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAINT__TYPE = 3;
+
+  /**
+   * The feature id for the '<em><b>Stakeholder</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAINT__STAKEHOLDER = 4;
+
+  /**
+   * The feature id for the '<em><b>Priority</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAINT__PRIORITY = 5;
+
+  /**
+   * The feature id for the '<em><b>Depends</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAINT__DEPENDS = 6;
+
+  /**
+   * The feature id for the '<em><b>Part Of</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAINT__PART_OF = 7;
+
+  /**
+   * The number of structural features of the '<em>Constraint</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAINT_FEATURE_COUNT = 8;
+
+  /**
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.DependsOnConstraintImpl <em>Depends On Constraint</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see rslingo.rslil.rSLIL.impl.DependsOnConstraintImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getDependsOnConstraint()
+   * @generated
+   */
+  int DEPENDS_ON_CONSTRAINT = 37;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPENDS_ON_CONSTRAINT__TYPE = 0;
+
+  /**
+   * The feature id for the '<em><b>Ref Const</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPENDS_ON_CONSTRAINT__REF_CONST = 1;
+
+  /**
+   * The number of structural features of the '<em>Depends On Constraint</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEPENDS_ON_CONSTRAINT_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.RefConstraintImpl <em>Ref Constraint</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see rslingo.rslil.rSLIL.impl.RefConstraintImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefConstraint()
+   * @generated
+   */
+  int REF_CONSTRAINT = 38;
+
+  /**
+   * The feature id for the '<em><b>Ref Const</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_CONSTRAINT__REF_CONST = 0;
+
+  /**
+   * The feature id for the '<em><b>Refs</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_CONSTRAINT__REFS = 1;
+
+  /**
+   * The number of structural features of the '<em>Ref Constraint</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REF_CONSTRAINT_FEATURE_COUNT = 2;
+
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.Model <em>Model</em>}'.
@@ -2264,6 +2438,17 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EReference getModel_Nfrs();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.Model#getConstraints <em>Constraints</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Constraints</em>'.
+   * @see rslingo.rslil.rSLIL.Model#getConstraints()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Constraints();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.Project <em>Project</em>}'.
@@ -4222,6 +4407,168 @@ public interface RSLILPackage extends EPackage
   EReference getRefNFR_Refs();
 
   /**
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.Constraint <em>Constraint</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Constraint</em>'.
+   * @see rslingo.rslil.rSLIL.Constraint
+   * @generated
+   */
+  EClass getConstraint();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Constraint#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see rslingo.rslil.rSLIL.Constraint#getName()
+   * @see #getConstraint()
+   * @generated
+   */
+  EAttribute getConstraint_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Constraint#getNameAlias <em>Name Alias</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name Alias</em>'.
+   * @see rslingo.rslil.rSLIL.Constraint#getNameAlias()
+   * @see #getConstraint()
+   * @generated
+   */
+  EAttribute getConstraint_NameAlias();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Constraint#getDescription <em>Description</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Description</em>'.
+   * @see rslingo.rslil.rSLIL.Constraint#getDescription()
+   * @see #getConstraint()
+   * @generated
+   */
+  EAttribute getConstraint_Description();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Constraint#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see rslingo.rslil.rSLIL.Constraint#getType()
+   * @see #getConstraint()
+   * @generated
+   */
+  EAttribute getConstraint_Type();
+
+  /**
+   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.Constraint#getStakeholder <em>Stakeholder</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Stakeholder</em>'.
+   * @see rslingo.rslil.rSLIL.Constraint#getStakeholder()
+   * @see #getConstraint()
+   * @generated
+   */
+  EReference getConstraint_Stakeholder();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Constraint#getPriority <em>Priority</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Priority</em>'.
+   * @see rslingo.rslil.rSLIL.Constraint#getPriority()
+   * @see #getConstraint()
+   * @generated
+   */
+  EAttribute getConstraint_Priority();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.Constraint#getDepends <em>Depends</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Depends</em>'.
+   * @see rslingo.rslil.rSLIL.Constraint#getDepends()
+   * @see #getConstraint()
+   * @generated
+   */
+  EReference getConstraint_Depends();
+
+  /**
+   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.Constraint#getPartOf <em>Part Of</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Part Of</em>'.
+   * @see rslingo.rslil.rSLIL.Constraint#getPartOf()
+   * @see #getConstraint()
+   * @generated
+   */
+  EReference getConstraint_PartOf();
+
+  /**
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.DependsOnConstraint <em>Depends On Constraint</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Depends On Constraint</em>'.
+   * @see rslingo.rslil.rSLIL.DependsOnConstraint
+   * @generated
+   */
+  EClass getDependsOnConstraint();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.DependsOnConstraint#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see rslingo.rslil.rSLIL.DependsOnConstraint#getType()
+   * @see #getDependsOnConstraint()
+   * @generated
+   */
+  EAttribute getDependsOnConstraint_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.DependsOnConstraint#getRefConst <em>Ref Const</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Ref Const</em>'.
+   * @see rslingo.rslil.rSLIL.DependsOnConstraint#getRefConst()
+   * @see #getDependsOnConstraint()
+   * @generated
+   */
+  EReference getDependsOnConstraint_RefConst();
+
+  /**
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.RefConstraint <em>Ref Constraint</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Ref Constraint</em>'.
+   * @see rslingo.rslil.rSLIL.RefConstraint
+   * @generated
+   */
+  EClass getRefConstraint();
+
+  /**
+   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.RefConstraint#getRefConst <em>Ref Const</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ref Const</em>'.
+   * @see rslingo.rslil.rSLIL.RefConstraint#getRefConst()
+   * @see #getRefConstraint()
+   * @generated
+   */
+  EReference getRefConstraint_RefConst();
+
+  /**
+   * Returns the meta object for the reference list '{@link rslingo.rslil.rSLIL.RefConstraint#getRefs <em>Refs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Refs</em>'.
+   * @see rslingo.rslil.rSLIL.RefConstraint#getRefs()
+   * @see #getRefConstraint()
+   * @generated
+   */
+  EReference getRefConstraint_Refs();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4333,6 +4680,14 @@ public interface RSLILPackage extends EPackage
      * @generated
      */
     EReference MODEL__NFRS = eINSTANCE.getModel_Nfrs();
+
+    /**
+     * The meta object literal for the '<em><b>Constraints</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__CONSTRAINTS = eINSTANCE.getModel_Constraints();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.ProjectImpl <em>Project</em>}' class.
@@ -5851,6 +6206,132 @@ public interface RSLILPackage extends EPackage
      * @generated
      */
     EReference REF_NFR__REFS = eINSTANCE.getRefNFR_Refs();
+
+    /**
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.ConstraintImpl <em>Constraint</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see rslingo.rslil.rSLIL.impl.ConstraintImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getConstraint()
+     * @generated
+     */
+    EClass CONSTRAINT = eINSTANCE.getConstraint();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONSTRAINT__NAME = eINSTANCE.getConstraint_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Name Alias</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONSTRAINT__NAME_ALIAS = eINSTANCE.getConstraint_NameAlias();
+
+    /**
+     * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONSTRAINT__DESCRIPTION = eINSTANCE.getConstraint_Description();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONSTRAINT__TYPE = eINSTANCE.getConstraint_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Stakeholder</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONSTRAINT__STAKEHOLDER = eINSTANCE.getConstraint_Stakeholder();
+
+    /**
+     * The meta object literal for the '<em><b>Priority</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONSTRAINT__PRIORITY = eINSTANCE.getConstraint_Priority();
+
+    /**
+     * The meta object literal for the '<em><b>Depends</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONSTRAINT__DEPENDS = eINSTANCE.getConstraint_Depends();
+
+    /**
+     * The meta object literal for the '<em><b>Part Of</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONSTRAINT__PART_OF = eINSTANCE.getConstraint_PartOf();
+
+    /**
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.DependsOnConstraintImpl <em>Depends On Constraint</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see rslingo.rslil.rSLIL.impl.DependsOnConstraintImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getDependsOnConstraint()
+     * @generated
+     */
+    EClass DEPENDS_ON_CONSTRAINT = eINSTANCE.getDependsOnConstraint();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEPENDS_ON_CONSTRAINT__TYPE = eINSTANCE.getDependsOnConstraint_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Ref Const</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEPENDS_ON_CONSTRAINT__REF_CONST = eINSTANCE.getDependsOnConstraint_RefConst();
+
+    /**
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.RefConstraintImpl <em>Ref Constraint</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see rslingo.rslil.rSLIL.impl.RefConstraintImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefConstraint()
+     * @generated
+     */
+    EClass REF_CONSTRAINT = eINSTANCE.getRefConstraint();
+
+    /**
+     * The meta object literal for the '<em><b>Ref Const</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REF_CONSTRAINT__REF_CONST = eINSTANCE.getRefConstraint_RefConst();
+
+    /**
+     * The meta object literal for the '<em><b>Refs</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REF_CONSTRAINT__REFS = eINSTANCE.getRefConstraint_Refs();
 
   }
 

@@ -11,6 +11,8 @@ import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.Check;
 import rslingo.rslil.rSLIL.ComposedBy;
+import rslingo.rslil.rSLIL.Constraint;
+import rslingo.rslil.rSLIL.DependsOnConstraint;
 import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.DependsOnGoal;
 import rslingo.rslil.rSLIL.DependsOnNFR;
@@ -29,6 +31,7 @@ import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
+import rslingo.rslil.rSLIL.RefConstraint;
 import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
@@ -356,6 +359,27 @@ public class RSLILSwitch<T> extends Switch<T>
       {
         RefNFR refNFR = (RefNFR)theEObject;
         T result = caseRefNFR(refNFR);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.CONSTRAINT:
+      {
+        Constraint constraint = (Constraint)theEObject;
+        T result = caseConstraint(constraint);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.DEPENDS_ON_CONSTRAINT:
+      {
+        DependsOnConstraint dependsOnConstraint = (DependsOnConstraint)theEObject;
+        T result = caseDependsOnConstraint(dependsOnConstraint);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.REF_CONSTRAINT:
+      {
+        RefConstraint refConstraint = (RefConstraint)theEObject;
+        T result = caseRefConstraint(refConstraint);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -935,6 +959,54 @@ public class RSLILSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseRefNFR(RefNFR object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Constraint</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Constraint</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConstraint(Constraint object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Depends On Constraint</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Depends On Constraint</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDependsOnConstraint(DependsOnConstraint object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ref Constraint</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ref Constraint</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRefConstraint(RefConstraint object)
   {
     return null;
   }

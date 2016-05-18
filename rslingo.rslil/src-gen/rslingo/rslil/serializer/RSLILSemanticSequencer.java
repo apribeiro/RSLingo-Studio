@@ -20,6 +20,8 @@ import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.Check;
 import rslingo.rslil.rSLIL.ComposedBy;
+import rslingo.rslil.rSLIL.Constraint;
+import rslingo.rslil.rSLIL.DependsOnConstraint;
 import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.DependsOnGoal;
 import rslingo.rslil.rSLIL.DependsOnNFR;
@@ -38,6 +40,7 @@ import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
+import rslingo.rslil.rSLIL.RefConstraint;
 import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
@@ -74,6 +77,12 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case RSLILPackage.COMPOSED_BY:
 				sequence_ComposedBy(context, (ComposedBy) semanticObject); 
+				return; 
+			case RSLILPackage.CONSTRAINT:
+				sequence_Constraint(context, (Constraint) semanticObject); 
+				return; 
+			case RSLILPackage.DEPENDS_ON_CONSTRAINT:
+				sequence_DependsOnConstraint(context, (DependsOnConstraint) semanticObject); 
 				return; 
 			case RSLILPackage.DEPENDS_ON_FR:
 				sequence_DependsOnFR(context, (DependsOnFR) semanticObject); 
@@ -125,6 +134,9 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case RSLILPackage.REF_ATTRIBUTE:
 				sequence_RefAttribute(context, (RefAttribute) semanticObject); 
+				return; 
+			case RSLILPackage.REF_CONSTRAINT:
+				sequence_RefConstraint(context, (RefConstraint) semanticObject); 
 				return; 
 			case RSLILPackage.REF_ENTITY:
 				sequence_RefEntity(context, (RefEntity) semanticObject); 
@@ -247,6 +259,33 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     ((type='Logic-And' | type='Logic-Or') refGoal=RefGoal)
 	 */
 	protected void sequence_ComposedBy(EObject context, ComposedBy semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         name=ID 
+	 *         nameAlias=STRING? 
+	 *         description=STRING 
+	 *         type='Security' 
+	 *         stakeholder=[Stakeholder|ID]? 
+	 *         (priority='VeryLow' | priority='Low' | priority='Medium' | priority='High' | priority='VeryHigh') 
+	 *         depends+=DependsOnConstraint* 
+	 *         partOf=[Constraint|ID]?
+	 *     )
+	 */
+	protected void sequence_Constraint(EObject context, Constraint semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ((type='Requires' | type='Refines' | type='Conflicts') refConst=RefConstraint)
+	 */
+	protected void sequence_DependsOnConstraint(EObject context, DependsOnConstraint semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -402,7 +441,8 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         actors+=Actor* 
 	 *         useCases+=UseCase* 
 	 *         frs+=FR* 
-	 *         nfrs+=NFR*
+	 *         nfrs+=NFR* 
+	 *         constraints+=Constraint*
 	 *     )
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
@@ -501,6 +541,15 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (refAttr=[Attribute|ID] refs+=[Attribute|ID]*)
 	 */
 	protected void sequence_RefAttribute(EObject context, RefAttribute semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (refConst=[Constraint|ID] refs+=[Constraint|ID]*)
+	 */
+	protected void sequence_RefConstraint(EObject context, RefConstraint semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

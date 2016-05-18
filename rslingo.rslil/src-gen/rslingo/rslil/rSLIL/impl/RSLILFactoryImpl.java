@@ -14,6 +14,8 @@ import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.Check;
 import rslingo.rslil.rSLIL.ComposedBy;
+import rslingo.rslil.rSLIL.Constraint;
+import rslingo.rslil.rSLIL.DependsOnConstraint;
 import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.DependsOnGoal;
 import rslingo.rslil.rSLIL.DependsOnNFR;
@@ -33,6 +35,7 @@ import rslingo.rslil.rSLIL.RSLILFactory;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
+import rslingo.rslil.rSLIL.RefConstraint;
 import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
@@ -136,6 +139,9 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
       case RSLILPackage.NFR: return createNFR();
       case RSLILPackage.DEPENDS_ON_NFR: return createDependsOnNFR();
       case RSLILPackage.REF_NFR: return createRefNFR();
+      case RSLILPackage.CONSTRAINT: return createConstraint();
+      case RSLILPackage.DEPENDS_ON_CONSTRAINT: return createDependsOnConstraint();
+      case RSLILPackage.REF_CONSTRAINT: return createRefConstraint();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -535,6 +541,39 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
   {
     RefNFRImpl refNFR = new RefNFRImpl();
     return refNFR;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Constraint createConstraint()
+  {
+    ConstraintImpl constraint = new ConstraintImpl();
+    return constraint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DependsOnConstraint createDependsOnConstraint()
+  {
+    DependsOnConstraintImpl dependsOnConstraint = new DependsOnConstraintImpl();
+    return dependsOnConstraint;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RefConstraint createRefConstraint()
+  {
+    RefConstraintImpl refConstraint = new RefConstraintImpl();
+    return refConstraint;
   }
 
   /**
