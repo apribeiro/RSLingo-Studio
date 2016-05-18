@@ -14,7 +14,7 @@ Model:
 	actors+=Actor*
 	useCases+=UseCase*
 	frs+=FR*
-	nfrs+=NFR*
+	qrs+=QR*
 	constraints+=Constraint*;
 
 Project:
@@ -27,7 +27,7 @@ Project:
 System:
 	'System' name=ID '{'
 		('Name' nameAlias=STRING)?
-		'Description' description=STRING
+		('Description' description=STRING)?
 		('PartOf' partOf=[System])?
 	'}';
 
@@ -37,9 +37,9 @@ RefSystem:
 GlossaryTerm:
 	'GlossaryTerm' name=ID '{'
 		('Name' nameAlias=STRING)?
+		('Description' description=STRING)?
 		'Type' type=RefTermType
 		('Acronym' acronym=STRING)?
-		'Description' description=STRING
 		('POS' pos=('Adjective'|'Adverb'|'Noun'|'Verb'))?
 		('Synset' synset=STRING)?
 		termRelation+=TermRelation*
@@ -60,6 +60,7 @@ RefTerm:
 Stakeholder:
 	'Stakeholder' name=ID '{'
 		('Name' nameAlias=STRING)?
+		('Description' description=STRING)?
 		'Type' type=('Group.Organization'|'Group.BusinessUnit'|'Group.Team'|'Individual.Person'|'Individual.ExternalSystem')
 		'Category' category=('Business'|'Business.Customer'|'Business.Customer.Sponsor'
 			|'Business.Customer.Champion'|'Business.User.Direct'|'Business.User.Indirect'
@@ -67,14 +68,13 @@ Stakeholder:
 			|'Business.System'|'Technical'|'Technical.BusinessAnalyst'|'Technical.Requirements.Engineer'
 			|'Technical.Software.Architect'|'Technical.Software.Designer'|'Technical.Software.Tester'
 		)
-		('Description' description=STRING)?
 		('PartOf' partOf=[Stakeholder])?
 	'}';
 
 Goal:
 	'Goal' name=ID '{'
 		('Name' nameAlias=STRING)?
-		'Description' description=STRING
+		('Description' description=STRING)?
 		('Stakeholder' stakeholder=[Stakeholder])?
 		'Priority' priority=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
 		dependsOn+=DependsOnGoal*
@@ -93,8 +93,8 @@ RefGoal:
 Entity:
 	'Entity' name=ID '{'
 		('Name' nameAlias=STRING)?
-		'Description' description=STRING
-		('Type' type=('Main'|'Secondary'))?
+		('Description' description=STRING)?
+		('Type' type=('Principal'|'Secondary'))?
 		attributes+=Attribute+
 		(primaryKey=PrimaryKey)?
 		foreignKeys+=ForeignKey*
@@ -104,10 +104,10 @@ Entity:
 Attribute:
 	'Attribute' name=ID '{'
 		('Name' nameAlias=STRING)?
-		'Description' description=STRING
+		('Description' description=STRING)?
 		'Type' type=('Boolean'|'Integer'|'Decimal'|'Currency'|'Date'|'Time'|'Datetime'|'Enumeration'|'Text'|'Regex'|'URL'|'Image')
-		'Size' size=INT
-		'Multiplicity' multiplicity=Multiplicity
+		('Size' size=INT)?
+		('Multiplicity' multiplicity=Multiplicity)?
 		('DefaultValue' defaultValue=STRING)?
 		(notNull='NotNull')?
 		(unique='Unique')?
@@ -130,8 +130,8 @@ Check:
 Actor:
 	'Actor' name=ID '{'
 		('Name' nameAlias=STRING)?
+		('Description' description=STRING)?
 		'Type' type=('User'|'ExternalSystem'|'Timer')
-		'Description' description=STRING
 		('Stakeholder' stakeholder=[Stakeholder])?
 		('SpecializedFrom' actor=[Actor])?
 	'}';
@@ -139,10 +139,10 @@ Actor:
 UseCase:
 	'UseCase' name=ID '{'
 		('Name' nameAlias=STRING)?
+		('Description' description=STRING)?
 		'Type' type=('EntityManage'|'EntityBrowse'|'EntitySearch'|'EntityCreate'|'EntityDelete'|'EntitySync'|'Report') 
 		('Entities' entities=RefEntity)?
-		'Description' description=STRING
-		'Priority' priotity=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
+		'Priority' priority=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
 		extensionnPoints+=ExtensionPoint*
 		('Goals' goals+=RefGoal*)?
 		('FunctionalRequirements' frs+=RefFR*)?
@@ -185,8 +185,8 @@ Scenario:
 Step:
 	'Step' name=ID '{'
 		('Name' nameAlias=STRING)?
+		('Description' description=STRING)?
 		'Type' type=('ActorPrepareData'|'ActorCallSystem'|'SystemExecutes'|'SystemReturnResult'|'Other')
-		'Description' description=STRING
 		('Actor' actor=[Actor])?
 		('Pre-Conditions' preConditions=STRING)?
 		('Post-Conditions' postConditions=STRING)?
@@ -198,7 +198,6 @@ FR:
 		('Name' nameAlias=STRING)?
 		'Description' description=STRING
 		'Type' type=('Functional'|'Behavioral'|'Data')
-		'Modality' modality=('Mandatory'|'Desirable'|'Optional')
 		('Stakeholder' stakeholder=[Stakeholder])?
 		'Priority' priority=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh') 
 		depends+=DependsOnFR*
@@ -208,8 +207,8 @@ FR:
 DependsOnFR:
 	type=('Requires'|'Refines'|'Conflicts') refFr=RefFR;
 
-NFR:
-	'Non-FunctionalRequirement' name=ID '{'
+QR:
+	'QualityRequirement' name=ID '{'
 		('Name' nameAlias=STRING)?
 		'Description' description=STRING
 		'Type' type=('Security'|'Performance'|'Usability'|'Appearance'|'Operational'|'Maintenance'|'Cultural'|'Legal')
@@ -218,20 +217,20 @@ NFR:
 		'Value' value=INT
 		('Stakeholder' stakeholder=[Stakeholder])?
 		'Priority' priority=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
-		depends+=DependsOnNFR*
-		('PartOf' partOf=[NFR])?
+		depends+=DependsOnQR*
+		('PartOf' partOf=[QR])?
 	'}';
 
-DependsOnNFR:
-	type=('Requires'|'Refines'|'Conflicts') refFr=RefNFR;
+DependsOnQR:
+	type=('Requires'|'Refines'|'Conflicts') refQr=RefQR;
 
-RefNFR:
-	refNFR=[NFR](',' refs+=[NFR])*;
+RefQR:
+	refQR=[QR](',' refs+=[QR])*;
 
 Constraint:
 	'Constraint' name=ID '{'
 		('Name' nameAlias=STRING)?
-		'Description' description=STRING
+		('Description' description=STRING)?
 		'Type' type=('Security')
 		('Stakeholder' stakeholder=[Stakeholder])?
 		'Priority' priority=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
