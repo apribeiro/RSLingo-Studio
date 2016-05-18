@@ -4,11 +4,11 @@
 package rslingo.rslil.validation
 
 import org.eclipse.xtext.validation.Check
-import rslingo.rslil.rSLIL.NFR
-import rslingo.rslil.rSLIL.RSLILPackage
-import rslingo.rslil.rSLIL.UseCase
 import rslingo.rslil.rSLIL.EntityType
+import rslingo.rslil.rSLIL.QR
+import rslingo.rslil.rSLIL.RSLILPackage
 import rslingo.rslil.rSLIL.Step
+import rslingo.rslil.rSLIL.UseCase
 
 /**
  * This class contains custom validation rules. 
@@ -21,22 +21,22 @@ class RSLILValidator extends AbstractRSLILValidator {
 	def checkUseCaseEntities(UseCase uc) {
 		if (!uc.type.equals("Report")) {
 			if (uc.entities == null) {
-				error('A Use Case of type \'' + uc.type + '\' should be associated to an Entity with the role Master.', RSLILPackage.Literals.USE_CASE__ENTITIES)	
+				error('A Use Case of type \'' + uc.type + '\' should be associated to an Entity with the role Principal.', RSLILPackage.Literals.USE_CASE__ENTITIES)	
 			} else {
-				if (!uc.entities.type.type.equals("Master")) {
+				if (!uc.entities.type.type.equals("Principal")) {
 					if (uc.entities.refs.isEmpty()) {
-						error('A Use Case of type \'' + uc.type + '\' should be associated to an Entity with the role Master.', RSLILPackage.Literals.USE_CASE__ENTITIES)		
+						error('A Use Case of type \'' + uc.type + '\' should be associated to an Entity with the role Principal.', RSLILPackage.Literals.USE_CASE__ENTITIES)		
 					} else {
-						var hasMaster = false
+						var hasPrincipal = false
 						
 						for (EntityType type : uc.entities.refType) {
-							if (type.type.equals("Master")) {
-								hasMaster = true
+							if (type.type.equals("Principal")) {
+								hasPrincipal = true
 							}
 						}
 						
-						if (!hasMaster) {
-							error('A Use Case of type \'' + uc.type + '\' should be associated to an Entity with the role Master.', RSLILPackage.Literals.USE_CASE__ENTITIES)	
+						if (!hasPrincipal) {
+							error('A Use Case of type \'' + uc.type + '\' should be associated to an Entity with the role Principal.', RSLILPackage.Literals.USE_CASE__ENTITIES)	
 						}
 					}
 				}
@@ -62,22 +62,22 @@ class RSLILValidator extends AbstractRSLILValidator {
 	}
 	
 	@Check
-	def checkNFRSubType(NFR nfr) {
-		if (nfr.subType != null) {
-			if (nfr.type.equals("Security")) {
-				if (!nfr.subType.equals("Security.Privacy")
-					&& !nfr.subType.equals("Security.Integrity")) {
-					error('A Non-FunctionalRequirement of type \'Security\' can only have the following sub-types: Security.Privacy or Security.Integrity.', RSLILPackage.Literals.NFR__SUB_TYPE)	
+	def checkQRSubType(QR qr) {
+		if (qr.subType != null) {
+			if (qr.type.equals("Security")) {
+				if (!qr.subType.equals("Security.Privacy")
+					&& !qr.subType.equals("Security.Integrity")) {
+					error('A QualityRequirement of type \'Security\' can only have the following sub-types: Security.Privacy or Security.Integrity.', RSLILPackage.Literals.QR__SUB_TYPE)	
 				}	
-			} else if (nfr.type.equals("Usability")) {
-				if (!nfr.subType.equals("Usability.EaseOfUse")
-					&& !nfr.subType.equals("Usability.EaseOfLearn")
-					&& !nfr.subType.equals("Usability.Accessibility")) {
-					error('A Non-FunctionalRequirement of type \'Usability\' can only have the following sub-types: Usability.EaseOfUse, Usability.EaseOfLearn or Usability.Accessibility.', RSLILPackage.Literals.NFR__SUB_TYPE)	
+			} else if (qr.type.equals("Usability")) {
+				if (!qr.subType.equals("Usability.EaseOfUse")
+					&& !qr.subType.equals("Usability.EaseOfLearn")
+					&& !qr.subType.equals("Usability.Accessibility")) {
+					error('A QualityRequirement of type \'Usability\' can only have the following sub-types: Usability.EaseOfUse, Usability.EaseOfLearn or Usability.Accessibility.', RSLILPackage.Literals.QR__SUB_TYPE)	
 				}
 			} else {
 				// Don't allow Sub-Type when Type != of Security and Usability
-				error('A Non-FunctionalRequirement of type \'' + nfr.type + '\' cannot have a sub-type.', RSLILPackage.Literals.NFR__SUB_TYPE)		
+				error('A QualityRequirement of type \'' + qr.type + '\' cannot have a sub-type.', RSLILPackage.Literals.QR__SUB_TYPE)		
 			}
 		}
 	}
