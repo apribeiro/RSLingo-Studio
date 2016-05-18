@@ -14,7 +14,8 @@ Model:
 	actors+=Actor*
 	useCases+=UseCase*
 	frs+=FR*
-	nfrs+=NFR*;
+	nfrs+=NFR*
+	constraints+=Constraint*;
 
 Project:
 	'Project' name=ID '{'
@@ -226,3 +227,20 @@ DependsOnNFR:
 
 RefNFR:
 	refNFR=[NFR](',' refs+=[NFR])*;
+
+Constraint:
+	'Constraint' name=ID '{'
+		('Name' nameAlias=STRING)?
+		'Description' description=STRING
+		'Type' type=('Security')
+		('Stakeholder' stakeholder=[Stakeholder])?
+		'Priority' priority=('VeryLow'|'Low'|'Medium'|'High'|'VeryHigh')
+		depends+=DependsOnConstraint*
+		('PartOf' partOf=[Constraint])?
+	'}';
+
+DependsOnConstraint:
+	type=('Requires'|'Refines'|'Conflicts') refConst=RefConstraint;
+
+RefConstraint:
+	refConst=[Constraint](',' refs+=[Constraint])*;
