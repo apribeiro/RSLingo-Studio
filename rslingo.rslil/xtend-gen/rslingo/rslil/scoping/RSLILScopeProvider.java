@@ -55,7 +55,7 @@ public class RSLILScopeProvider extends AbstractDeclarativeScopeProvider {
   
   public IScope scope_UseCase_extPoint(final UseCase ctx, final EReference ref) {
     UseCase _extends = ctx.getExtends();
-    EList<ExtensionPoint> _extensionnPoints = _extends.getExtensionnPoints();
-    return Scopes.scopeFor(_extensionnPoints);
+    EList<ExtensionPoint> _extensionPoints = _extends.getExtensionPoints();
+    return Scopes.scopeFor(_extensionPoints);
   }
 }

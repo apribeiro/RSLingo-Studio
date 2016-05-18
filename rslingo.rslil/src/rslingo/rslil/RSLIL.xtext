@@ -145,7 +145,7 @@ UseCase:
 		'Type' type=('EntityManage'|'EntityBrowse'|'EntitySearch'|'EntityCreate'|'EntityDelete'|'EntitySync'|'Report') 
 		('Entities' entities=RefEntity)?
 		'Priority' priority=Priority
-		extensionnPoints+=ExtensionPoint*
+		extensionPoints+=ExtensionPoint*
 		('Goals' goals+=RefGoal*)?
 		('FunctionalRequirements' frs+=RefFR*)?
 		'ActorInitiates' actorInitiates=[Actor]

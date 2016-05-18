@@ -39,6 +39,6 @@ class RSLILScopeProvider extends AbstractDeclarativeScopeProvider {
     }
     
     def IScope scope_UseCase_extPoint(UseCase ctx, EReference ref) {
-        return Scopes.scopeFor(ctx.extends.extensionnPoints)
+        return Scopes.scopeFor(ctx.extends.extensionPoints)
     }
 }
