@@ -18,18 +18,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import rslingo.rslil.rSLIL.Actor;
-import rslingo.rslil.rSLIL.Constraint;
-import rslingo.rslil.rSLIL.Entity;
-import rslingo.rslil.rSLIL.FR;
-import rslingo.rslil.rSLIL.GlossaryTerm;
-import rslingo.rslil.rSLIL.Goal;
+import rslingo.rslil.rSLIL.Import;
 import rslingo.rslil.rSLIL.Model;
-import rslingo.rslil.rSLIL.Project;
-import rslingo.rslil.rSLIL.QR;
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.Stakeholder;
-import rslingo.rslil.rSLIL.UseCase;
+import rslingo.rslil.rSLIL.SystemLevel;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,17 +31,9 @@ import rslingo.rslil.rSLIL.UseCase;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getProject <em>Project</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getSystems <em>Systems</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getGlossaryTerms <em>Glossary Terms</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getStakeholders <em>Stakeholders</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getGoals <em>Goals</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getEntities <em>Entities</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getActors <em>Actors</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getUseCases <em>Use Cases</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getFrs <em>Frs</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getQrs <em>Qrs</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getConstraints <em>Constraints</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getName <em>Name</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getImports <em>Imports</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getSystemLevel <em>System Level</em>}</li>
  * </ul>
  *
  * @generated
@@ -57,114 +41,44 @@ import rslingo.rslil.rSLIL.UseCase;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-   * The cached value of the '{@link #getProject() <em>Project</em>}' containment reference.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProject()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected Project project;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getSystems() <em>Systems</em>}' containment reference list.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSystems()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected EList<rslingo.rslil.rSLIL.System> systems;
+  protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getGlossaryTerms() <em>Glossary Terms</em>}' containment reference list.
+   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGlossaryTerms()
+   * @see #getImports()
    * @generated
    * @ordered
    */
-  protected EList<GlossaryTerm> glossaryTerms;
+  protected EList<Import> imports;
 
   /**
-   * The cached value of the '{@link #getStakeholders() <em>Stakeholders</em>}' containment reference list.
+   * The cached value of the '{@link #getSystemLevel() <em>System Level</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStakeholders()
+   * @see #getSystemLevel()
    * @generated
    * @ordered
    */
-  protected EList<Stakeholder> stakeholders;
-
-  /**
-   * The cached value of the '{@link #getGoals() <em>Goals</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getGoals()
-   * @generated
-   * @ordered
-   */
-  protected EList<Goal> goals;
-
-  /**
-   * The cached value of the '{@link #getEntities() <em>Entities</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEntities()
-   * @generated
-   * @ordered
-   */
-  protected EList<Entity> entities;
-
-  /**
-   * The cached value of the '{@link #getActors() <em>Actors</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getActors()
-   * @generated
-   * @ordered
-   */
-  protected EList<Actor> actors;
-
-  /**
-   * The cached value of the '{@link #getUseCases() <em>Use Cases</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getUseCases()
-   * @generated
-   * @ordered
-   */
-  protected EList<UseCase> useCases;
-
-  /**
-   * The cached value of the '{@link #getFrs() <em>Frs</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFrs()
-   * @generated
-   * @ordered
-   */
-  protected EList<FR> frs;
-
-  /**
-   * The cached value of the '{@link #getQrs() <em>Qrs</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getQrs()
-   * @generated
-   * @ordered
-   */
-  protected EList<QR> qrs;
-
-  /**
-   * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getConstraints()
-   * @generated
-   * @ordered
-   */
-  protected EList<Constraint> constraints;
+  protected SystemLevel systemLevel;
 
   /**
    * <!-- begin-user-doc -->
@@ -192,9 +106,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public Project getProject()
+  public String getName()
   {
-    return project;
+    return name;
   }
 
   /**
@@ -202,13 +116,50 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetProject(Project newProject, NotificationChain msgs)
+  public void setName(String newName)
   {
-    Project oldProject = project;
-    project = newProject;
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.MODEL__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Import> getImports()
+  {
+    if (imports == null)
+    {
+      imports = new EObjectContainmentEList<Import>(Import.class, this, RSLILPackage.MODEL__IMPORTS);
+    }
+    return imports;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SystemLevel getSystemLevel()
+  {
+    return systemLevel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSystemLevel(SystemLevel newSystemLevel, NotificationChain msgs)
+  {
+    SystemLevel oldSystemLevel = systemLevel;
+    systemLevel = newSystemLevel;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.MODEL__PROJECT, oldProject, newProject);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.MODEL__SYSTEM_LEVEL, oldSystemLevel, newSystemLevel);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -219,160 +170,20 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setProject(Project newProject)
+  public void setSystemLevel(SystemLevel newSystemLevel)
   {
-    if (newProject != project)
+    if (newSystemLevel != systemLevel)
     {
       NotificationChain msgs = null;
-      if (project != null)
-        msgs = ((InternalEObject)project).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.MODEL__PROJECT, null, msgs);
-      if (newProject != null)
-        msgs = ((InternalEObject)newProject).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.MODEL__PROJECT, null, msgs);
-      msgs = basicSetProject(newProject, msgs);
+      if (systemLevel != null)
+        msgs = ((InternalEObject)systemLevel).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.MODEL__SYSTEM_LEVEL, null, msgs);
+      if (newSystemLevel != null)
+        msgs = ((InternalEObject)newSystemLevel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.MODEL__SYSTEM_LEVEL, null, msgs);
+      msgs = basicSetSystemLevel(newSystemLevel, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.MODEL__PROJECT, newProject, newProject));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<rslingo.rslil.rSLIL.System> getSystems()
-  {
-    if (systems == null)
-    {
-      systems = new EObjectContainmentEList<rslingo.rslil.rSLIL.System>(rslingo.rslil.rSLIL.System.class, this, RSLILPackage.MODEL__SYSTEMS);
-    }
-    return systems;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<GlossaryTerm> getGlossaryTerms()
-  {
-    if (glossaryTerms == null)
-    {
-      glossaryTerms = new EObjectContainmentEList<GlossaryTerm>(GlossaryTerm.class, this, RSLILPackage.MODEL__GLOSSARY_TERMS);
-    }
-    return glossaryTerms;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Stakeholder> getStakeholders()
-  {
-    if (stakeholders == null)
-    {
-      stakeholders = new EObjectContainmentEList<Stakeholder>(Stakeholder.class, this, RSLILPackage.MODEL__STAKEHOLDERS);
-    }
-    return stakeholders;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Goal> getGoals()
-  {
-    if (goals == null)
-    {
-      goals = new EObjectContainmentEList<Goal>(Goal.class, this, RSLILPackage.MODEL__GOALS);
-    }
-    return goals;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Entity> getEntities()
-  {
-    if (entities == null)
-    {
-      entities = new EObjectContainmentEList<Entity>(Entity.class, this, RSLILPackage.MODEL__ENTITIES);
-    }
-    return entities;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Actor> getActors()
-  {
-    if (actors == null)
-    {
-      actors = new EObjectContainmentEList<Actor>(Actor.class, this, RSLILPackage.MODEL__ACTORS);
-    }
-    return actors;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<UseCase> getUseCases()
-  {
-    if (useCases == null)
-    {
-      useCases = new EObjectContainmentEList<UseCase>(UseCase.class, this, RSLILPackage.MODEL__USE_CASES);
-    }
-    return useCases;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<FR> getFrs()
-  {
-    if (frs == null)
-    {
-      frs = new EObjectContainmentEList<FR>(FR.class, this, RSLILPackage.MODEL__FRS);
-    }
-    return frs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<QR> getQrs()
-  {
-    if (qrs == null)
-    {
-      qrs = new EObjectContainmentEList<QR>(QR.class, this, RSLILPackage.MODEL__QRS);
-    }
-    return qrs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Constraint> getConstraints()
-  {
-    if (constraints == null)
-    {
-      constraints = new EObjectContainmentEList<Constraint>(Constraint.class, this, RSLILPackage.MODEL__CONSTRAINTS);
-    }
-    return constraints;
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.MODEL__SYSTEM_LEVEL, newSystemLevel, newSystemLevel));
   }
 
   /**
@@ -385,28 +196,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case RSLILPackage.MODEL__PROJECT:
-        return basicSetProject(null, msgs);
-      case RSLILPackage.MODEL__SYSTEMS:
-        return ((InternalEList<?>)getSystems()).basicRemove(otherEnd, msgs);
-      case RSLILPackage.MODEL__GLOSSARY_TERMS:
-        return ((InternalEList<?>)getGlossaryTerms()).basicRemove(otherEnd, msgs);
-      case RSLILPackage.MODEL__STAKEHOLDERS:
-        return ((InternalEList<?>)getStakeholders()).basicRemove(otherEnd, msgs);
-      case RSLILPackage.MODEL__GOALS:
-        return ((InternalEList<?>)getGoals()).basicRemove(otherEnd, msgs);
-      case RSLILPackage.MODEL__ENTITIES:
-        return ((InternalEList<?>)getEntities()).basicRemove(otherEnd, msgs);
-      case RSLILPackage.MODEL__ACTORS:
-        return ((InternalEList<?>)getActors()).basicRemove(otherEnd, msgs);
-      case RSLILPackage.MODEL__USE_CASES:
-        return ((InternalEList<?>)getUseCases()).basicRemove(otherEnd, msgs);
-      case RSLILPackage.MODEL__FRS:
-        return ((InternalEList<?>)getFrs()).basicRemove(otherEnd, msgs);
-      case RSLILPackage.MODEL__QRS:
-        return ((InternalEList<?>)getQrs()).basicRemove(otherEnd, msgs);
-      case RSLILPackage.MODEL__CONSTRAINTS:
-        return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.MODEL__IMPORTS:
+        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.MODEL__SYSTEM_LEVEL:
+        return basicSetSystemLevel(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -421,28 +214,12 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case RSLILPackage.MODEL__PROJECT:
-        return getProject();
-      case RSLILPackage.MODEL__SYSTEMS:
-        return getSystems();
-      case RSLILPackage.MODEL__GLOSSARY_TERMS:
-        return getGlossaryTerms();
-      case RSLILPackage.MODEL__STAKEHOLDERS:
-        return getStakeholders();
-      case RSLILPackage.MODEL__GOALS:
-        return getGoals();
-      case RSLILPackage.MODEL__ENTITIES:
-        return getEntities();
-      case RSLILPackage.MODEL__ACTORS:
-        return getActors();
-      case RSLILPackage.MODEL__USE_CASES:
-        return getUseCases();
-      case RSLILPackage.MODEL__FRS:
-        return getFrs();
-      case RSLILPackage.MODEL__QRS:
-        return getQrs();
-      case RSLILPackage.MODEL__CONSTRAINTS:
-        return getConstraints();
+      case RSLILPackage.MODEL__NAME:
+        return getName();
+      case RSLILPackage.MODEL__IMPORTS:
+        return getImports();
+      case RSLILPackage.MODEL__SYSTEM_LEVEL:
+        return getSystemLevel();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -458,48 +235,15 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case RSLILPackage.MODEL__PROJECT:
-        setProject((Project)newValue);
+      case RSLILPackage.MODEL__NAME:
+        setName((String)newValue);
         return;
-      case RSLILPackage.MODEL__SYSTEMS:
-        getSystems().clear();
-        getSystems().addAll((Collection<? extends rslingo.rslil.rSLIL.System>)newValue);
+      case RSLILPackage.MODEL__IMPORTS:
+        getImports().clear();
+        getImports().addAll((Collection<? extends Import>)newValue);
         return;
-      case RSLILPackage.MODEL__GLOSSARY_TERMS:
-        getGlossaryTerms().clear();
-        getGlossaryTerms().addAll((Collection<? extends GlossaryTerm>)newValue);
-        return;
-      case RSLILPackage.MODEL__STAKEHOLDERS:
-        getStakeholders().clear();
-        getStakeholders().addAll((Collection<? extends Stakeholder>)newValue);
-        return;
-      case RSLILPackage.MODEL__GOALS:
-        getGoals().clear();
-        getGoals().addAll((Collection<? extends Goal>)newValue);
-        return;
-      case RSLILPackage.MODEL__ENTITIES:
-        getEntities().clear();
-        getEntities().addAll((Collection<? extends Entity>)newValue);
-        return;
-      case RSLILPackage.MODEL__ACTORS:
-        getActors().clear();
-        getActors().addAll((Collection<? extends Actor>)newValue);
-        return;
-      case RSLILPackage.MODEL__USE_CASES:
-        getUseCases().clear();
-        getUseCases().addAll((Collection<? extends UseCase>)newValue);
-        return;
-      case RSLILPackage.MODEL__FRS:
-        getFrs().clear();
-        getFrs().addAll((Collection<? extends FR>)newValue);
-        return;
-      case RSLILPackage.MODEL__QRS:
-        getQrs().clear();
-        getQrs().addAll((Collection<? extends QR>)newValue);
-        return;
-      case RSLILPackage.MODEL__CONSTRAINTS:
-        getConstraints().clear();
-        getConstraints().addAll((Collection<? extends Constraint>)newValue);
+      case RSLILPackage.MODEL__SYSTEM_LEVEL:
+        setSystemLevel((SystemLevel)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -515,38 +259,14 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case RSLILPackage.MODEL__PROJECT:
-        setProject((Project)null);
+      case RSLILPackage.MODEL__NAME:
+        setName(NAME_EDEFAULT);
         return;
-      case RSLILPackage.MODEL__SYSTEMS:
-        getSystems().clear();
+      case RSLILPackage.MODEL__IMPORTS:
+        getImports().clear();
         return;
-      case RSLILPackage.MODEL__GLOSSARY_TERMS:
-        getGlossaryTerms().clear();
-        return;
-      case RSLILPackage.MODEL__STAKEHOLDERS:
-        getStakeholders().clear();
-        return;
-      case RSLILPackage.MODEL__GOALS:
-        getGoals().clear();
-        return;
-      case RSLILPackage.MODEL__ENTITIES:
-        getEntities().clear();
-        return;
-      case RSLILPackage.MODEL__ACTORS:
-        getActors().clear();
-        return;
-      case RSLILPackage.MODEL__USE_CASES:
-        getUseCases().clear();
-        return;
-      case RSLILPackage.MODEL__FRS:
-        getFrs().clear();
-        return;
-      case RSLILPackage.MODEL__QRS:
-        getQrs().clear();
-        return;
-      case RSLILPackage.MODEL__CONSTRAINTS:
-        getConstraints().clear();
+      case RSLILPackage.MODEL__SYSTEM_LEVEL:
+        setSystemLevel((SystemLevel)null);
         return;
     }
     super.eUnset(featureID);
@@ -562,30 +282,31 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case RSLILPackage.MODEL__PROJECT:
-        return project != null;
-      case RSLILPackage.MODEL__SYSTEMS:
-        return systems != null && !systems.isEmpty();
-      case RSLILPackage.MODEL__GLOSSARY_TERMS:
-        return glossaryTerms != null && !glossaryTerms.isEmpty();
-      case RSLILPackage.MODEL__STAKEHOLDERS:
-        return stakeholders != null && !stakeholders.isEmpty();
-      case RSLILPackage.MODEL__GOALS:
-        return goals != null && !goals.isEmpty();
-      case RSLILPackage.MODEL__ENTITIES:
-        return entities != null && !entities.isEmpty();
-      case RSLILPackage.MODEL__ACTORS:
-        return actors != null && !actors.isEmpty();
-      case RSLILPackage.MODEL__USE_CASES:
-        return useCases != null && !useCases.isEmpty();
-      case RSLILPackage.MODEL__FRS:
-        return frs != null && !frs.isEmpty();
-      case RSLILPackage.MODEL__QRS:
-        return qrs != null && !qrs.isEmpty();
-      case RSLILPackage.MODEL__CONSTRAINTS:
-        return constraints != null && !constraints.isEmpty();
+      case RSLILPackage.MODEL__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case RSLILPackage.MODEL__IMPORTS:
+        return imports != null && !imports.isEmpty();
+      case RSLILPackage.MODEL__SYSTEM_LEVEL:
+        return systemLevel != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //ModelImpl

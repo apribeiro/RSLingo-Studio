@@ -26,8 +26,11 @@ import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.ForeignKey;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
+import rslingo.rslil.rSLIL.Import;
 import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.Multiplicity;
+import rslingo.rslil.rSLIL.PackageProject;
+import rslingo.rslil.rSLIL.PackageSystem;
 import rslingo.rslil.rSLIL.PrimaryKey;
 import rslingo.rslil.rSLIL.Priority;
 import rslingo.rslil.rSLIL.Project;
@@ -48,6 +51,7 @@ import rslingo.rslil.rSLIL.RefUC;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.Step;
+import rslingo.rslil.rSLIL.SystemLevel;
 import rslingo.rslil.rSLIL.TermRelation;
 import rslingo.rslil.rSLIL.TermType;
 import rslingo.rslil.rSLIL.UseCase;
@@ -105,6 +109,10 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
     switch (eClass.getClassifierID())
     {
       case RSLILPackage.MODEL: return createModel();
+      case RSLILPackage.PACKAGE_PROJECT: return createPackageProject();
+      case RSLILPackage.PACKAGE_SYSTEM: return createPackageSystem();
+      case RSLILPackage.SYSTEM_LEVEL: return createSystemLevel();
+      case RSLILPackage.IMPORT: return createImport();
       case RSLILPackage.PROJECT: return createProject();
       case RSLILPackage.SYSTEM: return createSystem();
       case RSLILPackage.REF_SYSTEM: return createRefSystem();
@@ -158,6 +166,50 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
   {
     ModelImpl model = new ModelImpl();
     return model;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PackageProject createPackageProject()
+  {
+    PackageProjectImpl packageProject = new PackageProjectImpl();
+    return packageProject;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PackageSystem createPackageSystem()
+  {
+    PackageSystemImpl packageSystem = new PackageSystemImpl();
+    return packageSystem;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SystemLevel createSystemLevel()
+  {
+    SystemLevelImpl systemLevel = new SystemLevelImpl();
+    return systemLevel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Import createImport()
+  {
+    ImportImpl import_ = new ImportImpl();
+    return import_;
   }
 
   /**

@@ -32,8 +32,10 @@ import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.ForeignKey;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
-import rslingo.rslil.rSLIL.Model;
+import rslingo.rslil.rSLIL.Import;
 import rslingo.rslil.rSLIL.Multiplicity;
+import rslingo.rslil.rSLIL.PackageProject;
+import rslingo.rslil.rSLIL.PackageSystem;
 import rslingo.rslil.rSLIL.PrimaryKey;
 import rslingo.rslil.rSLIL.Priority;
 import rslingo.rslil.rSLIL.Project;
@@ -53,6 +55,7 @@ import rslingo.rslil.rSLIL.RefUC;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.Step;
+import rslingo.rslil.rSLIL.SystemLevel;
 import rslingo.rslil.rSLIL.TermRelation;
 import rslingo.rslil.rSLIL.TermType;
 import rslingo.rslil.rSLIL.UseCase;
@@ -115,11 +118,17 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case RSLILPackage.GOAL:
 				sequence_Goal(context, (Goal) semanticObject); 
 				return; 
-			case RSLILPackage.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
+			case RSLILPackage.IMPORT:
+				sequence_Import(context, (Import) semanticObject); 
 				return; 
 			case RSLILPackage.MULTIPLICITY:
 				sequence_Multiplicity(context, (Multiplicity) semanticObject); 
+				return; 
+			case RSLILPackage.PACKAGE_PROJECT:
+				sequence_PackageProject(context, (PackageProject) semanticObject); 
+				return; 
+			case RSLILPackage.PACKAGE_SYSTEM:
+				sequence_PackageSystem(context, (PackageSystem) semanticObject); 
 				return; 
 			case RSLILPackage.PRIMARY_KEY:
 				sequence_PrimaryKey(context, (PrimaryKey) semanticObject); 
@@ -177,6 +186,9 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case RSLILPackage.SYSTEM:
 				sequence_System(context, (rslingo.rslil.rSLIL.System) semanticObject); 
+				return; 
+			case RSLILPackage.SYSTEM_LEVEL:
+				sequence_SystemLevel(context, (SystemLevel) semanticObject); 
 				return; 
 			case RSLILPackage.TERM_RELATION:
 				sequence_TermRelation(context, (TermRelation) semanticObject); 
@@ -442,22 +454,17 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         project=Project 
-	 *         systems+=System* 
-	 *         glossaryTerms+=GlossaryTerm* 
-	 *         stakeholders+=Stakeholder* 
-	 *         goals+=Goal* 
-	 *         entities+=Entity* 
-	 *         actors+=Actor* 
-	 *         useCases+=UseCase* 
-	 *         frs+=FR* 
-	 *         qrs+=QR* 
-	 *         constraints+=Constraint*
-	 *     )
+	 *     importedNamespace=QualifiedNameWithWildcard
 	 */
-	protected void sequence_Model(EObject context, Model semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_Import(EObject context, Import semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.IMPORT__IMPORTED_NAMESPACE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.IMPORT__IMPORTED_NAMESPACE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getImportAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0(), semanticObject.getImportedNamespace());
+		feeder.finish();
 	}
 	
 	
@@ -466,6 +473,32 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (value='"0"' | value='"1"' | value='"0..1"' | value='"*"' | value=STRING)
 	 */
 	protected void sequence_Multiplicity(EObject context, Multiplicity semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         name=QualifiedName 
+	 *         imports+=Import* 
+	 *         project=Project 
+	 *         glossaryTerms+=GlossaryTerm* 
+	 *         stakeholders+=Stakeholder* 
+	 *         goals+=Goal* 
+	 *         systemLevel=SystemLevel
+	 *     )
+	 */
+	protected void sequence_PackageProject(EObject context, PackageProject semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=QualifiedName imports+=Import* systemLevel=SystemLevel)
+	 */
+	protected void sequence_PackageSystem(EObject context, PackageSystem semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -709,6 +742,23 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     )
 	 */
 	protected void sequence_Step(EObject context, Step semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         systems+=System* 
+	 *         entities+=Entity* 
+	 *         actors+=Actor* 
+	 *         useCases+=UseCase* 
+	 *         frs+=FR* 
+	 *         qrs+=QR* 
+	 *         constraints+=Constraint*
+	 *     )
+	 */
+	protected void sequence_SystemLevel(EObject context, SystemLevel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

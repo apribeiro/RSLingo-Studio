@@ -6,13 +6,11 @@ import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import rslingo.rslil.rSLIL.Model;
-import rslingo.rslil.rSLIL.Project;
 
 @SuppressWarnings("all")
 public class RSLIL2JsonGenerator implements IGenerator {
@@ -38,21 +36,8 @@ public class RSLIL2JsonGenerator implements IGenerator {
   }
   
   public CharSequence compile(final Model model) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("{");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("\"name\": \"");
-    Project _project = model.getProject();
-    String _name = _project.getName();
-    _builder.append(_name, "\t\t");
-    _builder.append("\",");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("}");
-    _builder.newLine();
-    return _builder;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method project is undefined for the type RSLIL2JsonGenerator"
+      + "\nname cannot be resolved");
   }
 }

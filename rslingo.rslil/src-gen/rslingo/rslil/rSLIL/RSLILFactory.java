@@ -32,6 +32,42 @@ public interface RSLILFactory extends EFactory
   Model createModel();
 
   /**
+   * Returns a new object of class '<em>Package Project</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Package Project</em>'.
+   * @generated
+   */
+  PackageProject createPackageProject();
+
+  /**
+   * Returns a new object of class '<em>Package System</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Package System</em>'.
+   * @generated
+   */
+  PackageSystem createPackageSystem();
+
+  /**
+   * Returns a new object of class '<em>System Level</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>System Level</em>'.
+   * @generated
+   */
+  SystemLevel createSystemLevel();
+
+  /**
+   * Returns a new object of class '<em>Import</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Import</em>'.
+   * @generated
+   */
+  Import createImport();
+
+  /**
    * Returns a new object of class '<em>Project</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

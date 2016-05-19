@@ -20,107 +20,322 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Model");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cProjectAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cProjectProjectParserRuleCall_0_0 = (RuleCall)cProjectAssignment_0.eContents().get(0);
-		private final Assignment cSystemsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cSystemsSystemParserRuleCall_1_0 = (RuleCall)cSystemsAssignment_1.eContents().get(0);
-		private final Assignment cGlossaryTermsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cGlossaryTermsGlossaryTermParserRuleCall_2_0 = (RuleCall)cGlossaryTermsAssignment_2.eContents().get(0);
-		private final Assignment cStakeholdersAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cStakeholdersStakeholderParserRuleCall_3_0 = (RuleCall)cStakeholdersAssignment_3.eContents().get(0);
-		private final Assignment cGoalsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cGoalsGoalParserRuleCall_4_0 = (RuleCall)cGoalsAssignment_4.eContents().get(0);
-		private final Assignment cEntitiesAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cEntitiesEntityParserRuleCall_5_0 = (RuleCall)cEntitiesAssignment_5.eContents().get(0);
-		private final Assignment cActorsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cActorsActorParserRuleCall_6_0 = (RuleCall)cActorsAssignment_6.eContents().get(0);
-		private final Assignment cUseCasesAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cUseCasesUseCaseParserRuleCall_7_0 = (RuleCall)cUseCasesAssignment_7.eContents().get(0);
-		private final Assignment cFrsAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cFrsFRParserRuleCall_8_0 = (RuleCall)cFrsAssignment_8.eContents().get(0);
-		private final Assignment cQrsAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cQrsQRParserRuleCall_9_0 = (RuleCall)cQrsAssignment_9.eContents().get(0);
-		private final Assignment cConstraintsAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cConstraintsConstraintParserRuleCall_10_0 = (RuleCall)cConstraintsAssignment_10.eContents().get(0);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cPackageProjectParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cPackageSystemParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//Model: // Business Level
-		//	project=Project systems+=System* glossaryTerms+=GlossaryTerm* stakeholders+=Stakeholder* goals+=Goal* // System Level
-		//	entities+=Entity* actors+=Actor* useCases+=UseCase* frs+=FR* qrs+=QR* constraints+=Constraint*;
+		//Model:
+		//	PackageProject | PackageSystem;
+		@Override public ParserRule getRule() { return rule; }
+
+		//PackageProject | PackageSystem
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//PackageProject
+		public RuleCall getPackageProjectParserRuleCall_0() { return cPackageProjectParserRuleCall_0; }
+
+		//PackageSystem
+		public RuleCall getPackageSystemParserRuleCall_1() { return cPackageSystemParserRuleCall_1; }
+	}
+
+	public class PackageProjectElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PackageProject");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPackageProjectKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cImportsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cImportsImportParserRuleCall_3_0 = (RuleCall)cImportsAssignment_3.eContents().get(0);
+		private final Assignment cProjectAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cProjectProjectParserRuleCall_4_0 = (RuleCall)cProjectAssignment_4.eContents().get(0);
+		private final Assignment cGlossaryTermsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cGlossaryTermsGlossaryTermParserRuleCall_5_0 = (RuleCall)cGlossaryTermsAssignment_5.eContents().get(0);
+		private final Assignment cStakeholdersAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cStakeholdersStakeholderParserRuleCall_6_0 = (RuleCall)cStakeholdersAssignment_6.eContents().get(0);
+		private final Assignment cGoalsAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cGoalsGoalParserRuleCall_7_0 = (RuleCall)cGoalsAssignment_7.eContents().get(0);
+		private final Assignment cSystemLevelAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cSystemLevelSystemLevelParserRuleCall_8_0 = (RuleCall)cSystemLevelAssignment_8.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		
+		//// Business Level
+		////	project=Project
+		////	systems+=System*
+		////	glossaryTerms+=GlossaryTerm*
+		////	stakeholders+=Stakeholder*
+		////	goals+=Goal*
+		//// System Level
+		////	entities+=Entity*
+		////	actors+=Actor*
+		////	useCases+=UseCase*
+		////	frs+=FR*
+		////	qrs+=QR*
+		////	constraints+=Constraint*;
+		//PackageProject: // Business Level
+		//	"Package-Project" name=QualifiedName "{" imports+=Import* project=Project glossaryTerms+=GlossaryTerm*
+		//	stakeholders+=Stakeholder* goals+=Goal* // Optional Nested System Level
+		//	systemLevel=SystemLevel "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//// Business Level
-		//project=Project systems+=System* glossaryTerms+=GlossaryTerm* stakeholders+=Stakeholder* goals+=Goal* // System Level
-		//entities+=Entity* actors+=Actor* useCases+=UseCase* frs+=FR* qrs+=QR* constraints+=Constraint*
+		//"Package-Project" name=QualifiedName "{" imports+=Import* project=Project glossaryTerms+=GlossaryTerm*
+		//stakeholders+=Stakeholder* goals+=Goal* // Optional Nested System Level
+		//systemLevel=SystemLevel "}"
 		public Group getGroup() { return cGroup; }
 
 		//// Business Level
+		//"Package-Project"
+		public Keyword getPackageProjectKeyword_0() { return cPackageProjectKeyword_0; }
+
+		//name=QualifiedName
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//QualifiedName
+		public RuleCall getNameQualifiedNameParserRuleCall_1_0() { return cNameQualifiedNameParserRuleCall_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//imports+=Import*
+		public Assignment getImportsAssignment_3() { return cImportsAssignment_3; }
+
+		//Import
+		public RuleCall getImportsImportParserRuleCall_3_0() { return cImportsImportParserRuleCall_3_0; }
+
 		//project=Project
-		public Assignment getProjectAssignment_0() { return cProjectAssignment_0; }
+		public Assignment getProjectAssignment_4() { return cProjectAssignment_4; }
 
 		//Project
-		public RuleCall getProjectProjectParserRuleCall_0_0() { return cProjectProjectParserRuleCall_0_0; }
-
-		//systems+=System*
-		public Assignment getSystemsAssignment_1() { return cSystemsAssignment_1; }
-
-		//System
-		public RuleCall getSystemsSystemParserRuleCall_1_0() { return cSystemsSystemParserRuleCall_1_0; }
+		public RuleCall getProjectProjectParserRuleCall_4_0() { return cProjectProjectParserRuleCall_4_0; }
 
 		//glossaryTerms+=GlossaryTerm*
-		public Assignment getGlossaryTermsAssignment_2() { return cGlossaryTermsAssignment_2; }
+		public Assignment getGlossaryTermsAssignment_5() { return cGlossaryTermsAssignment_5; }
 
 		//GlossaryTerm
-		public RuleCall getGlossaryTermsGlossaryTermParserRuleCall_2_0() { return cGlossaryTermsGlossaryTermParserRuleCall_2_0; }
+		public RuleCall getGlossaryTermsGlossaryTermParserRuleCall_5_0() { return cGlossaryTermsGlossaryTermParserRuleCall_5_0; }
 
 		//stakeholders+=Stakeholder*
-		public Assignment getStakeholdersAssignment_3() { return cStakeholdersAssignment_3; }
+		public Assignment getStakeholdersAssignment_6() { return cStakeholdersAssignment_6; }
 
 		//Stakeholder
-		public RuleCall getStakeholdersStakeholderParserRuleCall_3_0() { return cStakeholdersStakeholderParserRuleCall_3_0; }
+		public RuleCall getStakeholdersStakeholderParserRuleCall_6_0() { return cStakeholdersStakeholderParserRuleCall_6_0; }
 
 		//goals+=Goal*
-		public Assignment getGoalsAssignment_4() { return cGoalsAssignment_4; }
+		public Assignment getGoalsAssignment_7() { return cGoalsAssignment_7; }
 
 		//Goal
-		public RuleCall getGoalsGoalParserRuleCall_4_0() { return cGoalsGoalParserRuleCall_4_0; }
+		public RuleCall getGoalsGoalParserRuleCall_7_0() { return cGoalsGoalParserRuleCall_7_0; }
+
+		//// Optional Nested System Level
+		//systemLevel=SystemLevel
+		public Assignment getSystemLevelAssignment_8() { return cSystemLevelAssignment_8; }
+
+		//SystemLevel
+		public RuleCall getSystemLevelSystemLevelParserRuleCall_8_0() { return cSystemLevelSystemLevelParserRuleCall_8_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+	}
+
+	public class PackageSystemElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PackageSystem");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPackageSystemKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cImportsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cImportsImportParserRuleCall_3_0 = (RuleCall)cImportsAssignment_3.eContents().get(0);
+		private final Assignment cSystemLevelAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cSystemLevelSystemLevelParserRuleCall_4_0 = (RuleCall)cSystemLevelAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//PackageSystem: // System Level
+		//	"Package-System" name=QualifiedName "{" imports+=Import* systemLevel=SystemLevel "}";
+		@Override public ParserRule getRule() { return rule; }
 
 		//// System Level
+		//"Package-System" name=QualifiedName "{" imports+=Import* systemLevel=SystemLevel "}"
+		public Group getGroup() { return cGroup; }
+
+		//// System Level
+		//"Package-System"
+		public Keyword getPackageSystemKeyword_0() { return cPackageSystemKeyword_0; }
+
+		//name=QualifiedName
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//QualifiedName
+		public RuleCall getNameQualifiedNameParserRuleCall_1_0() { return cNameQualifiedNameParserRuleCall_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//imports+=Import*
+		public Assignment getImportsAssignment_3() { return cImportsAssignment_3; }
+
+		//Import
+		public RuleCall getImportsImportParserRuleCall_3_0() { return cImportsImportParserRuleCall_3_0; }
+
+		//systemLevel=SystemLevel
+		public Assignment getSystemLevelAssignment_4() { return cSystemLevelAssignment_4; }
+
+		//SystemLevel
+		public RuleCall getSystemLevelSystemLevelParserRuleCall_4_0() { return cSystemLevelSystemLevelParserRuleCall_4_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+
+	public class SystemLevelElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SystemLevel");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cSystemLevelAction_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cSystemsAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cSystemsSystemParserRuleCall_1_0_0 = (RuleCall)cSystemsAssignment_1_0.eContents().get(0);
+		private final Assignment cEntitiesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cEntitiesEntityParserRuleCall_1_1_0 = (RuleCall)cEntitiesAssignment_1_1.eContents().get(0);
+		private final Assignment cActorsAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cActorsActorParserRuleCall_1_2_0 = (RuleCall)cActorsAssignment_1_2.eContents().get(0);
+		private final Assignment cUseCasesAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cUseCasesUseCaseParserRuleCall_1_3_0 = (RuleCall)cUseCasesAssignment_1_3.eContents().get(0);
+		private final Assignment cFrsAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
+		private final RuleCall cFrsFRParserRuleCall_1_4_0 = (RuleCall)cFrsAssignment_1_4.eContents().get(0);
+		private final Assignment cQrsAssignment_1_5 = (Assignment)cGroup_1.eContents().get(5);
+		private final RuleCall cQrsQRParserRuleCall_1_5_0 = (RuleCall)cQrsAssignment_1_5.eContents().get(0);
+		private final Assignment cConstraintsAssignment_1_6 = (Assignment)cGroup_1.eContents().get(6);
+		private final RuleCall cConstraintsConstraintParserRuleCall_1_6_0 = (RuleCall)cConstraintsAssignment_1_6.eContents().get(0);
+		
+		//SystemLevel:
+		//	{SystemLevel} (systems+=System* entities+=Entity* actors+=Actor* useCases+=UseCase* frs+=FR* qrs+=QR*
+		//	constraints+=Constraint*);
+		@Override public ParserRule getRule() { return rule; }
+
+		//{SystemLevel} (systems+=System* entities+=Entity* actors+=Actor* useCases+=UseCase* frs+=FR* qrs+=QR*
+		//constraints+=Constraint*)
+		public Group getGroup() { return cGroup; }
+
+		//{SystemLevel}
+		public Action getSystemLevelAction_0() { return cSystemLevelAction_0; }
+
+		//systems+=System* entities+=Entity* actors+=Actor* useCases+=UseCase* frs+=FR* qrs+=QR* constraints+=Constraint*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//systems+=System*
+		public Assignment getSystemsAssignment_1_0() { return cSystemsAssignment_1_0; }
+
+		//System
+		public RuleCall getSystemsSystemParserRuleCall_1_0_0() { return cSystemsSystemParserRuleCall_1_0_0; }
+
 		//entities+=Entity*
-		public Assignment getEntitiesAssignment_5() { return cEntitiesAssignment_5; }
+		public Assignment getEntitiesAssignment_1_1() { return cEntitiesAssignment_1_1; }
 
 		//Entity
-		public RuleCall getEntitiesEntityParserRuleCall_5_0() { return cEntitiesEntityParserRuleCall_5_0; }
+		public RuleCall getEntitiesEntityParserRuleCall_1_1_0() { return cEntitiesEntityParserRuleCall_1_1_0; }
 
 		//actors+=Actor*
-		public Assignment getActorsAssignment_6() { return cActorsAssignment_6; }
+		public Assignment getActorsAssignment_1_2() { return cActorsAssignment_1_2; }
 
 		//Actor
-		public RuleCall getActorsActorParserRuleCall_6_0() { return cActorsActorParserRuleCall_6_0; }
+		public RuleCall getActorsActorParserRuleCall_1_2_0() { return cActorsActorParserRuleCall_1_2_0; }
 
 		//useCases+=UseCase*
-		public Assignment getUseCasesAssignment_7() { return cUseCasesAssignment_7; }
+		public Assignment getUseCasesAssignment_1_3() { return cUseCasesAssignment_1_3; }
 
 		//UseCase
-		public RuleCall getUseCasesUseCaseParserRuleCall_7_0() { return cUseCasesUseCaseParserRuleCall_7_0; }
+		public RuleCall getUseCasesUseCaseParserRuleCall_1_3_0() { return cUseCasesUseCaseParserRuleCall_1_3_0; }
 
 		//frs+=FR*
-		public Assignment getFrsAssignment_8() { return cFrsAssignment_8; }
+		public Assignment getFrsAssignment_1_4() { return cFrsAssignment_1_4; }
 
 		//FR
-		public RuleCall getFrsFRParserRuleCall_8_0() { return cFrsFRParserRuleCall_8_0; }
+		public RuleCall getFrsFRParserRuleCall_1_4_0() { return cFrsFRParserRuleCall_1_4_0; }
 
 		//qrs+=QR*
-		public Assignment getQrsAssignment_9() { return cQrsAssignment_9; }
+		public Assignment getQrsAssignment_1_5() { return cQrsAssignment_1_5; }
 
 		//QR
-		public RuleCall getQrsQRParserRuleCall_9_0() { return cQrsQRParserRuleCall_9_0; }
+		public RuleCall getQrsQRParserRuleCall_1_5_0() { return cQrsQRParserRuleCall_1_5_0; }
 
 		//constraints+=Constraint*
-		public Assignment getConstraintsAssignment_10() { return cConstraintsAssignment_10; }
+		public Assignment getConstraintsAssignment_1_6() { return cConstraintsAssignment_1_6; }
 
 		//Constraint
-		public RuleCall getConstraintsConstraintParserRuleCall_10_0() { return cConstraintsConstraintParserRuleCall_10_0; }
+		public RuleCall getConstraintsConstraintParserRuleCall_1_6_0() { return cConstraintsConstraintParserRuleCall_1_6_0; }
+	}
+
+	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "QualifiedName");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		
+		//QualifiedName:
+		//	ID ("." ID)*;
+		@Override public ParserRule getRule() { return rule; }
+
+		//ID ("." ID)*
+		public Group getGroup() { return cGroup; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+
+		//("." ID)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"."
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
+	}
+
+	public class QualifiedNameWithWildcardElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "QualifiedNameWithWildcard");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cQualifiedNameParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Keyword cFullStopAsteriskKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//QualifiedNameWithWildcard:
+		//	QualifiedName ".*"?;
+		@Override public ParserRule getRule() { return rule; }
+
+		//QualifiedName ".*"?
+		public Group getGroup() { return cGroup; }
+
+		//QualifiedName
+		public RuleCall getQualifiedNameParserRuleCall_0() { return cQualifiedNameParserRuleCall_0; }
+
+		//".*"?
+		public Keyword getFullStopAsteriskKeyword_1() { return cFullStopAsteriskKeyword_1; }
+	}
+
+	public class ImportElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Import");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cImportKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cImportedNamespaceAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0 = (RuleCall)cImportedNamespaceAssignment_1.eContents().get(0);
+		
+		//Import:
+		//	"import" importedNamespace=QualifiedNameWithWildcard;
+		@Override public ParserRule getRule() { return rule; }
+
+		//"import" importedNamespace=QualifiedNameWithWildcard
+		public Group getGroup() { return cGroup; }
+
+		//"import"
+		public Keyword getImportKeyword_0() { return cImportKeyword_0; }
+
+		//importedNamespace=QualifiedNameWithWildcard
+		public Assignment getImportedNamespaceAssignment_1() { return cImportedNamespaceAssignment_1; }
+
+		//QualifiedNameWithWildcard
+		public RuleCall getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0() { return cImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0; }
 	}
 
 	public class ProjectElements extends AbstractParserRuleElementFinder {
@@ -3415,6 +3630,12 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
 	private final ModelElements pModel;
+	private final PackageProjectElements pPackageProject;
+	private final PackageSystemElements pPackageSystem;
+	private final SystemLevelElements pSystemLevel;
+	private final QualifiedNameElements pQualifiedName;
+	private final QualifiedNameWithWildcardElements pQualifiedNameWithWildcard;
+	private final ImportElements pImport;
 	private final ProjectElements pProject;
 	private final SystemElements pSystem;
 	private final RefSystemElements pRefSystem;
@@ -3465,6 +3686,12 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
+		this.pPackageProject = new PackageProjectElements();
+		this.pPackageSystem = new PackageSystemElements();
+		this.pSystemLevel = new SystemLevelElements();
+		this.pQualifiedName = new QualifiedNameElements();
+		this.pQualifiedNameWithWildcard = new QualifiedNameWithWildcardElements();
+		this.pImport = new ImportElements();
 		this.pProject = new ProjectElements();
 		this.pSystem = new SystemElements();
 		this.pRefSystem = new RefSystemElements();
@@ -3533,15 +3760,90 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//Model: // Business Level
-	//	project=Project systems+=System* glossaryTerms+=GlossaryTerm* stakeholders+=Stakeholder* goals+=Goal* // System Level
-	//	entities+=Entity* actors+=Actor* useCases+=UseCase* frs+=FR* qrs+=QR* constraints+=Constraint*;
+	//Model:
+	//	PackageProject | PackageSystem;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
 	
 	public ParserRule getModelRule() {
 		return getModelAccess().getRule();
+	}
+
+	//// Business Level
+	////	project=Project
+	////	systems+=System*
+	////	glossaryTerms+=GlossaryTerm*
+	////	stakeholders+=Stakeholder*
+	////	goals+=Goal*
+	//// System Level
+	////	entities+=Entity*
+	////	actors+=Actor*
+	////	useCases+=UseCase*
+	////	frs+=FR*
+	////	qrs+=QR*
+	////	constraints+=Constraint*;
+	//PackageProject: // Business Level
+	//	"Package-Project" name=QualifiedName "{" imports+=Import* project=Project glossaryTerms+=GlossaryTerm*
+	//	stakeholders+=Stakeholder* goals+=Goal* // Optional Nested System Level
+	//	systemLevel=SystemLevel "}";
+	public PackageProjectElements getPackageProjectAccess() {
+		return pPackageProject;
+	}
+	
+	public ParserRule getPackageProjectRule() {
+		return getPackageProjectAccess().getRule();
+	}
+
+	//PackageSystem: // System Level
+	//	"Package-System" name=QualifiedName "{" imports+=Import* systemLevel=SystemLevel "}";
+	public PackageSystemElements getPackageSystemAccess() {
+		return pPackageSystem;
+	}
+	
+	public ParserRule getPackageSystemRule() {
+		return getPackageSystemAccess().getRule();
+	}
+
+	//SystemLevel:
+	//	{SystemLevel} (systems+=System* entities+=Entity* actors+=Actor* useCases+=UseCase* frs+=FR* qrs+=QR*
+	//	constraints+=Constraint*);
+	public SystemLevelElements getSystemLevelAccess() {
+		return pSystemLevel;
+	}
+	
+	public ParserRule getSystemLevelRule() {
+		return getSystemLevelAccess().getRule();
+	}
+
+	//QualifiedName:
+	//	ID ("." ID)*;
+	public QualifiedNameElements getQualifiedNameAccess() {
+		return pQualifiedName;
+	}
+	
+	public ParserRule getQualifiedNameRule() {
+		return getQualifiedNameAccess().getRule();
+	}
+
+	//QualifiedNameWithWildcard:
+	//	QualifiedName ".*"?;
+	public QualifiedNameWithWildcardElements getQualifiedNameWithWildcardAccess() {
+		return pQualifiedNameWithWildcard;
+	}
+	
+	public ParserRule getQualifiedNameWithWildcardRule() {
+		return getQualifiedNameWithWildcardAccess().getRule();
+	}
+
+	//Import:
+	//	"import" importedNamespace=QualifiedNameWithWildcard;
+	public ImportElements getImportAccess() {
+		return pImport;
+	}
+	
+	public ParserRule getImportRule() {
+		return getImportAccess().getRule();
 	}
 
 	//Project:
