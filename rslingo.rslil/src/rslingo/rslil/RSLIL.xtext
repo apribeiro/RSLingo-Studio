@@ -3,19 +3,45 @@ grammar rslingo.rslil.RSLIL with org.eclipse.xtext.common.Terminals
 generate rSLIL "http://www.rslil.rslingo/RSLIL"
 
 Model:
+	PackageProject | PackageSystem;
+
+PackageProject:
 	// Business Level
-	project=Project
-	systems+=System*
-	glossaryTerms+=GlossaryTerm*
-	stakeholders+=Stakeholder*
-	goals+=Goal*
+	'Package-Project' name=QualifiedName '{'
+		imports+=Import*
+		project=Project
+		glossaryTerms+=GlossaryTerm*
+		stakeholders+=Stakeholder*
+		goals+=Goal*
+		// Optional Nested System Level
+		systemLevel=SystemLevel
+	'}';
+
+PackageSystem:
 	// System Level
+	'Package-System' name=QualifiedName '{'
+		imports+=Import*
+		systemLevel=SystemLevel
+	'}';
+
+SystemLevel:
+	{SystemLevel}
+	(systems+=System*
 	entities+=Entity*
 	actors+=Actor*
 	useCases+=UseCase*
 	frs+=FR*
 	qrs+=QR*
-	constraints+=Constraint*;
+	constraints+=Constraint*);
+
+QualifiedName:
+  	ID ('.' ID)*;
+
+QualifiedNameWithWildcard:
+  	QualifiedName '.*'?;
+
+Import:
+	'import' importedNamespace=QualifiedNameWithWildcard;
 
 Project:
 	'Project' name=ID '{'
