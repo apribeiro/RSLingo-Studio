@@ -3,7 +3,6 @@ package rslingo.rslil.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
-import rslingo.rslil.rSLIL.Model
 import rslingo.rslil.rSLIL.Project
 import rslingo.rslil.rSLIL.GlossaryTerm
 import rslingo.rslil.rSLIL.System
@@ -15,6 +14,8 @@ import rslingo.rslil.rSLIL.Actor
 import rslingo.rslil.rSLIL.Entity
 import rslingo.rslil.rSLIL.Goal
 import rslingo.rslil.rSLIL.Stakeholder
+import rslingo.rslil.rSLIL.PackageProject
+import rslingo.rslil.rSLIL.PackageSystem
 
 /**
  * Generates code from your model files on save.
@@ -25,7 +26,7 @@ class RSLIL2TextGenerator implements IGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		fsa.generateFile(resource.className + '.txt',
-			resource.allContents.filter(typeof(Model)).map[compile].join(' ')
+			resource.allContents.filter(typeof(PackageProject)).map[compile].join(' ')
 		)
 	}
 
@@ -35,61 +36,31 @@ class RSLIL2TextGenerator implements IGenerator {
 	}
 
 	//----------------------------------------------------
-	def compile(Model model)
+	def compile(PackageProject packageProject)
 	'''
 	Project
 	----------------------------------------
-	«model.project.compile»
-	«IF !model.systems.empty»
-	
-	#Systems
-	------------------
-	«FOR s:model.systems»«s.compile»«ENDFOR»«ENDIF»
-	«IF !model.glossaryTerms.empty»
+	«packageProject.project.compile»
+	«IF !packageProject.glossaryTerms.empty»
 	
 	#Glossary
 	------------------
-	«FOR g:model.glossaryTerms»«g.compile»«ENDFOR»«ENDIF»
-	«IF !model.stakeholders.empty»
+	«FOR g:packageProject.glossaryTerms»«g.compile»«ENDFOR»«ENDIF»
+	«IF !packageProject.stakeholders.empty»
 	
 	#Stakeholders
 	------------------
-	«FOR s:model.stakeholders»«s.compile»«ENDFOR»«ENDIF»
-	«IF !model.goals.empty»
+	«FOR s:packageProject.stakeholders»«s.compile»«ENDFOR»«ENDIF»
+	«IF !packageProject.goals.empty»
 	
 	#Goals
 	------------------
-	«FOR g:model.goals»«g.compile»«ENDFOR»«ENDIF»
-	«IF !model.entities.empty»
+	«FOR g:packageProject.goals»«g.compile»«ENDFOR»«ENDIF»
+	«IF !packageProject.packageSystems.empty»
 	
-	#Entities
+	#Systems
 	------------------
-	«FOR e:model.entities»«e.compile»«ENDFOR»«ENDIF»
-	«IF !model.actors.empty»
-	
-	#Actors
-	------------------
-	«FOR a:model.actors»«a.compile»«ENDFOR»«ENDIF»
-	«IF !model.useCases.empty»
-	
-	#Use Cases
-	------------------
-	«FOR u:model.useCases»«u.compile»«ENDFOR»«ENDIF»
-	«IF !model.frs.empty»
-	
-	#Functional Requirements
-	--------------------------
-	«FOR f:model.frs»«f.compile»«ENDFOR»«ENDIF»
-	«IF !model.qrs.empty»
-	
-	#Quality Requirements
-	-----------------------------
-	«FOR n:model.qrs»«n.compile»«ENDFOR»«ENDIF»
-	«IF !model.constraints.empty»
-	
-	#Constraints
-	------------------
-	«FOR c:model.constraints»«c.compile»«ENDFOR»«ENDIF»
+	«FOR s:packageProject.packageSystems»«s.compile»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(Project p)
@@ -97,6 +68,40 @@ class RSLIL2TextGenerator implements IGenerator {
 	«p.name».«p.nameAlias»:
 	«p.description»,
 		«IF p.refSystem != null»HasSystems: «p.refSystem.refSystem.compileRefSystem»«FOR part:p.refSystem.refs», «part.compileRefSystem»«ENDFOR»,«ENDIF»
+	'''
+	
+	def compile(PackageSystem p)
+	'''
+	«IF !p.entities.empty»
+	
+	#Entities
+	------------------
+	«FOR e:p.entities»«e.compile»«ENDFOR»«ENDIF»
+	«IF !p.actors.empty»
+	
+	#Actors
+	------------------
+	«FOR a:p.actors»«a.compile»«ENDFOR»«ENDIF»
+	«IF !p.useCases.empty»
+	
+	#Use Cases
+	------------------
+	«FOR u:p.useCases»«u.compile»«ENDFOR»«ENDIF»
+	«IF !p.frs.empty»
+	
+	#Functional Requirements
+	--------------------------
+	«FOR f:p.frs»«f.compile»«ENDFOR»«ENDIF»
+	«IF !p.qrs.empty»
+	
+	#Quality Requirements
+	-----------------------------
+	«FOR n:p.qrs»«n.compile»«ENDFOR»«ENDIF»
+	«IF !p.constraints.empty»
+	
+	#Constraints
+	------------------
+	«FOR c:p.constraints»«c.compile»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(System s)

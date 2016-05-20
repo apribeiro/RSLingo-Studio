@@ -3,13 +3,13 @@ package rslingo.rslil.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
-import rslingo.rslil.rSLIL.Model
+import rslingo.rslil.rSLIL.PackageProject
 
 class RSLIL2JsonGenerator implements IGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		fsa.generateFile(resource.className +'.json', 		
-			resource.allContents.filter(typeof(Model)).map[compile].join(' ')
+			resource.allContents.filter(typeof(PackageProject)).map[compile].join(' ')
 		)
 	}
 	
@@ -18,9 +18,9 @@ class RSLIL2JsonGenerator implements IGenerator {
 	    return name.substring(0, name.indexOf('.'))
 	}
 	
-	def compile(Model model)
+	def compile(PackageProject packageProject)
 	'''{
-		"name": "«model.project.name»",
+		"name": "«packageProject.project.name»",
 		
 	}
 	'''
