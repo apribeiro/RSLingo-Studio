@@ -47,7 +47,6 @@ import rslingo.rslil.rSLIL.RefUC;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.Step;
-import rslingo.rslil.rSLIL.SystemLevel;
 import rslingo.rslil.rSLIL.TermRelation;
 import rslingo.rslil.rSLIL.TermType;
 import rslingo.rslil.rSLIL.UseCase;
@@ -135,13 +134,6 @@ public class RSLILSwitch<T> extends Switch<T>
         PackageSystem packageSystem = (PackageSystem)theEObject;
         T result = casePackageSystem(packageSystem);
         if (result == null) result = caseModel(packageSystem);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case RSLILPackage.SYSTEM_LEVEL:
-      {
-        SystemLevel systemLevel = (SystemLevel)theEObject;
-        T result = caseSystemLevel(systemLevel);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -473,22 +465,6 @@ public class RSLILSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePackageSystem(PackageSystem object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>System Level</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>System Level</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSystemLevel(SystemLevel object)
   {
     return null;
   }

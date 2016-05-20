@@ -236,22 +236,22 @@ rulePackageProject returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPackageProjectAccess().getSystemLevelSystemLevelParserRuleCall_8_0()); 
+	        newCompositeNode(grammarAccess.getPackageProjectAccess().getPackageSystemsPackageSystemParserRuleCall_8_0()); 
 	    }
-		lv_systemLevel_8_0=ruleSystemLevel		{
+		lv_packageSystems_8_0=rulePackageSystem		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPackageProjectRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"systemLevel",
-        		lv_systemLevel_8_0, 
-        		"SystemLevel");
+       			"packageSystems",
+        		lv_packageSystems_8_0, 
+        		"PackageSystem");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_9='}' 
+)*	otherlv_9='}' 
     {
     	newLeafNode(otherlv_9, grammarAccess.getPackageProjectAccess().getRightCurlyBracketKeyword_9());
     }
@@ -323,83 +323,34 @@ rulePackageSystem returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPackageSystemAccess().getSystemLevelSystemLevelParserRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getPackageSystemAccess().getSystemsSystemParserRuleCall_4_0()); 
 	    }
-		lv_systemLevel_4_0=ruleSystemLevel		{
+		lv_systems_4_0=ruleSystem		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPackageSystemRule());
 	        }
        		set(
        			$current, 
-       			"systemLevel",
-        		lv_systemLevel_4_0, 
-        		"SystemLevel");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)	otherlv_5='}' 
-    {
-    	newLeafNode(otherlv_5, grammarAccess.getPackageSystemAccess().getRightCurlyBracketKeyword_5());
-    }
-)
-;
-
-
-
-
-
-// Entry rule entryRuleSystemLevel
-entryRuleSystemLevel returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getSystemLevelRule()); }
-	 iv_ruleSystemLevel=ruleSystemLevel 
-	 { $current=$iv_ruleSystemLevel.current; } 
-	 EOF 
-;
-
-// Rule SystemLevel
-ruleSystemLevel returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-((
-    {
-        $current = forceCreateModelElement(
-            grammarAccess.getSystemLevelAccess().getSystemLevelAction_0(),
-            $current);
-    }
-)((
-(
-		{ 
-	        newCompositeNode(grammarAccess.getSystemLevelAccess().getSystemsSystemParserRuleCall_1_0_0()); 
-	    }
-		lv_systems_1_0=ruleSystem		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getSystemLevelRule());
-	        }
-       		add(
-       			$current, 
        			"systems",
-        		lv_systems_1_0, 
+        		lv_systems_4_0, 
         		"System");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*(
+)(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSystemLevelAccess().getEntitiesEntityParserRuleCall_1_1_0()); 
+	        newCompositeNode(grammarAccess.getPackageSystemAccess().getEntitiesEntityParserRuleCall_5_0()); 
 	    }
-		lv_entities_2_0=ruleEntity		{
+		lv_entities_5_0=ruleEntity		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getSystemLevelRule());
+	            $current = createModelElementForParent(grammarAccess.getPackageSystemRule());
 	        }
        		add(
        			$current, 
        			"entities",
-        		lv_entities_2_0, 
+        		lv_entities_5_0, 
         		"Entity");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -408,16 +359,16 @@ ruleSystemLevel returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSystemLevelAccess().getActorsActorParserRuleCall_1_2_0()); 
+	        newCompositeNode(grammarAccess.getPackageSystemAccess().getActorsActorParserRuleCall_6_0()); 
 	    }
-		lv_actors_3_0=ruleActor		{
+		lv_actors_6_0=ruleActor		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getSystemLevelRule());
+	            $current = createModelElementForParent(grammarAccess.getPackageSystemRule());
 	        }
        		add(
        			$current, 
        			"actors",
-        		lv_actors_3_0, 
+        		lv_actors_6_0, 
         		"Actor");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -426,16 +377,16 @@ ruleSystemLevel returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSystemLevelAccess().getUseCasesUseCaseParserRuleCall_1_3_0()); 
+	        newCompositeNode(grammarAccess.getPackageSystemAccess().getUseCasesUseCaseParserRuleCall_7_0()); 
 	    }
-		lv_useCases_4_0=ruleUseCase		{
+		lv_useCases_7_0=ruleUseCase		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getSystemLevelRule());
+	            $current = createModelElementForParent(grammarAccess.getPackageSystemRule());
 	        }
        		add(
        			$current, 
        			"useCases",
-        		lv_useCases_4_0, 
+        		lv_useCases_7_0, 
         		"UseCase");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -444,16 +395,16 @@ ruleSystemLevel returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSystemLevelAccess().getFrsFRParserRuleCall_1_4_0()); 
+	        newCompositeNode(grammarAccess.getPackageSystemAccess().getFrsFRParserRuleCall_8_0()); 
 	    }
-		lv_frs_5_0=ruleFR		{
+		lv_frs_8_0=ruleFR		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getSystemLevelRule());
+	            $current = createModelElementForParent(grammarAccess.getPackageSystemRule());
 	        }
        		add(
        			$current, 
        			"frs",
-        		lv_frs_5_0, 
+        		lv_frs_8_0, 
         		"FR");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -462,16 +413,16 @@ ruleSystemLevel returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSystemLevelAccess().getQrsQRParserRuleCall_1_5_0()); 
+	        newCompositeNode(grammarAccess.getPackageSystemAccess().getQrsQRParserRuleCall_9_0()); 
 	    }
-		lv_qrs_6_0=ruleQR		{
+		lv_qrs_9_0=ruleQR		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getSystemLevelRule());
+	            $current = createModelElementForParent(grammarAccess.getPackageSystemRule());
 	        }
        		add(
        			$current, 
        			"qrs",
-        		lv_qrs_6_0, 
+        		lv_qrs_9_0, 
         		"QR");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -480,22 +431,26 @@ ruleSystemLevel returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSystemLevelAccess().getConstraintsConstraintParserRuleCall_1_6_0()); 
+	        newCompositeNode(grammarAccess.getPackageSystemAccess().getConstraintsConstraintParserRuleCall_10_0()); 
 	    }
-		lv_constraints_7_0=ruleConstraint		{
+		lv_constraints_10_0=ruleConstraint		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getSystemLevelRule());
+	            $current = createModelElementForParent(grammarAccess.getPackageSystemRule());
 	        }
        		add(
        			$current, 
        			"constraints",
-        		lv_constraints_7_0, 
+        		lv_constraints_10_0, 
         		"Constraint");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*))
+)*	otherlv_11='}' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getPackageSystemAccess().getRightCurlyBracketKeyword_11());
+    }
+)
 ;
 
 

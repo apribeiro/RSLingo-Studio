@@ -5,8 +5,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
         eType="#//Import" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="systemLevel" eType="#//SystemLevel"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PackageProject" eSuperTypes="#//Model">
     <eStructuralFeatures xsi:type="ecore:EReference" name="project" eType="#//Project"
@@ -17,11 +15,12 @@
         eType="#//Stakeholder" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="goals" upperBound="-1"
         eType="#//Goal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packageSystems" upperBound="-1"
+        eType="#//PackageSystem" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PackageSystem" eSuperTypes="#//Model"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SystemLevel">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="systems" upperBound="-1"
-        eType="#//System" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PackageSystem" eSuperTypes="#//Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systems" eType="#//System"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entities" upperBound="-1"
         eType="#//Entity" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"

@@ -51,7 +51,6 @@ import rslingo.rslil.rSLIL.RefUC;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.Step;
-import rslingo.rslil.rSLIL.SystemLevel;
 import rslingo.rslil.rSLIL.TermRelation;
 import rslingo.rslil.rSLIL.TermType;
 import rslingo.rslil.rSLIL.UseCase;
@@ -111,7 +110,6 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
       case RSLILPackage.MODEL: return createModel();
       case RSLILPackage.PACKAGE_PROJECT: return createPackageProject();
       case RSLILPackage.PACKAGE_SYSTEM: return createPackageSystem();
-      case RSLILPackage.SYSTEM_LEVEL: return createSystemLevel();
       case RSLILPackage.IMPORT: return createImport();
       case RSLILPackage.PROJECT: return createProject();
       case RSLILPackage.SYSTEM: return createSystem();
@@ -188,17 +186,6 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
   {
     PackageSystemImpl packageSystem = new PackageSystemImpl();
     return packageSystem;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SystemLevel createSystemLevel()
-  {
-    SystemLevelImpl systemLevel = new SystemLevelImpl();
-    return systemLevel;
   }
 
   /**

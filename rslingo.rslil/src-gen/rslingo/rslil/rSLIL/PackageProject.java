@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getGlossaryTerms <em>Glossary Terms</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getStakeholders <em>Stakeholders</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getGoals <em>Goals</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getPackageSystems <em>Package Systems</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getPackageProject()
@@ -98,5 +99,21 @@ public interface PackageProject extends Model
    * @generated
    */
   EList<Goal> getGoals();
+
+  /**
+   * Returns the value of the '<em><b>Package Systems</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.PackageSystem}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Package Systems</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Package Systems</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getPackageProject_PackageSystems()
+   * @model containment="true"
+   * @generated
+   */
+  EList<PackageSystem> getPackageSystems();
 
 } // PackageProject

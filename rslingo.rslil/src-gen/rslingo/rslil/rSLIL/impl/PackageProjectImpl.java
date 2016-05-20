@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.PackageProject;
+import rslingo.rslil.rSLIL.PackageSystem;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.Stakeholder;
@@ -36,6 +37,7 @@ import rslingo.rslil.rSLIL.Stakeholder;
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getGlossaryTerms <em>Glossary Terms</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getStakeholders <em>Stakeholders</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getGoals <em>Goals</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getPackageSystems <em>Package Systems</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,6 +83,16 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
    * @ordered
    */
   protected EList<Goal> goals;
+
+  /**
+   * The cached value of the '{@link #getPackageSystems() <em>Package Systems</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPackageSystems()
+   * @generated
+   * @ordered
+   */
+  protected EList<PackageSystem> packageSystems;
 
   /**
    * <!-- begin-user-doc -->
@@ -198,6 +210,20 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<PackageSystem> getPackageSystems()
+  {
+    if (packageSystems == null)
+    {
+      packageSystems = new EObjectContainmentEList<PackageSystem>(PackageSystem.class, this, RSLILPackage.PACKAGE_PROJECT__PACKAGE_SYSTEMS);
+    }
+    return packageSystems;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -211,6 +237,8 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
         return ((InternalEList<?>)getStakeholders()).basicRemove(otherEnd, msgs);
       case RSLILPackage.PACKAGE_PROJECT__GOALS:
         return ((InternalEList<?>)getGoals()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.PACKAGE_PROJECT__PACKAGE_SYSTEMS:
+        return ((InternalEList<?>)getPackageSystems()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -233,6 +261,8 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
         return getStakeholders();
       case RSLILPackage.PACKAGE_PROJECT__GOALS:
         return getGoals();
+      case RSLILPackage.PACKAGE_PROJECT__PACKAGE_SYSTEMS:
+        return getPackageSystems();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -263,6 +293,10 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
         getGoals().clear();
         getGoals().addAll((Collection<? extends Goal>)newValue);
         return;
+      case RSLILPackage.PACKAGE_PROJECT__PACKAGE_SYSTEMS:
+        getPackageSystems().clear();
+        getPackageSystems().addAll((Collection<? extends PackageSystem>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -289,6 +323,9 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
       case RSLILPackage.PACKAGE_PROJECT__GOALS:
         getGoals().clear();
         return;
+      case RSLILPackage.PACKAGE_PROJECT__PACKAGE_SYSTEMS:
+        getPackageSystems().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -311,6 +348,8 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
         return stakeholders != null && !stakeholders.isEmpty();
       case RSLILPackage.PACKAGE_PROJECT__GOALS:
         return goals != null && !goals.isEmpty();
+      case RSLILPackage.PACKAGE_PROJECT__PACKAGE_SYSTEMS:
+        return packageSystems != null && !packageSystems.isEmpty();
     }
     return super.eIsSet(featureID);
   }

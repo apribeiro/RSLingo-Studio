@@ -49,7 +49,6 @@ import rslingo.rslil.rSLIL.RefUC;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.Step;
-import rslingo.rslil.rSLIL.SystemLevel;
 import rslingo.rslil.rSLIL.TermRelation;
 import rslingo.rslil.rSLIL.TermType;
 import rslingo.rslil.rSLIL.UseCase;
@@ -131,11 +130,6 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
       public Adapter casePackageSystem(PackageSystem object)
       {
         return createPackageSystemAdapter();
-      }
-      @Override
-      public Adapter caseSystemLevel(SystemLevel object)
-      {
-        return createSystemLevelAdapter();
       }
       @Override
       public Adapter caseImport(Import object)
@@ -400,21 +394,6 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPackageSystemAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.SystemLevel <em>System Level</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.SystemLevel
-   * @generated
-   */
-  public Adapter createSystemLevelAdapter()
   {
     return null;
   }

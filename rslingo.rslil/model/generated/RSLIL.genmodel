@@ -10,23 +10,22 @@
     <genClasses ecoreClass="RSLIL.ecore#//Model">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Model/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Model/imports"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Model/systemLevel"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//PackageProject">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/project"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/glossaryTerms"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/stakeholders"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/goals"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/packageSystems"/>
     </genClasses>
-    <genClasses ecoreClass="RSLIL.ecore#//PackageSystem"/>
-    <genClasses ecoreClass="RSLIL.ecore#//SystemLevel">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//SystemLevel/systems"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//SystemLevel/entities"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//SystemLevel/actors"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//SystemLevel/useCases"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//SystemLevel/frs"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//SystemLevel/qrs"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//SystemLevel/constraints"/>
+    <genClasses ecoreClass="RSLIL.ecore#//PackageSystem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/systems"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/entities"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/actors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/useCases"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/frs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/qrs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/constraints"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//Import">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Import/importedNamespace"/>

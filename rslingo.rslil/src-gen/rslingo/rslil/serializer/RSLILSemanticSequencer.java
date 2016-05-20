@@ -55,7 +55,6 @@ import rslingo.rslil.rSLIL.RefUC;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.Step;
-import rslingo.rslil.rSLIL.SystemLevel;
 import rslingo.rslil.rSLIL.TermRelation;
 import rslingo.rslil.rSLIL.TermType;
 import rslingo.rslil.rSLIL.UseCase;
@@ -186,9 +185,6 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case RSLILPackage.SYSTEM:
 				sequence_System(context, (rslingo.rslil.rSLIL.System) semanticObject); 
-				return; 
-			case RSLILPackage.SYSTEM_LEVEL:
-				sequence_SystemLevel(context, (SystemLevel) semanticObject); 
 				return; 
 			case RSLILPackage.TERM_RELATION:
 				sequence_TermRelation(context, (TermRelation) semanticObject); 
@@ -486,7 +482,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         glossaryTerms+=GlossaryTerm* 
 	 *         stakeholders+=Stakeholder* 
 	 *         goals+=Goal* 
-	 *         systemLevel=SystemLevel
+	 *         packageSystems+=PackageSystem*
 	 *     )
 	 */
 	protected void sequence_PackageProject(EObject context, PackageProject semanticObject) {
@@ -496,7 +492,17 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (name=QualifiedName imports+=Import* systemLevel=SystemLevel)
+	 *     (
+	 *         name=QualifiedName 
+	 *         imports+=Import* 
+	 *         systems=System 
+	 *         entities+=Entity* 
+	 *         actors+=Actor* 
+	 *         useCases+=UseCase* 
+	 *         frs+=FR* 
+	 *         qrs+=QR* 
+	 *         constraints+=Constraint*
+	 *     )
 	 */
 	protected void sequence_PackageSystem(EObject context, PackageSystem semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -742,23 +748,6 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     )
 	 */
 	protected void sequence_Step(EObject context, Step semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (
-	 *         systems+=System* 
-	 *         entities+=Entity* 
-	 *         actors+=Actor* 
-	 *         useCases+=UseCase* 
-	 *         frs+=FR* 
-	 *         qrs+=QR* 
-	 *         constraints+=Constraint*
-	 *     )
-	 */
-	protected void sequence_SystemLevel(EObject context, SystemLevel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

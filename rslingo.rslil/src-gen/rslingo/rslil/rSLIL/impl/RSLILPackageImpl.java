@@ -48,7 +48,6 @@ import rslingo.rslil.rSLIL.RefUC;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.Step;
-import rslingo.rslil.rSLIL.SystemLevel;
 import rslingo.rslil.rSLIL.TermRelation;
 import rslingo.rslil.rSLIL.TermType;
 import rslingo.rslil.rSLIL.UseCase;
@@ -81,13 +80,6 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * @generated
    */
   private EClass packageSystemEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass systemLevelEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -467,16 +459,6 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_SystemLevel()
-  {
-    return (EReference)modelEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getPackageProject()
   {
     return packageProjectEClass;
@@ -527,6 +509,16 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getPackageProject_PackageSystems()
+  {
+    return (EReference)packageProjectEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPackageSystem()
   {
     return packageSystemEClass;
@@ -537,9 +529,9 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSystemLevel()
+  public EReference getPackageSystem_Systems()
   {
-    return systemLevelEClass;
+    return (EReference)packageSystemEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -547,9 +539,9 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSystemLevel_Systems()
+  public EReference getPackageSystem_Entities()
   {
-    return (EReference)systemLevelEClass.getEStructuralFeatures().get(0);
+    return (EReference)packageSystemEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -557,9 +549,9 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSystemLevel_Entities()
+  public EReference getPackageSystem_Actors()
   {
-    return (EReference)systemLevelEClass.getEStructuralFeatures().get(1);
+    return (EReference)packageSystemEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -567,9 +559,9 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSystemLevel_Actors()
+  public EReference getPackageSystem_UseCases()
   {
-    return (EReference)systemLevelEClass.getEStructuralFeatures().get(2);
+    return (EReference)packageSystemEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -577,9 +569,9 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSystemLevel_UseCases()
+  public EReference getPackageSystem_Frs()
   {
-    return (EReference)systemLevelEClass.getEStructuralFeatures().get(3);
+    return (EReference)packageSystemEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -587,9 +579,9 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSystemLevel_Frs()
+  public EReference getPackageSystem_Qrs()
   {
-    return (EReference)systemLevelEClass.getEStructuralFeatures().get(4);
+    return (EReference)packageSystemEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -597,19 +589,9 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSystemLevel_Qrs()
+  public EReference getPackageSystem_Constraints()
   {
-    return (EReference)systemLevelEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSystemLevel_Constraints()
-  {
-    return (EReference)systemLevelEClass.getEStructuralFeatures().get(6);
+    return (EReference)packageSystemEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -2635,24 +2617,22 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     modelEClass = createEClass(MODEL);
     createEAttribute(modelEClass, MODEL__NAME);
     createEReference(modelEClass, MODEL__IMPORTS);
-    createEReference(modelEClass, MODEL__SYSTEM_LEVEL);
 
     packageProjectEClass = createEClass(PACKAGE_PROJECT);
     createEReference(packageProjectEClass, PACKAGE_PROJECT__PROJECT);
     createEReference(packageProjectEClass, PACKAGE_PROJECT__GLOSSARY_TERMS);
     createEReference(packageProjectEClass, PACKAGE_PROJECT__STAKEHOLDERS);
     createEReference(packageProjectEClass, PACKAGE_PROJECT__GOALS);
+    createEReference(packageProjectEClass, PACKAGE_PROJECT__PACKAGE_SYSTEMS);
 
     packageSystemEClass = createEClass(PACKAGE_SYSTEM);
-
-    systemLevelEClass = createEClass(SYSTEM_LEVEL);
-    createEReference(systemLevelEClass, SYSTEM_LEVEL__SYSTEMS);
-    createEReference(systemLevelEClass, SYSTEM_LEVEL__ENTITIES);
-    createEReference(systemLevelEClass, SYSTEM_LEVEL__ACTORS);
-    createEReference(systemLevelEClass, SYSTEM_LEVEL__USE_CASES);
-    createEReference(systemLevelEClass, SYSTEM_LEVEL__FRS);
-    createEReference(systemLevelEClass, SYSTEM_LEVEL__QRS);
-    createEReference(systemLevelEClass, SYSTEM_LEVEL__CONSTRAINTS);
+    createEReference(packageSystemEClass, PACKAGE_SYSTEM__SYSTEMS);
+    createEReference(packageSystemEClass, PACKAGE_SYSTEM__ENTITIES);
+    createEReference(packageSystemEClass, PACKAGE_SYSTEM__ACTORS);
+    createEReference(packageSystemEClass, PACKAGE_SYSTEM__USE_CASES);
+    createEReference(packageSystemEClass, PACKAGE_SYSTEM__FRS);
+    createEReference(packageSystemEClass, PACKAGE_SYSTEM__QRS);
+    createEReference(packageSystemEClass, PACKAGE_SYSTEM__CONSTRAINTS);
 
     importEClass = createEClass(IMPORT);
     createEAttribute(importEClass, IMPORT__IMPORTED_NAMESPACE);
@@ -2930,24 +2910,22 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Imports(), this.getImport(), null, "imports", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModel_SystemLevel(), this.getSystemLevel(), null, "systemLevel", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(packageProjectEClass, PackageProject.class, "PackageProject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPackageProject_Project(), this.getProject(), null, "project", null, 0, 1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageProject_GlossaryTerms(), this.getGlossaryTerm(), null, "glossaryTerms", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageProject_Stakeholders(), this.getStakeholder(), null, "stakeholders", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageProject_Goals(), this.getGoal(), null, "goals", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackageProject_PackageSystems(), this.getPackageSystem(), null, "packageSystems", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(packageSystemEClass, PackageSystem.class, "PackageSystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(systemLevelEClass, SystemLevel.class, "SystemLevel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSystemLevel_Systems(), this.getSystem(), null, "systems", null, 0, -1, SystemLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSystemLevel_Entities(), this.getEntity(), null, "entities", null, 0, -1, SystemLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSystemLevel_Actors(), this.getActor(), null, "actors", null, 0, -1, SystemLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSystemLevel_UseCases(), this.getUseCase(), null, "useCases", null, 0, -1, SystemLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSystemLevel_Frs(), this.getFR(), null, "frs", null, 0, -1, SystemLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSystemLevel_Qrs(), this.getQR(), null, "qrs", null, 0, -1, SystemLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSystemLevel_Constraints(), this.getConstraint(), null, "constraints", null, 0, -1, SystemLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackageSystem_Systems(), this.getSystem(), null, "systems", null, 0, 1, PackageSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackageSystem_Entities(), this.getEntity(), null, "entities", null, 0, -1, PackageSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackageSystem_Actors(), this.getActor(), null, "actors", null, 0, -1, PackageSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackageSystem_UseCases(), this.getUseCase(), null, "useCases", null, 0, -1, PackageSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackageSystem_Frs(), this.getFR(), null, "frs", null, 0, -1, PackageSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackageSystem_Qrs(), this.getQR(), null, "qrs", null, 0, -1, PackageSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackageSystem_Constraints(), this.getConstraint(), null, "constraints", null, 0, -1, PackageSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

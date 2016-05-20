@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import rslingo.rslil.rSLIL.Import;
 import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.SystemLevel;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +32,6 @@ import rslingo.rslil.rSLIL.SystemLevel;
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getImports <em>Imports</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getSystemLevel <em>System Level</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,16 +67,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @ordered
    */
   protected EList<Import> imports;
-
-  /**
-   * The cached value of the '{@link #getSystemLevel() <em>System Level</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSystemLevel()
-   * @generated
-   * @ordered
-   */
-  protected SystemLevel systemLevel;
 
   /**
    * <!-- begin-user-doc -->
@@ -143,54 +131,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public SystemLevel getSystemLevel()
-  {
-    return systemLevel;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetSystemLevel(SystemLevel newSystemLevel, NotificationChain msgs)
-  {
-    SystemLevel oldSystemLevel = systemLevel;
-    systemLevel = newSystemLevel;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.MODEL__SYSTEM_LEVEL, oldSystemLevel, newSystemLevel);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setSystemLevel(SystemLevel newSystemLevel)
-  {
-    if (newSystemLevel != systemLevel)
-    {
-      NotificationChain msgs = null;
-      if (systemLevel != null)
-        msgs = ((InternalEObject)systemLevel).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.MODEL__SYSTEM_LEVEL, null, msgs);
-      if (newSystemLevel != null)
-        msgs = ((InternalEObject)newSystemLevel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.MODEL__SYSTEM_LEVEL, null, msgs);
-      msgs = basicSetSystemLevel(newSystemLevel, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.MODEL__SYSTEM_LEVEL, newSystemLevel, newSystemLevel));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -198,8 +138,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case RSLILPackage.MODEL__IMPORTS:
         return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
-      case RSLILPackage.MODEL__SYSTEM_LEVEL:
-        return basicSetSystemLevel(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -218,8 +156,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return getName();
       case RSLILPackage.MODEL__IMPORTS:
         return getImports();
-      case RSLILPackage.MODEL__SYSTEM_LEVEL:
-        return getSystemLevel();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -242,9 +178,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         getImports().clear();
         getImports().addAll((Collection<? extends Import>)newValue);
         return;
-      case RSLILPackage.MODEL__SYSTEM_LEVEL:
-        setSystemLevel((SystemLevel)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -265,9 +198,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case RSLILPackage.MODEL__IMPORTS:
         getImports().clear();
         return;
-      case RSLILPackage.MODEL__SYSTEM_LEVEL:
-        setSystemLevel((SystemLevel)null);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -286,8 +216,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case RSLILPackage.MODEL__IMPORTS:
         return imports != null && !imports.isEmpty();
-      case RSLILPackage.MODEL__SYSTEM_LEVEL:
-        return systemLevel != null;
     }
     return super.eIsSet(featureID);
   }
