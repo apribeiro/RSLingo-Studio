@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>rslingo.studio</groupId>
-	<artifactId>rslingo.studio.tycho</artifactId>
+	<groupId>rslingo.rslil</groupId>
+	<artifactId>rslingo.rslil.tycho</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>../rslingo.studio.targetplatform</module>
-		<module>../rslingo.studio.ide.feature</module>
+		<module>../rslingo.rslil.targetplatform</module>
+		<module>../rslingo.rslil.ide.feature</module>
 	</modules>
 
 	<properties>
@@ -24,7 +24,7 @@
 		<!-- since this is used in the pluginManagement section, we need to make sure
 			the path always points to this pom's directory; project.basedir will always point
 			to the directory of the pom where the pluginManagement's plugins are used -->
-		<ant-files-path>${project.basedir}/../rslingo.studio.tycho/ant</ant-files-path>
+		<ant-files-path>${project.basedir}/../rslingo.rslil.tycho/ant</ant-files-path>
 
 		<!-- the subdirectory for the composite update site -->
 		<updates.dir>rslingostudio</updates.dir>
@@ -71,7 +71,7 @@
 			</properties>
 
 			<modules>
-				<module>../rslingo.studio.ide.site</module>
+				<module>../rslingo.rslil.ide.site</module>
 			</modules>
 			
 			<build>
@@ -84,8 +84,8 @@
 						<configuration>
 							<target>
 								<artifact>
-									<groupId>rslingo.studio</groupId>
-									<artifactId>rslingo.studio.targetplatform</artifactId>
+									<groupId>rslingo.rslil</groupId>
+									<artifactId>rslingo.rslil.targetplatform</artifactId>
 									<version>${project.version}</version>
 									<classifier>${target-file-name}</classifier>
 								</artifact>
@@ -184,8 +184,8 @@
 				<configuration>
 					<target>
 						<artifact>
-							<groupId>rslingo.studio</groupId>
-							<artifactId>rslingo.studio.targetplatform</artifactId>
+							<groupId>rslingo.rslil</groupId>
+							<artifactId>rslingo.rslil.targetplatform</artifactId>
 							<version>${project.version}</version>
 							<classifier>${target-file-name}</classifier>
 						</artifact>

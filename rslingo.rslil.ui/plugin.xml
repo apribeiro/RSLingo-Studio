@@ -620,7 +620,7 @@
 			category="RSLingo"
 			class="rslingo.rslil.ui.wizards.NewRSLILWizard"
 			finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
-			id="rslingo.rslil.ui.wizards.NewRSLIL4PrivacyWizard">
+			id="rslingo.rslil.ui.wizards.NewRSLILWizard">
 		</wizard>
 		<wizard
 			name="RSLingo Project"

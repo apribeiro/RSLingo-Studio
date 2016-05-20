@@ -3,13 +3,13 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<relativePath>../rslingo.studio.tycho/pom.xml</relativePath>
-		<groupId>rslingo.studio</groupId>
-		<artifactId>rslingo.studio.tycho</artifactId>
+		<relativePath>../rslingo.rslil.tycho/pom.xml</relativePath>
+		<groupId>rslingo.rslil</groupId>
+		<artifactId>rslingo.rslil.tycho</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>rslingo.studio.targetplatform</artifactId>
+	<artifactId>rslingo.rslil.targetplatform</artifactId>
 	<packaging>pom</packaging>
 
 	<build>

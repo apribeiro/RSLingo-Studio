@@ -11,7 +11,7 @@
 	<property name="product.profile" 
 		value="RSLingoStudio" />
 	<property name="install.features" 
-		value="rslingo.studio.ide" />
+		value="rslingo.rslil.ide" />
 		
 	<property name="director.install.dest" location="${user.home}" />
 	<property name="director.dir" location="${director.install.dest}/director" />

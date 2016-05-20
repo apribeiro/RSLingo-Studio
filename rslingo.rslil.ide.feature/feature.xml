@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="rslingo.studio.ide.feature"
+      id="rslingo.rslil.ide.feature"
       label="RSLingo Studio Project SDK"
       version="1.0.0.qualifier"
       provider-name="André Ribeiro">
