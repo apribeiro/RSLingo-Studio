@@ -311,18 +311,14 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDescriptionKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cDescriptionAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cDescriptionSTRINGTerminalRuleCall_5_0 = (RuleCall)cDescriptionAssignment_5.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cHasSystemsKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cRefSystemAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cRefSystemRefSystemParserRuleCall_6_1_0 = (RuleCall)cRefSystemAssignment_6_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Project:
-		//	"Project" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING ("HasSystems" refSystem=RefSystem)?
+		//	"Project" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING //		('HasSystems' refSystem=RefSystem)?
 		//	"}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Project" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING ("HasSystems" refSystem=RefSystem)?
+		//"Project" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING //		('HasSystems' refSystem=RefSystem)?
 		//"}"
 		public Group getGroup() { return cGroup; }
 
@@ -359,20 +355,9 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getDescriptionSTRINGTerminalRuleCall_5_0() { return cDescriptionSTRINGTerminalRuleCall_5_0; }
 
-		//("HasSystems" refSystem=RefSystem)?
-		public Group getGroup_6() { return cGroup_6; }
-
-		//"HasSystems"
-		public Keyword getHasSystemsKeyword_6_0() { return cHasSystemsKeyword_6_0; }
-
-		//refSystem=RefSystem
-		public Assignment getRefSystemAssignment_6_1() { return cRefSystemAssignment_6_1; }
-
-		//RefSystem
-		public RuleCall getRefSystemRefSystemParserRuleCall_6_1_0() { return cRefSystemRefSystemParserRuleCall_6_1_0; }
-
+		////		('HasSystems' refSystem=RefSystem)?
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 
 	public class SystemElements extends AbstractParserRuleElementFinder {
@@ -390,18 +375,24 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDescriptionKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cDescriptionAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
 		private final RuleCall cDescriptionSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cDescriptionAssignment_4_1.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cPartOfKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cPartOfAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final CrossReference cPartOfSystemCrossReference_5_1_0 = (CrossReference)cPartOfAssignment_5_1.eContents().get(0);
-		private final RuleCall cPartOfSystemIDTerminalRuleCall_5_1_0_1 = (RuleCall)cPartOfSystemCrossReference_5_1_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cProjectKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cProjectAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final CrossReference cProjectProjectCrossReference_6_0 = (CrossReference)cProjectAssignment_6.eContents().get(0);
+		private final RuleCall cProjectProjectIDTerminalRuleCall_6_0_1 = (RuleCall)cProjectProjectCrossReference_6_0.eContents().get(1);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cPartOfKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cPartOfAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final CrossReference cPartOfSystemCrossReference_7_1_0 = (CrossReference)cPartOfAssignment_7_1.eContents().get(0);
+		private final RuleCall cPartOfSystemIDTerminalRuleCall_7_1_0_1 = (RuleCall)cPartOfSystemCrossReference_7_1_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//System:
-		//	"System" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? ("PartOf" partOf=[System])? "}";
+		//	"System" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Project" project=[Project]
+		//	("PartOf" partOf=[System])? "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"System" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? ("PartOf" partOf=[System])? "}"
+		//"System" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Project" project=[Project]
+		//("PartOf" partOf=[System])? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"System"
@@ -440,23 +431,35 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getDescriptionSTRINGTerminalRuleCall_4_1_0() { return cDescriptionSTRINGTerminalRuleCall_4_1_0; }
 
-		//("PartOf" partOf=[System])?
-		public Group getGroup_5() { return cGroup_5; }
+		//"Project"
+		public Keyword getProjectKeyword_5() { return cProjectKeyword_5; }
 
-		//"PartOf"
-		public Keyword getPartOfKeyword_5_0() { return cPartOfKeyword_5_0; }
+		//project=[Project]
+		public Assignment getProjectAssignment_6() { return cProjectAssignment_6; }
 
-		//partOf=[System]
-		public Assignment getPartOfAssignment_5_1() { return cPartOfAssignment_5_1; }
-
-		//[System]
-		public CrossReference getPartOfSystemCrossReference_5_1_0() { return cPartOfSystemCrossReference_5_1_0; }
+		//[Project]
+		public CrossReference getProjectProjectCrossReference_6_0() { return cProjectProjectCrossReference_6_0; }
 
 		//ID
-		public RuleCall getPartOfSystemIDTerminalRuleCall_5_1_0_1() { return cPartOfSystemIDTerminalRuleCall_5_1_0_1; }
+		public RuleCall getProjectProjectIDTerminalRuleCall_6_0_1() { return cProjectProjectIDTerminalRuleCall_6_0_1; }
+
+		//("PartOf" partOf=[System])?
+		public Group getGroup_7() { return cGroup_7; }
+
+		//"PartOf"
+		public Keyword getPartOfKeyword_7_0() { return cPartOfKeyword_7_0; }
+
+		//partOf=[System]
+		public Assignment getPartOfAssignment_7_1() { return cPartOfAssignment_7_1; }
+
+		//[System]
+		public CrossReference getPartOfSystemCrossReference_7_1_0() { return cPartOfSystemCrossReference_7_1_0; }
+
+		//ID
+		public RuleCall getPartOfSystemIDTerminalRuleCall_7_1_0_1() { return cPartOfSystemIDTerminalRuleCall_7_1_0_1; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 
 	public class RefSystemElements extends AbstractParserRuleElementFinder {
@@ -3781,7 +3784,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Project:
-	//	"Project" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING ("HasSystems" refSystem=RefSystem)?
+	//	"Project" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING //		('HasSystems' refSystem=RefSystem)?
 	//	"}";
 	public ProjectElements getProjectAccess() {
 		return pProject;
@@ -3792,7 +3795,8 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//System:
-	//	"System" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? ("PartOf" partOf=[System])? "}";
+	//	"System" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Project" project=[Project]
+	//	("PartOf" partOf=[System])? "}";
 	public SystemElements getSystemAccess() {
 		return pSystem;
 	}

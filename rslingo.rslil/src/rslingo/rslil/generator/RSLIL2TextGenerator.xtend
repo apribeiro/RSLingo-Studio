@@ -66,8 +66,7 @@ class RSLIL2TextGenerator implements IGenerator {
 	def compile(Project p)
 	'''
 	«p.name».«p.nameAlias»:
-	«p.description»,
-		«IF p.refSystem != null»HasSystems: «p.refSystem.refSystem.compileRefSystem»«FOR part:p.refSystem.refs», «part.compileRefSystem»«ENDFOR»,«ENDIF»
+	«p.description»
 	'''
 	
 	def compile(PackageSystem p)

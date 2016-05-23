@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
 
 /**
@@ -23,6 +24,7 @@ import rslingo.rslil.rSLIL.RSLILPackage;
  *   <li>{@link rslingo.rslil.rSLIL.impl.SystemImpl#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.SystemImpl#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.SystemImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.SystemImpl#getProject <em>Project</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.SystemImpl#getPartOf <em>Part Of</em>}</li>
  * </ul>
  *
@@ -89,6 +91,16 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
    * @ordered
    */
   protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getProject() <em>Project</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProject()
+   * @generated
+   * @ordered
+   */
+  protected Project project;
 
   /**
    * The cached value of the '{@link #getPartOf() <em>Part Of</em>}' reference.
@@ -195,6 +207,49 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
    * <!-- end-user-doc -->
    * @generated
    */
+  public Project getProject()
+  {
+    if (project != null && project.eIsProxy())
+    {
+      InternalEObject oldProject = (InternalEObject)project;
+      project = (Project)eResolveProxy(oldProject);
+      if (project != oldProject)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.SYSTEM__PROJECT, oldProject, project));
+      }
+    }
+    return project;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Project basicGetProject()
+  {
+    return project;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setProject(Project newProject)
+  {
+    Project oldProject = project;
+    project = newProject;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.SYSTEM__PROJECT, oldProject, project));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public rslingo.rslil.rSLIL.System getPartOf()
   {
     if (partOf != null && partOf.eIsProxy())
@@ -249,6 +304,9 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
         return getNameAlias();
       case RSLILPackage.SYSTEM__DESCRIPTION:
         return getDescription();
+      case RSLILPackage.SYSTEM__PROJECT:
+        if (resolve) return getProject();
+        return basicGetProject();
       case RSLILPackage.SYSTEM__PART_OF:
         if (resolve) return getPartOf();
         return basicGetPartOf();
@@ -274,6 +332,9 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
         return;
       case RSLILPackage.SYSTEM__DESCRIPTION:
         setDescription((String)newValue);
+        return;
+      case RSLILPackage.SYSTEM__PROJECT:
+        setProject((Project)newValue);
         return;
       case RSLILPackage.SYSTEM__PART_OF:
         setPartOf((rslingo.rslil.rSLIL.System)newValue);
@@ -301,6 +362,9 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
       case RSLILPackage.SYSTEM__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
+      case RSLILPackage.SYSTEM__PROJECT:
+        setProject((Project)null);
+        return;
       case RSLILPackage.SYSTEM__PART_OF:
         setPartOf((rslingo.rslil.rSLIL.System)null);
         return;
@@ -324,6 +388,8 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
         return NAME_ALIAS_EDEFAULT == null ? nameAlias != null : !NAME_ALIAS_EDEFAULT.equals(nameAlias);
       case RSLILPackage.SYSTEM__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+      case RSLILPackage.SYSTEM__PROJECT:
+        return project != null;
       case RSLILPackage.SYSTEM__PART_OF:
         return partOf != null;
     }

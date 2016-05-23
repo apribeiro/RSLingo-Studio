@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.Project#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Project#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Project#getDescription <em>Description</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Project#getRefSystem <em>Ref System</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getProject()
@@ -102,31 +101,5 @@ public interface Project extends EObject
    * @generated
    */
   void setDescription(String value);
-
-  /**
-   * Returns the value of the '<em><b>Ref System</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Ref System</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Ref System</em>' containment reference.
-   * @see #setRefSystem(RefSystem)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getProject_RefSystem()
-   * @model containment="true"
-   * @generated
-   */
-  RefSystem getRefSystem();
-
-  /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Project#getRefSystem <em>Ref System</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Ref System</em>' containment reference.
-   * @see #getRefSystem()
-   * @generated
-   */
-  void setRefSystem(RefSystem value);
 
 } // Project

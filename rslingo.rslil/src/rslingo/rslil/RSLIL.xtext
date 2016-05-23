@@ -43,13 +43,14 @@ Project:
 	'Project' name=ID '{'
 		('Name' nameAlias=STRING)?
 		'Description' description=STRING
-		('HasSystems' refSystem=RefSystem)?
+//		('HasSystems' refSystem=RefSystem)?
 	'}';
 
 System:
 	'System' name=ID '{'
 		('Name' nameAlias=STRING)?
 		('Description' description=STRING)?
+		'Project' project=[Project]
 		('PartOf' partOf=[System])?
 	'}';
 

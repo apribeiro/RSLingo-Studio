@@ -536,7 +536,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (name=ID nameAlias=STRING? description=STRING refSystem=RefSystem?)
+	 *     (name=ID nameAlias=STRING? description=STRING)
 	 */
 	protected void sequence_Project(EObject context, Project semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -754,7 +754,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (name=ID nameAlias=STRING? description=STRING? partOf=[System|ID]?)
+	 *     (name=ID nameAlias=STRING? description=STRING? project=[Project|ID] partOf=[System|ID]?)
 	 */
 	protected void sequence_System(EObject context, rslingo.rslil.rSLIL.System semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

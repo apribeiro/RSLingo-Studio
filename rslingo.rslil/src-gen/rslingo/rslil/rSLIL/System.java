@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.System#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.System#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.System#getDescription <em>Description</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.System#getProject <em>Project</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.System#getPartOf <em>Part Of</em>}</li>
  * </ul>
  *
@@ -102,6 +103,32 @@ public interface System extends EObject
    * @generated
    */
   void setDescription(String value);
+
+  /**
+   * Returns the value of the '<em><b>Project</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Project</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Project</em>' reference.
+   * @see #setProject(Project)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getSystem_Project()
+   * @model
+   * @generated
+   */
+  Project getProject();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.System#getProject <em>Project</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Project</em>' reference.
+   * @see #getProject()
+   * @generated
+   */
+  void setProject(Project value);
 
   /**
    * Returns the value of the '<em><b>Part Of</b></em>' reference.

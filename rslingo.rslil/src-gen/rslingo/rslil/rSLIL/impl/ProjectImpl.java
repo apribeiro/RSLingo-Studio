@@ -3,17 +3,14 @@
 package rslingo.rslil.rSLIL.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.RefSystem;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +23,6 @@ import rslingo.rslil.rSLIL.RefSystem;
  *   <li>{@link rslingo.rslil.rSLIL.impl.ProjectImpl#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ProjectImpl#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ProjectImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ProjectImpl#getRefSystem <em>Ref System</em>}</li>
  * </ul>
  *
  * @generated
@@ -92,16 +88,6 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
    * @ordered
    */
   protected String description = DESCRIPTION_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getRefSystem() <em>Ref System</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRefSystem()
-   * @generated
-   * @ordered
-   */
-  protected RefSystem refSystem;
 
   /**
    * <!-- begin-user-doc -->
@@ -198,70 +184,6 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
    * <!-- end-user-doc -->
    * @generated
    */
-  public RefSystem getRefSystem()
-  {
-    return refSystem;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetRefSystem(RefSystem newRefSystem, NotificationChain msgs)
-  {
-    RefSystem oldRefSystem = refSystem;
-    refSystem = newRefSystem;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.PROJECT__REF_SYSTEM, oldRefSystem, newRefSystem);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRefSystem(RefSystem newRefSystem)
-  {
-    if (newRefSystem != refSystem)
-    {
-      NotificationChain msgs = null;
-      if (refSystem != null)
-        msgs = ((InternalEObject)refSystem).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.PROJECT__REF_SYSTEM, null, msgs);
-      if (newRefSystem != null)
-        msgs = ((InternalEObject)newRefSystem).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.PROJECT__REF_SYSTEM, null, msgs);
-      msgs = basicSetRefSystem(newRefSystem, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.PROJECT__REF_SYSTEM, newRefSystem, newRefSystem));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case RSLILPackage.PROJECT__REF_SYSTEM:
-        return basicSetRefSystem(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -273,8 +195,6 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
         return getNameAlias();
       case RSLILPackage.PROJECT__DESCRIPTION:
         return getDescription();
-      case RSLILPackage.PROJECT__REF_SYSTEM:
-        return getRefSystem();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -297,9 +217,6 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
         return;
       case RSLILPackage.PROJECT__DESCRIPTION:
         setDescription((String)newValue);
-        return;
-      case RSLILPackage.PROJECT__REF_SYSTEM:
-        setRefSystem((RefSystem)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -324,9 +241,6 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
       case RSLILPackage.PROJECT__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case RSLILPackage.PROJECT__REF_SYSTEM:
-        setRefSystem((RefSystem)null);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -347,8 +261,6 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
         return NAME_ALIAS_EDEFAULT == null ? nameAlias != null : !NAME_ALIAS_EDEFAULT.equals(nameAlias);
       case RSLILPackage.PROJECT__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case RSLILPackage.PROJECT__REF_SYSTEM:
-        return refSystem != null;
     }
     return super.eIsSet(featureID);
   }

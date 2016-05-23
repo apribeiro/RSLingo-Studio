@@ -341,22 +341,13 @@ public interface RSLILPackage extends EPackage
   int PROJECT__DESCRIPTION = 2;
 
   /**
-   * The feature id for the '<em><b>Ref System</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PROJECT__REF_SYSTEM = 3;
-
-  /**
    * The number of structural features of the '<em>Project</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROJECT_FEATURE_COUNT = 4;
+  int PROJECT_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.SystemImpl <em>System</em>}' class.
@@ -396,13 +387,22 @@ public interface RSLILPackage extends EPackage
   int SYSTEM__DESCRIPTION = 2;
 
   /**
+   * The feature id for the '<em><b>Project</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYSTEM__PROJECT = 3;
+
+  /**
    * The feature id for the '<em><b>Part Of</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SYSTEM__PART_OF = 3;
+  int SYSTEM__PART_OF = 4;
 
   /**
    * The number of structural features of the '<em>System</em>' class.
@@ -411,7 +411,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SYSTEM_FEATURE_COUNT = 4;
+  int SYSTEM_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.RefSystemImpl <em>Ref System</em>}' class.
@@ -2716,17 +2716,6 @@ public interface RSLILPackage extends EPackage
   EAttribute getProject_Description();
 
   /**
-   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Project#getRefSystem <em>Ref System</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Ref System</em>'.
-   * @see rslingo.rslil.rSLIL.Project#getRefSystem()
-   * @see #getProject()
-   * @generated
-   */
-  EReference getProject_RefSystem();
-
-  /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.System <em>System</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2768,6 +2757,17 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EAttribute getSystem_Description();
+
+  /**
+   * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.System#getProject <em>Project</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Project</em>'.
+   * @see rslingo.rslil.rSLIL.System#getProject()
+   * @see #getSystem()
+   * @generated
+   */
+  EReference getSystem_Project();
 
   /**
    * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.System#getPartOf <em>Part Of</em>}'.
@@ -5018,14 +5018,6 @@ public interface RSLILPackage extends EPackage
     EAttribute PROJECT__DESCRIPTION = eINSTANCE.getProject_Description();
 
     /**
-     * The meta object literal for the '<em><b>Ref System</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PROJECT__REF_SYSTEM = eINSTANCE.getProject_RefSystem();
-
-    /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.SystemImpl <em>System</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5058,6 +5050,14 @@ public interface RSLILPackage extends EPackage
      * @generated
      */
     EAttribute SYSTEM__DESCRIPTION = eINSTANCE.getSystem_Description();
+
+    /**
+     * The meta object literal for the '<em><b>Project</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SYSTEM__PROJECT = eINSTANCE.getSystem_Project();
 
     /**
      * The meta object literal for the '<em><b>Part Of</b></em>' reference feature.
