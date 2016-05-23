@@ -1223,7 +1223,7 @@ public class RSLIL2TextGenerator implements IGenerator {
     return _builder;
   }
   
-  public CharSequence compile(final /* Step */Object s) {
+  public CharSequence compile(final Step s) {
     StringConcatenation _builder = new StringConcatenation();
     return _builder;
   }

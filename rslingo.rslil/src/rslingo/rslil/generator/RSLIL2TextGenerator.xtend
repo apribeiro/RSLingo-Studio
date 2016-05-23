@@ -29,6 +29,7 @@ import rslingo.rslil.rSLIL.RefFR
 import rslingo.rslil.rSLIL.RefActor
 import rslingo.rslil.rSLIL.Scenario
 import rslingo.rslil.rSLIL.RefUC
+import rslingo.rslil.rSLIL.Step
 
 /**
  * Generates code from your model files on save.
