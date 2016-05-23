@@ -323,16 +323,16 @@ rulePackageSystem returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPackageSystemAccess().getSystemsSystemParserRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getPackageSystemAccess().getSystemSystemParserRuleCall_4_0()); 
 	    }
-		lv_systems_4_0=ruleSystem		{
+		lv_system_4_0=ruleSystem		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPackageSystemRule());
 	        }
        		set(
        			$current, 
-       			"systems",
-        		lv_systems_4_0, 
+       			"system",
+        		lv_system_4_0, 
         		"System");
 	        afterParserOrEnumRuleCall();
 	    }

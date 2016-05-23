@@ -19,7 +19,7 @@
         eType="#//PackageSystem" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PackageSystem" eSuperTypes="#//Model">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="systems" eType="#//System"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="system" eType="#//System"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entities" upperBound="-1"
         eType="#//Entity" containment="true"/>

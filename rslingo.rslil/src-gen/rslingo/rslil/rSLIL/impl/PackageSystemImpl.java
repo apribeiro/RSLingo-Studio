@@ -34,7 +34,7 @@ import rslingo.rslil.rSLIL.UseCase;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.impl.PackageSystemImpl#getSystems <em>Systems</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.PackageSystemImpl#getSystem <em>System</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageSystemImpl#getEntities <em>Entities</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageSystemImpl#getActors <em>Actors</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageSystemImpl#getUseCases <em>Use Cases</em>}</li>
@@ -48,14 +48,14 @@ import rslingo.rslil.rSLIL.UseCase;
 public class PackageSystemImpl extends ModelImpl implements PackageSystem
 {
   /**
-   * The cached value of the '{@link #getSystems() <em>Systems</em>}' containment reference.
+   * The cached value of the '{@link #getSystem() <em>System</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSystems()
+   * @see #getSystem()
    * @generated
    * @ordered
    */
-  protected rslingo.rslil.rSLIL.System systems;
+  protected rslingo.rslil.rSLIL.System system;
 
   /**
    * The cached value of the '{@link #getEntities() <em>Entities</em>}' containment reference list.
@@ -143,9 +143,9 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
    * <!-- end-user-doc -->
    * @generated
    */
-  public rslingo.rslil.rSLIL.System getSystems()
+  public rslingo.rslil.rSLIL.System getSystem()
   {
-    return systems;
+    return system;
   }
 
   /**
@@ -153,13 +153,13 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetSystems(rslingo.rslil.rSLIL.System newSystems, NotificationChain msgs)
+  public NotificationChain basicSetSystem(rslingo.rslil.rSLIL.System newSystem, NotificationChain msgs)
   {
-    rslingo.rslil.rSLIL.System oldSystems = systems;
-    systems = newSystems;
+    rslingo.rslil.rSLIL.System oldSystem = system;
+    system = newSystem;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.PACKAGE_SYSTEM__SYSTEMS, oldSystems, newSystems);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.PACKAGE_SYSTEM__SYSTEM, oldSystem, newSystem);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -170,20 +170,20 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSystems(rslingo.rslil.rSLIL.System newSystems)
+  public void setSystem(rslingo.rslil.rSLIL.System newSystem)
   {
-    if (newSystems != systems)
+    if (newSystem != system)
     {
       NotificationChain msgs = null;
-      if (systems != null)
-        msgs = ((InternalEObject)systems).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.PACKAGE_SYSTEM__SYSTEMS, null, msgs);
-      if (newSystems != null)
-        msgs = ((InternalEObject)newSystems).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.PACKAGE_SYSTEM__SYSTEMS, null, msgs);
-      msgs = basicSetSystems(newSystems, msgs);
+      if (system != null)
+        msgs = ((InternalEObject)system).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.PACKAGE_SYSTEM__SYSTEM, null, msgs);
+      if (newSystem != null)
+        msgs = ((InternalEObject)newSystem).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.PACKAGE_SYSTEM__SYSTEM, null, msgs);
+      msgs = basicSetSystem(newSystem, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.PACKAGE_SYSTEM__SYSTEMS, newSystems, newSystems));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.PACKAGE_SYSTEM__SYSTEM, newSystem, newSystem));
   }
 
   /**
@@ -280,8 +280,8 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
   {
     switch (featureID)
     {
-      case RSLILPackage.PACKAGE_SYSTEM__SYSTEMS:
-        return basicSetSystems(null, msgs);
+      case RSLILPackage.PACKAGE_SYSTEM__SYSTEM:
+        return basicSetSystem(null, msgs);
       case RSLILPackage.PACKAGE_SYSTEM__ENTITIES:
         return ((InternalEList<?>)getEntities()).basicRemove(otherEnd, msgs);
       case RSLILPackage.PACKAGE_SYSTEM__ACTORS:
@@ -308,8 +308,8 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
   {
     switch (featureID)
     {
-      case RSLILPackage.PACKAGE_SYSTEM__SYSTEMS:
-        return getSystems();
+      case RSLILPackage.PACKAGE_SYSTEM__SYSTEM:
+        return getSystem();
       case RSLILPackage.PACKAGE_SYSTEM__ENTITIES:
         return getEntities();
       case RSLILPackage.PACKAGE_SYSTEM__ACTORS:
@@ -337,8 +337,8 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
   {
     switch (featureID)
     {
-      case RSLILPackage.PACKAGE_SYSTEM__SYSTEMS:
-        setSystems((rslingo.rslil.rSLIL.System)newValue);
+      case RSLILPackage.PACKAGE_SYSTEM__SYSTEM:
+        setSystem((rslingo.rslil.rSLIL.System)newValue);
         return;
       case RSLILPackage.PACKAGE_SYSTEM__ENTITIES:
         getEntities().clear();
@@ -378,8 +378,8 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
   {
     switch (featureID)
     {
-      case RSLILPackage.PACKAGE_SYSTEM__SYSTEMS:
-        setSystems((rslingo.rslil.rSLIL.System)null);
+      case RSLILPackage.PACKAGE_SYSTEM__SYSTEM:
+        setSystem((rslingo.rslil.rSLIL.System)null);
         return;
       case RSLILPackage.PACKAGE_SYSTEM__ENTITIES:
         getEntities().clear();
@@ -413,8 +413,8 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
   {
     switch (featureID)
     {
-      case RSLILPackage.PACKAGE_SYSTEM__SYSTEMS:
-        return systems != null;
+      case RSLILPackage.PACKAGE_SYSTEM__SYSTEM:
+        return system != null;
       case RSLILPackage.PACKAGE_SYSTEM__ENTITIES:
         return entities != null && !entities.isEmpty();
       case RSLILPackage.PACKAGE_SYSTEM__ACTORS:

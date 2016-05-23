@@ -19,7 +19,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/packageSystems"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//PackageSystem">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/systems"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/system"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/entities"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/actors"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/useCases"/>

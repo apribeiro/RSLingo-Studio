@@ -134,8 +134,8 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cImportsAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cImportsImportParserRuleCall_3_0 = (RuleCall)cImportsAssignment_3.eContents().get(0);
-		private final Assignment cSystemsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cSystemsSystemParserRuleCall_4_0 = (RuleCall)cSystemsAssignment_4.eContents().get(0);
+		private final Assignment cSystemAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cSystemSystemParserRuleCall_4_0 = (RuleCall)cSystemAssignment_4.eContents().get(0);
 		private final Assignment cEntitiesAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cEntitiesEntityParserRuleCall_5_0 = (RuleCall)cEntitiesAssignment_5.eContents().get(0);
 		private final Assignment cActorsAssignment_6 = (Assignment)cGroup.eContents().get(6);
@@ -151,12 +151,12 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		//PackageSystem: // System Level
-		//	"Package-System" name=QualifiedName "{" imports+=Import* systems=System entities+=Entity* actors+=Actor*
+		//	"Package-System" name=QualifiedName "{" imports+=Import* system=System entities+=Entity* actors+=Actor*
 		//	useCases+=UseCase* frs+=FR* qrs+=QR* constraints+=Constraint* "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//// System Level
-		//"Package-System" name=QualifiedName "{" imports+=Import* systems=System entities+=Entity* actors+=Actor*
+		//"Package-System" name=QualifiedName "{" imports+=Import* system=System entities+=Entity* actors+=Actor*
 		//useCases+=UseCase* frs+=FR* qrs+=QR* constraints+=Constraint* "}"
 		public Group getGroup() { return cGroup; }
 
@@ -179,11 +179,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//Import
 		public RuleCall getImportsImportParserRuleCall_3_0() { return cImportsImportParserRuleCall_3_0; }
 
-		//systems=System
-		public Assignment getSystemsAssignment_4() { return cSystemsAssignment_4; }
+		//system=System
+		public Assignment getSystemAssignment_4() { return cSystemAssignment_4; }
 
 		//System
-		public RuleCall getSystemsSystemParserRuleCall_4_0() { return cSystemsSystemParserRuleCall_4_0; }
+		public RuleCall getSystemSystemParserRuleCall_4_0() { return cSystemSystemParserRuleCall_4_0; }
 
 		//entities+=Entity*
 		public Assignment getEntitiesAssignment_5() { return cEntitiesAssignment_5; }
@@ -3743,7 +3743,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PackageSystem: // System Level
-	//	"Package-System" name=QualifiedName "{" imports+=Import* systems=System entities+=Entity* actors+=Actor*
+	//	"Package-System" name=QualifiedName "{" imports+=Import* system=System entities+=Entity* actors+=Actor*
 	//	useCases+=UseCase* frs+=FR* qrs+=QR* constraints+=Constraint* "}";
 	public PackageSystemElements getPackageSystemAccess() {
 		return pPackageSystem;

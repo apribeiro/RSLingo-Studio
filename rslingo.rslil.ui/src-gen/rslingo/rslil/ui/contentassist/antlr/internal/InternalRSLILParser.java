@@ -8308,31 +8308,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PackageSystem__Group__4__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2997:1: rule__PackageSystem__Group__4__Impl : ( ( rule__PackageSystem__SystemsAssignment_4 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:2997:1: rule__PackageSystem__Group__4__Impl : ( ( rule__PackageSystem__SystemAssignment_4 ) ) ;
     public final void rule__PackageSystem__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3001:1: ( ( ( rule__PackageSystem__SystemsAssignment_4 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3002:1: ( ( rule__PackageSystem__SystemsAssignment_4 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3001:1: ( ( ( rule__PackageSystem__SystemAssignment_4 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3002:1: ( ( rule__PackageSystem__SystemAssignment_4 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3002:1: ( ( rule__PackageSystem__SystemsAssignment_4 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3003:1: ( rule__PackageSystem__SystemsAssignment_4 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3002:1: ( ( rule__PackageSystem__SystemAssignment_4 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3003:1: ( rule__PackageSystem__SystemAssignment_4 )
             {
-             before(grammarAccess.getPackageSystemAccess().getSystemsAssignment_4()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3004:1: ( rule__PackageSystem__SystemsAssignment_4 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3004:2: rule__PackageSystem__SystemsAssignment_4
+             before(grammarAccess.getPackageSystemAccess().getSystemAssignment_4()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3004:1: ( rule__PackageSystem__SystemAssignment_4 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3004:2: rule__PackageSystem__SystemAssignment_4
             {
-            pushFollow(FOLLOW_rule__PackageSystem__SystemsAssignment_4_in_rule__PackageSystem__Group__4__Impl6494);
-            rule__PackageSystem__SystemsAssignment_4();
+            pushFollow(FOLLOW_rule__PackageSystem__SystemAssignment_4_in_rule__PackageSystem__Group__4__Impl6494);
+            rule__PackageSystem__SystemAssignment_4();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getPackageSystemAccess().getSystemsAssignment_4()); 
+             after(grammarAccess.getPackageSystemAccess().getSystemAssignment_4()); 
 
             }
 
@@ -40245,9 +40245,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__PackageSystem__ImportsAssignment_3"
 
 
-    // $ANTLR start "rule__PackageSystem__SystemsAssignment_4"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:15143:1: rule__PackageSystem__SystemsAssignment_4 : ( ruleSystem ) ;
-    public final void rule__PackageSystem__SystemsAssignment_4() throws RecognitionException {
+    // $ANTLR start "rule__PackageSystem__SystemAssignment_4"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:15143:1: rule__PackageSystem__SystemAssignment_4 : ( ruleSystem ) ;
+    public final void rule__PackageSystem__SystemAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -40258,13 +40258,13 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:15148:1: ( ruleSystem )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:15149:1: ruleSystem
             {
-             before(grammarAccess.getPackageSystemAccess().getSystemsSystemParserRuleCall_4_0()); 
-            pushFollow(FOLLOW_ruleSystem_in_rule__PackageSystem__SystemsAssignment_430470);
+             before(grammarAccess.getPackageSystemAccess().getSystemSystemParserRuleCall_4_0()); 
+            pushFollow(FOLLOW_ruleSystem_in_rule__PackageSystem__SystemAssignment_430470);
             ruleSystem();
 
             state._fsp--;
 
-             after(grammarAccess.getPackageSystemAccess().getSystemsSystemParserRuleCall_4_0()); 
+             after(grammarAccess.getPackageSystemAccess().getSystemSystemParserRuleCall_4_0()); 
 
             }
 
@@ -40283,7 +40283,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__PackageSystem__SystemsAssignment_4"
+    // $ANTLR end "rule__PackageSystem__SystemAssignment_4"
 
 
     // $ANTLR start "rule__PackageSystem__EntitiesAssignment_5"
@@ -47339,7 +47339,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rule__PackageSystem__ImportsAssignment_3_in_rule__PackageSystem__Group__3__Impl6433 = new BitSet(new long[]{0x0000000000000002L,0x8000000000000000L});
     public static final BitSet FOLLOW_rule__PackageSystem__Group__4__Impl_in_rule__PackageSystem__Group__46464 = new BitSet(new long[]{0x0000000000050000L,0x0800000000000000L,0x0000460001000000L});
     public static final BitSet FOLLOW_rule__PackageSystem__Group__5_in_rule__PackageSystem__Group__46467 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__PackageSystem__SystemsAssignment_4_in_rule__PackageSystem__Group__4__Impl6494 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__PackageSystem__SystemAssignment_4_in_rule__PackageSystem__Group__4__Impl6494 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__PackageSystem__Group__5__Impl_in_rule__PackageSystem__Group__56524 = new BitSet(new long[]{0x0000000000050000L,0x0800000000000000L,0x0000460001000000L});
     public static final BitSet FOLLOW_rule__PackageSystem__Group__6_in_rule__PackageSystem__Group__56527 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__PackageSystem__EntitiesAssignment_5_in_rule__PackageSystem__Group__5__Impl6554 = new BitSet(new long[]{0x0000000000010002L});
@@ -48384,7 +48384,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rulePackageSystem_in_rule__PackageProject__PackageSystemsAssignment_830377 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleQualifiedName_in_rule__PackageSystem__NameAssignment_130408 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleImport_in_rule__PackageSystem__ImportsAssignment_330439 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSystem_in_rule__PackageSystem__SystemsAssignment_430470 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSystem_in_rule__PackageSystem__SystemAssignment_430470 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleEntity_in_rule__PackageSystem__EntitiesAssignment_530501 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleActor_in_rule__PackageSystem__ActorsAssignment_630532 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUseCase_in_rule__PackageSystem__UseCasesAssignment_730563 = new BitSet(new long[]{0x0000000000000002L});

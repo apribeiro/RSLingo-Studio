@@ -529,7 +529,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageSystem_Systems()
+  public EReference getPackageSystem_System()
   {
     return (EReference)packageSystemEClass.getEStructuralFeatures().get(0);
   }
@@ -2626,7 +2626,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     createEReference(packageProjectEClass, PACKAGE_PROJECT__PACKAGE_SYSTEMS);
 
     packageSystemEClass = createEClass(PACKAGE_SYSTEM);
-    createEReference(packageSystemEClass, PACKAGE_SYSTEM__SYSTEMS);
+    createEReference(packageSystemEClass, PACKAGE_SYSTEM__SYSTEM);
     createEReference(packageSystemEClass, PACKAGE_SYSTEM__ENTITIES);
     createEReference(packageSystemEClass, PACKAGE_SYSTEM__ACTORS);
     createEReference(packageSystemEClass, PACKAGE_SYSTEM__USE_CASES);
@@ -2919,7 +2919,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     initEReference(getPackageProject_PackageSystems(), this.getPackageSystem(), null, "packageSystems", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(packageSystemEClass, PackageSystem.class, "PackageSystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPackageSystem_Systems(), this.getSystem(), null, "systems", null, 0, 1, PackageSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackageSystem_System(), this.getSystem(), null, "system", null, 0, 1, PackageSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageSystem_Entities(), this.getEntity(), null, "entities", null, 0, -1, PackageSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageSystem_Actors(), this.getActor(), null, "actors", null, 0, -1, PackageSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageSystem_UseCases(), this.getUseCase(), null, "useCases", null, 0, -1, PackageSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

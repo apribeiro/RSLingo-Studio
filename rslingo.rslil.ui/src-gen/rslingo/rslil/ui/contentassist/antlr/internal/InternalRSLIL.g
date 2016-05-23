@@ -3000,9 +3000,9 @@ rule__PackageSystem__Group__4__Impl
     }
 :
 (
-{ before(grammarAccess.getPackageSystemAccess().getSystemsAssignment_4()); }
-(rule__PackageSystem__SystemsAssignment_4)
-{ after(grammarAccess.getPackageSystemAccess().getSystemsAssignment_4()); }
+{ before(grammarAccess.getPackageSystemAccess().getSystemAssignment_4()); }
+(rule__PackageSystem__SystemAssignment_4)
+{ after(grammarAccess.getPackageSystemAccess().getSystemAssignment_4()); }
 )
 
 ;
@@ -15140,14 +15140,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__PackageSystem__SystemsAssignment_4
+rule__PackageSystem__SystemAssignment_4
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getPackageSystemAccess().getSystemsSystemParserRuleCall_4_0()); }
-	ruleSystem{ after(grammarAccess.getPackageSystemAccess().getSystemsSystemParserRuleCall_4_0()); }
+{ before(grammarAccess.getPackageSystemAccess().getSystemSystemParserRuleCall_4_0()); }
+	ruleSystem{ after(grammarAccess.getPackageSystemAccess().getSystemSystemParserRuleCall_4_0()); }
 )
 
 ;

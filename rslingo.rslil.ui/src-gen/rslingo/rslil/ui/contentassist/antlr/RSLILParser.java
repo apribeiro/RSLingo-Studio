@@ -181,7 +181,7 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPackageProjectAccess().getPackageSystemsAssignment_8(), "rule__PackageProject__PackageSystemsAssignment_8");
 					put(grammarAccess.getPackageSystemAccess().getNameAssignment_1(), "rule__PackageSystem__NameAssignment_1");
 					put(grammarAccess.getPackageSystemAccess().getImportsAssignment_3(), "rule__PackageSystem__ImportsAssignment_3");
-					put(grammarAccess.getPackageSystemAccess().getSystemsAssignment_4(), "rule__PackageSystem__SystemsAssignment_4");
+					put(grammarAccess.getPackageSystemAccess().getSystemAssignment_4(), "rule__PackageSystem__SystemAssignment_4");
 					put(grammarAccess.getPackageSystemAccess().getEntitiesAssignment_5(), "rule__PackageSystem__EntitiesAssignment_5");
 					put(grammarAccess.getPackageSystemAccess().getActorsAssignment_6(), "rule__PackageSystem__ActorsAssignment_6");
 					put(grammarAccess.getPackageSystemAccess().getUseCasesAssignment_7(), "rule__PackageSystem__UseCasesAssignment_7");

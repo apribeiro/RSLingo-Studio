@@ -204,13 +204,13 @@ public interface RSLILPackage extends EPackage
   int PACKAGE_SYSTEM__IMPORTS = MODEL__IMPORTS;
 
   /**
-   * The feature id for the '<em><b>Systems</b></em>' containment reference.
+   * The feature id for the '<em><b>System</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PACKAGE_SYSTEM__SYSTEMS = MODEL_FEATURE_COUNT + 0;
+  int PACKAGE_SYSTEM__SYSTEM = MODEL_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Entities</b></em>' containment reference list.
@@ -2575,15 +2575,15 @@ public interface RSLILPackage extends EPackage
   EClass getPackageSystem();
 
   /**
-   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.PackageSystem#getSystems <em>Systems</em>}'.
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.PackageSystem#getSystem <em>System</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Systems</em>'.
-   * @see rslingo.rslil.rSLIL.PackageSystem#getSystems()
+   * @return the meta object for the containment reference '<em>System</em>'.
+   * @see rslingo.rslil.rSLIL.PackageSystem#getSystem()
    * @see #getPackageSystem()
    * @generated
    */
-  EReference getPackageSystem_Systems();
+  EReference getPackageSystem_System();
 
   /**
    * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.PackageSystem#getEntities <em>Entities</em>}'.
@@ -4910,12 +4910,12 @@ public interface RSLILPackage extends EPackage
     EClass PACKAGE_SYSTEM = eINSTANCE.getPackageSystem();
 
     /**
-     * The meta object literal for the '<em><b>Systems</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>System</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PACKAGE_SYSTEM__SYSTEMS = eINSTANCE.getPackageSystem_Systems();
+    EReference PACKAGE_SYSTEM__SYSTEM = eINSTANCE.getPackageSystem_System();
 
     /**
      * The meta object literal for the '<em><b>Entities</b></em>' containment reference list feature.

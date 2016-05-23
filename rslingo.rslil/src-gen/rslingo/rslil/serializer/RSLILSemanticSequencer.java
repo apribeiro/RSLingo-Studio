@@ -495,7 +495,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (
 	 *         name=QualifiedName 
 	 *         imports+=Import* 
-	 *         systems=System 
+	 *         system=System 
 	 *         entities+=Entity* 
 	 *         actors+=Actor* 
 	 *         useCases+=UseCase* 

@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.PackageSystem#getSystems <em>Systems</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.PackageSystem#getSystem <em>System</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageSystem#getEntities <em>Entities</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageSystem#getActors <em>Actors</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageSystem#getUseCases <em>Use Cases</em>}</li>
@@ -29,30 +29,30 @@ import org.eclipse.emf.common.util.EList;
 public interface PackageSystem extends Model
 {
   /**
-   * Returns the value of the '<em><b>Systems</b></em>' containment reference.
+   * Returns the value of the '<em><b>System</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Systems</em>' containment reference isn't clear,
+   * If the meaning of the '<em>System</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Systems</em>' containment reference.
-   * @see #setSystems(rslingo.rslil.rSLIL.System)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getPackageSystem_Systems()
+   * @return the value of the '<em>System</em>' containment reference.
+   * @see #setSystem(rslingo.rslil.rSLIL.System)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getPackageSystem_System()
    * @model containment="true"
    * @generated
    */
-  rslingo.rslil.rSLIL.System getSystems();
+  rslingo.rslil.rSLIL.System getSystem();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.PackageSystem#getSystems <em>Systems</em>}' containment reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.PackageSystem#getSystem <em>System</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Systems</em>' containment reference.
-   * @see #getSystems()
+   * @param value the new value of the '<em>System</em>' containment reference.
+   * @see #getSystem()
    * @generated
    */
-  void setSystems(rslingo.rslil.rSLIL.System value);
+  void setSystem(rslingo.rslil.rSLIL.System value);
 
   /**
    * Returns the value of the '<em><b>Entities</b></em>' containment reference list.
