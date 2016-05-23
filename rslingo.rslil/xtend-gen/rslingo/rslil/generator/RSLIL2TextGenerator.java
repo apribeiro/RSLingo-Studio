@@ -32,11 +32,14 @@ import rslingo.rslil.rSLIL.PrimaryKey;
 import rslingo.rslil.rSLIL.Priority;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.QR;
+import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
 import rslingo.rslil.rSLIL.RefEntity;
+import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
 import rslingo.rslil.rSLIL.RefTerm;
 import rslingo.rslil.rSLIL.RefTermType;
+import rslingo.rslil.rSLIL.RefUC;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.TermRelation;
@@ -865,20 +868,26 @@ public class RSLIL2TextGenerator implements IGenerator {
     _builder.append("extensionPoints+=ExtensionPoint*");
     _builder.newLine();
     {
-      RefEntity _entities_2 = u.getEntities();
-      boolean _notEquals_1 = (!Objects.equal(_entities_2, null));
-      if (_notEquals_1) {
+      EList<RefGoal> _goals = u.getGoals();
+      boolean _isEmpty_1 = _goals.isEmpty();
+      boolean _not_1 = (!_isEmpty_1);
+      if (_not_1) {
+        _builder.append("Goals: ");
       }
     }
+    _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("(\'Goals\' goals+=RefGoal*)?");
     _builder.newLine();
     {
-      RefEntity _entities_3 = u.getEntities();
-      boolean _notEquals_2 = (!Objects.equal(_entities_3, null));
-      if (_notEquals_2) {
+      EList<RefFR> _frs = u.getFrs();
+      boolean _isEmpty_2 = _frs.isEmpty();
+      boolean _not_2 = (!_isEmpty_2);
+      if (_not_2) {
+        _builder.append("Functional Requirements: ");
       }
     }
+    _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("(\'FunctionalRequirements\' frs+=RefFR*)?");
     _builder.newLine();
@@ -888,45 +897,50 @@ public class RSLIL2TextGenerator implements IGenerator {
     _builder.append(_name_2, "");
     _builder.newLineIfNotEmpty();
     {
-      RefEntity _entities_4 = u.getEntities();
-      boolean _notEquals_3 = (!Objects.equal(_entities_4, null));
-      if (_notEquals_3) {
+      RefActor _actors = u.getActors();
+      boolean _notEquals_1 = (!Objects.equal(_actors, null));
+      if (_notEquals_1) {
+        _builder.append("Actor Participates: ");
       }
     }
+    _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("(\'ActorParticipates\' actors=RefActor)?");
     _builder.newLine();
     {
-      RefEntity _entities_5 = u.getEntities();
-      boolean _notEquals_4 = (!Objects.equal(_entities_5, null));
-      if (_notEquals_4) {
+      String _preConditions = u.getPreConditions();
+      boolean _notEquals_2 = (!Objects.equal(_preConditions, null));
+      if (_notEquals_2) {
+        String _preConditions_1 = u.getPreConditions();
+        _builder.append(_preConditions_1, "");
       }
     }
-    _builder.append("\t");
-    _builder.append("(\'Pre-Conditions\' preConditions=STRING)?");
-    _builder.newLine();
+    _builder.newLineIfNotEmpty();
     {
-      RefEntity _entities_6 = u.getEntities();
-      boolean _notEquals_5 = (!Objects.equal(_entities_6, null));
-      if (_notEquals_5) {
+      String _postConditions = u.getPostConditions();
+      boolean _notEquals_3 = (!Objects.equal(_postConditions, null));
+      if (_notEquals_3) {
+        String _postConditions_1 = u.getPostConditions();
+        _builder.append(_postConditions_1, "");
       }
     }
-    _builder.append("\t");
-    _builder.append("(\'Post-Conditions\' postConditions=STRING)?");
-    _builder.newLine();
+    _builder.newLineIfNotEmpty();
     {
-      RefEntity _entities_7 = u.getEntities();
-      boolean _notEquals_6 = (!Objects.equal(_entities_7, null));
-      if (_notEquals_6) {
+      EList<RefUC> _includes = u.getIncludes();
+      boolean _isEmpty_3 = _includes.isEmpty();
+      boolean _not_3 = (!_isEmpty_3);
+      if (_not_3) {
+        _builder.append("Include: ");
       }
     }
+    _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("(\'Include\' includes+=RefUC*)?");
     _builder.newLine();
     {
       UseCase _extends = u.getExtends();
-      boolean _notEquals_7 = (!Objects.equal(_extends, null));
-      if (_notEquals_7) {
+      boolean _notEquals_4 = (!Objects.equal(_extends, null));
+      if (_notEquals_4) {
         _builder.append("Extend ");
         UseCase _extends_1 = u.getExtends();
         String _name_3 = _extends_1.getName();
@@ -944,9 +958,23 @@ public class RSLIL2TextGenerator implements IGenerator {
     _builder.newLineIfNotEmpty();
     {
       EList<Scenario> _scenarios = u.getScenarios();
-      boolean _notEquals_8 = (!Objects.equal(_scenarios, null));
-      if (_notEquals_8) {
-        _builder.append("Scenarios");
+      boolean _isEmpty_4 = _scenarios.isEmpty();
+      boolean _not_4 = (!_isEmpty_4);
+      if (_not_4) {
+        _builder.append("Scenarios: ");
+        {
+          EList<Scenario> _scenarios_1 = u.getScenarios();
+          boolean _hasElements_1 = false;
+          for(final Scenario s : _scenarios_1) {
+            if (!_hasElements_1) {
+              _hasElements_1 = true;
+            } else {
+              _builder.appendImmediate(",\n", "");
+            }
+            CharSequence _compile_1 = this.compile(s);
+            _builder.append(_compile_1, "");
+          }
+        }
       }
     }
     _builder.newLineIfNotEmpty();
@@ -954,6 +982,26 @@ public class RSLIL2TextGenerator implements IGenerator {
   }
   
   public CharSequence compile(final RefEntity r) {
+    StringConcatenation _builder = new StringConcatenation();
+    return _builder;
+  }
+  
+  public CharSequence compile(final RefGoal r) {
+    StringConcatenation _builder = new StringConcatenation();
+    return _builder;
+  }
+  
+  public CharSequence compile(final RefFR r) {
+    StringConcatenation _builder = new StringConcatenation();
+    return _builder;
+  }
+  
+  public CharSequence compile(final RefActor r) {
+    StringConcatenation _builder = new StringConcatenation();
+    return _builder;
+  }
+  
+  public CharSequence compile(final Scenario s) {
     StringConcatenation _builder = new StringConcatenation();
     return _builder;
   }

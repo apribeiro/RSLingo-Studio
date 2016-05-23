@@ -24,6 +24,10 @@ import rslingo.rslil.rSLIL.Attribute
 import rslingo.rslil.rSLIL.PrimaryKey
 import rslingo.rslil.rSLIL.ForeignKey
 import rslingo.rslil.rSLIL.Check
+import rslingo.rslil.rSLIL.RefGoal
+import rslingo.rslil.rSLIL.RefFR
+import rslingo.rslil.rSLIL.RefActor
+import rslingo.rslil.rSLIL.Scenario
 
 /**
  * Generates code from your model files on save.
@@ -213,24 +217,38 @@ class RSLIL2TextGenerator implements IGenerator {
 	Priority: «u.priority»
 	«IF !u.extensionPoints.empty»Extension Points: «FOR e:u.extensionPoints SEPARATOR ', '»«e.name»«ENDFOR»«ENDIF»
 		extensionPoints+=ExtensionPoint*
-	«IF u.entities != null» «ENDIF»
+	«IF !u.goals.empty»Goals: «»«ENDIF»
 		('Goals' goals+=RefGoal*)?
-	«IF u.entities != null» «ENDIF»
+	«IF !u.frs.empty»Functional Requirements: «»«ENDIF»
 		('FunctionalRequirements' frs+=RefFR*)?
 	Actor Initiates: «u.actorInitiates.name»
-	«IF u.entities != null» «ENDIF»
+	«IF u.actors != null»Actor Participates: «ENDIF»
 		('ActorParticipates' actors=RefActor)?
-	«IF u.entities != null» «ENDIF»
-		('Pre-Conditions' preConditions=STRING)?
-	«IF u.entities != null» «ENDIF»
-		('Post-Conditions' postConditions=STRING)?
-	«IF u.entities != null» «ENDIF»
+	«IF u.preConditions != null»«u.preConditions»«ENDIF»
+	«IF u.postConditions != null»«u.postConditions»«ENDIF»
+	«IF !u.includes.empty»Include: «»«ENDIF»
 		('Include' includes+=RefUC*)?
 	«IF u.extends != null»Extend «u.extends.name» on «u.extPoint.name»: «u.extPoint.description»«ENDIF»
-	«IF u.scenarios != null»Scenarios«ENDIF»
+	«IF !u.scenarios.empty»Scenarios: «FOR s:u.scenarios SEPARATOR ',\n'»«s.compile»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(RefEntity r)
+	'''
+	'''
+	
+	def compile(RefGoal r)
+	'''
+	'''
+	
+	def compile(RefFR r)
+	'''
+	'''
+	
+	def compile(RefActor r)
+	'''
+	'''
+	
+	def compile(Scenario s)
 	'''
 	'''
 	
