@@ -28,6 +28,7 @@ import rslingo.rslil.rSLIL.RefGoal
 import rslingo.rslil.rSLIL.RefFR
 import rslingo.rslil.rSLIL.RefActor
 import rslingo.rslil.rSLIL.Scenario
+import rslingo.rslil.rSLIL.RefUC
 
 /**
  * Generates code from your model files on save.
@@ -157,7 +158,7 @@ class RSLIL2TextGenerator implements IGenerator {
 	
 	def compile(DependsOnGoal d)
 	'''
-	«d.type» «d.refGoal.refGoal»«FOR r:d.refGoal.refs SEPARATOR ','»«r.name»«ENDFOR»
+	«d.type» «d.refGoal.refGoal.name»«IF !d.refGoal.refs.empty»,«FOR r:d.refGoal.refs SEPARATOR ','»«r.name»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(ComposedBy c)
@@ -216,39 +217,51 @@ class RSLIL2TextGenerator implements IGenerator {
 	«IF u.entities != null»Entities: «u.entities.compile»«ENDIF»
 	Priority: «u.priority»
 	«IF !u.extensionPoints.empty»Extension Points: «FOR e:u.extensionPoints SEPARATOR ', '»«e.name»«ENDFOR»«ENDIF»
-		extensionPoints+=ExtensionPoint*
-	«IF !u.goals.empty»Goals: «»«ENDIF»
-		('Goals' goals+=RefGoal*)?
-	«IF !u.frs.empty»Functional Requirements: «»«ENDIF»
-		('FunctionalRequirements' frs+=RefFR*)?
+	«IF !u.goals.empty»Goals: «FOR g:u.goals SEPARATOR ','»«g.compile»«ENDFOR»«ENDIF»
+	«IF !u.frs.empty»Functional Requirements: «FOR f:u.frs SEPARATOR ','»«f.compile»«ENDFOR»«ENDIF»
 	Actor Initiates: «u.actorInitiates.name»
-	«IF u.actors != null»Actor Participates: «ENDIF»
-		('ActorParticipates' actors=RefActor)?
+	«IF u.actors != null»Actor Participates: «u.actors.compile»«ENDIF»
 	«IF u.preConditions != null»«u.preConditions»«ENDIF»
 	«IF u.postConditions != null»«u.postConditions»«ENDIF»
-	«IF !u.includes.empty»Include: «»«ENDIF»
-		('Include' includes+=RefUC*)?
-	«IF u.extends != null»Extend «u.extends.name» on «u.extPoint.name»: «u.extPoint.description»«ENDIF»
+	«IF !u.includes.empty»Include: «FOR i:u.includes SEPARATOR ','»«i.compile»«ENDFOR»«ENDIF»
+	«IF u.extends != null»Extend «u.extends.name» on «u.extPoint.name»«ENDIF»
 	«IF !u.scenarios.empty»Scenarios: «FOR s:u.scenarios SEPARATOR ',\n'»«s.compile»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(RefEntity r)
 	'''
+	«r.refEntity.name» as «r.type.type»«IF !r.refs.empty»,«FOR e:r.refs SEPARATOR ','»«e.name» as «r.refType.get(r.refs.indexOf(e)).type»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(RefGoal r)
 	'''
+	«r.refGoal.name»«IF !r.refs.empty»,«FOR g:r.refs SEPARATOR ','»«g.name»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(RefFR r)
 	'''
+	«r.refFR.name»«IF !r.refs.empty»,«FOR f:r.refs SEPARATOR ','»«f.name»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(RefActor r)
 	'''
+	«r.refActor.name»«IF !r.refs.empty»,«FOR a:r.refs SEPARATOR ','»«a.name»«ENDFOR»«ENDIF»
+	'''
+	
+	def compile(RefUC r)
+	'''
+	«r.refUC.name»«IF !r.refs.empty»,«FOR u:r.refs SEPARATOR ','»«u.name»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(Scenario s)
+	'''
+	«s.name».«s.nameAlias» («s.type»):
+	«s.description»,
+	Execution Mode: «s.mode»,
+	«IF !s.steps.empty»Steps: «FOR st:s.steps SEPARATOR ',\n'»«st.compile»«ENDFOR»«ENDIF»
+	'''
+	
+	def compile(Step s)
 	'''
 	'''
 	
@@ -263,8 +276,5 @@ class RSLIL2TextGenerator implements IGenerator {
 	def compile(Constraint c)
 	'''
 	'''
-		
-	def compileRefSystem(System s)
-	'''«s.name»'''
 	
 }

@@ -20,6 +20,7 @@ import rslingo.rslil.rSLIL.ComposedBy;
 import rslingo.rslil.rSLIL.Constraint;
 import rslingo.rslil.rSLIL.DependsOnGoal;
 import rslingo.rslil.rSLIL.Entity;
+import rslingo.rslil.rSLIL.EntityType;
 import rslingo.rslil.rSLIL.ExtensionPoint;
 import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.ForeignKey;
@@ -42,6 +43,7 @@ import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
+import rslingo.rslil.rSLIL.Step;
 import rslingo.rslil.rSLIL.TermRelation;
 import rslingo.rslil.rSLIL.UseCase;
 
@@ -513,19 +515,29 @@ public class RSLIL2TextGenerator implements IGenerator {
     _builder.append(" ");
     RefGoal _refGoal = d.getRefGoal();
     Goal _refGoal_1 = _refGoal.getRefGoal();
-    _builder.append(_refGoal_1, "");
+    String _name = _refGoal_1.getName();
+    _builder.append(_name, "");
     {
       RefGoal _refGoal_2 = d.getRefGoal();
       EList<Goal> _refs = _refGoal_2.getRefs();
-      boolean _hasElements = false;
-      for(final Goal r : _refs) {
-        if (!_hasElements) {
-          _hasElements = true;
-        } else {
-          _builder.appendImmediate(",", "");
+      boolean _isEmpty = _refs.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append(",");
+        {
+          RefGoal _refGoal_3 = d.getRefGoal();
+          EList<Goal> _refs_1 = _refGoal_3.getRefs();
+          boolean _hasElements = false;
+          for(final Goal r : _refs_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(",", "");
+            }
+            String _name_1 = r.getName();
+            _builder.append(_name_1, "");
+          }
         }
-        String _name = r.getName();
-        _builder.append(_name, "");
       }
     }
     _builder.newLineIfNotEmpty();
@@ -864,33 +876,50 @@ public class RSLIL2TextGenerator implements IGenerator {
       }
     }
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("extensionPoints+=ExtensionPoint*");
-    _builder.newLine();
     {
       EList<RefGoal> _goals = u.getGoals();
       boolean _isEmpty_1 = _goals.isEmpty();
       boolean _not_1 = (!_isEmpty_1);
       if (_not_1) {
         _builder.append("Goals: ");
+        {
+          EList<RefGoal> _goals_1 = u.getGoals();
+          boolean _hasElements_1 = false;
+          for(final RefGoal g : _goals_1) {
+            if (!_hasElements_1) {
+              _hasElements_1 = true;
+            } else {
+              _builder.appendImmediate(",", "");
+            }
+            CharSequence _compile_1 = this.compile(g);
+            _builder.append(_compile_1, "");
+          }
+        }
       }
     }
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("(\'Goals\' goals+=RefGoal*)?");
-    _builder.newLine();
     {
       EList<RefFR> _frs = u.getFrs();
       boolean _isEmpty_2 = _frs.isEmpty();
       boolean _not_2 = (!_isEmpty_2);
       if (_not_2) {
         _builder.append("Functional Requirements: ");
+        {
+          EList<RefFR> _frs_1 = u.getFrs();
+          boolean _hasElements_2 = false;
+          for(final RefFR f : _frs_1) {
+            if (!_hasElements_2) {
+              _hasElements_2 = true;
+            } else {
+              _builder.appendImmediate(",", "");
+            }
+            CharSequence _compile_2 = this.compile(f);
+            _builder.append(_compile_2, "");
+          }
+        }
       }
     }
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("(\'FunctionalRequirements\' frs+=RefFR*)?");
-    _builder.newLine();
     _builder.append("Actor Initiates: ");
     Actor _actorInitiates = u.getActorInitiates();
     String _name_2 = _actorInitiates.getName();
@@ -901,12 +930,12 @@ public class RSLIL2TextGenerator implements IGenerator {
       boolean _notEquals_1 = (!Objects.equal(_actors, null));
       if (_notEquals_1) {
         _builder.append("Actor Participates: ");
+        RefActor _actors_1 = u.getActors();
+        CharSequence _compile_3 = this.compile(_actors_1);
+        _builder.append(_compile_3, "");
       }
     }
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("(\'ActorParticipates\' actors=RefActor)?");
-    _builder.newLine();
     {
       String _preConditions = u.getPreConditions();
       boolean _notEquals_2 = (!Objects.equal(_preConditions, null));
@@ -931,12 +960,22 @@ public class RSLIL2TextGenerator implements IGenerator {
       boolean _not_3 = (!_isEmpty_3);
       if (_not_3) {
         _builder.append("Include: ");
+        {
+          EList<RefUC> _includes_1 = u.getIncludes();
+          boolean _hasElements_3 = false;
+          for(final RefUC i : _includes_1) {
+            if (!_hasElements_3) {
+              _hasElements_3 = true;
+            } else {
+              _builder.appendImmediate(",", "");
+            }
+            CharSequence _compile_4 = this.compile(i);
+            _builder.append(_compile_4, "");
+          }
+        }
       }
     }
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("(\'Include\' includes+=RefUC*)?");
-    _builder.newLine();
     {
       UseCase _extends = u.getExtends();
       boolean _notEquals_4 = (!Objects.equal(_extends, null));
@@ -949,10 +988,6 @@ public class RSLIL2TextGenerator implements IGenerator {
         ExtensionPoint _extPoint = u.getExtPoint();
         String _name_4 = _extPoint.getName();
         _builder.append(_name_4, "");
-        _builder.append(": ");
-        ExtensionPoint _extPoint_1 = u.getExtPoint();
-        String _description_1 = _extPoint_1.getDescription();
-        _builder.append(_description_1, "");
       }
     }
     _builder.newLineIfNotEmpty();
@@ -964,15 +999,15 @@ public class RSLIL2TextGenerator implements IGenerator {
         _builder.append("Scenarios: ");
         {
           EList<Scenario> _scenarios_1 = u.getScenarios();
-          boolean _hasElements_1 = false;
+          boolean _hasElements_4 = false;
           for(final Scenario s : _scenarios_1) {
-            if (!_hasElements_1) {
-              _hasElements_1 = true;
+            if (!_hasElements_4) {
+              _hasElements_4 = true;
             } else {
               _builder.appendImmediate(",\n", "");
             }
-            CharSequence _compile_1 = this.compile(s);
-            _builder.append(_compile_1, "");
+            CharSequence _compile_5 = this.compile(s);
+            _builder.append(_compile_5, "");
           }
         }
       }
@@ -983,25 +1018,212 @@ public class RSLIL2TextGenerator implements IGenerator {
   
   public CharSequence compile(final RefEntity r) {
     StringConcatenation _builder = new StringConcatenation();
+    Entity _refEntity = r.getRefEntity();
+    String _name = _refEntity.getName();
+    _builder.append(_name, "");
+    _builder.append(" as ");
+    EntityType _type = r.getType();
+    String _type_1 = _type.getType();
+    _builder.append(_type_1, "");
+    {
+      EList<Entity> _refs = r.getRefs();
+      boolean _isEmpty = _refs.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append(",");
+        {
+          EList<Entity> _refs_1 = r.getRefs();
+          boolean _hasElements = false;
+          for(final Entity e : _refs_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(",", "");
+            }
+            String _name_1 = e.getName();
+            _builder.append(_name_1, "");
+            _builder.append(" as ");
+            EList<EntityType> _refType = r.getRefType();
+            EList<Entity> _refs_2 = r.getRefs();
+            int _indexOf = _refs_2.indexOf(e);
+            EntityType _get = _refType.get(_indexOf);
+            String _type_2 = _get.getType();
+            _builder.append(_type_2, "");
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
   public CharSequence compile(final RefGoal r) {
     StringConcatenation _builder = new StringConcatenation();
+    Goal _refGoal = r.getRefGoal();
+    String _name = _refGoal.getName();
+    _builder.append(_name, "");
+    {
+      EList<Goal> _refs = r.getRefs();
+      boolean _isEmpty = _refs.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append(",");
+        {
+          EList<Goal> _refs_1 = r.getRefs();
+          boolean _hasElements = false;
+          for(final Goal g : _refs_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(",", "");
+            }
+            String _name_1 = g.getName();
+            _builder.append(_name_1, "");
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
   public CharSequence compile(final RefFR r) {
     StringConcatenation _builder = new StringConcatenation();
+    FR _refFR = r.getRefFR();
+    String _name = _refFR.getName();
+    _builder.append(_name, "");
+    {
+      EList<FR> _refs = r.getRefs();
+      boolean _isEmpty = _refs.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append(",");
+        {
+          EList<FR> _refs_1 = r.getRefs();
+          boolean _hasElements = false;
+          for(final FR f : _refs_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(",", "");
+            }
+            String _name_1 = f.getName();
+            _builder.append(_name_1, "");
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
   public CharSequence compile(final RefActor r) {
     StringConcatenation _builder = new StringConcatenation();
+    Actor _refActor = r.getRefActor();
+    String _name = _refActor.getName();
+    _builder.append(_name, "");
+    {
+      EList<Actor> _refs = r.getRefs();
+      boolean _isEmpty = _refs.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append(",");
+        {
+          EList<Actor> _refs_1 = r.getRefs();
+          boolean _hasElements = false;
+          for(final Actor a : _refs_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(",", "");
+            }
+            String _name_1 = a.getName();
+            _builder.append(_name_1, "");
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final RefUC r) {
+    StringConcatenation _builder = new StringConcatenation();
+    UseCase _refUC = r.getRefUC();
+    String _name = _refUC.getName();
+    _builder.append(_name, "");
+    {
+      EList<UseCase> _refs = r.getRefs();
+      boolean _isEmpty = _refs.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append(",");
+        {
+          EList<UseCase> _refs_1 = r.getRefs();
+          boolean _hasElements = false;
+          for(final UseCase u : _refs_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(",", "");
+            }
+            String _name_1 = u.getName();
+            _builder.append(_name_1, "");
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
   public CharSequence compile(final Scenario s) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = s.getName();
+    _builder.append(_name, "");
+    _builder.append(".");
+    String _nameAlias = s.getNameAlias();
+    _builder.append(_nameAlias, "");
+    _builder.append(" (");
+    String _type = s.getType();
+    _builder.append(_type, "");
+    _builder.append("):");
+    _builder.newLineIfNotEmpty();
+    String _description = s.getDescription();
+    _builder.append(_description, "");
+    _builder.append(",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("Execution Mode: ");
+    String _mode = s.getMode();
+    _builder.append(_mode, "");
+    _builder.append(",");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<Step> _steps = s.getSteps();
+      boolean _isEmpty = _steps.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append("Steps: ");
+        {
+          EList<Step> _steps_1 = s.getSteps();
+          boolean _hasElements = false;
+          for(final Step st : _steps_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(",\n", "");
+            }
+            CharSequence _compile = this.compile(st);
+            _builder.append(_compile, "");
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final /* Step */Object s) {
     StringConcatenation _builder = new StringConcatenation();
     return _builder;
   }
@@ -1018,13 +1240,6 @@ public class RSLIL2TextGenerator implements IGenerator {
   
   public CharSequence compile(final Constraint c) {
     StringConcatenation _builder = new StringConcatenation();
-    return _builder;
-  }
-  
-  public CharSequence compileRefSystem(final rslingo.rslil.rSLIL.System s) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _name = s.getName();
-    _builder.append(_name, "");
     return _builder;
   }
 }
