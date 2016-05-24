@@ -150,7 +150,7 @@ class RSLIL2JsonGenerator implements IGenerator {
 			"Name": "«e.nameAlias»",
 			"Description": "«e.description»",
 			«IF e.type != null»"Type": "«e.type»",«ENDIF»
-			"Attributes": [«FOR a:e.attributes SEPARATOR ',\n'»«a.compile»«ENDFOR»],
+			"Attributes": [«FOR a:e.attributes SEPARATOR ','»«a.compile»«ENDFOR»],
 			«IF e.primaryKey != null»"Primary Key": "«e.primaryKey.compile»",«ENDIF»
 			«IF !e.foreignKeys.empty»"Foreign Keys": [«FOR f:e.foreignKeys SEPARATOR ',\n'»«f.compile»«ENDFOR»],«ENDIF»
 			«IF !e.checks.empty»"Checks": [«FOR c:e.checks SEPARATOR ',\n'»«c.compile»«ENDFOR»]«ENDIF»
@@ -164,7 +164,7 @@ class RSLIL2JsonGenerator implements IGenerator {
 			"Description": "«a.description»",
 			"Type": "«a.type»",
 			«IF a.size > 0»"Size": "«a.size»",«ENDIF»
-			«IF a.multiplicity != null»"Multiplicity": «a.multiplicity.value»,«ENDIF»
+			«IF a.multiplicity != null»"Multiplicity": "«a.multiplicity.value.replaceAll("\"", "")»",«ENDIF»
 			«IF a.defaultValue != null»"Default Value": "«a.defaultValue»",«ENDIF»
 			«IF a.notNull != null»"Not Null": "true",«ENDIF»
 			«IF a.unique != null»"Unique": "true"«ENDIF»
@@ -177,7 +177,7 @@ class RSLIL2JsonGenerator implements IGenerator {
 	def compile(ForeignKey f)
 	''' {
 			"Value": "«f.entity.name»(«f.refTo.refAttr.name»«IF !f.refTo.refs.empty»,«FOR r:f.refTo.refs SEPARATOR ','»«r.name»«ENDFOR»«ENDIF»)",
-			"Multiplicity": «f.multiplicity.value»
+			"Multiplicity": "«f.multiplicity.value.replaceAll("\"", "")»"
 		}
 	'''
 	
@@ -229,10 +229,10 @@ class RSLIL2JsonGenerator implements IGenerator {
 	'''«r.refFR.name»«IF !r.refs.empty»,«FOR f:r.refs SEPARATOR ','»«f.name»«ENDFOR»«ENDIF»'''
 	
 	def compile(RefActor r)
-	'''«r.refActor.name»«IF !r.refs.empty»,«FOR a:r.refs SEPARATOR ','»«a.name»«ENDFOR»«ENDIF»	'''
+	'''«r.refActor.name»«IF !r.refs.empty»,«FOR a:r.refs SEPARATOR ','»«a.name»«ENDFOR»«ENDIF»'''
 	
 	def compile(RefUC r)
-	'''«r.refUC.name»«IF !r.refs.empty»,«FOR u:r.refs SEPARATOR ','»«u.name»«ENDFOR»«ENDIF»	'''
+	'''«r.refUC.name»«IF !r.refs.empty»,«FOR u:r.refs SEPARATOR ','»«u.name»«ENDFOR»«ENDIF»'''
 	
 	def compile(Scenario s)
 	''' {
@@ -240,7 +240,7 @@ class RSLIL2JsonGenerator implements IGenerator {
 			"Name": "«s.nameAlias»",
 			"Description": "«s.description»",
 			"Execution Mode": "«s.mode»",
-			«IF !s.steps.empty»"Steps": [«FOR st:s.steps SEPARATOR ',\n'»«st.compile»«ENDFOR»]«ENDIF»
+			«IF !s.steps.empty»"Steps": [«FOR st:s.steps SEPARATOR ','»«st.compile»«ENDFOR»]«ENDIF»
 		}
 	'''
 	
@@ -264,7 +264,7 @@ class RSLIL2JsonGenerator implements IGenerator {
 			"Description": "«f.description»",
 			"Type": "«f.type»",
 			«IF f.stakeholder != null»"Stakeholder": "«f.stakeholder.name»",«ENDIF»
-			Priority": "«f.priority.value»",
+			"Priority": "«f.priority.value»",
 			«IF !f.depends.empty»"Depends On": [«FOR d:f.depends SEPARATOR ',\n'»«d.compile»«ENDFOR»],«ENDIF»
 			«IF f.partOf != null»"Part Of": "«f.partOf.name»"«ENDIF»
 		}
@@ -287,7 +287,7 @@ class RSLIL2JsonGenerator implements IGenerator {
 			"Metric": "«q.metric»",
 			"Value": "«q.value»",
 			«IF q.stakeholder != null»"Stakeholder": "«q.stakeholder.name»",«ENDIF»
-			Priority": "«q.priority.value»",
+			"Priority": "«q.priority.value»",
 			«IF !q.depends.empty»"Depends On": [«FOR d:q.depends SEPARATOR ',\n'»«d.compile»«ENDFOR»],«ENDIF»
 			«IF q.partOf != null»"Part Of": "«q.partOf.name»"«ENDIF»
 		}
@@ -307,7 +307,7 @@ class RSLIL2JsonGenerator implements IGenerator {
 			"Description": "«c.description»",
 			"Type": "«c.type»",
 			«IF c.stakeholder != null»"Stakeholder": "«c.stakeholder.name»",«ENDIF»
-			Priority": "«c.priority.value»",
+			"Priority": "«c.priority.value»",
 			«IF !c.depends.empty»"Depends On": [«FOR d:c.depends SEPARATOR ',\n'»«d.compile»«ENDFOR»],«ENDIF»
 			«IF c.partOf != null»"Part Of": "«c.partOf.name»"«ENDIF»
 		}

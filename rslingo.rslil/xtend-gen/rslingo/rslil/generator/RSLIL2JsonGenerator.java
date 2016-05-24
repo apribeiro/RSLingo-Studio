@@ -884,7 +884,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
         if (!_hasElements) {
           _hasElements = true;
         } else {
-          _builder.appendImmediate(",\n", "\t\t\t");
+          _builder.appendImmediate(",", "\t\t\t");
         }
         CharSequence _compile = this.compile(a);
         _builder.append(_compile, "\t\t\t");
@@ -1005,11 +1005,12 @@ public class RSLIL2JsonGenerator implements IGenerator {
       Multiplicity _multiplicity = a.getMultiplicity();
       boolean _notEquals = (!Objects.equal(_multiplicity, null));
       if (_notEquals) {
-        _builder.append("\"Multiplicity\": ");
+        _builder.append("\"Multiplicity\": \"");
         Multiplicity _multiplicity_1 = a.getMultiplicity();
         String _value = _multiplicity_1.getValue();
-        _builder.append(_value, "\t\t\t");
-        _builder.append(",");
+        String _replaceAll = _value.replaceAll("\"", "");
+        _builder.append(_replaceAll, "\t\t\t");
+        _builder.append("\",");
       }
     }
     _builder.newLineIfNotEmpty();
@@ -1122,10 +1123,12 @@ public class RSLIL2JsonGenerator implements IGenerator {
     _builder.append(")\",");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
-    _builder.append("\"Multiplicity\": ");
+    _builder.append("\"Multiplicity\": \"");
     Multiplicity _multiplicity = f.getMultiplicity();
     String _value = _multiplicity.getValue();
-    _builder.append(_value, "\t\t\t");
+    String _replaceAll = _value.replaceAll("\"", "");
+    _builder.append(_replaceAll, "\t\t\t");
+    _builder.append("\"");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("}");
@@ -1553,7 +1556,6 @@ public class RSLIL2JsonGenerator implements IGenerator {
         }
       }
     }
-    _builder.append("\t");
     return _builder;
   }
   
@@ -1583,7 +1585,6 @@ public class RSLIL2JsonGenerator implements IGenerator {
         }
       }
     }
-    _builder.append("\t");
     return _builder;
   }
   
@@ -1630,7 +1631,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
             if (!_hasElements) {
               _hasElements = true;
             } else {
-              _builder.appendImmediate(",\n", "\t\t\t");
+              _builder.appendImmediate(",", "\t\t\t");
             }
             CharSequence _compile = this.compile(st);
             _builder.append(_compile, "\t\t\t");
@@ -1774,7 +1775,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
     }
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
-    _builder.append("Priority\": \"");
+    _builder.append("\"Priority\": \"");
     Priority _priority = f.getPriority();
     String _value = _priority.getValue();
     _builder.append(_value, "\t\t\t");
@@ -1938,7 +1939,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
     }
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
-    _builder.append("Priority\": \"");
+    _builder.append("\"Priority\": \"");
     Priority _priority = q.getPriority();
     String _value_1 = _priority.getValue();
     _builder.append(_value_1, "\t\t\t");
@@ -2078,7 +2079,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
     }
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
-    _builder.append("Priority\": \"");
+    _builder.append("\"Priority\": \"");
     Priority _priority = c.getPriority();
     String _value = _priority.getValue();
     _builder.append(_value, "\t\t\t");
