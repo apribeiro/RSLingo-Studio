@@ -28,6 +28,7 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 
 import rslingo.rslil.generator.RSLILGenerator;
+import rslingo.rslil.rSLIL.PackageProject;
 import rslingo.rslil.ui.windows.MenuCommand;
 import rslingo.rslil.ui.windows.MenuCommandWindow;
 
@@ -97,23 +98,24 @@ public class JSONHandler extends AbstractHandler {
         URI uri = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
         ResourceSet rs = resourceSetProvider.get(project);
         Resource resource = rs.getResource(uri, true);
-        /*Policy policy = (Policy) resource.getContents().get(0);
         
-        if (policy.getMetadata() != null) {
-			if (policy.getImportelements().size() == 0) {
+        if (resource.getContents().get(0) instanceof PackageProject) {
+        	PackageProject packageProj = (PackageProject) resource.getContents().get(0);
+        	
+			if (packageProj.getImports().size() == 0) {
 				// Single File
 				generator.setGenMode(RSLILGenerator.JSON_MODE);
 		        generator.doGenerate(resource, fsa);
 			} else {
 				// Master File
-				policy = DocumentHelper.getFullPolicy(project, rs, policy);
+				packageProj = DocumentHelper.getFullPackageProject(project, rs, packageProj);
 				
 				try {
 					// Create Merged File
 					String mergedPath = file.getFullPath().toString()
 							.replace(file.getName(), "Merged" + file.getName());
 					resource = rs.createResource(URI.createPlatformResourceURI(mergedPath, true));
-					resource.getContents().add(policy);
+					resource.getContents().add(packageProj);
 					resource.save(Collections.EMPTY_MAP);
 					// Generate Text File
 					generator.setGenMode(RSLILGenerator.JSON_MODE);
@@ -133,6 +135,6 @@ public class JSONHandler extends AbstractHandler {
 				    errorDialog.open();
 				}
 			});
-		}*/
+		}
 	}
 }
