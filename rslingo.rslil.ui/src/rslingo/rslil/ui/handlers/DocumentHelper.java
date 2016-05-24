@@ -38,6 +38,10 @@ import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTRPr;
 
 import com.google.common.io.CharStreams;
 
+import rslingo.rslil.rSLIL.Import;
+import rslingo.rslil.rSLIL.PackageProject;
+import rslingo.rslil.rSLIL.PackageSystem;
+
 public class DocumentHelper {
 
 	public static void replaceText(XWPFDocument doc, String tag, String value) {
@@ -361,8 +365,8 @@ public class DocumentHelper {
 		}
 	}
 	
-	/*public static boolean belongsToMainFile(Import imp, IFile file) {
-		String ns = "Package " + imp.getImportedNamespace().replace(".*", "");
+	public static boolean belongsToMainFile(Import imp, IFile file) {
+		String ns = "Package-System " + imp.getImportedNamespace().replace(".*", "");
 		boolean belongs = false;
         
 		try {
@@ -374,14 +378,15 @@ public class DocumentHelper {
 		return belongs;
 	}
 	
-	public static Policy getFullPolicy(IProject project, ResourceSet rs, Policy policy) {
+	public static PackageProject getFullPackageProject(IProject project, ResourceSet rs,
+		PackageProject packageProj) {
 		ArrayList<IFile> refs = new ArrayList<IFile>();
 		
 		try {
 			project.accept(new IResourceVisitor() {
 				@Override
 				public boolean visit(IResource r) throws CoreException {
-					for (Import i : policy.getImportelements()) {
+					for (Import i : packageProj.getImports()) {
 						if (r instanceof IFile && r.getName().endsWith(".rslil")
 							&& DocumentHelper.belongsToMainFile(i, (IFile) r)) {
 							refs.add((IFile) r);
@@ -395,39 +400,19 @@ public class DocumentHelper {
 		}
 		
 		// Imports are not needed in the Merged File
-		policy.getImportelements().clear();
+		packageProj.getImports().clear();
 		
-		// Set the missing Policy Elements
+		// Set the missing PackageSystem Elements
 		for (IFile iFile : refs) {
 			Resource res = rs.getResource(
 					URI.createPlatformResourceURI(iFile.getFullPath().toString(), true), true);
-			Policy polRef = (Policy) res.getContents().get(0);
 			
-			if (polRef.getCollection().size() > 0) {
-				policy.getCollection().clear();
-				policy.getDisclosure().clear();
-				policy.getRetention().clear();
-				policy.getUsage().clear();
-				policy.getInformative().clear();
-				policy.getCollection().addAll(polRef.getCollection());
-				policy.getDisclosure().addAll(polRef.getDisclosure());
-				policy.getRetention().addAll(polRef.getRetention());
-				policy.getUsage().addAll(polRef.getUsage());
-				policy.getInformative().addAll(polRef.getInformative());
-			} else if (polRef.getPrivateData().size() > 0) {
-				policy.getPrivateData().clear();
-				policy.getPrivateData().addAll(polRef.getPrivateData());
-			} else if (polRef.getRecipient().size() > 0) {
-				policy.getRecipient().clear();
-				policy.getRecipient().addAll(polRef.getRecipient());
-			} else if (polRef.getService().size() > 0) {
-				policy.getService().clear();
-				policy.getService().addAll(polRef.getService());
-			} else if (polRef.getEnforcement().size() > 0) {
-				policy.getEnforcement().clear();
-				policy.getEnforcement().addAll(polRef.getEnforcement());
+			if (res.getContents().get(0) instanceof PackageSystem) {
+				PackageSystem system = (PackageSystem) res.getContents().get(0);
+				packageProj.getPackageSystems().add(system);
 			}
 		}
-		return policy;
-	}*/
+		
+		return packageProj;
+	}
 }
