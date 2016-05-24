@@ -49,11 +49,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="project" eType="#//Project"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="partOf" eType="#//System"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RefSystem">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refSystem" eType="#//System"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refs" unique="false" upperBound="-1"
-        eType="#//System"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GlossaryTerm">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameAlias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

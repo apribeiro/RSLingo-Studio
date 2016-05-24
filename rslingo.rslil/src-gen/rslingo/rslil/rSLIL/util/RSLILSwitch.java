@@ -40,7 +40,6 @@ import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
 import rslingo.rslil.rSLIL.RefQR;
-import rslingo.rslil.rSLIL.RefSystem;
 import rslingo.rslil.rSLIL.RefTerm;
 import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
@@ -155,13 +154,6 @@ public class RSLILSwitch<T> extends Switch<T>
       {
         rslingo.rslil.rSLIL.System system = (rslingo.rslil.rSLIL.System)theEObject;
         T result = caseSystem(system);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case RSLILPackage.REF_SYSTEM:
-      {
-        RefSystem refSystem = (RefSystem)theEObject;
-        T result = caseRefSystem(refSystem);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -513,22 +505,6 @@ public class RSLILSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSystem(rslingo.rslil.rSLIL.System object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Ref System</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Ref System</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRefSystem(RefSystem object)
   {
     return null;
   }

@@ -48,7 +48,6 @@ import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
 import rslingo.rslil.rSLIL.RefQR;
-import rslingo.rslil.rSLIL.RefSystem;
 import rslingo.rslil.rSLIL.RefTerm;
 import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
@@ -161,9 +160,6 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case RSLILPackage.REF_QR:
 				sequence_RefQR(context, (RefQR) semanticObject); 
-				return; 
-			case RSLILPackage.REF_SYSTEM:
-				sequence_RefSystem(context, (RefSystem) semanticObject); 
 				return; 
 			case RSLILPackage.REF_TERM:
 				sequence_RefTerm(context, (RefTerm) semanticObject); 
@@ -645,15 +641,6 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (refQR=[QR|ID] refs+=[QR|ID]*)
 	 */
 	protected void sequence_RefQR(EObject context, RefQR semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (refSystem=[System|ID] refs+=[System|ID]*)
-	 */
-	protected void sequence_RefSystem(EObject context, RefSystem semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

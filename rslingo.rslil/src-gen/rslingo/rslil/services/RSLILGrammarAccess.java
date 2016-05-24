@@ -462,50 +462,6 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 
-	public class RefSystemElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RefSystem");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cRefSystemAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cRefSystemSystemCrossReference_0_0 = (CrossReference)cRefSystemAssignment_0.eContents().get(0);
-		private final RuleCall cRefSystemSystemIDTerminalRuleCall_0_0_1 = (RuleCall)cRefSystemSystemCrossReference_0_0.eContents().get(1);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cCommaKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cRefsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final CrossReference cRefsSystemCrossReference_1_1_0 = (CrossReference)cRefsAssignment_1_1.eContents().get(0);
-		private final RuleCall cRefsSystemIDTerminalRuleCall_1_1_0_1 = (RuleCall)cRefsSystemCrossReference_1_1_0.eContents().get(1);
-		
-		//RefSystem:
-		//	refSystem=[System] ("," refs+=[System])*;
-		@Override public ParserRule getRule() { return rule; }
-
-		//refSystem=[System] ("," refs+=[System])*
-		public Group getGroup() { return cGroup; }
-
-		//refSystem=[System]
-		public Assignment getRefSystemAssignment_0() { return cRefSystemAssignment_0; }
-
-		//[System]
-		public CrossReference getRefSystemSystemCrossReference_0_0() { return cRefSystemSystemCrossReference_0_0; }
-
-		//ID
-		public RuleCall getRefSystemSystemIDTerminalRuleCall_0_0_1() { return cRefSystemSystemIDTerminalRuleCall_0_0_1; }
-
-		//("," refs+=[System])*
-		public Group getGroup_1() { return cGroup_1; }
-
-		//","
-		public Keyword getCommaKeyword_1_0() { return cCommaKeyword_1_0; }
-
-		//refs+=[System]
-		public Assignment getRefsAssignment_1_1() { return cRefsAssignment_1_1; }
-
-		//[System]
-		public CrossReference getRefsSystemCrossReference_1_1_0() { return cRefsSystemCrossReference_1_1_0; }
-
-		//ID
-		public RuleCall getRefsSystemIDTerminalRuleCall_1_1_0_1() { return cRefsSystemIDTerminalRuleCall_1_1_0_1; }
-	}
-
 	public class GlossaryTermElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "GlossaryTerm");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -544,6 +500,8 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTermRelationTermRelationParserRuleCall_10_0 = (RuleCall)cTermRelationAssignment_10.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
+		////RefSystem:
+		////	refSystem=[System](',' refs+=[System])*;
 		//GlossaryTerm:
 		//	"GlossaryTerm" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Type" type=RefTermType
 		//	("Acronym" acronym=STRING)? ("POS" pos=("Adjective" | "Adverb" | "Noun" | "Verb"))? ("Synset" synset=STRING)?
@@ -3599,7 +3557,6 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	private final ImportElements pImport;
 	private final ProjectElements pProject;
 	private final SystemElements pSystem;
-	private final RefSystemElements pRefSystem;
 	private final GlossaryTermElements pGlossaryTerm;
 	private final RefTermTypeElements pRefTermType;
 	private final TermTypeElements pTermType;
@@ -3654,7 +3611,6 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		this.pImport = new ImportElements();
 		this.pProject = new ProjectElements();
 		this.pSystem = new SystemElements();
-		this.pRefSystem = new RefSystemElements();
 		this.pGlossaryTerm = new GlossaryTermElements();
 		this.pRefTermType = new RefTermTypeElements();
 		this.pTermType = new TermTypeElements();
@@ -3805,16 +3761,8 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		return getSystemAccess().getRule();
 	}
 
-	//RefSystem:
-	//	refSystem=[System] ("," refs+=[System])*;
-	public RefSystemElements getRefSystemAccess() {
-		return pRefSystem;
-	}
-	
-	public ParserRule getRefSystemRule() {
-		return getRefSystemAccess().getRule();
-	}
-
+	////RefSystem:
+	////	refSystem=[System](',' refs+=[System])*;
 	//GlossaryTerm:
 	//	"GlossaryTerm" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Type" type=RefTermType
 	//	("Acronym" acronym=STRING)? ("POS" pos=("Adjective" | "Adverb" | "Noun" | "Verb"))? ("Synset" synset=STRING)?

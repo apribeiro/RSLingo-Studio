@@ -75,8 +75,6 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSystemAccess().getGroup_3(), "rule__System__Group_3__0");
 					put(grammarAccess.getSystemAccess().getGroup_4(), "rule__System__Group_4__0");
 					put(grammarAccess.getSystemAccess().getGroup_7(), "rule__System__Group_7__0");
-					put(grammarAccess.getRefSystemAccess().getGroup(), "rule__RefSystem__Group__0");
-					put(grammarAccess.getRefSystemAccess().getGroup_1(), "rule__RefSystem__Group_1__0");
 					put(grammarAccess.getGlossaryTermAccess().getGroup(), "rule__GlossaryTerm__Group__0");
 					put(grammarAccess.getGlossaryTermAccess().getGroup_3(), "rule__GlossaryTerm__Group_3__0");
 					put(grammarAccess.getGlossaryTermAccess().getGroup_4(), "rule__GlossaryTerm__Group_4__0");
@@ -197,8 +195,6 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSystemAccess().getDescriptionAssignment_4_1(), "rule__System__DescriptionAssignment_4_1");
 					put(grammarAccess.getSystemAccess().getProjectAssignment_6(), "rule__System__ProjectAssignment_6");
 					put(grammarAccess.getSystemAccess().getPartOfAssignment_7_1(), "rule__System__PartOfAssignment_7_1");
-					put(grammarAccess.getRefSystemAccess().getRefSystemAssignment_0(), "rule__RefSystem__RefSystemAssignment_0");
-					put(grammarAccess.getRefSystemAccess().getRefsAssignment_1_1(), "rule__RefSystem__RefsAssignment_1_1");
 					put(grammarAccess.getGlossaryTermAccess().getNameAssignment_1(), "rule__GlossaryTerm__NameAssignment_1");
 					put(grammarAccess.getGlossaryTermAccess().getNameAliasAssignment_3_1(), "rule__GlossaryTerm__NameAliasAssignment_3_1");
 					put(grammarAccess.getGlossaryTermAccess().getDescriptionAssignment_4_1(), "rule__GlossaryTerm__DescriptionAssignment_4_1");

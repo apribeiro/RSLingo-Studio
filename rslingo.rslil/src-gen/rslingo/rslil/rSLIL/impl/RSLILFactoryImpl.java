@@ -44,7 +44,6 @@ import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
 import rslingo.rslil.rSLIL.RefQR;
-import rslingo.rslil.rSLIL.RefSystem;
 import rslingo.rslil.rSLIL.RefTerm;
 import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
@@ -113,7 +112,6 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
       case RSLILPackage.IMPORT: return createImport();
       case RSLILPackage.PROJECT: return createProject();
       case RSLILPackage.SYSTEM: return createSystem();
-      case RSLILPackage.REF_SYSTEM: return createRefSystem();
       case RSLILPackage.GLOSSARY_TERM: return createGlossaryTerm();
       case RSLILPackage.REF_TERM_TYPE: return createRefTermType();
       case RSLILPackage.TERM_TYPE: return createTermType();
@@ -219,17 +217,6 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
   {
     SystemImpl system = new SystemImpl();
     return system;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RefSystem createRefSystem()
-  {
-    RefSystemImpl refSystem = new RefSystemImpl();
-    return refSystem;
   }
 
   /**

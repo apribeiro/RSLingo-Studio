@@ -280,8 +280,6 @@ finally {
 
 
 
-
-
 // Entry rule entryRuleGlossaryTerm
 entryRuleGlossaryTerm 
 :
@@ -4245,8 +4243,6 @@ rule__System__Group_7__1__Impl
 finally {
 	restoreStackSize(stackSize);
 }
-
-
 
 
 
@@ -15387,8 +15383,6 @@ rule__System__PartOfAssignment_7_1
 finally {
 	restoreStackSize(stackSize);
 }
-
-
 
 rule__GlossaryTerm__NameAssignment_1
     @init {

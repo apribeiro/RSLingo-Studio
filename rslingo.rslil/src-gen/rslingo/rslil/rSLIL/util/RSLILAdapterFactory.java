@@ -42,7 +42,6 @@ import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
 import rslingo.rslil.rSLIL.RefQR;
-import rslingo.rslil.rSLIL.RefSystem;
 import rslingo.rslil.rSLIL.RefTerm;
 import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
@@ -145,11 +144,6 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
       public Adapter caseSystem(rslingo.rslil.rSLIL.System object)
       {
         return createSystemAdapter();
-      }
-      @Override
-      public Adapter caseRefSystem(RefSystem object)
-      {
-        return createRefSystemAdapter();
       }
       @Override
       public Adapter caseGlossaryTerm(GlossaryTerm object)
@@ -439,21 +433,6 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSystemAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.RefSystem <em>Ref System</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.RefSystem
-   * @generated
-   */
-  public Adapter createRefSystemAdapter()
   {
     return null;
   }

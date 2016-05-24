@@ -77,15 +77,6 @@ public interface RSLILFactory extends EFactory
   System createSystem();
 
   /**
-   * Returns a new object of class '<em>Ref System</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Ref System</em>'.
-   * @generated
-   */
-  RefSystem createRefSystem();
-
-  /**
    * Returns a new object of class '<em>Glossary Term</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

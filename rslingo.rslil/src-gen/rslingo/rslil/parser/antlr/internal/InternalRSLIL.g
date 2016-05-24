@@ -803,8 +803,6 @@ ruleSystem returns [EObject current=null]
 
 
 
-
-
 // Entry rule entryRuleGlossaryTerm
 entryRuleGlossaryTerm returns [EObject current=null] 
 	:
