@@ -62,17 +62,17 @@ class RSLIL2TextGenerator implements IGenerator {
 	
 	#Glossary
 	------------------
-	«FOR g:packageProject.glossaryTerms»«g.compile»«ENDFOR»«ENDIF»
+	«FOR g:packageProject.glossaryTerms SEPARATOR '\n'»«g.compile»«ENDFOR»«ENDIF»
 	«IF !packageProject.stakeholders.empty»
 	
 	#Stakeholders
 	------------------
-	«FOR s:packageProject.stakeholders»«s.compile»«ENDFOR»«ENDIF»
+	«FOR s:packageProject.stakeholders SEPARATOR '\n'»«s.compile»«ENDFOR»«ENDIF»
 	«IF !packageProject.goals.empty»
 	
 	#Goals
 	------------------
-	«FOR g:packageProject.goals»«g.compile»«ENDFOR»«ENDIF»
+	«FOR g:packageProject.goals SEPARATOR '\n'»«g.compile»«ENDFOR»«ENDIF»
 	«IF !packageProject.packageSystems.empty»
 	
 	#Systems
@@ -140,9 +140,7 @@ class RSLIL2TextGenerator implements IGenerator {
 	'''
 	
 	def compile(RefTermType r)
-	'''
-	«r.refType.type»«IF !r.refs.empty»,«FOR t:r.refs SEPARATOR ','»«t.type»«ENDFOR»«ENDIF»
-	'''
+	'''«r.refType.type»«IF !r.refs.empty»,«FOR t:r.refs SEPARATOR ','»«t.type»«ENDFOR»«ENDIF»'''
 	
 	def compile(TermRelation t)
 	'''
@@ -162,7 +160,7 @@ class RSLIL2TextGenerator implements IGenerator {
 	«g.name».«g.nameAlias»:
 	«g.description»,
 	«IF g.stakeholder != null»Stakeholder: «g.stakeholder.name»«ENDIF»
-	«g.priority»,
+	Priority: «g.priority.value»,
 	«IF g.dependsOn.empty»Depends On: «FOR d:g.dependsOn SEPARATOR ',\n'»«d.compile»«ENDFOR»«ENDIF»
 	«IF g.composedBy.empty»Composed By: «FOR c:g.composedBy SEPARATOR ',\n'»«c.compile»«ENDFOR»«ENDIF»
 	'''
@@ -227,7 +225,7 @@ class RSLIL2TextGenerator implements IGenerator {
 	«u.name».«u.nameAlias» («u.type»):
 	«u.description»
 	«IF u.entities != null»Entities: «u.entities.compile»«ENDIF»
-	Priority: «u.priority»
+	Priority: «u.priority.value»
 	«IF !u.extensionPoints.empty»Extension Points: «FOR e:u.extensionPoints SEPARATOR ', '»«e.name»«ENDFOR»«ENDIF»
 	«IF !u.goals.empty»Goals: «FOR g:u.goals SEPARATOR ','»«g.compile»«ENDFOR»«ENDIF»
 	«IF !u.frs.empty»Functional Requirements: «FOR f:u.frs SEPARATOR ','»«f.compile»«ENDFOR»«ENDIF»
@@ -288,7 +286,7 @@ class RSLIL2TextGenerator implements IGenerator {
 	«f.name».«f.nameAlias» («f.type»):
 	«f.description»,
 	«IF f.stakeholder != null»Stakeholder: «f.stakeholder.name»,«ENDIF»
-	Priority: «f.priority»,
+	Priority: «f.priority.value»,
 	«IF !f.depends.empty»Depends On: «FOR d:f.depends SEPARATOR ',\n'»«d.compile»«ENDFOR»«ENDIF»
 	«IF f.partOf != null»Part Of: «f.partOf.name»«ENDIF»
 	'''
@@ -306,7 +304,7 @@ class RSLIL2TextGenerator implements IGenerator {
 	Metric: «q.metric»
 	Value: «q.value»
 	«IF q.stakeholder != null»Stakeholder: «q.stakeholder.name»,«ENDIF»
-	Priority: «q.priority»,
+	Priority: «q.priority.value»,
 	«IF !q.depends.empty»Depends On: «FOR d:q.depends SEPARATOR ',\n'»«d.compile»«ENDFOR»«ENDIF»
 	«IF q.partOf != null»Part Of: «q.partOf.name»«ENDIF»
 	'''
@@ -321,7 +319,7 @@ class RSLIL2TextGenerator implements IGenerator {
 	«c.name».«c.nameAlias» («c.type»):
 	«c.description»,
 	«IF c.stakeholder != null»Stakeholder: «c.stakeholder.name»,«ENDIF»
-	Priority: «c.priority»,
+	Priority: «c.priority.value»,
 	«IF !c.depends.empty»Depends On: «FOR d:c.depends SEPARATOR ',\n'»«d.compile»«ENDFOR»«ENDIF»
 	«IF c.partOf != null»Part Of: «c.partOf.name»«ENDIF»
 	'''

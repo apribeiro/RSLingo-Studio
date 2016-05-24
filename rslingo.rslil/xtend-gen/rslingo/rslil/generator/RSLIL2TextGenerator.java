@@ -103,7 +103,13 @@ public class RSLIL2TextGenerator implements IGenerator {
         _builder.newLine();
         {
           EList<GlossaryTerm> _glossaryTerms_1 = packageProject.getGlossaryTerms();
+          boolean _hasElements = false;
           for(final GlossaryTerm g : _glossaryTerms_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate("\n", "");
+            }
             CharSequence _compile_1 = this.compile(g);
             _builder.append(_compile_1, "");
           }
@@ -123,7 +129,13 @@ public class RSLIL2TextGenerator implements IGenerator {
         _builder.newLine();
         {
           EList<Stakeholder> _stakeholders_1 = packageProject.getStakeholders();
+          boolean _hasElements_1 = false;
           for(final Stakeholder s : _stakeholders_1) {
+            if (!_hasElements_1) {
+              _hasElements_1 = true;
+            } else {
+              _builder.appendImmediate("\n", "");
+            }
             CharSequence _compile_2 = this.compile(s);
             _builder.append(_compile_2, "");
           }
@@ -143,7 +155,13 @@ public class RSLIL2TextGenerator implements IGenerator {
         _builder.newLine();
         {
           EList<Goal> _goals_1 = packageProject.getGoals();
+          boolean _hasElements_2 = false;
           for(final Goal g_1 : _goals_1) {
+            if (!_hasElements_2) {
+              _hasElements_2 = true;
+            } else {
+              _builder.appendImmediate("\n", "");
+            }
             CharSequence _compile_3 = this.compile(g_1);
             _builder.append(_compile_3, "");
           }
@@ -450,7 +468,6 @@ public class RSLIL2TextGenerator implements IGenerator {
         }
       }
     }
-    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
@@ -546,8 +563,10 @@ public class RSLIL2TextGenerator implements IGenerator {
       }
     }
     _builder.newLineIfNotEmpty();
+    _builder.append("Priority: ");
     Priority _priority = g.getPriority();
-    _builder.append(_priority, "");
+    String _value = _priority.getValue();
+    _builder.append(_value, "");
     _builder.append(",");
     _builder.newLineIfNotEmpty();
     {
@@ -968,7 +987,8 @@ public class RSLIL2TextGenerator implements IGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("Priority: ");
     Priority _priority = u.getPriority();
-    _builder.append(_priority, "");
+    String _value = _priority.getValue();
+    _builder.append(_value, "");
     _builder.newLineIfNotEmpty();
     {
       EList<ExtensionPoint> _extensionPoints = u.getExtensionPoints();
@@ -1435,7 +1455,8 @@ public class RSLIL2TextGenerator implements IGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("Priority: ");
     Priority _priority = f.getPriority();
-    _builder.append(_priority, "");
+    String _value = _priority.getValue();
+    _builder.append(_value, "");
     _builder.append(",");
     _builder.newLineIfNotEmpty();
     {
@@ -1559,7 +1580,8 @@ public class RSLIL2TextGenerator implements IGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("Priority: ");
     Priority _priority = q.getPriority();
-    _builder.append(_priority, "");
+    String _value_1 = _priority.getValue();
+    _builder.append(_value_1, "");
     _builder.append(",");
     _builder.newLineIfNotEmpty();
     {
@@ -1664,7 +1686,8 @@ public class RSLIL2TextGenerator implements IGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("Priority: ");
     Priority _priority = c.getPriority();
-    _builder.append(_priority, "");
+    String _value = _priority.getValue();
+    _builder.append(_value, "");
     _builder.append(",");
     _builder.newLineIfNotEmpty();
     {
