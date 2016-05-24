@@ -30,6 +30,7 @@ import rslingo.rslil.rSLIL.RefActor
 import rslingo.rslil.rSLIL.Scenario
 import rslingo.rslil.rSLIL.RefUC
 import rslingo.rslil.rSLIL.Step
+import rslingo.rslil.rSLIL.DependsOnFR
 
 /**
  * Generates code from your model files on save.
@@ -264,10 +265,27 @@ class RSLIL2TextGenerator implements IGenerator {
 	
 	def compile(Step s)
 	'''
+	«s.name».«s.nameAlias» («s.type»):
+	«s.description»,
+	«IF s.actor != null»Actor: «s.actor.name»,«ENDIF»
+	«IF s.preConditions != null»Pre-Conditions: «s.preConditions»,«ENDIF»
+	«IF s.postConditions != null»Post-Conditions: «s.postConditions»,«ENDIF»
+	«IF s.next != null»Next Step: «s.next.name»«ENDIF»
 	'''
 	
 	def compile(FR f)
 	'''
+	«f.name».«f.nameAlias» («f.type»):
+	«f.description»,
+	«IF f.stakeholder != null»Stakeholder: «f.stakeholder.name»,«ENDIF»
+	Priority: «f.priority»,
+	«IF !f.depends.empty»Depends On: «FOR d:f.depends SEPARATOR ',\n'»«d.compile»«ENDFOR»«ENDIF»
+	«IF f.partOf != null»Part Of: «f.partOf.name»«ENDIF»
+	'''
+	
+	def compile(DependsOnFR d)
+	'''
+	«d.type» «d.refFR.refFR.name»«IF !d.refFR.refs.empty»,«FOR f:d.refFR.refs SEPARATOR ','»«f.name»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(QR q)

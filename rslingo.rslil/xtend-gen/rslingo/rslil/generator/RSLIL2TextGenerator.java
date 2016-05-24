@@ -18,6 +18,7 @@ import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.Check;
 import rslingo.rslil.rSLIL.ComposedBy;
 import rslingo.rslil.rSLIL.Constraint;
+import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.DependsOnGoal;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.EntityType;
@@ -1225,11 +1226,170 @@ public class RSLIL2TextGenerator implements IGenerator {
   
   public CharSequence compile(final Step s) {
     StringConcatenation _builder = new StringConcatenation();
+    String _name = s.getName();
+    _builder.append(_name, "");
+    _builder.append(".");
+    String _nameAlias = s.getNameAlias();
+    _builder.append(_nameAlias, "");
+    _builder.append(" (");
+    String _type = s.getType();
+    _builder.append(_type, "");
+    _builder.append("):");
+    _builder.newLineIfNotEmpty();
+    String _description = s.getDescription();
+    _builder.append(_description, "");
+    _builder.append(",");
+    _builder.newLineIfNotEmpty();
+    {
+      Actor _actor = s.getActor();
+      boolean _notEquals = (!Objects.equal(_actor, null));
+      if (_notEquals) {
+        _builder.append("Actor: ");
+        Actor _actor_1 = s.getActor();
+        String _name_1 = _actor_1.getName();
+        _builder.append(_name_1, "");
+        _builder.append(",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      String _preConditions = s.getPreConditions();
+      boolean _notEquals_1 = (!Objects.equal(_preConditions, null));
+      if (_notEquals_1) {
+        _builder.append("Pre-Conditions: ");
+        String _preConditions_1 = s.getPreConditions();
+        _builder.append(_preConditions_1, "");
+        _builder.append(",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      String _postConditions = s.getPostConditions();
+      boolean _notEquals_2 = (!Objects.equal(_postConditions, null));
+      if (_notEquals_2) {
+        _builder.append("Post-Conditions: ");
+        String _postConditions_1 = s.getPostConditions();
+        _builder.append(_postConditions_1, "");
+        _builder.append(",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      Step _next = s.getNext();
+      boolean _notEquals_3 = (!Objects.equal(_next, null));
+      if (_notEquals_3) {
+        _builder.append("Next Step: ");
+        Step _next_1 = s.getNext();
+        String _name_2 = _next_1.getName();
+        _builder.append(_name_2, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
   public CharSequence compile(final FR f) {
     StringConcatenation _builder = new StringConcatenation();
+    String _name = f.getName();
+    _builder.append(_name, "");
+    _builder.append(".");
+    String _nameAlias = f.getNameAlias();
+    _builder.append(_nameAlias, "");
+    _builder.append(" (");
+    String _type = f.getType();
+    _builder.append(_type, "");
+    _builder.append("):");
+    _builder.newLineIfNotEmpty();
+    String _description = f.getDescription();
+    _builder.append(_description, "");
+    _builder.append(",");
+    _builder.newLineIfNotEmpty();
+    {
+      Stakeholder _stakeholder = f.getStakeholder();
+      boolean _notEquals = (!Objects.equal(_stakeholder, null));
+      if (_notEquals) {
+        _builder.append("Stakeholder: ");
+        Stakeholder _stakeholder_1 = f.getStakeholder();
+        String _name_1 = _stakeholder_1.getName();
+        _builder.append(_name_1, "");
+        _builder.append(",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("Priority: ");
+    Priority _priority = f.getPriority();
+    _builder.append(_priority, "");
+    _builder.append(",");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<DependsOnFR> _depends = f.getDepends();
+      boolean _isEmpty = _depends.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append("Depends On: ");
+        {
+          EList<DependsOnFR> _depends_1 = f.getDepends();
+          boolean _hasElements = false;
+          for(final DependsOnFR d : _depends_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(",\n", "");
+            }
+            CharSequence _compile = this.compile(d);
+            _builder.append(_compile, "");
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      FR _partOf = f.getPartOf();
+      boolean _notEquals_1 = (!Objects.equal(_partOf, null));
+      if (_notEquals_1) {
+        _builder.append("Part Of: ");
+        FR _partOf_1 = f.getPartOf();
+        String _name_2 = _partOf_1.getName();
+        _builder.append(_name_2, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final DependsOnFR d) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _type = d.getType();
+    _builder.append(_type, "");
+    _builder.append(" ");
+    RefFR _refFR = d.getRefFR();
+    FR _refFR_1 = _refFR.getRefFR();
+    String _name = _refFR_1.getName();
+    _builder.append(_name, "");
+    {
+      RefFR _refFR_2 = d.getRefFR();
+      EList<FR> _refs = _refFR_2.getRefs();
+      boolean _isEmpty = _refs.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append(",");
+        {
+          RefFR _refFR_3 = d.getRefFR();
+          EList<FR> _refs_1 = _refFR_3.getRefs();
+          boolean _hasElements = false;
+          for(final FR f : _refs_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(",", "");
+            }
+            String _name_1 = f.getName();
+            _builder.append(_name_1, "");
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
