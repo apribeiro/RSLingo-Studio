@@ -2092,7 +2092,7 @@ public interface RSLILPackage extends EPackage
   int DEPENDS_ON_FR__TYPE = 0;
 
   /**
-   * The feature id for the '<em><b>Ref Fr</b></em>' containment reference.
+   * The feature id for the '<em><b>Ref FR</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -4433,15 +4433,15 @@ public interface RSLILPackage extends EPackage
   EAttribute getDependsOnFR_Type();
 
   /**
-   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.DependsOnFR#getRefFr <em>Ref Fr</em>}'.
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.DependsOnFR#getRefFR <em>Ref FR</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Ref Fr</em>'.
-   * @see rslingo.rslil.rSLIL.DependsOnFR#getRefFr()
+   * @return the meta object for the containment reference '<em>Ref FR</em>'.
+   * @see rslingo.rslil.rSLIL.DependsOnFR#getRefFR()
    * @see #getDependsOnFR()
    * @generated
    */
-  EReference getDependsOnFR_RefFr();
+  EReference getDependsOnFR_RefFR();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.QR <em>QR</em>}'.
@@ -6354,12 +6354,12 @@ public interface RSLILPackage extends EPackage
     EAttribute DEPENDS_ON_FR__TYPE = eINSTANCE.getDependsOnFR_Type();
 
     /**
-     * The meta object literal for the '<em><b>Ref Fr</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Ref FR</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DEPENDS_ON_FR__REF_FR = eINSTANCE.getDependsOnFR_RefFr();
+    EReference DEPENDS_ON_FR__REF_FR = eINSTANCE.getDependsOnFR_RefFR();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.QRImpl <em>QR</em>}' class.

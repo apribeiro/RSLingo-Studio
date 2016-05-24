@@ -2249,7 +2249,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDependsOnFR_RefFr()
+  public EReference getDependsOnFR_RefFR()
   {
     return (EReference)dependsOnFREClass.getEStructuralFeatures().get(1);
   }
@@ -3125,7 +3125,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
 
     initEClass(dependsOnFREClass, DependsOnFR.class, "DependsOnFR", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDependsOnFR_Type(), ecorePackage.getEString(), "type", null, 0, 1, DependsOnFR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDependsOnFR_RefFr(), this.getRefFR(), null, "refFr", null, 0, 1, DependsOnFR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDependsOnFR_RefFR(), this.getRefFR(), null, "refFR", null, 0, 1, DependsOnFR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(qrEClass, rslingo.rslil.rSLIL.QR.class, "QR", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getQR_Name(), ecorePackage.getEString(), "name", null, 0, 1, rslingo.rslil.rSLIL.QR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -24,7 +24,7 @@ import rslingo.rslil.rSLIL.RefFR;
  * </p>
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.impl.DependsOnFRImpl#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.DependsOnFRImpl#getRefFr <em>Ref Fr</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.DependsOnFRImpl#getRefFR <em>Ref FR</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,14 +52,14 @@ public class DependsOnFRImpl extends MinimalEObjectImpl.Container implements Dep
   protected String type = TYPE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getRefFr() <em>Ref Fr</em>}' containment reference.
+   * The cached value of the '{@link #getRefFR() <em>Ref FR</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRefFr()
+   * @see #getRefFR()
    * @generated
    * @ordered
    */
-  protected RefFR refFr;
+  protected RefFR refFR;
 
   /**
    * <!-- begin-user-doc -->
@@ -110,9 +110,9 @@ public class DependsOnFRImpl extends MinimalEObjectImpl.Container implements Dep
    * <!-- end-user-doc -->
    * @generated
    */
-  public RefFR getRefFr()
+  public RefFR getRefFR()
   {
-    return refFr;
+    return refFR;
   }
 
   /**
@@ -120,13 +120,13 @@ public class DependsOnFRImpl extends MinimalEObjectImpl.Container implements Dep
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRefFr(RefFR newRefFr, NotificationChain msgs)
+  public NotificationChain basicSetRefFR(RefFR newRefFR, NotificationChain msgs)
   {
-    RefFR oldRefFr = refFr;
-    refFr = newRefFr;
+    RefFR oldRefFR = refFR;
+    refFR = newRefFR;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.DEPENDS_ON_FR__REF_FR, oldRefFr, newRefFr);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.DEPENDS_ON_FR__REF_FR, oldRefFR, newRefFR);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -137,20 +137,20 @@ public class DependsOnFRImpl extends MinimalEObjectImpl.Container implements Dep
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRefFr(RefFR newRefFr)
+  public void setRefFR(RefFR newRefFR)
   {
-    if (newRefFr != refFr)
+    if (newRefFR != refFR)
     {
       NotificationChain msgs = null;
-      if (refFr != null)
-        msgs = ((InternalEObject)refFr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.DEPENDS_ON_FR__REF_FR, null, msgs);
-      if (newRefFr != null)
-        msgs = ((InternalEObject)newRefFr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.DEPENDS_ON_FR__REF_FR, null, msgs);
-      msgs = basicSetRefFr(newRefFr, msgs);
+      if (refFR != null)
+        msgs = ((InternalEObject)refFR).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.DEPENDS_ON_FR__REF_FR, null, msgs);
+      if (newRefFR != null)
+        msgs = ((InternalEObject)newRefFR).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.DEPENDS_ON_FR__REF_FR, null, msgs);
+      msgs = basicSetRefFR(newRefFR, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.DEPENDS_ON_FR__REF_FR, newRefFr, newRefFr));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.DEPENDS_ON_FR__REF_FR, newRefFR, newRefFR));
   }
 
   /**
@@ -164,7 +164,7 @@ public class DependsOnFRImpl extends MinimalEObjectImpl.Container implements Dep
     switch (featureID)
     {
       case RSLILPackage.DEPENDS_ON_FR__REF_FR:
-        return basicSetRefFr(null, msgs);
+        return basicSetRefFR(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -182,7 +182,7 @@ public class DependsOnFRImpl extends MinimalEObjectImpl.Container implements Dep
       case RSLILPackage.DEPENDS_ON_FR__TYPE:
         return getType();
       case RSLILPackage.DEPENDS_ON_FR__REF_FR:
-        return getRefFr();
+        return getRefFR();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -201,7 +201,7 @@ public class DependsOnFRImpl extends MinimalEObjectImpl.Container implements Dep
         setType((String)newValue);
         return;
       case RSLILPackage.DEPENDS_ON_FR__REF_FR:
-        setRefFr((RefFR)newValue);
+        setRefFR((RefFR)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -221,7 +221,7 @@ public class DependsOnFRImpl extends MinimalEObjectImpl.Container implements Dep
         setType(TYPE_EDEFAULT);
         return;
       case RSLILPackage.DEPENDS_ON_FR__REF_FR:
-        setRefFr((RefFR)null);
+        setRefFR((RefFR)null);
         return;
     }
     super.eUnset(featureID);
@@ -240,7 +240,7 @@ public class DependsOnFRImpl extends MinimalEObjectImpl.Container implements Dep
       case RSLILPackage.DEPENDS_ON_FR__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case RSLILPackage.DEPENDS_ON_FR__REF_FR:
-        return refFr != null;
+        return refFR != null;
     }
     return super.eIsSet(featureID);
   }

@@ -13099,9 +13099,9 @@ rule__DependsOnFR__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getDependsOnFRAccess().getRefFrAssignment_1()); }
-(rule__DependsOnFR__RefFrAssignment_1)
-{ after(grammarAccess.getDependsOnFRAccess().getRefFrAssignment_1()); }
+{ before(grammarAccess.getDependsOnFRAccess().getRefFRAssignment_1()); }
+(rule__DependsOnFR__RefFRAssignment_1)
+{ after(grammarAccess.getDependsOnFRAccess().getRefFRAssignment_1()); }
 )
 
 ;
@@ -17321,14 +17321,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DependsOnFR__RefFrAssignment_1
+rule__DependsOnFR__RefFRAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getDependsOnFRAccess().getRefFrRefFRParserRuleCall_1_0()); }
-	ruleRefFR{ after(grammarAccess.getDependsOnFRAccess().getRefFrRefFRParserRuleCall_1_0()); }
+{ before(grammarAccess.getDependsOnFRAccess().getRefFRRefFRParserRuleCall_1_0()); }
+	ruleRefFR{ after(grammarAccess.getDependsOnFRAccess().getRefFRRefFRParserRuleCall_1_0()); }
 )
 
 ;

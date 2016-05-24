@@ -2960,14 +2960,14 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTypeRequiresKeyword_0_0_0 = (Keyword)cTypeAlternatives_0_0.eContents().get(0);
 		private final Keyword cTypeRefinesKeyword_0_0_1 = (Keyword)cTypeAlternatives_0_0.eContents().get(1);
 		private final Keyword cTypeConflictsKeyword_0_0_2 = (Keyword)cTypeAlternatives_0_0.eContents().get(2);
-		private final Assignment cRefFrAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cRefFrRefFRParserRuleCall_1_0 = (RuleCall)cRefFrAssignment_1.eContents().get(0);
+		private final Assignment cRefFRAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cRefFRRefFRParserRuleCall_1_0 = (RuleCall)cRefFRAssignment_1.eContents().get(0);
 		
 		//DependsOnFR:
-		//	type=("Requires" | "Refines" | "Conflicts") refFr=RefFR;
+		//	type=("Requires" | "Refines" | "Conflicts") refFR=RefFR;
 		@Override public ParserRule getRule() { return rule; }
 
-		//type=("Requires" | "Refines" | "Conflicts") refFr=RefFR
+		//type=("Requires" | "Refines" | "Conflicts") refFR=RefFR
 		public Group getGroup() { return cGroup; }
 
 		//type=("Requires" | "Refines" | "Conflicts")
@@ -2985,11 +2985,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Conflicts"
 		public Keyword getTypeConflictsKeyword_0_0_2() { return cTypeConflictsKeyword_0_0_2; }
 
-		//refFr=RefFR
-		public Assignment getRefFrAssignment_1() { return cRefFrAssignment_1; }
+		//refFR=RefFR
+		public Assignment getRefFRAssignment_1() { return cRefFRAssignment_1; }
 
 		//RefFR
-		public RuleCall getRefFrRefFRParserRuleCall_1_0() { return cRefFrRefFRParserRuleCall_1_0; }
+		public RuleCall getRefFRRefFRParserRuleCall_1_0() { return cRefFRRefFRParserRuleCall_1_0; }
 	}
 
 	public class QRElements extends AbstractParserRuleElementFinder {
@@ -4130,7 +4130,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//DependsOnFR:
-	//	type=("Requires" | "Refines" | "Conflicts") refFr=RefFR;
+	//	type=("Requires" | "Refines" | "Conflicts") refFR=RefFR;
 	public DependsOnFRElements getDependsOnFRAccess() {
 		return pDependsOnFR;
 	}

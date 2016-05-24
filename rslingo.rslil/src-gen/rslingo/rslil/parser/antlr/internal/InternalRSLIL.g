@@ -4776,16 +4776,16 @@ ruleDependsOnFR returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDependsOnFRAccess().getRefFrRefFRParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getDependsOnFRAccess().getRefFRRefFRParserRuleCall_1_0()); 
 	    }
-		lv_refFr_1_0=ruleRefFR		{
+		lv_refFR_1_0=ruleRefFR		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDependsOnFRRule());
 	        }
        		set(
        			$current, 
-       			"refFr",
-        		lv_refFr_1_0, 
+       			"refFR",
+        		lv_refFR_1_0, 
         		"RefFR");
 	        afterParserOrEnumRuleCall();
 	    }

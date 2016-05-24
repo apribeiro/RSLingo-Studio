@@ -319,7 +319,7 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFRAccess().getDependsAssignment_11(), "rule__FR__DependsAssignment_11");
 					put(grammarAccess.getFRAccess().getPartOfAssignment_12_1(), "rule__FR__PartOfAssignment_12_1");
 					put(grammarAccess.getDependsOnFRAccess().getTypeAssignment_0(), "rule__DependsOnFR__TypeAssignment_0");
-					put(grammarAccess.getDependsOnFRAccess().getRefFrAssignment_1(), "rule__DependsOnFR__RefFrAssignment_1");
+					put(grammarAccess.getDependsOnFRAccess().getRefFRAssignment_1(), "rule__DependsOnFR__RefFRAssignment_1");
 					put(grammarAccess.getQRAccess().getNameAssignment_1(), "rule__QR__NameAssignment_1");
 					put(grammarAccess.getQRAccess().getNameAliasAssignment_3_1(), "rule__QR__NameAliasAssignment_3_1");
 					put(grammarAccess.getQRAccess().getDescriptionAssignment_5(), "rule__QR__DescriptionAssignment_5");

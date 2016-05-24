@@ -225,7 +225,7 @@
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//DependsOnFR">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//DependsOnFR/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//DependsOnFR/refFr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//DependsOnFR/refFR"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//QR">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//QR/name"/>

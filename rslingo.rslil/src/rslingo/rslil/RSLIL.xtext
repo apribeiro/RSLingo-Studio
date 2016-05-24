@@ -230,7 +230,7 @@ FR:
 	'}';
 
 DependsOnFR:
-	type=('Requires'|'Refines'|'Conflicts') refFr=RefFR;
+	type=('Requires'|'Refines'|'Conflicts') refFR=RefFR;
 
 QR:
 	'QualityRequirement' name=ID '{'

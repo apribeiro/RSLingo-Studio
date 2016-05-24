@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.DependsOnFR#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.DependsOnFR#getRefFr <em>Ref Fr</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.DependsOnFR#getRefFR <em>Ref FR</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getDependsOnFR()
@@ -50,29 +50,29 @@ public interface DependsOnFR extends EObject
   void setType(String value);
 
   /**
-   * Returns the value of the '<em><b>Ref Fr</b></em>' containment reference.
+   * Returns the value of the '<em><b>Ref FR</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Ref Fr</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Ref FR</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Ref Fr</em>' containment reference.
-   * @see #setRefFr(RefFR)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getDependsOnFR_RefFr()
+   * @return the value of the '<em>Ref FR</em>' containment reference.
+   * @see #setRefFR(RefFR)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getDependsOnFR_RefFR()
    * @model containment="true"
    * @generated
    */
-  RefFR getRefFr();
+  RefFR getRefFR();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.DependsOnFR#getRefFr <em>Ref Fr</em>}' containment reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.DependsOnFR#getRefFR <em>Ref FR</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Ref Fr</em>' containment reference.
-   * @see #getRefFr()
+   * @param value the new value of the '<em>Ref FR</em>' containment reference.
+   * @see #getRefFR()
    * @generated
    */
-  void setRefFr(RefFR value);
+  void setRefFR(RefFR value);
 
 } // DependsOnFR
