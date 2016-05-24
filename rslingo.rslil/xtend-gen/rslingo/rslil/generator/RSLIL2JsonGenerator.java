@@ -333,7 +333,6 @@ public class RSLIL2JsonGenerator implements IGenerator {
         }
       }
     }
-    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
@@ -343,10 +342,10 @@ public class RSLIL2JsonGenerator implements IGenerator {
     _builder.append("{");
     _builder.newLine();
     _builder.append("\t\t\t");
-    _builder.append("\"Type\": ");
+    _builder.append("\"Type\": \"");
     String _type = t.getType();
     _builder.append(_type, "\t\t\t");
-    _builder.append(",");
+    _builder.append("\",");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
     _builder.append("\"Value\": \"");
@@ -540,10 +539,10 @@ public class RSLIL2JsonGenerator implements IGenerator {
     _builder.append("{");
     _builder.newLine();
     _builder.append("\t\t\t");
-    _builder.append("\"Type\": ");
+    _builder.append("\"Type\": \"");
     String _type = d.getType();
     _builder.append(_type, "\t\t\t");
-    _builder.append(",");
+    _builder.append("\",");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
     _builder.append("\"Value\": \"");
@@ -588,10 +587,10 @@ public class RSLIL2JsonGenerator implements IGenerator {
     _builder.append("{");
     _builder.newLine();
     _builder.append("\t\t\t");
-    _builder.append("\"Type\": ");
+    _builder.append("\"Type\": \"");
     String _type = c.getType();
     _builder.append(_type, "\t\t\t");
-    _builder.append(",");
+    _builder.append("\",");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
     _builder.append("\"Value\": \"");
@@ -1006,11 +1005,11 @@ public class RSLIL2JsonGenerator implements IGenerator {
       Multiplicity _multiplicity = a.getMultiplicity();
       boolean _notEquals = (!Objects.equal(_multiplicity, null));
       if (_notEquals) {
-        _builder.append("\"Multiplicity:\" \"");
+        _builder.append("\"Multiplicity\": ");
         Multiplicity _multiplicity_1 = a.getMultiplicity();
         String _value = _multiplicity_1.getValue();
         _builder.append(_value, "\t\t\t");
-        _builder.append("\",");
+        _builder.append(",");
       }
     }
     _builder.newLineIfNotEmpty();
@@ -1019,7 +1018,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
       String _defaultValue = a.getDefaultValue();
       boolean _notEquals_1 = (!Objects.equal(_defaultValue, null));
       if (_notEquals_1) {
-        _builder.append("\"Default Value:\" \"");
+        _builder.append("\"Default Value\": \"");
         String _defaultValue_1 = a.getDefaultValue();
         _builder.append(_defaultValue_1, "\t\t\t");
         _builder.append("\",");
@@ -1079,7 +1078,6 @@ public class RSLIL2JsonGenerator implements IGenerator {
         }
       }
     }
-    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
@@ -1124,11 +1122,10 @@ public class RSLIL2JsonGenerator implements IGenerator {
     _builder.append(")\",");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
-    _builder.append("\"Multiplicity:\" \"");
+    _builder.append("\"Multiplicity\": ");
     Multiplicity _multiplicity = f.getMultiplicity();
     String _value = _multiplicity.getValue();
     _builder.append(_value, "\t\t\t");
-    _builder.append("\"");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("}");
@@ -1275,7 +1272,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
       boolean _isEmpty = _goals.isEmpty();
       boolean _not = (!_isEmpty);
       if (_not) {
-        _builder.append("\"Goals:\" \"");
+        _builder.append("\"Goals\": \"");
         {
           EList<RefGoal> _goals_1 = u.getGoals();
           boolean _hasElements = false;
@@ -1299,7 +1296,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
       boolean _isEmpty_1 = _frs.isEmpty();
       boolean _not_1 = (!_isEmpty_1);
       if (_not_1) {
-        _builder.append("\"Functional Requirements:\" \"");
+        _builder.append("\"Functional Requirements\": \"");
         {
           EList<RefFR> _frs_1 = u.getFrs();
           boolean _hasElements_1 = false;
@@ -1318,7 +1315,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
     }
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
-    _builder.append("\"Actor Initiates:\" \"");
+    _builder.append("\"Actor Initiates\": \"");
     Actor _actorInitiates = u.getActorInitiates();
     String _name_1 = _actorInitiates.getName();
     _builder.append(_name_1, "\t\t\t");
@@ -1329,7 +1326,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
       RefActor _actors = u.getActors();
       boolean _notEquals_1 = (!Objects.equal(_actors, null));
       if (_notEquals_1) {
-        _builder.append("\"Actor Participates:\" \"");
+        _builder.append("\"Actor Participates\": \"");
         RefActor _actors_1 = u.getActors();
         CharSequence _compile_3 = this.compile(_actors_1);
         _builder.append(_compile_3, "\t\t\t");
@@ -1367,7 +1364,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
       boolean _isEmpty_2 = _includes.isEmpty();
       boolean _not_2 = (!_isEmpty_2);
       if (_not_2) {
-        _builder.append("\"Include:\" \"");
+        _builder.append("\"Include\": \"");
         {
           EList<RefUC> _includes_1 = u.getIncludes();
           boolean _hasElements_2 = false;
@@ -1408,7 +1405,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
       boolean _isEmpty_3 = _scenarios.isEmpty();
       boolean _not_3 = (!_isEmpty_3);
       if (_not_3) {
-        _builder.append("\"Scenarios:\" [");
+        _builder.append("\"Scenarios\": [");
         {
           EList<Scenario> _scenarios_1 = u.getScenarios();
           boolean _hasElements_3 = false;
@@ -1469,7 +1466,6 @@ public class RSLIL2JsonGenerator implements IGenerator {
         }
       }
     }
-    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
@@ -1499,7 +1495,6 @@ public class RSLIL2JsonGenerator implements IGenerator {
         }
       }
     }
-    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
@@ -1529,7 +1524,6 @@ public class RSLIL2JsonGenerator implements IGenerator {
         }
       }
     }
-    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
@@ -1559,7 +1553,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
         }
       }
     }
-    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
     return _builder;
   }
   
@@ -1589,7 +1583,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
         }
       }
     }
-    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
     return _builder;
   }
   
@@ -1617,7 +1611,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
     _builder.append("\",");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
-    _builder.append("\"Execution Mode:\" \"");
+    _builder.append("\"Execution Mode\": \"");
     String _mode = s.getMode();
     _builder.append(_mode, "\t\t\t");
     _builder.append("\",");
@@ -1628,7 +1622,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
       boolean _isEmpty = _steps.isEmpty();
       boolean _not = (!_isEmpty);
       if (_not) {
-        _builder.append("\"Steps:\" [");
+        _builder.append("\"Steps\": [");
         {
           EList<Step> _steps_1 = s.getSteps();
           boolean _hasElements = false;
@@ -1686,7 +1680,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
       Actor _actor = s.getActor();
       boolean _notEquals = (!Objects.equal(_actor, null));
       if (_notEquals) {
-        _builder.append("\"Actor:\" \"");
+        _builder.append("\"Actor\": \"");
         Actor _actor_1 = s.getActor();
         String _name_1 = _actor_1.getName();
         _builder.append(_name_1, "\t\t\t");
@@ -1699,7 +1693,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
       String _preConditions = s.getPreConditions();
       boolean _notEquals_1 = (!Objects.equal(_preConditions, null));
       if (_notEquals_1) {
-        _builder.append("\"Pre-Conditions:\" \"");
+        _builder.append("\"Pre-Conditions\": \"");
         String _preConditions_1 = s.getPreConditions();
         _builder.append(_preConditions_1, "\t\t\t");
         _builder.append("\",");
@@ -1711,7 +1705,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
       String _postConditions = s.getPostConditions();
       boolean _notEquals_2 = (!Objects.equal(_postConditions, null));
       if (_notEquals_2) {
-        _builder.append("\"Post-Conditions:\" \"");
+        _builder.append("\"Post-Conditions\": \"");
         String _postConditions_1 = s.getPostConditions();
         _builder.append(_postConditions_1, "\t\t\t");
         _builder.append("\",");
@@ -1723,7 +1717,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
       Step _next = s.getNext();
       boolean _notEquals_3 = (!Objects.equal(_next, null));
       if (_notEquals_3) {
-        _builder.append("\"Next Step:\" \"");
+        _builder.append("\"Next Step\": \"");
         Step _next_1 = s.getNext();
         String _name_2 = _next_1.getName();
         _builder.append(_name_2, "\t\t\t");
@@ -1771,7 +1765,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
       Stakeholder _stakeholder = f.getStakeholder();
       boolean _notEquals = (!Objects.equal(_stakeholder, null));
       if (_notEquals) {
-        _builder.append("\"Stakeholder:\" \"");
+        _builder.append("\"Stakeholder\": \"");
         Stakeholder _stakeholder_1 = f.getStakeholder();
         String _name_1 = _stakeholder_1.getName();
         _builder.append(_name_1, "\t\t\t");
@@ -1780,7 +1774,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
     }
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
-    _builder.append("Priority:\" \"");
+    _builder.append("Priority\": \"");
     Priority _priority = f.getPriority();
     String _value = _priority.getValue();
     _builder.append(_value, "\t\t\t");
@@ -1815,7 +1809,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
       FR _partOf = f.getPartOf();
       boolean _notEquals_1 = (!Objects.equal(_partOf, null));
       if (_notEquals_1) {
-        _builder.append("\"Part Of:\" \"");
+        _builder.append("\"Part Of\": \"");
         FR _partOf_1 = f.getPartOf();
         String _name_2 = _partOf_1.getName();
         _builder.append(_name_2, "\t\t\t");
@@ -1911,7 +1905,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
       String _subType = q.getSubType();
       boolean _notEquals = (!Objects.equal(_subType, null));
       if (_notEquals) {
-        _builder.append("\"Sub-Type:\" \"");
+        _builder.append("\"Sub-Type\": \"");
         String _subType_1 = q.getSubType();
         _builder.append(_subType_1, "\t\t\t");
         _builder.append("\",");
@@ -1935,7 +1929,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
       Stakeholder _stakeholder = q.getStakeholder();
       boolean _notEquals_1 = (!Objects.equal(_stakeholder, null));
       if (_notEquals_1) {
-        _builder.append("\"Stakeholder:\" \"");
+        _builder.append("\"Stakeholder\": \"");
         Stakeholder _stakeholder_1 = q.getStakeholder();
         String _name_1 = _stakeholder_1.getName();
         _builder.append(_name_1, "\t\t\t");
@@ -1944,7 +1938,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
     }
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
-    _builder.append("Priority:\" \"");
+    _builder.append("Priority\": \"");
     Priority _priority = q.getPriority();
     String _value_1 = _priority.getValue();
     _builder.append(_value_1, "\t\t\t");
@@ -1979,7 +1973,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
       QR _partOf = q.getPartOf();
       boolean _notEquals_2 = (!Objects.equal(_partOf, null));
       if (_notEquals_2) {
-        _builder.append("\"Part Of:\" \"");
+        _builder.append("\"Part Of\": \"");
         QR _partOf_1 = q.getPartOf();
         String _name_2 = _partOf_1.getName();
         _builder.append(_name_2, "\t\t\t");
@@ -2075,7 +2069,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
       Stakeholder _stakeholder = c.getStakeholder();
       boolean _notEquals = (!Objects.equal(_stakeholder, null));
       if (_notEquals) {
-        _builder.append("\"Stakeholder:\" \"");
+        _builder.append("\"Stakeholder\": \"");
         Stakeholder _stakeholder_1 = c.getStakeholder();
         String _name_1 = _stakeholder_1.getName();
         _builder.append(_name_1, "\t\t\t");
@@ -2084,7 +2078,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
     }
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
-    _builder.append("Priority:\" \"");
+    _builder.append("Priority\": \"");
     Priority _priority = c.getPriority();
     String _value = _priority.getValue();
     _builder.append(_value, "\t\t\t");
@@ -2119,7 +2113,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
       Constraint _partOf = c.getPartOf();
       boolean _notEquals_1 = (!Objects.equal(_partOf, null));
       if (_notEquals_1) {
-        _builder.append("\"Part Of:\" \"");
+        _builder.append("\"Part Of\": \"");
         Constraint _partOf_1 = c.getPartOf();
         String _name_2 = _partOf_1.getName();
         _builder.append(_name_2, "\t\t\t");

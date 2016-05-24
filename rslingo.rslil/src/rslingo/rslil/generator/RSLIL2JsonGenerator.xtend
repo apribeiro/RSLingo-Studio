@@ -76,13 +76,11 @@ class RSLIL2JsonGenerator implements IGenerator {
 	'''
 	
 	def compile(RefTermType r)
-	'''
-	«r.refType.type»«IF !r.refs.empty»,«FOR t:r.refs SEPARATOR ','»«t.type»«ENDFOR»«ENDIF»
-	'''
+	'''«r.refType.type»«IF !r.refs.empty»,«FOR t:r.refs SEPARATOR ','»«t.type»«ENDFOR»«ENDIF»'''
 	
 	def compile(TermRelation t)
 	''' {
-			"Type": «t.type»,
+			"Type": "«t.type»",
 			"Value": "«t.refTerm.refTerm»«IF !t.refTerm.refs.empty»,«FOR r:t.refTerm.refs SEPARATOR ','»«r»«ENDFOR»«ENDIF»"
 		}
 	'''
@@ -112,14 +110,14 @@ class RSLIL2JsonGenerator implements IGenerator {
 	
 	def compile(DependsOnGoal d)
 	''' {
-			"Type": «d.type»,
+			"Type": "«d.type»",
 			"Value": "«d.refGoal.refGoal.name»«IF !d.refGoal.refs.empty»,«FOR r:d.refGoal.refs SEPARATOR ','»«r.name»«ENDFOR»«ENDIF»"
 		}
 	'''
 	
 	def compile(ComposedBy c)
 	''' {
-			"Type": «c.type»,
+			"Type": "«c.type»",
 			"Value": "«c.refGoal.refGoal.name»«IF !c.refGoal.refs.empty»,«FOR r:c.refGoal.refs SEPARATOR ','»«r.name»«ENDFOR»«ENDIF»"
 		}
 	'''
@@ -166,22 +164,20 @@ class RSLIL2JsonGenerator implements IGenerator {
 			"Description": "«a.description»",
 			"Type": "«a.type»",
 			«IF a.size > 0»"Size": "«a.size»",«ENDIF»
-			«IF a.multiplicity != null»"Multiplicity:" "«a.multiplicity.value»",«ENDIF»
-			«IF a.defaultValue != null»"Default Value:" "«a.defaultValue»",«ENDIF»
+			«IF a.multiplicity != null»"Multiplicity": «a.multiplicity.value»,«ENDIF»
+			«IF a.defaultValue != null»"Default Value": "«a.defaultValue»",«ENDIF»
 			«IF a.notNull != null»"Not Null": "true",«ENDIF»
 			«IF a.unique != null»"Unique": "true"«ENDIF»
 		}
 	'''
 	
 	def compile(PrimaryKey p)
-	'''
-	«p.refTo.refAttr.name»«IF !p.refTo.refs.empty»,«FOR r:p.refTo.refs SEPARATOR ','»«r.name»«ENDFOR»«ENDIF»
-	'''
+	'''«p.refTo.refAttr.name»«IF !p.refTo.refs.empty»,«FOR r:p.refTo.refs SEPARATOR ','»«r.name»«ENDFOR»«ENDIF»'''
 	
 	def compile(ForeignKey f)
 	''' {
 			"Value": "«f.entity.name»(«f.refTo.refAttr.name»«IF !f.refTo.refs.empty»,«FOR r:f.refTo.refs SEPARATOR ','»«r.name»«ENDFOR»«ENDIF»)",
-			"Multiplicity:" "«f.multiplicity.value»"
+			"Multiplicity": «f.multiplicity.value»
 		}
 	'''
 	
@@ -211,50 +207,40 @@ class RSLIL2JsonGenerator implements IGenerator {
 			"Type": "«u.type»",
 			«IF u.entities != null»"Entities": "«u.entities.compile»",«ENDIF»
 			"Priority": "«u.priority.value»",
-			«IF !u.goals.empty»"Goals:" "«FOR g:u.goals SEPARATOR ','»«g.compile»«ENDFOR»",«ENDIF»
-			«IF !u.frs.empty»"Functional Requirements:" "«FOR f:u.frs SEPARATOR ','»«f.compile»«ENDFOR»",«ENDIF»
-			"Actor Initiates:" "«u.actorInitiates.name»",
-			«IF u.actors != null»"Actor Participates:" "«u.actors.compile»",«ENDIF»
+			«IF !u.goals.empty»"Goals": "«FOR g:u.goals SEPARATOR ','»«g.compile»«ENDFOR»",«ENDIF»
+			«IF !u.frs.empty»"Functional Requirements": "«FOR f:u.frs SEPARATOR ','»«f.compile»«ENDFOR»",«ENDIF»
+			"Actor Initiates": "«u.actorInitiates.name»",
+			«IF u.actors != null»"Actor Participates": "«u.actors.compile»",«ENDIF»
 			«IF u.preConditions != null»"Pre-Conditions": "«u.preConditions»",«ENDIF»
 			«IF u.postConditions != null»"Post-Conditions": "«u.postConditions»",«ENDIF»
-			«IF !u.includes.empty»"Include:" "«FOR i:u.includes SEPARATOR ','»«i.compile»«ENDFOR»",«ENDIF»
+			«IF !u.includes.empty»"Include": "«FOR i:u.includes SEPARATOR ','»«i.compile»«ENDFOR»",«ENDIF»
 			«IF u.extends != null»"Extend": "«u.extends.name» on «u.extPoint.name»",«ENDIF»
-			«IF !u.scenarios.empty»"Scenarios:" [«FOR s:u.scenarios SEPARATOR ',\n'»«s.compile»«ENDFOR»]«ENDIF»
+			«IF !u.scenarios.empty»"Scenarios": [«FOR s:u.scenarios SEPARATOR ',\n'»«s.compile»«ENDFOR»]«ENDIF»
 		}
 	'''
 	
 	def compile(RefEntity r)
-	'''
-	«r.refEntity.name» as «r.type.type»«IF !r.refs.empty»,«FOR e:r.refs SEPARATOR ','»«e.name» as «r.refType.get(r.refs.indexOf(e)).type»«ENDFOR»«ENDIF»
-	'''
+	'''«r.refEntity.name» as «r.type.type»«IF !r.refs.empty»,«FOR e:r.refs SEPARATOR ','»«e.name» as «r.refType.get(r.refs.indexOf(e)).type»«ENDFOR»«ENDIF»'''
 	
 	def compile(RefGoal r)
-	'''
-	«r.refGoal.name»«IF !r.refs.empty»,«FOR g:r.refs SEPARATOR ','»«g.name»«ENDFOR»«ENDIF»
-	'''
+	'''«r.refGoal.name»«IF !r.refs.empty»,«FOR g:r.refs SEPARATOR ','»«g.name»«ENDFOR»«ENDIF»'''
 	
 	def compile(RefFR r)
-	'''
-	«r.refFR.name»«IF !r.refs.empty»,«FOR f:r.refs SEPARATOR ','»«f.name»«ENDFOR»«ENDIF»
-	'''
+	'''«r.refFR.name»«IF !r.refs.empty»,«FOR f:r.refs SEPARATOR ','»«f.name»«ENDFOR»«ENDIF»'''
 	
 	def compile(RefActor r)
-	'''
-	«r.refActor.name»«IF !r.refs.empty»,«FOR a:r.refs SEPARATOR ','»«a.name»«ENDFOR»«ENDIF»
-	'''
+	'''«r.refActor.name»«IF !r.refs.empty»,«FOR a:r.refs SEPARATOR ','»«a.name»«ENDFOR»«ENDIF»	'''
 	
 	def compile(RefUC r)
-	'''
-	«r.refUC.name»«IF !r.refs.empty»,«FOR u:r.refs SEPARATOR ','»«u.name»«ENDFOR»«ENDIF»
-	'''
+	'''«r.refUC.name»«IF !r.refs.empty»,«FOR u:r.refs SEPARATOR ','»«u.name»«ENDFOR»«ENDIF»	'''
 	
 	def compile(Scenario s)
 	''' {
 			"ID": "«s.name»",
 			"Name": "«s.nameAlias»",
 			"Description": "«s.description»",
-			"Execution Mode:" "«s.mode»",
-			«IF !s.steps.empty»"Steps:" [«FOR st:s.steps SEPARATOR ',\n'»«st.compile»«ENDFOR»]«ENDIF»
+			"Execution Mode": "«s.mode»",
+			«IF !s.steps.empty»"Steps": [«FOR st:s.steps SEPARATOR ',\n'»«st.compile»«ENDFOR»]«ENDIF»
 		}
 	'''
 	
@@ -264,10 +250,10 @@ class RSLIL2JsonGenerator implements IGenerator {
 			"Name": "«s.nameAlias»",
 			"Description": "«s.description»",
 			"Type": "«s.type»",
-			«IF s.actor != null»"Actor:" "«s.actor.name»",«ENDIF»
-			«IF s.preConditions != null»"Pre-Conditions:" "«s.preConditions»",«ENDIF»
-			«IF s.postConditions != null»"Post-Conditions:" "«s.postConditions»",«ENDIF»
-			«IF s.next != null»"Next Step:" "«s.next.name»"«ENDIF»
+			«IF s.actor != null»"Actor": "«s.actor.name»",«ENDIF»
+			«IF s.preConditions != null»"Pre-Conditions": "«s.preConditions»",«ENDIF»
+			«IF s.postConditions != null»"Post-Conditions": "«s.postConditions»",«ENDIF»
+			«IF s.next != null»"Next Step": "«s.next.name»"«ENDIF»
 		}
 	'''
 	
@@ -277,10 +263,10 @@ class RSLIL2JsonGenerator implements IGenerator {
 			"Name": "«f.nameAlias»",
 			"Description": "«f.description»",
 			"Type": "«f.type»",
-			«IF f.stakeholder != null»"Stakeholder:" "«f.stakeholder.name»",«ENDIF»
-			Priority:" "«f.priority.value»",
+			«IF f.stakeholder != null»"Stakeholder": "«f.stakeholder.name»",«ENDIF»
+			Priority": "«f.priority.value»",
 			«IF !f.depends.empty»"Depends On": [«FOR d:f.depends SEPARATOR ',\n'»«d.compile»«ENDFOR»],«ENDIF»
-			«IF f.partOf != null»"Part Of:" "«f.partOf.name»"«ENDIF»
+			«IF f.partOf != null»"Part Of": "«f.partOf.name»"«ENDIF»
 		}
 	'''
 	
@@ -297,13 +283,13 @@ class RSLIL2JsonGenerator implements IGenerator {
 			"Name": "«q.nameAlias»",
 			"Description": "«q.description»",
 			"Type": "«q.type»",
-			«IF q.subType != null»"Sub-Type:" "«q.subType»",«ENDIF»
+			«IF q.subType != null»"Sub-Type": "«q.subType»",«ENDIF»
 			"Metric": "«q.metric»",
 			"Value": "«q.value»",
-			«IF q.stakeholder != null»"Stakeholder:" "«q.stakeholder.name»",«ENDIF»
-			Priority:" "«q.priority.value»",
+			«IF q.stakeholder != null»"Stakeholder": "«q.stakeholder.name»",«ENDIF»
+			Priority": "«q.priority.value»",
 			«IF !q.depends.empty»"Depends On": [«FOR d:q.depends SEPARATOR ',\n'»«d.compile»«ENDFOR»],«ENDIF»
-			«IF q.partOf != null»"Part Of:" "«q.partOf.name»"«ENDIF»
+			«IF q.partOf != null»"Part Of": "«q.partOf.name»"«ENDIF»
 		}
 	'''
 	
@@ -320,10 +306,10 @@ class RSLIL2JsonGenerator implements IGenerator {
 			"Name": "«c.nameAlias»",
 			"Description": "«c.description»",
 			"Type": "«c.type»",
-			«IF c.stakeholder != null»"Stakeholder:" "«c.stakeholder.name»",«ENDIF»
-			Priority:" "«c.priority.value»",
+			«IF c.stakeholder != null»"Stakeholder": "«c.stakeholder.name»",«ENDIF»
+			Priority": "«c.priority.value»",
 			«IF !c.depends.empty»"Depends On": [«FOR d:c.depends SEPARATOR ',\n'»«d.compile»«ENDFOR»],«ENDIF»
-			«IF c.partOf != null»"Part Of:" "«c.partOf.name»"«ENDIF»
+			«IF c.partOf != null»"Part Of": "«c.partOf.name»"«ENDIF»
 		}
 	'''
 	
