@@ -50,6 +50,7 @@ import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.Step;
 import rslingo.rslil.rSLIL.TermRelation;
+import rslingo.rslil.rSLIL.TermType;
 import rslingo.rslil.rSLIL.UseCase;
 
 /**
@@ -333,7 +334,7 @@ public class RSLIL2TextGenerator implements IGenerator {
       rslingo.rslil.rSLIL.System _partOf = s.getPartOf();
       boolean _notEquals = (!Objects.equal(_partOf, null));
       if (_notEquals) {
-        _builder.append("Part of: ");
+        _builder.append("Part Of: ");
         rslingo.rslil.rSLIL.System _partOf_1 = s.getPartOf();
         String _name_1 = _partOf_1.getName();
         _builder.append(_name_1, "");
@@ -352,7 +353,8 @@ public class RSLIL2TextGenerator implements IGenerator {
     _builder.append(_nameAlias, "");
     _builder.append(" (");
     RefTermType _type = g.getType();
-    _builder.append(_type, "");
+    CharSequence _compile = this.compile(_type);
+    _builder.append(_compile, "");
     _builder.append("):");
     _builder.newLineIfNotEmpty();
     String _description = g.getDescription();
@@ -395,8 +397,9 @@ public class RSLIL2TextGenerator implements IGenerator {
     {
       EList<TermRelation> _termRelation = g.getTermRelation();
       boolean _isEmpty = _termRelation.isEmpty();
-      if (_isEmpty) {
-        _builder.append("Term Relation: ");
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append("Term Relations: ");
         {
           EList<TermRelation> _termRelation_1 = g.getTermRelation();
           boolean _hasElements = false;
@@ -406,8 +409,38 @@ public class RSLIL2TextGenerator implements IGenerator {
             } else {
               _builder.appendImmediate(",\n", "");
             }
-            CharSequence _compile = this.compile(t);
-            _builder.append(_compile, "");
+            CharSequence _compile_1 = this.compile(t);
+            _builder.append(_compile_1, "");
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final RefTermType r) {
+    StringConcatenation _builder = new StringConcatenation();
+    TermType _refType = r.getRefType();
+    String _type = _refType.getType();
+    _builder.append(_type, "");
+    {
+      EList<TermType> _refs = r.getRefs();
+      boolean _isEmpty = _refs.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append(",");
+        {
+          EList<TermType> _refs_1 = r.getRefs();
+          boolean _hasElements = false;
+          for(final TermType t : _refs_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(",", "");
+            }
+            String _type_1 = t.getType();
+            _builder.append(_type_1, "");
           }
         }
       }
@@ -465,7 +498,7 @@ public class RSLIL2TextGenerator implements IGenerator {
       Stakeholder _partOf = s.getPartOf();
       boolean _notEquals = (!Objects.equal(_partOf, null));
       if (_notEquals) {
-        _builder.append("Part of: ");
+        _builder.append("Part Of: ");
         Stakeholder _partOf_1 = s.getPartOf();
         String _name_1 = _partOf_1.getName();
         _builder.append(_name_1, "");
@@ -878,7 +911,7 @@ public class RSLIL2TextGenerator implements IGenerator {
       Actor _actor = a.getActor();
       boolean _notEquals_1 = (!Objects.equal(_actor, null));
       if (_notEquals_1) {
-        _builder.append("Specialized from: ");
+        _builder.append("Specialized From: ");
         Actor _actor_1 = a.getActor();
         String _name_2 = _actor_1.getName();
         _builder.append(_name_2, "");

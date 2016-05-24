@@ -33,6 +33,7 @@ import rslingo.rslil.rSLIL.Step
 import rslingo.rslil.rSLIL.DependsOnFR
 import rslingo.rslil.rSLIL.DependsOnQR
 import rslingo.rslil.rSLIL.DependsOnConstraint
+import rslingo.rslil.rSLIL.RefTermType
 
 /**
  * Generates code from your model files on save.
@@ -124,17 +125,22 @@ class RSLIL2TextGenerator implements IGenerator {
 	'''
 	«s.name» («s.nameAlias»):
 	«s.description»
-	«IF s.partOf != null»Part of: «s.partOf.name»«ENDIF»
+	«IF s.partOf != null»Part Of: «s.partOf.name»«ENDIF»
 	'''
 	
 	def compile(GlossaryTerm g)
 	'''
-	«g.name».«g.nameAlias» («g.type»):
+	«g.name».«g.nameAlias» («g.type.compile»):
 	«g.description»,
 	«IF g.acronym != null»Acronym: «g.acronym»,«ENDIF»
 	«IF g.pos != null»POS: «g.pos»,«ENDIF»
 	«IF g.synset != null»Synset: «g.synset»,«ENDIF»
-	«IF g.termRelation.empty»Term Relation: «FOR t:g.termRelation SEPARATOR ',\n'»«t.compile»«ENDFOR»«ENDIF»
+	«IF !g.termRelation.empty»Term Relations: «FOR t:g.termRelation SEPARATOR ',\n'»«t.compile»«ENDFOR»«ENDIF»
+	'''
+	
+	def compile(RefTermType r)
+	'''
+	«r.refType.type»«IF !r.refs.empty»,«FOR t:r.refs SEPARATOR ','»«t.type»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(TermRelation t)
@@ -147,7 +153,7 @@ class RSLIL2TextGenerator implements IGenerator {
 	«s.name».«s.nameAlias» («s.type»):
 	«s.description»,
 	«s.category»,
-	«IF s.partOf != null»Part of: «s.partOf.name»«ENDIF»
+	«IF s.partOf != null»Part Of: «s.partOf.name»«ENDIF»
 	'''
 	
 	def compile(Goal g)
@@ -211,7 +217,7 @@ class RSLIL2TextGenerator implements IGenerator {
 	«a.name».«a.nameAlias» («a.type»):
 	«a.description»
 	«IF a.stakeholder != null»Stakeholder: «a.stakeholder.name»«ENDIF»
-	«IF a.actor != null»Specialized from: «a.actor.name»«ENDIF»
+	«IF a.actor != null»Specialized From: «a.actor.name»«ENDIF»
 	'''
 	
 	def compile(UseCase u)
