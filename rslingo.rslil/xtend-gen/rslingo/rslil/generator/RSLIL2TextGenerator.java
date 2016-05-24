@@ -460,14 +460,23 @@ public class RSLIL2TextGenerator implements IGenerator {
     {
       RefTerm _refTerm_2 = t.getRefTerm();
       EList<String> _refs = _refTerm_2.getRefs();
-      boolean _hasElements = false;
-      for(final String r : _refs) {
-        if (!_hasElements) {
-          _hasElements = true;
-        } else {
-          _builder.appendImmediate(",", "");
+      boolean _isEmpty = _refs.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append(",");
+        {
+          RefTerm _refTerm_3 = t.getRefTerm();
+          EList<String> _refs_1 = _refTerm_3.getRefs();
+          boolean _hasElements = false;
+          for(final String r : _refs_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(",", "");
+            }
+            _builder.append(r, "");
+          }
         }
-        _builder.append(r, "");
       }
     }
     _builder.newLineIfNotEmpty();

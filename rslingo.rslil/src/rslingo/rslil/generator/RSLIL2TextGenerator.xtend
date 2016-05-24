@@ -145,7 +145,7 @@ class RSLIL2TextGenerator implements IGenerator {
 	
 	def compile(TermRelation t)
 	'''
-	«t.type» «t.refTerm.refTerm»«FOR r:t.refTerm.refs SEPARATOR ','»«r»«ENDFOR»
+	«t.type» «t.refTerm.refTerm»«IF !t.refTerm.refs.empty»,«FOR r:t.refTerm.refs SEPARATOR ','»«r»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(Stakeholder s)
