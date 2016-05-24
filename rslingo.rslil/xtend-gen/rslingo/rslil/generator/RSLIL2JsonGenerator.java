@@ -1,5 +1,6 @@
 package rslingo.rslil.generator;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterators;
 import java.util.Iterator;
 import org.eclipse.emf.common.util.EList;
@@ -17,7 +18,11 @@ import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.PackageProject;
 import rslingo.rslil.rSLIL.PackageSystem;
 import rslingo.rslil.rSLIL.Project;
+import rslingo.rslil.rSLIL.RefTerm;
+import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.Stakeholder;
+import rslingo.rslil.rSLIL.TermRelation;
+import rslingo.rslil.rSLIL.TermType;
 
 @SuppressWarnings("all")
 public class RSLIL2JsonGenerator implements IGenerator {
@@ -47,16 +52,23 @@ public class RSLIL2JsonGenerator implements IGenerator {
     _builder.append("{");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("\"name\": \"");
+    _builder.append("\"ID\": \"");
     Project _project = packageProject.getProject();
     String _name = _project.getName();
     _builder.append(_name, "\t\t");
     _builder.append("\",");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
-    _builder.append("\"description\": \"");
+    _builder.append("\"Name\": \"");
     Project _project_1 = packageProject.getProject();
-    String _description = _project_1.getDescription();
+    String _nameAlias = _project_1.getNameAlias();
+    _builder.append(_nameAlias, "\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("\"Description\": \"");
+    Project _project_2 = packageProject.getProject();
+    String _description = _project_2.getDescription();
     _builder.append(_description, "\t\t");
     _builder.append("\",");
     _builder.newLineIfNotEmpty();
@@ -172,6 +184,173 @@ public class RSLIL2JsonGenerator implements IGenerator {
   
   public CharSequence compile(final GlossaryTerm g) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\t");
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("\"ID\": \"");
+    String _name = g.getName();
+    _builder.append(_name, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Name\": \"");
+    String _nameAlias = g.getNameAlias();
+    _builder.append(_nameAlias, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Description\": \"");
+    String _description = g.getDescription();
+    _builder.append(_description, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Type\": \"");
+    RefTermType _type = g.getType();
+    CharSequence _compile = this.compile(_type);
+    _builder.append(_compile, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      String _acronym = g.getAcronym();
+      boolean _notEquals = (!Objects.equal(_acronym, null));
+      if (_notEquals) {
+        _builder.append("\"Acronym\": \"");
+        String _acronym_1 = g.getAcronym();
+        _builder.append(_acronym_1, "\t\t\t");
+        _builder.append("\",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      String _pos = g.getPos();
+      boolean _notEquals_1 = (!Objects.equal(_pos, null));
+      if (_notEquals_1) {
+        _builder.append("\"POS\": \"");
+        String _pos_1 = g.getPos();
+        _builder.append(_pos_1, "\t\t\t");
+        _builder.append("\",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      String _synset = g.getSynset();
+      boolean _notEquals_2 = (!Objects.equal(_synset, null));
+      if (_notEquals_2) {
+        _builder.append("\"Synset\": \"");
+        String _synset_1 = g.getSynset();
+        _builder.append(_synset_1, "\t\t\t");
+        _builder.append("\",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      EList<TermRelation> _termRelation = g.getTermRelation();
+      boolean _isEmpty = _termRelation.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append("\"Term Relations\": [");
+        {
+          EList<TermRelation> _termRelation_1 = g.getTermRelation();
+          boolean _hasElements = false;
+          for(final TermRelation t : _termRelation_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(",\n", "\t\t\t");
+            }
+            CharSequence _compile_1 = this.compile(t);
+            _builder.append(_compile_1, "\t\t\t");
+          }
+        }
+        _builder.append("]");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final RefTermType r) {
+    StringConcatenation _builder = new StringConcatenation();
+    TermType _refType = r.getRefType();
+    String _type = _refType.getType();
+    _builder.append(_type, "");
+    {
+      EList<TermType> _refs = r.getRefs();
+      boolean _isEmpty = _refs.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append(",");
+        {
+          EList<TermType> _refs_1 = r.getRefs();
+          boolean _hasElements = false;
+          for(final TermType t : _refs_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(",", "");
+            }
+            String _type_1 = t.getType();
+            _builder.append(_type_1, "");
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final TermRelation t) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(" ");
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("\"Type\": ");
+    String _type = t.getType();
+    _builder.append(_type, "\t\t\t");
+    _builder.append(",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Value\": \"");
+    RefTerm _refTerm = t.getRefTerm();
+    String _refTerm_1 = _refTerm.getRefTerm();
+    _builder.append(_refTerm_1, "\t\t\t");
+    {
+      RefTerm _refTerm_2 = t.getRefTerm();
+      EList<String> _refs = _refTerm_2.getRefs();
+      boolean _isEmpty = _refs.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append(",");
+        {
+          RefTerm _refTerm_3 = t.getRefTerm();
+          EList<String> _refs_1 = _refTerm_3.getRefs();
+          boolean _hasElements = false;
+          for(final String r : _refs_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(",", "\t\t\t");
+            }
+            _builder.append(r, "\t\t\t");
+          }
+        }
+      }
+    }
+    _builder.append("\"\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
     return _builder;
   }
   
