@@ -225,7 +225,13 @@ public class RSLIL2TextGenerator implements IGenerator {
         _builder.newLine();
         {
           EList<Entity> _entities_1 = p.getEntities();
+          boolean _hasElements = false;
           for(final Entity e : _entities_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate("\n", "");
+            }
             CharSequence _compile_1 = this.compile(e);
             _builder.append(_compile_1, "");
           }
@@ -245,7 +251,13 @@ public class RSLIL2TextGenerator implements IGenerator {
         _builder.newLine();
         {
           EList<Actor> _actors_1 = p.getActors();
+          boolean _hasElements_1 = false;
           for(final Actor a : _actors_1) {
+            if (!_hasElements_1) {
+              _hasElements_1 = true;
+            } else {
+              _builder.appendImmediate("\n", "");
+            }
             CharSequence _compile_2 = this.compile(a);
             _builder.append(_compile_2, "");
           }
@@ -265,7 +277,13 @@ public class RSLIL2TextGenerator implements IGenerator {
         _builder.newLine();
         {
           EList<UseCase> _useCases_1 = p.getUseCases();
+          boolean _hasElements_2 = false;
           for(final UseCase u : _useCases_1) {
+            if (!_hasElements_2) {
+              _hasElements_2 = true;
+            } else {
+              _builder.appendImmediate("\n", "");
+            }
             CharSequence _compile_3 = this.compile(u);
             _builder.append(_compile_3, "");
           }
@@ -285,7 +303,13 @@ public class RSLIL2TextGenerator implements IGenerator {
         _builder.newLine();
         {
           EList<FR> _frs_1 = p.getFrs();
+          boolean _hasElements_3 = false;
           for(final FR f : _frs_1) {
+            if (!_hasElements_3) {
+              _hasElements_3 = true;
+            } else {
+              _builder.appendImmediate("\n", "");
+            }
             CharSequence _compile_4 = this.compile(f);
             _builder.append(_compile_4, "");
           }
@@ -305,7 +329,13 @@ public class RSLIL2TextGenerator implements IGenerator {
         _builder.newLine();
         {
           EList<QR> _qrs_1 = p.getQrs();
+          boolean _hasElements_4 = false;
           for(final QR n : _qrs_1) {
+            if (!_hasElements_4) {
+              _hasElements_4 = true;
+            } else {
+              _builder.appendImmediate("\n", "");
+            }
             CharSequence _compile_5 = this.compile(n);
             _builder.append(_compile_5, "");
           }
@@ -325,7 +355,13 @@ public class RSLIL2TextGenerator implements IGenerator {
         _builder.newLine();
         {
           EList<Constraint> _constraints_1 = p.getConstraints();
+          boolean _hasElements_5 = false;
           for(final Constraint c : _constraints_1) {
+            if (!_hasElements_5) {
+              _hasElements_5 = true;
+            } else {
+              _builder.appendImmediate("\n", "");
+            }
             CharSequence _compile_6 = this.compile(c);
             _builder.append(_compile_6, "");
           }
@@ -572,7 +608,8 @@ public class RSLIL2TextGenerator implements IGenerator {
     {
       EList<DependsOnGoal> _dependsOn = g.getDependsOn();
       boolean _isEmpty = _dependsOn.isEmpty();
-      if (_isEmpty) {
+      boolean _not = (!_isEmpty);
+      if (_not) {
         _builder.append("Depends On: ");
         {
           EList<DependsOnGoal> _dependsOn_1 = g.getDependsOn();
@@ -593,7 +630,8 @@ public class RSLIL2TextGenerator implements IGenerator {
     {
       EList<ComposedBy> _composedBy = g.getComposedBy();
       boolean _isEmpty_1 = _composedBy.isEmpty();
-      if (_isEmpty_1) {
+      boolean _not_1 = (!_isEmpty_1);
+      if (_not_1) {
         _builder.append("Composed By: ");
         {
           EList<ComposedBy> _composedBy_1 = g.getComposedBy();
@@ -657,7 +695,8 @@ public class RSLIL2TextGenerator implements IGenerator {
     _builder.append(" ");
     RefGoal _refGoal = c.getRefGoal();
     Goal _refGoal_1 = _refGoal.getRefGoal();
-    _builder.append(_refGoal_1, "");
+    String _name = _refGoal_1.getName();
+    _builder.append(_name, "");
     {
       RefGoal _refGoal_2 = c.getRefGoal();
       EList<Goal> _refs = _refGoal_2.getRefs();
@@ -668,8 +707,8 @@ public class RSLIL2TextGenerator implements IGenerator {
         } else {
           _builder.appendImmediate(",", "");
         }
-        String _name = r.getName();
-        _builder.append(_name, "");
+        String _name_1 = r.getName();
+        _builder.append(_name_1, "");
       }
     }
     _builder.newLineIfNotEmpty();
@@ -692,7 +731,9 @@ public class RSLIL2TextGenerator implements IGenerator {
     _builder.append(_description, "");
     _builder.append(",");
     _builder.newLineIfNotEmpty();
-    _builder.append("Attributes: ");
+    _builder.append("Attributes:");
+    _builder.newLine();
+    _builder.append("\t");
     {
       EList<Attribute> _attributes = e.getAttributes();
       boolean _hasElements = false;
@@ -700,10 +741,10 @@ public class RSLIL2TextGenerator implements IGenerator {
         if (!_hasElements) {
           _hasElements = true;
         } else {
-          _builder.appendImmediate(",\n", "");
+          _builder.appendImmediate(",\n", "\t");
         }
         CharSequence _compile = this.compile(a);
-        _builder.append(_compile, "");
+        _builder.append(_compile, "\t");
       }
     }
     _builder.newLineIfNotEmpty();
@@ -1134,7 +1175,9 @@ public class RSLIL2TextGenerator implements IGenerator {
       boolean _isEmpty_4 = _scenarios.isEmpty();
       boolean _not_4 = (!_isEmpty_4);
       if (_not_4) {
-        _builder.append("Scenarios: ");
+        _builder.append("Scenarios:");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
         {
           EList<Scenario> _scenarios_1 = u.getScenarios();
           boolean _hasElements_4 = false;
@@ -1142,10 +1185,10 @@ public class RSLIL2TextGenerator implements IGenerator {
             if (!_hasElements_4) {
               _hasElements_4 = true;
             } else {
-              _builder.appendImmediate(",\n", "");
+              _builder.appendImmediate(",\n", "\t");
             }
             CharSequence _compile_5 = this.compile(s);
-            _builder.append(_compile_5, "");
+            _builder.append(_compile_5, "\t");
           }
         }
       }
@@ -1341,7 +1384,9 @@ public class RSLIL2TextGenerator implements IGenerator {
       boolean _isEmpty = _steps.isEmpty();
       boolean _not = (!_isEmpty);
       if (_not) {
-        _builder.append("\"Steps: ");
+        _builder.append("Steps:");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
         {
           EList<Step> _steps_1 = s.getSteps();
           boolean _hasElements = false;
@@ -1349,10 +1394,10 @@ public class RSLIL2TextGenerator implements IGenerator {
             if (!_hasElements) {
               _hasElements = true;
             } else {
-              _builder.appendImmediate(",\n", "");
+              _builder.appendImmediate(",\n", "\t");
             }
             CharSequence _compile = this.compile(st);
-            _builder.append(_compile, "");
+            _builder.append(_compile, "\t");
           }
         }
       }

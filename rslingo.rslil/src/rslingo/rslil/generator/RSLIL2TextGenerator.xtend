@@ -93,32 +93,32 @@ class RSLIL2TextGenerator implements IGenerator {
 	
 	#Entities
 	------------------
-	«FOR e:p.entities»«e.compile»«ENDFOR»«ENDIF»
+	«FOR e:p.entities SEPARATOR '\n'»«e.compile»«ENDFOR»«ENDIF»
 	«IF !p.actors.empty»
 	
 	#Actors
 	------------------
-	«FOR a:p.actors»«a.compile»«ENDFOR»«ENDIF»
+	«FOR a:p.actors SEPARATOR '\n'»«a.compile»«ENDFOR»«ENDIF»
 	«IF !p.useCases.empty»
 	
 	#Use Cases
 	------------------
-	«FOR u:p.useCases»«u.compile»«ENDFOR»«ENDIF»
+	«FOR u:p.useCases SEPARATOR '\n'»«u.compile»«ENDFOR»«ENDIF»
 	«IF !p.frs.empty»
 	
 	#Functional Requirements
 	--------------------------
-	«FOR f:p.frs»«f.compile»«ENDFOR»«ENDIF»
+	«FOR f:p.frs SEPARATOR '\n'»«f.compile»«ENDFOR»«ENDIF»
 	«IF !p.qrs.empty»
 	
 	#Quality Requirements
 	-----------------------------
-	«FOR n:p.qrs»«n.compile»«ENDFOR»«ENDIF»
+	«FOR n:p.qrs SEPARATOR '\n'»«n.compile»«ENDFOR»«ENDIF»
 	«IF !p.constraints.empty»
 	
 	#Constraints
 	------------------
-	«FOR c:p.constraints»«c.compile»«ENDFOR»«ENDIF»
+	«FOR c:p.constraints SEPARATOR '\n'»«c.compile»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(System s)
@@ -161,8 +161,8 @@ class RSLIL2TextGenerator implements IGenerator {
 	«g.description»,
 	«IF g.stakeholder != null»Stakeholder: «g.stakeholder.name»«ENDIF»
 	Priority: «g.priority.value»,
-	«IF g.dependsOn.empty»Depends On: «FOR d:g.dependsOn SEPARATOR ',\n'»«d.compile»«ENDFOR»«ENDIF»
-	«IF g.composedBy.empty»Composed By: «FOR c:g.composedBy SEPARATOR ',\n'»«c.compile»«ENDFOR»«ENDIF»
+	«IF !g.dependsOn.empty»Depends On: «FOR d:g.dependsOn SEPARATOR ',\n'»«d.compile»«ENDFOR»«ENDIF»
+	«IF !g.composedBy.empty»Composed By: «FOR c:g.composedBy SEPARATOR ',\n'»«c.compile»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(DependsOnGoal d)
@@ -172,14 +172,15 @@ class RSLIL2TextGenerator implements IGenerator {
 	
 	def compile(ComposedBy c)
 	'''
-	«c.type» «c.refGoal.refGoal»«FOR r:c.refGoal.refs SEPARATOR ','»«r.name»«ENDFOR»
+	«c.type» «c.refGoal.refGoal.name»«FOR r:c.refGoal.refs SEPARATOR ','»«r.name»«ENDFOR»
 	'''
 	
 	def compile(Entity e)
 	'''
 	«e.name».«e.nameAlias» («e.type»):
 	«e.description»,
-	Attributes: «FOR a:e.attributes SEPARATOR ',\n'»«a.compile»«ENDFOR»
+	Attributes:
+		«FOR a:e.attributes SEPARATOR ',\n'»«a.compile»«ENDFOR»
 	«IF e.primaryKey != null»Primary Key: «e.primaryKey.compile»«ENDIF»
 	«IF !e.foreignKeys.empty»Foreign Keys: «FOR f:e.foreignKeys SEPARATOR ',\n'»«f.compile»«ENDFOR»«ENDIF»
 	«IF !e.checks.empty»Checks: «FOR c:e.checks SEPARATOR ',\n'»«c.compile»«ENDFOR»«ENDIF»
@@ -235,7 +236,8 @@ class RSLIL2TextGenerator implements IGenerator {
 	«IF u.postConditions != null»Post-Conditions: «u.postConditions»«ENDIF»
 	«IF !u.includes.empty»Include: «FOR i:u.includes SEPARATOR ','»«i.compile»«ENDFOR»«ENDIF»
 	«IF u.extends != null»Extend «u.extends.name» on «u.extPoint.name»«ENDIF»
-	«IF !u.scenarios.empty»Scenarios: «FOR s:u.scenarios SEPARATOR ',\n'»«s.compile»«ENDFOR»«ENDIF»
+	«IF !u.scenarios.empty»Scenarios:
+		«FOR s:u.scenarios SEPARATOR ',\n'»«s.compile»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(RefEntity r)
@@ -268,7 +270,8 @@ class RSLIL2TextGenerator implements IGenerator {
 	«s.name».«s.nameAlias» («s.type»):
 	«s.description»,
 	Execution Mode: «s.mode»,
-	«IF !s.steps.empty»"Steps: «FOR st:s.steps SEPARATOR ',\n'»«st.compile»«ENDFOR»«ENDIF»
+	«IF !s.steps.empty»Steps:
+		«FOR st:s.steps SEPARATOR ',\n'»«st.compile»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(Step s)
