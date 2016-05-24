@@ -18,8 +18,10 @@ import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.Check;
 import rslingo.rslil.rSLIL.ComposedBy;
 import rslingo.rslil.rSLIL.Constraint;
+import rslingo.rslil.rSLIL.DependsOnConstraint;
 import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.DependsOnGoal;
+import rslingo.rslil.rSLIL.DependsOnQR;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.EntityType;
 import rslingo.rslil.rSLIL.ExtensionPoint;
@@ -36,9 +38,11 @@ import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.QR;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
+import rslingo.rslil.rSLIL.RefConstraint;
 import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
+import rslingo.rslil.rSLIL.RefQR;
 import rslingo.rslil.rSLIL.RefTerm;
 import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
@@ -317,7 +321,7 @@ public class RSLIL2TextGenerator implements IGenerator {
     StringConcatenation _builder = new StringConcatenation();
     String _name = s.getName();
     _builder.append(_name, "");
-    _builder.append("(");
+    _builder.append(" (");
     String _nameAlias = s.getNameAlias();
     _builder.append(_nameAlias, "");
     _builder.append("):");
@@ -355,17 +359,38 @@ public class RSLIL2TextGenerator implements IGenerator {
     _builder.append(_description, "");
     _builder.append(",");
     _builder.newLineIfNotEmpty();
-    String _acronym = g.getAcronym();
-    _builder.append(_acronym, "");
-    _builder.append(",");
+    {
+      String _acronym = g.getAcronym();
+      boolean _notEquals = (!Objects.equal(_acronym, null));
+      if (_notEquals) {
+        _builder.append("Acronym: ");
+        String _acronym_1 = g.getAcronym();
+        _builder.append(_acronym_1, "");
+        _builder.append(",");
+      }
+    }
     _builder.newLineIfNotEmpty();
-    String _pos = g.getPos();
-    _builder.append(_pos, "");
-    _builder.append(",");
+    {
+      String _pos = g.getPos();
+      boolean _notEquals_1 = (!Objects.equal(_pos, null));
+      if (_notEquals_1) {
+        _builder.append("POS: ");
+        String _pos_1 = g.getPos();
+        _builder.append(_pos_1, "");
+        _builder.append(",");
+      }
+    }
     _builder.newLineIfNotEmpty();
-    String _synset = g.getSynset();
-    _builder.append(_synset, "");
-    _builder.append(",");
+    {
+      String _synset = g.getSynset();
+      boolean _notEquals_2 = (!Objects.equal(_synset, null));
+      if (_notEquals_2) {
+        _builder.append("Synset: ");
+        String _synset_1 = g.getSynset();
+        _builder.append(_synset_1, "");
+        _builder.append(",");
+      }
+    }
     _builder.newLineIfNotEmpty();
     {
       EList<TermRelation> _termRelation = g.getTermRelation();
@@ -379,7 +404,7 @@ public class RSLIL2TextGenerator implements IGenerator {
             if (!_hasElements) {
               _hasElements = true;
             } else {
-              _builder.appendImmediate(",", "");
+              _builder.appendImmediate(",\n", "");
             }
             CharSequence _compile = this.compile(t);
             _builder.append(_compile, "");
@@ -480,29 +505,43 @@ public class RSLIL2TextGenerator implements IGenerator {
     _builder.newLineIfNotEmpty();
     {
       EList<DependsOnGoal> _dependsOn = g.getDependsOn();
-      boolean _hasElements = false;
-      for(final DependsOnGoal d : _dependsOn) {
-        if (!_hasElements) {
-          _hasElements = true;
-        } else {
-          _builder.appendImmediate(",\n", "");
+      boolean _isEmpty = _dependsOn.isEmpty();
+      if (_isEmpty) {
+        _builder.append("Depends On: ");
+        {
+          EList<DependsOnGoal> _dependsOn_1 = g.getDependsOn();
+          boolean _hasElements = false;
+          for(final DependsOnGoal d : _dependsOn_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(",\n", "");
+            }
+            CharSequence _compile = this.compile(d);
+            _builder.append(_compile, "");
+          }
         }
-        CharSequence _compile = this.compile(d);
-        _builder.append(_compile, "");
       }
     }
     _builder.newLineIfNotEmpty();
     {
       EList<ComposedBy> _composedBy = g.getComposedBy();
-      boolean _hasElements_1 = false;
-      for(final ComposedBy c : _composedBy) {
-        if (!_hasElements_1) {
-          _hasElements_1 = true;
-        } else {
-          _builder.appendImmediate(",\n", "");
+      boolean _isEmpty_1 = _composedBy.isEmpty();
+      if (_isEmpty_1) {
+        _builder.append("Composed By: ");
+        {
+          EList<ComposedBy> _composedBy_1 = g.getComposedBy();
+          boolean _hasElements_1 = false;
+          for(final ComposedBy c : _composedBy_1) {
+            if (!_hasElements_1) {
+              _hasElements_1 = true;
+            } else {
+              _builder.appendImmediate(",\n", "");
+            }
+            CharSequence _compile_1 = this.compile(c);
+            _builder.append(_compile_1, "");
+          }
         }
-        CharSequence _compile_1 = this.compile(c);
-        _builder.append(_compile_1, "");
       }
     }
     _builder.newLineIfNotEmpty();
@@ -675,30 +714,48 @@ public class RSLIL2TextGenerator implements IGenerator {
     String _description = a.getDescription();
     _builder.append(_description, "");
     _builder.newLineIfNotEmpty();
-    _builder.append("Size: ");
-    int _size = a.getSize();
-    _builder.append(_size, "");
+    {
+      int _size = a.getSize();
+      boolean _greaterThan = (_size > 0);
+      if (_greaterThan) {
+        _builder.append("Size: ");
+        int _size_1 = a.getSize();
+        _builder.append(_size_1, "");
+      }
+    }
     _builder.newLineIfNotEmpty();
-    _builder.append("Multiplicity: ");
-    Multiplicity _multiplicity = a.getMultiplicity();
-    _builder.append(_multiplicity, "");
+    {
+      Multiplicity _multiplicity = a.getMultiplicity();
+      boolean _notEquals = (!Objects.equal(_multiplicity, null));
+      if (_notEquals) {
+        _builder.append("Multiplicity: ");
+        Multiplicity _multiplicity_1 = a.getMultiplicity();
+        _builder.append(_multiplicity_1, "");
+      }
+    }
     _builder.newLineIfNotEmpty();
-    _builder.append("Default Value: ");
-    String _defaultValue = a.getDefaultValue();
-    _builder.append(_defaultValue, "");
+    {
+      String _defaultValue = a.getDefaultValue();
+      boolean _notEquals_1 = (!Objects.equal(_defaultValue, null));
+      if (_notEquals_1) {
+        _builder.append("Default Value: ");
+        String _defaultValue_1 = a.getDefaultValue();
+        _builder.append(_defaultValue_1, "");
+      }
+    }
     _builder.newLineIfNotEmpty();
     {
       String _notNull = a.getNotNull();
-      boolean _notEquals = (!Objects.equal(_notNull, null));
-      if (_notEquals) {
+      boolean _notEquals_2 = (!Objects.equal(_notNull, null));
+      if (_notEquals_2) {
         _builder.append("NotNull");
       }
     }
     _builder.newLineIfNotEmpty();
     {
       String _unique = a.getUnique();
-      boolean _notEquals_1 = (!Objects.equal(_unique, null));
-      if (_notEquals_1) {
+      boolean _notEquals_3 = (!Objects.equal(_unique, null));
+      if (_notEquals_3) {
         _builder.append("Unique");
       }
     }
@@ -806,15 +863,21 @@ public class RSLIL2TextGenerator implements IGenerator {
     String _description = a.getDescription();
     _builder.append(_description, "");
     _builder.newLineIfNotEmpty();
-    _builder.append("Stakeholder: ");
-    Stakeholder _stakeholder = a.getStakeholder();
-    String _name_1 = _stakeholder.getName();
-    _builder.append(_name_1, "");
+    {
+      Stakeholder _stakeholder = a.getStakeholder();
+      boolean _notEquals = (!Objects.equal(_stakeholder, null));
+      if (_notEquals) {
+        _builder.append("Stakeholder: ");
+        Stakeholder _stakeholder_1 = a.getStakeholder();
+        String _name_1 = _stakeholder_1.getName();
+        _builder.append(_name_1, "");
+      }
+    }
     _builder.newLineIfNotEmpty();
     {
       Actor _actor = a.getActor();
-      boolean _notEquals = (!Objects.equal(_actor, null));
-      if (_notEquals) {
+      boolean _notEquals_1 = (!Objects.equal(_actor, null));
+      if (_notEquals_1) {
         _builder.append("Specialized from: ");
         Actor _actor_1 = a.getActor();
         String _name_2 = _actor_1.getName();
@@ -1395,11 +1458,230 @@ public class RSLIL2TextGenerator implements IGenerator {
   
   public CharSequence compile(final QR q) {
     StringConcatenation _builder = new StringConcatenation();
+    String _name = q.getName();
+    _builder.append(_name, "");
+    _builder.append(".");
+    String _nameAlias = q.getNameAlias();
+    _builder.append(_nameAlias, "");
+    _builder.append(" (");
+    String _type = q.getType();
+    _builder.append(_type, "");
+    _builder.append("):");
+    _builder.newLineIfNotEmpty();
+    String _description = q.getDescription();
+    _builder.append(_description, "");
+    _builder.append(",");
+    _builder.newLineIfNotEmpty();
+    {
+      String _subType = q.getSubType();
+      boolean _notEquals = (!Objects.equal(_subType, null));
+      if (_notEquals) {
+        _builder.append("Sub-Type: ");
+        String _subType_1 = q.getSubType();
+        _builder.append(_subType_1, "");
+        _builder.append(",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("Metric: ");
+    String _metric = q.getMetric();
+    _builder.append(_metric, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("Value: ");
+    int _value = q.getValue();
+    _builder.append(_value, "");
+    _builder.newLineIfNotEmpty();
+    {
+      Stakeholder _stakeholder = q.getStakeholder();
+      boolean _notEquals_1 = (!Objects.equal(_stakeholder, null));
+      if (_notEquals_1) {
+        _builder.append("Stakeholder: ");
+        Stakeholder _stakeholder_1 = q.getStakeholder();
+        String _name_1 = _stakeholder_1.getName();
+        _builder.append(_name_1, "");
+        _builder.append(",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("Priority: ");
+    Priority _priority = q.getPriority();
+    _builder.append(_priority, "");
+    _builder.append(",");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<DependsOnQR> _depends = q.getDepends();
+      boolean _isEmpty = _depends.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append("Depends On: ");
+        {
+          EList<DependsOnQR> _depends_1 = q.getDepends();
+          boolean _hasElements = false;
+          for(final DependsOnQR d : _depends_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(",\n", "");
+            }
+            CharSequence _compile = this.compile(d);
+            _builder.append(_compile, "");
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      QR _partOf = q.getPartOf();
+      boolean _notEquals_2 = (!Objects.equal(_partOf, null));
+      if (_notEquals_2) {
+        _builder.append("Part Of: ");
+        QR _partOf_1 = q.getPartOf();
+        String _name_2 = _partOf_1.getName();
+        _builder.append(_name_2, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final DependsOnQR d) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _type = d.getType();
+    _builder.append(_type, "");
+    _builder.append(" ");
+    RefQR _refQR = d.getRefQR();
+    QR _refQR_1 = _refQR.getRefQR();
+    String _name = _refQR_1.getName();
+    _builder.append(_name, "");
+    {
+      RefQR _refQR_2 = d.getRefQR();
+      EList<QR> _refs = _refQR_2.getRefs();
+      boolean _isEmpty = _refs.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append(",");
+        {
+          RefQR _refQR_3 = d.getRefQR();
+          EList<QR> _refs_1 = _refQR_3.getRefs();
+          boolean _hasElements = false;
+          for(final QR q : _refs_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(",", "");
+            }
+            String _name_1 = q.getName();
+            _builder.append(_name_1, "");
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
   public CharSequence compile(final Constraint c) {
     StringConcatenation _builder = new StringConcatenation();
+    String _name = c.getName();
+    _builder.append(_name, "");
+    _builder.append(".");
+    String _nameAlias = c.getNameAlias();
+    _builder.append(_nameAlias, "");
+    _builder.append(" (");
+    String _type = c.getType();
+    _builder.append(_type, "");
+    _builder.append("):");
+    _builder.newLineIfNotEmpty();
+    String _description = c.getDescription();
+    _builder.append(_description, "");
+    _builder.append(",");
+    _builder.newLineIfNotEmpty();
+    {
+      Stakeholder _stakeholder = c.getStakeholder();
+      boolean _notEquals = (!Objects.equal(_stakeholder, null));
+      if (_notEquals) {
+        _builder.append("Stakeholder: ");
+        Stakeholder _stakeholder_1 = c.getStakeholder();
+        String _name_1 = _stakeholder_1.getName();
+        _builder.append(_name_1, "");
+        _builder.append(",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("Priority: ");
+    Priority _priority = c.getPriority();
+    _builder.append(_priority, "");
+    _builder.append(",");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<DependsOnConstraint> _depends = c.getDepends();
+      boolean _isEmpty = _depends.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append("Depends On: ");
+        {
+          EList<DependsOnConstraint> _depends_1 = c.getDepends();
+          boolean _hasElements = false;
+          for(final DependsOnConstraint d : _depends_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(",\n", "");
+            }
+            CharSequence _compile = this.compile(d);
+            _builder.append(_compile, "");
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      Constraint _partOf = c.getPartOf();
+      boolean _notEquals_1 = (!Objects.equal(_partOf, null));
+      if (_notEquals_1) {
+        _builder.append("Part Of: ");
+        Constraint _partOf_1 = c.getPartOf();
+        String _name_2 = _partOf_1.getName();
+        _builder.append(_name_2, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final DependsOnConstraint d) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _type = d.getType();
+    _builder.append(_type, "");
+    _builder.append(" ");
+    RefConstraint _refConst = d.getRefConst();
+    Constraint _refConst_1 = _refConst.getRefConst();
+    String _name = _refConst_1.getName();
+    _builder.append(_name, "");
+    {
+      RefConstraint _refConst_2 = d.getRefConst();
+      EList<Constraint> _refs = _refConst_2.getRefs();
+      boolean _isEmpty = _refs.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append(",");
+        {
+          RefConstraint _refConst_3 = d.getRefConst();
+          EList<Constraint> _refs_1 = _refConst_3.getRefs();
+          boolean _hasElements = false;
+          for(final Constraint q : _refs_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(",", "");
+            }
+            String _name_1 = q.getName();
+            _builder.append(_name_1, "");
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
 }

@@ -31,6 +31,8 @@ import rslingo.rslil.rSLIL.Scenario
 import rslingo.rslil.rSLIL.RefUC
 import rslingo.rslil.rSLIL.Step
 import rslingo.rslil.rSLIL.DependsOnFR
+import rslingo.rslil.rSLIL.DependsOnQR
+import rslingo.rslil.rSLIL.DependsOnConstraint
 
 /**
  * Generates code from your model files on save.
@@ -120,7 +122,7 @@ class RSLIL2TextGenerator implements IGenerator {
 	
 	def compile(System s)
 	'''
-	«s.name»(«s.nameAlias»):
+	«s.name» («s.nameAlias»):
 	«s.description»
 	«IF s.partOf != null»Part of: «s.partOf.name»«ENDIF»
 	'''
@@ -129,10 +131,10 @@ class RSLIL2TextGenerator implements IGenerator {
 	'''
 	«g.name».«g.nameAlias» («g.type»):
 	«g.description»,
-	«g.acronym»,
-	«g.pos»,
-	«g.synset»,
-	«IF g.termRelation.empty»Term Relation: «FOR t:g.termRelation SEPARATOR ','»«t.compile»«ENDFOR»«ENDIF»
+	«IF g.acronym != null»Acronym: «g.acronym»,«ENDIF»
+	«IF g.pos != null»POS: «g.pos»,«ENDIF»
+	«IF g.synset != null»Synset: «g.synset»,«ENDIF»
+	«IF g.termRelation.empty»Term Relation: «FOR t:g.termRelation SEPARATOR ',\n'»«t.compile»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(TermRelation t)
@@ -154,8 +156,8 @@ class RSLIL2TextGenerator implements IGenerator {
 	«g.description»,
 	«IF g.stakeholder != null»Stakeholder: «g.stakeholder.name»«ENDIF»
 	«g.priority»,
-	«FOR d:g.dependsOn SEPARATOR ',\n'»«d.compile»«ENDFOR»
-	«FOR c:g.composedBy SEPARATOR ',\n'»«c.compile»«ENDFOR»
+	«IF g.dependsOn.empty»Depends On: «FOR d:g.dependsOn SEPARATOR ',\n'»«d.compile»«ENDFOR»«ENDIF»
+	«IF g.composedBy.empty»Composed By: «FOR c:g.composedBy SEPARATOR ',\n'»«c.compile»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(DependsOnGoal d)
@@ -182,9 +184,9 @@ class RSLIL2TextGenerator implements IGenerator {
 	'''
 	«a.name».«a.nameAlias» («a.type»):
 	«a.description»
-	Size: «a.size»
-	Multiplicity: «a.multiplicity»
-	Default Value: «a.defaultValue»
+	«IF a.size > 0»Size: «a.size»«ENDIF»
+	«IF a.multiplicity != null»Multiplicity: «a.multiplicity»«ENDIF»
+	«IF a.defaultValue != null»Default Value: «a.defaultValue»«ENDIF»
 	«IF a.notNull != null»NotNull«ENDIF»
 	«IF a.unique != null»Unique«ENDIF»
 	'''
@@ -208,7 +210,7 @@ class RSLIL2TextGenerator implements IGenerator {
 	'''
 	«a.name».«a.nameAlias» («a.type»):
 	«a.description»
-	Stakeholder: «a.stakeholder.name»
+	«IF a.stakeholder != null»Stakeholder: «a.stakeholder.name»«ENDIF»
 	«IF a.actor != null»Specialized from: «a.actor.name»«ENDIF»
 	'''
 	
@@ -290,10 +292,34 @@ class RSLIL2TextGenerator implements IGenerator {
 	
 	def compile(QR q)
 	'''
+	«q.name».«q.nameAlias» («q.type»):
+	«q.description»,
+	«IF q.subType != null»Sub-Type: «q.subType»,«ENDIF»
+	Metric: «q.metric»
+	Value: «q.value»
+	«IF q.stakeholder != null»Stakeholder: «q.stakeholder.name»,«ENDIF»
+	Priority: «q.priority»,
+	«IF !q.depends.empty»Depends On: «FOR d:q.depends SEPARATOR ',\n'»«d.compile»«ENDFOR»«ENDIF»
+	«IF q.partOf != null»Part Of: «q.partOf.name»«ENDIF»
+	'''
+	
+	def compile(DependsOnQR d)
+	'''
+	«d.type» «d.refQR.refQR.name»«IF !d.refQR.refs.empty»,«FOR q:d.refQR.refs SEPARATOR ','»«q.name»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(Constraint c)
 	'''
+	«c.name».«c.nameAlias» («c.type»):
+	«c.description»,
+	«IF c.stakeholder != null»Stakeholder: «c.stakeholder.name»,«ENDIF»
+	Priority: «c.priority»,
+	«IF !c.depends.empty»Depends On: «FOR d:c.depends SEPARATOR ',\n'»«d.compile»«ENDFOR»«ENDIF»
+	«IF c.partOf != null»Part Of: «c.partOf.name»«ENDIF»
 	'''
 	
+	def compile(DependsOnConstraint d)
+	'''
+	«d.type» «d.refConst.refConst.name»«IF !d.refConst.refs.empty»,«FOR q:d.refConst.refs SEPARATOR ','»«q.name»«ENDFOR»«ENDIF»
+	'''
 }
