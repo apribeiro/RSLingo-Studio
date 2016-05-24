@@ -330,14 +330,19 @@ public class RSLIL2TextGenerator implements IGenerator {
     String _description = s.getDescription();
     _builder.append(_description, "");
     _builder.newLineIfNotEmpty();
+    _builder.append("Project: ");
+    Project _project = s.getProject();
+    String _name_1 = _project.getName();
+    _builder.append(_name_1, "");
+    _builder.newLineIfNotEmpty();
     {
       rslingo.rslil.rSLIL.System _partOf = s.getPartOf();
       boolean _notEquals = (!Objects.equal(_partOf, null));
       if (_notEquals) {
         _builder.append("Part Of: ");
         rslingo.rslil.rSLIL.System _partOf_1 = s.getPartOf();
-        String _name_1 = _partOf_1.getName();
-        _builder.append(_name_1, "");
+        String _name_2 = _partOf_1.getName();
+        _builder.append(_name_2, "");
       }
     }
     _builder.newLineIfNotEmpty();
@@ -756,6 +761,10 @@ public class RSLIL2TextGenerator implements IGenerator {
     String _description = a.getDescription();
     _builder.append(_description, "");
     _builder.newLineIfNotEmpty();
+    _builder.append("Type: ");
+    String _type_1 = a.getType();
+    _builder.append(_type_1, "");
+    _builder.newLineIfNotEmpty();
     {
       int _size = a.getSize();
       boolean _greaterThan = (_size > 0);
@@ -772,7 +781,8 @@ public class RSLIL2TextGenerator implements IGenerator {
       if (_notEquals) {
         _builder.append("Multiplicity: ");
         Multiplicity _multiplicity_1 = a.getMultiplicity();
-        _builder.append(_multiplicity_1, "");
+        String _value = _multiplicity_1.getValue();
+        _builder.append(_value, "");
       }
     }
     _builder.newLineIfNotEmpty();
@@ -1046,6 +1056,7 @@ public class RSLIL2TextGenerator implements IGenerator {
       String _preConditions = u.getPreConditions();
       boolean _notEquals_2 = (!Objects.equal(_preConditions, null));
       if (_notEquals_2) {
+        _builder.append("Pre-Conditions: ");
         String _preConditions_1 = u.getPreConditions();
         _builder.append(_preConditions_1, "");
       }
@@ -1055,6 +1066,7 @@ public class RSLIL2TextGenerator implements IGenerator {
       String _postConditions = u.getPostConditions();
       boolean _notEquals_3 = (!Objects.equal(_postConditions, null));
       if (_notEquals_3) {
+        _builder.append("Post-Conditions: ");
         String _postConditions_1 = u.getPostConditions();
         _builder.append(_postConditions_1, "");
       }
@@ -1309,7 +1321,7 @@ public class RSLIL2TextGenerator implements IGenerator {
       boolean _isEmpty = _steps.isEmpty();
       boolean _not = (!_isEmpty);
       if (_not) {
-        _builder.append("Steps: ");
+        _builder.append("\"Steps: ");
         {
           EList<Step> _steps_1 = s.getSteps();
           boolean _hasElements = false;

@@ -125,6 +125,7 @@ class RSLIL2TextGenerator implements IGenerator {
 	'''
 	«s.name» («s.nameAlias»):
 	«s.description»
+	Project: «s.project.name»
 	«IF s.partOf != null»Part Of: «s.partOf.name»«ENDIF»
 	'''
 	
@@ -190,8 +191,9 @@ class RSLIL2TextGenerator implements IGenerator {
 	'''
 	«a.name».«a.nameAlias» («a.type»):
 	«a.description»
+	Type: «a.type»
 	«IF a.size > 0»Size: «a.size»«ENDIF»
-	«IF a.multiplicity != null»Multiplicity: «a.multiplicity»«ENDIF»
+	«IF a.multiplicity != null»Multiplicity: «a.multiplicity.value»«ENDIF»
 	«IF a.defaultValue != null»Default Value: «a.defaultValue»«ENDIF»
 	«IF a.notNull != null»NotNull«ENDIF»
 	«IF a.unique != null»Unique«ENDIF»
@@ -231,8 +233,8 @@ class RSLIL2TextGenerator implements IGenerator {
 	«IF !u.frs.empty»Functional Requirements: «FOR f:u.frs SEPARATOR ','»«f.compile»«ENDFOR»«ENDIF»
 	Actor Initiates: «u.actorInitiates.name»
 	«IF u.actors != null»Actor Participates: «u.actors.compile»«ENDIF»
-	«IF u.preConditions != null»«u.preConditions»«ENDIF»
-	«IF u.postConditions != null»«u.postConditions»«ENDIF»
+	«IF u.preConditions != null»Pre-Conditions: «u.preConditions»«ENDIF»
+	«IF u.postConditions != null»Post-Conditions: «u.postConditions»«ENDIF»
 	«IF !u.includes.empty»Include: «FOR i:u.includes SEPARATOR ','»«i.compile»«ENDFOR»«ENDIF»
 	«IF u.extends != null»Extend «u.extends.name» on «u.extPoint.name»«ENDIF»
 	«IF !u.scenarios.empty»Scenarios: «FOR s:u.scenarios SEPARATOR ',\n'»«s.compile»«ENDFOR»«ENDIF»
@@ -268,7 +270,7 @@ class RSLIL2TextGenerator implements IGenerator {
 	«s.name».«s.nameAlias» («s.type»):
 	«s.description»,
 	Execution Mode: «s.mode»,
-	«IF !s.steps.empty»Steps: «FOR st:s.steps SEPARATOR ',\n'»«st.compile»«ENDFOR»«ENDIF»
+	«IF !s.steps.empty»"Steps: «FOR st:s.steps SEPARATOR ',\n'»«st.compile»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(Step s)
