@@ -291,7 +291,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DependsOnQR">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refQr" eType="#//RefQR"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refQR" eType="#//RefQR"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RefQR">

@@ -12253,24 +12253,24 @@ public class InternalRSLILParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDependsOnQR"
-    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:5260:1: ruleDependsOnQR returns [EObject current=null] : ( ( ( (lv_type_0_1= 'Requires' | lv_type_0_2= 'Refines' | lv_type_0_3= 'Conflicts' ) ) ) ( (lv_refQr_1_0= ruleRefQR ) ) ) ;
+    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:5260:1: ruleDependsOnQR returns [EObject current=null] : ( ( ( (lv_type_0_1= 'Requires' | lv_type_0_2= 'Refines' | lv_type_0_3= 'Conflicts' ) ) ) ( (lv_refQR_1_0= ruleRefQR ) ) ) ;
     public final EObject ruleDependsOnQR() throws RecognitionException {
         EObject current = null;
 
         Token lv_type_0_1=null;
         Token lv_type_0_2=null;
         Token lv_type_0_3=null;
-        EObject lv_refQr_1_0 = null;
+        EObject lv_refQR_1_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:5263:28: ( ( ( ( (lv_type_0_1= 'Requires' | lv_type_0_2= 'Refines' | lv_type_0_3= 'Conflicts' ) ) ) ( (lv_refQr_1_0= ruleRefQR ) ) ) )
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:5264:1: ( ( ( (lv_type_0_1= 'Requires' | lv_type_0_2= 'Refines' | lv_type_0_3= 'Conflicts' ) ) ) ( (lv_refQr_1_0= ruleRefQR ) ) )
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:5263:28: ( ( ( ( (lv_type_0_1= 'Requires' | lv_type_0_2= 'Refines' | lv_type_0_3= 'Conflicts' ) ) ) ( (lv_refQR_1_0= ruleRefQR ) ) ) )
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:5264:1: ( ( ( (lv_type_0_1= 'Requires' | lv_type_0_2= 'Refines' | lv_type_0_3= 'Conflicts' ) ) ) ( (lv_refQR_1_0= ruleRefQR ) ) )
             {
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:5264:1: ( ( ( (lv_type_0_1= 'Requires' | lv_type_0_2= 'Refines' | lv_type_0_3= 'Conflicts' ) ) ) ( (lv_refQr_1_0= ruleRefQR ) ) )
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:5264:2: ( ( (lv_type_0_1= 'Requires' | lv_type_0_2= 'Refines' | lv_type_0_3= 'Conflicts' ) ) ) ( (lv_refQr_1_0= ruleRefQR ) )
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:5264:1: ( ( ( (lv_type_0_1= 'Requires' | lv_type_0_2= 'Refines' | lv_type_0_3= 'Conflicts' ) ) ) ( (lv_refQR_1_0= ruleRefQR ) ) )
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:5264:2: ( ( (lv_type_0_1= 'Requires' | lv_type_0_2= 'Refines' | lv_type_0_3= 'Conflicts' ) ) ) ( (lv_refQR_1_0= ruleRefQR ) )
             {
             // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:5264:2: ( ( (lv_type_0_1= 'Requires' | lv_type_0_2= 'Refines' | lv_type_0_3= 'Conflicts' ) ) )
             // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:5265:1: ( (lv_type_0_1= 'Requires' | lv_type_0_2= 'Refines' | lv_type_0_3= 'Conflicts' ) )
@@ -12361,17 +12361,17 @@ public class InternalRSLILParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:5306:2: ( (lv_refQr_1_0= ruleRefQR ) )
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:5307:1: (lv_refQr_1_0= ruleRefQR )
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:5306:2: ( (lv_refQR_1_0= ruleRefQR ) )
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:5307:1: (lv_refQR_1_0= ruleRefQR )
             {
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:5307:1: (lv_refQr_1_0= ruleRefQR )
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:5308:3: lv_refQr_1_0= ruleRefQR
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:5307:1: (lv_refQR_1_0= ruleRefQR )
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:5308:3: lv_refQR_1_0= ruleRefQR
             {
              
-            	        newCompositeNode(grammarAccess.getDependsOnQRAccess().getRefQrRefQRParserRuleCall_1_0()); 
+            	        newCompositeNode(grammarAccess.getDependsOnQRAccess().getRefQRRefQRParserRuleCall_1_0()); 
             	    
             pushFollow(FOLLOW_ruleRefQR_in_ruleDependsOnQR11279);
-            lv_refQr_1_0=ruleRefQR();
+            lv_refQR_1_0=ruleRefQR();
 
             state._fsp--;
 
@@ -12381,8 +12381,8 @@ public class InternalRSLILParser extends AbstractInternalAntlrParser {
             	        }
                    		set(
                    			current, 
-                   			"refQr",
-                    		lv_refQr_1_0, 
+                   			"refQR",
+                    		lv_refQR_1_0, 
                     		"RefQR");
             	        afterParserOrEnumRuleCall();
             	    

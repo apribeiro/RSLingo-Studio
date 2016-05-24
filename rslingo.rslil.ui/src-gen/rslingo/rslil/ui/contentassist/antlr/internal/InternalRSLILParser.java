@@ -37257,31 +37257,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DependsOnQR__Group__1__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:14013:1: rule__DependsOnQR__Group__1__Impl : ( ( rule__DependsOnQR__RefQrAssignment_1 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:14013:1: rule__DependsOnQR__Group__1__Impl : ( ( rule__DependsOnQR__RefQRAssignment_1 ) ) ;
     public final void rule__DependsOnQR__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:14017:1: ( ( ( rule__DependsOnQR__RefQrAssignment_1 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:14018:1: ( ( rule__DependsOnQR__RefQrAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:14017:1: ( ( ( rule__DependsOnQR__RefQRAssignment_1 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:14018:1: ( ( rule__DependsOnQR__RefQRAssignment_1 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:14018:1: ( ( rule__DependsOnQR__RefQrAssignment_1 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:14019:1: ( rule__DependsOnQR__RefQrAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:14018:1: ( ( rule__DependsOnQR__RefQRAssignment_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:14019:1: ( rule__DependsOnQR__RefQRAssignment_1 )
             {
-             before(grammarAccess.getDependsOnQRAccess().getRefQrAssignment_1()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:14020:1: ( rule__DependsOnQR__RefQrAssignment_1 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:14020:2: rule__DependsOnQR__RefQrAssignment_1
+             before(grammarAccess.getDependsOnQRAccess().getRefQRAssignment_1()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:14020:1: ( rule__DependsOnQR__RefQRAssignment_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:14020:2: rule__DependsOnQR__RefQRAssignment_1
             {
-            pushFollow(FOLLOW_rule__DependsOnQR__RefQrAssignment_1_in_rule__DependsOnQR__Group__1__Impl28231);
-            rule__DependsOnQR__RefQrAssignment_1();
+            pushFollow(FOLLOW_rule__DependsOnQR__RefQRAssignment_1_in_rule__DependsOnQR__Group__1__Impl28231);
+            rule__DependsOnQR__RefQRAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getDependsOnQRAccess().getRefQrAssignment_1()); 
+             after(grammarAccess.getDependsOnQRAccess().getRefQRAssignment_1()); 
 
             }
 
@@ -46396,9 +46396,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__DependsOnQR__TypeAssignment_0"
 
 
-    // $ANTLR start "rule__DependsOnQR__RefQrAssignment_1"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:17531:1: rule__DependsOnQR__RefQrAssignment_1 : ( ruleRefQR ) ;
-    public final void rule__DependsOnQR__RefQrAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__DependsOnQR__RefQRAssignment_1"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:17531:1: rule__DependsOnQR__RefQRAssignment_1 : ( ruleRefQR ) ;
+    public final void rule__DependsOnQR__RefQRAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -46409,13 +46409,13 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:17536:1: ( ruleRefQR )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:17537:1: ruleRefQR
             {
-             before(grammarAccess.getDependsOnQRAccess().getRefQrRefQRParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_ruleRefQR_in_rule__DependsOnQR__RefQrAssignment_135387);
+             before(grammarAccess.getDependsOnQRAccess().getRefQRRefQRParserRuleCall_1_0()); 
+            pushFollow(FOLLOW_ruleRefQR_in_rule__DependsOnQR__RefQRAssignment_135387);
             ruleRefQR();
 
             state._fsp--;
 
-             after(grammarAccess.getDependsOnQRAccess().getRefQrRefQRParserRuleCall_1_0()); 
+             after(grammarAccess.getDependsOnQRAccess().getRefQRRefQRParserRuleCall_1_0()); 
 
             }
 
@@ -46434,7 +46434,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__DependsOnQR__RefQrAssignment_1"
+    // $ANTLR end "rule__DependsOnQR__RefQRAssignment_1"
 
 
     // $ANTLR start "rule__RefQR__RefQRAssignment_0"
@@ -48291,7 +48291,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rule__DependsOnQR__Group__1_in_rule__DependsOnQR__Group__028147 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__DependsOnQR__TypeAssignment_0_in_rule__DependsOnQR__Group__0__Impl28174 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__DependsOnQR__Group__1__Impl_in_rule__DependsOnQR__Group__128204 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DependsOnQR__RefQrAssignment_1_in_rule__DependsOnQR__Group__1__Impl28231 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DependsOnQR__RefQRAssignment_1_in_rule__DependsOnQR__Group__1__Impl28231 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__RefQR__Group__0__Impl_in_rule__RefQR__Group__028265 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
     public static final BitSet FOLLOW_rule__RefQR__Group__1_in_rule__RefQR__Group__028268 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__RefQR__RefQRAssignment_0_in_rule__RefQR__Group__0__Impl28295 = new BitSet(new long[]{0x0000000000000002L});
@@ -48533,7 +48533,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_ruleDependsOnQR_in_rule__QR__DependsAssignment_1635284 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__QR__PartOfAssignment_17_135319 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__DependsOnQR__TypeAlternatives_0_0_in_rule__DependsOnQR__TypeAssignment_035354 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRefQR_in_rule__DependsOnQR__RefQrAssignment_135387 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRefQR_in_rule__DependsOnQR__RefQRAssignment_135387 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__RefQR__RefQRAssignment_035422 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__RefQR__RefsAssignment_1_135461 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__Constraint__NameAssignment_135496 = new BitSet(new long[]{0x0000000000000002L});

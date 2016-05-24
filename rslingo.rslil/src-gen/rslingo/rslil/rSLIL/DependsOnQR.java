@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.DependsOnQR#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.DependsOnQR#getRefQr <em>Ref Qr</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.DependsOnQR#getRefQR <em>Ref QR</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getDependsOnQR()
@@ -50,29 +50,29 @@ public interface DependsOnQR extends EObject
   void setType(String value);
 
   /**
-   * Returns the value of the '<em><b>Ref Qr</b></em>' containment reference.
+   * Returns the value of the '<em><b>Ref QR</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Ref Qr</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Ref QR</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Ref Qr</em>' containment reference.
-   * @see #setRefQr(RefQR)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getDependsOnQR_RefQr()
+   * @return the value of the '<em>Ref QR</em>' containment reference.
+   * @see #setRefQR(RefQR)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getDependsOnQR_RefQR()
    * @model containment="true"
    * @generated
    */
-  RefQR getRefQr();
+  RefQR getRefQR();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.DependsOnQR#getRefQr <em>Ref Qr</em>}' containment reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.DependsOnQR#getRefQR <em>Ref QR</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Ref Qr</em>' containment reference.
-   * @see #getRefQr()
+   * @param value the new value of the '<em>Ref QR</em>' containment reference.
+   * @see #getRefQR()
    * @generated
    */
-  void setRefQr(RefQR value);
+  void setRefQR(RefQR value);
 
 } // DependsOnQR

@@ -247,7 +247,7 @@ QR:
 	'}';
 
 DependsOnQR:
-	type=('Requires'|'Refines'|'Conflicts') refQr=RefQR;
+	type=('Requires'|'Refines'|'Conflicts') refQR=RefQR;
 
 RefQR:
 	refQR=[QR](',' refs+=[QR])*;

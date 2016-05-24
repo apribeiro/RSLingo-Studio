@@ -2399,7 +2399,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDependsOnQR_RefQr()
+  public EReference getDependsOnQR_RefQR()
   {
     return (EReference)dependsOnQREClass.getEStructuralFeatures().get(1);
   }
@@ -3142,7 +3142,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
 
     initEClass(dependsOnQREClass, DependsOnQR.class, "DependsOnQR", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDependsOnQR_Type(), ecorePackage.getEString(), "type", null, 0, 1, DependsOnQR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDependsOnQR_RefQr(), this.getRefQR(), null, "refQr", null, 0, 1, DependsOnQR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDependsOnQR_RefQR(), this.getRefQR(), null, "refQR", null, 0, 1, DependsOnQR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(refQREClass, RefQR.class, "RefQR", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRefQR_RefQR(), this.getQR(), null, "refQR", null, 0, 1, RefQR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

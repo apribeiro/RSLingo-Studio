@@ -2247,7 +2247,7 @@ public interface RSLILPackage extends EPackage
   int DEPENDS_ON_QR__TYPE = 0;
 
   /**
-   * The feature id for the '<em><b>Ref Qr</b></em>' containment reference.
+   * The feature id for the '<em><b>Ref QR</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -4596,15 +4596,15 @@ public interface RSLILPackage extends EPackage
   EAttribute getDependsOnQR_Type();
 
   /**
-   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.DependsOnQR#getRefQr <em>Ref Qr</em>}'.
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.DependsOnQR#getRefQR <em>Ref QR</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Ref Qr</em>'.
-   * @see rslingo.rslil.rSLIL.DependsOnQR#getRefQr()
+   * @return the meta object for the containment reference '<em>Ref QR</em>'.
+   * @see rslingo.rslil.rSLIL.DependsOnQR#getRefQR()
    * @see #getDependsOnQR()
    * @generated
    */
-  EReference getDependsOnQR_RefQr();
+  EReference getDependsOnQR_RefQR();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.RefQR <em>Ref QR</em>}'.
@@ -6478,12 +6478,12 @@ public interface RSLILPackage extends EPackage
     EAttribute DEPENDS_ON_QR__TYPE = eINSTANCE.getDependsOnQR_Type();
 
     /**
-     * The meta object literal for the '<em><b>Ref Qr</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Ref QR</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DEPENDS_ON_QR__REF_QR = eINSTANCE.getDependsOnQR_RefQr();
+    EReference DEPENDS_ON_QR__REF_QR = eINSTANCE.getDependsOnQR_RefQR();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.RefQRImpl <em>Ref QR</em>}' class.

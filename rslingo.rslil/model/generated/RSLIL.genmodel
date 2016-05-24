@@ -242,7 +242,7 @@
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//DependsOnQR">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//DependsOnQR/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//DependsOnQR/refQr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//DependsOnQR/refQR"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//RefQR">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefQR/refQR"/>

@@ -330,7 +330,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     ((type='Requires' | type='Refines' | type='Conflicts') refQr=RefQR)
+	 *     ((type='Requires' | type='Refines' | type='Conflicts') refQR=RefQR)
 	 */
 	protected void sequence_DependsOnQR(EObject context, DependsOnQR semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -5306,16 +5306,16 @@ ruleDependsOnQR returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDependsOnQRAccess().getRefQrRefQRParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getDependsOnQRAccess().getRefQRRefQRParserRuleCall_1_0()); 
 	    }
-		lv_refQr_1_0=ruleRefQR		{
+		lv_refQR_1_0=ruleRefQR		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDependsOnQRRule());
 	        }
        		set(
        			$current, 
-       			"refQr",
-        		lv_refQr_1_0, 
+       			"refQR",
+        		lv_refQR_1_0, 
         		"RefQR");
 	        afterParserOrEnumRuleCall();
 	    }

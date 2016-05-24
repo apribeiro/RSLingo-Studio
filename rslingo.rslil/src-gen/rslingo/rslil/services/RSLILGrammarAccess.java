@@ -3260,14 +3260,14 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTypeRequiresKeyword_0_0_0 = (Keyword)cTypeAlternatives_0_0.eContents().get(0);
 		private final Keyword cTypeRefinesKeyword_0_0_1 = (Keyword)cTypeAlternatives_0_0.eContents().get(1);
 		private final Keyword cTypeConflictsKeyword_0_0_2 = (Keyword)cTypeAlternatives_0_0.eContents().get(2);
-		private final Assignment cRefQrAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cRefQrRefQRParserRuleCall_1_0 = (RuleCall)cRefQrAssignment_1.eContents().get(0);
+		private final Assignment cRefQRAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cRefQRRefQRParserRuleCall_1_0 = (RuleCall)cRefQRAssignment_1.eContents().get(0);
 		
 		//DependsOnQR:
-		//	type=("Requires" | "Refines" | "Conflicts") refQr=RefQR;
+		//	type=("Requires" | "Refines" | "Conflicts") refQR=RefQR;
 		@Override public ParserRule getRule() { return rule; }
 
-		//type=("Requires" | "Refines" | "Conflicts") refQr=RefQR
+		//type=("Requires" | "Refines" | "Conflicts") refQR=RefQR
 		public Group getGroup() { return cGroup; }
 
 		//type=("Requires" | "Refines" | "Conflicts")
@@ -3285,11 +3285,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Conflicts"
 		public Keyword getTypeConflictsKeyword_0_0_2() { return cTypeConflictsKeyword_0_0_2; }
 
-		//refQr=RefQR
-		public Assignment getRefQrAssignment_1() { return cRefQrAssignment_1; }
+		//refQR=RefQR
+		public Assignment getRefQRAssignment_1() { return cRefQRAssignment_1; }
 
 		//RefQR
-		public RuleCall getRefQrRefQRParserRuleCall_1_0() { return cRefQrRefQRParserRuleCall_1_0; }
+		public RuleCall getRefQRRefQRParserRuleCall_1_0() { return cRefQRRefQRParserRuleCall_1_0; }
 	}
 
 	public class RefQRElements extends AbstractParserRuleElementFinder {
@@ -4155,7 +4155,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//DependsOnQR:
-	//	type=("Requires" | "Refines" | "Conflicts") refQr=RefQR;
+	//	type=("Requires" | "Refines" | "Conflicts") refQR=RefQR;
 	public DependsOnQRElements getDependsOnQRAccess() {
 		return pDependsOnQR;
 	}

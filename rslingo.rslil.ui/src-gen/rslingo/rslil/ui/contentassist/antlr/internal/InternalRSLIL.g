@@ -14016,9 +14016,9 @@ rule__DependsOnQR__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getDependsOnQRAccess().getRefQrAssignment_1()); }
-(rule__DependsOnQR__RefQrAssignment_1)
-{ after(grammarAccess.getDependsOnQRAccess().getRefQrAssignment_1()); }
+{ before(grammarAccess.getDependsOnQRAccess().getRefQRAssignment_1()); }
+(rule__DependsOnQR__RefQRAssignment_1)
+{ after(grammarAccess.getDependsOnQRAccess().getRefQRAssignment_1()); }
 )
 
 ;
@@ -17528,14 +17528,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__DependsOnQR__RefQrAssignment_1
+rule__DependsOnQR__RefQRAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getDependsOnQRAccess().getRefQrRefQRParserRuleCall_1_0()); }
-	ruleRefQR{ after(grammarAccess.getDependsOnQRAccess().getRefQrRefQRParserRuleCall_1_0()); }
+{ before(grammarAccess.getDependsOnQRAccess().getRefQRRefQRParserRuleCall_1_0()); }
+	ruleRefQR{ after(grammarAccess.getDependsOnQRAccess().getRefQRRefQRParserRuleCall_1_0()); }
 )
 
 ;

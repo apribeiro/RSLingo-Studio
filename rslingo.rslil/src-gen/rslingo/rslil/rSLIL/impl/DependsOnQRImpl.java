@@ -24,7 +24,7 @@ import rslingo.rslil.rSLIL.RefQR;
  * </p>
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.impl.DependsOnQRImpl#getType <em>Type</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.DependsOnQRImpl#getRefQr <em>Ref Qr</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.DependsOnQRImpl#getRefQR <em>Ref QR</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,14 +52,14 @@ public class DependsOnQRImpl extends MinimalEObjectImpl.Container implements Dep
   protected String type = TYPE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getRefQr() <em>Ref Qr</em>}' containment reference.
+   * The cached value of the '{@link #getRefQR() <em>Ref QR</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRefQr()
+   * @see #getRefQR()
    * @generated
    * @ordered
    */
-  protected RefQR refQr;
+  protected RefQR refQR;
 
   /**
    * <!-- begin-user-doc -->
@@ -110,9 +110,9 @@ public class DependsOnQRImpl extends MinimalEObjectImpl.Container implements Dep
    * <!-- end-user-doc -->
    * @generated
    */
-  public RefQR getRefQr()
+  public RefQR getRefQR()
   {
-    return refQr;
+    return refQR;
   }
 
   /**
@@ -120,13 +120,13 @@ public class DependsOnQRImpl extends MinimalEObjectImpl.Container implements Dep
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRefQr(RefQR newRefQr, NotificationChain msgs)
+  public NotificationChain basicSetRefQR(RefQR newRefQR, NotificationChain msgs)
   {
-    RefQR oldRefQr = refQr;
-    refQr = newRefQr;
+    RefQR oldRefQR = refQR;
+    refQR = newRefQR;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.DEPENDS_ON_QR__REF_QR, oldRefQr, newRefQr);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.DEPENDS_ON_QR__REF_QR, oldRefQR, newRefQR);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -137,20 +137,20 @@ public class DependsOnQRImpl extends MinimalEObjectImpl.Container implements Dep
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRefQr(RefQR newRefQr)
+  public void setRefQR(RefQR newRefQR)
   {
-    if (newRefQr != refQr)
+    if (newRefQR != refQR)
     {
       NotificationChain msgs = null;
-      if (refQr != null)
-        msgs = ((InternalEObject)refQr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.DEPENDS_ON_QR__REF_QR, null, msgs);
-      if (newRefQr != null)
-        msgs = ((InternalEObject)newRefQr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.DEPENDS_ON_QR__REF_QR, null, msgs);
-      msgs = basicSetRefQr(newRefQr, msgs);
+      if (refQR != null)
+        msgs = ((InternalEObject)refQR).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.DEPENDS_ON_QR__REF_QR, null, msgs);
+      if (newRefQR != null)
+        msgs = ((InternalEObject)newRefQR).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.DEPENDS_ON_QR__REF_QR, null, msgs);
+      msgs = basicSetRefQR(newRefQR, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.DEPENDS_ON_QR__REF_QR, newRefQr, newRefQr));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.DEPENDS_ON_QR__REF_QR, newRefQR, newRefQR));
   }
 
   /**
@@ -164,7 +164,7 @@ public class DependsOnQRImpl extends MinimalEObjectImpl.Container implements Dep
     switch (featureID)
     {
       case RSLILPackage.DEPENDS_ON_QR__REF_QR:
-        return basicSetRefQr(null, msgs);
+        return basicSetRefQR(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -182,7 +182,7 @@ public class DependsOnQRImpl extends MinimalEObjectImpl.Container implements Dep
       case RSLILPackage.DEPENDS_ON_QR__TYPE:
         return getType();
       case RSLILPackage.DEPENDS_ON_QR__REF_QR:
-        return getRefQr();
+        return getRefQR();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -201,7 +201,7 @@ public class DependsOnQRImpl extends MinimalEObjectImpl.Container implements Dep
         setType((String)newValue);
         return;
       case RSLILPackage.DEPENDS_ON_QR__REF_QR:
-        setRefQr((RefQR)newValue);
+        setRefQR((RefQR)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -221,7 +221,7 @@ public class DependsOnQRImpl extends MinimalEObjectImpl.Container implements Dep
         setType(TYPE_EDEFAULT);
         return;
       case RSLILPackage.DEPENDS_ON_QR__REF_QR:
-        setRefQr((RefQR)null);
+        setRefQR((RefQR)null);
         return;
     }
     super.eUnset(featureID);
@@ -240,7 +240,7 @@ public class DependsOnQRImpl extends MinimalEObjectImpl.Container implements Dep
       case RSLILPackage.DEPENDS_ON_QR__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case RSLILPackage.DEPENDS_ON_QR__REF_QR:
-        return refQr != null;
+        return refQR != null;
     }
     return super.eIsSet(featureID);
   }
