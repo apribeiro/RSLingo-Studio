@@ -181,7 +181,13 @@ public class RSLIL2TextGenerator implements IGenerator {
         _builder.newLine();
         {
           EList<PackageSystem> _packageSystems_1 = packageProject.getPackageSystems();
+          boolean _hasElements_3 = false;
           for(final PackageSystem s_1 : _packageSystems_1) {
+            if (!_hasElements_3) {
+              _hasElements_3 = true;
+            } else {
+              _builder.appendImmediate("\n", "");
+            }
             CharSequence _compile_4 = this.compile(s_1);
             _builder.append(_compile_4, "");
           }

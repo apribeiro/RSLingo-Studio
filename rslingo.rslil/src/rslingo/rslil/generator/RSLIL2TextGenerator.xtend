@@ -77,7 +77,7 @@ class RSLIL2TextGenerator implements IGenerator {
 	
 	#Systems
 	------------------
-	«FOR s:packageProject.packageSystems»«s.compile»«ENDFOR»«ENDIF»
+	«FOR s:packageProject.packageSystems SEPARATOR '\n'»«s.compile»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(Project p)
