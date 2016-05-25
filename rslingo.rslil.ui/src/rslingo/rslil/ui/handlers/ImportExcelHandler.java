@@ -37,7 +37,7 @@ public class ImportExcelHandler extends AbstractHandler {
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		IWorkbenchWindow workbenchWindow = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		FileDialog dialog = new FileDialog(workbenchWindow.getShell(), SWT.OPEN);
-		dialog.setFilterExtensions(new String[] { "*.xlsx", "*.xls" });
+		dialog.setFilterExtensions(new String[] { "*.xlsx" });
 		dialog.setText("Select the Excel file to upload");
 		final String filePath = dialog.open();
 		final String fileName = dialog.getFileName();
@@ -80,19 +80,17 @@ public class ImportExcelHandler extends AbstractHandler {
 		// Remove file extension
 		if (fileName.endsWith(".xlsx")) {
 			fileName = fileName.split(".xlsx")[0];
-		} else if (fileName.endsWith(".xls")) {
-			fileName = fileName.split(".xls")[0];
 		}
 		
 		if (importMode.equals(ImportWindow.SINGLE)) {
 			generateSingleFile(srcGenFolder, filePath, fileName);
 		} else {
-			generateMainFile(srcGenFolder, filePath, fileName);
-			generateStatementsFile(srcGenFolder, filePath, fileName);
-			generatePrivateDataFile(srcGenFolder, filePath, fileName);
-			generateServicesFile(srcGenFolder, filePath, fileName);
-			generateEnforcementsFile(srcGenFolder, filePath, fileName);
-			generateRecipientsFile(srcGenFolder, filePath, fileName);
+//			generateMainFile(srcGenFolder, filePath, fileName);
+//			generateStatementsFile(srcGenFolder, filePath, fileName);
+//			generatePrivateDataFile(srcGenFolder, filePath, fileName);
+//			generateServicesFile(srcGenFolder, filePath, fileName);
+//			generateEnforcementsFile(srcGenFolder, filePath, fileName);
+//			generateRecipientsFile(srcGenFolder, filePath, fileName);
 		}
 	}
 	
@@ -113,16 +111,16 @@ public class ImportExcelHandler extends AbstractHandler {
 		StringBuilder sb = new StringBuilder();
 		InputStream inp = new FileInputStream(filePath);
 		Workbook wb = WorkbookFactory.create(inp);
-		sb.append("Package " + fileName + " {");
+		sb.append("Package-Project " + fileName + " {");
 		sb.append("\n");
 		sb.append("\n");
 		
-		generateMetadataRegion(wb, sb);
-		generateStatementsRegion(wb, sb);
-		generatePrivateDataRegion(wb, sb);
-		generateRecipientsRegion(wb, sb);
-		generateServicesRegion(wb, sb);
-		generateEnforcementsRegion(wb, sb);
+		generateProjectRegion(wb, sb);
+		generateGlossaryRegion(wb, sb);
+//		generatePrivateDataRegion(wb, sb);
+//		generateRecipientsRegion(wb, sb);
+//		generateServicesRegion(wb, sb);
+//		generateEnforcementsRegion(wb, sb);
     	
     	sb.deleteCharAt(sb.length() - 1);
 		sb.append("}");
@@ -157,7 +155,7 @@ public class ImportExcelHandler extends AbstractHandler {
 			sb.append("\n");
 			sb.append("\n");
 			
-			generateMetadataRegion(wb, sb);
+//			generateMetadataRegion(wb, sb);
 	    	
 	    	sb.deleteCharAt(sb.length() - 1);
 	    	sb.append("}");
@@ -190,7 +188,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		sb.append("\n");
 		sb.append("\n");
 		
-		generateStatementsRegion(wb, sb);
+//		generateStatementsRegion(wb, sb);
     	
     	sb.deleteCharAt(sb.length() - 1);
     	sb.append("}");
@@ -304,54 +302,45 @@ public class ImportExcelHandler extends AbstractHandler {
 		}
 	}
 	
-	private void generateMetadataRegion(Workbook wb, StringBuilder sb) {
+	private void generateProjectRegion(Workbook wb, StringBuilder sb) {
 		// Get the Home Sheet
-	    Sheet sheet = wb.getSheet("Home");
-		sb.append("PolicyMetadata {");
-		sb.append("\n");
+	    Sheet sheet = wb.getSheet("home");
 		Iterator<Row> rowIt = sheet.rowIterator();
-		// Ignore the Header row
+		// Ignore the Header rows
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
     	rowIt.next();
 		
     	Row row = rowIt.next();
+    	Cell cellId = row.getCell(0);
+		String id = formatId(cellId.getStringCellValue());
     	Cell cellName = row.getCell(1);
 		String name = cellName.getStringCellValue();
-		row = rowIt.next();
-		Cell cellDescription = row.getCell(1);
+		Cell cellDescription = row.getCell(2);
 		String description = cellDescription.getStringCellValue();
-		row = rowIt.next();
-		Cell cellAuthors = row.getCell(1);
-		String authors = cellAuthors.getStringCellValue();
-		row = rowIt.next();
-		Cell cellOrgs = row.getCell(1);
-		String orgs = cellOrgs.getStringCellValue();
-		row = rowIt.next();
-		Cell cellDate = row.getCell(1);
-		String date = DocumentHelper.getRSLILDate(cellDate.getDateCellValue());
-		row = rowIt.next();
-		Cell cellVersion = row.getCell(1);
-		String version = cellVersion.getStringCellValue();
 		
-		sb.append("\tPolicyName \"" + name + "\"");
+		sb.append("\tProject " + id + " {");
 		sb.append("\n");
-		sb.append("\tDescription \"" + description + "\"");
+		sb.append("\t\tName \"" + name + "\"");
 		sb.append("\n");
-		sb.append("\tAuthor(s) \"" + authors + "\"");
-		sb.append("\n");
-		sb.append("\tOrganization(s) \"" + orgs + "\"");
-		sb.append("\n");
-		sb.append("\tDate " + date);
-		sb.append("\n");
-		sb.append("\tVersion \"" + version + "\"");
-		sb.append("\n}");
+		sb.append("\t\tDescription \"" + description + "\"");
+		sb.append("\n\t}");
 		sb.append("\n\n");
 	}
 	
-	private void generateStatementsRegion(Workbook wb, StringBuilder sb) {
-		// Get the Statements Sheet
-	    Sheet sheet = wb.getSheet("Statements");
+	private void generateGlossaryRegion(Workbook wb, StringBuilder sb) {
+		// Get the Glossary Sheet
+	    Sheet sheet = wb.getSheet("glossary");
     	Iterator<Row> rowIt = sheet.rowIterator();
-    	// Ignore the Header row
+    	// Ignore the Header rows
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
     	rowIt.next();
     	
     	while (rowIt.hasNext()) {
@@ -359,123 +348,38 @@ public class ImportExcelHandler extends AbstractHandler {
     		Cell cellId = row.getCell(0);
     		
     		if (cellId != null) {
-    			int id = (int) cellId.getNumericCellValue();
-	    		Cell cellDescription = row.getCell(1);
-	    		String description = cellDescription.getStringCellValue().replaceAll("\"", "'");
-	    		Cell cellCondition = row.getCell(2);
-	    		String condition = cellCondition.getStringCellValue();
-	    		Cell cellModality = row.getCell(3);
-	    		String modality = cellModality.getStringCellValue();
-	    		modality = modality.substring(0, 1).toUpperCase() + modality.substring(1);
-	    		Cell cellType = row.getCell(4);
+    			String id = formatId(cellId.getStringCellValue());
+    			Cell cellName = row.getCell(1);
+	    		String name= cellName.getStringCellValue();
+    			Cell cellDescription = row.getCell(2);
+	    		String description = cellDescription.getStringCellValue();
+	    		Cell cellType = row.getCell(3);
 	    		String type = cellType.getStringCellValue();
-	    		Cell cellPrivateData = row.getCell(5);
-	    		Cell cellService = row.getCell(7);
-	    		Cell cellEnforcement = row.getCell(8);
-	    		sb.append(type + " St" + id + " {");
+	    		Cell cellAcronym = row.getCell(4);
+	    		String acronym = cellAcronym.getStringCellValue();
+	    		Cell cellPOS = row.getCell(5);
+	    		String pos = cellPOS.getStringCellValue();
+	    		Cell cellSynset = row.getCell(6);
+	    		String synset = cellSynset.getStringCellValue();
+	    		// Term Relation Type
+	    		// Term Relation
+	    		
+	    		sb.append("\tGlossaryTerm " + id + " {");
 	    		sb.append("\n");
-	    		sb.append("\tDescription \"" + description + "\"");
+	    		sb.append("\t\tName \"" + name + "\"");
 	    		sb.append("\n");
-	    		sb.append("\tCondition \"" + condition + "\"");
+	    		sb.append("\t\tDescription \"" + description + "\"");
 	    		sb.append("\n");
-	    		
-	    		if (type.equals("Retention")) {
-	    			Cell cellPeriod = row.getCell(9);
-		    		String period = cellPeriod.getStringCellValue();
-	    			sb.append("\tPeriod \"" + period + "\"");
-		    		sb.append("\n");
-				}
-	    		
-	    		if (type.equals("Disclosure")) {
-	    			Cell cellRecipient = row.getCell(6);
-	    			
-	    			if (cellRecipient.getCellType() == Cell.CELL_TYPE_NUMERIC) {
-		    			int recipient = (int) cellRecipient.getNumericCellValue();
-		    			sb.append("\tRefersTo Recipient R" + recipient);
-		    			sb.append("\n");
-					} else if (cellRecipient.getCellType() == Cell.CELL_TYPE_STRING) {
-						String recipient = cellRecipient.getStringCellValue();
-						
-						if (recipient.equals("All")) {
-							sb.append("\tRefersTo Recipient All");
-						} else {
-							sb.append("\tRefersTo Recipient ");
-				    		
-			    			for (String s : recipient.split(", ")) {
-			    				sb.append("R" + s + ","); 
-							}
-			    			// Delete last ','
-			    			sb.deleteCharAt(sb.length() - 1);
-						}
-						sb.append("\n");
-					}
-				}
-	    		
-	    		if (cellPrivateData.getCellType() == Cell.CELL_TYPE_NUMERIC) {
-	    			int privateData = (int) cellPrivateData.getNumericCellValue();
-	    			sb.append("\tRefersTo PrivateData PD" + privateData);
-	    			sb.append("\n");
-				} else if (cellPrivateData.getCellType() == Cell.CELL_TYPE_STRING) {
-					String privateData = cellPrivateData.getStringCellValue();
-					
-					if (privateData.equals("All")) {
-						sb.append("\tRefersTo PrivateData All");
-					} else{
-						sb.append("\tRefersTo PrivateData ");
-			    		
-		    			for (String s : privateData.split(", ")) {
-		    				sb.append("PD" + s + ","); 
-						}
-		    			// Delete last ','
-		    			sb.deleteCharAt(sb.length() - 1);
-					}
-					sb.append("\n");
-				}
-	    		
-	    		if (cellService.getCellType() == Cell.CELL_TYPE_NUMERIC) {
-	    			int service = (int) cellService.getNumericCellValue();
-	    			sb.append("\tRefersTo Service S" + service);
-	    			sb.append("\n");
-				} else if (cellService.getCellType() == Cell.CELL_TYPE_STRING) {
-					String service = cellService.getStringCellValue();
-					
-					if (service.equals("All")) {
-						sb.append("\tRefersTo Service All");
-					} else {
-						sb.append("\tRefersTo Service ");
-			    		
-		    			for (String s : service.split(", ")) {
-		    				sb.append("S" + s + ","); 
-						}
-		    			// Delete last ','
-		    			sb.deleteCharAt(sb.length() - 1);
-					}
-					sb.append("\n");
-				}
-	    		
-	    		if (cellEnforcement.getCellType() == Cell.CELL_TYPE_NUMERIC) {
-	    			int enforcement = (int) cellEnforcement.getNumericCellValue();
-	    			sb.append("\tRefersTo Enforcement En" + enforcement);
-	    			sb.append("\n");
-				} else if (cellEnforcement.getCellType() == Cell.CELL_TYPE_STRING) {
-					String enforcement = cellEnforcement.getStringCellValue();
-					
-					if (enforcement.equals("All")) {
-						sb.append("\tRefersTo Enforcement All");
-					} else {
-						sb.append("\tRefersTo Enforcement ");
-			    		
-		    			for (String s : enforcement.split(", ")) {
-		    				sb.append("En" + s + ","); 
-						}
-		    			// Delete last ','
-		    			sb.deleteCharAt(sb.length() - 1);
-					}
-					sb.append("\n");
-				}
-	    		
-	    		sb.append("\tModality " + modality);
-	    		sb.append("\n}");
+	    		sb.append("\t\tType \"" + type + "\"");
+	    		sb.append("\n");
+	    		sb.append("\t\tAcronym \"" + acronym + "\"");
+	    		sb.append("\n");
+	    		sb.append("\t\tPOS \"" + pos + "\"");
+	    		sb.append("\n");
+	    		sb.append("\t\tSynset \"" + synset + "\"");
+//	    		sb.append("\n");
+	    		// TODO: Add Term Relations
+	    		sb.append("\n\t}");
 	    		sb.append("\n\n");
 			}
     		else
@@ -681,5 +585,9 @@ public class ImportExcelHandler extends AbstractHandler {
     		else
     			break;
 		}
+	}
+	
+	private String formatId(String id) {
+		return id.replaceAll(" ", "_").replaceAll("-", "_");
 	}
 }
