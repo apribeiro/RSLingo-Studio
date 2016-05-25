@@ -117,7 +117,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		
 		generateProjectRegion(wb, sb);
 		generateGlossaryRegion(wb, sb);
-//		generatePrivateDataRegion(wb, sb);
+		generateStakeholdersRegion(wb, sb);
 //		generateRecipientsRegion(wb, sb);
 //		generateServicesRegion(wb, sb);
 //		generateEnforcementsRegion(wb, sb);
@@ -212,7 +212,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		sb.append("\n");
 		sb.append("\n");
 		
-		generatePrivateDataRegion(wb, sb);
+//		generatePrivateDataRegion(wb, sb);
     	
     	sb.deleteCharAt(sb.length() - 1);
     	sb.append("}");
@@ -362,19 +362,19 @@ public class ImportExcelHandler extends AbstractHandler {
 		    			String aux = "";
 		    			
 						for (String	s : type.split("; ")) {
-							aux += s.substring(0, 1).toUpperCase() + s.substring(1);
+							aux += toUpperFirst(s);
 							aux += ", ";
 						}
 						type = aux.substring(0, aux.length() - 2);
 					} else {
-						type = type.substring(0, 1).toUpperCase() + type.substring(1); 
+						type = toUpperFirst(type); 
 					}
 		    		
 		    		Cell cellAcronym = row.getCell(4);
 		    		String acronym = cellAcronym.getStringCellValue();
 		    		Cell cellPOS = row.getCell(5);
 		    		String pos = cellPOS.getStringCellValue();
-		    		pos = pos.substring(0, 1).toUpperCase() + pos.substring(1);
+		    		pos = toUpperFirst(pos);
 		    		Cell cellSynset = row.getCell(6);
 		    		String synset = cellSynset.getStringCellValue();
 		    		// Term Relation Type
@@ -421,11 +421,16 @@ public class ImportExcelHandler extends AbstractHandler {
 		}
 	}
 	
-	private void generatePrivateDataRegion(Workbook wb, StringBuilder sb) {
-		// Get the Private Data Sheet
-	    Sheet sheet = wb.getSheet("PrivateData");
+	private void generateStakeholdersRegion(Workbook wb, StringBuilder sb) {
+		// Get the Stakeholders Sheet
+	    Sheet sheet = wb.getSheet("stakeholders");
     	Iterator<Row> rowIt = sheet.rowIterator();
-    	// Ignore the Header row
+    	// Ignore the Header rows
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
     	rowIt.next();
     	
     	while (rowIt.hasNext()) {
@@ -433,38 +438,65 @@ public class ImportExcelHandler extends AbstractHandler {
     		Cell cellId = row.getCell(0);
     		
     		if (cellId != null) {
-    			int id = (int) cellId.getNumericCellValue();
-    			Cell cellType = row.getCell(1);
-	    		String type = cellType.getStringCellValue().replaceAll(" ", "");
+    			String id = formatId(cellId.getStringCellValue());
+    			Cell cellName = row.getCell(1);
+    			String name = cellName.getStringCellValue();
     			Cell cellDescription = row.getCell(2);
-	    		String description = cellDescription.getStringCellValue();
-	    		Cell cellAttributes = row.getCell(3);
-	    		String attributes = cellAttributes.getStringCellValue();
-	    		sb.append("PrivateData PD" + id + " {");
-	    		sb.append("\n");
-	    		sb.append("\tDescription \"" + description + "\"");
-	    		sb.append("\n");
-	    		sb.append("\tType " + type);
+    			String description = cellDescription.getStringCellValue();
+    			Cell cellType = row.getCell(3);
+	    		String type = cellType.getStringCellValue();
+	    		String[] aux = type.split("\\.");
+	    		type = toUpperFirst(aux[0]) + "." + toUpperFirst(aux[1]); 
+    			Cell cellCategory = row.getCell(4);
+	    		String category = cellCategory.getStringCellValue();
+	    		
+	    		if (category.contains(".")) {
+	    			aux = category.split("\\.");
+	    			
+	    			if (aux.length > 2) {
+	    				category = toUpperFirst(aux[0]) + "." + toUpperFirst(aux[1])
+	    							+ "." + toUpperFirst(aux[2]);
+					} else {
+						category = toUpperFirst(aux[0]) + "." + toUpperFirst(aux[1]);
+					}
+				} else {
+					category = toUpperFirst(category);
+				}
+	    		
+	    		Cell cellPartOf = row.getCell(5);
+	    		String partOf = cellPartOf.getStringCellValue();
+	    		
+	    		sb.append("\tStakeholder " + id + " {");
 	    		sb.append("\n");
 	    		
-	    		for (String a : attributes.split(",\n")) {
-	    			a = a.substring(0, 1).toUpperCase() + a.substring(1);
-	    			sb.append("\tAttribute \"" + a + "\" {");
-	    			sb.append("\n");
-	    			sb.append("\t\tDescription \"" + a + "\"");
-	    			sb.append("\n\t}");
-	    			sb.append("\n");
+	    		if (!name.isEmpty()) {
+	    			sb.append("\t\tName \"" + name + "\"");
+		    		sb.append("\n");
 				}
-	    		// Delete last '\n'
-//	    		sb.deleteCharAt(sb.length() - 2);
-	    		sb.deleteCharAt(sb.length() - 1);
-	    		sb.append("\n}");
+	    		
+	    		if (!description.isEmpty()) {
+	    			sb.append("\t\tDescription \"" + description + "\"");
+		    		sb.append("\n");
+	    		}
+	    		
+	    		sb.append("\t\tType " + type);
+	    		sb.append("\n");
+	    		sb.append("\t\tCategory " + category);
+	    		sb.append("\n");
+	    		
+	    		if (!partOf.isEmpty()) {
+	    			sb.append("\t\tPartOf " + partOf);
+		    		sb.append("\n");
+	    		}
+	    		
+	    		sb.append("\t}");
 	    		sb.append("\n\n");
 			}
     		else
     			break;
 		}
 	}
+	
 	
 	private void generateServicesRegion(Workbook wb, StringBuilder sb) {
 		// Get the Services Sheet
@@ -623,5 +655,9 @@ public class ImportExcelHandler extends AbstractHandler {
 	
 	private String formatId(String id) {
 		return id.replaceAll(" ", "_").replaceAll("-", "_");
+	}
+	
+	private String toUpperFirst(String s) {
+		return s.substring(0, 1).toUpperCase() + s.substring(1);
 	}
 }
