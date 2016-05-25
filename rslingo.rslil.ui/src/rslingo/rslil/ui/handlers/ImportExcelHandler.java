@@ -349,38 +349,72 @@ public class ImportExcelHandler extends AbstractHandler {
     		
     		if (cellId != null) {
     			String id = formatId(cellId.getStringCellValue());
-    			Cell cellName = row.getCell(1);
-	    		String name= cellName.getStringCellValue();
-    			Cell cellDescription = row.getCell(2);
-	    		String description = cellDescription.getStringCellValue();
-	    		Cell cellType = row.getCell(3);
-	    		String type = cellType.getStringCellValue();
-	    		Cell cellAcronym = row.getCell(4);
-	    		String acronym = cellAcronym.getStringCellValue();
-	    		Cell cellPOS = row.getCell(5);
-	    		String pos = cellPOS.getStringCellValue();
-	    		Cell cellSynset = row.getCell(6);
-	    		String synset = cellSynset.getStringCellValue();
-	    		// Term Relation Type
-	    		// Term Relation
-	    		
-	    		sb.append("\tGlossaryTerm " + id + " {");
-	    		sb.append("\n");
-	    		sb.append("\t\tName \"" + name + "\"");
-	    		sb.append("\n");
-	    		sb.append("\t\tDescription \"" + description + "\"");
-	    		sb.append("\n");
-	    		sb.append("\t\tType \"" + type + "\"");
-	    		sb.append("\n");
-	    		sb.append("\t\tAcronym \"" + acronym + "\"");
-	    		sb.append("\n");
-	    		sb.append("\t\tPOS \"" + pos + "\"");
-	    		sb.append("\n");
-	    		sb.append("\t\tSynset \"" + synset + "\"");
-//	    		sb.append("\n");
-	    		// TODO: Add Term Relations
-	    		sb.append("\n\t}");
-	    		sb.append("\n\n");
+    			
+    			if (!id.isEmpty()) {
+	    			Cell cellName = row.getCell(1);
+		    		String name= cellName.getStringCellValue();
+	    			Cell cellDescription = row.getCell(2);
+		    		String description = cellDescription.getStringCellValue();
+		    		Cell cellType = row.getCell(3);
+		    		String type = cellType.getStringCellValue();
+		    		
+		    		if (type.contains(";")) {
+		    			String aux = "";
+		    			
+						for (String	s : type.split("; ")) {
+							aux += s.substring(0, 1).toUpperCase() + s.substring(1);
+							aux += ", ";
+						}
+						type = aux.substring(0, aux.length() - 2);
+					} else {
+						type = type.substring(0, 1).toUpperCase() + type.substring(1); 
+					}
+		    		
+		    		Cell cellAcronym = row.getCell(4);
+		    		String acronym = cellAcronym.getStringCellValue();
+		    		Cell cellPOS = row.getCell(5);
+		    		String pos = cellPOS.getStringCellValue();
+		    		pos = pos.substring(0, 1).toUpperCase() + pos.substring(1);
+		    		Cell cellSynset = row.getCell(6);
+		    		String synset = cellSynset.getStringCellValue();
+		    		// Term Relation Type
+		    		// Term Relation
+		    		
+		    		sb.append("\tGlossaryTerm " + id + " {");
+		    		sb.append("\n");
+		    		
+		    		if (!name.isEmpty()) {
+		    			sb.append("\t\tName \"" + name + "\"");
+			    		sb.append("\n");
+					}
+		    		
+		    		if (!description.isEmpty()) {
+		    			sb.append("\t\tDescription \"" + description + "\"");
+			    		sb.append("\n");
+		    		}
+		    		
+		    		sb.append("\t\tType " + type);
+		    		sb.append("\n");
+		    		
+		    		if (!acronym.isEmpty()) {
+		    			sb.append("\t\tAcronym \"" + acronym + "\"");
+			    		sb.append("\n");
+		    		}
+		    		
+		    		if (!pos.isEmpty()) {
+		    			sb.append("\t\tPOS " + pos);
+			    		sb.append("\n");
+		    		}
+		    		
+		    		if (!synset.isEmpty()) {
+			    		sb.append("\t\tSynset \"" + synset + "\"");
+	//		    		sb.append("\n");
+		    		}
+	
+		    		// TODO: Add Term Relations
+		    		sb.append("\n\t}");
+		    		sb.append("\n\n");
+    			}
 			}
     		else
     			break;
