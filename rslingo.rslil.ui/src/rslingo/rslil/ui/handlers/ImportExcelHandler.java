@@ -118,7 +118,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		generateProjectRegion(wb, sb);
 		generateGlossaryRegion(wb, sb);
 		generateStakeholdersRegion(wb, sb);
-//		generateRecipientsRegion(wb, sb);
+		generateGoalsRegion(wb, sb);
 //		generateServicesRegion(wb, sb);
 //		generateEnforcementsRegion(wb, sb);
     	
@@ -239,7 +239,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		sb.append("\n");
 		sb.append("\n");
 		
-		generateServicesRegion(wb, sb);
+//		generateServicesRegion(wb, sb);
     	
     	sb.deleteCharAt(sb.length() - 1);
     	sb.append("}");
@@ -263,7 +263,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		sb.append("\n");
 		sb.append("\n");
 		
-		generateEnforcementsRegion(wb, sb);
+//		generateEnforcementsRegion(wb, sb);
     	
     	sb.deleteCharAt(sb.length() - 1);
     	sb.append("}");
@@ -287,7 +287,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		sb.append("\n");
 		sb.append("\n");
 		
-		generateRecipientsRegion(wb, sb);
+//		generateRecipientsRegion(wb, sb);
     	
     	sb.deleteCharAt(sb.length() - 1);
     	sb.append("}");
@@ -498,11 +498,21 @@ public class ImportExcelHandler extends AbstractHandler {
 	}
 	
 	
-	private void generateServicesRegion(Workbook wb, StringBuilder sb) {
-		// Get the Services Sheet
-	    Sheet sheet = wb.getSheet("Services");
+	private void generateGoalsRegion(Workbook wb, StringBuilder sb) {
+		// Get the Goals Sheet
+	    Sheet sheet = wb.getSheet("goals");
     	Iterator<Row> rowIt = sheet.rowIterator();
     	// Ignore the Header row
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
     	rowIt.next();
     	
     	while (rowIt.hasNext()) {
@@ -510,149 +520,47 @@ public class ImportExcelHandler extends AbstractHandler {
     		Cell cellId = row.getCell(0);
     		
     		if (cellId != null) {
-    			int id = (int) cellId.getNumericCellValue();
+    			String id = formatId(cellId.getStringCellValue());
     			Cell cellName = row.getCell(1);
-	    		String name = cellName.getStringCellValue();
-	    		Cell cellDescription = row.getCell(2);
-	    		String description = cellDescription.getStringCellValue();
-	    		Cell cellPrivateData = row.getCell(3);
-	    		Cell cellPartOf = row.getCell(4);
-	    		sb.append("Service S" + id + " {");
-	    		sb.append("\n");
-	    		sb.append("\tName \"" + name + "\"");
-	    		sb.append("\n");
-	    		sb.append("\tDescription \"" + description + "\"");
-	    		sb.append("\n");
-	    		
-	    		if (cellPrivateData.getCellType() == Cell.CELL_TYPE_NUMERIC) {
-	    			int privateData = (int) cellPrivateData.getNumericCellValue();
-	    			sb.append("\tRefersTo PrivateData PD" + privateData);
-	    			sb.append("\n");
-				} else if (cellPrivateData.getCellType() == Cell.CELL_TYPE_STRING) {
-					String privateData = cellPrivateData.getStringCellValue();
-					
-					if (privateData.equals("All")) {
-						sb.append("\tRefersTo PrivateData All");
-					} else {
-						sb.append("\tRefersTo PrivateData ");
-			    		
-		    			for (String s : privateData.split(", ")) {
-		    				sb.append("PD" + s + ",");
-						}
-		    			// Delete last ','
-		    			sb.deleteCharAt(sb.length() - 1);
-					}
-					sb.append("\n");
-				}
-	    		
-	    		if (cellPartOf.getCellType() == Cell.CELL_TYPE_NUMERIC) {
-	    			int partOf = (int) cellPartOf.getNumericCellValue();
-	    			sb.append("\tService_Part S" + partOf);
-	    			sb.append("\n");
-				}
-	    		
-	    		sb.append("}");
-	    		sb.append("\n\n");
-			}
-    		else
-    			break;
-		}
-	}
-	
-	private void generateEnforcementsRegion(Workbook wb, StringBuilder sb) {
-		// Get the Enforcements Sheet
-	    Sheet sheet = wb.getSheet("Enforcements");
-    	Iterator<Row> rowIt = sheet.rowIterator();
-    	// Ignore the Header row
-    	rowIt.next();
-    	
-    	while (rowIt.hasNext()) {
-    		Row row = rowIt.next();
-    		Cell cellId = row.getCell(0);
-    		
-    		if (cellId != null) {
-    			int id = (int) cellId.getNumericCellValue();
-    			Cell cellName = row.getCell(1);
-	    		String name = cellName.getStringCellValue();
+    			String name = cellName.getStringCellValue();
     			Cell cellDescription = row.getCell(2);
-	    		String description = cellDescription.getStringCellValue();
-	    		Cell cellType = row.getCell(3);
-	    		String type = cellType.getStringCellValue();
-	    		sb.append("Enforcement En" + id + " {");
+    			String description = cellDescription.getStringCellValue();
+    			Cell cellStakeholder = row.getCell(3);
+    			String stakeholder = cellStakeholder.getStringCellValue();
+    			Cell cellPriority = row.getCell(4);
+    			String priority = cellPriority.getStringCellValue();
+    			// ComposedBy
+    			// DependsOn
+	    		
+    			sb.append("\tGoal " + id + " {");
 	    		sb.append("\n");
-	    		sb.append("\tName \"" + name + "\"");
+	    		
+	    		if (!name.isEmpty()) {
+	    			sb.append("\t\tName \"" + name + "\"");
+		    		sb.append("\n");
+				}
+	    		
+	    		if (!description.isEmpty()) {
+	    			sb.append("\t\tDescription \"" + description + "\"");
+		    		sb.append("\n");
+	    		}
+	    		
+	    		if (!stakeholder.isEmpty()) {
+	    			sb.append("\t\tStakeholder " + stakeholder);
+		    		sb.append("\n");
+	    		}
+	    		
+	    		sb.append("\t\tPriority " + priority);
 	    		sb.append("\n");
-	    		sb.append("\tDescription \"" + description + "\"");
-	    		sb.append("\n");
-	    		sb.append("\tType " + type);
-	    		sb.append("\n}");
+	    		
+	    		sb.append("\t}");
 	    		sb.append("\n\n");
 			}
     		else
     			break;
 		}
 	}
-	
-	private void generateRecipientsRegion(Workbook wb, StringBuilder sb) {
-		// Get the Recipients Sheet
-	    Sheet sheet = wb.getSheet("Recipients");
-    	Iterator<Row> rowIt = sheet.rowIterator();
-    	// Ignore the Header row
-    	rowIt.next();
-    	
-    	while (rowIt.hasNext()) {
-    		Row row = rowIt.next();
-    		Cell cellId = row.getCell(0);
-    		
-    		if (cellId != null) {
-    			if (cellId.getCellType() == Cell.CELL_TYPE_NUMERIC) {
-    				int id = (int) cellId.getNumericCellValue();
-        			Cell cellDescription = row.getCell(1);
-    	    		String description = cellDescription.getStringCellValue();
-    	    		Cell cellScope = row.getCell(2);
-    	    		String scope = cellScope.getStringCellValue();
-    	    		
-    	    		if (scope.contains("/")) {
-						scope = "Internal/External";
-					} else {
-						scope = scope.substring(0, 1).toUpperCase() + scope.substring(1);
-					}
 
-    	    		Cell cellType = row.getCell(3);
-    	    		String type = cellType.getStringCellValue();
-    	    		
-    	    		if (type.contains("/")) {
-						type = "Individual/Organization";
-					} else {
-						type = type.substring(0, 1).toUpperCase() + type.substring(1);
-					}
-    	    		
-    	    		Cell cellPartOf = row.getCell(4);
-    	    		sb.append("Recipient R" + id + " {");
-    	    		sb.append("\n");
-    	    		sb.append("\tName \"" + description + "\"");
-    	    		sb.append("\n");
-    	    		sb.append("\tDescription \"" + description + "\"");
-    	    		sb.append("\n");
-    	    		
-    	    		if (cellPartOf.getCellType() == Cell.CELL_TYPE_NUMERIC) {
-    	    			int partOf = (int) cellPartOf.getNumericCellValue();
-    	    			sb.append("\tRecipient_Part R" + partOf);
-    	    			sb.append("\n");
-					}
-    	    		
-    	    		sb.append("\tScope " + scope);
-    	    		sb.append("\n");
-    	    		sb.append("\tType " + type);
-    	    		sb.append("\n}");
-    	    		sb.append("\n\n");
-				}
-			}
-    		else
-    			break;
-		}
-	}
-	
 	private String formatId(String id) {
 		return id.replaceAll(" ", "_").replaceAll("-", "_");
 	}
