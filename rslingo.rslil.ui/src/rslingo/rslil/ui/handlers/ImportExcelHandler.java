@@ -119,7 +119,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		generateGlossaryRegion(wb, sb);
 		generateStakeholdersRegion(wb, sb);
 		generateGoalsRegion(wb, sb);
-//		generateServicesRegion(wb, sb);
+		generateEntitiesRegion(wb, sb);
 //		generateEnforcementsRegion(wb, sb);
     	
     	sb.deleteCharAt(sb.length() - 1);
@@ -155,7 +155,7 @@ public class ImportExcelHandler extends AbstractHandler {
 			sb.append("\n");
 			sb.append("\n");
 			
-//			generateMetadataRegion(wb, sb);
+//			generateProjectRegion(wb, sb);
 	    	
 	    	sb.deleteCharAt(sb.length() - 1);
 	    	sb.append("}");
@@ -497,7 +497,6 @@ public class ImportExcelHandler extends AbstractHandler {
 		}
 	}
 	
-	
 	private void generateGoalsRegion(Workbook wb, StringBuilder sb) {
 		// Get the Goals Sheet
 	    Sheet sheet = wb.getSheet("goals");
@@ -561,6 +560,75 @@ public class ImportExcelHandler extends AbstractHandler {
 		}
 	}
 
+	private void generateEntitiesRegion(Workbook wb, StringBuilder sb) {
+		// Get the Entities Sheet
+	    Sheet sheet = wb.getSheet("entities");
+    	Iterator<Row> rowIt = sheet.rowIterator();
+    	// Ignore the Header row
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	
+    	while (rowIt.hasNext()) {
+    		Row row = rowIt.next();
+    		Cell cellId = row.getCell(0);
+    		
+    		if (cellId != null) {
+    			String id = formatId(cellId.getStringCellValue());
+    			Cell cellName = row.getCell(1);
+    			String name = cellName.getStringCellValue();
+    			Cell cellDescription = row.getCell(2);
+    			String description = cellDescription.getStringCellValue();
+    			Cell cellStakeholder = row.getCell(3);
+    			String stakeholder = cellStakeholder.getStringCellValue();
+    			Cell cellPriority = row.getCell(4);
+    			String priority = cellPriority.getStringCellValue();
+    			// ComposedBy
+    			// DependsOn
+	    		
+    			sb.append("\tEntity " + id + " {");
+	    		sb.append("\n");
+	    		
+	    		if (!name.isEmpty()) {
+	    			sb.append("\t\tName \"" + name + "\"");
+		    		sb.append("\n");
+				}
+	    		
+	    		if (!description.isEmpty()) {
+	    			sb.append("\t\tDescription \"" + description + "\"");
+		    		sb.append("\n");
+	    		}
+	    		
+	    		if (!stakeholder.isEmpty()) {
+	    			sb.append("\t\tStakeholder " + stakeholder);
+		    		sb.append("\n");
+	    		}
+	    		
+	    		sb.append("\t\tPriority " + priority);
+	    		sb.append("\n");
+	    		
+	    		sb.append("\t}");
+	    		sb.append("\n\n");
+			}
+    		else
+    			break;
+		}
+	}
+	
 	private String formatId(String id) {
 		return id.replaceAll(" ", "_").replaceAll("-", "_");
 	}
