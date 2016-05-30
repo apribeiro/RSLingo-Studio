@@ -13,6 +13,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -34,6 +35,8 @@ public class ImportExcelHandler extends AbstractHandler {
 
 	private static final String GEN_FOLDER = "src-gen";
 	private static final String DOCS_FOLDER = "docs";
+	private static final String SYSTEM_ORANGE = "FFFFC000";
+	private static final String ENTITY_BLUE = "FF4F81BD";
 	
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
@@ -512,12 +515,12 @@ public class ImportExcelHandler extends AbstractHandler {
     		}
     		
     		if (!partOf.isEmpty()) {
-    			builder.append("\t\t\tPartOf \"" + partOf + "\"");
+    			builder.append("\t\t\tPartOf " + partOf);
 	    		builder.append("\n");
     		}
 			
     		if (!project.isEmpty()) {
-    			builder.append("\t\t\tProject \"" + project + "\"");
+    			builder.append("\t\t\tProject " + project);
 	    		builder.append("\n");
     		}
     		
@@ -527,22 +530,21 @@ public class ImportExcelHandler extends AbstractHandler {
 			systems.put(id, builder);
     	}
     	
+    	generateEntitiesRegion(wb, systems);
+		generateActorsRegion(wb, systems);
+		generateUseCasesRegion(wb, systems);
+		generateFRsRegion(wb, systems);
+		generateQRsRegion(wb, systems);
+		generateConstraintsRegion(wb, systems);
+    	
     	for (String key : systems.keySet()) {
 			sb.append(systems.get(key));
 			sb.append("\t}");
 			sb.append("\n\n");
 		}
-    	
-//    	generateEntitiesRegion(wb, sb, systems);
-//		generateActorsRegion(wb, sb, systems);
-//		generateUseCasesRegion(wb, sb, systems);
-//		generateFRsRegion(wb, sb, systems);
-//		generateQRsRegion(wb, sb, systems);
-//		generateConstraintsRegion(wb, sb, systems);
 	}
 	
-	private void generateEntitiesRegion(Workbook wb, StringBuilder sb,
-			Map<String, StringBuilder> systems) {
+	private void generateEntitiesRegion(Workbook wb, Map<String, StringBuilder> systems) {
 		// Get the Entities Sheet
 	    Sheet sheet = wb.getSheet("entities");
     	Iterator<Row> rowIt = sheet.rowIterator();
@@ -556,83 +558,79 @@ public class ImportExcelHandler extends AbstractHandler {
     	rowIt.next();
     	rowIt.next();
     	rowIt.next();
-    	rowIt.next();
-    	rowIt.next();
-    	rowIt.next();
-    	rowIt.next();
-    	rowIt.next();
-    	rowIt.next();
-    	rowIt.next();
-    	rowIt.next();
+    	
+    	String systemId = null;
     	
     	while (rowIt.hasNext()) {
     		Row row = rowIt.next();
     		Cell cellId = row.getCell(0);
     		
     		if (cellId != null) {
-    			String id = formatId(cellId.getStringCellValue());
-    			Cell cellName = row.getCell(1);
-    			String name = cellName.getStringCellValue();
-    			Cell cellDescription = row.getCell(2);
-    			String description = cellDescription.getStringCellValue();
-    			Cell cellStakeholder = row.getCell(3);
-    			String stakeholder = cellStakeholder.getStringCellValue();
-    			Cell cellPriority = row.getCell(4);
-    			String priority = cellPriority.getStringCellValue();
-    			// ComposedBy
-    			// DependsOn
-	    		
-    			sb.append("\tEntity " + id + " {");
-	    		sb.append("\n");
-	    		
-	    		if (!name.isEmpty()) {
-	    			sb.append("\t\tName \"" + name + "\"");
-		    		sb.append("\n");
+    			XSSFCellStyle cs = (XSSFCellStyle) cellId.getCellStyle();
+    			
+    			if (cs.getFillForegroundColorColor() != null) {
+    				String color = cs.getFillForegroundColorColor().getARGBHex();
+    			
+	        		if (color.equals(SYSTEM_ORANGE)) {
+						systemId = cellId.getStringCellValue();
+	        		} else if (color.equals(ENTITY_BLUE)) {
+	        			String id = formatId(cellId.getStringCellValue());
+		    			Cell cellName = row.getCell(1);
+		    			String name = cellName.getStringCellValue();
+		    			Cell cellDescription = row.getCell(2);
+		    			String description = cellDescription.getStringCellValue();
+		    			Cell cellType = row.getCell(3);
+		    			String type = cellType.getStringCellValue();
+			    		
+		    			StringBuilder sb = systems.get(systemId);
+		    			sb.append("\t\tEntity " + id + " {");
+			    		sb.append("\n");
+			    		
+			    		if (!name.isEmpty()) {
+			    			sb.append("\t\t\tName \"" + name + "\"");
+				    		sb.append("\n");
+						}
+			    		
+			    		if (!description.isEmpty()) {
+			    			sb.append("\t\t\tDescription \"" + description + "\"");
+				    		sb.append("\n");
+			    		}
+			    		
+			    		if (!type.isEmpty()) {
+			    			sb.append("\t\t\tType " + type);
+				    		sb.append("\n");
+			    		}
+			    		
+			    		sb.append("\t\t}");
+			    		sb.append("\n\n");
+	        		}
+				} else {
+					// TODO: Attributes
+					// TODO: Primary Key
+					// TODO: Foreign Keys
+					// TODO: Checks
 				}
-	    		
-	    		if (!description.isEmpty()) {
-	    			sb.append("\t\tDescription \"" + description + "\"");
-		    		sb.append("\n");
-	    		}
-	    		
-	    		if (!stakeholder.isEmpty()) {
-	    			sb.append("\t\tStakeholder " + stakeholder);
-		    		sb.append("\n");
-	    		}
-	    		
-	    		sb.append("\t\tPriority " + priority);
-	    		sb.append("\n");
-	    		
-	    		sb.append("\t}");
-	    		sb.append("\n\n");
 			}
-    		else
-    			break;
 		}
 	}
 	
-	private void generateActorsRegion(Workbook wb, StringBuilder sb,
-			Map<String, StringBuilder> systems) {
+	private void generateActorsRegion(Workbook wb, Map<String, StringBuilder> systems) {
 		
 	}
 	
-	private void generateUseCasesRegion(Workbook wb, StringBuilder sb,
-			Map<String, StringBuilder> systems) {
+	private void generateUseCasesRegion(Workbook wb, Map<String, StringBuilder> systems) {
 		
 	}
 	
-	private void generateFRsRegion(Workbook wb, StringBuilder sb,
-			Map<String, StringBuilder> systems) {
+	private void generateFRsRegion(Workbook wb, Map<String, StringBuilder> systems) {
 		
 	}
 	
-	private void generateQRsRegion(Workbook wb, StringBuilder sb,
-			Map<String, StringBuilder> systems) {
+	private void generateQRsRegion(Workbook wb, Map<String, StringBuilder> systems) {
 		
 	}
 	
-	private void generateConstraintsRegion(Workbook wb, StringBuilder sb,
-			Map<String, StringBuilder> systems) {
+	private void generateConstraintsRegion(Workbook wb, Map<String, StringBuilder> systems) {
 		
 	}
 	
