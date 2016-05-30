@@ -4,7 +4,6 @@
 package rslingo.rslil.scoping;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.scoping.IScope;
@@ -26,18 +25,6 @@ import rslingo.rslil.rSLIL.UseCase;
 public class RSLILScopeProvider extends AbstractDeclarativeScopeProvider {
   @Override
   public IScope getScope(final EObject context, final EReference reference) {
-    EClass _eContainingClass = reference.getEContainingClass();
-    String _name = _eContainingClass.getName();
-    String _plus = ("scope_" + _name);
-    String _plus_1 = (_plus + "_");
-    String _name_1 = reference.getName();
-    String _plus_2 = (_plus_1 + _name_1);
-    String _plus_3 = (_plus_2 + "(");
-    EClass _eClass = context.eClass();
-    String _name_2 = _eClass.getName();
-    String _plus_4 = (_plus_3 + _name_2);
-    String _plus_5 = (_plus_4 + ", ..)");
-    System.out.println(_plus_5);
     return super.getScope(context, reference);
   }
   

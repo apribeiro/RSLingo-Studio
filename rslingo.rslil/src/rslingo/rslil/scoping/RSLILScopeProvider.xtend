@@ -22,11 +22,11 @@ class RSLILScopeProvider extends AbstractDeclarativeScopeProvider {
 
 	@Override
   	override IScope getScope(EObject context, EReference reference) {
-		System.out.println(
-			"scope_" + reference.getEContainingClass().getName()
-			+ "_" + reference.getName()
-			+ "(" + context.eClass().getName() + ", ..)"
-	 	);
+//		System.out.println(
+//			"scope_" + reference.getEContainingClass().getName()
+//			+ "_" + reference.getName()
+//			+ "(" + context.eClass().getName() + ", ..)"
+//	 	);
 	 	return super.getScope(context, reference);
   	}
   	
