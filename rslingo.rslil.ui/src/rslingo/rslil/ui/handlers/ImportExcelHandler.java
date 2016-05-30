@@ -560,6 +560,7 @@ public class ImportExcelHandler extends AbstractHandler {
     	rowIt.next();
     	
     	String systemId = null;
+    	String pk = null;
     	
     	while (rowIt.hasNext()) {
     		Row row = rowIt.next();
@@ -574,44 +575,139 @@ public class ImportExcelHandler extends AbstractHandler {
 	        		if (color.equals(SYSTEM_ORANGE)) {
 						systemId = cellId.getStringCellValue();
 	        		} else if (color.equals(ENTITY_BLUE)) {
-	        			String id = formatId(cellId.getStringCellValue());
+	        			String id = cellId.getStringCellValue();
 		    			Cell cellName = row.getCell(1);
 		    			String name = cellName.getStringCellValue();
 		    			Cell cellDescription = row.getCell(2);
 		    			String description = cellDescription.getStringCellValue();
 		    			Cell cellType = row.getCell(3);
 		    			String type = cellType.getStringCellValue();
+		    			Cell cellPK = row.getCell(4);
+		    			pk = cellPK.getStringCellValue();
 			    		
-		    			StringBuilder sb = systems.get(systemId);
+		    	    	StringBuilder sb = systems.get(systemId);
 		    			sb.append("\t\tEntity " + id + " {");
-			    		sb.append("\n");
-			    		
-			    		if (!name.isEmpty()) {
-			    			sb.append("\t\t\tName \"" + name + "\"");
-				    		sb.append("\n");
-						}
-			    		
-			    		if (!description.isEmpty()) {
-			    			sb.append("\t\t\tDescription \"" + description + "\"");
-				    		sb.append("\n");
-			    		}
-			    		
-			    		if (!type.isEmpty()) {
-			    			sb.append("\t\t\tType " + type);
-				    		sb.append("\n");
-			    		}
-			    		
-			    		sb.append("\t\t}");
-			    		sb.append("\n\n");
+		    			sb.append("\n");
+		    			
+		    			if (!name.isEmpty()) {
+		    				sb.append("\t\t\tName \"" + name + "\"");
+		    	    		sb.append("\n");
+		    			}
+		    			
+		    			if (!description.isEmpty()) {
+		    				sb.append("\t\t\tDescription \"" + description + "\"");
+		    	    		sb.append("\n");
+		    			}
+		    			
+		    			if (!type.isEmpty()) {
+		    				sb.append("\t\t\tType " + type);
+		    	    		sb.append("\n");
+		    			}
 	        		}
-				} else {
-					// TODO: Attributes
-					// TODO: Primary Key
-					// TODO: Foreign Keys
-					// TODO: Checks
+				} else if (pk != null) {
+					StringBuilder sb = systems.get(systemId);
+					Cell cell = row.getCell(2);
+	    			String name = cell.getStringCellValue();
+	    			
+					if (name.equals("Attributes")) {
+						generateEntityAttributes(sheet, rowIt, row, sb);
+						
+						if (!pk.isEmpty()) {
+		    				sb.append("\t\t\tPrimaryKey " + pk);
+		    	    		sb.append("\n");
+		    			}
+					} else if (name.equals("ForeignKeys")) {
+						// TODO: Foreign Keys
+					} else if (name.equals("Checks")) {
+						// TODO: Checks
+					} else {
+						sb.append("\t\t}");
+						sb.append("\n\n");
+					}
 				}
 			}
 		}
+	}
+	
+	private void generateEntityAttributes(Sheet sheet, Iterator<Row> rowIt,
+			Row row, StringBuilder sb) {
+		Row lastRow = DocumentHelper.getLastRowOfMergedRegion(sheet, row);
+		
+		while (row.getRowNum() < lastRow.getRowNum() + 1) {
+			Cell cellId = row.getCell(3);
+			String id = cellId.getStringCellValue();
+			Cell cellName = row.getCell(4);
+			String name = cellName.getStringCellValue();
+			Cell cellDescription = row.getCell(5);
+			String description = cellDescription.getStringCellValue();
+			Cell cellType = row.getCell(6);
+			String type = cellType.getStringCellValue();
+			Cell cellSize = row.getCell(7);
+			double size = cellSize.getNumericCellValue();
+			Cell cellMultiplicity = row.getCell(8);
+			Cell cellDefault = row.getCell(9);
+			String defaultValue = cellDefault.getStringCellValue();
+			Cell cellNotNull = row.getCell(10);
+			String notNull = cellNotNull.getStringCellValue();
+			Cell cellUnique = row.getCell(11);
+			String unique = cellUnique.getStringCellValue();
+			
+			sb.append("\t\t\tAttribute " + id + " {");
+			sb.append("\n");
+			
+			if (!name.isEmpty()) {
+				sb.append("\t\t\t\tName \"" + name + "\"");
+	    		sb.append("\n");
+			}
+			
+			if (!description.isEmpty()) {
+				sb.append("\t\t\t\tDescription \"" + description + "\"");
+	    		sb.append("\n");
+			}
+			
+			sb.append("\t\t\t\tType " + type);
+			sb.append("\n");
+			
+			if (size > 0) {
+				sb.append("\t\t\t\tSize " + size);
+	    		sb.append("\n");
+			}
+			
+			if (cellMultiplicity.getCellType() == Cell.CELL_TYPE_STRING) {
+				String multiplicity = cellMultiplicity.getStringCellValue();
+				
+				if (!multiplicity.isEmpty()) {
+					sb.append("\t\t\t\tMultiplicity " + multiplicity);
+		    		sb.append("\n");
+				}
+			} else if (cellMultiplicity.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+				double multiplicity = cellMultiplicity.getNumericCellValue();
+				sb.append("\t\t\t\tMultiplicity " + multiplicity);
+	    		sb.append("\n");
+			}
+			
+			if (!defaultValue.isEmpty()) {
+				sb.append("\t\t\t\tDefaultValue " + defaultValue);
+	    		sb.append("\n");
+			}
+			
+			if (!notNull.isEmpty()) {
+				sb.append("\t\t\t\tNotNull");
+	    		sb.append("\n");
+			}
+			
+			if (!unique.isEmpty()) {
+				sb.append("\t\t\t\tUnique");
+	    		sb.append("\n");
+			}
+			
+			sb.append("\t\t\t}");
+			sb.append("\n");
+			
+			row = sheet.getRow(row.getRowNum() + 1);
+			rowIt.next();
+		}
+		
 	}
 	
 	private void generateActorsRegion(Workbook wb, Map<String, StringBuilder> systems) {
