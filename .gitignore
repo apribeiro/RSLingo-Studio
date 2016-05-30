@@ -55,3 +55,6 @@ logs.zip
 *.orig
 
 target
+
+# MS Office temporary files
+~$*
