@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.TreeMap;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -119,12 +121,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		generateGlossaryRegion(wb, sb);
 		generateStakeholdersRegion(wb, sb);
 		generateGoalsRegion(wb, sb);
-		generateEntitiesRegion(wb, sb);
-		generateActorsRegion(wb, sb);
-		generateUseCasesRegion(wb, sb);
-		generateFRsRegion(wb, sb);
-		generateQRsRegion(wb, sb);
-		generateConstraintsRegion(wb, sb);
+		generateSytemsRegion(wb, sb, fileName);
     	
     	sb.deleteCharAt(sb.length() - 1);
 		sb.append("}");
@@ -465,7 +462,87 @@ public class ImportExcelHandler extends AbstractHandler {
 		}
 	}
 
-	private void generateEntitiesRegion(Workbook wb, StringBuilder sb) {
+	private void generateSytemsRegion(Workbook wb, StringBuilder sb, String fileName) {
+		// Get the Home Sheet
+	    Sheet sheet = wb.getSheet("home");
+		Iterator<Row> rowIt = sheet.rowIterator();
+		// Ignore the Header rows
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+		
+    	Map<String, StringBuilder> systems = new TreeMap<String, StringBuilder>();
+    	
+    	while (rowIt.hasNext()) {
+    		Row row = rowIt.next();
+    		Cell cellId = row.getCell(0);
+			String id = formatId(cellId.getStringCellValue());
+	    	Cell cellName = row.getCell(1);
+			String name = cellName.getStringCellValue();
+			Cell cellDescription = row.getCell(2);
+			String description = cellDescription.getStringCellValue();
+			Cell cellPartOf = row.getCell(3);
+			String partOf = cellPartOf.getStringCellValue();
+			Cell cellProject = row.getCell(4);
+			String project = cellProject.getStringCellValue();
+			
+			StringBuilder builder = new StringBuilder();
+			builder.append("\tPackage-System " + fileName + "_" + id + " {");
+    		builder.append("\n");
+    		
+    		builder.append("\t\tSystem " + id + " {");
+    		builder.append("\n");
+    		
+    		if (!name.isEmpty()) {
+    			builder.append("\t\t\tName \"" + name + "\"");
+	    		builder.append("\n");
+			}
+    		
+    		if (!description.isEmpty()) {
+    			builder.append("\t\t\tDescription \"" + description + "\"");
+	    		builder.append("\n");
+    		}
+    		
+    		if (!partOf.isEmpty()) {
+    			builder.append("\t\t\tPartOf \"" + partOf + "\"");
+	    		builder.append("\n");
+    		}
+			
+    		if (!project.isEmpty()) {
+    			builder.append("\t\t\tProject \"" + project + "\"");
+	    		builder.append("\n");
+    		}
+    		
+    		builder.append("\t\t}");
+    		builder.append("\n\n");
+    		
+			systems.put(id, builder);
+    	}
+    	
+    	for (String key : systems.keySet()) {
+			sb.append(systems.get(key));
+			sb.append("\t}");
+			sb.append("\n\n");
+		}
+    	
+//    	generateEntitiesRegion(wb, sb, systems);
+//		generateActorsRegion(wb, sb, systems);
+//		generateUseCasesRegion(wb, sb, systems);
+//		generateFRsRegion(wb, sb, systems);
+//		generateQRsRegion(wb, sb, systems);
+//		generateConstraintsRegion(wb, sb, systems);
+	}
+	
+	private void generateEntitiesRegion(Workbook wb, StringBuilder sb,
+			Map<String, StringBuilder> systems) {
 		// Get the Entities Sheet
 	    Sheet sheet = wb.getSheet("entities");
     	Iterator<Row> rowIt = sheet.rowIterator();
@@ -534,23 +611,28 @@ public class ImportExcelHandler extends AbstractHandler {
 		}
 	}
 	
-	private void generateActorsRegion(Workbook wb, StringBuilder sb) {
+	private void generateActorsRegion(Workbook wb, StringBuilder sb,
+			Map<String, StringBuilder> systems) {
 		
 	}
 	
-	private void generateUseCasesRegion(Workbook wb, StringBuilder sb) {
+	private void generateUseCasesRegion(Workbook wb, StringBuilder sb,
+			Map<String, StringBuilder> systems) {
 		
 	}
 	
-	private void generateFRsRegion(Workbook wb, StringBuilder sb) {
+	private void generateFRsRegion(Workbook wb, StringBuilder sb,
+			Map<String, StringBuilder> systems) {
 		
 	}
 	
-	private void generateQRsRegion(Workbook wb, StringBuilder sb) {
+	private void generateQRsRegion(Workbook wb, StringBuilder sb,
+			Map<String, StringBuilder> systems) {
 		
 	}
 	
-	private void generateConstraintsRegion(Workbook wb, StringBuilder sb) {
+	private void generateConstraintsRegion(Workbook wb, StringBuilder sb,
+			Map<String, StringBuilder> systems) {
 		
 	}
 	
