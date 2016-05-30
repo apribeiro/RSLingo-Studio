@@ -120,7 +120,11 @@ public class ImportExcelHandler extends AbstractHandler {
 		generateStakeholdersRegion(wb, sb);
 		generateGoalsRegion(wb, sb);
 		generateEntitiesRegion(wb, sb);
-//		generateEnforcementsRegion(wb, sb);
+		generateActorsRegion(wb, sb);
+		generateUseCasesRegion(wb, sb);
+		generateFRsRegion(wb, sb);
+		generateQRsRegion(wb, sb);
+		generateConstraintsRegion(wb, sb);
     	
     	sb.deleteCharAt(sb.length() - 1);
 		sb.append("}");
@@ -194,105 +198,6 @@ public class ImportExcelHandler extends AbstractHandler {
     	sb.append("}");
 		
 		IFile file = srcGenFolder.getFile(fileName + ".Statements.rslil");
-		InputStream source = new ByteArrayInputStream(sb.toString().getBytes());
-		
-		if (!file.exists()) {
-			file.create(source, IResource.FORCE, null);
-		} else {
-			file.setContents(source, IResource.FORCE, null);
-		}
-	}
-	
-	private void generatePrivateDataFile(IFolder srcGenFolder, String filePath, String fileName)
-			throws Exception {
-		StringBuilder sb = new StringBuilder();
-		InputStream inp = new FileInputStream(filePath);
-		Workbook wb = WorkbookFactory.create(inp);
-		sb.append("Package " + fileName + ".Privatedata {");
-		sb.append("\n");
-		sb.append("\n");
-		
-//		generatePrivateDataRegion(wb, sb);
-    	
-    	sb.deleteCharAt(sb.length() - 1);
-    	sb.append("}");
-		
-		IFile file = srcGenFolder.getFile(fileName + ".Privatedata.rslil");
-		InputStream source = new ByteArrayInputStream(sb.toString().getBytes());
-		
-		if (!file.exists()) {
-			file.create(source, IResource.FORCE, null);
-		} else {
-			file.setContents(source, IResource.FORCE, null);
-		}
-	}
-	
-	private void generateServicesFile(IFolder srcGenFolder, String filePath, String fileName)
-			throws Exception {
-		StringBuilder sb = new StringBuilder();
-		InputStream inp = new FileInputStream(filePath);
-		Workbook wb = WorkbookFactory.create(inp);
-		sb.append("Package " + fileName + ".Services {");
-		sb.append("\n");
-		sb.append("\n");
-		sb.append("import " + fileName + ".Privatedata.*");
-		sb.append("\n");
-		sb.append("\n");
-		
-//		generateServicesRegion(wb, sb);
-    	
-    	sb.deleteCharAt(sb.length() - 1);
-    	sb.append("}");
-		
-		IFile file = srcGenFolder.getFile(fileName + ".Services.rslil");
-		InputStream source = new ByteArrayInputStream(sb.toString().getBytes());
-		
-		if (!file.exists()) {
-			file.create(source, IResource.FORCE, null);
-		} else {
-			file.setContents(source, IResource.FORCE, null);
-		}
-	}
-	
-	private void generateEnforcementsFile(IFolder srcGenFolder, String filePath, String fileName)
-			throws Exception {
-		StringBuilder sb = new StringBuilder();
-		InputStream inp = new FileInputStream(filePath);
-		Workbook wb = WorkbookFactory.create(inp);
-		sb.append("Package " + fileName + ".Enforcements {");
-		sb.append("\n");
-		sb.append("\n");
-		
-//		generateEnforcementsRegion(wb, sb);
-    	
-    	sb.deleteCharAt(sb.length() - 1);
-    	sb.append("}");
-		
-		IFile file = srcGenFolder.getFile(fileName + ".Enforcements.rslil");
-		InputStream source = new ByteArrayInputStream(sb.toString().getBytes());
-		
-		if (!file.exists()) {
-			file.create(source, IResource.FORCE, null);
-		} else {
-			file.setContents(source, IResource.FORCE, null);
-		}
-	}	
-	
-	private void generateRecipientsFile(IFolder srcGenFolder, String filePath, String fileName)
-			throws Exception {
-		StringBuilder sb = new StringBuilder();
-		InputStream inp = new FileInputStream(filePath);
-		Workbook wb = WorkbookFactory.create(inp);
-		sb.append("Package " + fileName + ".Recipients {");
-		sb.append("\n");
-		sb.append("\n");
-		
-//		generateRecipientsRegion(wb, sb);
-    	
-    	sb.deleteCharAt(sb.length() - 1);
-    	sb.append("}");
-		
-		IFile file = srcGenFolder.getFile(fileName + ".Recipients.rslil");
 		InputStream source = new ByteArrayInputStream(sb.toString().getBytes());
 		
 		if (!file.exists()) {
@@ -627,6 +532,26 @@ public class ImportExcelHandler extends AbstractHandler {
     		else
     			break;
 		}
+	}
+	
+	private void generateActorsRegion(Workbook wb, StringBuilder sb) {
+		
+	}
+	
+	private void generateUseCasesRegion(Workbook wb, StringBuilder sb) {
+		
+	}
+	
+	private void generateFRsRegion(Workbook wb, StringBuilder sb) {
+		
+	}
+	
+	private void generateQRsRegion(Workbook wb, StringBuilder sb) {
+		
+	}
+	
+	private void generateConstraintsRegion(Workbook wb, StringBuilder sb) {
+		
 	}
 	
 	private String formatId(String id) {
