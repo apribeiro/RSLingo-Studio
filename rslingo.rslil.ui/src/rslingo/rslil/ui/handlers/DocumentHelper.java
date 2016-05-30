@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
@@ -256,6 +257,21 @@ public class DocumentHelper {
                 }
             }
 		}
+	}
+	
+	public static Row getLastRowOfMergedRegion(Sheet sheet, Row firstRow) {
+		Row lastRow = null;
+		
+		for(int i = 0; i < sheet.getNumMergedRegions(); i++) {
+	        CellRangeAddress region = sheet.getMergedRegion(i);
+	        
+	        if (region.getFirstRow() == firstRow.getRowNum()) {
+				lastRow = sheet.getRow(region.getLastRow());
+				break;
+			}
+		}
+		
+		return lastRow;
 	}
 	
 	public static int getNumberOfRSLILMonth(String month) {
