@@ -634,7 +634,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		Row lastRow = DocumentHelper.getLastRowOfMergedRegion(sheet, row);
 		int count = lastRow.getRowNum() - row.getRowNum();
 		
-		while (row.getRowNum() < lastRow.getRowNum() + 1) {
+		while (row != null && (row.getRowNum() < lastRow.getRowNum() + 1)) {
 			Cell cellId = row.getCell(3);
 			String id = cellId.getStringCellValue();
 			Cell cellName = row.getCell(4);
@@ -719,7 +719,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		Row lastRow = DocumentHelper.getLastRowOfMergedRegion(sheet, row);
 		int count = lastRow.getRowNum() - row.getRowNum();
 		
-		while (row.getRowNum() < lastRow.getRowNum() + 1) {
+		while (row != null && (row.getRowNum() < lastRow.getRowNum() + 1)) {
 			Cell cellEntity = row.getCell(3);
 			String entity = cellEntity.getStringCellValue();
 			Cell cellAttributes = row.getCell(4);
@@ -753,7 +753,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		Row lastRow = DocumentHelper.getLastRowOfMergedRegion(sheet, row);
 		int count = lastRow.getRowNum() - row.getRowNum();
 		
-		while (row.getRowNum() < lastRow.getRowNum() + 1) {
+		while (row != null && (row.getRowNum() < lastRow.getRowNum() + 1)) {
 			Cell cellId = row.getCell(3);
 			String id = cellId.getStringCellValue();
 			Cell cellExpression = row.getCell(4);
