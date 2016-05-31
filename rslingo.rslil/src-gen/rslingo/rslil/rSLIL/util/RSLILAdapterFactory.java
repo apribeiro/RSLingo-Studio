@@ -10,10 +10,12 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import rslingo.rslil.rSLIL.Actor;
+import rslingo.rslil.rSLIL.ActualSchedule;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.Check;
 import rslingo.rslil.rSLIL.ComposedBy;
 import rslingo.rslil.rSLIL.Constraint;
+import rslingo.rslil.rSLIL.Date;
 import rslingo.rslil.rSLIL.DependsOnConstraint;
 import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.DependsOnGoal;
@@ -27,9 +29,12 @@ import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Import;
 import rslingo.rslil.rSLIL.Model;
+import rslingo.rslil.rSLIL.Month;
 import rslingo.rslil.rSLIL.Multiplicity;
+import rslingo.rslil.rSLIL.Organizations;
 import rslingo.rslil.rSLIL.PackageProject;
 import rslingo.rslil.rSLIL.PackageSystem;
+import rslingo.rslil.rSLIL.PlannedSchedule;
 import rslingo.rslil.rSLIL.PrimaryKey;
 import rslingo.rslil.rSLIL.Priority;
 import rslingo.rslil.rSLIL.Project;
@@ -47,6 +52,7 @@ import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
+import rslingo.rslil.rSLIL.Status;
 import rslingo.rslil.rSLIL.Step;
 import rslingo.rslil.rSLIL.TermRelation;
 import rslingo.rslil.rSLIL.TermType;
@@ -139,6 +145,36 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
       public Adapter caseProject(Project object)
       {
         return createProjectAdapter();
+      }
+      @Override
+      public Adapter casePlannedSchedule(PlannedSchedule object)
+      {
+        return createPlannedScheduleAdapter();
+      }
+      @Override
+      public Adapter caseActualSchedule(ActualSchedule object)
+      {
+        return createActualScheduleAdapter();
+      }
+      @Override
+      public Adapter caseDate(Date object)
+      {
+        return createDateAdapter();
+      }
+      @Override
+      public Adapter caseMonth(Month object)
+      {
+        return createMonthAdapter();
+      }
+      @Override
+      public Adapter caseOrganizations(Organizations object)
+      {
+        return createOrganizationsAdapter();
+      }
+      @Override
+      public Adapter caseStatus(Status object)
+      {
+        return createStatusAdapter();
       }
       @Override
       public Adapter caseSystem(rslingo.rslil.rSLIL.System object)
@@ -418,6 +454,96 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createProjectAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.PlannedSchedule <em>Planned Schedule</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.PlannedSchedule
+   * @generated
+   */
+  public Adapter createPlannedScheduleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.ActualSchedule <em>Actual Schedule</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.ActualSchedule
+   * @generated
+   */
+  public Adapter createActualScheduleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.Date <em>Date</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.Date
+   * @generated
+   */
+  public Adapter createDateAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.Month <em>Month</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.Month
+   * @generated
+   */
+  public Adapter createMonthAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.Organizations <em>Organizations</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.Organizations
+   * @generated
+   */
+  public Adapter createOrganizationsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.Status <em>Status</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.Status
+   * @generated
+   */
+  public Adapter createStatusAdapter()
   {
     return null;
   }

@@ -11,10 +11,12 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import rslingo.rslil.rSLIL.Actor;
+import rslingo.rslil.rSLIL.ActualSchedule;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.Check;
 import rslingo.rslil.rSLIL.ComposedBy;
 import rslingo.rslil.rSLIL.Constraint;
+import rslingo.rslil.rSLIL.Date;
 import rslingo.rslil.rSLIL.DependsOnConstraint;
 import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.DependsOnGoal;
@@ -28,9 +30,12 @@ import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Import;
 import rslingo.rslil.rSLIL.Model;
+import rslingo.rslil.rSLIL.Month;
 import rslingo.rslil.rSLIL.Multiplicity;
+import rslingo.rslil.rSLIL.Organizations;
 import rslingo.rslil.rSLIL.PackageProject;
 import rslingo.rslil.rSLIL.PackageSystem;
+import rslingo.rslil.rSLIL.PlannedSchedule;
 import rslingo.rslil.rSLIL.PrimaryKey;
 import rslingo.rslil.rSLIL.Priority;
 import rslingo.rslil.rSLIL.Project;
@@ -49,6 +54,7 @@ import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
+import rslingo.rslil.rSLIL.Status;
 import rslingo.rslil.rSLIL.Step;
 import rslingo.rslil.rSLIL.TermRelation;
 import rslingo.rslil.rSLIL.TermType;
@@ -111,6 +117,12 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
       case RSLILPackage.PACKAGE_SYSTEM: return createPackageSystem();
       case RSLILPackage.IMPORT: return createImport();
       case RSLILPackage.PROJECT: return createProject();
+      case RSLILPackage.PLANNED_SCHEDULE: return createPlannedSchedule();
+      case RSLILPackage.ACTUAL_SCHEDULE: return createActualSchedule();
+      case RSLILPackage.DATE: return createDate();
+      case RSLILPackage.MONTH: return createMonth();
+      case RSLILPackage.ORGANIZATIONS: return createOrganizations();
+      case RSLILPackage.STATUS: return createStatus();
       case RSLILPackage.SYSTEM: return createSystem();
       case RSLILPackage.GLOSSARY_TERM: return createGlossaryTerm();
       case RSLILPackage.REF_TERM_TYPE: return createRefTermType();
@@ -206,6 +218,72 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
   {
     ProjectImpl project = new ProjectImpl();
     return project;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PlannedSchedule createPlannedSchedule()
+  {
+    PlannedScheduleImpl plannedSchedule = new PlannedScheduleImpl();
+    return plannedSchedule;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ActualSchedule createActualSchedule()
+  {
+    ActualScheduleImpl actualSchedule = new ActualScheduleImpl();
+    return actualSchedule;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Date createDate()
+  {
+    DateImpl date = new DateImpl();
+    return date;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Month createMonth()
+  {
+    MonthImpl month = new MonthImpl();
+    return month;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Organizations createOrganizations()
+  {
+    OrganizationsImpl organizations = new OrganizationsImpl();
+    return organizations;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Status createStatus()
+  {
+    StatusImpl status = new StatusImpl();
+    return status;
   }
 
   /**

@@ -42,9 +42,47 @@ Import:
 Project:
 	'Project' name=ID '{'
 		('Name' nameAlias=STRING)?
+		'Type' type=('SystemDevelopment'|'SystemDesign'|'SystemDeployment'
+			|'SystemMaintenance'|'Training'|'Research'|'Other'
+		)
+		'ApplicationDomain' domain=('PublicSector'|'Education'|'Health'|'Telecoms'
+			|'Energy&Utilities'|'Finance&Banks'|'Other'		
+		)
+		(planned=PlannedSchedule)?
+		(actual=ActualSchedule)?
+		(organizations=Organizations)?
+		('Status' status=Status)?
+		'Summary' summary=STRING
 		'Description' description=STRING
-//		('HasSystems' refSystem=RefSystem)?
 	'}';
+
+PlannedSchedule:
+	'PlannedSchedule {'
+		'Start' start=Date
+		'End' end=Date
+	'}';
+
+ActualSchedule:
+	'ActualSchedule {'
+		'Start' start=Date
+		'End' end=Date
+	'}';
+
+Date:
+	day=INT '-' month=Month '-' year=INT;
+
+Month:
+	name=('Jan'|'Feb'|'Mar'|'Apr'|'May'|'Jun'|'Jul'|'Aug'|'Sep'|'Oct'|'Nov'|'Dec');
+
+Organizations:
+	'Organizations {'
+		'Customer' customer=STRING
+		'Supplier' supplier=STRING
+		'Partners' partners=STRING 
+	'}';
+
+Status:
+	value=('Not-Plan'|'Plan'|'On-Design'|'On-Develop'|'On-Test'|'On-Deploy'|'Concluded');
 
 System:
 	'System' name=ID '{'
@@ -138,7 +176,8 @@ Attribute:
 		(unique='Unique')?
 	'}';
 
-Multiplicity: value=('"0"' | '"1"' | '"0..1"' | '"*"' | STRING);
+Multiplicity:
+	value=('"0"' | '"1"' | '"0..1"' | '"*"' | STRING);
 
 PrimaryKey:
 	'PrimaryKey' '(' refTo=RefAttribute ')';

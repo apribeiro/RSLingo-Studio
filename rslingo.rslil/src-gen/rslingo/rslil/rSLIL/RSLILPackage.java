@@ -332,13 +332,76 @@ public interface RSLILPackage extends EPackage
   int PROJECT__NAME_ALIAS = 1;
 
   /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT__TYPE = 2;
+
+  /**
+   * The feature id for the '<em><b>Domain</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT__DOMAIN = 3;
+
+  /**
+   * The feature id for the '<em><b>Planned</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT__PLANNED = 4;
+
+  /**
+   * The feature id for the '<em><b>Actual</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT__ACTUAL = 5;
+
+  /**
+   * The feature id for the '<em><b>Organizations</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT__ORGANIZATIONS = 6;
+
+  /**
+   * The feature id for the '<em><b>Status</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT__STATUS = 7;
+
+  /**
+   * The feature id for the '<em><b>Summary</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROJECT__SUMMARY = 8;
+
+  /**
    * The feature id for the '<em><b>Description</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROJECT__DESCRIPTION = 2;
+  int PROJECT__DESCRIPTION = 9;
 
   /**
    * The number of structural features of the '<em>Project</em>' class.
@@ -347,7 +410,229 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROJECT_FEATURE_COUNT = 3;
+  int PROJECT_FEATURE_COUNT = 10;
+
+  /**
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.PlannedScheduleImpl <em>Planned Schedule</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see rslingo.rslil.rSLIL.impl.PlannedScheduleImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getPlannedSchedule()
+   * @generated
+   */
+  int PLANNED_SCHEDULE = 5;
+
+  /**
+   * The feature id for the '<em><b>Start</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLANNED_SCHEDULE__START = 0;
+
+  /**
+   * The feature id for the '<em><b>End</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLANNED_SCHEDULE__END = 1;
+
+  /**
+   * The number of structural features of the '<em>Planned Schedule</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLANNED_SCHEDULE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.ActualScheduleImpl <em>Actual Schedule</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see rslingo.rslil.rSLIL.impl.ActualScheduleImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getActualSchedule()
+   * @generated
+   */
+  int ACTUAL_SCHEDULE = 6;
+
+  /**
+   * The feature id for the '<em><b>Start</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTUAL_SCHEDULE__START = 0;
+
+  /**
+   * The feature id for the '<em><b>End</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTUAL_SCHEDULE__END = 1;
+
+  /**
+   * The number of structural features of the '<em>Actual Schedule</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTUAL_SCHEDULE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.DateImpl <em>Date</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see rslingo.rslil.rSLIL.impl.DateImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getDate()
+   * @generated
+   */
+  int DATE = 7;
+
+  /**
+   * The feature id for the '<em><b>Day</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATE__DAY = 0;
+
+  /**
+   * The feature id for the '<em><b>Month</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATE__MONTH = 1;
+
+  /**
+   * The feature id for the '<em><b>Year</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATE__YEAR = 2;
+
+  /**
+   * The number of structural features of the '<em>Date</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.MonthImpl <em>Month</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see rslingo.rslil.rSLIL.impl.MonthImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getMonth()
+   * @generated
+   */
+  int MONTH = 8;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MONTH__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Month</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MONTH_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.OrganizationsImpl <em>Organizations</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see rslingo.rslil.rSLIL.impl.OrganizationsImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getOrganizations()
+   * @generated
+   */
+  int ORGANIZATIONS = 9;
+
+  /**
+   * The feature id for the '<em><b>Customer</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORGANIZATIONS__CUSTOMER = 0;
+
+  /**
+   * The feature id for the '<em><b>Supplier</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORGANIZATIONS__SUPPLIER = 1;
+
+  /**
+   * The feature id for the '<em><b>Partners</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORGANIZATIONS__PARTNERS = 2;
+
+  /**
+   * The number of structural features of the '<em>Organizations</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ORGANIZATIONS_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.StatusImpl <em>Status</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see rslingo.rslil.rSLIL.impl.StatusImpl
+   * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getStatus()
+   * @generated
+   */
+  int STATUS = 10;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATUS__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>Status</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATUS_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.SystemImpl <em>System</em>}' class.
@@ -357,7 +642,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getSystem()
    * @generated
    */
-  int SYSTEM = 5;
+  int SYSTEM = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -421,7 +706,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getGlossaryTerm()
    * @generated
    */
-  int GLOSSARY_TERM = 6;
+  int GLOSSARY_TERM = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -512,7 +797,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefTermType()
    * @generated
    */
-  int REF_TERM_TYPE = 7;
+  int REF_TERM_TYPE = 13;
 
   /**
    * The feature id for the '<em><b>Ref Type</b></em>' containment reference.
@@ -549,7 +834,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getTermType()
    * @generated
    */
-  int TERM_TYPE = 8;
+  int TERM_TYPE = 14;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -577,7 +862,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getTermRelation()
    * @generated
    */
-  int TERM_RELATION = 9;
+  int TERM_RELATION = 15;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -614,7 +899,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefTerm()
    * @generated
    */
-  int REF_TERM = 10;
+  int REF_TERM = 16;
 
   /**
    * The feature id for the '<em><b>Ref Term</b></em>' attribute.
@@ -651,7 +936,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getStakeholder()
    * @generated
    */
-  int STAKEHOLDER = 11;
+  int STAKEHOLDER = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -724,7 +1009,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getGoal()
    * @generated
    */
-  int GOAL = 12;
+  int GOAL = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -806,7 +1091,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getPriority()
    * @generated
    */
-  int PRIORITY = 13;
+  int PRIORITY = 19;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -834,7 +1119,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getDependsOnGoal()
    * @generated
    */
-  int DEPENDS_ON_GOAL = 14;
+  int DEPENDS_ON_GOAL = 20;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -871,7 +1156,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getComposedBy()
    * @generated
    */
-  int COMPOSED_BY = 15;
+  int COMPOSED_BY = 21;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -908,7 +1193,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefGoal()
    * @generated
    */
-  int REF_GOAL = 16;
+  int REF_GOAL = 22;
 
   /**
    * The feature id for the '<em><b>Ref Goal</b></em>' reference.
@@ -945,7 +1230,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getEntity()
    * @generated
    */
-  int ENTITY = 17;
+  int ENTITY = 23;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1036,7 +1321,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 18;
+  int ATTRIBUTE = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1136,7 +1421,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getMultiplicity()
    * @generated
    */
-  int MULTIPLICITY = 19;
+  int MULTIPLICITY = 25;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1164,7 +1449,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getPrimaryKey()
    * @generated
    */
-  int PRIMARY_KEY = 20;
+  int PRIMARY_KEY = 26;
 
   /**
    * The feature id for the '<em><b>Ref To</b></em>' containment reference.
@@ -1192,7 +1477,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getForeignKey()
    * @generated
    */
-  int FOREIGN_KEY = 21;
+  int FOREIGN_KEY = 27;
 
   /**
    * The feature id for the '<em><b>Entity</b></em>' reference.
@@ -1238,7 +1523,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefAttribute()
    * @generated
    */
-  int REF_ATTRIBUTE = 22;
+  int REF_ATTRIBUTE = 28;
 
   /**
    * The feature id for the '<em><b>Ref Attr</b></em>' reference.
@@ -1275,7 +1560,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getCheck()
    * @generated
    */
-  int CHECK = 23;
+  int CHECK = 29;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1312,7 +1597,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getActor()
    * @generated
    */
-  int ACTOR = 24;
+  int ACTOR = 30;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1385,7 +1670,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getUseCase()
    * @generated
    */
-  int USE_CASE = 25;
+  int USE_CASE = 31;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1557,7 +1842,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefEntity()
    * @generated
    */
-  int REF_ENTITY = 26;
+  int REF_ENTITY = 32;
 
   /**
    * The feature id for the '<em><b>Ref Entity</b></em>' reference.
@@ -1612,7 +1897,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getEntityType()
    * @generated
    */
-  int ENTITY_TYPE = 27;
+  int ENTITY_TYPE = 33;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1640,7 +1925,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefFR()
    * @generated
    */
-  int REF_FR = 28;
+  int REF_FR = 34;
 
   /**
    * The feature id for the '<em><b>Ref FR</b></em>' reference.
@@ -1677,7 +1962,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefActor()
    * @generated
    */
-  int REF_ACTOR = 29;
+  int REF_ACTOR = 35;
 
   /**
    * The feature id for the '<em><b>Ref Actor</b></em>' reference.
@@ -1714,7 +1999,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefUC()
    * @generated
    */
-  int REF_UC = 30;
+  int REF_UC = 36;
 
   /**
    * The feature id for the '<em><b>Ref UC</b></em>' reference.
@@ -1751,7 +2036,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getExtensionPoint()
    * @generated
    */
-  int EXTENSION_POINT = 31;
+  int EXTENSION_POINT = 37;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1788,7 +2073,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getScenario()
    * @generated
    */
-  int SCENARIO = 32;
+  int SCENARIO = 38;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1861,7 +2146,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getStep()
    * @generated
    */
-  int STEP = 33;
+  int STEP = 39;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1952,7 +2237,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getFR()
    * @generated
    */
-  int FR = 34;
+  int FR = 40;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2043,7 +2328,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getDependsOnFR()
    * @generated
    */
-  int DEPENDS_ON_FR = 35;
+  int DEPENDS_ON_FR = 41;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -2080,7 +2365,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getQR()
    * @generated
    */
-  int QR = 36;
+  int QR = 42;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2198,7 +2483,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getDependsOnQR()
    * @generated
    */
-  int DEPENDS_ON_QR = 37;
+  int DEPENDS_ON_QR = 43;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -2235,7 +2520,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefQR()
    * @generated
    */
-  int REF_QR = 38;
+  int REF_QR = 44;
 
   /**
    * The feature id for the '<em><b>Ref QR</b></em>' reference.
@@ -2272,7 +2557,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getConstraint()
    * @generated
    */
-  int CONSTRAINT = 39;
+  int CONSTRAINT = 45;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2363,7 +2648,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getDependsOnConstraint()
    * @generated
    */
-  int DEPENDS_ON_CONSTRAINT = 40;
+  int DEPENDS_ON_CONSTRAINT = 46;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -2400,7 +2685,7 @@ public interface RSLILPackage extends EPackage
    * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getRefConstraint()
    * @generated
    */
-  int REF_CONSTRAINT = 41;
+  int REF_CONSTRAINT = 47;
 
   /**
    * The feature id for the '<em><b>Ref Const</b></em>' reference.
@@ -2668,6 +2953,83 @@ public interface RSLILPackage extends EPackage
   EAttribute getProject_NameAlias();
 
   /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Project#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see rslingo.rslil.rSLIL.Project#getType()
+   * @see #getProject()
+   * @generated
+   */
+  EAttribute getProject_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Project#getDomain <em>Domain</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Domain</em>'.
+   * @see rslingo.rslil.rSLIL.Project#getDomain()
+   * @see #getProject()
+   * @generated
+   */
+  EAttribute getProject_Domain();
+
+  /**
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Project#getPlanned <em>Planned</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Planned</em>'.
+   * @see rslingo.rslil.rSLIL.Project#getPlanned()
+   * @see #getProject()
+   * @generated
+   */
+  EReference getProject_Planned();
+
+  /**
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Project#getActual <em>Actual</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Actual</em>'.
+   * @see rslingo.rslil.rSLIL.Project#getActual()
+   * @see #getProject()
+   * @generated
+   */
+  EReference getProject_Actual();
+
+  /**
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Project#getOrganizations <em>Organizations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Organizations</em>'.
+   * @see rslingo.rslil.rSLIL.Project#getOrganizations()
+   * @see #getProject()
+   * @generated
+   */
+  EReference getProject_Organizations();
+
+  /**
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Project#getStatus <em>Status</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Status</em>'.
+   * @see rslingo.rslil.rSLIL.Project#getStatus()
+   * @see #getProject()
+   * @generated
+   */
+  EReference getProject_Status();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Project#getSummary <em>Summary</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Summary</em>'.
+   * @see rslingo.rslil.rSLIL.Project#getSummary()
+   * @see #getProject()
+   * @generated
+   */
+  EAttribute getProject_Summary();
+
+  /**
    * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Project#getDescription <em>Description</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2677,6 +3039,198 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EAttribute getProject_Description();
+
+  /**
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.PlannedSchedule <em>Planned Schedule</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Planned Schedule</em>'.
+   * @see rslingo.rslil.rSLIL.PlannedSchedule
+   * @generated
+   */
+  EClass getPlannedSchedule();
+
+  /**
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.PlannedSchedule#getStart <em>Start</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Start</em>'.
+   * @see rslingo.rslil.rSLIL.PlannedSchedule#getStart()
+   * @see #getPlannedSchedule()
+   * @generated
+   */
+  EReference getPlannedSchedule_Start();
+
+  /**
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.PlannedSchedule#getEnd <em>End</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>End</em>'.
+   * @see rslingo.rslil.rSLIL.PlannedSchedule#getEnd()
+   * @see #getPlannedSchedule()
+   * @generated
+   */
+  EReference getPlannedSchedule_End();
+
+  /**
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.ActualSchedule <em>Actual Schedule</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Actual Schedule</em>'.
+   * @see rslingo.rslil.rSLIL.ActualSchedule
+   * @generated
+   */
+  EClass getActualSchedule();
+
+  /**
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.ActualSchedule#getStart <em>Start</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Start</em>'.
+   * @see rslingo.rslil.rSLIL.ActualSchedule#getStart()
+   * @see #getActualSchedule()
+   * @generated
+   */
+  EReference getActualSchedule_Start();
+
+  /**
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.ActualSchedule#getEnd <em>End</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>End</em>'.
+   * @see rslingo.rslil.rSLIL.ActualSchedule#getEnd()
+   * @see #getActualSchedule()
+   * @generated
+   */
+  EReference getActualSchedule_End();
+
+  /**
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.Date <em>Date</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Date</em>'.
+   * @see rslingo.rslil.rSLIL.Date
+   * @generated
+   */
+  EClass getDate();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Date#getDay <em>Day</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Day</em>'.
+   * @see rslingo.rslil.rSLIL.Date#getDay()
+   * @see #getDate()
+   * @generated
+   */
+  EAttribute getDate_Day();
+
+  /**
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Date#getMonth <em>Month</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Month</em>'.
+   * @see rslingo.rslil.rSLIL.Date#getMonth()
+   * @see #getDate()
+   * @generated
+   */
+  EReference getDate_Month();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Date#getYear <em>Year</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Year</em>'.
+   * @see rslingo.rslil.rSLIL.Date#getYear()
+   * @see #getDate()
+   * @generated
+   */
+  EAttribute getDate_Year();
+
+  /**
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.Month <em>Month</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Month</em>'.
+   * @see rslingo.rslil.rSLIL.Month
+   * @generated
+   */
+  EClass getMonth();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Month#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see rslingo.rslil.rSLIL.Month#getName()
+   * @see #getMonth()
+   * @generated
+   */
+  EAttribute getMonth_Name();
+
+  /**
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.Organizations <em>Organizations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Organizations</em>'.
+   * @see rslingo.rslil.rSLIL.Organizations
+   * @generated
+   */
+  EClass getOrganizations();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Organizations#getCustomer <em>Customer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Customer</em>'.
+   * @see rslingo.rslil.rSLIL.Organizations#getCustomer()
+   * @see #getOrganizations()
+   * @generated
+   */
+  EAttribute getOrganizations_Customer();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Organizations#getSupplier <em>Supplier</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Supplier</em>'.
+   * @see rslingo.rslil.rSLIL.Organizations#getSupplier()
+   * @see #getOrganizations()
+   * @generated
+   */
+  EAttribute getOrganizations_Supplier();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Organizations#getPartners <em>Partners</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Partners</em>'.
+   * @see rslingo.rslil.rSLIL.Organizations#getPartners()
+   * @see #getOrganizations()
+   * @generated
+   */
+  EAttribute getOrganizations_Partners();
+
+  /**
+   * Returns the meta object for class '{@link rslingo.rslil.rSLIL.Status <em>Status</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Status</em>'.
+   * @see rslingo.rslil.rSLIL.Status
+   * @generated
+   */
+  EClass getStatus();
+
+  /**
+   * Returns the meta object for the attribute '{@link rslingo.rslil.rSLIL.Status#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see rslingo.rslil.rSLIL.Status#getValue()
+   * @see #getStatus()
+   * @generated
+   */
+  EAttribute getStatus_Value();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.System <em>System</em>}'.
@@ -4941,12 +5495,224 @@ public interface RSLILPackage extends EPackage
     EAttribute PROJECT__NAME_ALIAS = eINSTANCE.getProject_NameAlias();
 
     /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROJECT__TYPE = eINSTANCE.getProject_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Domain</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROJECT__DOMAIN = eINSTANCE.getProject_Domain();
+
+    /**
+     * The meta object literal for the '<em><b>Planned</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROJECT__PLANNED = eINSTANCE.getProject_Planned();
+
+    /**
+     * The meta object literal for the '<em><b>Actual</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROJECT__ACTUAL = eINSTANCE.getProject_Actual();
+
+    /**
+     * The meta object literal for the '<em><b>Organizations</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROJECT__ORGANIZATIONS = eINSTANCE.getProject_Organizations();
+
+    /**
+     * The meta object literal for the '<em><b>Status</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROJECT__STATUS = eINSTANCE.getProject_Status();
+
+    /**
+     * The meta object literal for the '<em><b>Summary</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROJECT__SUMMARY = eINSTANCE.getProject_Summary();
+
+    /**
      * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute PROJECT__DESCRIPTION = eINSTANCE.getProject_Description();
+
+    /**
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.PlannedScheduleImpl <em>Planned Schedule</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see rslingo.rslil.rSLIL.impl.PlannedScheduleImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getPlannedSchedule()
+     * @generated
+     */
+    EClass PLANNED_SCHEDULE = eINSTANCE.getPlannedSchedule();
+
+    /**
+     * The meta object literal for the '<em><b>Start</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PLANNED_SCHEDULE__START = eINSTANCE.getPlannedSchedule_Start();
+
+    /**
+     * The meta object literal for the '<em><b>End</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PLANNED_SCHEDULE__END = eINSTANCE.getPlannedSchedule_End();
+
+    /**
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.ActualScheduleImpl <em>Actual Schedule</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see rslingo.rslil.rSLIL.impl.ActualScheduleImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getActualSchedule()
+     * @generated
+     */
+    EClass ACTUAL_SCHEDULE = eINSTANCE.getActualSchedule();
+
+    /**
+     * The meta object literal for the '<em><b>Start</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTUAL_SCHEDULE__START = eINSTANCE.getActualSchedule_Start();
+
+    /**
+     * The meta object literal for the '<em><b>End</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTUAL_SCHEDULE__END = eINSTANCE.getActualSchedule_End();
+
+    /**
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.DateImpl <em>Date</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see rslingo.rslil.rSLIL.impl.DateImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getDate()
+     * @generated
+     */
+    EClass DATE = eINSTANCE.getDate();
+
+    /**
+     * The meta object literal for the '<em><b>Day</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATE__DAY = eINSTANCE.getDate_Day();
+
+    /**
+     * The meta object literal for the '<em><b>Month</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DATE__MONTH = eINSTANCE.getDate_Month();
+
+    /**
+     * The meta object literal for the '<em><b>Year</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATE__YEAR = eINSTANCE.getDate_Year();
+
+    /**
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.MonthImpl <em>Month</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see rslingo.rslil.rSLIL.impl.MonthImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getMonth()
+     * @generated
+     */
+    EClass MONTH = eINSTANCE.getMonth();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MONTH__NAME = eINSTANCE.getMonth_Name();
+
+    /**
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.OrganizationsImpl <em>Organizations</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see rslingo.rslil.rSLIL.impl.OrganizationsImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getOrganizations()
+     * @generated
+     */
+    EClass ORGANIZATIONS = eINSTANCE.getOrganizations();
+
+    /**
+     * The meta object literal for the '<em><b>Customer</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ORGANIZATIONS__CUSTOMER = eINSTANCE.getOrganizations_Customer();
+
+    /**
+     * The meta object literal for the '<em><b>Supplier</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ORGANIZATIONS__SUPPLIER = eINSTANCE.getOrganizations_Supplier();
+
+    /**
+     * The meta object literal for the '<em><b>Partners</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ORGANIZATIONS__PARTNERS = eINSTANCE.getOrganizations_Partners();
+
+    /**
+     * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.StatusImpl <em>Status</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see rslingo.rslil.rSLIL.impl.StatusImpl
+     * @see rslingo.rslil.rSLIL.impl.RSLILPackageImpl#getStatus()
+     * @generated
+     */
+    EClass STATUS = eINSTANCE.getStatus();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STATUS__VALUE = eINSTANCE.getStatus_Value();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.SystemImpl <em>System</em>}' class.

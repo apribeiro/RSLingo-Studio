@@ -68,6 +68,60 @@ public interface RSLILFactory extends EFactory
   Project createProject();
 
   /**
+   * Returns a new object of class '<em>Planned Schedule</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Planned Schedule</em>'.
+   * @generated
+   */
+  PlannedSchedule createPlannedSchedule();
+
+  /**
+   * Returns a new object of class '<em>Actual Schedule</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Actual Schedule</em>'.
+   * @generated
+   */
+  ActualSchedule createActualSchedule();
+
+  /**
+   * Returns a new object of class '<em>Date</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Date</em>'.
+   * @generated
+   */
+  Date createDate();
+
+  /**
+   * Returns a new object of class '<em>Month</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Month</em>'.
+   * @generated
+   */
+  Month createMonth();
+
+  /**
+   * Returns a new object of class '<em>Organizations</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Organizations</em>'.
+   * @generated
+   */
+  Organizations createOrganizations();
+
+  /**
+   * Returns a new object of class '<em>Status</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Status</em>'.
+   * @generated
+   */
+  Status createStatus();
+
+  /**
    * Returns a new object of class '<em>System</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

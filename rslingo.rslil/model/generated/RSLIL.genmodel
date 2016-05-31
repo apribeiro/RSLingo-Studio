@@ -33,7 +33,38 @@
     <genClasses ecoreClass="RSLIL.ecore#//Project">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Project/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Project/nameAlias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Project/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Project/domain"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Project/planned"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Project/actual"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Project/organizations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Project/status"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Project/summary"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Project/description"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//PlannedSchedule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PlannedSchedule/start"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PlannedSchedule/end"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//ActualSchedule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//ActualSchedule/start"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//ActualSchedule/end"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//Date">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Date/day"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Date/month"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Date/year"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//Month">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Month/name"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//Organizations">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Organizations/customer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Organizations/supplier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Organizations/partners"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//Status">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Status/value"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//System">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//System/name"/>

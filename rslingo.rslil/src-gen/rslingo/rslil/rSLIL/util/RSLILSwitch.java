@@ -8,10 +8,12 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import rslingo.rslil.rSLIL.Actor;
+import rslingo.rslil.rSLIL.ActualSchedule;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.Check;
 import rslingo.rslil.rSLIL.ComposedBy;
 import rslingo.rslil.rSLIL.Constraint;
+import rslingo.rslil.rSLIL.Date;
 import rslingo.rslil.rSLIL.DependsOnConstraint;
 import rslingo.rslil.rSLIL.DependsOnFR;
 import rslingo.rslil.rSLIL.DependsOnGoal;
@@ -25,9 +27,12 @@ import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Import;
 import rslingo.rslil.rSLIL.Model;
+import rslingo.rslil.rSLIL.Month;
 import rslingo.rslil.rSLIL.Multiplicity;
+import rslingo.rslil.rSLIL.Organizations;
 import rslingo.rslil.rSLIL.PackageProject;
 import rslingo.rslil.rSLIL.PackageSystem;
+import rslingo.rslil.rSLIL.PlannedSchedule;
 import rslingo.rslil.rSLIL.PrimaryKey;
 import rslingo.rslil.rSLIL.Priority;
 import rslingo.rslil.rSLIL.Project;
@@ -45,6 +50,7 @@ import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
+import rslingo.rslil.rSLIL.Status;
 import rslingo.rslil.rSLIL.Step;
 import rslingo.rslil.rSLIL.TermRelation;
 import rslingo.rslil.rSLIL.TermType;
@@ -147,6 +153,48 @@ public class RSLILSwitch<T> extends Switch<T>
       {
         Project project = (Project)theEObject;
         T result = caseProject(project);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.PLANNED_SCHEDULE:
+      {
+        PlannedSchedule plannedSchedule = (PlannedSchedule)theEObject;
+        T result = casePlannedSchedule(plannedSchedule);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.ACTUAL_SCHEDULE:
+      {
+        ActualSchedule actualSchedule = (ActualSchedule)theEObject;
+        T result = caseActualSchedule(actualSchedule);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.DATE:
+      {
+        Date date = (Date)theEObject;
+        T result = caseDate(date);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.MONTH:
+      {
+        Month month = (Month)theEObject;
+        T result = caseMonth(month);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.ORGANIZATIONS:
+      {
+        Organizations organizations = (Organizations)theEObject;
+        T result = caseOrganizations(organizations);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.STATUS:
+      {
+        Status status = (Status)theEObject;
+        T result = caseStatus(status);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -489,6 +537,102 @@ public class RSLILSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseProject(Project object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Planned Schedule</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Planned Schedule</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePlannedSchedule(PlannedSchedule object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Actual Schedule</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Actual Schedule</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseActualSchedule(ActualSchedule object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Date</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Date</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDate(Date object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Month</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Month</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMonth(Month object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Organizations</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Organizations</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOrganizations(Organizations object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Status</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Status</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStatus(Status object)
   {
     return null;
   }
