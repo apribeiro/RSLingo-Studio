@@ -88,7 +88,8 @@ System:
 	'System' name=ID '{'
 		('Name' nameAlias=STRING)?
 		('Description' description=STRING)?
-		'Project' project=[Project]
+		'Type' type=('System'|'Sub-System'|'Reusable-System'|'Other')
+		'Scope' scope=('in'|'out')
 		('PartOf' partOf=[System])?
 	'}';
 
@@ -102,8 +103,8 @@ GlossaryTerm:
 		'Type' type=RefTermType
 		('Acronym' acronym=STRING)?
 		('POS' pos=('Adjective'|'Adverb'|'Noun'|'Verb'))?
-		('Synset' synset=STRING)?
-		termRelation+=TermRelation*
+		('Synonym' synonym=STRING)?
+		('Hypernym' hypernym=STRING)?
 	'}';
 
 RefTermType:
@@ -111,12 +112,6 @@ RefTermType:
 
 TermType:
 	type=('Stakeholder'|'Entity'|'Architectural'|'Actor');
-
-TermRelation:
-	type=('Antonym'|'Hypernym'|'Synonym') refTerm=RefTerm;
-
-RefTerm:
-	refTerm=STRING(',' refs+=STRING)*;
 
 Stakeholder:
 	'Stakeholder' name=ID '{'
@@ -129,6 +124,7 @@ Stakeholder:
 			|'Business.System'|'Technical'|'Technical.BusinessAnalyst'|'Technical.Requirements.Engineer'
 			|'Technical.Software.Architect'|'Technical.Software.Designer'|'Technical.Software.Tester'
 		)
+		('IsA' isA=[Stakeholder])?
 		('PartOf' partOf=[Stakeholder])?
 	'}';
 
