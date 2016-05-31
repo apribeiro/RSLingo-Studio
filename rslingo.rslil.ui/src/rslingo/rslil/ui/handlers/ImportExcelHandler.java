@@ -682,7 +682,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		    		sb.append("\n");
 				}
 			} else if (cellMultiplicity.getCellType() == Cell.CELL_TYPE_NUMERIC) {
-				double multiplicity = cellMultiplicity.getNumericCellValue();
+				int multiplicity = (int) cellMultiplicity.getNumericCellValue();
 				sb.append("\t\t\t\tMultiplicity \"" + multiplicity + "\"");
 	    		sb.append("\n");
 			}
@@ -733,7 +733,7 @@ public class ImportExcelHandler extends AbstractHandler {
 				sb.append(" Multiplicity \"" + multiplicity + "\"");
 	    		
 			} else if (cellMultiplicity.getCellType() == Cell.CELL_TYPE_NUMERIC) {
-				double multiplicity = cellMultiplicity.getNumericCellValue();
+				int multiplicity = (int) cellMultiplicity.getNumericCellValue();
 				sb.append(" Multiplicity \"" + multiplicity + "\"");
 			}
 			
