@@ -258,6 +258,7 @@ FR:
 		'Priority' priority=Priority
 		depends+=DependsOnFR*
 		('PartOf' partOf=[FR])?
+		('Progress' progress=Status)?
 	'}';
 
 DependsOnFR:
@@ -275,6 +276,7 @@ QR:
 		'Priority' priority=Priority
 		depends+=DependsOnQR*
 		('PartOf' partOf=[QR])?
+		('Progress' progress=Status)?
 	'}';
 
 DependsOnQR:
@@ -292,6 +294,7 @@ Constraint:
 		'Priority' priority=Priority
 		depends+=DependsOnConstraint*
 		('PartOf' partOf=[Constraint])?
+		('Progress' progress=Status)?
 	'}';
 
 DependsOnConstraint:
