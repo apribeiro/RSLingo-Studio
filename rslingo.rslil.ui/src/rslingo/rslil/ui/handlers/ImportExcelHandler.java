@@ -617,9 +617,9 @@ public class ImportExcelHandler extends AbstractHandler {
 		    	    		sb.append("\n");
 		    			}
 					} else if (name.equals("ForeignKeys")) {
-						// TODO: Foreign Keys
+						generateEntityForeignKeys(sheet, rowIt, row, sb);
 					} else if (name.equals("Checks")) {
-						// TODO: Checks
+						generateEntityChecks(sheet, rowIt, row, sb);
 					} else {
 						sb.append("\t\t}");
 						sb.append("\n\n");
@@ -632,6 +632,7 @@ public class ImportExcelHandler extends AbstractHandler {
 	private void generateEntityAttributes(Sheet sheet, Iterator<Row> rowIt,
 			Row row, StringBuilder sb) {
 		Row lastRow = DocumentHelper.getLastRowOfMergedRegion(sheet, row);
+		int count = lastRow.getRowNum() - row.getRowNum();
 		
 		while (row.getRowNum() < lastRow.getRowNum() + 1) {
 			Cell cellId = row.getCell(3);
@@ -677,12 +678,12 @@ public class ImportExcelHandler extends AbstractHandler {
 				String multiplicity = cellMultiplicity.getStringCellValue();
 				
 				if (!multiplicity.isEmpty()) {
-					sb.append("\t\t\t\tMultiplicity " + multiplicity);
+					sb.append("\t\t\t\tMultiplicity \"" + multiplicity + "\"");
 		    		sb.append("\n");
 				}
 			} else if (cellMultiplicity.getCellType() == Cell.CELL_TYPE_NUMERIC) {
 				double multiplicity = cellMultiplicity.getNumericCellValue();
-				sb.append("\t\t\t\tMultiplicity " + multiplicity);
+				sb.append("\t\t\t\tMultiplicity \"" + multiplicity + "\"");
 	    		sb.append("\n");
 			}
 			
@@ -705,9 +706,69 @@ public class ImportExcelHandler extends AbstractHandler {
 			sb.append("\n");
 			
 			row = sheet.getRow(row.getRowNum() + 1);
-			rowIt.next();
 		}
 		
+		while (count > 0) {
+			rowIt.next();
+			count--;
+		}
+	}
+	
+	private void generateEntityForeignKeys(Sheet sheet, Iterator<Row> rowIt,
+			Row row, StringBuilder sb) {
+		Row lastRow = DocumentHelper.getLastRowOfMergedRegion(sheet, row);
+		int count = lastRow.getRowNum() - row.getRowNum();
+		
+		while (row.getRowNum() < lastRow.getRowNum() + 1) {
+			Cell cellEntity = row.getCell(3);
+			String entity = cellEntity.getStringCellValue();
+			Cell cellAttributes = row.getCell(4);
+			String attributes = cellAttributes.getStringCellValue();
+			Cell cellMultiplicity = row.getCell(5);
+			
+			sb.append("\t\t\tForeignKey " + entity  + "(" + attributes + ")");
+			
+			if (cellMultiplicity.getCellType() == Cell.CELL_TYPE_STRING) {
+				String multiplicity = cellMultiplicity.getStringCellValue();
+				sb.append(" Multiplicity \"" + multiplicity + "\"");
+	    		
+			} else if (cellMultiplicity.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+				double multiplicity = cellMultiplicity.getNumericCellValue();
+				sb.append(" Multiplicity \"" + multiplicity + "\"");
+			}
+			
+			sb.append("\n");
+			
+			row = sheet.getRow(row.getRowNum() + 1);
+		}
+		
+		while (count > 0) {
+			rowIt.next();
+			count--;
+		}
+	}
+	
+	private void generateEntityChecks(Sheet sheet, Iterator<Row> rowIt,
+			Row row, StringBuilder sb) {
+		Row lastRow = DocumentHelper.getLastRowOfMergedRegion(sheet, row);
+		int count = lastRow.getRowNum() - row.getRowNum();
+		
+		while (row.getRowNum() < lastRow.getRowNum() + 1) {
+			Cell cellId = row.getCell(3);
+			String id = cellId.getStringCellValue();
+			Cell cellExpression = row.getCell(4);
+			String expression = cellExpression.getStringCellValue();
+			
+			sb.append("\t\t\tCheck " + id + " \"" + expression + "\"");
+			sb.append("\n");
+			
+			row = sheet.getRow(row.getRowNum() + 1);
+		}
+		
+		while (count > 0) {
+			rowIt.next();
+			count--;
+		}
 	}
 	
 	private void generateActorsRegion(Workbook wb, Map<String, StringBuilder> systems) {
