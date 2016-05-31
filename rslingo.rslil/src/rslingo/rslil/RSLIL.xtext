@@ -132,19 +132,15 @@ Goal:
 	'Goal' name=ID '{'
 		('Name' nameAlias=STRING)?
 		('Description' description=STRING)?
-		('Stakeholder' stakeholder=[Stakeholder])?
+		'Stakeholder' stakeholder=[Stakeholder]
 		'Priority' priority=Priority
-		dependsOn+=DependsOnGoal*
-		composedBy+=ComposedBy*
+		('Progress' progress=Status)?
+		('PartOf-And' partOfAnd=[Goal])?
+		('PartOf-Or' partOfOr=[Goal])?
 	'}';
 
-Priority: value=('Must'|'Should'|'Could'|'Won\'t');
-
-DependsOnGoal:
-	type=('Requires'|'Supports'|'Obstructs'|'Conflicts'|'Identical') refGoal=RefGoal;
-
-ComposedBy:
-	'ComposedBy' type=('Logic-And'|'Logic-Or') refGoal=RefGoal;
+Priority:
+	value=('Must'|'Should'|'Could'|'Won\'t');
 
 RefGoal:
 	refGoal=[Goal](',' refs+=[Goal])*;
