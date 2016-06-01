@@ -30,15 +30,7 @@ PackageSystem:
 		frs+=FR*
 		qrs+=QR*
 		constraints+=Constraint*
-	'}';
-
-SystemRelation:
-	'SystemRelation' name=ID '{'
-		'Source' source=[System]
-		'Target' target=[System]
-		'Category' category=('Import'|'Export'|'Import-Export'|'Sync'|'Interact'|'Other')
-		'Type' type=('In'|'Out'|'In-Out')
-		('Description' description=STRING)?
+		requirementRelations+=RequirementRelation*
 	'}';
 
 QualifiedName:
@@ -102,6 +94,15 @@ System:
 		'Type' type=('System'|'Sub-System'|'Reusable-System'|'Other')
 		'Scope' scope=('In'|'Out')
 		('PartOf' partOf=[System])?
+	'}';
+
+SystemRelation:
+	'SystemRelation' name=ID '{'
+		'Source' source=[System]
+		'Target' target=[System]
+		'Category' category=('Import'|'Export'|'Import-Export'|'Sync'|'Interact'|'Other')
+		'Type' type=('In'|'Out'|'In-Out')
+		('Description' description=STRING)?
 	'}';
 
 //RefSystem:
@@ -179,7 +180,9 @@ Attribute:
 	'Attribute' name=ID '{'
 		('Name' nameAlias=STRING)?
 		('Description' description=STRING)?
-		'Type' type=('Boolean'|'Integer'|'Decimal'|'Currency'|'Date'|'Time'|'Datetime'|'Enumeration'|'Text'|'Regex'|'URL'|'Image')
+		'Type' type=('Boolean'|'Integer'|'Decimal'|'Currency'|'Date'
+			|'Time'|'Datetime'|'Enumeration'|'Text'|'Regex'|'URL'|'Image'
+		)
 		('Size' size=INT)?
 		('Multiplicity' multiplicity=Multiplicity)?
 		('DefaultValue' defaultValue=STRING)?
@@ -215,7 +218,9 @@ UseCase:
 	'UseCase' name=ID '{'
 		('Name' nameAlias=STRING)?
 		('Description' description=STRING)?
-		'Type' type=('EntityManage'|'EntityBrowse'|'EntitySearch'|'EntityCreate'|'EntityDelete'|'EntitySync'|'Report') 
+		'Type' type=('EntityManage'|'EntityBrowse'|'EntitySearch'|'EntityCreate'
+			|'EntityDelete'|'EntitySync'|'Report'
+		) 
 		('Entities' entities=RefEntity)?
 		'Priority' priority=Priority
 		extensionPoints+=ExtensionPoint*
@@ -321,3 +326,12 @@ DependsOnConstraint:
 
 RefConstraint:
 	refConst=[Constraint](',' refs+=[Constraint])*;
+
+RequirementRelation:
+	'RequirementRelation' name=ID '{'
+		'Source' source=([FR]|[QR]|[Constraint])
+		'Target' target=([FR]|[QR]|[Constraint])
+		'Type' type=('Requires'|'Supports'|'Obstructs'|'Conflicts'|'Identical')
+		('Description' description=STRING)?
+	'}';	
+
