@@ -211,7 +211,7 @@ Actor:
 		('Description' description=STRING)?
 		'Type' type=('User'|'ExternalSystem'|'Timer')
 		('Stakeholder' stakeholder=[Stakeholder])?
-		('SpecializedFrom' actor=[Actor])?
+		('IsA' actor=[Actor])?
 	'}';
 
 UseCase:
@@ -280,13 +280,13 @@ FR:
 		'Type' type=('Functional'|'Behavioral'|'Data')
 		('Stakeholder' stakeholder=[Stakeholder])?
 		'Priority' priority=Priority
-		depends+=DependsOnFR*
+//		depends+=DependsOnFR*
 		('PartOf' partOf=[FR])?
 		('Progress' progress=Status)?
 	'}';
 
-DependsOnFR:
-	type=('Requires'|'Refines'|'Conflicts') refFR=RefFR;
+//DependsOnFR:
+//	type=('Requires'|'Refines'|'Conflicts') refFR=RefFR;
 
 QR:
 	'QualityRequirement' name=ID '{'
@@ -298,16 +298,16 @@ QR:
 		'Value' value=INT
 		('Stakeholder' stakeholder=[Stakeholder])?
 		'Priority' priority=Priority
-		depends+=DependsOnQR*
+//		depends+=DependsOnQR*
 		('PartOf' partOf=[QR])?
 		('Progress' progress=Status)?
 	'}';
 
-DependsOnQR:
-	type=('Requires'|'Refines'|'Conflicts') refQR=RefQR;
+//DependsOnQR:
+//	type=('Requires'|'Refines'|'Conflicts') refQR=RefQR;
 
-RefQR:
-	refQR=[QR](',' refs+=[QR])*;
+//RefQR:
+//	refQR=[QR](',' refs+=[QR])*;
 
 Constraint:
 	'Constraint' name=ID '{'
@@ -316,16 +316,16 @@ Constraint:
 		'Type' type=('Cultural'|'Legal'|'Organizational'|'Physical'|'Project'|'Technological'|'Other')
 		('Stakeholder' stakeholder=[Stakeholder])?
 		'Priority' priority=Priority
-		depends+=DependsOnConstraint*
+//		depends+=DependsOnConstraint*
 		('PartOf' partOf=[Constraint])?
 		('Progress' progress=Status)?
 	'}';
 
-DependsOnConstraint:
-	type=('Requires'|'Refines'|'Conflicts') refConst=RefConstraint;
+//DependsOnConstraint:
+//	type=('Requires'|'Refines'|'Conflicts') refConst=RefConstraint;
 
-RefConstraint:
-	refConst=[Constraint](',' refs+=[Constraint])*;
+//RefConstraint:
+//	refConst=[Constraint](',' refs+=[Constraint])*;
 
 RequirementRelation:
 	'RequirementRelation' name=ID '{'
@@ -333,5 +333,4 @@ RequirementRelation:
 		'Target' target=([FR]|[QR]|[Constraint])
 		'Type' type=('Requires'|'Supports'|'Obstructs'|'Conflicts'|'Identical')
 		('Description' description=STRING)?
-	'}';	
-
+	'}';
