@@ -26,6 +26,7 @@ import rslingo.rslil.rSLIL.Stakeholder;
  *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getCategory <em>Category</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getIsA <em>Is A</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.StakeholderImpl#getPartOf <em>Part Of</em>}</li>
  * </ul>
  *
@@ -132,6 +133,16 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
    * @ordered
    */
   protected String category = CATEGORY_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getIsA() <em>Is A</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getIsA()
+   * @generated
+   * @ordered
+   */
+  protected Stakeholder isA;
 
   /**
    * The cached value of the '{@link #getPartOf() <em>Part Of</em>}' reference.
@@ -284,6 +295,49 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
    * <!-- end-user-doc -->
    * @generated
    */
+  public Stakeholder getIsA()
+  {
+    if (isA != null && isA.eIsProxy())
+    {
+      InternalEObject oldIsA = (InternalEObject)isA;
+      isA = (Stakeholder)eResolveProxy(oldIsA);
+      if (isA != oldIsA)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.STAKEHOLDER__IS_A, oldIsA, isA));
+      }
+    }
+    return isA;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Stakeholder basicGetIsA()
+  {
+    return isA;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIsA(Stakeholder newIsA)
+  {
+    Stakeholder oldIsA = isA;
+    isA = newIsA;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.STAKEHOLDER__IS_A, oldIsA, isA));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Stakeholder getPartOf()
   {
     if (partOf != null && partOf.eIsProxy())
@@ -342,6 +396,9 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
         return getType();
       case RSLILPackage.STAKEHOLDER__CATEGORY:
         return getCategory();
+      case RSLILPackage.STAKEHOLDER__IS_A:
+        if (resolve) return getIsA();
+        return basicGetIsA();
       case RSLILPackage.STAKEHOLDER__PART_OF:
         if (resolve) return getPartOf();
         return basicGetPartOf();
@@ -373,6 +430,9 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
         return;
       case RSLILPackage.STAKEHOLDER__CATEGORY:
         setCategory((String)newValue);
+        return;
+      case RSLILPackage.STAKEHOLDER__IS_A:
+        setIsA((Stakeholder)newValue);
         return;
       case RSLILPackage.STAKEHOLDER__PART_OF:
         setPartOf((Stakeholder)newValue);
@@ -406,6 +466,9 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
       case RSLILPackage.STAKEHOLDER__CATEGORY:
         setCategory(CATEGORY_EDEFAULT);
         return;
+      case RSLILPackage.STAKEHOLDER__IS_A:
+        setIsA((Stakeholder)null);
+        return;
       case RSLILPackage.STAKEHOLDER__PART_OF:
         setPartOf((Stakeholder)null);
         return;
@@ -433,6 +496,8 @@ public class StakeholderImpl extends MinimalEObjectImpl.Container implements Sta
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case RSLILPackage.STAKEHOLDER__CATEGORY:
         return CATEGORY_EDEFAULT == null ? category != null : !CATEGORY_EDEFAULT.equals(category);
+      case RSLILPackage.STAKEHOLDER__IS_A:
+        return isA != null;
       case RSLILPackage.STAKEHOLDER__PART_OF:
         return partOf != null;
     }

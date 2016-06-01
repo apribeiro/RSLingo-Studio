@@ -2,12 +2,8 @@
  */
 package rslingo.rslil.rSLIL.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -15,13 +11,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import rslingo.rslil.rSLIL.ComposedBy;
-import rslingo.rslil.rSLIL.DependsOnGoal;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.Priority;
+import rslingo.rslil.rSLIL.ProjectProgress;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.Stakeholder;
 
@@ -38,8 +30,9 @@ import rslingo.rslil.rSLIL.Stakeholder;
  *   <li>{@link rslingo.rslil.rSLIL.impl.GoalImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GoalImpl#getStakeholder <em>Stakeholder</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GoalImpl#getPriority <em>Priority</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.GoalImpl#getDependsOn <em>Depends On</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.GoalImpl#getComposedBy <em>Composed By</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.GoalImpl#getProgress <em>Progress</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.GoalImpl#getPartOfAnd <em>Part Of And</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.GoalImpl#getPartOfOr <em>Part Of Or</em>}</li>
  * </ul>
  *
  * @generated
@@ -127,24 +120,34 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
   protected Priority priority;
 
   /**
-   * The cached value of the '{@link #getDependsOn() <em>Depends On</em>}' containment reference list.
+   * The cached value of the '{@link #getProgress() <em>Progress</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDependsOn()
+   * @see #getProgress()
    * @generated
    * @ordered
    */
-  protected EList<DependsOnGoal> dependsOn;
+  protected ProjectProgress progress;
 
   /**
-   * The cached value of the '{@link #getComposedBy() <em>Composed By</em>}' containment reference list.
+   * The cached value of the '{@link #getPartOfAnd() <em>Part Of And</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getComposedBy()
+   * @see #getPartOfAnd()
    * @generated
    * @ordered
    */
-  protected EList<ComposedBy> composedBy;
+  protected Goal partOfAnd;
+
+  /**
+   * The cached value of the '{@link #getPartOfOr() <em>Part Of Or</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPartOfOr()
+   * @generated
+   * @ordered
+   */
+  protected Goal partOfOr;
 
   /**
    * <!-- begin-user-doc -->
@@ -332,13 +335,9 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<DependsOnGoal> getDependsOn()
+  public ProjectProgress getProgress()
   {
-    if (dependsOn == null)
-    {
-      dependsOn = new EObjectContainmentEList<DependsOnGoal>(DependsOnGoal.class, this, RSLILPackage.GOAL__DEPENDS_ON);
-    }
-    return dependsOn;
+    return progress;
   }
 
   /**
@@ -346,13 +345,123 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ComposedBy> getComposedBy()
+  public NotificationChain basicSetProgress(ProjectProgress newProgress, NotificationChain msgs)
   {
-    if (composedBy == null)
+    ProjectProgress oldProgress = progress;
+    progress = newProgress;
+    if (eNotificationRequired())
     {
-      composedBy = new EObjectContainmentEList<ComposedBy>(ComposedBy.class, this, RSLILPackage.GOAL__COMPOSED_BY);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.GOAL__PROGRESS, oldProgress, newProgress);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return composedBy;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setProgress(ProjectProgress newProgress)
+  {
+    if (newProgress != progress)
+    {
+      NotificationChain msgs = null;
+      if (progress != null)
+        msgs = ((InternalEObject)progress).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.GOAL__PROGRESS, null, msgs);
+      if (newProgress != null)
+        msgs = ((InternalEObject)newProgress).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.GOAL__PROGRESS, null, msgs);
+      msgs = basicSetProgress(newProgress, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GOAL__PROGRESS, newProgress, newProgress));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Goal getPartOfAnd()
+  {
+    if (partOfAnd != null && partOfAnd.eIsProxy())
+    {
+      InternalEObject oldPartOfAnd = (InternalEObject)partOfAnd;
+      partOfAnd = (Goal)eResolveProxy(oldPartOfAnd);
+      if (partOfAnd != oldPartOfAnd)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.GOAL__PART_OF_AND, oldPartOfAnd, partOfAnd));
+      }
+    }
+    return partOfAnd;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Goal basicGetPartOfAnd()
+  {
+    return partOfAnd;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPartOfAnd(Goal newPartOfAnd)
+  {
+    Goal oldPartOfAnd = partOfAnd;
+    partOfAnd = newPartOfAnd;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GOAL__PART_OF_AND, oldPartOfAnd, partOfAnd));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Goal getPartOfOr()
+  {
+    if (partOfOr != null && partOfOr.eIsProxy())
+    {
+      InternalEObject oldPartOfOr = (InternalEObject)partOfOr;
+      partOfOr = (Goal)eResolveProxy(oldPartOfOr);
+      if (partOfOr != oldPartOfOr)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.GOAL__PART_OF_OR, oldPartOfOr, partOfOr));
+      }
+    }
+    return partOfOr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Goal basicGetPartOfOr()
+  {
+    return partOfOr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPartOfOr(Goal newPartOfOr)
+  {
+    Goal oldPartOfOr = partOfOr;
+    partOfOr = newPartOfOr;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GOAL__PART_OF_OR, oldPartOfOr, partOfOr));
   }
 
   /**
@@ -367,10 +476,8 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
     {
       case RSLILPackage.GOAL__PRIORITY:
         return basicSetPriority(null, msgs);
-      case RSLILPackage.GOAL__DEPENDS_ON:
-        return ((InternalEList<?>)getDependsOn()).basicRemove(otherEnd, msgs);
-      case RSLILPackage.GOAL__COMPOSED_BY:
-        return ((InternalEList<?>)getComposedBy()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.GOAL__PROGRESS:
+        return basicSetProgress(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -396,10 +503,14 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
         return basicGetStakeholder();
       case RSLILPackage.GOAL__PRIORITY:
         return getPriority();
-      case RSLILPackage.GOAL__DEPENDS_ON:
-        return getDependsOn();
-      case RSLILPackage.GOAL__COMPOSED_BY:
-        return getComposedBy();
+      case RSLILPackage.GOAL__PROGRESS:
+        return getProgress();
+      case RSLILPackage.GOAL__PART_OF_AND:
+        if (resolve) return getPartOfAnd();
+        return basicGetPartOfAnd();
+      case RSLILPackage.GOAL__PART_OF_OR:
+        if (resolve) return getPartOfOr();
+        return basicGetPartOfOr();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -409,7 +520,6 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -430,13 +540,14 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
       case RSLILPackage.GOAL__PRIORITY:
         setPriority((Priority)newValue);
         return;
-      case RSLILPackage.GOAL__DEPENDS_ON:
-        getDependsOn().clear();
-        getDependsOn().addAll((Collection<? extends DependsOnGoal>)newValue);
+      case RSLILPackage.GOAL__PROGRESS:
+        setProgress((ProjectProgress)newValue);
         return;
-      case RSLILPackage.GOAL__COMPOSED_BY:
-        getComposedBy().clear();
-        getComposedBy().addAll((Collection<? extends ComposedBy>)newValue);
+      case RSLILPackage.GOAL__PART_OF_AND:
+        setPartOfAnd((Goal)newValue);
+        return;
+      case RSLILPackage.GOAL__PART_OF_OR:
+        setPartOfOr((Goal)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -467,11 +578,14 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
       case RSLILPackage.GOAL__PRIORITY:
         setPriority((Priority)null);
         return;
-      case RSLILPackage.GOAL__DEPENDS_ON:
-        getDependsOn().clear();
+      case RSLILPackage.GOAL__PROGRESS:
+        setProgress((ProjectProgress)null);
         return;
-      case RSLILPackage.GOAL__COMPOSED_BY:
-        getComposedBy().clear();
+      case RSLILPackage.GOAL__PART_OF_AND:
+        setPartOfAnd((Goal)null);
+        return;
+      case RSLILPackage.GOAL__PART_OF_OR:
+        setPartOfOr((Goal)null);
         return;
     }
     super.eUnset(featureID);
@@ -497,10 +611,12 @@ public class GoalImpl extends MinimalEObjectImpl.Container implements Goal
         return stakeholder != null;
       case RSLILPackage.GOAL__PRIORITY:
         return priority != null;
-      case RSLILPackage.GOAL__DEPENDS_ON:
-        return dependsOn != null && !dependsOn.isEmpty();
-      case RSLILPackage.GOAL__COMPOSED_BY:
-        return composedBy != null && !composedBy.isEmpty();
+      case RSLILPackage.GOAL__PROGRESS:
+        return progress != null;
+      case RSLILPackage.GOAL__PART_OF_AND:
+        return partOfAnd != null;
+      case RSLILPackage.GOAL__PART_OF_OR:
+        return partOfOr != null;
     }
     return super.eIsSet(featureID);
   }

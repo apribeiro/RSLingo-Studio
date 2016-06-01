@@ -9,23 +9,23 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import rslingo.rslil.rSLIL.ProjectProgress;
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.Status;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Status</b></em>'.
+ * An implementation of the model object '<em><b>Project Progress</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.impl.StatusImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ProjectProgressImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StatusImpl extends MinimalEObjectImpl.Container implements Status
+public class ProjectProgressImpl extends MinimalEObjectImpl.Container implements ProjectProgress
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -52,7 +52,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status
    * <!-- end-user-doc -->
    * @generated
    */
-  protected StatusImpl()
+  protected ProjectProgressImpl()
   {
     super();
   }
@@ -65,7 +65,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status
   @Override
   protected EClass eStaticClass()
   {
-    return RSLILPackage.Literals.STATUS;
+    return RSLILPackage.Literals.PROJECT_PROGRESS;
   }
 
   /**
@@ -88,7 +88,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status
     String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.STATUS__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.PROJECT_PROGRESS__VALUE, oldValue, value));
   }
 
   /**
@@ -101,7 +101,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status
   {
     switch (featureID)
     {
-      case RSLILPackage.STATUS__VALUE:
+      case RSLILPackage.PROJECT_PROGRESS__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -117,7 +117,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status
   {
     switch (featureID)
     {
-      case RSLILPackage.STATUS__VALUE:
+      case RSLILPackage.PROJECT_PROGRESS__VALUE:
         setValue((String)newValue);
         return;
     }
@@ -134,7 +134,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status
   {
     switch (featureID)
     {
-      case RSLILPackage.STATUS__VALUE:
+      case RSLILPackage.PROJECT_PROGRESS__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -151,7 +151,7 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status
   {
     switch (featureID)
     {
-      case RSLILPackage.STATUS__VALUE:
+      case RSLILPackage.PROJECT_PROGRESS__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
@@ -174,4 +174,4 @@ public class StatusImpl extends MinimalEObjectImpl.Container implements Status
     return result.toString();
   }
 
-} //StatusImpl
+} //ProjectProgressImpl

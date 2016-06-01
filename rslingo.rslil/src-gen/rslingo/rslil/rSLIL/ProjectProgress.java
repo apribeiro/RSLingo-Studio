@@ -6,21 +6,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Status</b></em>'.
+ * A representation of the model object '<em><b>Project Progress</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link rslingo.rslil.rSLIL.Status#getValue <em>Value</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.ProjectProgress#getValue <em>Value</em>}</li>
  * </ul>
  *
- * @see rslingo.rslil.rSLIL.RSLILPackage#getStatus()
+ * @see rslingo.rslil.rSLIL.RSLILPackage#getProjectProgress()
  * @model
  * @generated
  */
-public interface Status extends EObject
+public interface ProjectProgress extends EObject
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
@@ -32,14 +32,14 @@ public interface Status extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
    * @see #setValue(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getStatus_Value()
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getProjectProgress_Value()
    * @model
    * @generated
    */
   String getValue();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Status#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.ProjectProgress#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' attribute.
@@ -48,4 +48,4 @@ public interface Status extends EObject
    */
   void setValue(String value);
 
-} // Status
+} // ProjectProgress

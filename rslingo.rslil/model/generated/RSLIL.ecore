@@ -15,8 +15,12 @@
         eType="#//Stakeholder" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="goals" upperBound="-1"
         eType="#//Goal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="goalRelations" upperBound="-1"
+        eType="#//GoalRelation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="packageSystems" upperBound="-1"
         eType="#//PackageSystem" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="systemRelations" upperBound="-1"
+        eType="#//SystemRelation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PackageSystem" eSuperTypes="#//Model">
     <eStructuralFeatures xsi:type="ecore:EReference" name="system" eType="#//System"
@@ -33,6 +37,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
         eType="#//Constraint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requirementRelations" upperBound="-1"
+        eType="#//RequirementRelation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Import">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -48,7 +54,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="organizations" eType="#//Organizations"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="status" eType="#//Status"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="progress" eType="#//ProjectProgress"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="summary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -77,15 +83,24 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="supplier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="partners" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Status">
+  <eClassifiers xsi:type="ecore:EClass" name="ProjectProgress">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="System">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameAlias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="project" eType="#//Project"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scope" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="partOf" eType="#//System"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemRelation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//System"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//System"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="category" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GlossaryTerm">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -95,9 +110,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="acronym" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pos" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="synset" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="termRelation" upperBound="-1"
-        eType="#//TermRelation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="synonym" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hypernym" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RefTermType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="refType" eType="#//TermType"
@@ -108,22 +122,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="TermType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TermRelation">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refTerm" eType="#//RefTerm"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RefTerm">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="refTerm" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="refs" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Stakeholder">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameAlias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="category" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isA" eType="#//Stakeholder"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="partOf" eType="#//Stakeholder"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Goal">
@@ -133,23 +138,20 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="stakeholder" eType="#//Stakeholder"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="priority" eType="#//Priority"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dependsOn" upperBound="-1"
-        eType="#//DependsOnGoal" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="composedBy" upperBound="-1"
-        eType="#//ComposedBy" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="progress" eType="#//ProjectProgress"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="partOfAnd" eType="#//Goal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="partOfOr" eType="#//Goal"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GoalRelation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Goal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Goal"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Priority">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DependsOnGoal">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refGoal" eType="#//RefGoal"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ComposedBy">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refGoal" eType="#//RefGoal"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RefGoal">
     <eStructuralFeatures xsi:type="ecore:EReference" name="refGoal" eType="#//Goal"/>
@@ -290,49 +292,19 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="postConditions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//Step"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FR">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameAlias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="stakeholder" eType="#//Stakeholder"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="priority" eType="#//Priority"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="depends" upperBound="-1"
-        eType="#//DependsOnFR" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FR" eSuperTypes="#//Requirement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="partOf" eType="#//FR"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DependsOnFR">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refFR" eType="#//RefFR"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="QR">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameAlias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="QR" eSuperTypes="#//Requirement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="subType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="metric" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="stakeholder" eType="#//Stakeholder"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="priority" eType="#//Priority"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="depends" upperBound="-1"
-        eType="#//DependsOnQR" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="partOf" eType="#//QR"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DependsOnQR">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refQR" eType="#//RefQR"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint" eSuperTypes="#//Requirement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="partOf" eType="#//Constraint"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RefQR">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refQR" eType="#//QR"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refs" unique="false" upperBound="-1"
-        eType="#//QR"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Constraint">
+  <eClassifiers xsi:type="ecore:EClass" name="Requirement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameAlias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -340,18 +312,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="stakeholder" eType="#//Stakeholder"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="priority" eType="#//Priority"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="depends" upperBound="-1"
-        eType="#//DependsOnConstraint" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="partOf" eType="#//Constraint"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DependsOnConstraint">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refConst" eType="#//RefConstraint"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="progress" eType="#//ProjectProgress"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RefConstraint">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refConst" eType="#//Constraint"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="refs" unique="false" upperBound="-1"
-        eType="#//Constraint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RequirementRelation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Requirement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Requirement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

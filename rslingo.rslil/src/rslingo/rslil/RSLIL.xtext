@@ -327,10 +327,25 @@ Constraint:
 //RefConstraint:
 //	refConst=[Constraint](',' refs+=[Constraint])*;
 
+Requirement:
+	FR | QR | Constraint;
+
 RequirementRelation:
 	'RequirementRelation' name=ID '{'
-		'Source' source=([FR]|[QR]|[Constraint])
-		'Target' target=([FR]|[QR]|[Constraint])
+		'Source' source=[Requirement]
+		'Target' target=[Requirement]
 		'Type' type=('Requires'|'Supports'|'Obstructs'|'Conflicts'|'Identical')
 		('Description' description=STRING)?
 	'}';
+
+//RRelationRef:
+//	FRRelation | QRRelation | ConstraintRelation;
+
+//FRRelation:
+//	relation=[FR];
+
+//QRRelation:
+//	relation=[QR];
+
+//ConstraintRelation:
+//	relation=[Constraint];

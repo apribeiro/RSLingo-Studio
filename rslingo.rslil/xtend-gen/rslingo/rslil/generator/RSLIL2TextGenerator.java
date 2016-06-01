@@ -16,12 +16,7 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.Check;
-import rslingo.rslil.rSLIL.ComposedBy;
 import rslingo.rslil.rSLIL.Constraint;
-import rslingo.rslil.rSLIL.DependsOnConstraint;
-import rslingo.rslil.rSLIL.DependsOnFR;
-import rslingo.rslil.rSLIL.DependsOnGoal;
-import rslingo.rslil.rSLIL.DependsOnQR;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.EntityType;
 import rslingo.rslil.rSLIL.ExtensionPoint;
@@ -38,18 +33,14 @@ import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.QR;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
-import rslingo.rslil.rSLIL.RefConstraint;
 import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
-import rslingo.rslil.rSLIL.RefQR;
-import rslingo.rslil.rSLIL.RefTerm;
 import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.Step;
-import rslingo.rslil.rSLIL.TermRelation;
 import rslingo.rslil.rSLIL.TermType;
 import rslingo.rslil.rSLIL.UseCase;
 
@@ -379,109 +370,21 @@ public class RSLIL2TextGenerator implements IGenerator {
   }
   
   public CharSequence compile(final rslingo.rslil.rSLIL.System s) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _name = s.getName();
-    _builder.append(_name, "");
-    _builder.append(" (");
-    String _nameAlias = s.getNameAlias();
-    _builder.append(_nameAlias, "");
-    _builder.append("):");
-    _builder.newLineIfNotEmpty();
-    String _description = s.getDescription();
-    _builder.append(_description, "");
-    _builder.newLineIfNotEmpty();
-    _builder.append("Project: ");
-    Project _project = s.getProject();
-    String _name_1 = _project.getName();
-    _builder.append(_name_1, "");
-    _builder.newLineIfNotEmpty();
-    {
-      rslingo.rslil.rSLIL.System _partOf = s.getPartOf();
-      boolean _notEquals = (!Objects.equal(_partOf, null));
-      if (_notEquals) {
-        _builder.append("Part Of: ");
-        rslingo.rslil.rSLIL.System _partOf_1 = s.getPartOf();
-        String _name_2 = _partOf_1.getName();
-        _builder.append(_name_2, "");
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    return _builder;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method project is undefined for the type RSLIL2TextGenerator"
+      + "\nname cannot be resolved");
   }
   
   public CharSequence compile(final GlossaryTerm g) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _name = g.getName();
-    _builder.append(_name, "");
-    _builder.append(".");
-    String _nameAlias = g.getNameAlias();
-    _builder.append(_nameAlias, "");
-    _builder.append(" (");
-    RefTermType _type = g.getType();
-    CharSequence _compile = this.compile(_type);
-    _builder.append(_compile, "");
-    _builder.append("):");
-    _builder.newLineIfNotEmpty();
-    String _description = g.getDescription();
-    _builder.append(_description, "");
-    _builder.append(",");
-    _builder.newLineIfNotEmpty();
-    {
-      String _acronym = g.getAcronym();
-      boolean _notEquals = (!Objects.equal(_acronym, null));
-      if (_notEquals) {
-        _builder.append("Acronym: ");
-        String _acronym_1 = g.getAcronym();
-        _builder.append(_acronym_1, "");
-        _builder.append(",");
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    {
-      String _pos = g.getPos();
-      boolean _notEquals_1 = (!Objects.equal(_pos, null));
-      if (_notEquals_1) {
-        _builder.append("POS: ");
-        String _pos_1 = g.getPos();
-        _builder.append(_pos_1, "");
-        _builder.append(",");
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    {
-      String _synset = g.getSynset();
-      boolean _notEquals_2 = (!Objects.equal(_synset, null));
-      if (_notEquals_2) {
-        _builder.append("Synset: ");
-        String _synset_1 = g.getSynset();
-        _builder.append(_synset_1, "");
-        _builder.append(",");
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    {
-      EList<TermRelation> _termRelation = g.getTermRelation();
-      boolean _isEmpty = _termRelation.isEmpty();
-      boolean _not = (!_isEmpty);
-      if (_not) {
-        _builder.append("Term Relations: ");
-        {
-          EList<TermRelation> _termRelation_1 = g.getTermRelation();
-          boolean _hasElements = false;
-          for(final TermRelation t : _termRelation_1) {
-            if (!_hasElements) {
-              _hasElements = true;
-            } else {
-              _builder.appendImmediate(",\n", "");
-            }
-            CharSequence _compile_1 = this.compile(t);
-            _builder.append(_compile_1, "");
-          }
-        }
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    return _builder;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method synset is undefined for the type RSLIL2TextGenerator"
+      + "\nThe method synset is undefined for the type RSLIL2TextGenerator"
+      + "\nThe method termRelation is undefined for the type RSLIL2TextGenerator"
+      + "\nThe method termRelation is undefined for the type RSLIL2TextGenerator"
+      + "\n!= cannot be resolved"
+      + "\nempty cannot be resolved"
+      + "\n! cannot be resolved"
+      + "\ncompile cannot be resolved");
   }
   
   public CharSequence compile(final RefTermType r) {
@@ -513,38 +416,17 @@ public class RSLIL2TextGenerator implements IGenerator {
     return _builder;
   }
   
-  public CharSequence compile(final TermRelation t) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _type = t.getType();
-    _builder.append(_type, "");
-    _builder.append(" ");
-    RefTerm _refTerm = t.getRefTerm();
-    String _refTerm_1 = _refTerm.getRefTerm();
-    _builder.append(_refTerm_1, "");
-    {
-      RefTerm _refTerm_2 = t.getRefTerm();
-      EList<String> _refs = _refTerm_2.getRefs();
-      boolean _isEmpty = _refs.isEmpty();
-      boolean _not = (!_isEmpty);
-      if (_not) {
-        _builder.append(",");
-        {
-          RefTerm _refTerm_3 = t.getRefTerm();
-          EList<String> _refs_1 = _refTerm_3.getRefs();
-          boolean _hasElements = false;
-          for(final String r : _refs_1) {
-            if (!_hasElements) {
-              _hasElements = true;
-            } else {
-              _builder.appendImmediate(",", "");
-            }
-            _builder.append(r, "");
-          }
-        }
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    return _builder;
+  public CharSequence compile(final /* TermRelation */Object t) {
+    throw new Error("Unresolved compilation problems:"
+      + "\ntype cannot be resolved"
+      + "\nrefTerm cannot be resolved"
+      + "\nrefTerm cannot be resolved"
+      + "\nrefTerm cannot be resolved"
+      + "\nrefs cannot be resolved"
+      + "\nempty cannot be resolved"
+      + "\n! cannot be resolved"
+      + "\nrefTerm cannot be resolved"
+      + "\nrefs cannot be resolved");
   }
   
   public CharSequence compile(final Stakeholder s) {
@@ -582,143 +464,43 @@ public class RSLIL2TextGenerator implements IGenerator {
   }
   
   public CharSequence compile(final Goal g) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _name = g.getName();
-    _builder.append(_name, "");
-    _builder.append(".");
-    String _nameAlias = g.getNameAlias();
-    _builder.append(_nameAlias, "");
-    _builder.append(":");
-    _builder.newLineIfNotEmpty();
-    String _description = g.getDescription();
-    _builder.append(_description, "");
-    _builder.append(",");
-    _builder.newLineIfNotEmpty();
-    {
-      Stakeholder _stakeholder = g.getStakeholder();
-      boolean _notEquals = (!Objects.equal(_stakeholder, null));
-      if (_notEquals) {
-        _builder.append("Stakeholder: ");
-        Stakeholder _stakeholder_1 = g.getStakeholder();
-        String _name_1 = _stakeholder_1.getName();
-        _builder.append(_name_1, "");
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    _builder.append("Priority: ");
-    Priority _priority = g.getPriority();
-    String _value = _priority.getValue();
-    _builder.append(_value, "");
-    _builder.append(",");
-    _builder.newLineIfNotEmpty();
-    {
-      EList<DependsOnGoal> _dependsOn = g.getDependsOn();
-      boolean _isEmpty = _dependsOn.isEmpty();
-      boolean _not = (!_isEmpty);
-      if (_not) {
-        _builder.append("Depends On: ");
-        {
-          EList<DependsOnGoal> _dependsOn_1 = g.getDependsOn();
-          boolean _hasElements = false;
-          for(final DependsOnGoal d : _dependsOn_1) {
-            if (!_hasElements) {
-              _hasElements = true;
-            } else {
-              _builder.appendImmediate(",\n", "");
-            }
-            CharSequence _compile = this.compile(d);
-            _builder.append(_compile, "");
-          }
-        }
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    {
-      EList<ComposedBy> _composedBy = g.getComposedBy();
-      boolean _isEmpty_1 = _composedBy.isEmpty();
-      boolean _not_1 = (!_isEmpty_1);
-      if (_not_1) {
-        _builder.append("Composed By: ");
-        {
-          EList<ComposedBy> _composedBy_1 = g.getComposedBy();
-          boolean _hasElements_1 = false;
-          for(final ComposedBy c : _composedBy_1) {
-            if (!_hasElements_1) {
-              _hasElements_1 = true;
-            } else {
-              _builder.appendImmediate(",\n", "");
-            }
-            CharSequence _compile_1 = this.compile(c);
-            _builder.append(_compile_1, "");
-          }
-        }
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    return _builder;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method dependsOn is undefined for the type RSLIL2TextGenerator"
+      + "\nThe method dependsOn is undefined for the type RSLIL2TextGenerator"
+      + "\nThe method composedBy is undefined for the type RSLIL2TextGenerator"
+      + "\nThe method composedBy is undefined for the type RSLIL2TextGenerator"
+      + "\nempty cannot be resolved"
+      + "\n! cannot be resolved"
+      + "\ncompile cannot be resolved"
+      + "\nempty cannot be resolved"
+      + "\n! cannot be resolved"
+      + "\ncompile cannot be resolved");
   }
   
-  public CharSequence compile(final DependsOnGoal d) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _type = d.getType();
-    _builder.append(_type, "");
-    _builder.append(" ");
-    RefGoal _refGoal = d.getRefGoal();
-    Goal _refGoal_1 = _refGoal.getRefGoal();
-    String _name = _refGoal_1.getName();
-    _builder.append(_name, "");
-    {
-      RefGoal _refGoal_2 = d.getRefGoal();
-      EList<Goal> _refs = _refGoal_2.getRefs();
-      boolean _isEmpty = _refs.isEmpty();
-      boolean _not = (!_isEmpty);
-      if (_not) {
-        _builder.append(",");
-        {
-          RefGoal _refGoal_3 = d.getRefGoal();
-          EList<Goal> _refs_1 = _refGoal_3.getRefs();
-          boolean _hasElements = false;
-          for(final Goal r : _refs_1) {
-            if (!_hasElements) {
-              _hasElements = true;
-            } else {
-              _builder.appendImmediate(",", "");
-            }
-            String _name_1 = r.getName();
-            _builder.append(_name_1, "");
-          }
-        }
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    return _builder;
+  public CharSequence compile(final /* DependsOnGoal */Object d) {
+    throw new Error("Unresolved compilation problems:"
+      + "\ntype cannot be resolved"
+      + "\nrefGoal cannot be resolved"
+      + "\nrefGoal cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nrefGoal cannot be resolved"
+      + "\nrefs cannot be resolved"
+      + "\nempty cannot be resolved"
+      + "\n! cannot be resolved"
+      + "\nrefGoal cannot be resolved"
+      + "\nrefs cannot be resolved"
+      + "\nname cannot be resolved");
   }
   
-  public CharSequence compile(final ComposedBy c) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _type = c.getType();
-    _builder.append(_type, "");
-    _builder.append(" ");
-    RefGoal _refGoal = c.getRefGoal();
-    Goal _refGoal_1 = _refGoal.getRefGoal();
-    String _name = _refGoal_1.getName();
-    _builder.append(_name, "");
-    {
-      RefGoal _refGoal_2 = c.getRefGoal();
-      EList<Goal> _refs = _refGoal_2.getRefs();
-      boolean _hasElements = false;
-      for(final Goal r : _refs) {
-        if (!_hasElements) {
-          _hasElements = true;
-        } else {
-          _builder.appendImmediate(",", "");
-        }
-        String _name_1 = r.getName();
-        _builder.append(_name_1, "");
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    return _builder;
+  public CharSequence compile(final /* ComposedBy */Object c) {
+    throw new Error("Unresolved compilation problems:"
+      + "\ntype cannot be resolved"
+      + "\nrefGoal cannot be resolved"
+      + "\nrefGoal cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nrefGoal cannot be resolved"
+      + "\nrefs cannot be resolved"
+      + "\nname cannot be resolved");
   }
   
   public CharSequence compile(final Entity e) {
@@ -1477,339 +1259,74 @@ public class RSLIL2TextGenerator implements IGenerator {
   }
   
   public CharSequence compile(final FR f) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _name = f.getName();
-    _builder.append(_name, "");
-    _builder.append(".");
-    String _nameAlias = f.getNameAlias();
-    _builder.append(_nameAlias, "");
-    _builder.append(" (");
-    String _type = f.getType();
-    _builder.append(_type, "");
-    _builder.append("):");
-    _builder.newLineIfNotEmpty();
-    String _description = f.getDescription();
-    _builder.append(_description, "");
-    _builder.append(",");
-    _builder.newLineIfNotEmpty();
-    {
-      Stakeholder _stakeholder = f.getStakeholder();
-      boolean _notEquals = (!Objects.equal(_stakeholder, null));
-      if (_notEquals) {
-        _builder.append("Stakeholder: ");
-        Stakeholder _stakeholder_1 = f.getStakeholder();
-        String _name_1 = _stakeholder_1.getName();
-        _builder.append(_name_1, "");
-        _builder.append(",");
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    _builder.append("Priority: ");
-    Priority _priority = f.getPriority();
-    String _value = _priority.getValue();
-    _builder.append(_value, "");
-    _builder.append(",");
-    _builder.newLineIfNotEmpty();
-    {
-      EList<DependsOnFR> _depends = f.getDepends();
-      boolean _isEmpty = _depends.isEmpty();
-      boolean _not = (!_isEmpty);
-      if (_not) {
-        _builder.append("Depends On: ");
-        {
-          EList<DependsOnFR> _depends_1 = f.getDepends();
-          boolean _hasElements = false;
-          for(final DependsOnFR d : _depends_1) {
-            if (!_hasElements) {
-              _hasElements = true;
-            } else {
-              _builder.appendImmediate(",\n", "");
-            }
-            CharSequence _compile = this.compile(d);
-            _builder.append(_compile, "");
-          }
-        }
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    {
-      FR _partOf = f.getPartOf();
-      boolean _notEquals_1 = (!Objects.equal(_partOf, null));
-      if (_notEquals_1) {
-        _builder.append("Part Of: ");
-        FR _partOf_1 = f.getPartOf();
-        String _name_2 = _partOf_1.getName();
-        _builder.append(_name_2, "");
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    return _builder;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method depends is undefined for the type RSLIL2TextGenerator"
+      + "\nThe method depends is undefined for the type RSLIL2TextGenerator"
+      + "\nempty cannot be resolved"
+      + "\n! cannot be resolved"
+      + "\ncompile cannot be resolved");
   }
   
-  public CharSequence compile(final DependsOnFR d) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _type = d.getType();
-    _builder.append(_type, "");
-    _builder.append(" ");
-    RefFR _refFR = d.getRefFR();
-    FR _refFR_1 = _refFR.getRefFR();
-    String _name = _refFR_1.getName();
-    _builder.append(_name, "");
-    {
-      RefFR _refFR_2 = d.getRefFR();
-      EList<FR> _refs = _refFR_2.getRefs();
-      boolean _isEmpty = _refs.isEmpty();
-      boolean _not = (!_isEmpty);
-      if (_not) {
-        _builder.append(",");
-        {
-          RefFR _refFR_3 = d.getRefFR();
-          EList<FR> _refs_1 = _refFR_3.getRefs();
-          boolean _hasElements = false;
-          for(final FR f : _refs_1) {
-            if (!_hasElements) {
-              _hasElements = true;
-            } else {
-              _builder.appendImmediate(",", "");
-            }
-            String _name_1 = f.getName();
-            _builder.append(_name_1, "");
-          }
-        }
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    return _builder;
+  public CharSequence compile(final /* DependsOnFR */Object d) {
+    throw new Error("Unresolved compilation problems:"
+      + "\ntype cannot be resolved"
+      + "\nrefFR cannot be resolved"
+      + "\nrefFR cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nrefFR cannot be resolved"
+      + "\nrefs cannot be resolved"
+      + "\nempty cannot be resolved"
+      + "\n! cannot be resolved"
+      + "\nrefFR cannot be resolved"
+      + "\nrefs cannot be resolved"
+      + "\nname cannot be resolved");
   }
   
   public CharSequence compile(final QR q) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _name = q.getName();
-    _builder.append(_name, "");
-    _builder.append(".");
-    String _nameAlias = q.getNameAlias();
-    _builder.append(_nameAlias, "");
-    _builder.append(" (");
-    String _type = q.getType();
-    _builder.append(_type, "");
-    _builder.append("):");
-    _builder.newLineIfNotEmpty();
-    String _description = q.getDescription();
-    _builder.append(_description, "");
-    _builder.append(",");
-    _builder.newLineIfNotEmpty();
-    {
-      String _subType = q.getSubType();
-      boolean _notEquals = (!Objects.equal(_subType, null));
-      if (_notEquals) {
-        _builder.append("Sub-Type: ");
-        String _subType_1 = q.getSubType();
-        _builder.append(_subType_1, "");
-        _builder.append(",");
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    _builder.append("Metric: ");
-    String _metric = q.getMetric();
-    _builder.append(_metric, "");
-    _builder.newLineIfNotEmpty();
-    _builder.append("Value: ");
-    int _value = q.getValue();
-    _builder.append(_value, "");
-    _builder.newLineIfNotEmpty();
-    {
-      Stakeholder _stakeholder = q.getStakeholder();
-      boolean _notEquals_1 = (!Objects.equal(_stakeholder, null));
-      if (_notEquals_1) {
-        _builder.append("Stakeholder: ");
-        Stakeholder _stakeholder_1 = q.getStakeholder();
-        String _name_1 = _stakeholder_1.getName();
-        _builder.append(_name_1, "");
-        _builder.append(",");
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    _builder.append("Priority: ");
-    Priority _priority = q.getPriority();
-    String _value_1 = _priority.getValue();
-    _builder.append(_value_1, "");
-    _builder.append(",");
-    _builder.newLineIfNotEmpty();
-    {
-      EList<DependsOnQR> _depends = q.getDepends();
-      boolean _isEmpty = _depends.isEmpty();
-      boolean _not = (!_isEmpty);
-      if (_not) {
-        _builder.append("Depends On: ");
-        {
-          EList<DependsOnQR> _depends_1 = q.getDepends();
-          boolean _hasElements = false;
-          for(final DependsOnQR d : _depends_1) {
-            if (!_hasElements) {
-              _hasElements = true;
-            } else {
-              _builder.appendImmediate(",\n", "");
-            }
-            CharSequence _compile = this.compile(d);
-            _builder.append(_compile, "");
-          }
-        }
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    {
-      QR _partOf = q.getPartOf();
-      boolean _notEquals_2 = (!Objects.equal(_partOf, null));
-      if (_notEquals_2) {
-        _builder.append("Part Of: ");
-        QR _partOf_1 = q.getPartOf();
-        String _name_2 = _partOf_1.getName();
-        _builder.append(_name_2, "");
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    return _builder;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method depends is undefined for the type RSLIL2TextGenerator"
+      + "\nThe method depends is undefined for the type RSLIL2TextGenerator"
+      + "\nempty cannot be resolved"
+      + "\n! cannot be resolved"
+      + "\ncompile cannot be resolved");
   }
   
-  public CharSequence compile(final DependsOnQR d) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _type = d.getType();
-    _builder.append(_type, "");
-    _builder.append(" ");
-    RefQR _refQR = d.getRefQR();
-    QR _refQR_1 = _refQR.getRefQR();
-    String _name = _refQR_1.getName();
-    _builder.append(_name, "");
-    {
-      RefQR _refQR_2 = d.getRefQR();
-      EList<QR> _refs = _refQR_2.getRefs();
-      boolean _isEmpty = _refs.isEmpty();
-      boolean _not = (!_isEmpty);
-      if (_not) {
-        _builder.append(",");
-        {
-          RefQR _refQR_3 = d.getRefQR();
-          EList<QR> _refs_1 = _refQR_3.getRefs();
-          boolean _hasElements = false;
-          for(final QR q : _refs_1) {
-            if (!_hasElements) {
-              _hasElements = true;
-            } else {
-              _builder.appendImmediate(",", "");
-            }
-            String _name_1 = q.getName();
-            _builder.append(_name_1, "");
-          }
-        }
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    return _builder;
+  public CharSequence compile(final /* DependsOnQR */Object d) {
+    throw new Error("Unresolved compilation problems:"
+      + "\ntype cannot be resolved"
+      + "\nrefQR cannot be resolved"
+      + "\nrefQR cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nrefQR cannot be resolved"
+      + "\nrefs cannot be resolved"
+      + "\nempty cannot be resolved"
+      + "\n! cannot be resolved"
+      + "\nrefQR cannot be resolved"
+      + "\nrefs cannot be resolved"
+      + "\nname cannot be resolved");
   }
   
   public CharSequence compile(final Constraint c) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _name = c.getName();
-    _builder.append(_name, "");
-    _builder.append(".");
-    String _nameAlias = c.getNameAlias();
-    _builder.append(_nameAlias, "");
-    _builder.append(" (");
-    String _type = c.getType();
-    _builder.append(_type, "");
-    _builder.append("):");
-    _builder.newLineIfNotEmpty();
-    String _description = c.getDescription();
-    _builder.append(_description, "");
-    _builder.append(",");
-    _builder.newLineIfNotEmpty();
-    {
-      Stakeholder _stakeholder = c.getStakeholder();
-      boolean _notEquals = (!Objects.equal(_stakeholder, null));
-      if (_notEquals) {
-        _builder.append("Stakeholder: ");
-        Stakeholder _stakeholder_1 = c.getStakeholder();
-        String _name_1 = _stakeholder_1.getName();
-        _builder.append(_name_1, "");
-        _builder.append(",");
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    _builder.append("Priority: ");
-    Priority _priority = c.getPriority();
-    String _value = _priority.getValue();
-    _builder.append(_value, "");
-    _builder.append(",");
-    _builder.newLineIfNotEmpty();
-    {
-      EList<DependsOnConstraint> _depends = c.getDepends();
-      boolean _isEmpty = _depends.isEmpty();
-      boolean _not = (!_isEmpty);
-      if (_not) {
-        _builder.append("Depends On: ");
-        {
-          EList<DependsOnConstraint> _depends_1 = c.getDepends();
-          boolean _hasElements = false;
-          for(final DependsOnConstraint d : _depends_1) {
-            if (!_hasElements) {
-              _hasElements = true;
-            } else {
-              _builder.appendImmediate(",\n", "");
-            }
-            CharSequence _compile = this.compile(d);
-            _builder.append(_compile, "");
-          }
-        }
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    {
-      Constraint _partOf = c.getPartOf();
-      boolean _notEquals_1 = (!Objects.equal(_partOf, null));
-      if (_notEquals_1) {
-        _builder.append("Part Of: ");
-        Constraint _partOf_1 = c.getPartOf();
-        String _name_2 = _partOf_1.getName();
-        _builder.append(_name_2, "");
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    return _builder;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method depends is undefined for the type RSLIL2TextGenerator"
+      + "\nThe method depends is undefined for the type RSLIL2TextGenerator"
+      + "\nempty cannot be resolved"
+      + "\n! cannot be resolved"
+      + "\ncompile cannot be resolved");
   }
   
-  public CharSequence compile(final DependsOnConstraint d) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _type = d.getType();
-    _builder.append(_type, "");
-    _builder.append(" ");
-    RefConstraint _refConst = d.getRefConst();
-    Constraint _refConst_1 = _refConst.getRefConst();
-    String _name = _refConst_1.getName();
-    _builder.append(_name, "");
-    {
-      RefConstraint _refConst_2 = d.getRefConst();
-      EList<Constraint> _refs = _refConst_2.getRefs();
-      boolean _isEmpty = _refs.isEmpty();
-      boolean _not = (!_isEmpty);
-      if (_not) {
-        _builder.append(",");
-        {
-          RefConstraint _refConst_3 = d.getRefConst();
-          EList<Constraint> _refs_1 = _refConst_3.getRefs();
-          boolean _hasElements = false;
-          for(final Constraint q : _refs_1) {
-            if (!_hasElements) {
-              _hasElements = true;
-            } else {
-              _builder.appendImmediate(",", "");
-            }
-            String _name_1 = q.getName();
-            _builder.append(_name_1, "");
-          }
-        }
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    return _builder;
+  public CharSequence compile(final /* DependsOnConstraint */Object d) {
+    throw new Error("Unresolved compilation problems:"
+      + "\ntype cannot be resolved"
+      + "\nrefConst cannot be resolved"
+      + "\nrefConst cannot be resolved"
+      + "\nname cannot be resolved"
+      + "\nrefConst cannot be resolved"
+      + "\nrefs cannot be resolved"
+      + "\nempty cannot be resolved"
+      + "\n! cannot be resolved"
+      + "\nrefConst cannot be resolved"
+      + "\nrefs cannot be resolved"
+      + "\nname cannot be resolved");
   }
 }

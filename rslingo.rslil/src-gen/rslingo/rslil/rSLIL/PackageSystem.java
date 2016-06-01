@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link rslingo.rslil.rSLIL.PackageSystem#getFrs <em>Frs</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageSystem#getQrs <em>Qrs</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageSystem#getConstraints <em>Constraints</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.PackageSystem#getRequirementRelations <em>Requirement Relations</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getPackageSystem()
@@ -149,5 +150,21 @@ public interface PackageSystem extends Model
    * @generated
    */
   EList<Constraint> getConstraints();
+
+  /**
+   * Returns the value of the '<em><b>Requirement Relations</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.RequirementRelation}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Requirement Relations</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Requirement Relations</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getPackageSystem_RequirementRelations()
+   * @model containment="true"
+   * @generated
+   */
+  EList<RequirementRelation> getRequirementRelations();
 
 } // PackageSystem

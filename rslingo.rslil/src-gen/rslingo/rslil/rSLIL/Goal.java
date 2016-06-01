@@ -2,8 +2,6 @@
  */
 package rslingo.rslil.rSLIL;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -20,8 +18,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.Goal#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Goal#getStakeholder <em>Stakeholder</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Goal#getPriority <em>Priority</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Goal#getDependsOn <em>Depends On</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Goal#getComposedBy <em>Composed By</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Goal#getProgress <em>Progress</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Goal#getPartOfAnd <em>Part Of And</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Goal#getPartOfOr <em>Part Of Or</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getGoal()
@@ -161,35 +160,81 @@ public interface Goal extends EObject
   void setPriority(Priority value);
 
   /**
-   * Returns the value of the '<em><b>Depends On</b></em>' containment reference list.
-   * The list contents are of type {@link rslingo.rslil.rSLIL.DependsOnGoal}.
+   * Returns the value of the '<em><b>Progress</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Depends On</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Progress</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Depends On</em>' containment reference list.
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getGoal_DependsOn()
+   * @return the value of the '<em>Progress</em>' containment reference.
+   * @see #setProgress(ProjectProgress)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getGoal_Progress()
    * @model containment="true"
    * @generated
    */
-  EList<DependsOnGoal> getDependsOn();
+  ProjectProgress getProgress();
 
   /**
-   * Returns the value of the '<em><b>Composed By</b></em>' containment reference list.
-   * The list contents are of type {@link rslingo.rslil.rSLIL.ComposedBy}.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Goal#getProgress <em>Progress</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Progress</em>' containment reference.
+   * @see #getProgress()
+   * @generated
+   */
+  void setProgress(ProjectProgress value);
+
+  /**
+   * Returns the value of the '<em><b>Part Of And</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Composed By</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Part Of And</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Composed By</em>' containment reference list.
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getGoal_ComposedBy()
-   * @model containment="true"
+   * @return the value of the '<em>Part Of And</em>' reference.
+   * @see #setPartOfAnd(Goal)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getGoal_PartOfAnd()
+   * @model
    * @generated
    */
-  EList<ComposedBy> getComposedBy();
+  Goal getPartOfAnd();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Goal#getPartOfAnd <em>Part Of And</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Part Of And</em>' reference.
+   * @see #getPartOfAnd()
+   * @generated
+   */
+  void setPartOfAnd(Goal value);
+
+  /**
+   * Returns the value of the '<em><b>Part Of Or</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Part Of Or</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Part Of Or</em>' reference.
+   * @see #setPartOfOr(Goal)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getGoal_PartOfOr()
+   * @model
+   * @generated
+   */
+  Goal getPartOfOr();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Goal#getPartOfOr <em>Part Of Or</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Part Of Or</em>' reference.
+   * @see #getPartOfOr()
+   * @generated
+   */
+  void setPartOfOr(Goal value);
 
 } // Goal

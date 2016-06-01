@@ -11,13 +11,8 @@ import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.ActualSchedule;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.Check;
-import rslingo.rslil.rSLIL.ComposedBy;
 import rslingo.rslil.rSLIL.Constraint;
 import rslingo.rslil.rSLIL.Date;
-import rslingo.rslil.rSLIL.DependsOnConstraint;
-import rslingo.rslil.rSLIL.DependsOnFR;
-import rslingo.rslil.rSLIL.DependsOnGoal;
-import rslingo.rslil.rSLIL.DependsOnQR;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.EntityType;
 import rslingo.rslil.rSLIL.ExtensionPoint;
@@ -25,6 +20,7 @@ import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.ForeignKey;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
+import rslingo.rslil.rSLIL.GoalRelation;
 import rslingo.rslil.rSLIL.Import;
 import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.Month;
@@ -36,23 +32,22 @@ import rslingo.rslil.rSLIL.PlannedSchedule;
 import rslingo.rslil.rSLIL.PrimaryKey;
 import rslingo.rslil.rSLIL.Priority;
 import rslingo.rslil.rSLIL.Project;
+import rslingo.rslil.rSLIL.ProjectProgress;
 import rslingo.rslil.rSLIL.QR;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
-import rslingo.rslil.rSLIL.RefConstraint;
 import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
-import rslingo.rslil.rSLIL.RefQR;
-import rslingo.rslil.rSLIL.RefTerm;
 import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
+import rslingo.rslil.rSLIL.Requirement;
+import rslingo.rslil.rSLIL.RequirementRelation;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
-import rslingo.rslil.rSLIL.Status;
 import rslingo.rslil.rSLIL.Step;
-import rslingo.rslil.rSLIL.TermRelation;
+import rslingo.rslil.rSLIL.SystemRelation;
 import rslingo.rslil.rSLIL.TermType;
 import rslingo.rslil.rSLIL.UseCase;
 
@@ -191,10 +186,10 @@ public class RSLILSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RSLILPackage.STATUS:
+      case RSLILPackage.PROJECT_PROGRESS:
       {
-        Status status = (Status)theEObject;
-        T result = caseStatus(status);
+        ProjectProgress projectProgress = (ProjectProgress)theEObject;
+        T result = caseProjectProgress(projectProgress);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -202,6 +197,13 @@ public class RSLILSwitch<T> extends Switch<T>
       {
         rslingo.rslil.rSLIL.System system = (rslingo.rslil.rSLIL.System)theEObject;
         T result = caseSystem(system);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.SYSTEM_RELATION:
+      {
+        SystemRelation systemRelation = (SystemRelation)theEObject;
+        T result = caseSystemRelation(systemRelation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -226,20 +228,6 @@ public class RSLILSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RSLILPackage.TERM_RELATION:
-      {
-        TermRelation termRelation = (TermRelation)theEObject;
-        T result = caseTermRelation(termRelation);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case RSLILPackage.REF_TERM:
-      {
-        RefTerm refTerm = (RefTerm)theEObject;
-        T result = caseRefTerm(refTerm);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case RSLILPackage.STAKEHOLDER:
       {
         Stakeholder stakeholder = (Stakeholder)theEObject;
@@ -254,24 +242,17 @@ public class RSLILSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case RSLILPackage.GOAL_RELATION:
+      {
+        GoalRelation goalRelation = (GoalRelation)theEObject;
+        T result = caseGoalRelation(goalRelation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case RSLILPackage.PRIORITY:
       {
         Priority priority = (Priority)theEObject;
         T result = casePriority(priority);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case RSLILPackage.DEPENDS_ON_GOAL:
-      {
-        DependsOnGoal dependsOnGoal = (DependsOnGoal)theEObject;
-        T result = caseDependsOnGoal(dependsOnGoal);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case RSLILPackage.COMPOSED_BY:
-      {
-        ComposedBy composedBy = (ComposedBy)theEObject;
-        T result = caseComposedBy(composedBy);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -405,13 +386,7 @@ public class RSLILSwitch<T> extends Switch<T>
       {
         FR fr = (FR)theEObject;
         T result = caseFR(fr);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case RSLILPackage.DEPENDS_ON_FR:
-      {
-        DependsOnFR dependsOnFR = (DependsOnFR)theEObject;
-        T result = caseDependsOnFR(dependsOnFR);
+        if (result == null) result = caseRequirement(fr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -419,20 +394,7 @@ public class RSLILSwitch<T> extends Switch<T>
       {
         QR qr = (QR)theEObject;
         T result = caseQR(qr);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case RSLILPackage.DEPENDS_ON_QR:
-      {
-        DependsOnQR dependsOnQR = (DependsOnQR)theEObject;
-        T result = caseDependsOnQR(dependsOnQR);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case RSLILPackage.REF_QR:
-      {
-        RefQR refQR = (RefQR)theEObject;
-        T result = caseRefQR(refQR);
+        if (result == null) result = caseRequirement(qr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -440,20 +402,21 @@ public class RSLILSwitch<T> extends Switch<T>
       {
         Constraint constraint = (Constraint)theEObject;
         T result = caseConstraint(constraint);
+        if (result == null) result = caseRequirement(constraint);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RSLILPackage.DEPENDS_ON_CONSTRAINT:
+      case RSLILPackage.REQUIREMENT:
       {
-        DependsOnConstraint dependsOnConstraint = (DependsOnConstraint)theEObject;
-        T result = caseDependsOnConstraint(dependsOnConstraint);
+        Requirement requirement = (Requirement)theEObject;
+        T result = caseRequirement(requirement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case RSLILPackage.REF_CONSTRAINT:
+      case RSLILPackage.REQUIREMENT_RELATION:
       {
-        RefConstraint refConstraint = (RefConstraint)theEObject;
-        T result = caseRefConstraint(refConstraint);
+        RequirementRelation requirementRelation = (RequirementRelation)theEObject;
+        T result = caseRequirementRelation(requirementRelation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -622,17 +585,17 @@ public class RSLILSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Status</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Project Progress</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Status</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Project Progress</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseStatus(Status object)
+  public T caseProjectProgress(ProjectProgress object)
   {
     return null;
   }
@@ -649,6 +612,22 @@ public class RSLILSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSystem(rslingo.rslil.rSLIL.System object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>System Relation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>System Relation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSystemRelation(SystemRelation object)
   {
     return null;
   }
@@ -702,38 +681,6 @@ public class RSLILSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Term Relation</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Term Relation</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTermRelation(TermRelation object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Ref Term</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Ref Term</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRefTerm(RefTerm object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Stakeholder</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -766,6 +713,22 @@ public class RSLILSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Goal Relation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Goal Relation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGoalRelation(GoalRelation object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Priority</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -777,38 +740,6 @@ public class RSLILSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePriority(Priority object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Depends On Goal</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Depends On Goal</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDependsOnGoal(DependsOnGoal object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Composed By</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Composed By</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseComposedBy(ComposedBy object)
   {
     return null;
   }
@@ -1118,22 +1049,6 @@ public class RSLILSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Depends On FR</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Depends On FR</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDependsOnFR(DependsOnFR object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>QR</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1145,38 +1060,6 @@ public class RSLILSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseQR(QR object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Depends On QR</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Depends On QR</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDependsOnQR(DependsOnQR object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Ref QR</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Ref QR</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRefQR(RefQR object)
   {
     return null;
   }
@@ -1198,33 +1081,33 @@ public class RSLILSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Depends On Constraint</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Requirement</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Depends On Constraint</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Requirement</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDependsOnConstraint(DependsOnConstraint object)
+  public T caseRequirement(Requirement object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Ref Constraint</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Requirement Relation</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Ref Constraint</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Requirement Relation</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseRefConstraint(RefConstraint object)
+  public T caseRequirementRelation(RequirementRelation object)
   {
     return null;
   }

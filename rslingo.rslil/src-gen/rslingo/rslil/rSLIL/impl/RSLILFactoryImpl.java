@@ -14,13 +14,8 @@ import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.ActualSchedule;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.Check;
-import rslingo.rslil.rSLIL.ComposedBy;
 import rslingo.rslil.rSLIL.Constraint;
 import rslingo.rslil.rSLIL.Date;
-import rslingo.rslil.rSLIL.DependsOnConstraint;
-import rslingo.rslil.rSLIL.DependsOnFR;
-import rslingo.rslil.rSLIL.DependsOnGoal;
-import rslingo.rslil.rSLIL.DependsOnQR;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.EntityType;
 import rslingo.rslil.rSLIL.ExtensionPoint;
@@ -28,6 +23,7 @@ import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.ForeignKey;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
+import rslingo.rslil.rSLIL.GoalRelation;
 import rslingo.rslil.rSLIL.Import;
 import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.Month;
@@ -39,24 +35,23 @@ import rslingo.rslil.rSLIL.PlannedSchedule;
 import rslingo.rslil.rSLIL.PrimaryKey;
 import rslingo.rslil.rSLIL.Priority;
 import rslingo.rslil.rSLIL.Project;
+import rslingo.rslil.rSLIL.ProjectProgress;
 import rslingo.rslil.rSLIL.QR;
 import rslingo.rslil.rSLIL.RSLILFactory;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
-import rslingo.rslil.rSLIL.RefConstraint;
 import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
-import rslingo.rslil.rSLIL.RefQR;
-import rslingo.rslil.rSLIL.RefTerm;
 import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
+import rslingo.rslil.rSLIL.Requirement;
+import rslingo.rslil.rSLIL.RequirementRelation;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
-import rslingo.rslil.rSLIL.Status;
 import rslingo.rslil.rSLIL.Step;
-import rslingo.rslil.rSLIL.TermRelation;
+import rslingo.rslil.rSLIL.SystemRelation;
 import rslingo.rslil.rSLIL.TermType;
 import rslingo.rslil.rSLIL.UseCase;
 
@@ -122,18 +117,16 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
       case RSLILPackage.DATE: return createDate();
       case RSLILPackage.MONTH: return createMonth();
       case RSLILPackage.ORGANIZATIONS: return createOrganizations();
-      case RSLILPackage.STATUS: return createStatus();
+      case RSLILPackage.PROJECT_PROGRESS: return createProjectProgress();
       case RSLILPackage.SYSTEM: return createSystem();
+      case RSLILPackage.SYSTEM_RELATION: return createSystemRelation();
       case RSLILPackage.GLOSSARY_TERM: return createGlossaryTerm();
       case RSLILPackage.REF_TERM_TYPE: return createRefTermType();
       case RSLILPackage.TERM_TYPE: return createTermType();
-      case RSLILPackage.TERM_RELATION: return createTermRelation();
-      case RSLILPackage.REF_TERM: return createRefTerm();
       case RSLILPackage.STAKEHOLDER: return createStakeholder();
       case RSLILPackage.GOAL: return createGoal();
+      case RSLILPackage.GOAL_RELATION: return createGoalRelation();
       case RSLILPackage.PRIORITY: return createPriority();
-      case RSLILPackage.DEPENDS_ON_GOAL: return createDependsOnGoal();
-      case RSLILPackage.COMPOSED_BY: return createComposedBy();
       case RSLILPackage.REF_GOAL: return createRefGoal();
       case RSLILPackage.ENTITY: return createEntity();
       case RSLILPackage.ATTRIBUTE: return createAttribute();
@@ -153,13 +146,10 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
       case RSLILPackage.SCENARIO: return createScenario();
       case RSLILPackage.STEP: return createStep();
       case RSLILPackage.FR: return createFR();
-      case RSLILPackage.DEPENDS_ON_FR: return createDependsOnFR();
       case RSLILPackage.QR: return createQR();
-      case RSLILPackage.DEPENDS_ON_QR: return createDependsOnQR();
-      case RSLILPackage.REF_QR: return createRefQR();
       case RSLILPackage.CONSTRAINT: return createConstraint();
-      case RSLILPackage.DEPENDS_ON_CONSTRAINT: return createDependsOnConstraint();
-      case RSLILPackage.REF_CONSTRAINT: return createRefConstraint();
+      case RSLILPackage.REQUIREMENT: return createRequirement();
+      case RSLILPackage.REQUIREMENT_RELATION: return createRequirementRelation();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -280,10 +270,10 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Status createStatus()
+  public ProjectProgress createProjectProgress()
   {
-    StatusImpl status = new StatusImpl();
-    return status;
+    ProjectProgressImpl projectProgress = new ProjectProgressImpl();
+    return projectProgress;
   }
 
   /**
@@ -295,6 +285,17 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
   {
     SystemImpl system = new SystemImpl();
     return system;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SystemRelation createSystemRelation()
+  {
+    SystemRelationImpl systemRelation = new SystemRelationImpl();
+    return systemRelation;
   }
 
   /**
@@ -335,28 +336,6 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public TermRelation createTermRelation()
-  {
-    TermRelationImpl termRelation = new TermRelationImpl();
-    return termRelation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RefTerm createRefTerm()
-  {
-    RefTermImpl refTerm = new RefTermImpl();
-    return refTerm;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Stakeholder createStakeholder()
   {
     StakeholderImpl stakeholder = new StakeholderImpl();
@@ -379,32 +358,21 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public GoalRelation createGoalRelation()
+  {
+    GoalRelationImpl goalRelation = new GoalRelationImpl();
+    return goalRelation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Priority createPriority()
   {
     PriorityImpl priority = new PriorityImpl();
     return priority;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DependsOnGoal createDependsOnGoal()
-  {
-    DependsOnGoalImpl dependsOnGoal = new DependsOnGoalImpl();
-    return dependsOnGoal;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ComposedBy createComposedBy()
-  {
-    ComposedByImpl composedBy = new ComposedByImpl();
-    return composedBy;
   }
 
   /**
@@ -621,43 +589,10 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DependsOnFR createDependsOnFR()
-  {
-    DependsOnFRImpl dependsOnFR = new DependsOnFRImpl();
-    return dependsOnFR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public QR createQR()
   {
     QRImpl qr = new QRImpl();
     return qr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DependsOnQR createDependsOnQR()
-  {
-    DependsOnQRImpl dependsOnQR = new DependsOnQRImpl();
-    return dependsOnQR;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RefQR createRefQR()
-  {
-    RefQRImpl refQR = new RefQRImpl();
-    return refQR;
   }
 
   /**
@@ -676,10 +611,10 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DependsOnConstraint createDependsOnConstraint()
+  public Requirement createRequirement()
   {
-    DependsOnConstraintImpl dependsOnConstraint = new DependsOnConstraintImpl();
-    return dependsOnConstraint;
+    RequirementImpl requirement = new RequirementImpl();
+    return requirement;
   }
 
   /**
@@ -687,10 +622,10 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public RefConstraint createRefConstraint()
+  public RequirementRelation createRequirementRelation()
   {
-    RefConstraintImpl refConstraint = new RefConstraintImpl();
-    return refConstraint;
+    RequirementRelationImpl requirementRelation = new RequirementRelationImpl();
+    return requirementRelation;
   }
 
   /**

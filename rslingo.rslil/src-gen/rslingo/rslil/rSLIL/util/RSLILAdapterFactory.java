@@ -13,13 +13,8 @@ import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.ActualSchedule;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.Check;
-import rslingo.rslil.rSLIL.ComposedBy;
 import rslingo.rslil.rSLIL.Constraint;
 import rslingo.rslil.rSLIL.Date;
-import rslingo.rslil.rSLIL.DependsOnConstraint;
-import rslingo.rslil.rSLIL.DependsOnFR;
-import rslingo.rslil.rSLIL.DependsOnGoal;
-import rslingo.rslil.rSLIL.DependsOnQR;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.EntityType;
 import rslingo.rslil.rSLIL.ExtensionPoint;
@@ -27,6 +22,7 @@ import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.ForeignKey;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
+import rslingo.rslil.rSLIL.GoalRelation;
 import rslingo.rslil.rSLIL.Import;
 import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.Month;
@@ -38,23 +34,22 @@ import rslingo.rslil.rSLIL.PlannedSchedule;
 import rslingo.rslil.rSLIL.PrimaryKey;
 import rslingo.rslil.rSLIL.Priority;
 import rslingo.rslil.rSLIL.Project;
+import rslingo.rslil.rSLIL.ProjectProgress;
 import rslingo.rslil.rSLIL.QR;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
-import rslingo.rslil.rSLIL.RefConstraint;
 import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
-import rslingo.rslil.rSLIL.RefQR;
-import rslingo.rslil.rSLIL.RefTerm;
 import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
+import rslingo.rslil.rSLIL.Requirement;
+import rslingo.rslil.rSLIL.RequirementRelation;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
-import rslingo.rslil.rSLIL.Status;
 import rslingo.rslil.rSLIL.Step;
-import rslingo.rslil.rSLIL.TermRelation;
+import rslingo.rslil.rSLIL.SystemRelation;
 import rslingo.rslil.rSLIL.TermType;
 import rslingo.rslil.rSLIL.UseCase;
 
@@ -172,14 +167,19 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
         return createOrganizationsAdapter();
       }
       @Override
-      public Adapter caseStatus(Status object)
+      public Adapter caseProjectProgress(ProjectProgress object)
       {
-        return createStatusAdapter();
+        return createProjectProgressAdapter();
       }
       @Override
       public Adapter caseSystem(rslingo.rslil.rSLIL.System object)
       {
         return createSystemAdapter();
+      }
+      @Override
+      public Adapter caseSystemRelation(SystemRelation object)
+      {
+        return createSystemRelationAdapter();
       }
       @Override
       public Adapter caseGlossaryTerm(GlossaryTerm object)
@@ -197,16 +197,6 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
         return createTermTypeAdapter();
       }
       @Override
-      public Adapter caseTermRelation(TermRelation object)
-      {
-        return createTermRelationAdapter();
-      }
-      @Override
-      public Adapter caseRefTerm(RefTerm object)
-      {
-        return createRefTermAdapter();
-      }
-      @Override
       public Adapter caseStakeholder(Stakeholder object)
       {
         return createStakeholderAdapter();
@@ -217,19 +207,14 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
         return createGoalAdapter();
       }
       @Override
+      public Adapter caseGoalRelation(GoalRelation object)
+      {
+        return createGoalRelationAdapter();
+      }
+      @Override
       public Adapter casePriority(Priority object)
       {
         return createPriorityAdapter();
-      }
-      @Override
-      public Adapter caseDependsOnGoal(DependsOnGoal object)
-      {
-        return createDependsOnGoalAdapter();
-      }
-      @Override
-      public Adapter caseComposedBy(ComposedBy object)
-      {
-        return createComposedByAdapter();
       }
       @Override
       public Adapter caseRefGoal(RefGoal object)
@@ -327,24 +312,9 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
         return createFRAdapter();
       }
       @Override
-      public Adapter caseDependsOnFR(DependsOnFR object)
-      {
-        return createDependsOnFRAdapter();
-      }
-      @Override
       public Adapter caseQR(QR object)
       {
         return createQRAdapter();
-      }
-      @Override
-      public Adapter caseDependsOnQR(DependsOnQR object)
-      {
-        return createDependsOnQRAdapter();
-      }
-      @Override
-      public Adapter caseRefQR(RefQR object)
-      {
-        return createRefQRAdapter();
       }
       @Override
       public Adapter caseConstraint(Constraint object)
@@ -352,14 +322,14 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
         return createConstraintAdapter();
       }
       @Override
-      public Adapter caseDependsOnConstraint(DependsOnConstraint object)
+      public Adapter caseRequirement(Requirement object)
       {
-        return createDependsOnConstraintAdapter();
+        return createRequirementAdapter();
       }
       @Override
-      public Adapter caseRefConstraint(RefConstraint object)
+      public Adapter caseRequirementRelation(RequirementRelation object)
       {
-        return createRefConstraintAdapter();
+        return createRequirementRelationAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -534,16 +504,16 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.Status <em>Status</em>}'.
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.ProjectProgress <em>Project Progress</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.Status
+   * @see rslingo.rslil.rSLIL.ProjectProgress
    * @generated
    */
-  public Adapter createStatusAdapter()
+  public Adapter createProjectProgressAdapter()
   {
     return null;
   }
@@ -559,6 +529,21 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSystemAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.SystemRelation <em>System Relation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.SystemRelation
+   * @generated
+   */
+  public Adapter createSystemRelationAdapter()
   {
     return null;
   }
@@ -609,36 +594,6 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.TermRelation <em>Term Relation</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.TermRelation
-   * @generated
-   */
-  public Adapter createTermRelationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.RefTerm <em>Ref Term</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.RefTerm
-   * @generated
-   */
-  public Adapter createRefTermAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.Stakeholder <em>Stakeholder</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -669,6 +624,21 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.GoalRelation <em>Goal Relation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.GoalRelation
+   * @generated
+   */
+  public Adapter createGoalRelationAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.Priority <em>Priority</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -679,36 +649,6 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPriorityAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.DependsOnGoal <em>Depends On Goal</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.DependsOnGoal
-   * @generated
-   */
-  public Adapter createDependsOnGoalAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.ComposedBy <em>Composed By</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.ComposedBy
-   * @generated
-   */
-  public Adapter createComposedByAdapter()
   {
     return null;
   }
@@ -999,21 +939,6 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.DependsOnFR <em>Depends On FR</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.DependsOnFR
-   * @generated
-   */
-  public Adapter createDependsOnFRAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.QR <em>QR</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1024,36 +949,6 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createQRAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.DependsOnQR <em>Depends On QR</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.DependsOnQR
-   * @generated
-   */
-  public Adapter createDependsOnQRAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.RefQR <em>Ref QR</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.RefQR
-   * @generated
-   */
-  public Adapter createRefQRAdapter()
   {
     return null;
   }
@@ -1074,31 +969,31 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.DependsOnConstraint <em>Depends On Constraint</em>}'.
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.Requirement <em>Requirement</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.DependsOnConstraint
+   * @see rslingo.rslil.rSLIL.Requirement
    * @generated
    */
-  public Adapter createDependsOnConstraintAdapter()
+  public Adapter createRequirementAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.RefConstraint <em>Ref Constraint</em>}'.
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.RequirementRelation <em>Requirement Relation</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see rslingo.rslil.rSLIL.RefConstraint
+   * @see rslingo.rslil.rSLIL.RequirementRelation
    * @generated
    */
-  public Adapter createRefConstraintAdapter()
+  public Adapter createRequirementRelationAdapter()
   {
     return null;
   }

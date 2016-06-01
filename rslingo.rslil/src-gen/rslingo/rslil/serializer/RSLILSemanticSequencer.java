@@ -20,13 +20,8 @@ import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.ActualSchedule;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.Check;
-import rslingo.rslil.rSLIL.ComposedBy;
 import rslingo.rslil.rSLIL.Constraint;
 import rslingo.rslil.rSLIL.Date;
-import rslingo.rslil.rSLIL.DependsOnConstraint;
-import rslingo.rslil.rSLIL.DependsOnFR;
-import rslingo.rslil.rSLIL.DependsOnGoal;
-import rslingo.rslil.rSLIL.DependsOnQR;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.EntityType;
 import rslingo.rslil.rSLIL.ExtensionPoint;
@@ -34,6 +29,7 @@ import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.ForeignKey;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
+import rslingo.rslil.rSLIL.GoalRelation;
 import rslingo.rslil.rSLIL.Import;
 import rslingo.rslil.rSLIL.Month;
 import rslingo.rslil.rSLIL.Multiplicity;
@@ -44,23 +40,21 @@ import rslingo.rslil.rSLIL.PlannedSchedule;
 import rslingo.rslil.rSLIL.PrimaryKey;
 import rslingo.rslil.rSLIL.Priority;
 import rslingo.rslil.rSLIL.Project;
+import rslingo.rslil.rSLIL.ProjectProgress;
 import rslingo.rslil.rSLIL.QR;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
-import rslingo.rslil.rSLIL.RefConstraint;
 import rslingo.rslil.rSLIL.RefEntity;
 import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
-import rslingo.rslil.rSLIL.RefQR;
-import rslingo.rslil.rSLIL.RefTerm;
 import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
+import rslingo.rslil.rSLIL.RequirementRelation;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
-import rslingo.rslil.rSLIL.Status;
 import rslingo.rslil.rSLIL.Step;
-import rslingo.rslil.rSLIL.TermRelation;
+import rslingo.rslil.rSLIL.SystemRelation;
 import rslingo.rslil.rSLIL.TermType;
 import rslingo.rslil.rSLIL.UseCase;
 import rslingo.rslil.services.RSLILGrammarAccess;
@@ -86,26 +80,11 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case RSLILPackage.CHECK:
 				sequence_Check(context, (Check) semanticObject); 
 				return; 
-			case RSLILPackage.COMPOSED_BY:
-				sequence_ComposedBy(context, (ComposedBy) semanticObject); 
-				return; 
 			case RSLILPackage.CONSTRAINT:
 				sequence_Constraint(context, (Constraint) semanticObject); 
 				return; 
 			case RSLILPackage.DATE:
 				sequence_Date(context, (Date) semanticObject); 
-				return; 
-			case RSLILPackage.DEPENDS_ON_CONSTRAINT:
-				sequence_DependsOnConstraint(context, (DependsOnConstraint) semanticObject); 
-				return; 
-			case RSLILPackage.DEPENDS_ON_FR:
-				sequence_DependsOnFR(context, (DependsOnFR) semanticObject); 
-				return; 
-			case RSLILPackage.DEPENDS_ON_GOAL:
-				sequence_DependsOnGoal(context, (DependsOnGoal) semanticObject); 
-				return; 
-			case RSLILPackage.DEPENDS_ON_QR:
-				sequence_DependsOnQR(context, (DependsOnQR) semanticObject); 
 				return; 
 			case RSLILPackage.ENTITY:
 				sequence_Entity(context, (Entity) semanticObject); 
@@ -127,6 +106,9 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case RSLILPackage.GOAL:
 				sequence_Goal(context, (Goal) semanticObject); 
+				return; 
+			case RSLILPackage.GOAL_RELATION:
+				sequence_GoalRelation(context, (GoalRelation) semanticObject); 
 				return; 
 			case RSLILPackage.IMPORT:
 				sequence_Import(context, (Import) semanticObject); 
@@ -158,6 +140,9 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case RSLILPackage.PROJECT:
 				sequence_Project(context, (Project) semanticObject); 
 				return; 
+			case RSLILPackage.PROJECT_PROGRESS:
+				sequence_ProjectProgress(context, (ProjectProgress) semanticObject); 
+				return; 
 			case RSLILPackage.QR:
 				sequence_QR(context, (QR) semanticObject); 
 				return; 
@@ -166,9 +151,6 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case RSLILPackage.REF_ATTRIBUTE:
 				sequence_RefAttribute(context, (RefAttribute) semanticObject); 
-				return; 
-			case RSLILPackage.REF_CONSTRAINT:
-				sequence_RefConstraint(context, (RefConstraint) semanticObject); 
 				return; 
 			case RSLILPackage.REF_ENTITY:
 				sequence_RefEntity(context, (RefEntity) semanticObject); 
@@ -179,17 +161,14 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case RSLILPackage.REF_GOAL:
 				sequence_RefGoal(context, (RefGoal) semanticObject); 
 				return; 
-			case RSLILPackage.REF_QR:
-				sequence_RefQR(context, (RefQR) semanticObject); 
-				return; 
-			case RSLILPackage.REF_TERM:
-				sequence_RefTerm(context, (RefTerm) semanticObject); 
-				return; 
 			case RSLILPackage.REF_TERM_TYPE:
 				sequence_RefTermType(context, (RefTermType) semanticObject); 
 				return; 
 			case RSLILPackage.REF_UC:
 				sequence_RefUC(context, (RefUC) semanticObject); 
+				return; 
+			case RSLILPackage.REQUIREMENT_RELATION:
+				sequence_RequirementRelation(context, (RequirementRelation) semanticObject); 
 				return; 
 			case RSLILPackage.SCENARIO:
 				sequence_Scenario(context, (Scenario) semanticObject); 
@@ -197,17 +176,14 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case RSLILPackage.STAKEHOLDER:
 				sequence_Stakeholder(context, (Stakeholder) semanticObject); 
 				return; 
-			case RSLILPackage.STATUS:
-				sequence_Status(context, (Status) semanticObject); 
-				return; 
 			case RSLILPackage.STEP:
 				sequence_Step(context, (Step) semanticObject); 
 				return; 
 			case RSLILPackage.SYSTEM:
 				sequence_System(context, (rslingo.rslil.rSLIL.System) semanticObject); 
 				return; 
-			case RSLILPackage.TERM_RELATION:
-				sequence_TermRelation(context, (TermRelation) semanticObject); 
+			case RSLILPackage.SYSTEM_RELATION:
+				sequence_SystemRelation(context, (SystemRelation) semanticObject); 
 				return; 
 			case RSLILPackage.TERM_TYPE:
 				sequence_TermType(context, (TermType) semanticObject); 
@@ -307,15 +283,6 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     ((type='Logic-And' | type='Logic-Or') refGoal=RefGoal)
-	 */
-	protected void sequence_ComposedBy(EObject context, ComposedBy semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (
 	 *         name=ID 
 	 *         nameAlias=STRING? 
@@ -331,8 +298,8 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         ) 
 	 *         stakeholder=[Stakeholder|ID]? 
 	 *         priority=Priority 
-	 *         depends+=DependsOnConstraint* 
-	 *         partOf=[Constraint|ID]?
+	 *         partOf=[Constraint|ID]? 
+	 *         progress=ProjectProgress?
 	 *     )
 	 */
 	protected void sequence_Constraint(EObject context, Constraint semanticObject) {
@@ -359,42 +326,6 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 		feeder.accept(grammarAccess.getDateAccess().getMonthMonthParserRuleCall_2_0(), semanticObject.getMonth());
 		feeder.accept(grammarAccess.getDateAccess().getYearINTTerminalRuleCall_4_0(), semanticObject.getYear());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     ((type='Requires' | type='Refines' | type='Conflicts') refConst=RefConstraint)
-	 */
-	protected void sequence_DependsOnConstraint(EObject context, DependsOnConstraint semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     ((type='Requires' | type='Refines' | type='Conflicts') refFR=RefFR)
-	 */
-	protected void sequence_DependsOnFR(EObject context, DependsOnFR semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     ((type='Requires' | type='Supports' | type='Obstructs' | type='Conflicts' | type='Identical') refGoal=RefGoal)
-	 */
-	protected void sequence_DependsOnGoal(EObject context, DependsOnGoal semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     ((type='Requires' | type='Refines' | type='Conflicts') refQR=RefQR)
-	 */
-	protected void sequence_DependsOnQR(EObject context, DependsOnQR semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -443,8 +374,8 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         (type='Functional' | type='Behavioral' | type='Data') 
 	 *         stakeholder=[Stakeholder|ID]? 
 	 *         priority=Priority 
-	 *         depends+=DependsOnFR* 
-	 *         partOf=[FR|ID]?
+	 *         partOf=[FR|ID]? 
+	 *         progress=ProjectProgress?
 	 *     )
 	 */
 	protected void sequence_FR(EObject context, FR semanticObject) {
@@ -483,8 +414,8 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         type=RefTermType 
 	 *         acronym=STRING? 
 	 *         (pos='Adjective' | pos='Adverb' | pos='Noun' | pos='Verb')? 
-	 *         synset=STRING? 
-	 *         termRelation+=TermRelation*
+	 *         synonym=STRING? 
+	 *         hypernym=STRING?
 	 *     )
 	 */
 	protected void sequence_GlossaryTerm(EObject context, GlossaryTerm semanticObject) {
@@ -496,12 +427,28 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 * Constraint:
 	 *     (
 	 *         name=ID 
+	 *         source=[Goal|ID] 
+	 *         target=[Goal|ID] 
+	 *         (type='Requires' | type='Supports' | type='Obstructs' | type='Conflicts' | type='Identical') 
+	 *         description=STRING?
+	 *     )
+	 */
+	protected void sequence_GoalRelation(EObject context, GoalRelation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         name=ID 
 	 *         nameAlias=STRING? 
 	 *         description=STRING? 
-	 *         stakeholder=[Stakeholder|ID]? 
+	 *         stakeholder=[Stakeholder|ID] 
 	 *         priority=Priority 
-	 *         dependsOn+=DependsOnGoal* 
-	 *         composedBy+=ComposedBy*
+	 *         progress=ProjectProgress? 
+	 *         partOfAnd=[Goal|ID]? 
+	 *         partOfOr=[Goal|ID]?
 	 *     )
 	 */
 	protected void sequence_Goal(EObject context, Goal semanticObject) {
@@ -587,7 +534,9 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         glossaryTerms+=GlossaryTerm* 
 	 *         stakeholders+=Stakeholder* 
 	 *         goals+=Goal* 
-	 *         packageSystems+=PackageSystem*
+	 *         goalRelations+=GoalRelation* 
+	 *         packageSystems+=PackageSystem* 
+	 *         systemRelations+=SystemRelation*
 	 *     )
 	 */
 	protected void sequence_PackageProject(EObject context, PackageProject semanticObject) {
@@ -606,7 +555,8 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         useCases+=UseCase* 
 	 *         frs+=FR* 
 	 *         qrs+=QR* 
-	 *         constraints+=Constraint*
+	 *         constraints+=Constraint* 
+	 *         requirementRelations+=RequirementRelation*
 	 *     )
 	 */
 	protected void sequence_PackageSystem(EObject context, PackageSystem semanticObject) {
@@ -661,6 +611,23 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	/**
 	 * Constraint:
 	 *     (
+	 *         value='Not-Plan' | 
+	 *         value='Plan' | 
+	 *         value='On-Design' | 
+	 *         value='On-Develop' | 
+	 *         value='On-Test' | 
+	 *         value='On-Deploy' | 
+	 *         value='Concluded'
+	 *     )
+	 */
+	protected void sequence_ProjectProgress(EObject context, ProjectProgress semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
 	 *         name=ID 
 	 *         nameAlias=STRING? 
 	 *         (
@@ -684,7 +651,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         planned=PlannedSchedule? 
 	 *         actual=ActualSchedule? 
 	 *         organizations=Organizations? 
-	 *         status=Status? 
+	 *         progress=ProjectProgress? 
 	 *         summary=STRING 
 	 *         description=STRING
 	 *     )
@@ -728,8 +695,8 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         value=INT 
 	 *         stakeholder=[Stakeholder|ID]? 
 	 *         priority=Priority 
-	 *         depends+=DependsOnQR* 
-	 *         partOf=[QR|ID]?
+	 *         partOf=[QR|ID]? 
+	 *         progress=ProjectProgress?
 	 *     )
 	 */
 	protected void sequence_QR(EObject context, QR semanticObject) {
@@ -751,15 +718,6 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (refAttr=[Attribute|ID] refs+=[Attribute|ID]*)
 	 */
 	protected void sequence_RefAttribute(EObject context, RefAttribute semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (refConst=[Constraint|ID] refs+=[Constraint|ID]*)
-	 */
-	protected void sequence_RefConstraint(EObject context, RefConstraint semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -793,15 +751,6 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (refQR=[QR|ID] refs+=[QR|ID]*)
-	 */
-	protected void sequence_RefQR(EObject context, RefQR semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (refType=TermType refs+=TermType*)
 	 */
 	protected void sequence_RefTermType(EObject context, RefTermType semanticObject) {
@@ -811,18 +760,24 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (refTerm=STRING refs+=STRING*)
+	 *     (refUC=[UseCase|ID] refs+=[UseCase|ID]*)
 	 */
-	protected void sequence_RefTerm(EObject context, RefTerm semanticObject) {
+	protected void sequence_RefUC(EObject context, RefUC semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (refUC=[UseCase|ID] refs+=[UseCase|ID]*)
+	 *     (
+	 *         name=ID 
+	 *         source=[Requirement|ID] 
+	 *         target=[Requirement|ID] 
+	 *         (type='Requires' | type='Supports' | type='Obstructs' | type='Conflicts' | type='Identical') 
+	 *         description=STRING?
+	 *     )
 	 */
-	protected void sequence_RefUC(EObject context, RefUC semanticObject) {
+	protected void sequence_RequirementRelation(EObject context, RequirementRelation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -868,27 +823,11 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *             category='Technical.Software.Designer' | 
 	 *             category='Technical.Software.Tester'
 	 *         ) 
+	 *         isA=[Stakeholder|ID]? 
 	 *         partOf=[Stakeholder|ID]?
 	 *     )
 	 */
 	protected void sequence_Stakeholder(EObject context, Stakeholder semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (
-	 *         value='Not-Plan' | 
-	 *         value='Plan' | 
-	 *         value='On-Design' | 
-	 *         value='On-Develop' | 
-	 *         value='On-Test' | 
-	 *         value='On-Deploy' | 
-	 *         value='Concluded'
-	 *     )
-	 */
-	protected void sequence_Status(EObject context, Status semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -913,18 +852,39 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (name=ID nameAlias=STRING? description=STRING? project=[Project|ID] partOf=[System|ID]?)
+	 *     (
+	 *         name=ID 
+	 *         source=[System|ID] 
+	 *         target=[System|ID] 
+	 *         (
+	 *             category='Import' | 
+	 *             category='Export' | 
+	 *             category='Import-Export' | 
+	 *             category='Sync' | 
+	 *             category='Interact' | 
+	 *             category='Other'
+	 *         ) 
+	 *         (type='In' | type='Out' | type='In-Out') 
+	 *         description=STRING?
+	 *     )
 	 */
-	protected void sequence_System(EObject context, rslingo.rslil.rSLIL.System semanticObject) {
+	protected void sequence_SystemRelation(EObject context, SystemRelation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     ((type='Antonym' | type='Hypernym' | type='Synonym') refTerm=RefTerm)
+	 *     (
+	 *         name=ID 
+	 *         nameAlias=STRING? 
+	 *         description=STRING? 
+	 *         (type='System' | type='Sub-System' | type='Reusable-System' | type='Other') 
+	 *         (scope='In' | scope='Out') 
+	 *         partOf=[System|ID]?
+	 *     )
 	 */
-	protected void sequence_TermRelation(EObject context, TermRelation semanticObject) {
+	protected void sequence_System(EObject context, rslingo.rslil.rSLIL.System semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

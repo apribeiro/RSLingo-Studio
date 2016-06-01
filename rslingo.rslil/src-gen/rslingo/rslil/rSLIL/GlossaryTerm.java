@@ -2,8 +2,6 @@
  */
 package rslingo.rslil.rSLIL;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -21,8 +19,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getAcronym <em>Acronym</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getPos <em>Pos</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getSynset <em>Synset</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getTermRelation <em>Term Relation</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getSynonym <em>Synonym</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.GlossaryTerm#getHypernym <em>Hypernym</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossaryTerm()
@@ -188,45 +186,55 @@ public interface GlossaryTerm extends EObject
   void setPos(String value);
 
   /**
-   * Returns the value of the '<em><b>Synset</b></em>' attribute.
+   * Returns the value of the '<em><b>Synonym</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Synset</em>' attribute isn't clear,
+   * If the meaning of the '<em>Synonym</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Synset</em>' attribute.
-   * @see #setSynset(String)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossaryTerm_Synset()
+   * @return the value of the '<em>Synonym</em>' attribute.
+   * @see #setSynonym(String)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossaryTerm_Synonym()
    * @model
    * @generated
    */
-  String getSynset();
+  String getSynonym();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.GlossaryTerm#getSynset <em>Synset</em>}' attribute.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.GlossaryTerm#getSynonym <em>Synonym</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Synset</em>' attribute.
-   * @see #getSynset()
+   * @param value the new value of the '<em>Synonym</em>' attribute.
+   * @see #getSynonym()
    * @generated
    */
-  void setSynset(String value);
+  void setSynonym(String value);
 
   /**
-   * Returns the value of the '<em><b>Term Relation</b></em>' containment reference list.
-   * The list contents are of type {@link rslingo.rslil.rSLIL.TermRelation}.
+   * Returns the value of the '<em><b>Hypernym</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Term Relation</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Hypernym</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Term Relation</em>' containment reference list.
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossaryTerm_TermRelation()
-   * @model containment="true"
+   * @return the value of the '<em>Hypernym</em>' attribute.
+   * @see #setHypernym(String)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getGlossaryTerm_Hypernym()
+   * @model
    * @generated
    */
-  EList<TermRelation> getTermRelation();
+  String getHypernym();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.GlossaryTerm#getHypernym <em>Hypernym</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Hypernym</em>' attribute.
+   * @see #getHypernym()
+   * @generated
+   */
+  void setHypernym(String value);
 
 } // GlossaryTerm

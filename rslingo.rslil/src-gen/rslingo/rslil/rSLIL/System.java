@@ -16,7 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.System#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.System#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.System#getDescription <em>Description</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.System#getProject <em>Project</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.System#getType <em>Type</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.System#getScope <em>Scope</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.System#getPartOf <em>Part Of</em>}</li>
  * </ul>
  *
@@ -105,30 +106,56 @@ public interface System extends EObject
   void setDescription(String value);
 
   /**
-   * Returns the value of the '<em><b>Project</b></em>' reference.
+   * Returns the value of the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Project</em>' reference isn't clear,
+   * If the meaning of the '<em>Type</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Project</em>' reference.
-   * @see #setProject(Project)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getSystem_Project()
+   * @return the value of the '<em>Type</em>' attribute.
+   * @see #setType(String)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getSystem_Type()
    * @model
    * @generated
    */
-  Project getProject();
+  String getType();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.System#getProject <em>Project</em>}' reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.System#getType <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Project</em>' reference.
-   * @see #getProject()
+   * @param value the new value of the '<em>Type</em>' attribute.
+   * @see #getType()
    * @generated
    */
-  void setProject(Project value);
+  void setType(String value);
+
+  /**
+   * Returns the value of the '<em><b>Scope</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Scope</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Scope</em>' attribute.
+   * @see #setScope(String)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getSystem_Scope()
+   * @model
+   * @generated
+   */
+  String getScope();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.System#getScope <em>Scope</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Scope</em>' attribute.
+   * @see #getScope()
+   * @generated
+   */
+  void setScope(String value);
 
   /**
    * Returns the value of the '<em><b>Part Of</b></em>' reference.

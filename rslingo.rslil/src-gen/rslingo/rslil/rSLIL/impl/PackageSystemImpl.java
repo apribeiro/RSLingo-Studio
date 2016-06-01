@@ -24,6 +24,7 @@ import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.PackageSystem;
 import rslingo.rslil.rSLIL.QR;
 import rslingo.rslil.rSLIL.RSLILPackage;
+import rslingo.rslil.rSLIL.RequirementRelation;
 import rslingo.rslil.rSLIL.UseCase;
 
 /**
@@ -41,6 +42,7 @@ import rslingo.rslil.rSLIL.UseCase;
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageSystemImpl#getFrs <em>Frs</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageSystemImpl#getQrs <em>Qrs</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageSystemImpl#getConstraints <em>Constraints</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.PackageSystemImpl#getRequirementRelations <em>Requirement Relations</em>}</li>
  * </ul>
  *
  * @generated
@@ -116,6 +118,16 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
    * @ordered
    */
   protected EList<Constraint> constraints;
+
+  /**
+   * The cached value of the '{@link #getRequirementRelations() <em>Requirement Relations</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRequirementRelations()
+   * @generated
+   * @ordered
+   */
+  protected EList<RequirementRelation> requirementRelations;
 
   /**
    * <!-- begin-user-doc -->
@@ -275,6 +287,20 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<RequirementRelation> getRequirementRelations()
+  {
+    if (requirementRelations == null)
+    {
+      requirementRelations = new EObjectContainmentEList<RequirementRelation>(RequirementRelation.class, this, RSLILPackage.PACKAGE_SYSTEM__REQUIREMENT_RELATIONS);
+    }
+    return requirementRelations;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -294,6 +320,8 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
         return ((InternalEList<?>)getQrs()).basicRemove(otherEnd, msgs);
       case RSLILPackage.PACKAGE_SYSTEM__CONSTRAINTS:
         return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.PACKAGE_SYSTEM__REQUIREMENT_RELATIONS:
+        return ((InternalEList<?>)getRequirementRelations()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -322,6 +350,8 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
         return getQrs();
       case RSLILPackage.PACKAGE_SYSTEM__CONSTRAINTS:
         return getConstraints();
+      case RSLILPackage.PACKAGE_SYSTEM__REQUIREMENT_RELATIONS:
+        return getRequirementRelations();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -364,6 +394,10 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
         getConstraints().clear();
         getConstraints().addAll((Collection<? extends Constraint>)newValue);
         return;
+      case RSLILPackage.PACKAGE_SYSTEM__REQUIREMENT_RELATIONS:
+        getRequirementRelations().clear();
+        getRequirementRelations().addAll((Collection<? extends RequirementRelation>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -399,6 +433,9 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
       case RSLILPackage.PACKAGE_SYSTEM__CONSTRAINTS:
         getConstraints().clear();
         return;
+      case RSLILPackage.PACKAGE_SYSTEM__REQUIREMENT_RELATIONS:
+        getRequirementRelations().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -427,6 +464,8 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
         return qrs != null && !qrs.isEmpty();
       case RSLILPackage.PACKAGE_SYSTEM__CONSTRAINTS:
         return constraints != null && !constraints.isEmpty();
+      case RSLILPackage.PACKAGE_SYSTEM__REQUIREMENT_RELATIONS:
+        return requirementRelations != null && !requirementRelations.isEmpty();
     }
     return super.eIsSet(featureID);
   }

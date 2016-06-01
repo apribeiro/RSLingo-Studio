@@ -2,12 +2,8 @@
  */
 package rslingo.rslil.rSLIL.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -15,13 +11,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.RefTermType;
-import rslingo.rslil.rSLIL.TermRelation;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,8 +29,8 @@ import rslingo.rslil.rSLIL.TermRelation;
  *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getAcronym <em>Acronym</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getPos <em>Pos</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getSynset <em>Synset</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getTermRelation <em>Term Relation</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getSynonym <em>Synonym</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.GlossaryTermImpl#getHypernym <em>Hypernym</em>}</li>
  * </ul>
  *
  * @generated
@@ -156,34 +148,44 @@ public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements Gl
   protected String pos = POS_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getSynset() <em>Synset</em>}' attribute.
+   * The default value of the '{@link #getSynonym() <em>Synonym</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSynset()
+   * @see #getSynonym()
    * @generated
    * @ordered
    */
-  protected static final String SYNSET_EDEFAULT = null;
+  protected static final String SYNONYM_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getSynset() <em>Synset</em>}' attribute.
+   * The cached value of the '{@link #getSynonym() <em>Synonym</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSynset()
+   * @see #getSynonym()
    * @generated
    * @ordered
    */
-  protected String synset = SYNSET_EDEFAULT;
+  protected String synonym = SYNONYM_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getTermRelation() <em>Term Relation</em>}' containment reference list.
+   * The default value of the '{@link #getHypernym() <em>Hypernym</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTermRelation()
+   * @see #getHypernym()
    * @generated
    * @ordered
    */
-  protected EList<TermRelation> termRelation;
+  protected static final String HYPERNYM_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getHypernym() <em>Hypernym</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getHypernym()
+   * @generated
+   * @ordered
+   */
+  protected String hypernym = HYPERNYM_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -374,9 +376,9 @@ public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements Gl
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getSynset()
+  public String getSynonym()
   {
-    return synset;
+    return synonym;
   }
 
   /**
@@ -384,12 +386,12 @@ public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements Gl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSynset(String newSynset)
+  public void setSynonym(String newSynonym)
   {
-    String oldSynset = synset;
-    synset = newSynset;
+    String oldSynonym = synonym;
+    synonym = newSynonym;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY_TERM__SYNSET, oldSynset, synset));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY_TERM__SYNONYM, oldSynonym, synonym));
   }
 
   /**
@@ -397,13 +399,22 @@ public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements Gl
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<TermRelation> getTermRelation()
+  public String getHypernym()
   {
-    if (termRelation == null)
-    {
-      termRelation = new EObjectContainmentEList<TermRelation>(TermRelation.class, this, RSLILPackage.GLOSSARY_TERM__TERM_RELATION);
-    }
-    return termRelation;
+    return hypernym;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setHypernym(String newHypernym)
+  {
+    String oldHypernym = hypernym;
+    hypernym = newHypernym;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.GLOSSARY_TERM__HYPERNYM, oldHypernym, hypernym));
   }
 
   /**
@@ -418,8 +429,6 @@ public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements Gl
     {
       case RSLILPackage.GLOSSARY_TERM__TYPE:
         return basicSetType(null, msgs);
-      case RSLILPackage.GLOSSARY_TERM__TERM_RELATION:
-        return ((InternalEList<?>)getTermRelation()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -446,10 +455,10 @@ public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements Gl
         return getAcronym();
       case RSLILPackage.GLOSSARY_TERM__POS:
         return getPos();
-      case RSLILPackage.GLOSSARY_TERM__SYNSET:
-        return getSynset();
-      case RSLILPackage.GLOSSARY_TERM__TERM_RELATION:
-        return getTermRelation();
+      case RSLILPackage.GLOSSARY_TERM__SYNONYM:
+        return getSynonym();
+      case RSLILPackage.GLOSSARY_TERM__HYPERNYM:
+        return getHypernym();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -459,7 +468,6 @@ public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements Gl
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -483,12 +491,11 @@ public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements Gl
       case RSLILPackage.GLOSSARY_TERM__POS:
         setPos((String)newValue);
         return;
-      case RSLILPackage.GLOSSARY_TERM__SYNSET:
-        setSynset((String)newValue);
+      case RSLILPackage.GLOSSARY_TERM__SYNONYM:
+        setSynonym((String)newValue);
         return;
-      case RSLILPackage.GLOSSARY_TERM__TERM_RELATION:
-        getTermRelation().clear();
-        getTermRelation().addAll((Collection<? extends TermRelation>)newValue);
+      case RSLILPackage.GLOSSARY_TERM__HYPERNYM:
+        setHypernym((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -522,11 +529,11 @@ public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements Gl
       case RSLILPackage.GLOSSARY_TERM__POS:
         setPos(POS_EDEFAULT);
         return;
-      case RSLILPackage.GLOSSARY_TERM__SYNSET:
-        setSynset(SYNSET_EDEFAULT);
+      case RSLILPackage.GLOSSARY_TERM__SYNONYM:
+        setSynonym(SYNONYM_EDEFAULT);
         return;
-      case RSLILPackage.GLOSSARY_TERM__TERM_RELATION:
-        getTermRelation().clear();
+      case RSLILPackage.GLOSSARY_TERM__HYPERNYM:
+        setHypernym(HYPERNYM_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -554,10 +561,10 @@ public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements Gl
         return ACRONYM_EDEFAULT == null ? acronym != null : !ACRONYM_EDEFAULT.equals(acronym);
       case RSLILPackage.GLOSSARY_TERM__POS:
         return POS_EDEFAULT == null ? pos != null : !POS_EDEFAULT.equals(pos);
-      case RSLILPackage.GLOSSARY_TERM__SYNSET:
-        return SYNSET_EDEFAULT == null ? synset != null : !SYNSET_EDEFAULT.equals(synset);
-      case RSLILPackage.GLOSSARY_TERM__TERM_RELATION:
-        return termRelation != null && !termRelation.isEmpty();
+      case RSLILPackage.GLOSSARY_TERM__SYNONYM:
+        return SYNONYM_EDEFAULT == null ? synonym != null : !SYNONYM_EDEFAULT.equals(synonym);
+      case RSLILPackage.GLOSSARY_TERM__HYPERNYM:
+        return HYPERNYM_EDEFAULT == null ? hypernym != null : !HYPERNYM_EDEFAULT.equals(hypernym);
     }
     return super.eIsSet(featureID);
   }
@@ -583,8 +590,10 @@ public class GlossaryTermImpl extends MinimalEObjectImpl.Container implements Gl
     result.append(acronym);
     result.append(", pos: ");
     result.append(pos);
-    result.append(", synset: ");
-    result.append(synset);
+    result.append(", synonym: ");
+    result.append(synonym);
+    result.append(", hypernym: ");
+    result.append(hypernym);
     result.append(')');
     return result.toString();
   }

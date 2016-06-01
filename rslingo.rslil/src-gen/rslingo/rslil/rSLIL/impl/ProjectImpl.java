@@ -15,8 +15,8 @@ import rslingo.rslil.rSLIL.ActualSchedule;
 import rslingo.rslil.rSLIL.Organizations;
 import rslingo.rslil.rSLIL.PlannedSchedule;
 import rslingo.rslil.rSLIL.Project;
+import rslingo.rslil.rSLIL.ProjectProgress;
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.Status;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +33,7 @@ import rslingo.rslil.rSLIL.Status;
  *   <li>{@link rslingo.rslil.rSLIL.impl.ProjectImpl#getPlanned <em>Planned</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ProjectImpl#getActual <em>Actual</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ProjectImpl#getOrganizations <em>Organizations</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ProjectImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.ProjectImpl#getProgress <em>Progress</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ProjectImpl#getSummary <em>Summary</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ProjectImpl#getDescription <em>Description</em>}</li>
  * </ul>
@@ -153,14 +153,14 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
   protected Organizations organizations;
 
   /**
-   * The cached value of the '{@link #getStatus() <em>Status</em>}' containment reference.
+   * The cached value of the '{@link #getProgress() <em>Progress</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStatus()
+   * @see #getProgress()
    * @generated
    * @ordered
    */
-  protected Status status;
+  protected ProjectProgress progress;
 
   /**
    * The default value of the '{@link #getSummary() <em>Summary</em>}' attribute.
@@ -464,9 +464,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
    * <!-- end-user-doc -->
    * @generated
    */
-  public Status getStatus()
+  public ProjectProgress getProgress()
   {
-    return status;
+    return progress;
   }
 
   /**
@@ -474,13 +474,13 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetStatus(Status newStatus, NotificationChain msgs)
+  public NotificationChain basicSetProgress(ProjectProgress newProgress, NotificationChain msgs)
   {
-    Status oldStatus = status;
-    status = newStatus;
+    ProjectProgress oldProgress = progress;
+    progress = newProgress;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.PROJECT__STATUS, oldStatus, newStatus);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RSLILPackage.PROJECT__PROGRESS, oldProgress, newProgress);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -491,20 +491,20 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setStatus(Status newStatus)
+  public void setProgress(ProjectProgress newProgress)
   {
-    if (newStatus != status)
+    if (newProgress != progress)
     {
       NotificationChain msgs = null;
-      if (status != null)
-        msgs = ((InternalEObject)status).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.PROJECT__STATUS, null, msgs);
-      if (newStatus != null)
-        msgs = ((InternalEObject)newStatus).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.PROJECT__STATUS, null, msgs);
-      msgs = basicSetStatus(newStatus, msgs);
+      if (progress != null)
+        msgs = ((InternalEObject)progress).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.PROJECT__PROGRESS, null, msgs);
+      if (newProgress != null)
+        msgs = ((InternalEObject)newProgress).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RSLILPackage.PROJECT__PROGRESS, null, msgs);
+      msgs = basicSetProgress(newProgress, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.PROJECT__STATUS, newStatus, newStatus));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.PROJECT__PROGRESS, newProgress, newProgress));
   }
 
   /**
@@ -569,8 +569,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
         return basicSetActual(null, msgs);
       case RSLILPackage.PROJECT__ORGANIZATIONS:
         return basicSetOrganizations(null, msgs);
-      case RSLILPackage.PROJECT__STATUS:
-        return basicSetStatus(null, msgs);
+      case RSLILPackage.PROJECT__PROGRESS:
+        return basicSetProgress(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -599,8 +599,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
         return getActual();
       case RSLILPackage.PROJECT__ORGANIZATIONS:
         return getOrganizations();
-      case RSLILPackage.PROJECT__STATUS:
-        return getStatus();
+      case RSLILPackage.PROJECT__PROGRESS:
+        return getProgress();
       case RSLILPackage.PROJECT__SUMMARY:
         return getSummary();
       case RSLILPackage.PROJECT__DESCRIPTION:
@@ -640,8 +640,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
       case RSLILPackage.PROJECT__ORGANIZATIONS:
         setOrganizations((Organizations)newValue);
         return;
-      case RSLILPackage.PROJECT__STATUS:
-        setStatus((Status)newValue);
+      case RSLILPackage.PROJECT__PROGRESS:
+        setProgress((ProjectProgress)newValue);
         return;
       case RSLILPackage.PROJECT__SUMMARY:
         setSummary((String)newValue);
@@ -684,8 +684,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
       case RSLILPackage.PROJECT__ORGANIZATIONS:
         setOrganizations((Organizations)null);
         return;
-      case RSLILPackage.PROJECT__STATUS:
-        setStatus((Status)null);
+      case RSLILPackage.PROJECT__PROGRESS:
+        setProgress((ProjectProgress)null);
         return;
       case RSLILPackage.PROJECT__SUMMARY:
         setSummary(SUMMARY_EDEFAULT);
@@ -721,8 +721,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
         return actual != null;
       case RSLILPackage.PROJECT__ORGANIZATIONS:
         return organizations != null;
-      case RSLILPackage.PROJECT__STATUS:
-        return status != null;
+      case RSLILPackage.PROJECT__PROGRESS:
+        return progress != null;
       case RSLILPackage.PROJECT__SUMMARY:
         return SUMMARY_EDEFAULT == null ? summary != null : !SUMMARY_EDEFAULT.equals(summary);
       case RSLILPackage.PROJECT__DESCRIPTION:

@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
 
 /**
@@ -24,7 +23,8 @@ import rslingo.rslil.rSLIL.RSLILPackage;
  *   <li>{@link rslingo.rslil.rSLIL.impl.SystemImpl#getName <em>Name</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.SystemImpl#getNameAlias <em>Name Alias</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.SystemImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.SystemImpl#getProject <em>Project</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.SystemImpl#getType <em>Type</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.SystemImpl#getScope <em>Scope</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.SystemImpl#getPartOf <em>Part Of</em>}</li>
  * </ul>
  *
@@ -93,14 +93,44 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
   protected String description = DESCRIPTION_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getProject() <em>Project</em>}' reference.
+   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProject()
+   * @see #getType()
    * @generated
    * @ordered
    */
-  protected Project project;
+  protected static final String TYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected String type = TYPE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getScope() <em>Scope</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getScope()
+   * @generated
+   * @ordered
+   */
+  protected static final String SCOPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getScope() <em>Scope</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getScope()
+   * @generated
+   * @ordered
+   */
+  protected String scope = SCOPE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getPartOf() <em>Part Of</em>}' reference.
@@ -207,19 +237,9 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
    * <!-- end-user-doc -->
    * @generated
    */
-  public Project getProject()
+  public String getType()
   {
-    if (project != null && project.eIsProxy())
-    {
-      InternalEObject oldProject = (InternalEObject)project;
-      project = (Project)eResolveProxy(oldProject);
-      if (project != oldProject)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, RSLILPackage.SYSTEM__PROJECT, oldProject, project));
-      }
-    }
-    return project;
+    return type;
   }
 
   /**
@@ -227,22 +247,35 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
    * <!-- end-user-doc -->
    * @generated
    */
-  public Project basicGetProject()
+  public void setType(String newType)
   {
-    return project;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setProject(Project newProject)
-  {
-    Project oldProject = project;
-    project = newProject;
+    String oldType = type;
+    type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.SYSTEM__PROJECT, oldProject, project));
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.SYSTEM__TYPE, oldType, type));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getScope()
+  {
+    return scope;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setScope(String newScope)
+  {
+    String oldScope = scope;
+    scope = newScope;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, RSLILPackage.SYSTEM__SCOPE, oldScope, scope));
   }
 
   /**
@@ -304,9 +337,10 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
         return getNameAlias();
       case RSLILPackage.SYSTEM__DESCRIPTION:
         return getDescription();
-      case RSLILPackage.SYSTEM__PROJECT:
-        if (resolve) return getProject();
-        return basicGetProject();
+      case RSLILPackage.SYSTEM__TYPE:
+        return getType();
+      case RSLILPackage.SYSTEM__SCOPE:
+        return getScope();
       case RSLILPackage.SYSTEM__PART_OF:
         if (resolve) return getPartOf();
         return basicGetPartOf();
@@ -333,8 +367,11 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
       case RSLILPackage.SYSTEM__DESCRIPTION:
         setDescription((String)newValue);
         return;
-      case RSLILPackage.SYSTEM__PROJECT:
-        setProject((Project)newValue);
+      case RSLILPackage.SYSTEM__TYPE:
+        setType((String)newValue);
+        return;
+      case RSLILPackage.SYSTEM__SCOPE:
+        setScope((String)newValue);
         return;
       case RSLILPackage.SYSTEM__PART_OF:
         setPartOf((rslingo.rslil.rSLIL.System)newValue);
@@ -362,8 +399,11 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
       case RSLILPackage.SYSTEM__DESCRIPTION:
         setDescription(DESCRIPTION_EDEFAULT);
         return;
-      case RSLILPackage.SYSTEM__PROJECT:
-        setProject((Project)null);
+      case RSLILPackage.SYSTEM__TYPE:
+        setType(TYPE_EDEFAULT);
+        return;
+      case RSLILPackage.SYSTEM__SCOPE:
+        setScope(SCOPE_EDEFAULT);
         return;
       case RSLILPackage.SYSTEM__PART_OF:
         setPartOf((rslingo.rslil.rSLIL.System)null);
@@ -388,8 +428,10 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
         return NAME_ALIAS_EDEFAULT == null ? nameAlias != null : !NAME_ALIAS_EDEFAULT.equals(nameAlias);
       case RSLILPackage.SYSTEM__DESCRIPTION:
         return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-      case RSLILPackage.SYSTEM__PROJECT:
-        return project != null;
+      case RSLILPackage.SYSTEM__TYPE:
+        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+      case RSLILPackage.SYSTEM__SCOPE:
+        return SCOPE_EDEFAULT == null ? scope != null : !SCOPE_EDEFAULT.equals(scope);
       case RSLILPackage.SYSTEM__PART_OF:
         return partOf != null;
     }
@@ -413,6 +455,10 @@ public class SystemImpl extends MinimalEObjectImpl.Container implements rslingo.
     result.append(nameAlias);
     result.append(", description: ");
     result.append(description);
+    result.append(", type: ");
+    result.append(type);
+    result.append(", scope: ");
+    result.append(scope);
     result.append(')');
     return result.toString();
   }

@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.Stakeholder#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Stakeholder#getType <em>Type</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Stakeholder#getCategory <em>Category</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Stakeholder#getIsA <em>Is A</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Stakeholder#getPartOf <em>Part Of</em>}</li>
  * </ul>
  *
@@ -156,6 +157,32 @@ public interface Stakeholder extends EObject
    * @generated
    */
   void setCategory(String value);
+
+  /**
+   * Returns the value of the '<em><b>Is A</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Is A</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Is A</em>' reference.
+   * @see #setIsA(Stakeholder)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getStakeholder_IsA()
+   * @model
+   * @generated
+   */
+  Stakeholder getIsA();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Stakeholder#getIsA <em>Is A</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Is A</em>' reference.
+   * @see #getIsA()
+   * @generated
+   */
+  void setIsA(Stakeholder value);
 
   /**
    * Returns the value of the '<em><b>Part Of</b></em>' reference.

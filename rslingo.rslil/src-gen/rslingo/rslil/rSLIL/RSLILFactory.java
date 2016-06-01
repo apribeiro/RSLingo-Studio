@@ -113,13 +113,13 @@ public interface RSLILFactory extends EFactory
   Organizations createOrganizations();
 
   /**
-   * Returns a new object of class '<em>Status</em>'.
+   * Returns a new object of class '<em>Project Progress</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Status</em>'.
+   * @return a new object of class '<em>Project Progress</em>'.
    * @generated
    */
-  Status createStatus();
+  ProjectProgress createProjectProgress();
 
   /**
    * Returns a new object of class '<em>System</em>'.
@@ -129,6 +129,15 @@ public interface RSLILFactory extends EFactory
    * @generated
    */
   System createSystem();
+
+  /**
+   * Returns a new object of class '<em>System Relation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>System Relation</em>'.
+   * @generated
+   */
+  SystemRelation createSystemRelation();
 
   /**
    * Returns a new object of class '<em>Glossary Term</em>'.
@@ -158,24 +167,6 @@ public interface RSLILFactory extends EFactory
   TermType createTermType();
 
   /**
-   * Returns a new object of class '<em>Term Relation</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Term Relation</em>'.
-   * @generated
-   */
-  TermRelation createTermRelation();
-
-  /**
-   * Returns a new object of class '<em>Ref Term</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Ref Term</em>'.
-   * @generated
-   */
-  RefTerm createRefTerm();
-
-  /**
    * Returns a new object of class '<em>Stakeholder</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -194,6 +185,15 @@ public interface RSLILFactory extends EFactory
   Goal createGoal();
 
   /**
+   * Returns a new object of class '<em>Goal Relation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Goal Relation</em>'.
+   * @generated
+   */
+  GoalRelation createGoalRelation();
+
+  /**
    * Returns a new object of class '<em>Priority</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -201,24 +201,6 @@ public interface RSLILFactory extends EFactory
    * @generated
    */
   Priority createPriority();
-
-  /**
-   * Returns a new object of class '<em>Depends On Goal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Depends On Goal</em>'.
-   * @generated
-   */
-  DependsOnGoal createDependsOnGoal();
-
-  /**
-   * Returns a new object of class '<em>Composed By</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Composed By</em>'.
-   * @generated
-   */
-  ComposedBy createComposedBy();
 
   /**
    * Returns a new object of class '<em>Ref Goal</em>'.
@@ -392,15 +374,6 @@ public interface RSLILFactory extends EFactory
   FR createFR();
 
   /**
-   * Returns a new object of class '<em>Depends On FR</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Depends On FR</em>'.
-   * @generated
-   */
-  DependsOnFR createDependsOnFR();
-
-  /**
    * Returns a new object of class '<em>QR</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -408,24 +381,6 @@ public interface RSLILFactory extends EFactory
    * @generated
    */
   QR createQR();
-
-  /**
-   * Returns a new object of class '<em>Depends On QR</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Depends On QR</em>'.
-   * @generated
-   */
-  DependsOnQR createDependsOnQR();
-
-  /**
-   * Returns a new object of class '<em>Ref QR</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Ref QR</em>'.
-   * @generated
-   */
-  RefQR createRefQR();
 
   /**
    * Returns a new object of class '<em>Constraint</em>'.
@@ -437,22 +392,22 @@ public interface RSLILFactory extends EFactory
   Constraint createConstraint();
 
   /**
-   * Returns a new object of class '<em>Depends On Constraint</em>'.
+   * Returns a new object of class '<em>Requirement</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Depends On Constraint</em>'.
+   * @return a new object of class '<em>Requirement</em>'.
    * @generated
    */
-  DependsOnConstraint createDependsOnConstraint();
+  Requirement createRequirement();
 
   /**
-   * Returns a new object of class '<em>Ref Constraint</em>'.
+   * Returns a new object of class '<em>Requirement Relation</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Ref Constraint</em>'.
+   * @return a new object of class '<em>Requirement Relation</em>'.
    * @generated
    */
-  RefConstraint createRefConstraint();
+  RequirementRelation createRequirementRelation();
 
   /**
    * Returns the package supported by this factory.

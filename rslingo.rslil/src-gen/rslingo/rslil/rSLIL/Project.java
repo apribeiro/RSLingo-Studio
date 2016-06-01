@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.Project#getPlanned <em>Planned</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Project#getActual <em>Actual</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Project#getOrganizations <em>Organizations</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Project#getStatus <em>Status</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Project#getProgress <em>Progress</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Project#getSummary <em>Summary</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Project#getDescription <em>Description</em>}</li>
  * </ul>
@@ -214,30 +214,30 @@ public interface Project extends EObject
   void setOrganizations(Organizations value);
 
   /**
-   * Returns the value of the '<em><b>Status</b></em>' containment reference.
+   * Returns the value of the '<em><b>Progress</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Status</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Progress</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Status</em>' containment reference.
-   * @see #setStatus(Status)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getProject_Status()
+   * @return the value of the '<em>Progress</em>' containment reference.
+   * @see #setProgress(ProjectProgress)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getProject_Progress()
    * @model containment="true"
    * @generated
    */
-  Status getStatus();
+  ProjectProgress getProgress();
 
   /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Project#getStatus <em>Status</em>}' containment reference.
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Project#getProgress <em>Progress</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Status</em>' containment reference.
-   * @see #getStatus()
+   * @param value the new value of the '<em>Progress</em>' containment reference.
+   * @see #getProgress()
    * @generated
    */
-  void setStatus(Status value);
+  void setProgress(ProjectProgress value);
 
   /**
    * Returns the value of the '<em><b>Summary</b></em>' attribute.

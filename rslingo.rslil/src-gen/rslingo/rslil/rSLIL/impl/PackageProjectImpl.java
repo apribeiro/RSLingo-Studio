@@ -19,11 +19,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
+import rslingo.rslil.rSLIL.GoalRelation;
 import rslingo.rslil.rSLIL.PackageProject;
 import rslingo.rslil.rSLIL.PackageSystem;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
 import rslingo.rslil.rSLIL.Stakeholder;
+import rslingo.rslil.rSLIL.SystemRelation;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +39,9 @@ import rslingo.rslil.rSLIL.Stakeholder;
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getGlossaryTerms <em>Glossary Terms</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getStakeholders <em>Stakeholders</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getGoals <em>Goals</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getGoalRelations <em>Goal Relations</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getPackageSystems <em>Package Systems</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getSystemRelations <em>System Relations</em>}</li>
  * </ul>
  *
  * @generated
@@ -85,6 +89,16 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
   protected EList<Goal> goals;
 
   /**
+   * The cached value of the '{@link #getGoalRelations() <em>Goal Relations</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGoalRelations()
+   * @generated
+   * @ordered
+   */
+  protected EList<GoalRelation> goalRelations;
+
+  /**
    * The cached value of the '{@link #getPackageSystems() <em>Package Systems</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -93,6 +107,16 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
    * @ordered
    */
   protected EList<PackageSystem> packageSystems;
+
+  /**
+   * The cached value of the '{@link #getSystemRelations() <em>System Relations</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSystemRelations()
+   * @generated
+   * @ordered
+   */
+  protected EList<SystemRelation> systemRelations;
 
   /**
    * <!-- begin-user-doc -->
@@ -210,6 +234,20 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<GoalRelation> getGoalRelations()
+  {
+    if (goalRelations == null)
+    {
+      goalRelations = new EObjectContainmentEList<GoalRelation>(GoalRelation.class, this, RSLILPackage.PACKAGE_PROJECT__GOAL_RELATIONS);
+    }
+    return goalRelations;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<PackageSystem> getPackageSystems()
   {
     if (packageSystems == null)
@@ -217,6 +255,20 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
       packageSystems = new EObjectContainmentEList<PackageSystem>(PackageSystem.class, this, RSLILPackage.PACKAGE_PROJECT__PACKAGE_SYSTEMS);
     }
     return packageSystems;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<SystemRelation> getSystemRelations()
+  {
+    if (systemRelations == null)
+    {
+      systemRelations = new EObjectContainmentEList<SystemRelation>(SystemRelation.class, this, RSLILPackage.PACKAGE_PROJECT__SYSTEM_RELATIONS);
+    }
+    return systemRelations;
   }
 
   /**
@@ -237,8 +289,12 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
         return ((InternalEList<?>)getStakeholders()).basicRemove(otherEnd, msgs);
       case RSLILPackage.PACKAGE_PROJECT__GOALS:
         return ((InternalEList<?>)getGoals()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.PACKAGE_PROJECT__GOAL_RELATIONS:
+        return ((InternalEList<?>)getGoalRelations()).basicRemove(otherEnd, msgs);
       case RSLILPackage.PACKAGE_PROJECT__PACKAGE_SYSTEMS:
         return ((InternalEList<?>)getPackageSystems()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.PACKAGE_PROJECT__SYSTEM_RELATIONS:
+        return ((InternalEList<?>)getSystemRelations()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -261,8 +317,12 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
         return getStakeholders();
       case RSLILPackage.PACKAGE_PROJECT__GOALS:
         return getGoals();
+      case RSLILPackage.PACKAGE_PROJECT__GOAL_RELATIONS:
+        return getGoalRelations();
       case RSLILPackage.PACKAGE_PROJECT__PACKAGE_SYSTEMS:
         return getPackageSystems();
+      case RSLILPackage.PACKAGE_PROJECT__SYSTEM_RELATIONS:
+        return getSystemRelations();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -293,9 +353,17 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
         getGoals().clear();
         getGoals().addAll((Collection<? extends Goal>)newValue);
         return;
+      case RSLILPackage.PACKAGE_PROJECT__GOAL_RELATIONS:
+        getGoalRelations().clear();
+        getGoalRelations().addAll((Collection<? extends GoalRelation>)newValue);
+        return;
       case RSLILPackage.PACKAGE_PROJECT__PACKAGE_SYSTEMS:
         getPackageSystems().clear();
         getPackageSystems().addAll((Collection<? extends PackageSystem>)newValue);
+        return;
+      case RSLILPackage.PACKAGE_PROJECT__SYSTEM_RELATIONS:
+        getSystemRelations().clear();
+        getSystemRelations().addAll((Collection<? extends SystemRelation>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -323,8 +391,14 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
       case RSLILPackage.PACKAGE_PROJECT__GOALS:
         getGoals().clear();
         return;
+      case RSLILPackage.PACKAGE_PROJECT__GOAL_RELATIONS:
+        getGoalRelations().clear();
+        return;
       case RSLILPackage.PACKAGE_PROJECT__PACKAGE_SYSTEMS:
         getPackageSystems().clear();
+        return;
+      case RSLILPackage.PACKAGE_PROJECT__SYSTEM_RELATIONS:
+        getSystemRelations().clear();
         return;
     }
     super.eUnset(featureID);
@@ -348,8 +422,12 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
         return stakeholders != null && !stakeholders.isEmpty();
       case RSLILPackage.PACKAGE_PROJECT__GOALS:
         return goals != null && !goals.isEmpty();
+      case RSLILPackage.PACKAGE_PROJECT__GOAL_RELATIONS:
+        return goalRelations != null && !goalRelations.isEmpty();
       case RSLILPackage.PACKAGE_PROJECT__PACKAGE_SYSTEMS:
         return packageSystems != null && !packageSystems.isEmpty();
+      case RSLILPackage.PACKAGE_PROJECT__SYSTEM_RELATIONS:
+        return systemRelations != null && !systemRelations.isEmpty();
     }
     return super.eIsSet(featureID);
   }

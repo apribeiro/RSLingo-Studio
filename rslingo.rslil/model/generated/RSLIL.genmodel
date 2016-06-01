@@ -16,7 +16,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/glossaryTerms"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/stakeholders"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/goals"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/goalRelations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/packageSystems"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/systemRelations"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//PackageSystem">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/system"/>
@@ -26,6 +28,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/frs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/qrs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/constraints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/requirementRelations"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//Import">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Import/importedNamespace"/>
@@ -38,7 +41,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Project/planned"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Project/actual"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Project/organizations"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Project/status"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Project/progress"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Project/summary"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Project/description"/>
     </genClasses>
@@ -63,15 +66,24 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Organizations/supplier"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Organizations/partners"/>
     </genClasses>
-    <genClasses ecoreClass="RSLIL.ecore#//Status">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Status/value"/>
+    <genClasses ecoreClass="RSLIL.ecore#//ProjectProgress">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//ProjectProgress/value"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//System">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//System/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//System/nameAlias"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//System/description"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//System/project"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//System/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//System/scope"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//System/partOf"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//SystemRelation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//SystemRelation/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//SystemRelation/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//SystemRelation/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//SystemRelation/category"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//SystemRelation/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//SystemRelation/description"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//GlossaryTerm">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//GlossaryTerm/name"/>
@@ -80,8 +92,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//GlossaryTerm/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//GlossaryTerm/acronym"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//GlossaryTerm/pos"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//GlossaryTerm/synset"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//GlossaryTerm/termRelation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//GlossaryTerm/synonym"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//GlossaryTerm/hypernym"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//RefTermType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefTermType/refType"/>
@@ -90,20 +102,13 @@
     <genClasses ecoreClass="RSLIL.ecore#//TermType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//TermType/type"/>
     </genClasses>
-    <genClasses ecoreClass="RSLIL.ecore#//TermRelation">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//TermRelation/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//TermRelation/refTerm"/>
-    </genClasses>
-    <genClasses ecoreClass="RSLIL.ecore#//RefTerm">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//RefTerm/refTerm"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//RefTerm/refs"/>
-    </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//Stakeholder">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Stakeholder/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Stakeholder/nameAlias"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Stakeholder/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Stakeholder/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Stakeholder/category"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Stakeholder/isA"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Stakeholder/partOf"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//Goal">
@@ -112,19 +117,19 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Goal/description"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Goal/stakeholder"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Goal/priority"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Goal/dependsOn"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Goal/composedBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Goal/progress"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Goal/partOfAnd"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Goal/partOfOr"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//GoalRelation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//GoalRelation/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//GoalRelation/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//GoalRelation/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//GoalRelation/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//GoalRelation/description"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//Priority">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Priority/value"/>
-    </genClasses>
-    <genClasses ecoreClass="RSLIL.ecore#//DependsOnGoal">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//DependsOnGoal/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//DependsOnGoal/refGoal"/>
-    </genClasses>
-    <genClasses ecoreClass="RSLIL.ecore#//ComposedBy">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//ComposedBy/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//ComposedBy/refGoal"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//RefGoal">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefGoal/refGoal"/>
@@ -241,57 +246,32 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Step/next"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//FR">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//FR/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//FR/nameAlias"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//FR/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//FR/type"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//FR/stakeholder"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//FR/priority"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//FR/depends"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//FR/partOf"/>
     </genClasses>
-    <genClasses ecoreClass="RSLIL.ecore#//DependsOnFR">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//DependsOnFR/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//DependsOnFR/refFR"/>
-    </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//QR">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//QR/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//QR/nameAlias"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//QR/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//QR/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//QR/subType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//QR/metric"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//QR/value"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//QR/stakeholder"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//QR/priority"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//QR/depends"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//QR/partOf"/>
     </genClasses>
-    <genClasses ecoreClass="RSLIL.ecore#//DependsOnQR">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//DependsOnQR/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//DependsOnQR/refQR"/>
-    </genClasses>
-    <genClasses ecoreClass="RSLIL.ecore#//RefQR">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefQR/refQR"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefQR/refs"/>
-    </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//Constraint">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Constraint/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Constraint/nameAlias"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Constraint/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Constraint/type"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Constraint/stakeholder"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Constraint/priority"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Constraint/depends"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Constraint/partOf"/>
     </genClasses>
-    <genClasses ecoreClass="RSLIL.ecore#//DependsOnConstraint">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//DependsOnConstraint/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//DependsOnConstraint/refConst"/>
+    <genClasses ecoreClass="RSLIL.ecore#//Requirement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Requirement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Requirement/nameAlias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Requirement/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Requirement/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Requirement/stakeholder"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Requirement/priority"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Requirement/progress"/>
     </genClasses>
-    <genClasses ecoreClass="RSLIL.ecore#//RefConstraint">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefConstraint/refConst"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RefConstraint/refs"/>
+    <genClasses ecoreClass="RSLIL.ecore#//RequirementRelation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//RequirementRelation/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RequirementRelation/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference RSLIL.ecore#//RequirementRelation/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//RequirementRelation/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//RequirementRelation/description"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
