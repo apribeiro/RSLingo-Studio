@@ -54,7 +54,7 @@ Project:
 		(planned=PlannedSchedule)?
 		(actual=ActualSchedule)?
 		(organizations=Organizations)?
-		('Status' status=Status)?
+		('ProjectProgress' progress=ProjectProgress)?
 		'Summary' summary=STRING
 		'Description' description=STRING
 	'}';
@@ -84,7 +84,7 @@ Organizations:
 		'Partners' partners=STRING 
 	'}';
 
-Status:
+ProjectProgress:
 	value=('Not-Plan'|'Plan'|'On-Design'|'On-Develop'|'On-Test'|'On-Deploy'|'Concluded');
 
 System:
@@ -146,7 +146,7 @@ Goal:
 		('Description' description=STRING)?
 		'Stakeholder' stakeholder=[Stakeholder]
 		'Priority' priority=Priority
-		('Progress' progress=Status)?
+		('ProjectProgress' progress=ProjectProgress)?
 		('PartOf-And' partOfAnd=[Goal])?
 		('PartOf-Or' partOfOr=[Goal])?
 	'}';
@@ -282,7 +282,7 @@ FR:
 		'Priority' priority=Priority
 //		depends+=DependsOnFR*
 		('PartOf' partOf=[FR])?
-		('Progress' progress=Status)?
+		('ProjectProgress' progress=ProjectProgress)?
 	'}';
 
 //DependsOnFR:
@@ -300,7 +300,7 @@ QR:
 		'Priority' priority=Priority
 //		depends+=DependsOnQR*
 		('PartOf' partOf=[QR])?
-		('Progress' progress=Status)?
+		('ProjectProgress' progress=ProjectProgress)?
 	'}';
 
 //DependsOnQR:
@@ -318,7 +318,7 @@ Constraint:
 		'Priority' priority=Priority
 //		depends+=DependsOnConstraint*
 		('PartOf' partOf=[Constraint])?
-		('Progress' progress=Status)?
+		('ProjectProgress' progress=ProjectProgress)?
 	'}';
 
 //DependsOnConstraint:
