@@ -17,9 +17,6 @@ import rslingo.rslil.rSLIL.Stakeholder
 import rslingo.rslil.rSLIL.System
 import rslingo.rslil.rSLIL.UseCase
 import rslingo.rslil.rSLIL.RefEntity
-import rslingo.rslil.rSLIL.TermRelation
-import rslingo.rslil.rSLIL.ComposedBy
-import rslingo.rslil.rSLIL.DependsOnGoal
 import rslingo.rslil.rSLIL.Attribute
 import rslingo.rslil.rSLIL.PrimaryKey
 import rslingo.rslil.rSLIL.ForeignKey
@@ -30,9 +27,6 @@ import rslingo.rslil.rSLIL.RefActor
 import rslingo.rslil.rSLIL.Scenario
 import rslingo.rslil.rSLIL.RefUC
 import rslingo.rslil.rSLIL.Step
-import rslingo.rslil.rSLIL.DependsOnFR
-import rslingo.rslil.rSLIL.DependsOnQR
-import rslingo.rslil.rSLIL.DependsOnConstraint
 import rslingo.rslil.rSLIL.RefTermType
 
 /**
@@ -82,8 +76,23 @@ class RSLIL2TextGenerator implements IGenerator {
 	
 	def compile(Project p)
 	'''
-	«p.name».«p.nameAlias»:
-	«p.description»
+	Project «p.name» («p.nameAlias»):
+	Application Domain: «p.domain»
+	Type: «p.type»
+	«IF p.planned != null»
+	Planned Schedule: «p.planned.start.year»-«p.planned.start.month»-«p.planned.start.day»/«p.planned.end.year»-«p.planned.end.month»-«p.planned.end.day»
+	«ENDIF»
+	«IF p.actual != null»
+	Actual Schedule: «p.actual.start.year»-«p.actual.start.month»-«p.actual.start.day»/«p.actual.end.year»-«p.actual.end.month»-«p.actual.end.day»
+	«ENDIF»
+	«IF p.organizations != null»
+	Organizations: «p.organizations.customer», «p.organizations.supplier», «p.organizations.partners»
+	«ENDIF»
+	«IF p.progress != null»
+	Project Progress: «p.progress.value»
+	«ENDIF»
+	Summary: «p.summary»
+	Description: «p.description»
 	'''
 	
 	def compile(PackageSystem p)
@@ -125,27 +134,23 @@ class RSLIL2TextGenerator implements IGenerator {
 	'''
 	«s.name» («s.nameAlias»):
 	«s.description»
-	Project: «s.project.name»
+	Type: «s.type»
+	Scope: «s.scope»
 	«IF s.partOf != null»Part Of: «s.partOf.name»«ENDIF»
 	'''
 	
 	def compile(GlossaryTerm g)
 	'''
 	«g.name».«g.nameAlias» («g.type.compile»):
-	«g.description»,
-	«IF g.acronym != null»Acronym: «g.acronym»,«ENDIF»
-	«IF g.pos != null»POS: «g.pos»,«ENDIF»
-	«IF g.synset != null»Synset: «g.synset»,«ENDIF»
-	«IF !g.termRelation.empty»Term Relations: «FOR t:g.termRelation SEPARATOR ',\n'»«t.compile»«ENDFOR»«ENDIF»
+	Description: «g.description»
+	«IF g.acronym != null»Acronym: «g.acronym»«ENDIF»
+	«IF g.pos != null»POS: «g.pos»«ENDIF»
+	«IF g.synonym != null»Synonym: «g.synonym»«ENDIF»
+	«IF g.hypernym != null»Hypernym: «g.hypernym»«ENDIF»
 	'''
 	
 	def compile(RefTermType r)
 	'''«r.refType.type»«IF !r.refs.empty»,«FOR t:r.refs SEPARATOR ','»«t.type»«ENDFOR»«ENDIF»'''
-	
-	def compile(TermRelation t)
-	'''
-	«t.type» «t.refTerm.refTerm»«IF !t.refTerm.refs.empty»,«FOR r:t.refTerm.refs SEPARATOR ','»«r»«ENDFOR»«ENDIF»
-	'''
 	
 	def compile(Stakeholder s)
 	'''

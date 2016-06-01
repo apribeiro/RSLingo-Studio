@@ -14,9 +14,11 @@ import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import rslingo.rslil.rSLIL.Actor;
+import rslingo.rslil.rSLIL.ActualSchedule;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.Check;
 import rslingo.rslil.rSLIL.Constraint;
+import rslingo.rslil.rSLIL.Date;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.EntityType;
 import rslingo.rslil.rSLIL.ExtensionPoint;
@@ -24,12 +26,16 @@ import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.ForeignKey;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
+import rslingo.rslil.rSLIL.Month;
 import rslingo.rslil.rSLIL.Multiplicity;
+import rslingo.rslil.rSLIL.Organizations;
 import rslingo.rslil.rSLIL.PackageProject;
 import rslingo.rslil.rSLIL.PackageSystem;
+import rslingo.rslil.rSLIL.PlannedSchedule;
 import rslingo.rslil.rSLIL.PrimaryKey;
 import rslingo.rslil.rSLIL.Priority;
 import rslingo.rslil.rSLIL.Project;
+import rslingo.rslil.rSLIL.ProjectProgress;
 import rslingo.rslil.rSLIL.QR;
 import rslingo.rslil.rSLIL.RefActor;
 import rslingo.rslil.rSLIL.RefAttribute;
@@ -191,13 +197,131 @@ public class RSLIL2TextGenerator implements IGenerator {
   
   public CharSequence compile(final Project p) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("Project ");
     String _name = p.getName();
     _builder.append(_name, "");
-    _builder.append(".");
+    _builder.append(" (");
     String _nameAlias = p.getNameAlias();
     _builder.append(_nameAlias, "");
-    _builder.append(":");
+    _builder.append("):");
     _builder.newLineIfNotEmpty();
+    _builder.append("Application Domain: ");
+    String _domain = p.getDomain();
+    _builder.append(_domain, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("Type: ");
+    String _type = p.getType();
+    _builder.append(_type, "");
+    _builder.newLineIfNotEmpty();
+    {
+      PlannedSchedule _planned = p.getPlanned();
+      boolean _notEquals = (!Objects.equal(_planned, null));
+      if (_notEquals) {
+        _builder.append("Planned Schedule: ");
+        PlannedSchedule _planned_1 = p.getPlanned();
+        Date _start = _planned_1.getStart();
+        int _year = _start.getYear();
+        _builder.append(_year, "");
+        _builder.append("-");
+        PlannedSchedule _planned_2 = p.getPlanned();
+        Date _start_1 = _planned_2.getStart();
+        Month _month = _start_1.getMonth();
+        _builder.append(_month, "");
+        _builder.append("-");
+        PlannedSchedule _planned_3 = p.getPlanned();
+        Date _start_2 = _planned_3.getStart();
+        int _day = _start_2.getDay();
+        _builder.append(_day, "");
+        _builder.append("/");
+        PlannedSchedule _planned_4 = p.getPlanned();
+        Date _end = _planned_4.getEnd();
+        int _year_1 = _end.getYear();
+        _builder.append(_year_1, "");
+        _builder.append("-");
+        PlannedSchedule _planned_5 = p.getPlanned();
+        Date _end_1 = _planned_5.getEnd();
+        Month _month_1 = _end_1.getMonth();
+        _builder.append(_month_1, "");
+        _builder.append("-");
+        PlannedSchedule _planned_6 = p.getPlanned();
+        Date _end_2 = _planned_6.getEnd();
+        int _day_1 = _end_2.getDay();
+        _builder.append(_day_1, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      ActualSchedule _actual = p.getActual();
+      boolean _notEquals_1 = (!Objects.equal(_actual, null));
+      if (_notEquals_1) {
+        _builder.append("Actual Schedule: ");
+        ActualSchedule _actual_1 = p.getActual();
+        Date _start_3 = _actual_1.getStart();
+        int _year_2 = _start_3.getYear();
+        _builder.append(_year_2, "");
+        _builder.append("-");
+        ActualSchedule _actual_2 = p.getActual();
+        Date _start_4 = _actual_2.getStart();
+        Month _month_2 = _start_4.getMonth();
+        _builder.append(_month_2, "");
+        _builder.append("-");
+        ActualSchedule _actual_3 = p.getActual();
+        Date _start_5 = _actual_3.getStart();
+        int _day_2 = _start_5.getDay();
+        _builder.append(_day_2, "");
+        _builder.append("/");
+        ActualSchedule _actual_4 = p.getActual();
+        Date _end_3 = _actual_4.getEnd();
+        int _year_3 = _end_3.getYear();
+        _builder.append(_year_3, "");
+        _builder.append("-");
+        ActualSchedule _actual_5 = p.getActual();
+        Date _end_4 = _actual_5.getEnd();
+        Month _month_3 = _end_4.getMonth();
+        _builder.append(_month_3, "");
+        _builder.append("-");
+        ActualSchedule _actual_6 = p.getActual();
+        Date _end_5 = _actual_6.getEnd();
+        int _day_3 = _end_5.getDay();
+        _builder.append(_day_3, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      Organizations _organizations = p.getOrganizations();
+      boolean _notEquals_2 = (!Objects.equal(_organizations, null));
+      if (_notEquals_2) {
+        _builder.append("Organizations: ");
+        Organizations _organizations_1 = p.getOrganizations();
+        String _customer = _organizations_1.getCustomer();
+        _builder.append(_customer, "");
+        _builder.append(", ");
+        Organizations _organizations_2 = p.getOrganizations();
+        String _supplier = _organizations_2.getSupplier();
+        _builder.append(_supplier, "");
+        _builder.append(", ");
+        Organizations _organizations_3 = p.getOrganizations();
+        String _partners = _organizations_3.getPartners();
+        _builder.append(_partners, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      ProjectProgress _progress = p.getProgress();
+      boolean _notEquals_3 = (!Objects.equal(_progress, null));
+      if (_notEquals_3) {
+        _builder.append("Project Progress: ");
+        ProjectProgress _progress_1 = p.getProgress();
+        String _value = _progress_1.getValue();
+        _builder.append(_value, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("Summary: ");
+    String _summary = p.getSummary();
+    _builder.append(_summary, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("Description: ");
     String _description = p.getDescription();
     _builder.append(_description, "");
     _builder.newLineIfNotEmpty();
@@ -370,21 +494,97 @@ public class RSLIL2TextGenerator implements IGenerator {
   }
   
   public CharSequence compile(final rslingo.rslil.rSLIL.System s) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method project is undefined for the type RSLIL2TextGenerator"
-      + "\nname cannot be resolved");
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = s.getName();
+    _builder.append(_name, "");
+    _builder.append(" (");
+    String _nameAlias = s.getNameAlias();
+    _builder.append(_nameAlias, "");
+    _builder.append("):");
+    _builder.newLineIfNotEmpty();
+    String _description = s.getDescription();
+    _builder.append(_description, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("Type: ");
+    String _type = s.getType();
+    _builder.append(_type, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("Scope: ");
+    String _scope = s.getScope();
+    _builder.append(_scope, "");
+    _builder.newLineIfNotEmpty();
+    {
+      rslingo.rslil.rSLIL.System _partOf = s.getPartOf();
+      boolean _notEquals = (!Objects.equal(_partOf, null));
+      if (_notEquals) {
+        _builder.append("Part Of: ");
+        rslingo.rslil.rSLIL.System _partOf_1 = s.getPartOf();
+        String _name_1 = _partOf_1.getName();
+        _builder.append(_name_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
   }
   
   public CharSequence compile(final GlossaryTerm g) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method synset is undefined for the type RSLIL2TextGenerator"
-      + "\nThe method synset is undefined for the type RSLIL2TextGenerator"
-      + "\nThe method termRelation is undefined for the type RSLIL2TextGenerator"
-      + "\nThe method termRelation is undefined for the type RSLIL2TextGenerator"
-      + "\n!= cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\ncompile cannot be resolved");
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = g.getName();
+    _builder.append(_name, "");
+    _builder.append(".");
+    String _nameAlias = g.getNameAlias();
+    _builder.append(_nameAlias, "");
+    _builder.append(" (");
+    RefTermType _type = g.getType();
+    CharSequence _compile = this.compile(_type);
+    _builder.append(_compile, "");
+    _builder.append("):");
+    _builder.newLineIfNotEmpty();
+    _builder.append("Description: ");
+    String _description = g.getDescription();
+    _builder.append(_description, "");
+    _builder.newLineIfNotEmpty();
+    {
+      String _acronym = g.getAcronym();
+      boolean _notEquals = (!Objects.equal(_acronym, null));
+      if (_notEquals) {
+        _builder.append("Acronym: ");
+        String _acronym_1 = g.getAcronym();
+        _builder.append(_acronym_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      String _pos = g.getPos();
+      boolean _notEquals_1 = (!Objects.equal(_pos, null));
+      if (_notEquals_1) {
+        _builder.append("POS: ");
+        String _pos_1 = g.getPos();
+        _builder.append(_pos_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      String _synonym = g.getSynonym();
+      boolean _notEquals_2 = (!Objects.equal(_synonym, null));
+      if (_notEquals_2) {
+        _builder.append("Synonym: ");
+        String _synonym_1 = g.getSynonym();
+        _builder.append(_synonym_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      String _hypernym = g.getHypernym();
+      boolean _notEquals_3 = (!Objects.equal(_hypernym, null));
+      if (_notEquals_3) {
+        _builder.append("Hypernym: ");
+        String _hypernym_1 = g.getHypernym();
+        _builder.append(_hypernym_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
   }
   
   public CharSequence compile(final RefTermType r) {
@@ -414,19 +614,6 @@ public class RSLIL2TextGenerator implements IGenerator {
       }
     }
     return _builder;
-  }
-  
-  public CharSequence compile(final /* TermRelation */Object t) {
-    throw new Error("Unresolved compilation problems:"
-      + "\ntype cannot be resolved"
-      + "\nrefTerm cannot be resolved"
-      + "\nrefTerm cannot be resolved"
-      + "\nrefTerm cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nrefTerm cannot be resolved"
-      + "\nrefs cannot be resolved");
   }
   
   public CharSequence compile(final Stakeholder s) {
