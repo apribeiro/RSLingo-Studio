@@ -1136,8 +1136,6 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cHypernymSTRINGTerminalRuleCall_10_1_0 = (RuleCall)cHypernymAssignment_10_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
-		////RefSystem:
-		////	refSystem=[System](',' refs+=[System])*;
 		//GlossaryTerm:
 		//	"GlossaryTerm" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Type" type=RefTermType
 		//	("Acronym" acronym=STRING)? ("POS" pos=("Adjective" | "Adverb" | "Noun" | "Verb"))? ("Synonym" synonym=STRING)?
@@ -3423,42 +3421,43 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNameKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cNameAliasAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cNameAliasSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cNameAliasAssignment_3_1.eContents().get(0);
-		private final Keyword cDescriptionKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cDescriptionAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cDescriptionSTRINGTerminalRuleCall_5_0 = (RuleCall)cDescriptionAssignment_5.eContents().get(0);
-		private final Keyword cTypeKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cTypeAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final Alternatives cTypeAlternatives_7_0 = (Alternatives)cTypeAssignment_7.eContents().get(0);
-		private final Keyword cTypeFunctionalKeyword_7_0_0 = (Keyword)cTypeAlternatives_7_0.eContents().get(0);
-		private final Keyword cTypeBehavioralKeyword_7_0_1 = (Keyword)cTypeAlternatives_7_0.eContents().get(1);
-		private final Keyword cTypeDataKeyword_7_0_2 = (Keyword)cTypeAlternatives_7_0.eContents().get(2);
-		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cStakeholderKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cStakeholderAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final CrossReference cStakeholderStakeholderCrossReference_8_1_0 = (CrossReference)cStakeholderAssignment_8_1.eContents().get(0);
-		private final RuleCall cStakeholderStakeholderIDTerminalRuleCall_8_1_0_1 = (RuleCall)cStakeholderStakeholderCrossReference_8_1_0.eContents().get(1);
-		private final Keyword cPriorityKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cPriorityAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cPriorityPriorityParserRuleCall_10_0 = (RuleCall)cPriorityAssignment_10.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cDescriptionKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cDescriptionAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cDescriptionAssignment_4_1.eContents().get(0);
+		private final Keyword cTypeKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final Alternatives cTypeAlternatives_6_0 = (Alternatives)cTypeAssignment_6.eContents().get(0);
+		private final Keyword cTypeFunctionalKeyword_6_0_0 = (Keyword)cTypeAlternatives_6_0.eContents().get(0);
+		private final Keyword cTypeBehavioralKeyword_6_0_1 = (Keyword)cTypeAlternatives_6_0.eContents().get(1);
+		private final Keyword cTypeDataKeyword_6_0_2 = (Keyword)cTypeAlternatives_6_0.eContents().get(2);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cStakeholderKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cStakeholderAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final CrossReference cStakeholderStakeholderCrossReference_7_1_0 = (CrossReference)cStakeholderAssignment_7_1.eContents().get(0);
+		private final RuleCall cStakeholderStakeholderIDTerminalRuleCall_7_1_0_1 = (RuleCall)cStakeholderStakeholderCrossReference_7_1_0.eContents().get(1);
+		private final Keyword cPriorityKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cPriorityAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cPriorityPriorityParserRuleCall_9_0 = (RuleCall)cPriorityAssignment_9.eContents().get(0);
+		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
+		private final Keyword cPartOfKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cPartOfAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final CrossReference cPartOfFRCrossReference_10_1_0 = (CrossReference)cPartOfAssignment_10_1.eContents().get(0);
+		private final RuleCall cPartOfFRIDTerminalRuleCall_10_1_0_1 = (RuleCall)cPartOfFRCrossReference_10_1_0.eContents().get(1);
 		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
-		private final Keyword cPartOfKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
-		private final Assignment cPartOfAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
-		private final CrossReference cPartOfFRCrossReference_11_1_0 = (CrossReference)cPartOfAssignment_11_1.eContents().get(0);
-		private final RuleCall cPartOfFRIDTerminalRuleCall_11_1_0_1 = (RuleCall)cPartOfFRCrossReference_11_1_0.eContents().get(1);
-		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
-		private final Keyword cProjectProgressKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
-		private final Assignment cProgressAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
-		private final RuleCall cProgressProjectProgressParserRuleCall_12_1_0 = (RuleCall)cProgressAssignment_12_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Keyword cProjectProgressKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Assignment cProgressAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
+		private final RuleCall cProgressProjectProgressParserRuleCall_11_1_0 = (RuleCall)cProgressAssignment_11_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		
 		//FR:
-		//	"FunctionalRequirement" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING "Type"
-		//	type=("Functional" | "Behavioral" | "Data") ("Stakeholder" stakeholder=[Stakeholder])? "Priority" priority=Priority //		depends+=DependsOnFR*
+		//	"FunctionalRequirement" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Type"
+		//	type=("Functional" | "Behavioral" | "Data") ("Stakeholder" stakeholder=[Stakeholder])? "Priority" priority=Priority
 		//	("PartOf" partOf=[FR])? ("ProjectProgress" progress=ProjectProgress)? "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"FunctionalRequirement" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING "Type"
-		//type=("Functional" | "Behavioral" | "Data") ("Stakeholder" stakeholder=[Stakeholder])? "Priority" priority=Priority //		depends+=DependsOnFR*
+		//"FunctionalRequirement" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Type"
+		//type=("Functional" | "Behavioral" | "Data") ("Stakeholder" stakeholder=[Stakeholder])? "Priority" priority=Priority
 		//("PartOf" partOf=[FR])? ("ProjectProgress" progress=ProjectProgress)? "}"
 		public Group getGroup() { return cGroup; }
 
@@ -3486,86 +3485,89 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getNameAliasSTRINGTerminalRuleCall_3_1_0() { return cNameAliasSTRINGTerminalRuleCall_3_1_0; }
 
+		//("Description" description=STRING)?
+		public Group getGroup_4() { return cGroup_4; }
+
 		//"Description"
-		public Keyword getDescriptionKeyword_4() { return cDescriptionKeyword_4; }
+		public Keyword getDescriptionKeyword_4_0() { return cDescriptionKeyword_4_0; }
 
 		//description=STRING
-		public Assignment getDescriptionAssignment_5() { return cDescriptionAssignment_5; }
+		public Assignment getDescriptionAssignment_4_1() { return cDescriptionAssignment_4_1; }
 
 		//STRING
-		public RuleCall getDescriptionSTRINGTerminalRuleCall_5_0() { return cDescriptionSTRINGTerminalRuleCall_5_0; }
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_4_1_0() { return cDescriptionSTRINGTerminalRuleCall_4_1_0; }
 
 		//"Type"
-		public Keyword getTypeKeyword_6() { return cTypeKeyword_6; }
+		public Keyword getTypeKeyword_5() { return cTypeKeyword_5; }
 
 		//type=("Functional" | "Behavioral" | "Data")
-		public Assignment getTypeAssignment_7() { return cTypeAssignment_7; }
+		public Assignment getTypeAssignment_6() { return cTypeAssignment_6; }
 
 		//"Functional" | "Behavioral" | "Data"
-		public Alternatives getTypeAlternatives_7_0() { return cTypeAlternatives_7_0; }
+		public Alternatives getTypeAlternatives_6_0() { return cTypeAlternatives_6_0; }
 
 		//"Functional"
-		public Keyword getTypeFunctionalKeyword_7_0_0() { return cTypeFunctionalKeyword_7_0_0; }
+		public Keyword getTypeFunctionalKeyword_6_0_0() { return cTypeFunctionalKeyword_6_0_0; }
 
 		//"Behavioral"
-		public Keyword getTypeBehavioralKeyword_7_0_1() { return cTypeBehavioralKeyword_7_0_1; }
+		public Keyword getTypeBehavioralKeyword_6_0_1() { return cTypeBehavioralKeyword_6_0_1; }
 
 		//"Data"
-		public Keyword getTypeDataKeyword_7_0_2() { return cTypeDataKeyword_7_0_2; }
+		public Keyword getTypeDataKeyword_6_0_2() { return cTypeDataKeyword_6_0_2; }
 
 		//("Stakeholder" stakeholder=[Stakeholder])?
-		public Group getGroup_8() { return cGroup_8; }
+		public Group getGroup_7() { return cGroup_7; }
 
 		//"Stakeholder"
-		public Keyword getStakeholderKeyword_8_0() { return cStakeholderKeyword_8_0; }
+		public Keyword getStakeholderKeyword_7_0() { return cStakeholderKeyword_7_0; }
 
 		//stakeholder=[Stakeholder]
-		public Assignment getStakeholderAssignment_8_1() { return cStakeholderAssignment_8_1; }
+		public Assignment getStakeholderAssignment_7_1() { return cStakeholderAssignment_7_1; }
 
 		//[Stakeholder]
-		public CrossReference getStakeholderStakeholderCrossReference_8_1_0() { return cStakeholderStakeholderCrossReference_8_1_0; }
+		public CrossReference getStakeholderStakeholderCrossReference_7_1_0() { return cStakeholderStakeholderCrossReference_7_1_0; }
 
 		//ID
-		public RuleCall getStakeholderStakeholderIDTerminalRuleCall_8_1_0_1() { return cStakeholderStakeholderIDTerminalRuleCall_8_1_0_1; }
+		public RuleCall getStakeholderStakeholderIDTerminalRuleCall_7_1_0_1() { return cStakeholderStakeholderIDTerminalRuleCall_7_1_0_1; }
 
 		//"Priority"
-		public Keyword getPriorityKeyword_9() { return cPriorityKeyword_9; }
+		public Keyword getPriorityKeyword_8() { return cPriorityKeyword_8; }
 
 		//priority=Priority
-		public Assignment getPriorityAssignment_10() { return cPriorityAssignment_10; }
+		public Assignment getPriorityAssignment_9() { return cPriorityAssignment_9; }
 
 		//Priority
-		public RuleCall getPriorityPriorityParserRuleCall_10_0() { return cPriorityPriorityParserRuleCall_10_0; }
+		public RuleCall getPriorityPriorityParserRuleCall_9_0() { return cPriorityPriorityParserRuleCall_9_0; }
 
 		//("PartOf" partOf=[FR])?
-		public Group getGroup_11() { return cGroup_11; }
+		public Group getGroup_10() { return cGroup_10; }
 
 		//"PartOf"
-		public Keyword getPartOfKeyword_11_0() { return cPartOfKeyword_11_0; }
+		public Keyword getPartOfKeyword_10_0() { return cPartOfKeyword_10_0; }
 
 		//partOf=[FR]
-		public Assignment getPartOfAssignment_11_1() { return cPartOfAssignment_11_1; }
+		public Assignment getPartOfAssignment_10_1() { return cPartOfAssignment_10_1; }
 
 		//[FR]
-		public CrossReference getPartOfFRCrossReference_11_1_0() { return cPartOfFRCrossReference_11_1_0; }
+		public CrossReference getPartOfFRCrossReference_10_1_0() { return cPartOfFRCrossReference_10_1_0; }
 
 		//ID
-		public RuleCall getPartOfFRIDTerminalRuleCall_11_1_0_1() { return cPartOfFRIDTerminalRuleCall_11_1_0_1; }
+		public RuleCall getPartOfFRIDTerminalRuleCall_10_1_0_1() { return cPartOfFRIDTerminalRuleCall_10_1_0_1; }
 
 		//("ProjectProgress" progress=ProjectProgress)?
-		public Group getGroup_12() { return cGroup_12; }
+		public Group getGroup_11() { return cGroup_11; }
 
 		//"ProjectProgress"
-		public Keyword getProjectProgressKeyword_12_0() { return cProjectProgressKeyword_12_0; }
+		public Keyword getProjectProgressKeyword_11_0() { return cProjectProgressKeyword_11_0; }
 
 		//progress=ProjectProgress
-		public Assignment getProgressAssignment_12_1() { return cProgressAssignment_12_1; }
+		public Assignment getProgressAssignment_11_1() { return cProgressAssignment_11_1; }
 
 		//ProjectProgress
-		public RuleCall getProgressProjectProgressParserRuleCall_12_1_0() { return cProgressProjectProgressParserRuleCall_12_1_0; }
+		public RuleCall getProgressProjectProgressParserRuleCall_11_1_0() { return cProgressProjectProgressParserRuleCall_11_1_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
+		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
 	}
 
 	public class QRElements extends AbstractParserRuleElementFinder {
@@ -3579,77 +3581,76 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNameKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cNameAliasAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cNameAliasSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cNameAliasAssignment_3_1.eContents().get(0);
-		private final Keyword cDescriptionKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cDescriptionAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cDescriptionSTRINGTerminalRuleCall_5_0 = (RuleCall)cDescriptionAssignment_5.eContents().get(0);
-		private final Keyword cTypeKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cTypeAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final Alternatives cTypeAlternatives_7_0 = (Alternatives)cTypeAssignment_7.eContents().get(0);
-		private final Keyword cTypeSecurityKeyword_7_0_0 = (Keyword)cTypeAlternatives_7_0.eContents().get(0);
-		private final Keyword cTypePerformanceKeyword_7_0_1 = (Keyword)cTypeAlternatives_7_0.eContents().get(1);
-		private final Keyword cTypeUsabilityKeyword_7_0_2 = (Keyword)cTypeAlternatives_7_0.eContents().get(2);
-		private final Keyword cTypeAppearanceKeyword_7_0_3 = (Keyword)cTypeAlternatives_7_0.eContents().get(3);
-		private final Keyword cTypeOperationalKeyword_7_0_4 = (Keyword)cTypeAlternatives_7_0.eContents().get(4);
-		private final Keyword cTypeMaintenanceKeyword_7_0_5 = (Keyword)cTypeAlternatives_7_0.eContents().get(5);
-		private final Keyword cTypeCulturalKeyword_7_0_6 = (Keyword)cTypeAlternatives_7_0.eContents().get(6);
-		private final Keyword cTypeLegalKeyword_7_0_7 = (Keyword)cTypeAlternatives_7_0.eContents().get(7);
-		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cSubTypeKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cSubTypeAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final Alternatives cSubTypeAlternatives_8_1_0 = (Alternatives)cSubTypeAssignment_8_1.eContents().get(0);
-		private final Keyword cSubTypeSecurityPrivacyKeyword_8_1_0_0 = (Keyword)cSubTypeAlternatives_8_1_0.eContents().get(0);
-		private final Keyword cSubTypeSecurityIntegrityKeyword_8_1_0_1 = (Keyword)cSubTypeAlternatives_8_1_0.eContents().get(1);
-		private final Keyword cSubTypeUsabilityEaseOfUseKeyword_8_1_0_2 = (Keyword)cSubTypeAlternatives_8_1_0.eContents().get(2);
-		private final Keyword cSubTypeUsabilityEaseOfLearnKeyword_8_1_0_3 = (Keyword)cSubTypeAlternatives_8_1_0.eContents().get(3);
-		private final Keyword cSubTypeUsabilityAccessibilityKeyword_8_1_0_4 = (Keyword)cSubTypeAlternatives_8_1_0.eContents().get(4);
-		private final Keyword cMetricKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cMetricAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final Alternatives cMetricAlternatives_10_0 = (Alternatives)cMetricAssignment_10.eContents().get(0);
-		private final Keyword cMetricHoursKeyword_10_0_0 = (Keyword)cMetricAlternatives_10_0.eContents().get(0);
-		private final Keyword cMetricMinsKeyword_10_0_1 = (Keyword)cMetricAlternatives_10_0.eContents().get(1);
-		private final Keyword cMetricSecsKeyword_10_0_2 = (Keyword)cMetricAlternatives_10_0.eContents().get(2);
-		private final Keyword cMetricMSecsKeyword_10_0_3 = (Keyword)cMetricAlternatives_10_0.eContents().get(3);
-		private final Keyword cMetricTasksKeyword_10_0_4 = (Keyword)cMetricAlternatives_10_0.eContents().get(4);
-		private final Keyword cMetricOtherKeyword_10_0_5 = (Keyword)cMetricAlternatives_10_0.eContents().get(5);
-		private final Keyword cValueKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		private final Assignment cValueAssignment_12 = (Assignment)cGroup.eContents().get(12);
-		private final RuleCall cValueINTTerminalRuleCall_12_0 = (RuleCall)cValueAssignment_12.eContents().get(0);
-		private final Group cGroup_13 = (Group)cGroup.eContents().get(13);
-		private final Keyword cStakeholderKeyword_13_0 = (Keyword)cGroup_13.eContents().get(0);
-		private final Assignment cStakeholderAssignment_13_1 = (Assignment)cGroup_13.eContents().get(1);
-		private final CrossReference cStakeholderStakeholderCrossReference_13_1_0 = (CrossReference)cStakeholderAssignment_13_1.eContents().get(0);
-		private final RuleCall cStakeholderStakeholderIDTerminalRuleCall_13_1_0_1 = (RuleCall)cStakeholderStakeholderCrossReference_13_1_0.eContents().get(1);
-		private final Keyword cPriorityKeyword_14 = (Keyword)cGroup.eContents().get(14);
-		private final Assignment cPriorityAssignment_15 = (Assignment)cGroup.eContents().get(15);
-		private final RuleCall cPriorityPriorityParserRuleCall_15_0 = (RuleCall)cPriorityAssignment_15.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cDescriptionKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cDescriptionAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cDescriptionAssignment_4_1.eContents().get(0);
+		private final Keyword cTypeKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cTypeAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final Alternatives cTypeAlternatives_6_0 = (Alternatives)cTypeAssignment_6.eContents().get(0);
+		private final Keyword cTypeSecurityKeyword_6_0_0 = (Keyword)cTypeAlternatives_6_0.eContents().get(0);
+		private final Keyword cTypePerformanceKeyword_6_0_1 = (Keyword)cTypeAlternatives_6_0.eContents().get(1);
+		private final Keyword cTypeUsabilityKeyword_6_0_2 = (Keyword)cTypeAlternatives_6_0.eContents().get(2);
+		private final Keyword cTypeAppearanceKeyword_6_0_3 = (Keyword)cTypeAlternatives_6_0.eContents().get(3);
+		private final Keyword cTypeOperationalKeyword_6_0_4 = (Keyword)cTypeAlternatives_6_0.eContents().get(4);
+		private final Keyword cTypeMaintenanceKeyword_6_0_5 = (Keyword)cTypeAlternatives_6_0.eContents().get(5);
+		private final Keyword cTypeCulturalKeyword_6_0_6 = (Keyword)cTypeAlternatives_6_0.eContents().get(6);
+		private final Keyword cTypeLegalKeyword_6_0_7 = (Keyword)cTypeAlternatives_6_0.eContents().get(7);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cSubTypeKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cSubTypeAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final Alternatives cSubTypeAlternatives_7_1_0 = (Alternatives)cSubTypeAssignment_7_1.eContents().get(0);
+		private final Keyword cSubTypeSecurityPrivacyKeyword_7_1_0_0 = (Keyword)cSubTypeAlternatives_7_1_0.eContents().get(0);
+		private final Keyword cSubTypeSecurityIntegrityKeyword_7_1_0_1 = (Keyword)cSubTypeAlternatives_7_1_0.eContents().get(1);
+		private final Keyword cSubTypeUsabilityEaseOfUseKeyword_7_1_0_2 = (Keyword)cSubTypeAlternatives_7_1_0.eContents().get(2);
+		private final Keyword cSubTypeUsabilityEaseOfLearnKeyword_7_1_0_3 = (Keyword)cSubTypeAlternatives_7_1_0.eContents().get(3);
+		private final Keyword cSubTypeUsabilityAccessibilityKeyword_7_1_0_4 = (Keyword)cSubTypeAlternatives_7_1_0.eContents().get(4);
+		private final Keyword cMetricKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cMetricAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final Alternatives cMetricAlternatives_9_0 = (Alternatives)cMetricAssignment_9.eContents().get(0);
+		private final Keyword cMetricHoursKeyword_9_0_0 = (Keyword)cMetricAlternatives_9_0.eContents().get(0);
+		private final Keyword cMetricMinsKeyword_9_0_1 = (Keyword)cMetricAlternatives_9_0.eContents().get(1);
+		private final Keyword cMetricSecsKeyword_9_0_2 = (Keyword)cMetricAlternatives_9_0.eContents().get(2);
+		private final Keyword cMetricMSecsKeyword_9_0_3 = (Keyword)cMetricAlternatives_9_0.eContents().get(3);
+		private final Keyword cMetricTasksKeyword_9_0_4 = (Keyword)cMetricAlternatives_9_0.eContents().get(4);
+		private final Keyword cMetricOtherKeyword_9_0_5 = (Keyword)cMetricAlternatives_9_0.eContents().get(5);
+		private final Keyword cValueKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cValueAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cValueINTTerminalRuleCall_11_0 = (RuleCall)cValueAssignment_11.eContents().get(0);
+		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
+		private final Keyword cStakeholderKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
+		private final Assignment cStakeholderAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
+		private final CrossReference cStakeholderStakeholderCrossReference_12_1_0 = (CrossReference)cStakeholderAssignment_12_1.eContents().get(0);
+		private final RuleCall cStakeholderStakeholderIDTerminalRuleCall_12_1_0_1 = (RuleCall)cStakeholderStakeholderCrossReference_12_1_0.eContents().get(1);
+		private final Keyword cPriorityKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Assignment cPriorityAssignment_14 = (Assignment)cGroup.eContents().get(14);
+		private final RuleCall cPriorityPriorityParserRuleCall_14_0 = (RuleCall)cPriorityAssignment_14.eContents().get(0);
+		private final Group cGroup_15 = (Group)cGroup.eContents().get(15);
+		private final Keyword cPartOfKeyword_15_0 = (Keyword)cGroup_15.eContents().get(0);
+		private final Assignment cPartOfAssignment_15_1 = (Assignment)cGroup_15.eContents().get(1);
+		private final CrossReference cPartOfQRCrossReference_15_1_0 = (CrossReference)cPartOfAssignment_15_1.eContents().get(0);
+		private final RuleCall cPartOfQRIDTerminalRuleCall_15_1_0_1 = (RuleCall)cPartOfQRCrossReference_15_1_0.eContents().get(1);
 		private final Group cGroup_16 = (Group)cGroup.eContents().get(16);
-		private final Keyword cPartOfKeyword_16_0 = (Keyword)cGroup_16.eContents().get(0);
-		private final Assignment cPartOfAssignment_16_1 = (Assignment)cGroup_16.eContents().get(1);
-		private final CrossReference cPartOfQRCrossReference_16_1_0 = (CrossReference)cPartOfAssignment_16_1.eContents().get(0);
-		private final RuleCall cPartOfQRIDTerminalRuleCall_16_1_0_1 = (RuleCall)cPartOfQRCrossReference_16_1_0.eContents().get(1);
-		private final Group cGroup_17 = (Group)cGroup.eContents().get(17);
-		private final Keyword cProjectProgressKeyword_17_0 = (Keyword)cGroup_17.eContents().get(0);
-		private final Assignment cProgressAssignment_17_1 = (Assignment)cGroup_17.eContents().get(1);
-		private final RuleCall cProgressProjectProgressParserRuleCall_17_1_0 = (RuleCall)cProgressAssignment_17_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_18 = (Keyword)cGroup.eContents().get(18);
+		private final Keyword cProjectProgressKeyword_16_0 = (Keyword)cGroup_16.eContents().get(0);
+		private final Assignment cProgressAssignment_16_1 = (Assignment)cGroup_16.eContents().get(1);
+		private final RuleCall cProgressProjectProgressParserRuleCall_16_1_0 = (RuleCall)cProgressAssignment_16_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_17 = (Keyword)cGroup.eContents().get(17);
 		
-		////DependsOnFR:
-		////	type=('Requires'|'Refines'|'Conflicts') refFR=RefFR;
 		//QR:
-		//	"QualityRequirement" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING "Type" type=("Security"
-		//	| "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal") ("Sub-Type"
-		//	subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLearn" |
+		//	"QualityRequirement" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Type"
+		//	type=("Security" | "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal")
+		//	("Sub-Type" subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLearn" |
 		//	"Usability.Accessibility"))? "Metric" metric=("Hours" | "Mins" | "Secs" | "mSecs" | "Tasks" | "Other") "Value"
-		//	value=INT ("Stakeholder" stakeholder=[Stakeholder])? "Priority" priority=Priority //		depends+=DependsOnQR*
-		//	("PartOf" partOf=[QR])? ("ProjectProgress" progress=ProjectProgress)? "}";
+		//	value=INT ("Stakeholder" stakeholder=[Stakeholder])? "Priority" priority=Priority ("PartOf" partOf=[QR])?
+		//	("ProjectProgress" progress=ProjectProgress)? "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"QualityRequirement" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING "Type" type=("Security" |
-		//"Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal") ("Sub-Type"
+		//"QualityRequirement" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Type" type=("Security"
+		//| "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal") ("Sub-Type"
 		//subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLearn" |
 		//"Usability.Accessibility"))? "Metric" metric=("Hours" | "Mins" | "Secs" | "mSecs" | "Tasks" | "Other") "Value"
-		//value=INT ("Stakeholder" stakeholder=[Stakeholder])? "Priority" priority=Priority //		depends+=DependsOnQR*
-		//("PartOf" partOf=[QR])? ("ProjectProgress" progress=ProjectProgress)? "}"
+		//value=INT ("Stakeholder" stakeholder=[Stakeholder])? "Priority" priority=Priority ("PartOf" partOf=[QR])?
+		//("ProjectProgress" progress=ProjectProgress)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"QualityRequirement"
@@ -3676,166 +3677,169 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getNameAliasSTRINGTerminalRuleCall_3_1_0() { return cNameAliasSTRINGTerminalRuleCall_3_1_0; }
 
+		//("Description" description=STRING)?
+		public Group getGroup_4() { return cGroup_4; }
+
 		//"Description"
-		public Keyword getDescriptionKeyword_4() { return cDescriptionKeyword_4; }
+		public Keyword getDescriptionKeyword_4_0() { return cDescriptionKeyword_4_0; }
 
 		//description=STRING
-		public Assignment getDescriptionAssignment_5() { return cDescriptionAssignment_5; }
+		public Assignment getDescriptionAssignment_4_1() { return cDescriptionAssignment_4_1; }
 
 		//STRING
-		public RuleCall getDescriptionSTRINGTerminalRuleCall_5_0() { return cDescriptionSTRINGTerminalRuleCall_5_0; }
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_4_1_0() { return cDescriptionSTRINGTerminalRuleCall_4_1_0; }
 
 		//"Type"
-		public Keyword getTypeKeyword_6() { return cTypeKeyword_6; }
+		public Keyword getTypeKeyword_5() { return cTypeKeyword_5; }
 
 		//type=("Security" | "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal")
-		public Assignment getTypeAssignment_7() { return cTypeAssignment_7; }
+		public Assignment getTypeAssignment_6() { return cTypeAssignment_6; }
 
 		//"Security" | "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal"
-		public Alternatives getTypeAlternatives_7_0() { return cTypeAlternatives_7_0; }
+		public Alternatives getTypeAlternatives_6_0() { return cTypeAlternatives_6_0; }
 
 		//"Security"
-		public Keyword getTypeSecurityKeyword_7_0_0() { return cTypeSecurityKeyword_7_0_0; }
+		public Keyword getTypeSecurityKeyword_6_0_0() { return cTypeSecurityKeyword_6_0_0; }
 
 		//"Performance"
-		public Keyword getTypePerformanceKeyword_7_0_1() { return cTypePerformanceKeyword_7_0_1; }
+		public Keyword getTypePerformanceKeyword_6_0_1() { return cTypePerformanceKeyword_6_0_1; }
 
 		//"Usability"
-		public Keyword getTypeUsabilityKeyword_7_0_2() { return cTypeUsabilityKeyword_7_0_2; }
+		public Keyword getTypeUsabilityKeyword_6_0_2() { return cTypeUsabilityKeyword_6_0_2; }
 
 		//"Appearance"
-		public Keyword getTypeAppearanceKeyword_7_0_3() { return cTypeAppearanceKeyword_7_0_3; }
+		public Keyword getTypeAppearanceKeyword_6_0_3() { return cTypeAppearanceKeyword_6_0_3; }
 
 		//"Operational"
-		public Keyword getTypeOperationalKeyword_7_0_4() { return cTypeOperationalKeyword_7_0_4; }
+		public Keyword getTypeOperationalKeyword_6_0_4() { return cTypeOperationalKeyword_6_0_4; }
 
 		//"Maintenance"
-		public Keyword getTypeMaintenanceKeyword_7_0_5() { return cTypeMaintenanceKeyword_7_0_5; }
+		public Keyword getTypeMaintenanceKeyword_6_0_5() { return cTypeMaintenanceKeyword_6_0_5; }
 
 		//"Cultural"
-		public Keyword getTypeCulturalKeyword_7_0_6() { return cTypeCulturalKeyword_7_0_6; }
+		public Keyword getTypeCulturalKeyword_6_0_6() { return cTypeCulturalKeyword_6_0_6; }
 
 		//"Legal"
-		public Keyword getTypeLegalKeyword_7_0_7() { return cTypeLegalKeyword_7_0_7; }
+		public Keyword getTypeLegalKeyword_6_0_7() { return cTypeLegalKeyword_6_0_7; }
 
 		//("Sub-Type" subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLearn" |
 		//"Usability.Accessibility"))?
-		public Group getGroup_8() { return cGroup_8; }
+		public Group getGroup_7() { return cGroup_7; }
 
 		//"Sub-Type"
-		public Keyword getSubTypeKeyword_8_0() { return cSubTypeKeyword_8_0; }
+		public Keyword getSubTypeKeyword_7_0() { return cSubTypeKeyword_7_0; }
 
 		//subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLearn" |
 		//"Usability.Accessibility")
-		public Assignment getSubTypeAssignment_8_1() { return cSubTypeAssignment_8_1; }
+		public Assignment getSubTypeAssignment_7_1() { return cSubTypeAssignment_7_1; }
 
 		//"Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLearn" | "Usability.Accessibility"
-		public Alternatives getSubTypeAlternatives_8_1_0() { return cSubTypeAlternatives_8_1_0; }
+		public Alternatives getSubTypeAlternatives_7_1_0() { return cSubTypeAlternatives_7_1_0; }
 
 		//"Security.Privacy"
-		public Keyword getSubTypeSecurityPrivacyKeyword_8_1_0_0() { return cSubTypeSecurityPrivacyKeyword_8_1_0_0; }
+		public Keyword getSubTypeSecurityPrivacyKeyword_7_1_0_0() { return cSubTypeSecurityPrivacyKeyword_7_1_0_0; }
 
 		//"Security.Integrity"
-		public Keyword getSubTypeSecurityIntegrityKeyword_8_1_0_1() { return cSubTypeSecurityIntegrityKeyword_8_1_0_1; }
+		public Keyword getSubTypeSecurityIntegrityKeyword_7_1_0_1() { return cSubTypeSecurityIntegrityKeyword_7_1_0_1; }
 
 		//"Usability.EaseOfUse"
-		public Keyword getSubTypeUsabilityEaseOfUseKeyword_8_1_0_2() { return cSubTypeUsabilityEaseOfUseKeyword_8_1_0_2; }
+		public Keyword getSubTypeUsabilityEaseOfUseKeyword_7_1_0_2() { return cSubTypeUsabilityEaseOfUseKeyword_7_1_0_2; }
 
 		//"Usability.EaseOfLearn"
-		public Keyword getSubTypeUsabilityEaseOfLearnKeyword_8_1_0_3() { return cSubTypeUsabilityEaseOfLearnKeyword_8_1_0_3; }
+		public Keyword getSubTypeUsabilityEaseOfLearnKeyword_7_1_0_3() { return cSubTypeUsabilityEaseOfLearnKeyword_7_1_0_3; }
 
 		//"Usability.Accessibility"
-		public Keyword getSubTypeUsabilityAccessibilityKeyword_8_1_0_4() { return cSubTypeUsabilityAccessibilityKeyword_8_1_0_4; }
+		public Keyword getSubTypeUsabilityAccessibilityKeyword_7_1_0_4() { return cSubTypeUsabilityAccessibilityKeyword_7_1_0_4; }
 
 		//"Metric"
-		public Keyword getMetricKeyword_9() { return cMetricKeyword_9; }
+		public Keyword getMetricKeyword_8() { return cMetricKeyword_8; }
 
 		//metric=("Hours" | "Mins" | "Secs" | "mSecs" | "Tasks" | "Other")
-		public Assignment getMetricAssignment_10() { return cMetricAssignment_10; }
+		public Assignment getMetricAssignment_9() { return cMetricAssignment_9; }
 
 		//"Hours" | "Mins" | "Secs" | "mSecs" | "Tasks" | "Other"
-		public Alternatives getMetricAlternatives_10_0() { return cMetricAlternatives_10_0; }
+		public Alternatives getMetricAlternatives_9_0() { return cMetricAlternatives_9_0; }
 
 		//"Hours"
-		public Keyword getMetricHoursKeyword_10_0_0() { return cMetricHoursKeyword_10_0_0; }
+		public Keyword getMetricHoursKeyword_9_0_0() { return cMetricHoursKeyword_9_0_0; }
 
 		//"Mins"
-		public Keyword getMetricMinsKeyword_10_0_1() { return cMetricMinsKeyword_10_0_1; }
+		public Keyword getMetricMinsKeyword_9_0_1() { return cMetricMinsKeyword_9_0_1; }
 
 		//"Secs"
-		public Keyword getMetricSecsKeyword_10_0_2() { return cMetricSecsKeyword_10_0_2; }
+		public Keyword getMetricSecsKeyword_9_0_2() { return cMetricSecsKeyword_9_0_2; }
 
 		//"mSecs"
-		public Keyword getMetricMSecsKeyword_10_0_3() { return cMetricMSecsKeyword_10_0_3; }
+		public Keyword getMetricMSecsKeyword_9_0_3() { return cMetricMSecsKeyword_9_0_3; }
 
 		//"Tasks"
-		public Keyword getMetricTasksKeyword_10_0_4() { return cMetricTasksKeyword_10_0_4; }
+		public Keyword getMetricTasksKeyword_9_0_4() { return cMetricTasksKeyword_9_0_4; }
 
 		//"Other"
-		public Keyword getMetricOtherKeyword_10_0_5() { return cMetricOtherKeyword_10_0_5; }
+		public Keyword getMetricOtherKeyword_9_0_5() { return cMetricOtherKeyword_9_0_5; }
 
 		//"Value"
-		public Keyword getValueKeyword_11() { return cValueKeyword_11; }
+		public Keyword getValueKeyword_10() { return cValueKeyword_10; }
 
 		//value=INT
-		public Assignment getValueAssignment_12() { return cValueAssignment_12; }
+		public Assignment getValueAssignment_11() { return cValueAssignment_11; }
 
 		//INT
-		public RuleCall getValueINTTerminalRuleCall_12_0() { return cValueINTTerminalRuleCall_12_0; }
+		public RuleCall getValueINTTerminalRuleCall_11_0() { return cValueINTTerminalRuleCall_11_0; }
 
 		//("Stakeholder" stakeholder=[Stakeholder])?
-		public Group getGroup_13() { return cGroup_13; }
+		public Group getGroup_12() { return cGroup_12; }
 
 		//"Stakeholder"
-		public Keyword getStakeholderKeyword_13_0() { return cStakeholderKeyword_13_0; }
+		public Keyword getStakeholderKeyword_12_0() { return cStakeholderKeyword_12_0; }
 
 		//stakeholder=[Stakeholder]
-		public Assignment getStakeholderAssignment_13_1() { return cStakeholderAssignment_13_1; }
+		public Assignment getStakeholderAssignment_12_1() { return cStakeholderAssignment_12_1; }
 
 		//[Stakeholder]
-		public CrossReference getStakeholderStakeholderCrossReference_13_1_0() { return cStakeholderStakeholderCrossReference_13_1_0; }
+		public CrossReference getStakeholderStakeholderCrossReference_12_1_0() { return cStakeholderStakeholderCrossReference_12_1_0; }
 
 		//ID
-		public RuleCall getStakeholderStakeholderIDTerminalRuleCall_13_1_0_1() { return cStakeholderStakeholderIDTerminalRuleCall_13_1_0_1; }
+		public RuleCall getStakeholderStakeholderIDTerminalRuleCall_12_1_0_1() { return cStakeholderStakeholderIDTerminalRuleCall_12_1_0_1; }
 
 		//"Priority"
-		public Keyword getPriorityKeyword_14() { return cPriorityKeyword_14; }
+		public Keyword getPriorityKeyword_13() { return cPriorityKeyword_13; }
 
 		//priority=Priority
-		public Assignment getPriorityAssignment_15() { return cPriorityAssignment_15; }
+		public Assignment getPriorityAssignment_14() { return cPriorityAssignment_14; }
 
 		//Priority
-		public RuleCall getPriorityPriorityParserRuleCall_15_0() { return cPriorityPriorityParserRuleCall_15_0; }
+		public RuleCall getPriorityPriorityParserRuleCall_14_0() { return cPriorityPriorityParserRuleCall_14_0; }
 
 		//("PartOf" partOf=[QR])?
-		public Group getGroup_16() { return cGroup_16; }
+		public Group getGroup_15() { return cGroup_15; }
 
 		//"PartOf"
-		public Keyword getPartOfKeyword_16_0() { return cPartOfKeyword_16_0; }
+		public Keyword getPartOfKeyword_15_0() { return cPartOfKeyword_15_0; }
 
 		//partOf=[QR]
-		public Assignment getPartOfAssignment_16_1() { return cPartOfAssignment_16_1; }
+		public Assignment getPartOfAssignment_15_1() { return cPartOfAssignment_15_1; }
 
 		//[QR]
-		public CrossReference getPartOfQRCrossReference_16_1_0() { return cPartOfQRCrossReference_16_1_0; }
+		public CrossReference getPartOfQRCrossReference_15_1_0() { return cPartOfQRCrossReference_15_1_0; }
 
 		//ID
-		public RuleCall getPartOfQRIDTerminalRuleCall_16_1_0_1() { return cPartOfQRIDTerminalRuleCall_16_1_0_1; }
+		public RuleCall getPartOfQRIDTerminalRuleCall_15_1_0_1() { return cPartOfQRIDTerminalRuleCall_15_1_0_1; }
 
 		//("ProjectProgress" progress=ProjectProgress)?
-		public Group getGroup_17() { return cGroup_17; }
+		public Group getGroup_16() { return cGroup_16; }
 
 		//"ProjectProgress"
-		public Keyword getProjectProgressKeyword_17_0() { return cProjectProgressKeyword_17_0; }
+		public Keyword getProjectProgressKeyword_16_0() { return cProjectProgressKeyword_16_0; }
 
 		//progress=ProjectProgress
-		public Assignment getProgressAssignment_17_1() { return cProgressAssignment_17_1; }
+		public Assignment getProgressAssignment_16_1() { return cProgressAssignment_16_1; }
 
 		//ProjectProgress
-		public RuleCall getProgressProjectProgressParserRuleCall_17_1_0() { return cProgressProjectProgressParserRuleCall_17_1_0; }
+		public RuleCall getProgressProjectProgressParserRuleCall_16_1_0() { return cProgressProjectProgressParserRuleCall_16_1_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_18() { return cRightCurlyBracketKeyword_18; }
+		public Keyword getRightCurlyBracketKeyword_17() { return cRightCurlyBracketKeyword_17; }
 	}
 
 	public class ConstraintElements extends AbstractParserRuleElementFinder {
@@ -3882,21 +3886,17 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cProgressProjectProgressParserRuleCall_11_1_0 = (RuleCall)cProgressAssignment_11_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		
-		////DependsOnQR:
-		////	type=('Requires'|'Refines'|'Conflicts') refQR=RefQR;
-		////RefQR:
-		////	refQR=[QR](',' refs+=[QR])*;
 		//Constraint:
 		//	"Constraint" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Type" type=("Cultural" |
 		//	"Legal" | "Organizational" | "Physical" | "Project" | "Technological" | "Other") ("Stakeholder"
-		//	stakeholder=[Stakeholder])? "Priority" priority=Priority //		depends+=DependsOnConstraint*
-		//	("PartOf" partOf=[Constraint])? ("ProjectProgress" progress=ProjectProgress)? "}";
+		//	stakeholder=[Stakeholder])? "Priority" priority=Priority ("PartOf" partOf=[Constraint])? ("ProjectProgress"
+		//	progress=ProjectProgress)? "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//"Constraint" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Type" type=("Cultural" |
 		//"Legal" | "Organizational" | "Physical" | "Project" | "Technological" | "Other") ("Stakeholder"
-		//stakeholder=[Stakeholder])? "Priority" priority=Priority //		depends+=DependsOnConstraint*
-		//("PartOf" partOf=[Constraint])? ("ProjectProgress" progress=ProjectProgress)? "}"
+		//stakeholder=[Stakeholder])? "Priority" priority=Priority ("PartOf" partOf=[Constraint])? ("ProjectProgress"
+		//progress=ProjectProgress)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Constraint"
@@ -4027,10 +4027,6 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cQRParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cConstraintParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
-		////DependsOnConstraint:
-		////	type=('Requires'|'Refines'|'Conflicts') refConst=RefConstraint;
-		////RefConstraint:
-		////	refConst=[Constraint](',' refs+=[Constraint])*;
 		//Requirement:
 		//	FR | QR | Constraint;
 		@Override public ParserRule getRule() { return rule; }
@@ -4077,28 +4073,13 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDescriptionSTRINGTerminalRuleCall_9_1_0 = (RuleCall)cDescriptionAssignment_9_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
-		////RRelationRef:
-		////	FRRelation | QRRelation | ConstraintRelation;
-		////FRRelation:
-		////	relation=[FR];
-		////QRRelation:
-		////	relation=[QR];
-		////ConstraintRelation:
-		////	relation=[Constraint];
 		//RequirementRelation:
 		//	"RequirementRelation" name=ID "{" "Source" source=[Requirement] "Target" target=[Requirement] "Type" type=("Requires"
 		//	| "Supports" | "Obstructs" | "Conflicts" | "Identical") ("Description" description=STRING)? "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//"RequirementRelation" name=ID "{" "Source" source=[Requirement] "Target" target=[Requirement] "Type" type=("Requires" |
-		//"Supports" | "Obstructs" | "Conflicts" | "Identical") ("Description" description=STRING)? "}" //RRelationRef:
-		////	FRRelation | QRRelation | ConstraintRelation;
-		////FRRelation:
-		////	relation=[FR];
-		////QRRelation:
-		////	relation=[QR];
-		////ConstraintRelation:
-		////	relation=[Constraint];
+		//"Supports" | "Obstructs" | "Conflicts" | "Identical") ("Description" description=STRING)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"RequirementRelation"
@@ -4173,14 +4154,6 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getDescriptionSTRINGTerminalRuleCall_9_1_0() { return cDescriptionSTRINGTerminalRuleCall_9_1_0; }
 
-		////RRelationRef:
-		////	FRRelation | QRRelation | ConstraintRelation;
-		////FRRelation:
-		////	relation=[FR];
-		////QRRelation:
-		////	relation=[QR];
-		////ConstraintRelation:
-		////	relation=[Constraint];
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
 	}
@@ -4475,8 +4448,6 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		return getSystemRelationAccess().getRule();
 	}
 
-	////RefSystem:
-	////	refSystem=[System](',' refs+=[System])*;
 	//GlossaryTerm:
 	//	"GlossaryTerm" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Type" type=RefTermType
 	//	("Acronym" acronym=STRING)? ("POS" pos=("Adjective" | "Adverb" | "Noun" | "Verb"))? ("Synonym" synonym=STRING)?
@@ -4752,8 +4723,8 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//FR:
-	//	"FunctionalRequirement" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING "Type"
-	//	type=("Functional" | "Behavioral" | "Data") ("Stakeholder" stakeholder=[Stakeholder])? "Priority" priority=Priority //		depends+=DependsOnFR*
+	//	"FunctionalRequirement" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Type"
+	//	type=("Functional" | "Behavioral" | "Data") ("Stakeholder" stakeholder=[Stakeholder])? "Priority" priority=Priority
 	//	("PartOf" partOf=[FR])? ("ProjectProgress" progress=ProjectProgress)? "}";
 	public FRElements getFRAccess() {
 		return pFR;
@@ -4763,15 +4734,13 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		return getFRAccess().getRule();
 	}
 
-	////DependsOnFR:
-	////	type=('Requires'|'Refines'|'Conflicts') refFR=RefFR;
 	//QR:
-	//	"QualityRequirement" name=ID "{" ("Name" nameAlias=STRING)? "Description" description=STRING "Type" type=("Security"
-	//	| "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal") ("Sub-Type"
-	//	subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLearn" |
+	//	"QualityRequirement" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Type"
+	//	type=("Security" | "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal")
+	//	("Sub-Type" subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLearn" |
 	//	"Usability.Accessibility"))? "Metric" metric=("Hours" | "Mins" | "Secs" | "mSecs" | "Tasks" | "Other") "Value"
-	//	value=INT ("Stakeholder" stakeholder=[Stakeholder])? "Priority" priority=Priority //		depends+=DependsOnQR*
-	//	("PartOf" partOf=[QR])? ("ProjectProgress" progress=ProjectProgress)? "}";
+	//	value=INT ("Stakeholder" stakeholder=[Stakeholder])? "Priority" priority=Priority ("PartOf" partOf=[QR])?
+	//	("ProjectProgress" progress=ProjectProgress)? "}";
 	public QRElements getQRAccess() {
 		return pQR;
 	}
@@ -4780,15 +4749,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		return getQRAccess().getRule();
 	}
 
-	////DependsOnQR:
-	////	type=('Requires'|'Refines'|'Conflicts') refQR=RefQR;
-	////RefQR:
-	////	refQR=[QR](',' refs+=[QR])*;
 	//Constraint:
 	//	"Constraint" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Type" type=("Cultural" |
 	//	"Legal" | "Organizational" | "Physical" | "Project" | "Technological" | "Other") ("Stakeholder"
-	//	stakeholder=[Stakeholder])? "Priority" priority=Priority //		depends+=DependsOnConstraint*
-	//	("PartOf" partOf=[Constraint])? ("ProjectProgress" progress=ProjectProgress)? "}";
+	//	stakeholder=[Stakeholder])? "Priority" priority=Priority ("PartOf" partOf=[Constraint])? ("ProjectProgress"
+	//	progress=ProjectProgress)? "}";
 	public ConstraintElements getConstraintAccess() {
 		return pConstraint;
 	}
@@ -4797,10 +4762,6 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		return getConstraintAccess().getRule();
 	}
 
-	////DependsOnConstraint:
-	////	type=('Requires'|'Refines'|'Conflicts') refConst=RefConstraint;
-	////RefConstraint:
-	////	refConst=[Constraint](',' refs+=[Constraint])*;
 	//Requirement:
 	//	FR | QR | Constraint;
 	public RequirementElements getRequirementAccess() {
@@ -4811,14 +4772,6 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		return getRequirementAccess().getRule();
 	}
 
-	////RRelationRef:
-	////	FRRelation | QRRelation | ConstraintRelation;
-	////FRRelation:
-	////	relation=[FR];
-	////QRRelation:
-	////	relation=[QR];
-	////ConstraintRelation:
-	////	relation=[Constraint];
 	//RequirementRelation:
 	//	"RequirementRelation" name=ID "{" "Source" source=[Requirement] "Target" target=[Requirement] "Type" type=("Requires"
 	//	| "Supports" | "Obstructs" | "Conflicts" | "Identical") ("Description" description=STRING)? "}";

@@ -370,7 +370,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (
 	 *         name=ID 
 	 *         nameAlias=STRING? 
-	 *         description=STRING 
+	 *         description=STRING? 
 	 *         (type='Functional' | type='Behavioral' | type='Data') 
 	 *         stakeholder=[Stakeholder|ID]? 
 	 *         priority=Priority 
@@ -666,7 +666,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     (
 	 *         name=ID 
 	 *         nameAlias=STRING? 
-	 *         description=STRING 
+	 *         description=STRING? 
 	 *         (
 	 *             type='Security' | 
 	 *             type='Performance' | 

@@ -5716,15 +5716,15 @@ ruleFR returns [EObject current=null]
 	    }
 
 )
-))?	otherlv_5='Description' 
+))?(	otherlv_5='Description' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getFRAccess().getDescriptionKeyword_4());
+    	newLeafNode(otherlv_5, grammarAccess.getFRAccess().getDescriptionKeyword_4_0());
     }
 (
 (
 		lv_description_6_0=RULE_STRING
 		{
-			newLeafNode(lv_description_6_0, grammarAccess.getFRAccess().getDescriptionSTRINGTerminalRuleCall_5_0()); 
+			newLeafNode(lv_description_6_0, grammarAccess.getFRAccess().getDescriptionSTRINGTerminalRuleCall_4_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -5738,16 +5738,16 @@ ruleFR returns [EObject current=null]
 	    }
 
 )
-)	otherlv_7='Type' 
+))?	otherlv_7='Type' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getFRAccess().getTypeKeyword_6());
+    	newLeafNode(otherlv_7, grammarAccess.getFRAccess().getTypeKeyword_5());
     }
 (
 (
 (
 		lv_type_8_1=	'Functional' 
     {
-        newLeafNode(lv_type_8_1, grammarAccess.getFRAccess().getTypeFunctionalKeyword_7_0_0());
+        newLeafNode(lv_type_8_1, grammarAccess.getFRAccess().getTypeFunctionalKeyword_6_0_0());
     }
  
 	    {
@@ -5759,7 +5759,7 @@ ruleFR returns [EObject current=null]
 
     |		lv_type_8_2=	'Behavioral' 
     {
-        newLeafNode(lv_type_8_2, grammarAccess.getFRAccess().getTypeBehavioralKeyword_7_0_1());
+        newLeafNode(lv_type_8_2, grammarAccess.getFRAccess().getTypeBehavioralKeyword_6_0_1());
     }
  
 	    {
@@ -5771,7 +5771,7 @@ ruleFR returns [EObject current=null]
 
     |		lv_type_8_3=	'Data' 
     {
-        newLeafNode(lv_type_8_3, grammarAccess.getFRAccess().getTypeDataKeyword_7_0_2());
+        newLeafNode(lv_type_8_3, grammarAccess.getFRAccess().getTypeDataKeyword_6_0_2());
     }
  
 	    {
@@ -5786,7 +5786,7 @@ ruleFR returns [EObject current=null]
 )
 )(	otherlv_9='Stakeholder' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getFRAccess().getStakeholderKeyword_8_0());
+    	newLeafNode(otherlv_9, grammarAccess.getFRAccess().getStakeholderKeyword_7_0());
     }
 (
 (
@@ -5797,18 +5797,18 @@ ruleFR returns [EObject current=null]
         }
 	otherlv_10=RULE_ID
 	{
-		newLeafNode(otherlv_10, grammarAccess.getFRAccess().getStakeholderStakeholderCrossReference_8_1_0()); 
+		newLeafNode(otherlv_10, grammarAccess.getFRAccess().getStakeholderStakeholderCrossReference_7_1_0()); 
 	}
 
 )
 ))?	otherlv_11='Priority' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getFRAccess().getPriorityKeyword_9());
+    	newLeafNode(otherlv_11, grammarAccess.getFRAccess().getPriorityKeyword_8());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFRAccess().getPriorityPriorityParserRuleCall_10_0()); 
+	        newCompositeNode(grammarAccess.getFRAccess().getPriorityPriorityParserRuleCall_9_0()); 
 	    }
 		lv_priority_12_0=rulePriority		{
 	        if ($current==null) {
@@ -5825,7 +5825,7 @@ ruleFR returns [EObject current=null]
 )
 )(	otherlv_13='PartOf' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getFRAccess().getPartOfKeyword_11_0());
+    	newLeafNode(otherlv_13, grammarAccess.getFRAccess().getPartOfKeyword_10_0());
     }
 (
 (
@@ -5836,18 +5836,18 @@ ruleFR returns [EObject current=null]
         }
 	otherlv_14=RULE_ID
 	{
-		newLeafNode(otherlv_14, grammarAccess.getFRAccess().getPartOfFRCrossReference_11_1_0()); 
+		newLeafNode(otherlv_14, grammarAccess.getFRAccess().getPartOfFRCrossReference_10_1_0()); 
 	}
 
 )
 ))?(	otherlv_15='ProjectProgress' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getFRAccess().getProjectProgressKeyword_12_0());
+    	newLeafNode(otherlv_15, grammarAccess.getFRAccess().getProjectProgressKeyword_11_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFRAccess().getProgressProjectProgressParserRuleCall_12_1_0()); 
+	        newCompositeNode(grammarAccess.getFRAccess().getProgressProjectProgressParserRuleCall_11_1_0()); 
 	    }
 		lv_progress_16_0=ruleProjectProgress		{
 	        if ($current==null) {
@@ -5864,7 +5864,7 @@ ruleFR returns [EObject current=null]
 )
 ))?	otherlv_17='}' 
     {
-    	newLeafNode(otherlv_17, grammarAccess.getFRAccess().getRightCurlyBracketKeyword_13());
+    	newLeafNode(otherlv_17, grammarAccess.getFRAccess().getRightCurlyBracketKeyword_12());
     }
 )
 ;
@@ -5935,15 +5935,15 @@ ruleQR returns [EObject current=null]
 	    }
 
 )
-))?	otherlv_5='Description' 
+))?(	otherlv_5='Description' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getQRAccess().getDescriptionKeyword_4());
+    	newLeafNode(otherlv_5, grammarAccess.getQRAccess().getDescriptionKeyword_4_0());
     }
 (
 (
 		lv_description_6_0=RULE_STRING
 		{
-			newLeafNode(lv_description_6_0, grammarAccess.getQRAccess().getDescriptionSTRINGTerminalRuleCall_5_0()); 
+			newLeafNode(lv_description_6_0, grammarAccess.getQRAccess().getDescriptionSTRINGTerminalRuleCall_4_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -5957,16 +5957,16 @@ ruleQR returns [EObject current=null]
 	    }
 
 )
-)	otherlv_7='Type' 
+))?	otherlv_7='Type' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getQRAccess().getTypeKeyword_6());
+    	newLeafNode(otherlv_7, grammarAccess.getQRAccess().getTypeKeyword_5());
     }
 (
 (
 (
 		lv_type_8_1=	'Security' 
     {
-        newLeafNode(lv_type_8_1, grammarAccess.getQRAccess().getTypeSecurityKeyword_7_0_0());
+        newLeafNode(lv_type_8_1, grammarAccess.getQRAccess().getTypeSecurityKeyword_6_0_0());
     }
  
 	    {
@@ -5978,7 +5978,7 @@ ruleQR returns [EObject current=null]
 
     |		lv_type_8_2=	'Performance' 
     {
-        newLeafNode(lv_type_8_2, grammarAccess.getQRAccess().getTypePerformanceKeyword_7_0_1());
+        newLeafNode(lv_type_8_2, grammarAccess.getQRAccess().getTypePerformanceKeyword_6_0_1());
     }
  
 	    {
@@ -5990,7 +5990,7 @@ ruleQR returns [EObject current=null]
 
     |		lv_type_8_3=	'Usability' 
     {
-        newLeafNode(lv_type_8_3, grammarAccess.getQRAccess().getTypeUsabilityKeyword_7_0_2());
+        newLeafNode(lv_type_8_3, grammarAccess.getQRAccess().getTypeUsabilityKeyword_6_0_2());
     }
  
 	    {
@@ -6002,7 +6002,7 @@ ruleQR returns [EObject current=null]
 
     |		lv_type_8_4=	'Appearance' 
     {
-        newLeafNode(lv_type_8_4, grammarAccess.getQRAccess().getTypeAppearanceKeyword_7_0_3());
+        newLeafNode(lv_type_8_4, grammarAccess.getQRAccess().getTypeAppearanceKeyword_6_0_3());
     }
  
 	    {
@@ -6014,7 +6014,7 @@ ruleQR returns [EObject current=null]
 
     |		lv_type_8_5=	'Operational' 
     {
-        newLeafNode(lv_type_8_5, grammarAccess.getQRAccess().getTypeOperationalKeyword_7_0_4());
+        newLeafNode(lv_type_8_5, grammarAccess.getQRAccess().getTypeOperationalKeyword_6_0_4());
     }
  
 	    {
@@ -6026,7 +6026,7 @@ ruleQR returns [EObject current=null]
 
     |		lv_type_8_6=	'Maintenance' 
     {
-        newLeafNode(lv_type_8_6, grammarAccess.getQRAccess().getTypeMaintenanceKeyword_7_0_5());
+        newLeafNode(lv_type_8_6, grammarAccess.getQRAccess().getTypeMaintenanceKeyword_6_0_5());
     }
  
 	    {
@@ -6038,7 +6038,7 @@ ruleQR returns [EObject current=null]
 
     |		lv_type_8_7=	'Cultural' 
     {
-        newLeafNode(lv_type_8_7, grammarAccess.getQRAccess().getTypeCulturalKeyword_7_0_6());
+        newLeafNode(lv_type_8_7, grammarAccess.getQRAccess().getTypeCulturalKeyword_6_0_6());
     }
  
 	    {
@@ -6050,7 +6050,7 @@ ruleQR returns [EObject current=null]
 
     |		lv_type_8_8=	'Legal' 
     {
-        newLeafNode(lv_type_8_8, grammarAccess.getQRAccess().getTypeLegalKeyword_7_0_7());
+        newLeafNode(lv_type_8_8, grammarAccess.getQRAccess().getTypeLegalKeyword_6_0_7());
     }
  
 	    {
@@ -6065,14 +6065,14 @@ ruleQR returns [EObject current=null]
 )
 )(	otherlv_9='Sub-Type' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getQRAccess().getSubTypeKeyword_8_0());
+    	newLeafNode(otherlv_9, grammarAccess.getQRAccess().getSubTypeKeyword_7_0());
     }
 (
 (
 (
 		lv_subType_10_1=	'Security.Privacy' 
     {
-        newLeafNode(lv_subType_10_1, grammarAccess.getQRAccess().getSubTypeSecurityPrivacyKeyword_8_1_0_0());
+        newLeafNode(lv_subType_10_1, grammarAccess.getQRAccess().getSubTypeSecurityPrivacyKeyword_7_1_0_0());
     }
  
 	    {
@@ -6084,7 +6084,7 @@ ruleQR returns [EObject current=null]
 
     |		lv_subType_10_2=	'Security.Integrity' 
     {
-        newLeafNode(lv_subType_10_2, grammarAccess.getQRAccess().getSubTypeSecurityIntegrityKeyword_8_1_0_1());
+        newLeafNode(lv_subType_10_2, grammarAccess.getQRAccess().getSubTypeSecurityIntegrityKeyword_7_1_0_1());
     }
  
 	    {
@@ -6096,7 +6096,7 @@ ruleQR returns [EObject current=null]
 
     |		lv_subType_10_3=	'Usability.EaseOfUse' 
     {
-        newLeafNode(lv_subType_10_3, grammarAccess.getQRAccess().getSubTypeUsabilityEaseOfUseKeyword_8_1_0_2());
+        newLeafNode(lv_subType_10_3, grammarAccess.getQRAccess().getSubTypeUsabilityEaseOfUseKeyword_7_1_0_2());
     }
  
 	    {
@@ -6108,7 +6108,7 @@ ruleQR returns [EObject current=null]
 
     |		lv_subType_10_4=	'Usability.EaseOfLearn' 
     {
-        newLeafNode(lv_subType_10_4, grammarAccess.getQRAccess().getSubTypeUsabilityEaseOfLearnKeyword_8_1_0_3());
+        newLeafNode(lv_subType_10_4, grammarAccess.getQRAccess().getSubTypeUsabilityEaseOfLearnKeyword_7_1_0_3());
     }
  
 	    {
@@ -6120,7 +6120,7 @@ ruleQR returns [EObject current=null]
 
     |		lv_subType_10_5=	'Usability.Accessibility' 
     {
-        newLeafNode(lv_subType_10_5, grammarAccess.getQRAccess().getSubTypeUsabilityAccessibilityKeyword_8_1_0_4());
+        newLeafNode(lv_subType_10_5, grammarAccess.getQRAccess().getSubTypeUsabilityAccessibilityKeyword_7_1_0_4());
     }
  
 	    {
@@ -6135,14 +6135,14 @@ ruleQR returns [EObject current=null]
 )
 ))?	otherlv_11='Metric' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getQRAccess().getMetricKeyword_9());
+    	newLeafNode(otherlv_11, grammarAccess.getQRAccess().getMetricKeyword_8());
     }
 (
 (
 (
 		lv_metric_12_1=	'Hours' 
     {
-        newLeafNode(lv_metric_12_1, grammarAccess.getQRAccess().getMetricHoursKeyword_10_0_0());
+        newLeafNode(lv_metric_12_1, grammarAccess.getQRAccess().getMetricHoursKeyword_9_0_0());
     }
  
 	    {
@@ -6154,7 +6154,7 @@ ruleQR returns [EObject current=null]
 
     |		lv_metric_12_2=	'Mins' 
     {
-        newLeafNode(lv_metric_12_2, grammarAccess.getQRAccess().getMetricMinsKeyword_10_0_1());
+        newLeafNode(lv_metric_12_2, grammarAccess.getQRAccess().getMetricMinsKeyword_9_0_1());
     }
  
 	    {
@@ -6166,7 +6166,7 @@ ruleQR returns [EObject current=null]
 
     |		lv_metric_12_3=	'Secs' 
     {
-        newLeafNode(lv_metric_12_3, grammarAccess.getQRAccess().getMetricSecsKeyword_10_0_2());
+        newLeafNode(lv_metric_12_3, grammarAccess.getQRAccess().getMetricSecsKeyword_9_0_2());
     }
  
 	    {
@@ -6178,7 +6178,7 @@ ruleQR returns [EObject current=null]
 
     |		lv_metric_12_4=	'mSecs' 
     {
-        newLeafNode(lv_metric_12_4, grammarAccess.getQRAccess().getMetricMSecsKeyword_10_0_3());
+        newLeafNode(lv_metric_12_4, grammarAccess.getQRAccess().getMetricMSecsKeyword_9_0_3());
     }
  
 	    {
@@ -6190,7 +6190,7 @@ ruleQR returns [EObject current=null]
 
     |		lv_metric_12_5=	'Tasks' 
     {
-        newLeafNode(lv_metric_12_5, grammarAccess.getQRAccess().getMetricTasksKeyword_10_0_4());
+        newLeafNode(lv_metric_12_5, grammarAccess.getQRAccess().getMetricTasksKeyword_9_0_4());
     }
  
 	    {
@@ -6202,7 +6202,7 @@ ruleQR returns [EObject current=null]
 
     |		lv_metric_12_6=	'Other' 
     {
-        newLeafNode(lv_metric_12_6, grammarAccess.getQRAccess().getMetricOtherKeyword_10_0_5());
+        newLeafNode(lv_metric_12_6, grammarAccess.getQRAccess().getMetricOtherKeyword_9_0_5());
     }
  
 	    {
@@ -6217,13 +6217,13 @@ ruleQR returns [EObject current=null]
 )
 )	otherlv_13='Value' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getQRAccess().getValueKeyword_11());
+    	newLeafNode(otherlv_13, grammarAccess.getQRAccess().getValueKeyword_10());
     }
 (
 (
 		lv_value_14_0=RULE_INT
 		{
-			newLeafNode(lv_value_14_0, grammarAccess.getQRAccess().getValueINTTerminalRuleCall_12_0()); 
+			newLeafNode(lv_value_14_0, grammarAccess.getQRAccess().getValueINTTerminalRuleCall_11_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -6239,7 +6239,7 @@ ruleQR returns [EObject current=null]
 )
 )(	otherlv_15='Stakeholder' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getQRAccess().getStakeholderKeyword_13_0());
+    	newLeafNode(otherlv_15, grammarAccess.getQRAccess().getStakeholderKeyword_12_0());
     }
 (
 (
@@ -6250,18 +6250,18 @@ ruleQR returns [EObject current=null]
         }
 	otherlv_16=RULE_ID
 	{
-		newLeafNode(otherlv_16, grammarAccess.getQRAccess().getStakeholderStakeholderCrossReference_13_1_0()); 
+		newLeafNode(otherlv_16, grammarAccess.getQRAccess().getStakeholderStakeholderCrossReference_12_1_0()); 
 	}
 
 )
 ))?	otherlv_17='Priority' 
     {
-    	newLeafNode(otherlv_17, grammarAccess.getQRAccess().getPriorityKeyword_14());
+    	newLeafNode(otherlv_17, grammarAccess.getQRAccess().getPriorityKeyword_13());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getQRAccess().getPriorityPriorityParserRuleCall_15_0()); 
+	        newCompositeNode(grammarAccess.getQRAccess().getPriorityPriorityParserRuleCall_14_0()); 
 	    }
 		lv_priority_18_0=rulePriority		{
 	        if ($current==null) {
@@ -6278,7 +6278,7 @@ ruleQR returns [EObject current=null]
 )
 )(	otherlv_19='PartOf' 
     {
-    	newLeafNode(otherlv_19, grammarAccess.getQRAccess().getPartOfKeyword_16_0());
+    	newLeafNode(otherlv_19, grammarAccess.getQRAccess().getPartOfKeyword_15_0());
     }
 (
 (
@@ -6289,18 +6289,18 @@ ruleQR returns [EObject current=null]
         }
 	otherlv_20=RULE_ID
 	{
-		newLeafNode(otherlv_20, grammarAccess.getQRAccess().getPartOfQRCrossReference_16_1_0()); 
+		newLeafNode(otherlv_20, grammarAccess.getQRAccess().getPartOfQRCrossReference_15_1_0()); 
 	}
 
 )
 ))?(	otherlv_21='ProjectProgress' 
     {
-    	newLeafNode(otherlv_21, grammarAccess.getQRAccess().getProjectProgressKeyword_17_0());
+    	newLeafNode(otherlv_21, grammarAccess.getQRAccess().getProjectProgressKeyword_16_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getQRAccess().getProgressProjectProgressParserRuleCall_17_1_0()); 
+	        newCompositeNode(grammarAccess.getQRAccess().getProgressProjectProgressParserRuleCall_16_1_0()); 
 	    }
 		lv_progress_22_0=ruleProjectProgress		{
 	        if ($current==null) {
@@ -6317,7 +6317,7 @@ ruleQR returns [EObject current=null]
 )
 ))?	otherlv_23='}' 
     {
-    	newLeafNode(otherlv_23, grammarAccess.getQRAccess().getRightCurlyBracketKeyword_18());
+    	newLeafNode(otherlv_23, grammarAccess.getQRAccess().getRightCurlyBracketKeyword_17());
     }
 )
 ;
