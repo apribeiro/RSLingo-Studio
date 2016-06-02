@@ -9,6 +9,8 @@ import rslingo.rslil.rSLIL.QR
 import rslingo.rslil.rSLIL.RSLILPackage
 import rslingo.rslil.rSLIL.Step
 import rslingo.rslil.rSLIL.UseCase
+import rslingo.rslil.rSLIL.Date
+import java.util.Calendar
 
 /**
  * This class contains custom validation rules. 
@@ -80,5 +82,30 @@ class RSLILValidator extends AbstractRSLILValidator {
 				error('A QualityRequirement of type \'' + qr.type + '\' cannot have a sub-type.', RSLILPackage.Literals.QR__SUB_TYPE)		
 			}
 		}
+	}
+	
+	@Check
+	def checkDate(Date date) {
+		if (date.day < 1 || date.day > 31) {
+			error('Day should be between 1 and 31', 
+					RSLILPackage.Literals.DATE__DAY)
+		} else if (date.month.name.equals("Feb")) {
+			if (isLeapYear(date.year) && date.day > 29) {
+				error('Feb ' + date.year + ' only has 29 days', RSLILPackage.Literals.DATE__DAY)	
+			} else if (!isLeapYear(date.year) && date.day > 28) {
+				error('Feb ' + date.year + ' only has 28 days', RSLILPackage.Literals.DATE__DAY)
+			}
+		} else if (date.month.name.equals("Apr") || date.month.name.equals("Jun")
+					|| date.month.name.equals("Sep") || date.month.name.equals("Nov")) {
+			if (date.day > 30) {
+				error(date.month.name + ' ' + date.year + ' only has 30 days', RSLILPackage.Literals.DATE__DAY)	
+			}
+		}
+	}
+	
+	def boolean isLeapYear(int year) {
+	  	var cal = Calendar.getInstance()
+	  	cal.set(Calendar.YEAR, year)
+	  	return cal.getActualMaximum(Calendar.DAY_OF_YEAR) > 365;
 	}
 }
