@@ -30,6 +30,7 @@ import rslingo.rslil.rSLIL.Step
 import rslingo.rslil.rSLIL.RefTermType
 import rslingo.rslil.rSLIL.GoalRelation
 import rslingo.rslil.rSLIL.SystemRelation
+import rslingo.rslil.rSLIL.RequirementRelation
 
 /**
  * Generates code from your model files on save.
@@ -128,7 +129,7 @@ class RSLIL2TextGenerator implements IGenerator {
 	«IF !p.frs.empty»
 	
 	#Functional Requirements
-	--------------------------
+	-----------------------------
 	«FOR f:p.frs SEPARATOR '\n'»«f.compile»«ENDFOR»«ENDIF»
 	«IF !p.qrs.empty»
 	
@@ -140,6 +141,11 @@ class RSLIL2TextGenerator implements IGenerator {
 	#Constraints
 	------------------
 	«FOR c:p.constraints SEPARATOR '\n'»«c.compile»«ENDFOR»«ENDIF»
+	«IF !p.requirementRelations.empty»
+	
+	#Requirement Relations
+	-----------------------------
+	«FOR r:p.requirementRelations SEPARATOR '\n'»«r.compile»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(System s)
@@ -207,25 +213,28 @@ class RSLIL2TextGenerator implements IGenerator {
 	
 	def compile(Entity e)
 	'''
-	«e.name».«e.nameAlias» («e.type»):
-	«e.description»,
+	«e.name» («e.nameAlias»):
+	«IF e.description != null»Description: «e.description»«ENDIF»
+	«IF e.type != null»Type: «e.type»«ENDIF»
 	Attributes:
 		«FOR a:e.attributes SEPARATOR ',\n'»«a.compile»«ENDFOR»
-	«IF e.primaryKey != null»Primary Key: «e.primaryKey.compile»«ENDIF»
-	«IF !e.foreignKeys.empty»Foreign Keys: «FOR f:e.foreignKeys SEPARATOR ',\n'»«f.compile»«ENDFOR»«ENDIF»
-	«IF !e.checks.empty»Checks: «FOR c:e.checks SEPARATOR ',\n'»«c.compile»«ENDFOR»«ENDIF»
+	«IF e.primaryKey != null»Primary Key: («e.primaryKey.compile»)«ENDIF»
+	«IF !e.foreignKeys.empty»Foreign Keys:
+		«FOR f:e.foreignKeys SEPARATOR ',\n'»«f.compile»«ENDFOR»«ENDIF»
+	«IF !e.checks.empty»Checks:
+		«FOR c:e.checks SEPARATOR ',\n'»«c.compile»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(Attribute a)
 	'''
-	«a.name».«a.nameAlias» («a.type»):
-	«a.description»
+	«a.name» («a.nameAlias»):
+	«IF a.description != null»Description: «a.description»«ENDIF»
 	Type: «a.type»
 	«IF a.size > 0»Size: «a.size»«ENDIF»
 	«IF a.multiplicity != null»Multiplicity: «a.multiplicity.value»«ENDIF»
 	«IF a.defaultValue != null»Default Value: «a.defaultValue»«ENDIF»
-	«IF a.notNull != null»NotNull«ENDIF»
-	«IF a.unique != null»Unique«ENDIF»
+	Not Null: «a.notNull != null»
+	Unique: «a.unique != null»
 	'''
 	
 	def compile(PrimaryKey p)
@@ -245,10 +254,11 @@ class RSLIL2TextGenerator implements IGenerator {
 	
 	def compile(Actor a)
 	'''
-	«a.name».«a.nameAlias» («a.type»):
-	«a.description»
+	«a.name» («a.nameAlias»):
+	«IF a.description != null»«a.description»«ENDIF»
+	Type: «a.type»
 	«IF a.stakeholder != null»Stakeholder: «a.stakeholder.name»«ENDIF»
-	«IF a.actor != null»Specialized From: «a.actor.name»«ENDIF»
+	«IF a.actor != null»Is A: «a.actor.name»«ENDIF»
 	'''
 	
 	def compile(UseCase u)
@@ -316,49 +326,46 @@ class RSLIL2TextGenerator implements IGenerator {
 	
 	def compile(FR f)
 	'''
-	«f.name».«f.nameAlias» («f.type»):
-	«f.description»,
-	«IF f.stakeholder != null»Stakeholder: «f.stakeholder.name»,«ENDIF»
-	Priority: «f.priority.value»,
-	«IF !f.depends.empty»Depends On: «FOR d:f.depends SEPARATOR ',\n'»«d.compile»«ENDFOR»«ENDIF»
+	«f.name» («f.nameAlias»):
+	«IF f.description != null»Description: «f.description»«ENDIF»
+	Type: «f.type»
+	«IF f.stakeholder != null»Stakeholder: «f.stakeholder.name»«ENDIF»
+	Priority: «f.priority.value»
 	«IF f.partOf != null»Part Of: «f.partOf.name»«ENDIF»
-	'''
-	
-	def compile(DependsOnFR d)
-	'''
-	«d.type» «d.refFR.refFR.name»«IF !d.refFR.refs.empty»,«FOR f:d.refFR.refs SEPARATOR ','»«f.name»«ENDFOR»«ENDIF»
+	«IF f.progress != null»Project Progress: «f.progress.value»«ENDIF»
 	'''
 	
 	def compile(QR q)
 	'''
-	«q.name».«q.nameAlias» («q.type»):
-	«q.description»,
-	«IF q.subType != null»Sub-Type: «q.subType»,«ENDIF»
+	«q.name» («q.nameAlias»):
+	«IF q.description != null»Description: «q.description»«ENDIF»
+	Type: «q.type»
+	«IF q.subType != null»Sub-Type: «q.subType»«ENDIF»
 	Metric: «q.metric»
 	Value: «q.value»
-	«IF q.stakeholder != null»Stakeholder: «q.stakeholder.name»,«ENDIF»
-	Priority: «q.priority.value»,
-	«IF !q.depends.empty»Depends On: «FOR d:q.depends SEPARATOR ',\n'»«d.compile»«ENDFOR»«ENDIF»
+	«IF q.stakeholder != null»Stakeholder: «q.stakeholder.name»«ENDIF»
+	Priority: «q.priority.value»
 	«IF q.partOf != null»Part Of: «q.partOf.name»«ENDIF»
-	'''
-	
-	def compile(DependsOnQR d)
-	'''
-	«d.type» «d.refQR.refQR.name»«IF !d.refQR.refs.empty»,«FOR q:d.refQR.refs SEPARATOR ','»«q.name»«ENDFOR»«ENDIF»
+	«IF q.progress != null»Project Progress: «q.progress.value»«ENDIF»
 	'''
 	
 	def compile(Constraint c)
 	'''
-	«c.name».«c.nameAlias» («c.type»):
-	«c.description»,
-	«IF c.stakeholder != null»Stakeholder: «c.stakeholder.name»,«ENDIF»
-	Priority: «c.priority.value»,
-	«IF !c.depends.empty»Depends On: «FOR d:c.depends SEPARATOR ',\n'»«d.compile»«ENDFOR»«ENDIF»
+	«c.name» («c.nameAlias»):
+	«IF c.description != null»Description: «c.description»«ENDIF»
+	Type: «c.type»
+	«IF c.stakeholder != null»Stakeholder: «c.stakeholder.name»«ENDIF»
+	Priority: «c.priority.value»
 	«IF c.partOf != null»Part Of: «c.partOf.name»«ENDIF»
+	«IF c.progress != null»Project Progress: «c.progress.value»«ENDIF»
 	'''
 	
-	def compile(DependsOnConstraint d)
+	def compile(RequirementRelation r)
 	'''
-	«d.type» «d.refConst.refConst.name»«IF !d.refConst.refs.empty»,«FOR q:d.refConst.refs SEPARATOR ','»«q.name»«ENDFOR»«ENDIF»
+	«r.name»:
+	Source: «r.source.name»
+	Target: «r.target.name»
+	Type: «r.type»
+	«IF r.description != null»Description: «r.description»«ENDIF»
 	'''
 }

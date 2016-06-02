@@ -45,6 +45,8 @@ import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
 import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
+import rslingo.rslil.rSLIL.Requirement;
+import rslingo.rslil.rSLIL.RequirementRelation;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.Step;
@@ -474,7 +476,7 @@ public class RSLIL2TextGenerator implements IGenerator {
         _builder.newLine();
         _builder.append("#Functional Requirements");
         _builder.newLine();
-        _builder.append("--------------------------");
+        _builder.append("-----------------------------");
         _builder.newLine();
         {
           EList<FR> _frs_1 = p.getFrs();
@@ -539,6 +541,32 @@ public class RSLIL2TextGenerator implements IGenerator {
             }
             CharSequence _compile_6 = this.compile(c);
             _builder.append(_compile_6, "");
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      EList<RequirementRelation> _requirementRelations = p.getRequirementRelations();
+      boolean _isEmpty_6 = _requirementRelations.isEmpty();
+      boolean _not_6 = (!_isEmpty_6);
+      if (_not_6) {
+        _builder.newLine();
+        _builder.append("#Requirement Relations");
+        _builder.newLine();
+        _builder.append("-----------------------------");
+        _builder.newLine();
+        {
+          EList<RequirementRelation> _requirementRelations_1 = p.getRequirementRelations();
+          boolean _hasElements_6 = false;
+          for(final RequirementRelation r : _requirementRelations_1) {
+            if (!_hasElements_6) {
+              _hasElements_6 = true;
+            } else {
+              _builder.appendImmediate("\n", "");
+            }
+            CharSequence _compile_7 = this.compile(r);
+            _builder.append(_compile_7, "");
           }
         }
       }
@@ -874,17 +902,30 @@ public class RSLIL2TextGenerator implements IGenerator {
     StringConcatenation _builder = new StringConcatenation();
     String _name = e.getName();
     _builder.append(_name, "");
-    _builder.append(".");
+    _builder.append(" (");
     String _nameAlias = e.getNameAlias();
     _builder.append(_nameAlias, "");
-    _builder.append(" (");
-    String _type = e.getType();
-    _builder.append(_type, "");
     _builder.append("):");
     _builder.newLineIfNotEmpty();
-    String _description = e.getDescription();
-    _builder.append(_description, "");
-    _builder.append(",");
+    {
+      String _description = e.getDescription();
+      boolean _notEquals = (!Objects.equal(_description, null));
+      if (_notEquals) {
+        _builder.append("Description: ");
+        String _description_1 = e.getDescription();
+        _builder.append(_description_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      String _type = e.getType();
+      boolean _notEquals_1 = (!Objects.equal(_type, null));
+      if (_notEquals_1) {
+        _builder.append("Type: ");
+        String _type_1 = e.getType();
+        _builder.append(_type_1, "");
+      }
+    }
     _builder.newLineIfNotEmpty();
     _builder.append("Attributes:");
     _builder.newLine();
@@ -905,12 +946,13 @@ public class RSLIL2TextGenerator implements IGenerator {
     _builder.newLineIfNotEmpty();
     {
       PrimaryKey _primaryKey = e.getPrimaryKey();
-      boolean _notEquals = (!Objects.equal(_primaryKey, null));
-      if (_notEquals) {
-        _builder.append("Primary Key: ");
+      boolean _notEquals_2 = (!Objects.equal(_primaryKey, null));
+      if (_notEquals_2) {
+        _builder.append("Primary Key: (");
         PrimaryKey _primaryKey_1 = e.getPrimaryKey();
         CharSequence _compile_1 = this.compile(_primaryKey_1);
         _builder.append(_compile_1, "");
+        _builder.append(")");
       }
     }
     _builder.newLineIfNotEmpty();
@@ -919,7 +961,9 @@ public class RSLIL2TextGenerator implements IGenerator {
       boolean _isEmpty = _foreignKeys.isEmpty();
       boolean _not = (!_isEmpty);
       if (_not) {
-        _builder.append("Foreign Keys: ");
+        _builder.append("Foreign Keys:");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
         {
           EList<ForeignKey> _foreignKeys_1 = e.getForeignKeys();
           boolean _hasElements_1 = false;
@@ -927,10 +971,10 @@ public class RSLIL2TextGenerator implements IGenerator {
             if (!_hasElements_1) {
               _hasElements_1 = true;
             } else {
-              _builder.appendImmediate(",\n", "");
+              _builder.appendImmediate(",\n", "\t");
             }
             CharSequence _compile_2 = this.compile(f);
-            _builder.append(_compile_2, "");
+            _builder.append(_compile_2, "\t");
           }
         }
       }
@@ -941,7 +985,9 @@ public class RSLIL2TextGenerator implements IGenerator {
       boolean _isEmpty_1 = _checks.isEmpty();
       boolean _not_1 = (!_isEmpty_1);
       if (_not_1) {
-        _builder.append("Checks: ");
+        _builder.append("Checks:");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
         {
           EList<Check> _checks_1 = e.getChecks();
           boolean _hasElements_2 = false;
@@ -949,10 +995,10 @@ public class RSLIL2TextGenerator implements IGenerator {
             if (!_hasElements_2) {
               _hasElements_2 = true;
             } else {
-              _builder.appendImmediate(",\n", "");
+              _builder.appendImmediate(",\n", "\t");
             }
             CharSequence _compile_3 = this.compile(c);
-            _builder.append(_compile_3, "");
+            _builder.append(_compile_3, "\t");
           }
         }
       }
@@ -965,20 +1011,24 @@ public class RSLIL2TextGenerator implements IGenerator {
     StringConcatenation _builder = new StringConcatenation();
     String _name = a.getName();
     _builder.append(_name, "");
-    _builder.append(".");
+    _builder.append(" (");
     String _nameAlias = a.getNameAlias();
     _builder.append(_nameAlias, "");
-    _builder.append(" (");
-    String _type = a.getType();
-    _builder.append(_type, "");
     _builder.append("):");
     _builder.newLineIfNotEmpty();
-    String _description = a.getDescription();
-    _builder.append(_description, "");
+    {
+      String _description = a.getDescription();
+      boolean _notEquals = (!Objects.equal(_description, null));
+      if (_notEquals) {
+        _builder.append("Description: ");
+        String _description_1 = a.getDescription();
+        _builder.append(_description_1, "");
+      }
+    }
     _builder.newLineIfNotEmpty();
     _builder.append("Type: ");
-    String _type_1 = a.getType();
-    _builder.append(_type_1, "");
+    String _type = a.getType();
+    _builder.append(_type, "");
     _builder.newLineIfNotEmpty();
     {
       int _size = a.getSize();
@@ -992,8 +1042,8 @@ public class RSLIL2TextGenerator implements IGenerator {
     _builder.newLineIfNotEmpty();
     {
       Multiplicity _multiplicity = a.getMultiplicity();
-      boolean _notEquals = (!Objects.equal(_multiplicity, null));
-      if (_notEquals) {
+      boolean _notEquals_1 = (!Objects.equal(_multiplicity, null));
+      if (_notEquals_1) {
         _builder.append("Multiplicity: ");
         Multiplicity _multiplicity_1 = a.getMultiplicity();
         String _value = _multiplicity_1.getValue();
@@ -1003,29 +1053,23 @@ public class RSLIL2TextGenerator implements IGenerator {
     _builder.newLineIfNotEmpty();
     {
       String _defaultValue = a.getDefaultValue();
-      boolean _notEquals_1 = (!Objects.equal(_defaultValue, null));
-      if (_notEquals_1) {
+      boolean _notEquals_2 = (!Objects.equal(_defaultValue, null));
+      if (_notEquals_2) {
         _builder.append("Default Value: ");
         String _defaultValue_1 = a.getDefaultValue();
         _builder.append(_defaultValue_1, "");
       }
     }
     _builder.newLineIfNotEmpty();
-    {
-      String _notNull = a.getNotNull();
-      boolean _notEquals_2 = (!Objects.equal(_notNull, null));
-      if (_notEquals_2) {
-        _builder.append("NotNull");
-      }
-    }
+    _builder.append("Not Null: ");
+    String _notNull = a.getNotNull();
+    boolean _notEquals_3 = (!Objects.equal(_notNull, null));
+    _builder.append(_notEquals_3, "");
     _builder.newLineIfNotEmpty();
-    {
-      String _unique = a.getUnique();
-      boolean _notEquals_3 = (!Objects.equal(_unique, null));
-      if (_notEquals_3) {
-        _builder.append("Unique");
-      }
-    }
+    _builder.append("Unique: ");
+    String _unique = a.getUnique();
+    boolean _notEquals_4 = (!Objects.equal(_unique, null));
+    _builder.append(_notEquals_4, "");
     _builder.newLineIfNotEmpty();
     return _builder;
   }
@@ -1119,21 +1163,28 @@ public class RSLIL2TextGenerator implements IGenerator {
     StringConcatenation _builder = new StringConcatenation();
     String _name = a.getName();
     _builder.append(_name, "");
-    _builder.append(".");
+    _builder.append(" (");
     String _nameAlias = a.getNameAlias();
     _builder.append(_nameAlias, "");
-    _builder.append(" (");
-    String _type = a.getType();
-    _builder.append(_type, "");
     _builder.append("):");
     _builder.newLineIfNotEmpty();
-    String _description = a.getDescription();
-    _builder.append(_description, "");
+    {
+      String _description = a.getDescription();
+      boolean _notEquals = (!Objects.equal(_description, null));
+      if (_notEquals) {
+        String _description_1 = a.getDescription();
+        _builder.append(_description_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("Type: ");
+    String _type = a.getType();
+    _builder.append(_type, "");
     _builder.newLineIfNotEmpty();
     {
       Stakeholder _stakeholder = a.getStakeholder();
-      boolean _notEquals = (!Objects.equal(_stakeholder, null));
-      if (_notEquals) {
+      boolean _notEquals_1 = (!Objects.equal(_stakeholder, null));
+      if (_notEquals_1) {
         _builder.append("Stakeholder: ");
         Stakeholder _stakeholder_1 = a.getStakeholder();
         String _name_1 = _stakeholder_1.getName();
@@ -1143,9 +1194,9 @@ public class RSLIL2TextGenerator implements IGenerator {
     _builder.newLineIfNotEmpty();
     {
       Actor _actor = a.getActor();
-      boolean _notEquals_1 = (!Objects.equal(_actor, null));
-      if (_notEquals_1) {
-        _builder.append("Specialized From: ");
+      boolean _notEquals_2 = (!Objects.equal(_actor, null));
+      if (_notEquals_2) {
+        _builder.append("Is A: ");
         Actor _actor_1 = a.getActor();
         String _name_2 = _actor_1.getName();
         _builder.append(_name_2, "");
@@ -1626,74 +1677,245 @@ public class RSLIL2TextGenerator implements IGenerator {
   }
   
   public CharSequence compile(final FR f) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method depends is undefined for the type RSLIL2TextGenerator"
-      + "\nThe method depends is undefined for the type RSLIL2TextGenerator"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\ncompile cannot be resolved");
-  }
-  
-  public CharSequence compile(final /* DependsOnFR */Object d) {
-    throw new Error("Unresolved compilation problems:"
-      + "\ntype cannot be resolved"
-      + "\nrefFR cannot be resolved"
-      + "\nrefFR cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nrefFR cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nrefFR cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\nname cannot be resolved");
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = f.getName();
+    _builder.append(_name, "");
+    _builder.append(" (");
+    String _nameAlias = f.getNameAlias();
+    _builder.append(_nameAlias, "");
+    _builder.append("):");
+    _builder.newLineIfNotEmpty();
+    {
+      String _description = f.getDescription();
+      boolean _notEquals = (!Objects.equal(_description, null));
+      if (_notEquals) {
+        _builder.append("Description: ");
+        String _description_1 = f.getDescription();
+        _builder.append(_description_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("Type: ");
+    String _type = f.getType();
+    _builder.append(_type, "");
+    _builder.newLineIfNotEmpty();
+    {
+      Stakeholder _stakeholder = f.getStakeholder();
+      boolean _notEquals_1 = (!Objects.equal(_stakeholder, null));
+      if (_notEquals_1) {
+        _builder.append("Stakeholder: ");
+        Stakeholder _stakeholder_1 = f.getStakeholder();
+        String _name_1 = _stakeholder_1.getName();
+        _builder.append(_name_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("Priority: ");
+    Priority _priority = f.getPriority();
+    String _value = _priority.getValue();
+    _builder.append(_value, "");
+    _builder.newLineIfNotEmpty();
+    {
+      FR _partOf = f.getPartOf();
+      boolean _notEquals_2 = (!Objects.equal(_partOf, null));
+      if (_notEquals_2) {
+        _builder.append("Part Of: ");
+        FR _partOf_1 = f.getPartOf();
+        String _name_2 = _partOf_1.getName();
+        _builder.append(_name_2, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      ProjectProgress _progress = f.getProgress();
+      boolean _notEquals_3 = (!Objects.equal(_progress, null));
+      if (_notEquals_3) {
+        _builder.append("Project Progress: ");
+        ProjectProgress _progress_1 = f.getProgress();
+        String _value_1 = _progress_1.getValue();
+        _builder.append(_value_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
   }
   
   public CharSequence compile(final QR q) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method depends is undefined for the type RSLIL2TextGenerator"
-      + "\nThe method depends is undefined for the type RSLIL2TextGenerator"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\ncompile cannot be resolved");
-  }
-  
-  public CharSequence compile(final /* DependsOnQR */Object d) {
-    throw new Error("Unresolved compilation problems:"
-      + "\ntype cannot be resolved"
-      + "\nrefQR cannot be resolved"
-      + "\nrefQR cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nrefQR cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nrefQR cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\nname cannot be resolved");
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = q.getName();
+    _builder.append(_name, "");
+    _builder.append(" (");
+    String _nameAlias = q.getNameAlias();
+    _builder.append(_nameAlias, "");
+    _builder.append("):");
+    _builder.newLineIfNotEmpty();
+    {
+      String _description = q.getDescription();
+      boolean _notEquals = (!Objects.equal(_description, null));
+      if (_notEquals) {
+        _builder.append("Description: ");
+        String _description_1 = q.getDescription();
+        _builder.append(_description_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("Type: ");
+    String _type = q.getType();
+    _builder.append(_type, "");
+    _builder.newLineIfNotEmpty();
+    {
+      String _subType = q.getSubType();
+      boolean _notEquals_1 = (!Objects.equal(_subType, null));
+      if (_notEquals_1) {
+        _builder.append("Sub-Type: ");
+        String _subType_1 = q.getSubType();
+        _builder.append(_subType_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("Metric: ");
+    String _metric = q.getMetric();
+    _builder.append(_metric, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("Value: ");
+    int _value = q.getValue();
+    _builder.append(_value, "");
+    _builder.newLineIfNotEmpty();
+    {
+      Stakeholder _stakeholder = q.getStakeholder();
+      boolean _notEquals_2 = (!Objects.equal(_stakeholder, null));
+      if (_notEquals_2) {
+        _builder.append("Stakeholder: ");
+        Stakeholder _stakeholder_1 = q.getStakeholder();
+        String _name_1 = _stakeholder_1.getName();
+        _builder.append(_name_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("Priority: ");
+    Priority _priority = q.getPriority();
+    String _value_1 = _priority.getValue();
+    _builder.append(_value_1, "");
+    _builder.newLineIfNotEmpty();
+    {
+      QR _partOf = q.getPartOf();
+      boolean _notEquals_3 = (!Objects.equal(_partOf, null));
+      if (_notEquals_3) {
+        _builder.append("Part Of: ");
+        QR _partOf_1 = q.getPartOf();
+        String _name_2 = _partOf_1.getName();
+        _builder.append(_name_2, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      ProjectProgress _progress = q.getProgress();
+      boolean _notEquals_4 = (!Objects.equal(_progress, null));
+      if (_notEquals_4) {
+        _builder.append("Project Progress: ");
+        ProjectProgress _progress_1 = q.getProgress();
+        String _value_2 = _progress_1.getValue();
+        _builder.append(_value_2, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
   }
   
   public CharSequence compile(final Constraint c) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method depends is undefined for the type RSLIL2TextGenerator"
-      + "\nThe method depends is undefined for the type RSLIL2TextGenerator"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\ncompile cannot be resolved");
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = c.getName();
+    _builder.append(_name, "");
+    _builder.append(" (");
+    String _nameAlias = c.getNameAlias();
+    _builder.append(_nameAlias, "");
+    _builder.append("):");
+    _builder.newLineIfNotEmpty();
+    {
+      String _description = c.getDescription();
+      boolean _notEquals = (!Objects.equal(_description, null));
+      if (_notEquals) {
+        _builder.append("Description: ");
+        String _description_1 = c.getDescription();
+        _builder.append(_description_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("Type: ");
+    String _type = c.getType();
+    _builder.append(_type, "");
+    _builder.newLineIfNotEmpty();
+    {
+      Stakeholder _stakeholder = c.getStakeholder();
+      boolean _notEquals_1 = (!Objects.equal(_stakeholder, null));
+      if (_notEquals_1) {
+        _builder.append("Stakeholder: ");
+        Stakeholder _stakeholder_1 = c.getStakeholder();
+        String _name_1 = _stakeholder_1.getName();
+        _builder.append(_name_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("Priority: ");
+    Priority _priority = c.getPriority();
+    String _value = _priority.getValue();
+    _builder.append(_value, "");
+    _builder.newLineIfNotEmpty();
+    {
+      Constraint _partOf = c.getPartOf();
+      boolean _notEquals_2 = (!Objects.equal(_partOf, null));
+      if (_notEquals_2) {
+        _builder.append("Part Of: ");
+        Constraint _partOf_1 = c.getPartOf();
+        String _name_2 = _partOf_1.getName();
+        _builder.append(_name_2, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      ProjectProgress _progress = c.getProgress();
+      boolean _notEquals_3 = (!Objects.equal(_progress, null));
+      if (_notEquals_3) {
+        _builder.append("Project Progress: ");
+        ProjectProgress _progress_1 = c.getProgress();
+        String _value_1 = _progress_1.getValue();
+        _builder.append(_value_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
   }
   
-  public CharSequence compile(final /* DependsOnConstraint */Object d) {
-    throw new Error("Unresolved compilation problems:"
-      + "\ntype cannot be resolved"
-      + "\nrefConst cannot be resolved"
-      + "\nrefConst cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nrefConst cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nrefConst cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\nname cannot be resolved");
+  public CharSequence compile(final RequirementRelation r) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = r.getName();
+    _builder.append(_name, "");
+    _builder.append(":");
+    _builder.newLineIfNotEmpty();
+    _builder.append("Source: ");
+    Requirement _source = r.getSource();
+    String _name_1 = _source.getName();
+    _builder.append(_name_1, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("Target: ");
+    Requirement _target = r.getTarget();
+    String _name_2 = _target.getName();
+    _builder.append(_name_2, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("Type: ");
+    String _type = r.getType();
+    _builder.append(_type, "");
+    _builder.newLineIfNotEmpty();
+    {
+      String _description = r.getDescription();
+      boolean _notEquals = (!Objects.equal(_description, null));
+      if (_notEquals) {
+        _builder.append("Description: ");
+        String _description_1 = r.getDescription();
+        _builder.append(_description_1, "");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
   }
 }
