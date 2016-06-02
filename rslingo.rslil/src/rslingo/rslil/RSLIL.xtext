@@ -105,9 +105,6 @@ SystemRelation:
 		('Description' description=STRING)?
 	'}';
 
-//RefSystem:
-//	refSystem=[System](',' refs+=[System])*;
-
 GlossaryTerm:
 	'GlossaryTerm' name=ID '{'
 		('Name' nameAlias=STRING)?
@@ -276,38 +273,27 @@ Step:
 FR:
 	'FunctionalRequirement' name=ID '{'
 		('Name' nameAlias=STRING)?
-		'Description' description=STRING
+		('Description' description=STRING)?
 		'Type' type=('Functional'|'Behavioral'|'Data')
 		('Stakeholder' stakeholder=[Stakeholder])?
 		'Priority' priority=Priority
-//		depends+=DependsOnFR*
 		('PartOf' partOf=[FR])?
 		('ProjectProgress' progress=ProjectProgress)?
 	'}';
 
-//DependsOnFR:
-//	type=('Requires'|'Refines'|'Conflicts') refFR=RefFR;
-
 QR:
 	'QualityRequirement' name=ID '{'
 		('Name' nameAlias=STRING)?
-		'Description' description=STRING
+		('Description' description=STRING)?
 		'Type' type=('Security'|'Performance'|'Usability'|'Appearance'|'Operational'|'Maintenance'|'Cultural'|'Legal')
 		('Sub-Type' subType=('Security.Privacy'|'Security.Integrity'|'Usability.EaseOfUse'|'Usability.EaseOfLearn'|'Usability.Accessibility'))?
 		'Metric' metric=('Hours'|'Mins'|'Secs'|'mSecs'|'Tasks'|'Other')
 		'Value' value=INT
 		('Stakeholder' stakeholder=[Stakeholder])?
 		'Priority' priority=Priority
-//		depends+=DependsOnQR*
 		('PartOf' partOf=[QR])?
 		('ProjectProgress' progress=ProjectProgress)?
 	'}';
-
-//DependsOnQR:
-//	type=('Requires'|'Refines'|'Conflicts') refQR=RefQR;
-
-//RefQR:
-//	refQR=[QR](',' refs+=[QR])*;
 
 Constraint:
 	'Constraint' name=ID '{'
@@ -316,16 +302,9 @@ Constraint:
 		'Type' type=('Cultural'|'Legal'|'Organizational'|'Physical'|'Project'|'Technological'|'Other')
 		('Stakeholder' stakeholder=[Stakeholder])?
 		'Priority' priority=Priority
-//		depends+=DependsOnConstraint*
 		('PartOf' partOf=[Constraint])?
 		('ProjectProgress' progress=ProjectProgress)?
 	'}';
-
-//DependsOnConstraint:
-//	type=('Requires'|'Refines'|'Conflicts') refConst=RefConstraint;
-
-//RefConstraint:
-//	refConst=[Constraint](',' refs+=[Constraint])*;
 
 Requirement:
 	FR | QR | Constraint;
@@ -337,15 +316,3 @@ RequirementRelation:
 		'Type' type=('Requires'|'Supports'|'Obstructs'|'Conflicts'|'Identical')
 		('Description' description=STRING)?
 	'}';
-
-//RRelationRef:
-//	FRRelation | QRRelation | ConstraintRelation;
-
-//FRRelation:
-//	relation=[FR];
-
-//QRRelation:
-//	relation=[QR];
-
-//ConstraintRelation:
-//	relation=[Constraint];
