@@ -45,9 +45,12 @@ import rslingo.rslil.rSLIL.RefFR;
 import rslingo.rslil.rSLIL.RefGoal;
 import rslingo.rslil.rSLIL.RefTermType;
 import rslingo.rslil.rSLIL.RefUC;
+import rslingo.rslil.rSLIL.Requirement;
+import rslingo.rslil.rSLIL.RequirementRelation;
 import rslingo.rslil.rSLIL.Scenario;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.Step;
+import rslingo.rslil.rSLIL.SystemRelation;
 import rslingo.rslil.rSLIL.TermType;
 import rslingo.rslil.rSLIL.UseCase;
 
@@ -415,6 +418,32 @@ public class RSLIL2JsonGenerator implements IGenerator {
             _builder.append(_compile_4, "\t    ");
           }
         }
+        _builder.append("],");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t    ");
+    {
+      EList<SystemRelation> _systemRelations = packageProject.getSystemRelations();
+      boolean _isEmpty_5 = _systemRelations.isEmpty();
+      boolean _not_5 = (!_isEmpty_5);
+      if (_not_5) {
+        _builder.append("\"System Relations\": [");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t    ");
+        {
+          EList<SystemRelation> _systemRelations_1 = packageProject.getSystemRelations();
+          boolean _hasElements_5 = false;
+          for(final SystemRelation s_2 : _systemRelations_1) {
+            if (!_hasElements_5) {
+              _hasElements_5 = true;
+            } else {
+              _builder.appendImmediate(",", "\t    ");
+            }
+            CharSequence _compile_5 = this.compile(s_2);
+            _builder.append(_compile_5, "\t    ");
+          }
+        }
         _builder.append("]");
       }
     }
@@ -761,9 +790,308 @@ public class RSLIL2JsonGenerator implements IGenerator {
   }
   
   public CharSequence compile(final PackageSystem p) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method project is undefined for the type RSLIL2JsonGenerator"
-      + "\nname cannot be resolved");
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(" ");
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("\"ID\": \"");
+    rslingo.rslil.rSLIL.System _system = p.getSystem();
+    String _name = _system.getName();
+    _builder.append(_name, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Name\": \"");
+    rslingo.rslil.rSLIL.System _system_1 = p.getSystem();
+    String _nameAlias = _system_1.getNameAlias();
+    _builder.append(_nameAlias, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      rslingo.rslil.rSLIL.System _system_2 = p.getSystem();
+      String _description = _system_2.getDescription();
+      boolean _notEquals = (!Objects.equal(_description, null));
+      if (_notEquals) {
+        _builder.append("\"Description\": \"");
+        rslingo.rslil.rSLIL.System _system_3 = p.getSystem();
+        String _description_1 = _system_3.getDescription();
+        _builder.append(_description_1, "\t\t\t");
+        _builder.append("\",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Type\": \"");
+    rslingo.rslil.rSLIL.System _system_4 = p.getSystem();
+    String _type = _system_4.getType();
+    _builder.append(_type, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Scope\": \"");
+    rslingo.rslil.rSLIL.System _system_5 = p.getSystem();
+    String _scope = _system_5.getScope();
+    _builder.append(_scope, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      rslingo.rslil.rSLIL.System _system_6 = p.getSystem();
+      rslingo.rslil.rSLIL.System _partOf = _system_6.getPartOf();
+      boolean _notEquals_1 = (!Objects.equal(_partOf, null));
+      if (_notEquals_1) {
+        _builder.append("\"Part Of\": \"");
+        rslingo.rslil.rSLIL.System _system_7 = p.getSystem();
+        rslingo.rslil.rSLIL.System _partOf_1 = _system_7.getPartOf();
+        String _name_1 = _partOf_1.getName();
+        _builder.append(_name_1, "\t\t\t");
+        _builder.append("\",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      EList<Entity> _entities = p.getEntities();
+      boolean _isEmpty = _entities.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append("\"Entities\": [");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t    ");
+        {
+          EList<Entity> _entities_1 = p.getEntities();
+          boolean _hasElements = false;
+          for(final Entity e : _entities_1) {
+            if (!_hasElements) {
+              _hasElements = true;
+            } else {
+              _builder.appendImmediate(",", "\t\t    ");
+            }
+            CharSequence _compile = this.compile(e);
+            _builder.append(_compile, "\t\t    ");
+          }
+        }
+        _builder.append("],");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t    ");
+    {
+      EList<Actor> _actors = p.getActors();
+      boolean _isEmpty_1 = _actors.isEmpty();
+      boolean _not_1 = (!_isEmpty_1);
+      if (_not_1) {
+        _builder.append("\"Actors\": [");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t    ");
+        {
+          EList<Actor> _actors_1 = p.getActors();
+          boolean _hasElements_1 = false;
+          for(final Actor a : _actors_1) {
+            if (!_hasElements_1) {
+              _hasElements_1 = true;
+            } else {
+              _builder.appendImmediate(",", "\t\t    ");
+            }
+            CharSequence _compile_1 = this.compile(a);
+            _builder.append(_compile_1, "\t\t    ");
+          }
+        }
+        _builder.append("],");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t    ");
+    {
+      EList<UseCase> _useCases = p.getUseCases();
+      boolean _isEmpty_2 = _useCases.isEmpty();
+      boolean _not_2 = (!_isEmpty_2);
+      if (_not_2) {
+        _builder.append("\"Use Cases\": [");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t    ");
+        {
+          EList<UseCase> _useCases_1 = p.getUseCases();
+          boolean _hasElements_2 = false;
+          for(final UseCase u : _useCases_1) {
+            if (!_hasElements_2) {
+              _hasElements_2 = true;
+            } else {
+              _builder.appendImmediate(",", "\t\t    ");
+            }
+            CharSequence _compile_2 = this.compile(u);
+            _builder.append(_compile_2, "\t\t    ");
+          }
+        }
+        _builder.append("],");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t    ");
+    {
+      EList<FR> _frs = p.getFrs();
+      boolean _isEmpty_3 = _frs.isEmpty();
+      boolean _not_3 = (!_isEmpty_3);
+      if (_not_3) {
+        _builder.append("\"Functional Requirements\": [");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t    ");
+        {
+          EList<FR> _frs_1 = p.getFrs();
+          boolean _hasElements_3 = false;
+          for(final FR f : _frs_1) {
+            if (!_hasElements_3) {
+              _hasElements_3 = true;
+            } else {
+              _builder.appendImmediate(",", "\t\t    ");
+            }
+            CharSequence _compile_3 = this.compile(f);
+            _builder.append(_compile_3, "\t\t    ");
+          }
+        }
+        _builder.append("],");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t    ");
+    {
+      EList<QR> _qrs = p.getQrs();
+      boolean _isEmpty_4 = _qrs.isEmpty();
+      boolean _not_4 = (!_isEmpty_4);
+      if (_not_4) {
+        _builder.append("\"Quality Requirements\": [");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t    ");
+        {
+          EList<QR> _qrs_1 = p.getQrs();
+          boolean _hasElements_4 = false;
+          for(final QR q : _qrs_1) {
+            if (!_hasElements_4) {
+              _hasElements_4 = true;
+            } else {
+              _builder.appendImmediate(",", "\t\t    ");
+            }
+            CharSequence _compile_4 = this.compile(q);
+            _builder.append(_compile_4, "\t\t    ");
+          }
+        }
+        _builder.append("],");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t    ");
+    {
+      EList<Constraint> _constraints = p.getConstraints();
+      boolean _isEmpty_5 = _constraints.isEmpty();
+      boolean _not_5 = (!_isEmpty_5);
+      if (_not_5) {
+        _builder.append("\"Constraints\": [");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t    ");
+        {
+          EList<Constraint> _constraints_1 = p.getConstraints();
+          boolean _hasElements_5 = false;
+          for(final Constraint c : _constraints_1) {
+            if (!_hasElements_5) {
+              _hasElements_5 = true;
+            } else {
+              _builder.appendImmediate(",", "\t\t    ");
+            }
+            CharSequence _compile_5 = this.compile(c);
+            _builder.append(_compile_5, "\t\t    ");
+          }
+        }
+        _builder.append("],");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t    ");
+    {
+      EList<RequirementRelation> _requirementRelations = p.getRequirementRelations();
+      boolean _isEmpty_6 = _requirementRelations.isEmpty();
+      boolean _not_6 = (!_isEmpty_6);
+      if (_not_6) {
+        _builder.append("\"Requirement Relations\": [");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t    ");
+        {
+          EList<RequirementRelation> _requirementRelations_1 = p.getRequirementRelations();
+          boolean _hasElements_6 = false;
+          for(final RequirementRelation r : _requirementRelations_1) {
+            if (!_hasElements_6) {
+              _hasElements_6 = true;
+            } else {
+              _builder.appendImmediate(",", "\t\t    ");
+            }
+            CharSequence _compile_6 = this.compile(r);
+            _builder.append(_compile_6, "\t\t    ");
+          }
+        }
+        _builder.append("]");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final SystemRelation s) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(" ");
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("\"ID\": \"");
+    String _name = s.getName();
+    _builder.append(_name, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Source\": \"");
+    rslingo.rslil.rSLIL.System _source = s.getSource();
+    String _name_1 = _source.getName();
+    _builder.append(_name_1, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Target\": \"");
+    rslingo.rslil.rSLIL.System _target = s.getTarget();
+    String _name_2 = _target.getName();
+    _builder.append(_name_2, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Category\": \"");
+    String _category = s.getCategory();
+    _builder.append(_category, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Type\": \"");
+    String _type = s.getType();
+    _builder.append(_type, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      String _description = s.getDescription();
+      boolean _notEquals = (!Objects.equal(_description, null));
+      if (_notEquals) {
+        _builder.append("\"Description\": \"");
+        String _description_1 = s.getDescription();
+        _builder.append(_description_1, "\t\t\t");
+        _builder.append("\"");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
   }
   
   public CharSequence compile(final Entity e) {
@@ -784,16 +1112,22 @@ public class RSLIL2JsonGenerator implements IGenerator {
     _builder.append("\",");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
-    _builder.append("\"Description\": \"");
-    String _description = e.getDescription();
-    _builder.append(_description, "\t\t\t");
-    _builder.append("\",");
+    {
+      String _description = e.getDescription();
+      boolean _notEquals = (!Objects.equal(_description, null));
+      if (_notEquals) {
+        _builder.append("\"Description\": \"");
+        String _description_1 = e.getDescription();
+        _builder.append(_description_1, "\t\t\t");
+        _builder.append("\",");
+      }
+    }
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
     {
       String _type = e.getType();
-      boolean _notEquals = (!Objects.equal(_type, null));
-      if (_notEquals) {
+      boolean _notEquals_1 = (!Objects.equal(_type, null));
+      if (_notEquals_1) {
         _builder.append("\"Type\": \"");
         String _type_1 = e.getType();
         _builder.append(_type_1, "\t\t\t");
@@ -821,13 +1155,13 @@ public class RSLIL2JsonGenerator implements IGenerator {
     _builder.append("\t\t\t");
     {
       PrimaryKey _primaryKey = e.getPrimaryKey();
-      boolean _notEquals_1 = (!Objects.equal(_primaryKey, null));
-      if (_notEquals_1) {
-        _builder.append("\"Primary Key\": \"");
+      boolean _notEquals_2 = (!Objects.equal(_primaryKey, null));
+      if (_notEquals_2) {
+        _builder.append("\"Primary Key\": \"(");
         PrimaryKey _primaryKey_1 = e.getPrimaryKey();
         CharSequence _compile_1 = this.compile(_primaryKey_1);
         _builder.append(_compile_1, "\t\t\t");
-        _builder.append("\",");
+        _builder.append(")\",");
       }
     }
     _builder.newLineIfNotEmpty();
@@ -903,10 +1237,16 @@ public class RSLIL2JsonGenerator implements IGenerator {
     _builder.append("\",");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
-    _builder.append("\"Description\": \"");
-    String _description = a.getDescription();
-    _builder.append(_description, "\t\t\t");
-    _builder.append("\",");
+    {
+      String _description = a.getDescription();
+      boolean _notEquals = (!Objects.equal(_description, null));
+      if (_notEquals) {
+        _builder.append("\"Description\": \"");
+        String _description_1 = a.getDescription();
+        _builder.append(_description_1, "\t\t\t");
+        _builder.append("\",");
+      }
+    }
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
     _builder.append("\"Type\": \"");
@@ -929,8 +1269,8 @@ public class RSLIL2JsonGenerator implements IGenerator {
     _builder.append("\t\t\t");
     {
       Multiplicity _multiplicity = a.getMultiplicity();
-      boolean _notEquals = (!Objects.equal(_multiplicity, null));
-      if (_notEquals) {
+      boolean _notEquals_1 = (!Objects.equal(_multiplicity, null));
+      if (_notEquals_1) {
         _builder.append("\"Multiplicity\": \"");
         Multiplicity _multiplicity_1 = a.getMultiplicity();
         String _value = _multiplicity_1.getValue();
@@ -943,8 +1283,8 @@ public class RSLIL2JsonGenerator implements IGenerator {
     _builder.append("\t\t\t");
     {
       String _defaultValue = a.getDefaultValue();
-      boolean _notEquals_1 = (!Objects.equal(_defaultValue, null));
-      if (_notEquals_1) {
+      boolean _notEquals_2 = (!Objects.equal(_defaultValue, null));
+      if (_notEquals_2) {
         _builder.append("\"Default Value\": \"");
         String _defaultValue_1 = a.getDefaultValue();
         _builder.append(_defaultValue_1, "\t\t\t");
@@ -953,22 +1293,18 @@ public class RSLIL2JsonGenerator implements IGenerator {
     }
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
-    {
-      String _notNull = a.getNotNull();
-      boolean _notEquals_2 = (!Objects.equal(_notNull, null));
-      if (_notEquals_2) {
-        _builder.append("\"Not Null\": \"true\",");
-      }
-    }
+    _builder.append("\"Not Null\": \"");
+    String _notNull = a.getNotNull();
+    boolean _notEquals_3 = (!Objects.equal(_notNull, null));
+    _builder.append(_notEquals_3, "\t\t\t");
+    _builder.append("\",");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
-    {
-      String _unique = a.getUnique();
-      boolean _notEquals_3 = (!Objects.equal(_unique, null));
-      if (_notEquals_3) {
-        _builder.append("\"Unique\": \"true\"");
-      }
-    }
+    _builder.append("\"Unique\": \"");
+    String _unique = a.getUnique();
+    boolean _notEquals_4 = (!Objects.equal(_unique, null));
+    _builder.append(_notEquals_4, "\t\t\t");
+    _builder.append("\"");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("}");
@@ -1103,10 +1439,16 @@ public class RSLIL2JsonGenerator implements IGenerator {
     _builder.append("\",");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
-    _builder.append("\"Description\": \"");
-    String _description = a.getDescription();
-    _builder.append(_description, "\t\t\t");
-    _builder.append("\",");
+    {
+      String _description = a.getDescription();
+      boolean _notEquals = (!Objects.equal(_description, null));
+      if (_notEquals) {
+        _builder.append("\"Description\": \"");
+        String _description_1 = a.getDescription();
+        _builder.append(_description_1, "\t\t\t");
+        _builder.append("\",");
+      }
+    }
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
     _builder.append("\"Type\": \"");
@@ -1117,8 +1459,8 @@ public class RSLIL2JsonGenerator implements IGenerator {
     _builder.append("\t\t\t");
     {
       Stakeholder _stakeholder = a.getStakeholder();
-      boolean _notEquals = (!Objects.equal(_stakeholder, null));
-      if (_notEquals) {
+      boolean _notEquals_1 = (!Objects.equal(_stakeholder, null));
+      if (_notEquals_1) {
         _builder.append("\"Stakeholder\": \"");
         Stakeholder _stakeholder_1 = a.getStakeholder();
         String _name_1 = _stakeholder_1.getName();
@@ -1130,13 +1472,13 @@ public class RSLIL2JsonGenerator implements IGenerator {
     _builder.append("\t\t\t");
     {
       Actor _actor = a.getActor();
-      boolean _notEquals_1 = (!Objects.equal(_actor, null));
-      if (_notEquals_1) {
-        _builder.append("\"Specialized From\": \"");
+      boolean _notEquals_2 = (!Objects.equal(_actor, null));
+      if (_notEquals_2) {
+        _builder.append("\"Is A\": \"");
         Actor _actor_1 = a.getActor();
         String _name_2 = _actor_1.getName();
         _builder.append(_name_2, "\t\t\t");
-        _builder.append("\",");
+        _builder.append("\"");
       }
     }
     _builder.newLineIfNotEmpty();
@@ -1659,74 +2001,334 @@ public class RSLIL2JsonGenerator implements IGenerator {
   }
   
   public CharSequence compile(final FR f) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method depends is undefined for the type RSLIL2JsonGenerator"
-      + "\nThe method depends is undefined for the type RSLIL2JsonGenerator"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\ncompile cannot be resolved");
-  }
-  
-  public CharSequence compile(final /* DependsOnFR */Object d) {
-    throw new Error("Unresolved compilation problems:"
-      + "\ntype cannot be resolved"
-      + "\nrefFR cannot be resolved"
-      + "\nrefFR cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nrefFR cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nrefFR cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\nname cannot be resolved");
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(" ");
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("\"ID\": \"");
+    String _name = f.getName();
+    _builder.append(_name, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Name\": \"");
+    String _nameAlias = f.getNameAlias();
+    _builder.append(_nameAlias, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      String _description = f.getDescription();
+      boolean _notEquals = (!Objects.equal(_description, null));
+      if (_notEquals) {
+        _builder.append("\"Description\": \"");
+        String _description_1 = f.getDescription();
+        _builder.append(_description_1, "\t\t\t");
+        _builder.append("\",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Type\": \"");
+    String _type = f.getType();
+    _builder.append(_type, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      Stakeholder _stakeholder = f.getStakeholder();
+      boolean _notEquals_1 = (!Objects.equal(_stakeholder, null));
+      if (_notEquals_1) {
+        _builder.append("\"Stakeholder\": \"");
+        Stakeholder _stakeholder_1 = f.getStakeholder();
+        String _name_1 = _stakeholder_1.getName();
+        _builder.append(_name_1, "\t\t\t");
+        _builder.append("\",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Priority\": \"");
+    Priority _priority = f.getPriority();
+    String _value = _priority.getValue();
+    _builder.append(_value, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      FR _partOf = f.getPartOf();
+      boolean _notEquals_2 = (!Objects.equal(_partOf, null));
+      if (_notEquals_2) {
+        _builder.append("\"Part Of\": \"");
+        FR _partOf_1 = f.getPartOf();
+        String _name_2 = _partOf_1.getName();
+        _builder.append(_name_2, "\t\t\t");
+        _builder.append("\",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      ProjectProgress _progress = f.getProgress();
+      boolean _notEquals_3 = (!Objects.equal(_progress, null));
+      if (_notEquals_3) {
+        _builder.append("\"Progress\": \"");
+        ProjectProgress _progress_1 = f.getProgress();
+        String _value_1 = _progress_1.getValue();
+        _builder.append(_value_1, "\t\t\t");
+        _builder.append("\"");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
   }
   
   public CharSequence compile(final QR q) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method depends is undefined for the type RSLIL2JsonGenerator"
-      + "\nThe method depends is undefined for the type RSLIL2JsonGenerator"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\ncompile cannot be resolved");
-  }
-  
-  public CharSequence compile(final /* DependsOnQR */Object d) {
-    throw new Error("Unresolved compilation problems:"
-      + "\ntype cannot be resolved"
-      + "\nrefQR cannot be resolved"
-      + "\nrefQR cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nrefQR cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nrefQR cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\nname cannot be resolved");
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(" ");
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("\"ID\": \"");
+    String _name = q.getName();
+    _builder.append(_name, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Name\": \"");
+    String _nameAlias = q.getNameAlias();
+    _builder.append(_nameAlias, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      String _description = q.getDescription();
+      boolean _notEquals = (!Objects.equal(_description, null));
+      if (_notEquals) {
+        _builder.append("\"Description\": \"");
+        String _description_1 = q.getDescription();
+        _builder.append(_description_1, "\t\t\t");
+        _builder.append("\",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Type\": \"");
+    String _type = q.getType();
+    _builder.append(_type, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      String _subType = q.getSubType();
+      boolean _notEquals_1 = (!Objects.equal(_subType, null));
+      if (_notEquals_1) {
+        _builder.append("\"Sub-Type\": \"");
+        String _subType_1 = q.getSubType();
+        _builder.append(_subType_1, "\t\t\t");
+        _builder.append("\",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Metric\": \"");
+    String _metric = q.getMetric();
+    _builder.append(_metric, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Value\": \"");
+    int _value = q.getValue();
+    _builder.append(_value, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      Stakeholder _stakeholder = q.getStakeholder();
+      boolean _notEquals_2 = (!Objects.equal(_stakeholder, null));
+      if (_notEquals_2) {
+        _builder.append("\"Stakeholder\": \"");
+        Stakeholder _stakeholder_1 = q.getStakeholder();
+        String _name_1 = _stakeholder_1.getName();
+        _builder.append(_name_1, "\t\t\t");
+        _builder.append("\",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Priority\": \"");
+    Priority _priority = q.getPriority();
+    String _value_1 = _priority.getValue();
+    _builder.append(_value_1, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      QR _partOf = q.getPartOf();
+      boolean _notEquals_3 = (!Objects.equal(_partOf, null));
+      if (_notEquals_3) {
+        _builder.append("\"Part Of\": \"");
+        QR _partOf_1 = q.getPartOf();
+        String _name_2 = _partOf_1.getName();
+        _builder.append(_name_2, "\t\t\t");
+        _builder.append("\",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      ProjectProgress _progress = q.getProgress();
+      boolean _notEquals_4 = (!Objects.equal(_progress, null));
+      if (_notEquals_4) {
+        _builder.append("\"Progress\": \"");
+        ProjectProgress _progress_1 = q.getProgress();
+        String _value_2 = _progress_1.getValue();
+        _builder.append(_value_2, "\t\t\t");
+        _builder.append("\"");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
   }
   
   public CharSequence compile(final Constraint c) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method depends is undefined for the type RSLIL2JsonGenerator"
-      + "\nThe method depends is undefined for the type RSLIL2JsonGenerator"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\ncompile cannot be resolved");
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(" ");
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("\"ID\": \"");
+    String _name = c.getName();
+    _builder.append(_name, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Name\": \"");
+    String _nameAlias = c.getNameAlias();
+    _builder.append(_nameAlias, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      String _description = c.getDescription();
+      boolean _notEquals = (!Objects.equal(_description, null));
+      if (_notEquals) {
+        _builder.append("\"Description\": \"");
+        String _description_1 = c.getDescription();
+        _builder.append(_description_1, "\t\t\t");
+        _builder.append("\",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Type\": \"");
+    String _type = c.getType();
+    _builder.append(_type, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      Stakeholder _stakeholder = c.getStakeholder();
+      boolean _notEquals_1 = (!Objects.equal(_stakeholder, null));
+      if (_notEquals_1) {
+        _builder.append("\"Stakeholder\": \"");
+        Stakeholder _stakeholder_1 = c.getStakeholder();
+        String _name_1 = _stakeholder_1.getName();
+        _builder.append(_name_1, "\t\t\t");
+        _builder.append("\",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Priority\": \"");
+    Priority _priority = c.getPriority();
+    String _value = _priority.getValue();
+    _builder.append(_value, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      Constraint _partOf = c.getPartOf();
+      boolean _notEquals_2 = (!Objects.equal(_partOf, null));
+      if (_notEquals_2) {
+        _builder.append("\"Part Of\": \"");
+        Constraint _partOf_1 = c.getPartOf();
+        String _name_2 = _partOf_1.getName();
+        _builder.append(_name_2, "\t\t\t");
+        _builder.append("\",");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      ProjectProgress _progress = c.getProgress();
+      boolean _notEquals_3 = (!Objects.equal(_progress, null));
+      if (_notEquals_3) {
+        _builder.append("\"Progress\": \"");
+        ProjectProgress _progress_1 = c.getProgress();
+        String _value_1 = _progress_1.getValue();
+        _builder.append(_value_1, "\t\t\t");
+        _builder.append("\"");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
   }
   
-  public CharSequence compile(final /* DependsOnConstraint */Object d) {
-    throw new Error("Unresolved compilation problems:"
-      + "\ntype cannot be resolved"
-      + "\nrefConst cannot be resolved"
-      + "\nrefConst cannot be resolved"
-      + "\nname cannot be resolved"
-      + "\nrefConst cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\nrefConst cannot be resolved"
-      + "\nrefs cannot be resolved"
-      + "\nname cannot be resolved");
+  public CharSequence compile(final RequirementRelation r) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(" ");
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("\"ID\": \"");
+    String _name = r.getName();
+    _builder.append(_name, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Source\": \"");
+    Requirement _source = r.getSource();
+    _builder.append(_source, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Target\": \"");
+    Requirement _target = r.getTarget();
+    _builder.append(_target, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("\"Type\": \"");
+    String _type = r.getType();
+    _builder.append(_type, "\t\t\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    {
+      String _description = r.getDescription();
+      boolean _notEquals = (!Objects.equal(_description, null));
+      if (_notEquals) {
+        _builder.append("\"Description\": \"");
+        String _description_1 = r.getDescription();
+        _builder.append(_description_1, "\t\t\t");
+        _builder.append("\"");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
   }
 }

@@ -27,6 +27,8 @@ import rslingo.rslil.rSLIL.RefUC
 import rslingo.rslil.rSLIL.Scenario
 import rslingo.rslil.rSLIL.Step
 import rslingo.rslil.rSLIL.GoalRelation
+import rslingo.rslil.rSLIL.RequirementRelation
+import rslingo.rslil.rSLIL.SystemRelation
 
 class RSLIL2JsonGenerator implements IGenerator {
 
@@ -80,7 +82,9 @@ class RSLIL2JsonGenerator implements IGenerator {
 	    «IF !packageProject.goalRelations.empty»"Goal Relations": [
 	    «FOR g:packageProject.goalRelations SEPARATOR ','»«g.compile»«ENDFOR»],«ENDIF»
 	    «IF !packageProject.packageSystems.empty»"Systems": [
-	    «FOR s:packageProject.packageSystems SEPARATOR ','»«s.compile»«ENDFOR»]«ENDIF»
+	    «FOR s:packageProject.packageSystems SEPARATOR ','»«s.compile»«ENDFOR»],«ENDIF»
+	    «IF !packageProject.systemRelations.empty»"System Relations": [
+	    «FOR s:packageProject.systemRelations SEPARATOR ','»«s.compile»«ENDFOR»]«ENDIF»
 }
 	'''
 	
@@ -140,8 +144,9 @@ class RSLIL2JsonGenerator implements IGenerator {
 	''' {
 			"ID": "«p.system.name»",
 			"Name": "«p.system.nameAlias»",
-			"Description": "«p.system.description»",
-			"Project": "«p.system.project.name»",
+			«IF p.system.description != null»"Description": "«p.system.description»",«ENDIF»
+			"Type": "«p.system.type»",
+			"Scope": "«p.system.scope»",
 			«IF p.system.partOf != null»"Part Of": "«p.system.partOf.name»",«ENDIF»
 			«IF !p.entities.empty»"Entities": [
 		    «FOR e:p.entities SEPARATOR ','»«e.compile»«ENDFOR»],«ENDIF»
@@ -154,7 +159,20 @@ class RSLIL2JsonGenerator implements IGenerator {
 		    «IF !p.qrs.empty»"Quality Requirements": [
 		    «FOR q:p.qrs SEPARATOR ','»«q.compile»«ENDFOR»],«ENDIF»
 		    «IF !p.constraints.empty»"Constraints": [
-		    «FOR c:p.constraints SEPARATOR ','»«c.compile»«ENDFOR»]«ENDIF»
+		    «FOR c:p.constraints SEPARATOR ','»«c.compile»«ENDFOR»],«ENDIF»
+		    «IF !p.requirementRelations.empty»"Requirement Relations": [
+		    «FOR r:p.requirementRelations SEPARATOR ','»«r.compile»«ENDFOR»]«ENDIF»
+		}
+	'''
+	
+	def compile(SystemRelation s)
+	''' {
+			"ID": "«s.name»",
+			"Source": "«s.source.name»",
+			"Target": "«s.target.name»",
+			"Category": "«s.category»",
+			"Type": "«s.type»",
+			«IF s.description != null»"Description": "«s.description»"«ENDIF»
 		}
 	'''
 	
@@ -162,10 +180,10 @@ class RSLIL2JsonGenerator implements IGenerator {
 	'''	{
 			"ID": "«e.name»",
 			"Name": "«e.nameAlias»",
-			"Description": "«e.description»",
+			«IF e.description != null»"Description": "«e.description»",«ENDIF»
 			«IF e.type != null»"Type": "«e.type»",«ENDIF»
 			"Attributes": [«FOR a:e.attributes SEPARATOR ','»«a.compile»«ENDFOR»],
-			«IF e.primaryKey != null»"Primary Key": "«e.primaryKey.compile»",«ENDIF»
+			«IF e.primaryKey != null»"Primary Key": "(«e.primaryKey.compile»)",«ENDIF»
 			«IF !e.foreignKeys.empty»"Foreign Keys": [«FOR f:e.foreignKeys SEPARATOR ',\n'»«f.compile»«ENDFOR»],«ENDIF»
 			«IF !e.checks.empty»"Checks": [«FOR c:e.checks SEPARATOR ',\n'»«c.compile»«ENDFOR»]«ENDIF»
 		}
@@ -175,13 +193,13 @@ class RSLIL2JsonGenerator implements IGenerator {
 	'''	{
 			"ID": "«a.name»",
 			"Name": "«a.nameAlias»",
-			"Description": "«a.description»",
+			«IF a.description != null»"Description": "«a.description»",«ENDIF»
 			"Type": "«a.type»",
 			«IF a.size > 0»"Size": "«a.size»",«ENDIF»
 			«IF a.multiplicity != null»"Multiplicity": "«a.multiplicity.value.replaceAll("\"", "")»",«ENDIF»
 			«IF a.defaultValue != null»"Default Value": "«a.defaultValue»",«ENDIF»
-			«IF a.notNull != null»"Not Null": "true",«ENDIF»
-			«IF a.unique != null»"Unique": "true"«ENDIF»
+			"Not Null": "«a.notNull != null»",
+			"Unique": "«a.unique != null»"
 		}
 	'''
 	
@@ -206,10 +224,10 @@ class RSLIL2JsonGenerator implements IGenerator {
 	'''	{
 			"ID": "«a.name»",
 			"Name": "«a.nameAlias»",
-			"Description": "«a.description»",
+			«IF a.description != null»"Description": "«a.description»",«ENDIF»
 			"Type": "«a.type»",
 			«IF a.stakeholder != null»"Stakeholder": "«a.stakeholder.name»",«ENDIF»
-			«IF a.actor != null»"Specialized From": "«a.actor.name»",«ENDIF»
+			«IF a.actor != null»"Is A": "«a.actor.name»"«ENDIF»
 		}
 	'''
 	
@@ -275,19 +293,12 @@ class RSLIL2JsonGenerator implements IGenerator {
 	''' {
 			"ID": "«f.name»",
 			"Name": "«f.nameAlias»",
-			"Description": "«f.description»",
+			«IF f.description != null»"Description": "«f.description»",«ENDIF»
 			"Type": "«f.type»",
 			«IF f.stakeholder != null»"Stakeholder": "«f.stakeholder.name»",«ENDIF»
 			"Priority": "«f.priority.value»",
-			«IF !f.depends.empty»"Depends On": [«FOR d:f.depends SEPARATOR ',\n'»«d.compile»«ENDFOR»],«ENDIF»
-			«IF f.partOf != null»"Part Of": "«f.partOf.name»"«ENDIF»
-		}
-	'''
-	
-	def compile(DependsOnFR d)
-	''' {
-			"Type": «d.type»,
-			"Value": "«d.refFR.refFR.name»«IF !d.refFR.refs.empty»,«FOR r:d.refFR.refs SEPARATOR ','»«r.name»«ENDFOR»«ENDIF»"
+			«IF f.partOf != null»"Part Of": "«f.partOf.name»",«ENDIF»
+			«IF f.progress != null»"Progress": "«f.progress.value»"«ENDIF»
 		}
 	'''
 	
@@ -295,22 +306,15 @@ class RSLIL2JsonGenerator implements IGenerator {
 	''' {
 			"ID": "«q.name»",
 			"Name": "«q.nameAlias»",
-			"Description": "«q.description»",
+			«IF q.description != null»"Description": "«q.description»",«ENDIF»
 			"Type": "«q.type»",
 			«IF q.subType != null»"Sub-Type": "«q.subType»",«ENDIF»
 			"Metric": "«q.metric»",
 			"Value": "«q.value»",
 			«IF q.stakeholder != null»"Stakeholder": "«q.stakeholder.name»",«ENDIF»
 			"Priority": "«q.priority.value»",
-			«IF !q.depends.empty»"Depends On": [«FOR d:q.depends SEPARATOR ',\n'»«d.compile»«ENDFOR»],«ENDIF»
-			«IF q.partOf != null»"Part Of": "«q.partOf.name»"«ENDIF»
-		}
-	'''
-	
-	def compile(DependsOnQR d)
-	''' {
-			"Type": «d.type»,
-			"Value": "«d.refQR.refQR.name»«IF !d.refQR.refs.empty»,«FOR r:d.refQR.refs SEPARATOR ','»«r.name»«ENDFOR»«ENDIF»"
+			«IF q.partOf != null»"Part Of": "«q.partOf.name»",«ENDIF»
+			«IF q.progress != null»"Progress": "«q.progress.value»"«ENDIF»
 		}
 	'''
 	
@@ -318,19 +322,22 @@ class RSLIL2JsonGenerator implements IGenerator {
 	''' {
 			"ID": "«c.name»",
 			"Name": "«c.nameAlias»",
-			"Description": "«c.description»",
+			«IF c.description != null»"Description": "«c.description»",«ENDIF»
 			"Type": "«c.type»",
 			«IF c.stakeholder != null»"Stakeholder": "«c.stakeholder.name»",«ENDIF»
 			"Priority": "«c.priority.value»",
-			«IF !c.depends.empty»"Depends On": [«FOR d:c.depends SEPARATOR ',\n'»«d.compile»«ENDFOR»],«ENDIF»
-			«IF c.partOf != null»"Part Of": "«c.partOf.name»"«ENDIF»
+			«IF c.partOf != null»"Part Of": "«c.partOf.name»",«ENDIF»
+			«IF c.progress != null»"Progress": "«c.progress.value»"«ENDIF»
 		}
 	'''
 	
-	def compile(DependsOnConstraint d)
+	def compile(RequirementRelation r)
 	''' {
-			"Type": «d.type»,
-			"Value": "«d.refConst.refConst.name»«IF !d.refConst.refs.empty»,«FOR r:d.refConst.refs SEPARATOR ','»«r.name»«ENDFOR»«ENDIF»"
+			"ID": "«r.name»",
+			"Source": "«r.source»",
+			"Target": "«r.target»",
+			"Type": "«r.type»",
+			«IF r.description != null»"Description": "«r.description»"«ENDIF»
 		}
 	'''
 }
