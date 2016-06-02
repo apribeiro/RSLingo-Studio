@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
@@ -208,8 +209,8 @@ public class ImportExcelHandler extends AbstractHandler {
 	}
 	
 	private void generateProjectRegion(Workbook wb, StringBuilder sb) {
-		// Get the Home Sheet
-	    Sheet sheet = wb.getSheet("home");
+		// Get the Project Sheet
+	    Sheet sheet = wb.getSheet("project");
 		Iterator<Row> rowIt = sheet.rowIterator();
 		// Ignore the Header rows
     	rowIt.next();
@@ -225,13 +226,89 @@ public class ImportExcelHandler extends AbstractHandler {
 		String id = formatId(cellId.getStringCellValue());
     	Cell cellName = row.getCell(1);
 		String name = cellName.getStringCellValue();
-		Cell cellDescription = row.getCell(2);
+		Cell cellType = row.getCell(2);
+		String type = cellType.getStringCellValue();
+		Cell cellDomain = row.getCell(3);
+		String domain = cellDomain.getStringCellValue();
+		Cell cellPlannedStart = row.getCell(4);
+		Date plannedStart = cellPlannedStart.getDateCellValue();
+		Cell cellPlannedEnd = row.getCell(5);
+		Date plannedEnd = cellPlannedEnd.getDateCellValue();
+		Cell cellActualStart = row.getCell(6);
+		Date actualStart = cellPlannedStart.getDateCellValue();
+		Cell cellActualEnd = row.getCell(7);
+		Date actualEnd = cellActualEnd.getDateCellValue();
+		Cell cellCustomer = row.getCell(8);
+		String customer = cellCustomer.getStringCellValue();
+		Cell cellSupplier = row.getCell(9);
+		String supplier = cellSupplier.getStringCellValue();
+		Cell cellPartners = row.getCell(10);
+		String partners = cellPartners.getStringCellValue();
+		Cell cellStatus = row.getCell(11);
+		String status = cellStatus.getStringCellValue();
+		
+		// Go to the Summary row
+		rowIt.next();
+		rowIt.next();
+		rowIt.next();
+		Cell cellSummary = row.getCell(0);
+		String summary = cellSummary.getStringCellValue();
+		
+		// Go to the Summary row
+		rowIt.next();
+		rowIt.next();
+		rowIt.next();
+		rowIt.next();
+		Cell cellDescription = row.getCell(0);
 		String description = cellDescription.getStringCellValue();
 		
 		sb.append("\tProject " + id + " {");
 		sb.append("\n");
-		sb.append("\t\tName \"" + name + "\"");
+		
+		if (!name.isEmpty()) {
+			sb.append("\t\tName \"" + name + "\"");
+			sb.append("\n");
+		}
+		
+		sb.append("\t\tType \"" + type + "\"");
 		sb.append("\n");
+		sb.append("\t\tApplicationDomain \"" + domain + "\"");
+		sb.append("\n");
+		
+		if (plannedStart != null || plannedEnd != null) {
+			sb.append("\t\tPlannedSchedule {");
+			sb.append("\n");
+			
+			if (plannedStart != null) {
+				sb.append("\t\t\tStart " + plannedStart);
+				sb.append("\n");
+			}
+			
+			if (plannedEnd != null) {
+				sb.append("\t\t\tEnd " + plannedEnd);
+				sb.append("\n");
+			}
+			sb.append("\t\t}");
+			sb.append("\n");
+		}
+		
+		if (actualStart != null || actualEnd != null) {
+			sb.append("\t\tActualSchedule {");
+			sb.append("\n");
+			
+			if (actualStart != null) {
+				sb.append("\t\t\tStart " + actualStart);
+				sb.append("\n");
+			}
+			
+			if (actualEnd != null) {
+				sb.append("\t\t\tEnd " + actualEnd);
+				sb.append("\n");
+			}
+			sb.append("\t\t}");
+			sb.append("\n");
+		}
+		
 		sb.append("\t\tDescription \"" + description + "\"");
 		sb.append("\n\t}");
 		sb.append("\n\n");
