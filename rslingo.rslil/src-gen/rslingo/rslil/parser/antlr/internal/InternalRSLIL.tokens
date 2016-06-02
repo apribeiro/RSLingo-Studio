@@ -14,7 +14,7 @@
 'ActorInitiates'=176
 'ActorParticipates'=177
 'ActorPrepareData'=196
-'ActualSchedule {'=41
+'ActualSchedule'=41
 'Adjective'=86
 'Adverb'=87
 'Alternative'=190
@@ -126,7 +126,7 @@
 'On-Test'=63
 'Operational'=210
 'Organizational'=228
-'Organizations {'=55
+'Organizations'=55
 'Other'=27
 'Out'=71
 'POS'=85
@@ -140,7 +140,7 @@
 'Performance'=207
 'Physical'=229
 'Plan'=60
-'PlannedSchedule {'=38
+'PlannedSchedule'=38
 'Post-Conditions'=179
 'Pre-Conditions'=178
 'PrimaryKey'=157

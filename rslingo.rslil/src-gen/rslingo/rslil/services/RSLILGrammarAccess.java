@@ -526,88 +526,96 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PlannedSchedule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cPlannedScheduleKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cStartKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cStartAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cStartDateParserRuleCall_2_0 = (RuleCall)cStartAssignment_2.eContents().get(0);
-		private final Keyword cEndKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cEndAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cEndDateParserRuleCall_4_0 = (RuleCall)cEndAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cStartKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cStartAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cStartDateParserRuleCall_3_0 = (RuleCall)cStartAssignment_3.eContents().get(0);
+		private final Keyword cEndKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cEndAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cEndDateParserRuleCall_5_0 = (RuleCall)cEndAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//PlannedSchedule:
-		//	"PlannedSchedule {" "Start" start=Date "End" end=Date "}";
+		//	"PlannedSchedule" "{" "Start" start=Date "End" end=Date "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"PlannedSchedule {" "Start" start=Date "End" end=Date "}"
+		//"PlannedSchedule" "{" "Start" start=Date "End" end=Date "}"
 		public Group getGroup() { return cGroup; }
 
-		//"PlannedSchedule {"
+		//"PlannedSchedule"
 		public Keyword getPlannedScheduleKeyword_0() { return cPlannedScheduleKeyword_0; }
 
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+
 		//"Start"
-		public Keyword getStartKeyword_1() { return cStartKeyword_1; }
+		public Keyword getStartKeyword_2() { return cStartKeyword_2; }
 
 		//start=Date
-		public Assignment getStartAssignment_2() { return cStartAssignment_2; }
+		public Assignment getStartAssignment_3() { return cStartAssignment_3; }
 
 		//Date
-		public RuleCall getStartDateParserRuleCall_2_0() { return cStartDateParserRuleCall_2_0; }
+		public RuleCall getStartDateParserRuleCall_3_0() { return cStartDateParserRuleCall_3_0; }
 
 		//"End"
-		public Keyword getEndKeyword_3() { return cEndKeyword_3; }
+		public Keyword getEndKeyword_4() { return cEndKeyword_4; }
 
 		//end=Date
-		public Assignment getEndAssignment_4() { return cEndAssignment_4; }
+		public Assignment getEndAssignment_5() { return cEndAssignment_5; }
 
 		//Date
-		public RuleCall getEndDateParserRuleCall_4_0() { return cEndDateParserRuleCall_4_0; }
+		public RuleCall getEndDateParserRuleCall_5_0() { return cEndDateParserRuleCall_5_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 
 	public class ActualScheduleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ActualSchedule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cActualScheduleKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cStartKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cStartAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cStartDateParserRuleCall_2_0 = (RuleCall)cStartAssignment_2.eContents().get(0);
-		private final Keyword cEndKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cEndAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cEndDateParserRuleCall_4_0 = (RuleCall)cEndAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cStartKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cStartAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cStartDateParserRuleCall_3_0 = (RuleCall)cStartAssignment_3.eContents().get(0);
+		private final Keyword cEndKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cEndAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cEndDateParserRuleCall_5_0 = (RuleCall)cEndAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//ActualSchedule:
-		//	"ActualSchedule {" "Start" start=Date "End" end=Date "}";
+		//	"ActualSchedule" "{" "Start" start=Date "End" end=Date "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"ActualSchedule {" "Start" start=Date "End" end=Date "}"
+		//"ActualSchedule" "{" "Start" start=Date "End" end=Date "}"
 		public Group getGroup() { return cGroup; }
 
-		//"ActualSchedule {"
+		//"ActualSchedule"
 		public Keyword getActualScheduleKeyword_0() { return cActualScheduleKeyword_0; }
 
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+
 		//"Start"
-		public Keyword getStartKeyword_1() { return cStartKeyword_1; }
+		public Keyword getStartKeyword_2() { return cStartKeyword_2; }
 
 		//start=Date
-		public Assignment getStartAssignment_2() { return cStartAssignment_2; }
+		public Assignment getStartAssignment_3() { return cStartAssignment_3; }
 
 		//Date
-		public RuleCall getStartDateParserRuleCall_2_0() { return cStartDateParserRuleCall_2_0; }
+		public RuleCall getStartDateParserRuleCall_3_0() { return cStartDateParserRuleCall_3_0; }
 
 		//"End"
-		public Keyword getEndKeyword_3() { return cEndKeyword_3; }
+		public Keyword getEndKeyword_4() { return cEndKeyword_4; }
 
 		//end=Date
-		public Assignment getEndAssignment_4() { return cEndAssignment_4; }
+		public Assignment getEndAssignment_5() { return cEndAssignment_5; }
 
 		//Date
-		public RuleCall getEndDateParserRuleCall_4_0() { return cEndDateParserRuleCall_4_0; }
+		public RuleCall getEndDateParserRuleCall_5_0() { return cEndDateParserRuleCall_5_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 
 	public class DateElements extends AbstractParserRuleElementFinder {
@@ -722,56 +730,60 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Organizations");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cOrganizationsKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cCustomerKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cCustomerAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cCustomerSTRINGTerminalRuleCall_2_0 = (RuleCall)cCustomerAssignment_2.eContents().get(0);
-		private final Keyword cSupplierKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cSupplierAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cSupplierSTRINGTerminalRuleCall_4_0 = (RuleCall)cSupplierAssignment_4.eContents().get(0);
-		private final Keyword cPartnersKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cPartnersAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cPartnersSTRINGTerminalRuleCall_6_0 = (RuleCall)cPartnersAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cCustomerKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cCustomerAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cCustomerSTRINGTerminalRuleCall_3_0 = (RuleCall)cCustomerAssignment_3.eContents().get(0);
+		private final Keyword cSupplierKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cSupplierAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cSupplierSTRINGTerminalRuleCall_5_0 = (RuleCall)cSupplierAssignment_5.eContents().get(0);
+		private final Keyword cPartnersKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cPartnersAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cPartnersSTRINGTerminalRuleCall_7_0 = (RuleCall)cPartnersAssignment_7.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Organizations:
-		//	"Organizations {" "Customer" customer=STRING "Supplier" supplier=STRING "Partners" partners=STRING "}";
+		//	"Organizations" "{" "Customer" customer=STRING "Supplier" supplier=STRING "Partners" partners=STRING "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Organizations {" "Customer" customer=STRING "Supplier" supplier=STRING "Partners" partners=STRING "}"
+		//"Organizations" "{" "Customer" customer=STRING "Supplier" supplier=STRING "Partners" partners=STRING "}"
 		public Group getGroup() { return cGroup; }
 
-		//"Organizations {"
+		//"Organizations"
 		public Keyword getOrganizationsKeyword_0() { return cOrganizationsKeyword_0; }
 
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+
 		//"Customer"
-		public Keyword getCustomerKeyword_1() { return cCustomerKeyword_1; }
+		public Keyword getCustomerKeyword_2() { return cCustomerKeyword_2; }
 
 		//customer=STRING
-		public Assignment getCustomerAssignment_2() { return cCustomerAssignment_2; }
+		public Assignment getCustomerAssignment_3() { return cCustomerAssignment_3; }
 
 		//STRING
-		public RuleCall getCustomerSTRINGTerminalRuleCall_2_0() { return cCustomerSTRINGTerminalRuleCall_2_0; }
+		public RuleCall getCustomerSTRINGTerminalRuleCall_3_0() { return cCustomerSTRINGTerminalRuleCall_3_0; }
 
 		//"Supplier"
-		public Keyword getSupplierKeyword_3() { return cSupplierKeyword_3; }
+		public Keyword getSupplierKeyword_4() { return cSupplierKeyword_4; }
 
 		//supplier=STRING
-		public Assignment getSupplierAssignment_4() { return cSupplierAssignment_4; }
+		public Assignment getSupplierAssignment_5() { return cSupplierAssignment_5; }
 
 		//STRING
-		public RuleCall getSupplierSTRINGTerminalRuleCall_4_0() { return cSupplierSTRINGTerminalRuleCall_4_0; }
+		public RuleCall getSupplierSTRINGTerminalRuleCall_5_0() { return cSupplierSTRINGTerminalRuleCall_5_0; }
 
 		//"Partners"
-		public Keyword getPartnersKeyword_5() { return cPartnersKeyword_5; }
+		public Keyword getPartnersKeyword_6() { return cPartnersKeyword_6; }
 
 		//partners=STRING
-		public Assignment getPartnersAssignment_6() { return cPartnersAssignment_6; }
+		public Assignment getPartnersAssignment_7() { return cPartnersAssignment_7; }
 
 		//STRING
-		public RuleCall getPartnersSTRINGTerminalRuleCall_6_0() { return cPartnersSTRINGTerminalRuleCall_6_0; }
+		public RuleCall getPartnersSTRINGTerminalRuleCall_7_0() { return cPartnersSTRINGTerminalRuleCall_7_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 
 	public class ProjectProgressElements extends AbstractParserRuleElementFinder {
@@ -4366,7 +4378,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PlannedSchedule:
-	//	"PlannedSchedule {" "Start" start=Date "End" end=Date "}";
+	//	"PlannedSchedule" "{" "Start" start=Date "End" end=Date "}";
 	public PlannedScheduleElements getPlannedScheduleAccess() {
 		return pPlannedSchedule;
 	}
@@ -4376,7 +4388,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ActualSchedule:
-	//	"ActualSchedule {" "Start" start=Date "End" end=Date "}";
+	//	"ActualSchedule" "{" "Start" start=Date "End" end=Date "}";
 	public ActualScheduleElements getActualScheduleAccess() {
 		return pActualSchedule;
 	}
@@ -4406,7 +4418,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Organizations:
-	//	"Organizations {" "Customer" customer=STRING "Supplier" supplier=STRING "Partners" partners=STRING "}";
+	//	"Organizations" "{" "Customer" customer=STRING "Supplier" supplier=STRING "Partners" partners=STRING "}";
 	public OrganizationsElements getOrganizationsAccess() {
 		return pOrganizations;
 	}

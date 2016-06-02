@@ -1028,57 +1028,61 @@ rulePlannedSchedule returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='PlannedSchedule {' 
+(	otherlv_0='PlannedSchedule' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getPlannedScheduleAccess().getPlannedScheduleKeyword_0());
     }
-	otherlv_1='Start' 
+	otherlv_1='{' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getPlannedScheduleAccess().getStartKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getPlannedScheduleAccess().getLeftCurlyBracketKeyword_1());
+    }
+	otherlv_2='Start' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getPlannedScheduleAccess().getStartKeyword_2());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPlannedScheduleAccess().getStartDateParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getPlannedScheduleAccess().getStartDateParserRuleCall_3_0()); 
 	    }
-		lv_start_2_0=ruleDate		{
+		lv_start_3_0=ruleDate		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPlannedScheduleRule());
 	        }
        		set(
        			$current, 
        			"start",
-        		lv_start_2_0, 
+        		lv_start_3_0, 
         		"Date");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_3='End' 
+)	otherlv_4='End' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getPlannedScheduleAccess().getEndKeyword_3());
+    	newLeafNode(otherlv_4, grammarAccess.getPlannedScheduleAccess().getEndKeyword_4());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPlannedScheduleAccess().getEndDateParserRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getPlannedScheduleAccess().getEndDateParserRuleCall_5_0()); 
 	    }
-		lv_end_4_0=ruleDate		{
+		lv_end_5_0=ruleDate		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPlannedScheduleRule());
 	        }
        		set(
        			$current, 
        			"end",
-        		lv_end_4_0, 
+        		lv_end_5_0, 
         		"Date");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_5='}' 
+)	otherlv_6='}' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getPlannedScheduleAccess().getRightCurlyBracketKeyword_5());
+    	newLeafNode(otherlv_6, grammarAccess.getPlannedScheduleAccess().getRightCurlyBracketKeyword_6());
     }
 )
 ;
@@ -1101,57 +1105,61 @@ ruleActualSchedule returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='ActualSchedule {' 
+(	otherlv_0='ActualSchedule' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getActualScheduleAccess().getActualScheduleKeyword_0());
     }
-	otherlv_1='Start' 
+	otherlv_1='{' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getActualScheduleAccess().getStartKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getActualScheduleAccess().getLeftCurlyBracketKeyword_1());
+    }
+	otherlv_2='Start' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getActualScheduleAccess().getStartKeyword_2());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getActualScheduleAccess().getStartDateParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getActualScheduleAccess().getStartDateParserRuleCall_3_0()); 
 	    }
-		lv_start_2_0=ruleDate		{
+		lv_start_3_0=ruleDate		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getActualScheduleRule());
 	        }
        		set(
        			$current, 
        			"start",
-        		lv_start_2_0, 
+        		lv_start_3_0, 
         		"Date");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_3='End' 
+)	otherlv_4='End' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getActualScheduleAccess().getEndKeyword_3());
+    	newLeafNode(otherlv_4, grammarAccess.getActualScheduleAccess().getEndKeyword_4());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getActualScheduleAccess().getEndDateParserRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getActualScheduleAccess().getEndDateParserRuleCall_5_0()); 
 	    }
-		lv_end_4_0=ruleDate		{
+		lv_end_5_0=ruleDate		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getActualScheduleRule());
 	        }
        		set(
        			$current, 
        			"end",
-        		lv_end_4_0, 
+        		lv_end_5_0, 
         		"Date");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_5='}' 
+)	otherlv_6='}' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getActualScheduleAccess().getRightCurlyBracketKeyword_5());
+    	newLeafNode(otherlv_6, grammarAccess.getActualScheduleAccess().getRightCurlyBracketKeyword_6());
     }
 )
 ;
@@ -1428,19 +1436,23 @@ ruleOrganizations returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='Organizations {' 
+(	otherlv_0='Organizations' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getOrganizationsAccess().getOrganizationsKeyword_0());
     }
-	otherlv_1='Customer' 
+	otherlv_1='{' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getOrganizationsAccess().getCustomerKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getOrganizationsAccess().getLeftCurlyBracketKeyword_1());
+    }
+	otherlv_2='Customer' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getOrganizationsAccess().getCustomerKeyword_2());
     }
 (
 (
-		lv_customer_2_0=RULE_STRING
+		lv_customer_3_0=RULE_STRING
 		{
-			newLeafNode(lv_customer_2_0, grammarAccess.getOrganizationsAccess().getCustomerSTRINGTerminalRuleCall_2_0()); 
+			newLeafNode(lv_customer_3_0, grammarAccess.getOrganizationsAccess().getCustomerSTRINGTerminalRuleCall_3_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1449,20 +1461,20 @@ ruleOrganizations returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"customer",
-        		lv_customer_2_0, 
+        		lv_customer_3_0, 
         		"STRING");
 	    }
 
 )
-)	otherlv_3='Supplier' 
+)	otherlv_4='Supplier' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getOrganizationsAccess().getSupplierKeyword_3());
+    	newLeafNode(otherlv_4, grammarAccess.getOrganizationsAccess().getSupplierKeyword_4());
     }
 (
 (
-		lv_supplier_4_0=RULE_STRING
+		lv_supplier_5_0=RULE_STRING
 		{
-			newLeafNode(lv_supplier_4_0, grammarAccess.getOrganizationsAccess().getSupplierSTRINGTerminalRuleCall_4_0()); 
+			newLeafNode(lv_supplier_5_0, grammarAccess.getOrganizationsAccess().getSupplierSTRINGTerminalRuleCall_5_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1471,20 +1483,20 @@ ruleOrganizations returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"supplier",
-        		lv_supplier_4_0, 
+        		lv_supplier_5_0, 
         		"STRING");
 	    }
 
 )
-)	otherlv_5='Partners' 
+)	otherlv_6='Partners' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getOrganizationsAccess().getPartnersKeyword_5());
+    	newLeafNode(otherlv_6, grammarAccess.getOrganizationsAccess().getPartnersKeyword_6());
     }
 (
 (
-		lv_partners_6_0=RULE_STRING
+		lv_partners_7_0=RULE_STRING
 		{
-			newLeafNode(lv_partners_6_0, grammarAccess.getOrganizationsAccess().getPartnersSTRINGTerminalRuleCall_6_0()); 
+			newLeafNode(lv_partners_7_0, grammarAccess.getOrganizationsAccess().getPartnersSTRINGTerminalRuleCall_7_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1493,14 +1505,14 @@ ruleOrganizations returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"partners",
-        		lv_partners_6_0, 
+        		lv_partners_7_0, 
         		"STRING");
 	    }
 
 )
-)	otherlv_7='}' 
+)	otherlv_8='}' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getOrganizationsAccess().getRightCurlyBracketKeyword_7());
+    	newLeafNode(otherlv_8, grammarAccess.getOrganizationsAccess().getRightCurlyBracketKeyword_8());
     }
 )
 ;

@@ -60,13 +60,13 @@ Project:
 	'}';
 
 PlannedSchedule:
-	'PlannedSchedule {'
+	'PlannedSchedule' '{'
 		'Start' start=Date
 		'End' end=Date
 	'}';
 
 ActualSchedule:
-	'ActualSchedule {'
+	'ActualSchedule' '{'
 		'Start' start=Date
 		'End' end=Date
 	'}';
@@ -78,7 +78,7 @@ Month:
 	name=('Jan'|'Feb'|'Mar'|'Apr'|'May'|'Jun'|'Jul'|'Aug'|'Sep'|'Oct'|'Nov'|'Dec');
 
 Organizations:
-	'Organizations {'
+	'Organizations' '{'
 		'Customer' customer=STRING
 		'Supplier' supplier=STRING
 		'Partners' partners=STRING 
