@@ -351,18 +351,25 @@ public class RSLIL2TextGenerator implements IGenerator {
       Organizations _organizations = p.getOrganizations();
       boolean _notEquals_2 = (!Objects.equal(_organizations, null));
       if (_notEquals_2) {
-        _builder.append("Organizations: ");
+        _builder.append("Organizations:");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("Customer: ");
         Organizations _organizations_1 = p.getOrganizations();
         String _customer = _organizations_1.getCustomer();
-        _builder.append(_customer, "");
-        _builder.append(", ");
+        _builder.append(_customer, "\t");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("Supplier: ");
         Organizations _organizations_2 = p.getOrganizations();
         String _supplier = _organizations_2.getSupplier();
-        _builder.append(_supplier, "");
-        _builder.append(", ");
+        _builder.append(_supplier, "\t");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("Partners: ");
         Organizations _organizations_3 = p.getOrganizations();
         String _partners = _organizations_3.getPartners();
-        _builder.append(_partners, "");
+        _builder.append(_partners, "\t");
         _builder.newLineIfNotEmpty();
       }
     }

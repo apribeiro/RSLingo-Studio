@@ -99,7 +99,10 @@ class RSLIL2TextGenerator implements IGenerator {
 	Actual Schedule: «p.actual.start.year»-«p.actual.start.month.name»-«p.actual.start.day»/«p.actual.end.year»-«p.actual.end.month.name»-«p.actual.end.day»
 	«ENDIF»
 	«IF p.organizations != null»
-	Organizations: «p.organizations.customer», «p.organizations.supplier», «p.organizations.partners»
+	Organizations:
+		Customer: «p.organizations.customer»
+		Supplier: «p.organizations.supplier»
+		Partners: «p.organizations.partners»
 	«ENDIF»
 	«IF p.progress != null»
 	Project Progress: «p.progress.value»
