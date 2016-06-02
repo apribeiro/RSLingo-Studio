@@ -93,10 +93,10 @@ class RSLIL2TextGenerator implements IGenerator {
 	Application Domain: «p.domain»
 	Type: «p.type»
 	«IF p.planned != null»
-	Planned Schedule: «p.planned.start.year»-«p.planned.start.month.name»-«p.planned.start.day»/«p.planned.end.year»-«p.planned.end.month.name»-«p.planned.end.day»
+	Planned Schedule: «p.planned.start.day»-«p.planned.start.month.name»-«p.planned.start.year»/«p.planned.end.day»-«p.planned.end.month.name»-«p.planned.end.year»
 	«ENDIF»
 	«IF p.actual != null»
-	Actual Schedule: «p.actual.start.year»-«p.actual.start.month.name»-«p.actual.start.day»/«p.actual.end.year»-«p.actual.end.month.name»-«p.actual.end.day»
+	Actual Schedule: «p.actual.start.day»-«p.actual.start.month.name»-«p.actual.start.year»/«p.actual.end.day»-«p.actual.end.month.name»-«p.actual.end.year»
 	«ENDIF»
 	«IF p.organizations != null»
 	Organizations:

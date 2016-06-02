@@ -51,14 +51,14 @@ class RSLIL2JsonGenerator implements IGenerator {
 	"Type": "«packageProject.project.type»",
 	«IF packageProject.project.planned != null»
 	"Planned Schedule": {
-		"Start": "«packageProject.project.planned.start.year»-«packageProject.project.planned.start.month.name»-«packageProject.project.planned.start.day»",
-		"End": "«packageProject.project.planned.end.year»-«packageProject.project.planned.end.month.name»-«packageProject.project.planned.end.day»"
+		"Start": "«packageProject.project.planned.start.day»-«packageProject.project.planned.start.month.name»-«packageProject.project.planned.start.year»",
+		"End": "«packageProject.project.planned.end.day»-«packageProject.project.planned.end.month.name»-«packageProject.project.planned.end.year»"
 	},
 	«ENDIF»
 	«IF packageProject.project.actual != null»
 	"Actual Schedule": {
-		"Start": "«packageProject.project.actual.start.year»-«packageProject.project.actual.start.month.name»-«packageProject.project.actual.start.day»",
-		"End": "«packageProject.project.actual.end.year»-«packageProject.project.actual.end.month.name»-«packageProject.project.actual.end.day»"
+		"Start": "«packageProject.project.actual.start.day»-«packageProject.project.actual.start.month.name»-«packageProject.project.actual.start.year»",
+		"End": "«packageProject.project.actual.end.day»-«packageProject.project.actual.end.month.name»-«packageProject.project.actual.end.year»"
 	},
 	«ENDIF»
 	«IF packageProject.project.organizations != null»

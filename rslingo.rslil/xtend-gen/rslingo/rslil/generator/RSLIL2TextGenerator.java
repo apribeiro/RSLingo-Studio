@@ -276,8 +276,8 @@ public class RSLIL2TextGenerator implements IGenerator {
         _builder.append("Planned Schedule: ");
         PlannedSchedule _planned_1 = p.getPlanned();
         Date _start = _planned_1.getStart();
-        int _year = _start.getYear();
-        _builder.append(_year, "");
+        int _day = _start.getDay();
+        _builder.append(_day, "");
         _builder.append("-");
         PlannedSchedule _planned_2 = p.getPlanned();
         Date _start_1 = _planned_2.getStart();
@@ -287,13 +287,13 @@ public class RSLIL2TextGenerator implements IGenerator {
         _builder.append("-");
         PlannedSchedule _planned_3 = p.getPlanned();
         Date _start_2 = _planned_3.getStart();
-        int _day = _start_2.getDay();
-        _builder.append(_day, "");
+        int _year = _start_2.getYear();
+        _builder.append(_year, "");
         _builder.append("/");
         PlannedSchedule _planned_4 = p.getPlanned();
         Date _end = _planned_4.getEnd();
-        int _year_1 = _end.getYear();
-        _builder.append(_year_1, "");
+        int _day_1 = _end.getDay();
+        _builder.append(_day_1, "");
         _builder.append("-");
         PlannedSchedule _planned_5 = p.getPlanned();
         Date _end_1 = _planned_5.getEnd();
@@ -303,8 +303,8 @@ public class RSLIL2TextGenerator implements IGenerator {
         _builder.append("-");
         PlannedSchedule _planned_6 = p.getPlanned();
         Date _end_2 = _planned_6.getEnd();
-        int _day_1 = _end_2.getDay();
-        _builder.append(_day_1, "");
+        int _year_1 = _end_2.getYear();
+        _builder.append(_year_1, "");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -315,8 +315,8 @@ public class RSLIL2TextGenerator implements IGenerator {
         _builder.append("Actual Schedule: ");
         ActualSchedule _actual_1 = p.getActual();
         Date _start_3 = _actual_1.getStart();
-        int _year_2 = _start_3.getYear();
-        _builder.append(_year_2, "");
+        int _day_2 = _start_3.getDay();
+        _builder.append(_day_2, "");
         _builder.append("-");
         ActualSchedule _actual_2 = p.getActual();
         Date _start_4 = _actual_2.getStart();
@@ -326,13 +326,13 @@ public class RSLIL2TextGenerator implements IGenerator {
         _builder.append("-");
         ActualSchedule _actual_3 = p.getActual();
         Date _start_5 = _actual_3.getStart();
-        int _day_2 = _start_5.getDay();
-        _builder.append(_day_2, "");
+        int _year_2 = _start_5.getYear();
+        _builder.append(_year_2, "");
         _builder.append("/");
         ActualSchedule _actual_4 = p.getActual();
         Date _end_3 = _actual_4.getEnd();
-        int _year_3 = _end_3.getYear();
-        _builder.append(_year_3, "");
+        int _day_3 = _end_3.getDay();
+        _builder.append(_day_3, "");
         _builder.append("-");
         ActualSchedule _actual_5 = p.getActual();
         Date _end_4 = _actual_5.getEnd();
@@ -342,8 +342,8 @@ public class RSLIL2TextGenerator implements IGenerator {
         _builder.append("-");
         ActualSchedule _actual_6 = p.getActual();
         Date _end_5 = _actual_6.getEnd();
-        int _day_3 = _end_5.getDay();
-        _builder.append(_day_3, "");
+        int _year_3 = _end_5.getYear();
+        _builder.append(_year_3, "");
         _builder.newLineIfNotEmpty();
       }
     }

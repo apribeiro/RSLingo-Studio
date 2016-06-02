@@ -123,8 +123,8 @@ public class RSLIL2JsonGenerator implements IGenerator {
         Project _project_5 = packageProject.getProject();
         PlannedSchedule _planned_1 = _project_5.getPlanned();
         Date _start = _planned_1.getStart();
-        int _year = _start.getYear();
-        _builder.append(_year, "\t\t");
+        int _day = _start.getDay();
+        _builder.append(_day, "\t\t");
         _builder.append("-");
         Project _project_6 = packageProject.getProject();
         PlannedSchedule _planned_2 = _project_6.getPlanned();
@@ -136,8 +136,8 @@ public class RSLIL2JsonGenerator implements IGenerator {
         Project _project_7 = packageProject.getProject();
         PlannedSchedule _planned_3 = _project_7.getPlanned();
         Date _start_2 = _planned_3.getStart();
-        int _day = _start_2.getDay();
-        _builder.append(_day, "\t\t");
+        int _year = _start_2.getYear();
+        _builder.append(_year, "\t\t");
         _builder.append("\",");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
@@ -146,8 +146,8 @@ public class RSLIL2JsonGenerator implements IGenerator {
         Project _project_8 = packageProject.getProject();
         PlannedSchedule _planned_4 = _project_8.getPlanned();
         Date _end = _planned_4.getEnd();
-        int _year_1 = _end.getYear();
-        _builder.append(_year_1, "\t\t");
+        int _day_1 = _end.getDay();
+        _builder.append(_day_1, "\t\t");
         _builder.append("-");
         Project _project_9 = packageProject.getProject();
         PlannedSchedule _planned_5 = _project_9.getPlanned();
@@ -159,8 +159,8 @@ public class RSLIL2JsonGenerator implements IGenerator {
         Project _project_10 = packageProject.getProject();
         PlannedSchedule _planned_6 = _project_10.getPlanned();
         Date _end_2 = _planned_6.getEnd();
-        int _day_1 = _end_2.getDay();
-        _builder.append(_day_1, "\t\t");
+        int _year_1 = _end_2.getYear();
+        _builder.append(_year_1, "\t\t");
         _builder.append("\"");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
@@ -182,8 +182,8 @@ public class RSLIL2JsonGenerator implements IGenerator {
         Project _project_12 = packageProject.getProject();
         ActualSchedule _actual_1 = _project_12.getActual();
         Date _start_3 = _actual_1.getStart();
-        int _year_2 = _start_3.getYear();
-        _builder.append(_year_2, "\t\t");
+        int _day_2 = _start_3.getDay();
+        _builder.append(_day_2, "\t\t");
         _builder.append("-");
         Project _project_13 = packageProject.getProject();
         ActualSchedule _actual_2 = _project_13.getActual();
@@ -195,8 +195,8 @@ public class RSLIL2JsonGenerator implements IGenerator {
         Project _project_14 = packageProject.getProject();
         ActualSchedule _actual_3 = _project_14.getActual();
         Date _start_5 = _actual_3.getStart();
-        int _day_2 = _start_5.getDay();
-        _builder.append(_day_2, "\t\t");
+        int _year_2 = _start_5.getYear();
+        _builder.append(_year_2, "\t\t");
         _builder.append("\",");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
@@ -205,8 +205,8 @@ public class RSLIL2JsonGenerator implements IGenerator {
         Project _project_15 = packageProject.getProject();
         ActualSchedule _actual_4 = _project_15.getActual();
         Date _end_3 = _actual_4.getEnd();
-        int _year_3 = _end_3.getYear();
-        _builder.append(_year_3, "\t\t");
+        int _day_3 = _end_3.getDay();
+        _builder.append(_day_3, "\t\t");
         _builder.append("-");
         Project _project_16 = packageProject.getProject();
         ActualSchedule _actual_5 = _project_16.getActual();
@@ -218,8 +218,8 @@ public class RSLIL2JsonGenerator implements IGenerator {
         Project _project_17 = packageProject.getProject();
         ActualSchedule _actual_6 = _project_17.getActual();
         Date _end_5 = _actual_6.getEnd();
-        int _day_3 = _end_5.getDay();
-        _builder.append(_day_3, "\t\t");
+        int _year_3 = _end_5.getYear();
+        _builder.append(_year_3, "\t\t");
         _builder.append("\"");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
