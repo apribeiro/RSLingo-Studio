@@ -9,9 +9,6 @@ import rslingo.rslil.rSLIL.Stakeholder
 import rslingo.rslil.rSLIL.Goal
 import rslingo.rslil.rSLIL.PackageSystem
 import rslingo.rslil.rSLIL.RefTermType
-import rslingo.rslil.rSLIL.TermRelation
-import rslingo.rslil.rSLIL.DependsOnGoal
-import rslingo.rslil.rSLIL.ComposedBy
 import rslingo.rslil.rSLIL.Entity
 import rslingo.rslil.rSLIL.Actor
 import rslingo.rslil.rSLIL.UseCase
@@ -29,9 +26,7 @@ import rslingo.rslil.rSLIL.RefActor
 import rslingo.rslil.rSLIL.RefUC
 import rslingo.rslil.rSLIL.Scenario
 import rslingo.rslil.rSLIL.Step
-import rslingo.rslil.rSLIL.DependsOnFR
-import rslingo.rslil.rSLIL.DependsOnQR
-import rslingo.rslil.rSLIL.DependsOnConstraint
+import rslingo.rslil.rSLIL.GoalRelation
 
 class RSLIL2JsonGenerator implements IGenerator {
 
@@ -50,6 +45,31 @@ class RSLIL2JsonGenerator implements IGenerator {
 	'''{
 		"ID": "«packageProject.project.name»",
 		"Name": "«packageProject.project.nameAlias»",
+		"Application Domain": "«packageProject.project.domain»",
+		"Type": "«packageProject.project.type»",
+		«IF packageProject.project.planned != null»
+		"Planned Schedule": {
+			"Start": "«packageProject.project.planned.start.year»-«packageProject.project.planned.start.month»-«packageProject.project.planned.start.day»",
+			"End": "«packageProject.project.planned.end.year»-«packageProject.project.planned.end.month»-«packageProject.project.planned.end.day»"
+		}
+		«ENDIF»
+		«IF packageProject.project.actual != null»
+		Actual Schedule: {
+			"Start": "«packageProject.project.actual.start.year»-«packageProject.project.actual.start.month»-«packageProject.project.actual.start.day»",
+			"End": "«packageProject.project.actual.end.year»-«packageProject.project.actual.end.month»-«packageProject.project.actual.end.day»"
+		}
+		«ENDIF»
+		«IF packageProject.project.organizations != null»
+		"Organizations": {
+			"Customer": "«packageProject.project.organizations.customer»",
+			"Supplier": "«packageProject.project.organizations.supplier»",
+			"Partners": "«packageProject.project.organizations.partners»"
+		},
+		«ENDIF»
+		«IF packageProject.project.progress != null»
+		"Project Progress": "«packageProject.project.progress.value»",
+		«ENDIF»
+		"Summary": "«packageProject.project.summary»",
 		"Description": "«packageProject.project.description»",
 		«IF !packageProject.glossaryTerms.empty»"Glossary": [
 	    «FOR g:packageProject.glossaryTerms SEPARATOR ','»«g.compile»«ENDFOR»],«ENDIF»
@@ -57,42 +77,39 @@ class RSLIL2JsonGenerator implements IGenerator {
 	    «FOR s:packageProject.stakeholders SEPARATOR ','»«s.compile»«ENDFOR»],«ENDIF»
 	    «IF !packageProject.goals.empty»"Goals": [
 	    «FOR g:packageProject.goals SEPARATOR ','»«g.compile»«ENDFOR»],«ENDIF»
+	    «IF !packageProject.goalRelations.empty»"Goal Relations": [
+	    «FOR g:packageProject.goalRelations SEPARATOR ','»«g.compile»«ENDFOR»],«ENDIF»
 	    «IF !packageProject.packageSystems.empty»"Systems": [
 	    «FOR s:packageProject.packageSystems SEPARATOR ','»«s.compile»«ENDFOR»]«ENDIF»
-	}
+}
 	'''
 	
 	def compile(GlossaryTerm g)
 	'''	{
 			"ID": "«g.name»",
 			"Name": "«g.nameAlias»",
-			"Description": "«g.description»",
+			«IF g.description != null»"Description": "«g.description»",«ENDIF»
 			"Type": "«g.type.compile»",
 			«IF g.acronym != null»"Acronym": "«g.acronym»",«ENDIF»
 			«IF g.pos != null»"POS": "«g.pos»",«ENDIF»
-			«IF g.synset != null»"Synset": "«g.synset»",«ENDIF»
-			«IF !g.termRelation.empty»"Term Relations": [«FOR t:g.termRelation SEPARATOR ',\n'»«t.compile»«ENDFOR»]«ENDIF»
-		}
+			«IF g.synonym != null»"Synonym": "«g.synonym»",«ENDIF»
+			«IF g.hypernym != null»"Hypernym": "«g.hypernym»",«ENDIF»
+			«g.name» («g.nameAlias»):
+	}
 	'''
 	
 	def compile(RefTermType r)
 	'''«r.refType.type»«IF !r.refs.empty»,«FOR t:r.refs SEPARATOR ','»«t.type»«ENDFOR»«ENDIF»'''
 	
-	def compile(TermRelation t)
-	''' {
-			"Type": "«t.type»",
-			"Value": "«t.refTerm.refTerm»«IF !t.refTerm.refs.empty»,«FOR r:t.refTerm.refs SEPARATOR ','»«r»«ENDFOR»«ENDIF»"
-		}
-	'''
-	
 	def compile(Stakeholder s)
 	'''	{
 			"ID": "«s.name»",
 			"Name": "«s.nameAlias»",
-			"Description": "«s.description»",
+			«IF s.description != null»"Description": "«s.description»",«ENDIF»
 			"Type": "«s.type»",
 			"Category": "«s.category»",
-			«IF s.partOf != null»"Part Of": "«s.partOf.name»"«ENDIF»
+			«IF s.isA != null»"Is A": "«s.isA.name»",«ENDIF»
+			«IF s.partOf != null»Part Of: «s.partOf.name»«ENDIF»
 		}
 	'''
 	
@@ -100,25 +117,22 @@ class RSLIL2JsonGenerator implements IGenerator {
 	'''	{
 			"ID": "«g.name»",
 			"Name": "«g.nameAlias»",
-			"Description": "«g.description»",
-			«IF g.stakeholder != null»"Acronym": "«g.stakeholder.name»",«ENDIF»
+			«IF g.description != null»"Description": "«g.description»",«ENDIF»
+			"Stakeholder": "«g.stakeholder.name»",
 			"Priority": "«g.priority.value»",
-			«IF !g.dependsOn.empty»"Depends On": [«FOR d:g.dependsOn SEPARATOR ',\n'»«d.compile»«ENDFOR»],«ENDIF»
-			«IF !g.composedBy.empty»"Composed By": [«FOR c:g.composedBy SEPARATOR ',\n'»«c.compile»«ENDFOR»]«ENDIF»
+			«IF g.progress != null»"Project Progress": "«g.progress.value»",«ENDIF»
+			«IF g.partOfAnd != null»"Part Of (And)": "«g.partOfAnd.name»",«ENDIF»
+			«IF g.partOfOr != null»"Part Of (Or)": "«g.partOfOr.name»",«ENDIF»
 		}
 	'''
 	
-	def compile(DependsOnGoal d)
+	def compile(GoalRelation g)
 	''' {
-			"Type": "«d.type»",
-			"Value": "«d.refGoal.refGoal.name»«IF !d.refGoal.refs.empty»,«FOR r:d.refGoal.refs SEPARATOR ','»«r.name»«ENDFOR»«ENDIF»"
-		}
-	'''
-	
-	def compile(ComposedBy c)
-	''' {
-			"Type": "«c.type»",
-			"Value": "«c.refGoal.refGoal.name»«IF !c.refGoal.refs.empty»,«FOR r:c.refGoal.refs SEPARATOR ','»«r.name»«ENDFOR»«ENDIF»"
+			"ID": "«g.name»",
+			"Source": "«g.source.name»",
+			"Target": "«g.target.name»",
+			"Type": "«g.type»",
+			«IF g.description != null»"Description": "«g.description»"«ENDIF»
 		}
 	'''
 	
