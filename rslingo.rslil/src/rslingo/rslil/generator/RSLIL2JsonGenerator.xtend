@@ -56,7 +56,7 @@ class RSLIL2JsonGenerator implements IGenerator {
 	},
 	«ENDIF»
 	«IF packageProject.project.actual != null»
-	Actual Schedule: {
+	"Actual Schedule": {
 		"Start": "«packageProject.project.actual.start.year»-«packageProject.project.actual.start.month.name»-«packageProject.project.actual.start.day»",
 		"End": "«packageProject.project.actual.end.year»-«packageProject.project.actual.end.month.name»-«packageProject.project.actual.end.day»"
 	},

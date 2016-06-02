@@ -174,7 +174,7 @@ public class RSLIL2JsonGenerator implements IGenerator {
       boolean _notEquals_1 = (!Objects.equal(_actual, null));
       if (_notEquals_1) {
         _builder.append("\t");
-        _builder.append("Actual Schedule: {");
+        _builder.append("\"Actual Schedule\": {");
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
