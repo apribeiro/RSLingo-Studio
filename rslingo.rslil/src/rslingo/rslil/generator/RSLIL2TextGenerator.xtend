@@ -28,6 +28,8 @@ import rslingo.rslil.rSLIL.Scenario
 import rslingo.rslil.rSLIL.RefUC
 import rslingo.rslil.rSLIL.Step
 import rslingo.rslil.rSLIL.RefTermType
+import rslingo.rslil.rSLIL.GoalRelation
+import rslingo.rslil.rSLIL.SystemRelation
 
 /**
  * Generates code from your model files on save.
@@ -67,11 +69,21 @@ class RSLIL2TextGenerator implements IGenerator {
 	#Goals
 	------------------
 	«FOR g:packageProject.goals SEPARATOR '\n'»«g.compile»«ENDFOR»«ENDIF»
+	«IF !packageProject.goalRelations.empty»
+	
+	#Goal Relations
+	------------------
+	«FOR gr:packageProject.goalRelations SEPARATOR '\n'»«gr.compile»«ENDFOR»«ENDIF»
 	«IF !packageProject.packageSystems.empty»
 	
 	#Systems
 	------------------
 	«FOR s:packageProject.packageSystems SEPARATOR '\n'»«s.compile»«ENDFOR»«ENDIF»
+	«IF !packageProject.systemRelations.empty»
+	
+	#System Relations
+	------------------
+	«FOR sr:packageProject.systemRelations SEPARATOR '\n'»«sr.compile»«ENDFOR»«ENDIF»
 	'''
 	
 	def compile(Project p)
@@ -133,16 +145,27 @@ class RSLIL2TextGenerator implements IGenerator {
 	def compile(System s)
 	'''
 	«s.name» («s.nameAlias»):
-	«s.description»
+	«IF s.description != null»«s.description»«ENDIF»
 	Type: «s.type»
 	Scope: «s.scope»
 	«IF s.partOf != null»Part Of: «s.partOf.name»«ENDIF»
 	'''
 	
+	def compile(SystemRelation s)
+	'''
+	«s.name»:
+	Source: «s.source.name»
+	Target: «s.target.name»
+	Category: «s.category»
+	Type: «s.type»
+	«IF s.description != null»Description: «s.description»«ENDIF»
+	'''
+	
 	def compile(GlossaryTerm g)
 	'''
-	«g.name».«g.nameAlias» («g.type.compile»):
-	Description: «g.description»
+	«g.name» («g.nameAlias»):
+	«IF g.description != null»Description: «g.description»«ENDIF»
+	Type: «g.type.compile»
 	«IF g.acronym != null»Acronym: «g.acronym»«ENDIF»
 	«IF g.pos != null»POS: «g.pos»«ENDIF»
 	«IF g.synonym != null»Synonym: «g.synonym»«ENDIF»
@@ -154,30 +177,32 @@ class RSLIL2TextGenerator implements IGenerator {
 	
 	def compile(Stakeholder s)
 	'''
-	«s.name».«s.nameAlias» («s.type»):
-	«s.description»,
-	«s.category»,
+	«s.name» («s.nameAlias»):
+	«IF s.description != null»Description: «s.description»«ENDIF»
+	Type: «s.type»
+	Category: «s.category»
+	«IF s.isA != null»Is A: «s.isA.name»«ENDIF»
 	«IF s.partOf != null»Part Of: «s.partOf.name»«ENDIF»
 	'''
 	
 	def compile(Goal g)
 	'''
-	«g.name».«g.nameAlias»:
-	«g.description»,
-	«IF g.stakeholder != null»Stakeholder: «g.stakeholder.name»«ENDIF»
-	Priority: «g.priority.value»,
-	«IF !g.dependsOn.empty»Depends On: «FOR d:g.dependsOn SEPARATOR ',\n'»«d.compile»«ENDFOR»«ENDIF»
-	«IF !g.composedBy.empty»Composed By: «FOR c:g.composedBy SEPARATOR ',\n'»«c.compile»«ENDFOR»«ENDIF»
+	«g.name» («g.nameAlias»):
+	«IF g.description != null»Description: «g.description»«ENDIF»
+	Stakeholder: «g.stakeholder.name»
+	Priority: «g.priority.value»
+	«IF g.progress != null»Project Progress: «g.progress.value»«ENDIF»
+	«IF g.partOfAnd != null»Part Of (And): «g.partOfAnd.name»«ENDIF»
+	«IF g.partOfOr != null»Part Of (Or): «g.partOfOr.name»«ENDIF»
 	'''
 	
-	def compile(DependsOnGoal d)
+	def compile(GoalRelation g)
 	'''
-	«d.type» «d.refGoal.refGoal.name»«IF !d.refGoal.refs.empty»,«FOR r:d.refGoal.refs SEPARATOR ','»«r.name»«ENDFOR»«ENDIF»
-	'''
-	
-	def compile(ComposedBy c)
-	'''
-	«c.type» «c.refGoal.refGoal.name»«FOR r:c.refGoal.refs SEPARATOR ','»«r.name»«ENDFOR»
+	«g.name»:
+	Source: «g.source.name»
+	Target: «g.target.name»
+	Type: «g.type»
+	«IF g.description != null»Description: «g.description»«ENDIF»
 	'''
 	
 	def compile(Entity e)
