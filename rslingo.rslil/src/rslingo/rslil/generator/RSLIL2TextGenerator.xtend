@@ -93,10 +93,10 @@ class RSLIL2TextGenerator implements IGenerator {
 	Application Domain: «p.domain»
 	Type: «p.type»
 	«IF p.planned != null»
-	Planned Schedule: «p.planned.start.year»-«p.planned.start.month»-«p.planned.start.day»/«p.planned.end.year»-«p.planned.end.month»-«p.planned.end.day»
+	Planned Schedule: «p.planned.start.year»-«p.planned.start.month.name»-«p.planned.start.day»/«p.planned.end.year»-«p.planned.end.month.name»-«p.planned.end.day»
 	«ENDIF»
 	«IF p.actual != null»
-	Actual Schedule: «p.actual.start.year»-«p.actual.start.month»-«p.actual.start.day»/«p.actual.end.year»-«p.actual.end.month»-«p.actual.end.day»
+	Actual Schedule: «p.actual.start.year»-«p.actual.start.month.name»-«p.actual.start.day»/«p.actual.end.year»-«p.actual.end.month.name»-«p.actual.end.day»
 	«ENDIF»
 	«IF p.organizations != null»
 	Organizations: «p.organizations.customer», «p.organizations.supplier», «p.organizations.partners»
@@ -217,7 +217,7 @@ class RSLIL2TextGenerator implements IGenerator {
 	«IF e.description != null»Description: «e.description»«ENDIF»
 	«IF e.type != null»Type: «e.type»«ENDIF»
 	Attributes:
-		«FOR a:e.attributes SEPARATOR ',\n'»«a.compile»«ENDFOR»
+		«FOR a:e.attributes SEPARATOR '\n'»«a.compile»«ENDFOR»
 	«IF e.primaryKey != null»Primary Key: («e.primaryKey.compile»)«ENDIF»
 	«IF !e.foreignKeys.empty»Foreign Keys:
 		«FOR f:e.foreignKeys SEPARATOR ',\n'»«f.compile»«ENDFOR»«ENDIF»
@@ -238,9 +238,7 @@ class RSLIL2TextGenerator implements IGenerator {
 	'''
 	
 	def compile(PrimaryKey p)
-	'''
-	«p.refTo.refAttr.name»«IF !p.refTo.refs.empty»,«FOR r:p.refTo.refs SEPARATOR ','»«r.name»«ENDFOR»«ENDIF»
-	'''
+	'''«p.refTo.refAttr.name»«IF !p.refTo.refs.empty»,«FOR r:p.refTo.refs SEPARATOR ','»«r.name»«ENDFOR»«ENDIF»'''
 	
 	def compile(ForeignKey f)
 	'''

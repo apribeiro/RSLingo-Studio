@@ -282,7 +282,8 @@ public class RSLIL2TextGenerator implements IGenerator {
         PlannedSchedule _planned_2 = p.getPlanned();
         Date _start_1 = _planned_2.getStart();
         Month _month = _start_1.getMonth();
-        _builder.append(_month, "");
+        String _name_1 = _month.getName();
+        _builder.append(_name_1, "");
         _builder.append("-");
         PlannedSchedule _planned_3 = p.getPlanned();
         Date _start_2 = _planned_3.getStart();
@@ -297,7 +298,8 @@ public class RSLIL2TextGenerator implements IGenerator {
         PlannedSchedule _planned_5 = p.getPlanned();
         Date _end_1 = _planned_5.getEnd();
         Month _month_1 = _end_1.getMonth();
-        _builder.append(_month_1, "");
+        String _name_2 = _month_1.getName();
+        _builder.append(_name_2, "");
         _builder.append("-");
         PlannedSchedule _planned_6 = p.getPlanned();
         Date _end_2 = _planned_6.getEnd();
@@ -319,7 +321,8 @@ public class RSLIL2TextGenerator implements IGenerator {
         ActualSchedule _actual_2 = p.getActual();
         Date _start_4 = _actual_2.getStart();
         Month _month_2 = _start_4.getMonth();
-        _builder.append(_month_2, "");
+        String _name_3 = _month_2.getName();
+        _builder.append(_name_3, "");
         _builder.append("-");
         ActualSchedule _actual_3 = p.getActual();
         Date _start_5 = _actual_3.getStart();
@@ -334,7 +337,8 @@ public class RSLIL2TextGenerator implements IGenerator {
         ActualSchedule _actual_5 = p.getActual();
         Date _end_4 = _actual_5.getEnd();
         Month _month_3 = _end_4.getMonth();
-        _builder.append(_month_3, "");
+        String _name_4 = _month_3.getName();
+        _builder.append(_name_4, "");
         _builder.append("-");
         ActualSchedule _actual_6 = p.getActual();
         Date _end_5 = _actual_6.getEnd();
@@ -937,7 +941,7 @@ public class RSLIL2TextGenerator implements IGenerator {
         if (!_hasElements) {
           _hasElements = true;
         } else {
-          _builder.appendImmediate(",\n", "\t");
+          _builder.appendImmediate("\n", "\t");
         }
         CharSequence _compile = this.compile(a);
         _builder.append(_compile, "\t");
@@ -1103,7 +1107,6 @@ public class RSLIL2TextGenerator implements IGenerator {
         }
       }
     }
-    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
