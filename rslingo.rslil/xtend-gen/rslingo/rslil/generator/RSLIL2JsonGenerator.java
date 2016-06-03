@@ -199,47 +199,55 @@ public class RSLIL2JsonGenerator implements IGenerator {
         _builder.append(_year_2, "\t\t");
         _builder.append("\",");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append("\t");
-        _builder.append("\"End\": \"");
-        Project _project_15 = packageProject.getProject();
-        ActualSchedule _actual_4 = _project_15.getActual();
-        Date _end_3 = _actual_4.getEnd();
-        int _day_3 = _end_3.getDay();
-        _builder.append(_day_3, "\t\t");
-        _builder.append("-");
-        Project _project_16 = packageProject.getProject();
-        ActualSchedule _actual_5 = _project_16.getActual();
-        Date _end_4 = _actual_5.getEnd();
-        Month _month_3 = _end_4.getMonth();
-        String _name_4 = _month_3.getName();
-        _builder.append(_name_4, "\t\t");
-        _builder.append("-");
-        Project _project_17 = packageProject.getProject();
-        ActualSchedule _actual_6 = _project_17.getActual();
-        Date _end_5 = _actual_6.getEnd();
-        int _year_3 = _end_5.getYear();
-        _builder.append(_year_3, "\t\t");
-        _builder.append("\"");
-        _builder.newLineIfNotEmpty();
+        {
+          Project _project_15 = packageProject.getProject();
+          ActualSchedule _actual_4 = _project_15.getActual();
+          Date _end_3 = _actual_4.getEnd();
+          boolean _notEquals_2 = (!Objects.equal(_end_3, null));
+          if (_notEquals_2) {
+            _builder.append("\t");
+            _builder.append("\t");
+            _builder.append("\"End\": \"");
+            Project _project_16 = packageProject.getProject();
+            ActualSchedule _actual_5 = _project_16.getActual();
+            Date _end_4 = _actual_5.getEnd();
+            int _day_3 = _end_4.getDay();
+            _builder.append(_day_3, "\t\t");
+            _builder.append("-");
+            Project _project_17 = packageProject.getProject();
+            ActualSchedule _actual_6 = _project_17.getActual();
+            Date _end_5 = _actual_6.getEnd();
+            Month _month_3 = _end_5.getMonth();
+            String _name_4 = _month_3.getName();
+            _builder.append(_name_4, "\t\t");
+            _builder.append("-");
+            Project _project_18 = packageProject.getProject();
+            ActualSchedule _actual_7 = _project_18.getActual();
+            Date _end_6 = _actual_7.getEnd();
+            int _year_3 = _end_6.getYear();
+            _builder.append(_year_3, "\t\t");
+            _builder.append("\"");
+            _builder.newLineIfNotEmpty();
+          }
+        }
         _builder.append("\t");
         _builder.append("},");
         _builder.newLine();
       }
     }
     {
-      Project _project_18 = packageProject.getProject();
-      Organizations _organizations = _project_18.getOrganizations();
-      boolean _notEquals_2 = (!Objects.equal(_organizations, null));
-      if (_notEquals_2) {
+      Project _project_19 = packageProject.getProject();
+      Organizations _organizations = _project_19.getOrganizations();
+      boolean _notEquals_3 = (!Objects.equal(_organizations, null));
+      if (_notEquals_3) {
         _builder.append("\t");
         _builder.append("\"Organizations\": {");
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("\"Customer\": \"");
-        Project _project_19 = packageProject.getProject();
-        Organizations _organizations_1 = _project_19.getOrganizations();
+        Project _project_20 = packageProject.getProject();
+        Organizations _organizations_1 = _project_20.getOrganizations();
         String _customer = _organizations_1.getCustomer();
         _builder.append(_customer, "\t\t");
         _builder.append("\",");
@@ -247,8 +255,8 @@ public class RSLIL2JsonGenerator implements IGenerator {
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("\"Supplier\": \"");
-        Project _project_20 = packageProject.getProject();
-        Organizations _organizations_2 = _project_20.getOrganizations();
+        Project _project_21 = packageProject.getProject();
+        Organizations _organizations_2 = _project_21.getOrganizations();
         String _supplier = _organizations_2.getSupplier();
         _builder.append(_supplier, "\t\t");
         _builder.append("\",");
@@ -256,8 +264,8 @@ public class RSLIL2JsonGenerator implements IGenerator {
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("\"Partners\": \"");
-        Project _project_21 = packageProject.getProject();
-        Organizations _organizations_3 = _project_21.getOrganizations();
+        Project _project_22 = packageProject.getProject();
+        Organizations _organizations_3 = _project_22.getOrganizations();
         String _partners = _organizations_3.getPartners();
         _builder.append(_partners, "\t\t");
         _builder.append("\"");
@@ -268,14 +276,14 @@ public class RSLIL2JsonGenerator implements IGenerator {
       }
     }
     {
-      Project _project_22 = packageProject.getProject();
-      ProjectProgress _progress = _project_22.getProgress();
-      boolean _notEquals_3 = (!Objects.equal(_progress, null));
-      if (_notEquals_3) {
+      Project _project_23 = packageProject.getProject();
+      ProjectProgress _progress = _project_23.getProgress();
+      boolean _notEquals_4 = (!Objects.equal(_progress, null));
+      if (_notEquals_4) {
         _builder.append("\t");
         _builder.append("\"Project Progress\": \"");
-        Project _project_23 = packageProject.getProject();
-        ProjectProgress _progress_1 = _project_23.getProgress();
+        Project _project_24 = packageProject.getProject();
+        ProjectProgress _progress_1 = _project_24.getProgress();
         String _value = _progress_1.getValue();
         _builder.append(_value, "\t");
         _builder.append("\",");
@@ -284,15 +292,15 @@ public class RSLIL2JsonGenerator implements IGenerator {
     }
     _builder.append("\t");
     _builder.append("\"Summary\": \"");
-    Project _project_24 = packageProject.getProject();
-    String _summary = _project_24.getSummary();
+    Project _project_25 = packageProject.getProject();
+    String _summary = _project_25.getSummary();
     _builder.append(_summary, "\t");
     _builder.append("\",");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("\"Description\": \"");
-    Project _project_25 = packageProject.getProject();
-    String _description = _project_25.getDescription();
+    Project _project_26 = packageProject.getProject();
+    String _description = _project_26.getDescription();
     _builder.append(_description, "\t");
     _builder.append("\",");
     _builder.newLineIfNotEmpty();

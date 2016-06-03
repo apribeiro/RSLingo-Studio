@@ -328,29 +328,36 @@ public class RSLIL2TextGenerator implements IGenerator {
         Date _start_5 = _actual_3.getStart();
         int _year_2 = _start_5.getYear();
         _builder.append(_year_2, "");
-        _builder.append("/");
-        ActualSchedule _actual_4 = p.getActual();
-        Date _end_3 = _actual_4.getEnd();
-        int _day_3 = _end_3.getDay();
-        _builder.append(_day_3, "");
-        _builder.append("-");
-        ActualSchedule _actual_5 = p.getActual();
-        Date _end_4 = _actual_5.getEnd();
-        Month _month_3 = _end_4.getMonth();
-        String _name_4 = _month_3.getName();
-        _builder.append(_name_4, "");
-        _builder.append("-");
-        ActualSchedule _actual_6 = p.getActual();
-        Date _end_5 = _actual_6.getEnd();
-        int _year_3 = _end_5.getYear();
-        _builder.append(_year_3, "");
+        {
+          ActualSchedule _actual_4 = p.getActual();
+          Date _end_3 = _actual_4.getEnd();
+          boolean _notEquals_2 = (!Objects.equal(_end_3, null));
+          if (_notEquals_2) {
+            _builder.append("/");
+            ActualSchedule _actual_5 = p.getActual();
+            Date _end_4 = _actual_5.getEnd();
+            int _day_3 = _end_4.getDay();
+            _builder.append(_day_3, "");
+            _builder.append("-");
+            ActualSchedule _actual_6 = p.getActual();
+            Date _end_5 = _actual_6.getEnd();
+            Month _month_3 = _end_5.getMonth();
+            String _name_4 = _month_3.getName();
+            _builder.append(_name_4, "");
+            _builder.append("-");
+            ActualSchedule _actual_7 = p.getActual();
+            Date _end_6 = _actual_7.getEnd();
+            int _year_3 = _end_6.getYear();
+            _builder.append(_year_3, "");
+          }
+        }
         _builder.newLineIfNotEmpty();
       }
     }
     {
       Organizations _organizations = p.getOrganizations();
-      boolean _notEquals_2 = (!Objects.equal(_organizations, null));
-      if (_notEquals_2) {
+      boolean _notEquals_3 = (!Objects.equal(_organizations, null));
+      if (_notEquals_3) {
         _builder.append("Organizations:");
         _builder.newLine();
         _builder.append("\t");
@@ -375,8 +382,8 @@ public class RSLIL2TextGenerator implements IGenerator {
     }
     {
       ProjectProgress _progress = p.getProgress();
-      boolean _notEquals_3 = (!Objects.equal(_progress, null));
-      if (_notEquals_3) {
+      boolean _notEquals_4 = (!Objects.equal(_progress, null));
+      if (_notEquals_4) {
         _builder.append("Project Progress: ");
         ProjectProgress _progress_1 = p.getProgress();
         String _value = _progress_1.getValue();
