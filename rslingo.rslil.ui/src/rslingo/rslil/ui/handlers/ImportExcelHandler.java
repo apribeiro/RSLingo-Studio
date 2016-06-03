@@ -122,7 +122,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		sb.append("\n");
 		
 		generateProjectRegion(wb, sb);
-//		generateGlossaryRegion(wb, sb);
+		generateGlossaryRegion(wb, sb);
 //		generateStakeholdersRegion(wb, sb);
 //		generateGoalsRegion(wb, sb);
 //		generateSytemsRegion(wb, sb, fileName);
@@ -340,82 +340,69 @@ public class ImportExcelHandler extends AbstractHandler {
     	rowIt.next();
     	rowIt.next();
     	rowIt.next();
+    	rowIt.next();
     	
     	while (rowIt.hasNext()) {
     		Row row = rowIt.next();
-    		Cell cellId = row.getCell(0);
     		
-    		if (cellId != null) {
+    		if (!row.getCell(3).getStringCellValue().isEmpty()) {
+    			Cell cellId = row.getCell(0);
     			String id = formatId(cellId.getStringCellValue());
+    			Cell cellName = row.getCell(1);
+	    		String name= cellName.getStringCellValue();
+    			Cell cellDescription = row.getCell(2);
+	    		String description = cellDescription.getStringCellValue().replaceAll("\"", "'");
+	    		Cell cellType = row.getCell(3);
+	    		String type = cellType.getStringCellValue().replaceAll(";", ",");
+	    		Cell cellAcronym = row.getCell(4);
+	    		String acronym = cellAcronym.getStringCellValue();
+	    		Cell cellPOS = row.getCell(5);
+	    		String pos = cellPOS.getStringCellValue();
+	    		Cell cellSynonym = row.getCell(6);
+	    		String synonym = cellSynonym.getStringCellValue();
+	    		Cell cellHypernym = row.getCell(7);
+	    		String hypernym = cellHypernym.getStringCellValue();
+	    		
+	    		sb.append("\tGlossaryTerm " + id + " {");
+	    		sb.append("\n");
+	    		
+	    		if (!name.isEmpty()) {
+	    			sb.append("\t\tName \"" + name + "\"");
+		    		sb.append("\n");
+				}
+	    		
+	    		if (!description.isEmpty()) {
+	    			sb.append("\t\tDescription \"" + description + "\"");
+		    		sb.append("\n");
+	    		}
+	    		
+	    		sb.append("\t\tType " + type);
+	    		sb.append("\n");
+	    		
+	    		if (!acronym.isEmpty()) {
+	    			sb.append("\t\tAcronym \"" + acronym + "\"");
+		    		sb.append("\n");
+	    		}
+	    		
+	    		if (!pos.isEmpty()) {
+	    			sb.append("\t\tPOS " + pos);
+		    		sb.append("\n");
+	    		}
+	    		
+	    		if (!synonym.isEmpty()) {
+		    		sb.append("\t\tSynonym \"" + synonym + "\"");
+		    		sb.append("\n");
+	    		}
     			
-    			if (!id.isEmpty()) {
-	    			Cell cellName = row.getCell(1);
-		    		String name= cellName.getStringCellValue();
-	    			Cell cellDescription = row.getCell(2);
-		    		String description = cellDescription.getStringCellValue();
-		    		Cell cellType = row.getCell(3);
-		    		String type = cellType.getStringCellValue();
-		    		
-		    		if (type.contains(";")) {
-		    			String aux = "";
-		    			
-						for (String	s : type.split("; ")) {
-							aux += toUpperFirst(s);
-							aux += ", ";
-						}
-						type = aux.substring(0, aux.length() - 2);
-					} else {
-						type = toUpperFirst(type); 
-					}
-		    		
-		    		Cell cellAcronym = row.getCell(4);
-		    		String acronym = cellAcronym.getStringCellValue();
-		    		Cell cellPOS = row.getCell(5);
-		    		String pos = cellPOS.getStringCellValue();
-		    		pos = toUpperFirst(pos);
-		    		Cell cellSynset = row.getCell(6);
-		    		String synset = cellSynset.getStringCellValue();
-		    		// Term Relation Type
-		    		// Term Relation
-		    		
-		    		sb.append("\tGlossaryTerm " + id + " {");
+	    		if (!hypernym.isEmpty()) {
+		    		sb.append("\t\tHypernym \"" + hypernym + "\"");
 		    		sb.append("\n");
-		    		
-		    		if (!name.isEmpty()) {
-		    			sb.append("\t\tName \"" + name + "\"");
-			    		sb.append("\n");
-					}
-		    		
-		    		if (!description.isEmpty()) {
-		    			sb.append("\t\tDescription \"" + description + "\"");
-			    		sb.append("\n");
-		    		}
-		    		
-		    		sb.append("\t\tType " + type);
-		    		sb.append("\n");
-		    		
-		    		if (!acronym.isEmpty()) {
-		    			sb.append("\t\tAcronym \"" + acronym + "\"");
-			    		sb.append("\n");
-		    		}
-		    		
-		    		if (!pos.isEmpty()) {
-		    			sb.append("\t\tPOS " + pos);
-			    		sb.append("\n");
-		    		}
-		    		
-		    		if (!synset.isEmpty()) {
-			    		sb.append("\t\tSynset \"" + synset + "\"");
-	//		    		sb.append("\n");
-		    		}
-	
-		    		// TODO: Add Term Relations
-		    		sb.append("\n\t}");
-		    		sb.append("\n\n");
-    			}
+	    		}
+	    		
+	    		// TODO: Add Term Relations
+	    		sb.append("\t}");
+	    		sb.append("\n\n");
 			}
-    		else
-    			break;
 		}
 	}
 	
