@@ -79,6 +79,7 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getProjectAccess().getGroup_11(), "rule__Project__Group_11__0");
 					put(grammarAccess.getPlannedScheduleAccess().getGroup(), "rule__PlannedSchedule__Group__0");
 					put(grammarAccess.getActualScheduleAccess().getGroup(), "rule__ActualSchedule__Group__0");
+					put(grammarAccess.getActualScheduleAccess().getGroup_4(), "rule__ActualSchedule__Group_4__0");
 					put(grammarAccess.getDateAccess().getGroup(), "rule__Date__Group__0");
 					put(grammarAccess.getOrganizationsAccess().getGroup(), "rule__Organizations__Group__0");
 					put(grammarAccess.getSystemAccess().getGroup(), "rule__System__Group__0");
@@ -216,7 +217,7 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPlannedScheduleAccess().getStartAssignment_3(), "rule__PlannedSchedule__StartAssignment_3");
 					put(grammarAccess.getPlannedScheduleAccess().getEndAssignment_5(), "rule__PlannedSchedule__EndAssignment_5");
 					put(grammarAccess.getActualScheduleAccess().getStartAssignment_3(), "rule__ActualSchedule__StartAssignment_3");
-					put(grammarAccess.getActualScheduleAccess().getEndAssignment_5(), "rule__ActualSchedule__EndAssignment_5");
+					put(grammarAccess.getActualScheduleAccess().getEndAssignment_4_1(), "rule__ActualSchedule__EndAssignment_4_1");
 					put(grammarAccess.getDateAccess().getDayAssignment_0(), "rule__Date__DayAssignment_0");
 					put(grammarAccess.getDateAccess().getMonthAssignment_2(), "rule__Date__MonthAssignment_2");
 					put(grammarAccess.getDateAccess().getYearAssignment_4(), "rule__Date__YearAssignment_4");

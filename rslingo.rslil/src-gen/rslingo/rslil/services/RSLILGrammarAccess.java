@@ -578,16 +578,17 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cStartKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cStartAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cStartDateParserRuleCall_3_0 = (RuleCall)cStartAssignment_3.eContents().get(0);
-		private final Keyword cEndKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cEndAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cEndDateParserRuleCall_5_0 = (RuleCall)cEndAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cEndKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cEndAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cEndDateParserRuleCall_4_1_0 = (RuleCall)cEndAssignment_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//ActualSchedule:
-		//	"ActualSchedule" "{" "Start" start=Date "End" end=Date "}";
+		//	"ActualSchedule" "{" "Start" start=Date ("End" end=Date)? "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"ActualSchedule" "{" "Start" start=Date "End" end=Date "}"
+		//"ActualSchedule" "{" "Start" start=Date ("End" end=Date)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"ActualSchedule"
@@ -605,17 +606,20 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//Date
 		public RuleCall getStartDateParserRuleCall_3_0() { return cStartDateParserRuleCall_3_0; }
 
+		//("End" end=Date)?
+		public Group getGroup_4() { return cGroup_4; }
+
 		//"End"
-		public Keyword getEndKeyword_4() { return cEndKeyword_4; }
+		public Keyword getEndKeyword_4_0() { return cEndKeyword_4_0; }
 
 		//end=Date
-		public Assignment getEndAssignment_5() { return cEndAssignment_5; }
+		public Assignment getEndAssignment_4_1() { return cEndAssignment_4_1; }
 
 		//Date
-		public RuleCall getEndDateParserRuleCall_5_0() { return cEndDateParserRuleCall_5_0; }
+		public RuleCall getEndDateParserRuleCall_4_1_0() { return cEndDateParserRuleCall_4_1_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
 	public class DateElements extends AbstractParserRuleElementFinder {
@@ -4388,7 +4392,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ActualSchedule:
-	//	"ActualSchedule" "{" "Start" start=Date "End" end=Date "}";
+	//	"ActualSchedule" "{" "Start" start=Date ("End" end=Date)? "}";
 	public ActualScheduleElements getActualScheduleAccess() {
 		return pActualSchedule;
 	}

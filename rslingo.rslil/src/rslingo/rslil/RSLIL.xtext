@@ -68,7 +68,7 @@ PlannedSchedule:
 ActualSchedule:
 	'ActualSchedule' '{'
 		'Start' start=Date
-		'End' end=Date
+		('End' end=Date)?
 	'}';
 
 Date:

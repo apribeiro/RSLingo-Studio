@@ -1135,14 +1135,14 @@ ruleActualSchedule returns [EObject current=null]
 	    }
 
 )
-)	otherlv_4='End' 
+)(	otherlv_4='End' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getActualScheduleAccess().getEndKeyword_4());
+    	newLeafNode(otherlv_4, grammarAccess.getActualScheduleAccess().getEndKeyword_4_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getActualScheduleAccess().getEndDateParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getActualScheduleAccess().getEndDateParserRuleCall_4_1_0()); 
 	    }
 		lv_end_5_0=ruleDate		{
 	        if ($current==null) {
@@ -1157,9 +1157,9 @@ ruleActualSchedule returns [EObject current=null]
 	    }
 
 )
-)	otherlv_6='}' 
+))?	otherlv_6='}' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getActualScheduleAccess().getRightCurlyBracketKeyword_6());
+    	newLeafNode(otherlv_6, grammarAccess.getActualScheduleAccess().getRightCurlyBracketKeyword_5());
     }
 )
 ;

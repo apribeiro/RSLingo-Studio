@@ -213,20 +213,10 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (start=Date end=Date)
+	 *     (start=Date end=Date?)
 	 */
 	protected void sequence_ActualSchedule(EObject context, ActualSchedule semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.ACTUAL_SCHEDULE__START) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.ACTUAL_SCHEDULE__START));
-			if(transientValues.isValueTransient(semanticObject, RSLILPackage.Literals.ACTUAL_SCHEDULE__END) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, RSLILPackage.Literals.ACTUAL_SCHEDULE__END));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getActualScheduleAccess().getStartDateParserRuleCall_3_0(), semanticObject.getStart());
-		feeder.accept(grammarAccess.getActualScheduleAccess().getEndDateParserRuleCall_5_0(), semanticObject.getEnd());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
