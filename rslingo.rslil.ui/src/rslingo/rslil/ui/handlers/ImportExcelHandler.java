@@ -122,10 +122,10 @@ public class ImportExcelHandler extends AbstractHandler {
 		sb.append("\n");
 		
 		generateProjectRegion(wb, sb);
-		generateGlossaryRegion(wb, sb);
-		generateStakeholdersRegion(wb, sb);
-		generateGoalsRegion(wb, sb);
-		generateSytemsRegion(wb, sb, fileName);
+//		generateGlossaryRegion(wb, sb);
+//		generateStakeholdersRegion(wb, sb);
+//		generateGoalsRegion(wb, sb);
+//		generateSytemsRegion(wb, sb, fileName);
     	
     	sb.deleteCharAt(sb.length() - 1);
 		sb.append("}");
@@ -235,7 +235,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		Cell cellPlannedEnd = row.getCell(5);
 		Date plannedEnd = cellPlannedEnd.getDateCellValue();
 		Cell cellActualStart = row.getCell(6);
-		Date actualStart = cellPlannedStart.getDateCellValue();
+		Date actualStart = cellActualStart.getDateCellValue();
 		Cell cellActualEnd = row.getCell(7);
 		Date actualEnd = cellActualEnd.getDateCellValue();
 		Cell cellCustomer = row.getCell(8);
@@ -244,23 +244,22 @@ public class ImportExcelHandler extends AbstractHandler {
 		String supplier = cellSupplier.getStringCellValue();
 		Cell cellPartners = row.getCell(10);
 		String partners = cellPartners.getStringCellValue();
-		Cell cellStatus = row.getCell(11);
-		String status = cellStatus.getStringCellValue();
+		Cell cellProgress = row.getCell(11);
+		String progress = cellProgress.getStringCellValue();
 		
 		// Go to the Summary row
 		rowIt.next();
 		rowIt.next();
-		rowIt.next();
+		row = rowIt.next();
 		Cell cellSummary = row.getCell(0);
-		String summary = cellSummary.getStringCellValue();
+		String summary = cellSummary.getStringCellValue().replaceAll("\"", "'");
 		
-		// Go to the Summary row
+		// Go to the Description row
 		rowIt.next();
 		rowIt.next();
-		rowIt.next();
-		rowIt.next();
+		row = rowIt.next();
 		Cell cellDescription = row.getCell(0);
-		String description = cellDescription.getStringCellValue();
+		String description = cellDescription.getStringCellValue().replaceAll("\"", "'");
 		
 		sb.append("\tProject " + id + " {");
 		sb.append("\n");
@@ -270,44 +269,61 @@ public class ImportExcelHandler extends AbstractHandler {
 			sb.append("\n");
 		}
 		
-		sb.append("\t\tType \"" + type + "\"");
+		sb.append("\t\tType " + type);
 		sb.append("\n");
-		sb.append("\t\tApplicationDomain \"" + domain + "\"");
+		sb.append("\t\tApplicationDomain " + domain);
 		sb.append("\n");
 		
-		if (plannedStart != null || plannedEnd != null) {
+		if (plannedStart != null && plannedEnd != null) {
 			sb.append("\t\tPlannedSchedule {");
 			sb.append("\n");
 			
-			if (plannedStart != null) {
-				sb.append("\t\t\tStart " + plannedStart);
-				sb.append("\n");
-			}
+			sb.append("\t\t\tStart " + DocumentHelper.getRSLILDate(plannedStart));
+			sb.append("\n");
 			
-			if (plannedEnd != null) {
-				sb.append("\t\t\tEnd " + plannedEnd);
-				sb.append("\n");
-			}
+			sb.append("\t\t\tEnd " + DocumentHelper.getRSLILDate(plannedEnd));
+			sb.append("\n");
+			
 			sb.append("\t\t}");
 			sb.append("\n");
 		}
 		
-		if (actualStart != null || actualEnd != null) {
+		if (actualStart != null) {
 			sb.append("\t\tActualSchedule {");
 			sb.append("\n");
 			
-			if (actualStart != null) {
-				sb.append("\t\t\tStart " + actualStart);
+			sb.append("\t\t\tStart " + DocumentHelper.getRSLILDate(actualStart));
+			sb.append("\n");
+			
+			if (actualEnd != null) {
+				sb.append("\t\t\tEnd " + DocumentHelper.getRSLILDate(actualEnd));
 				sb.append("\n");
 			}
 			
-			if (actualEnd != null) {
-				sb.append("\t\t\tEnd " + actualEnd);
-				sb.append("\n");
-			}
 			sb.append("\t\t}");
 			sb.append("\n");
 		}
+		
+		if (!customer.isEmpty() || !supplier.isEmpty() || !partners.isEmpty()) {
+			sb.append("\t\tOrganizations {");
+			sb.append("\n");
+			sb.append("\t\t\tCustomer \"" + customer + "\"");
+			sb.append("\n");
+			sb.append("\t\t\tSupplier \"" + supplier + "\"");
+			sb.append("\n");
+			sb.append("\t\t\tPartners \"" + partners + "\"");
+			sb.append("\n");
+			sb.append("\t\t}");
+			sb.append("\n");
+		}
+		
+		if (!progress.isEmpty()) {
+			sb.append("\t\tProjectProgress " + progress);
+			sb.append("\n");
+		}
+		
+		sb.append("\t\tSummary \"" + summary + "\"");
+		sb.append("\n");
 		
 		sb.append("\t\tDescription \"" + description + "\"");
 		sb.append("\n\t}");
