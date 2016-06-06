@@ -5,8 +5,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -119,6 +121,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		Workbook wb = WorkbookFactory.create(inp);
 		sb.append("Package-Project " + formatId(fileName) + " {");
 		sb.append("\n");
+		generateSytemImportsRegion(wb, sb, formatId(fileName));
 		sb.append("\n");
 		
 		generateProjectRegion(wb, sb);
@@ -330,6 +333,37 @@ public class ImportExcelHandler extends AbstractHandler {
 		sb.append("\t\tDescription \"" + description + "\"");
 		sb.append("\n\t}");
 		sb.append("\n\n");
+	}
+	
+	private void generateSytemImportsRegion(Workbook wb, StringBuilder sb, String fileName) {
+		Set<String> systemIds = new HashSet<String>();
+		// Get the Systems Relations Sheet
+	    Sheet sheet = wb.getSheet("systems.relations");
+    	Iterator<Row> rowIt = sheet.rowIterator();
+    	// Ignore the Header row
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	
+    	while (rowIt.hasNext()) {
+    		Row row = rowIt.next();
+    		Cell cellSource = row.getCell(0);
+			String source = formatId(cellSource.getStringCellValue());
+			Cell cellTarget = row.getCell(1);
+			String target = formatId(cellTarget.getStringCellValue());
+			
+			systemIds.add(source);
+			systemIds.add(target);
+		}
+    	
+    	for (String system : systemIds) {
+			sb.append("\timport " + fileName + "_" + system + ".*");
+			sb.append("\n");
+		}
 	}
 	
 	private void generateGlossaryRegion(Workbook wb, StringBuilder sb) {
