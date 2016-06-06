@@ -126,7 +126,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		generateStakeholdersRegion(wb, sb);
 		generateGoalsRegion(wb, sb);
 		generateGoalRelationsRegion(wb, sb);
-//		generateSytemsRegion(wb, sb, fileName);
+		generateSytemsRegion(wb, sb, formatId(fileName));
 //		generateSytemRelationsRegion(wb, sb, fileName);
     	
     	sb.deleteCharAt(sb.length() - 1);
@@ -605,15 +605,10 @@ public class ImportExcelHandler extends AbstractHandler {
 	}
 	
 	private void generateSytemsRegion(Workbook wb, StringBuilder sb, String fileName) {
-		// Get the Home Sheet
-	    Sheet sheet = wb.getSheet("home");
+		// Get the Systems Sheet
+	    Sheet sheet = wb.getSheet("systems");
 		Iterator<Row> rowIt = sheet.rowIterator();
 		// Ignore the Header rows
-    	rowIt.next();
-    	rowIt.next();
-    	rowIt.next();
-    	rowIt.next();
-    	rowIt.next();
     	rowIt.next();
     	rowIt.next();
     	rowIt.next();
@@ -631,10 +626,12 @@ public class ImportExcelHandler extends AbstractHandler {
 			String name = cellName.getStringCellValue();
 			Cell cellDescription = row.getCell(2);
 			String description = cellDescription.getStringCellValue();
-			Cell cellPartOf = row.getCell(3);
-			String partOf = cellPartOf.getStringCellValue();
-			Cell cellProject = row.getCell(4);
-			String project = cellProject.getStringCellValue();
+			Cell cellType = row.getCell(3);
+			String type = cellType.getStringCellValue();
+			Cell cellScope = row.getCell(4);
+			String scope = cellScope.getStringCellValue();
+			Cell cellPartOf = row.getCell(5);
+			String partOf = formatId(cellPartOf.getStringCellValue());
 			
 			StringBuilder builder = new StringBuilder();
 			builder.append("\tPackage-System " + fileName + "_" + id + " {");
@@ -653,13 +650,14 @@ public class ImportExcelHandler extends AbstractHandler {
 	    		builder.append("\n");
     		}
     		
+    		builder.append("\t\t\tType " + type);
+    		builder.append("\n");
+    		
+    		builder.append("\t\t\tScope " + scope);
+    		builder.append("\n");
+    		
     		if (!partOf.isEmpty()) {
     			builder.append("\t\t\tPartOf " + partOf);
-	    		builder.append("\n");
-    		}
-			
-    		if (!project.isEmpty()) {
-    			builder.append("\t\t\tProject " + project);
 	    		builder.append("\n");
     		}
     		
@@ -669,12 +667,12 @@ public class ImportExcelHandler extends AbstractHandler {
 			systems.put(id, builder);
     	}
     	
-    	generateEntitiesRegion(wb, systems);
-		generateActorsRegion(wb, systems);
-		generateUseCasesRegion(wb, systems);
-		generateFRsRegion(wb, systems);
-		generateQRsRegion(wb, systems);
-		generateConstraintsRegion(wb, systems);
+//    	generateEntitiesRegion(wb, systems);
+//		generateActorsRegion(wb, systems);
+//		generateUseCasesRegion(wb, systems);
+//		generateFRsRegion(wb, systems);
+//		generateQRsRegion(wb, systems);
+//		generateConstraintsRegion(wb, systems);
     	
     	for (String key : systems.keySet()) {
 			sb.append(systems.get(key));
@@ -931,7 +929,7 @@ public class ImportExcelHandler extends AbstractHandler {
 	}
 	
 	private String formatId(String id) {
-		return id.replaceAll(" ", "_").replaceAll("-", "_").replaceAll("\\.", "_")
+		return id.replaceAll(" ", "_").replaceAll("-", "_").replaceAll("\\.", "_").replaceAll("/", "")
 				.replaceAll("ç", "c").replaceAll("ã", "a").replaceAll("õ", "o")
 				.replaceAll("â", "a").replaceAll("ê", "e").replaceAll("ô", "o")
 				.replaceAll("à", "a").replaceAll("á", "a")
