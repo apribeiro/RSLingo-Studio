@@ -127,7 +127,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		generateGoalsRegion(wb, sb);
 		generateGoalRelationsRegion(wb, sb);
 		generateSytemsRegion(wb, sb, formatId(fileName));
-//		generateSytemRelationsRegion(wb, sb, fileName);
+		generateSystemRelationsRegion(wb, sb);
     	
     	sb.deleteCharAt(sb.length() - 1);
 		sb.append("}");
@@ -569,38 +569,35 @@ public class ImportExcelHandler extends AbstractHandler {
     	
     	while (rowIt.hasNext()) {
     		Row row = rowIt.next();
+			Cell cellSource = row.getCell(0);
+			String source = formatId(cellSource.getStringCellValue());
+			Cell cellTarget = row.getCell(2);
+			String target = formatId(cellTarget.getStringCellValue());
+			Cell cellType = row.getCell(4);
+			String type = cellType.getStringCellValue();
+			Cell cellDescription = row.getCell(5);
+			String description = cellDescription.getStringCellValue().replace("\"", "'");
+			String id = source + "_" + target + "_" + type;
     		
-    		if (!row.getCell(3).getStringCellValue().isEmpty()) {
-    			Cell cellSource = row.getCell(0);
-    			String source = formatId(cellSource.getStringCellValue());
-    			Cell cellTarget = row.getCell(2);
-    			String target = formatId(cellTarget.getStringCellValue());
-    			Cell cellType = row.getCell(4);
-    			String type = cellType.getStringCellValue();
-    			Cell cellDescription = row.getCell(5);
-    			String description = cellDescription.getStringCellValue().replace("\"", "'");
-    			String id = source + "_" + target + "_" + type;
-	    		
-    			sb.append("\tGoalRelation " + id + " {");
+			sb.append("\tGoalRelation " + id + " {");
+    		sb.append("\n");
+    		
+    		sb.append("\t\tSource " + source);
+    		sb.append("\n");
+    		
+    		sb.append("\t\tTarget " + target);
+    		sb.append("\n");
+    		
+    		sb.append("\t\tType " + type);
+    		sb.append("\n");
+    		
+    		if (!description.isEmpty()) {
+    			sb.append("\t\tDescription \"" + description + "\"");
 	    		sb.append("\n");
-	    		
-	    		sb.append("\t\tSource " + source);
-	    		sb.append("\n");
-	    		
-	    		sb.append("\t\tTarget " + target);
-	    		sb.append("\n");
-	    		
-	    		sb.append("\t\tType " + type);
-	    		sb.append("\n");
-	    		
-	    		if (!description.isEmpty()) {
-	    			sb.append("\t\tDescription \"" + description + "\"");
-		    		sb.append("\n");
-	    		}
-	    		
-	    		sb.append("\t}");
-	    		sb.append("\n\n");
-			}
+    		}
+    		
+    		sb.append("\t}");
+    		sb.append("\n\n");
 		}
 	}
 	
@@ -935,6 +932,58 @@ public class ImportExcelHandler extends AbstractHandler {
 	
 	private void generateConstraintsRegion(Workbook wb, Map<String, StringBuilder> systems) {
 		
+	}
+	
+	private void generateSystemRelationsRegion(Workbook wb, StringBuilder sb) {
+		// Get the Systems Relations Sheet
+	    Sheet sheet = wb.getSheet("systems.relations");
+    	Iterator<Row> rowIt = sheet.rowIterator();
+    	// Ignore the Header row
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	
+    	while (rowIt.hasNext()) {
+    		Row row = rowIt.next();
+    		Cell cellSource = row.getCell(0);
+			String source = formatId(cellSource.getStringCellValue());
+			Cell cellTarget = row.getCell(1);
+			String target = formatId(cellTarget.getStringCellValue());
+			Cell cellCategory = row.getCell(2);
+			String category = cellCategory.getStringCellValue();
+			Cell cellType = row.getCell(3);
+			String type = cellType.getStringCellValue();
+			Cell cellDescription = row.getCell(4);
+			String description = cellDescription.getStringCellValue().replace("\"", "'");
+			String id = source + "_" + target + "_" + type.replace("-", "_");
+    		
+			sb.append("\tSystemRelation " + id + " {");
+    		sb.append("\n");
+    		
+    		sb.append("\t\tSource " + source);
+    		sb.append("\n");
+    		
+    		sb.append("\t\tTarget " + target);
+    		sb.append("\n");
+    		
+    		sb.append("\t\tCategory " + category);
+    		sb.append("\n");
+    		
+    		sb.append("\t\tType " + type);
+    		sb.append("\n");
+    		
+    		if (!description.isEmpty()) {
+    			sb.append("\t\tDescription \"" + description + "\"");
+	    		sb.append("\n");
+    		}
+    		
+    		sb.append("\t}");
+    		sb.append("\n\n");
+		}
 	}
 	
 	private String formatId(String id) {
