@@ -125,7 +125,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		generateGlossaryRegion(wb, sb);
 		generateStakeholdersRegion(wb, sb);
 		generateGoalsRegion(wb, sb);
-		generateGoalRelationsRegion(wb, sb);
+//		generateGoalRelationsRegion(wb, sb);
 //		generateSytemsRegion(wb, sb, fileName);
 //		generateSytemRelationsRegion(wb, sb, fileName);
     	
@@ -488,11 +488,14 @@ public class ImportExcelHandler extends AbstractHandler {
     	rowIt.next();
     	rowIt.next();
     	rowIt.next();
+    	rowIt.next();
     	
     	while (rowIt.hasNext()) {
     		Row row = rowIt.next();
+    		Cell controlCell = row.getCell(3); 
     		
-    		if (!row.getCell(3).getStringCellValue().isEmpty()) {
+    		if (controlCell != null && !controlCell.getStringCellValue().isEmpty()
+    			&& !controlCell.getStringCellValue().equals("Source (Stakeholder) (*)")) {
     			Cell cellId = row.getCell(0);
     			String id = formatId(cellId.getStringCellValue());
     			Cell cellName = row.getCell(1);
@@ -540,7 +543,7 @@ public class ImportExcelHandler extends AbstractHandler {
 	    		}
 	    		
 	    		if (!progress.isEmpty()) {
-	    			sb.append("\t\tProjectProgress \"" + progress + "\"");
+	    			sb.append("\t\tProjectProgress " + progress);
 		    		sb.append("\n");
 	    		}
 	    		
@@ -555,9 +558,6 @@ public class ImportExcelHandler extends AbstractHandler {
 	    Sheet sheet = wb.getSheet("goals.relations");
     	Iterator<Row> rowIt = sheet.rowIterator();
     	// Ignore the Header row
-    	rowIt.next();
-    	rowIt.next();
-    	rowIt.next();
     	rowIt.next();
     	rowIt.next();
     	rowIt.next();
