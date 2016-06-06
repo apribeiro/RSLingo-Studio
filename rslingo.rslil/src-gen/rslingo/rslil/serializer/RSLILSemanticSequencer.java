@@ -665,14 +665,21 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *             type='Operational' | 
 	 *             type='Maintenance' | 
 	 *             type='Cultural' | 
-	 *             type='Legal'
+	 *             type='Legal' | 
+	 *             type='Efficiency' | 
+	 *             type='Reliability' | 
+	 *             type='Interoperability'
 	 *         ) 
 	 *         (
 	 *             subType='Security.Privacy' | 
 	 *             subType='Security.Integrity' | 
 	 *             subType='Usability.EaseOfUse' | 
 	 *             subType='Usability.EaseOfLearn' | 
-	 *             subType='Usability.Accessibility'
+	 *             subType='Usability.Accessibility' | 
+	 *             subType='Usability.Understandability' | 
+	 *             subType='Usability.Learnability' | 
+	 *             subType='Usability.Attractiveness' | 
+	 *             subType='Efficiency.ResourceUse'
 	 *         )? 
 	 *         (
 	 *             metric='Hours' | 

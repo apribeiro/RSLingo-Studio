@@ -6084,6 +6084,42 @@ ruleQR returns [EObject current=null]
        		setWithLastConsumed($current, "type", lv_type_8_8, null);
 	    }
 
+    |		lv_type_8_9=	'Efficiency' 
+    {
+        newLeafNode(lv_type_8_9, grammarAccess.getQRAccess().getTypeEfficiencyKeyword_6_0_8());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getQRRule());
+	        }
+       		setWithLastConsumed($current, "type", lv_type_8_9, null);
+	    }
+
+    |		lv_type_8_10=	'Reliability' 
+    {
+        newLeafNode(lv_type_8_10, grammarAccess.getQRAccess().getTypeReliabilityKeyword_6_0_9());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getQRRule());
+	        }
+       		setWithLastConsumed($current, "type", lv_type_8_10, null);
+	    }
+
+    |		lv_type_8_11=	'Interoperability' 
+    {
+        newLeafNode(lv_type_8_11, grammarAccess.getQRAccess().getTypeInteroperabilityKeyword_6_0_10());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getQRRule());
+	        }
+       		setWithLastConsumed($current, "type", lv_type_8_11, null);
+	    }
+
 )
 
 )
@@ -6152,6 +6188,54 @@ ruleQR returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getQRRule());
 	        }
        		setWithLastConsumed($current, "subType", lv_subType_10_5, null);
+	    }
+
+    |		lv_subType_10_6=	'Usability.Understandability' 
+    {
+        newLeafNode(lv_subType_10_6, grammarAccess.getQRAccess().getSubTypeUsabilityUnderstandabilityKeyword_7_1_0_5());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getQRRule());
+	        }
+       		setWithLastConsumed($current, "subType", lv_subType_10_6, null);
+	    }
+
+    |		lv_subType_10_7=	'Usability.Learnability' 
+    {
+        newLeafNode(lv_subType_10_7, grammarAccess.getQRAccess().getSubTypeUsabilityLearnabilityKeyword_7_1_0_6());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getQRRule());
+	        }
+       		setWithLastConsumed($current, "subType", lv_subType_10_7, null);
+	    }
+
+    |		lv_subType_10_8=	'Usability.Attractiveness' 
+    {
+        newLeafNode(lv_subType_10_8, grammarAccess.getQRAccess().getSubTypeUsabilityAttractivenessKeyword_7_1_0_7());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getQRRule());
+	        }
+       		setWithLastConsumed($current, "subType", lv_subType_10_8, null);
+	    }
+
+    |		lv_subType_10_9=	'Efficiency.ResourceUse' 
+    {
+        newLeafNode(lv_subType_10_9, grammarAccess.getQRAccess().getSubTypeEfficiencyResourceUseKeyword_7_1_0_8());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getQRRule());
+	        }
+       		setWithLastConsumed($current, "subType", lv_subType_10_9, null);
 	    }
 
 )

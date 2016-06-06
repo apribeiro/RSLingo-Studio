@@ -2676,6 +2676,30 @@ rule__QR__TypeAlternatives_6_0
 { after(grammarAccess.getQRAccess().getTypeLegalKeyword_6_0_7()); }
 )
 
+    |(
+{ before(grammarAccess.getQRAccess().getTypeEfficiencyKeyword_6_0_8()); }
+
+	'Efficiency' 
+
+{ after(grammarAccess.getQRAccess().getTypeEfficiencyKeyword_6_0_8()); }
+)
+
+    |(
+{ before(grammarAccess.getQRAccess().getTypeReliabilityKeyword_6_0_9()); }
+
+	'Reliability' 
+
+{ after(grammarAccess.getQRAccess().getTypeReliabilityKeyword_6_0_9()); }
+)
+
+    |(
+{ before(grammarAccess.getQRAccess().getTypeInteroperabilityKeyword_6_0_10()); }
+
+	'Interoperability' 
+
+{ after(grammarAccess.getQRAccess().getTypeInteroperabilityKeyword_6_0_10()); }
+)
+
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -2724,6 +2748,38 @@ rule__QR__SubTypeAlternatives_7_1_0
 	'Usability.Accessibility' 
 
 { after(grammarAccess.getQRAccess().getSubTypeUsabilityAccessibilityKeyword_7_1_0_4()); }
+)
+
+    |(
+{ before(grammarAccess.getQRAccess().getSubTypeUsabilityUnderstandabilityKeyword_7_1_0_5()); }
+
+	'Usability.Understandability' 
+
+{ after(grammarAccess.getQRAccess().getSubTypeUsabilityUnderstandabilityKeyword_7_1_0_5()); }
+)
+
+    |(
+{ before(grammarAccess.getQRAccess().getSubTypeUsabilityLearnabilityKeyword_7_1_0_6()); }
+
+	'Usability.Learnability' 
+
+{ after(grammarAccess.getQRAccess().getSubTypeUsabilityLearnabilityKeyword_7_1_0_6()); }
+)
+
+    |(
+{ before(grammarAccess.getQRAccess().getSubTypeUsabilityAttractivenessKeyword_7_1_0_7()); }
+
+	'Usability.Attractiveness' 
+
+{ after(grammarAccess.getQRAccess().getSubTypeUsabilityAttractivenessKeyword_7_1_0_7()); }
+)
+
+    |(
+{ before(grammarAccess.getQRAccess().getSubTypeEfficiencyResourceUseKeyword_7_1_0_8()); }
+
+	'Efficiency.ResourceUse' 
+
+{ after(grammarAccess.getQRAccess().getSubTypeEfficiencyResourceUseKeyword_7_1_0_8()); }
 )
 
 ;

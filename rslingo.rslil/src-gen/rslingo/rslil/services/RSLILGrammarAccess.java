@@ -3618,6 +3618,9 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTypeMaintenanceKeyword_6_0_5 = (Keyword)cTypeAlternatives_6_0.eContents().get(5);
 		private final Keyword cTypeCulturalKeyword_6_0_6 = (Keyword)cTypeAlternatives_6_0.eContents().get(6);
 		private final Keyword cTypeLegalKeyword_6_0_7 = (Keyword)cTypeAlternatives_6_0.eContents().get(7);
+		private final Keyword cTypeEfficiencyKeyword_6_0_8 = (Keyword)cTypeAlternatives_6_0.eContents().get(8);
+		private final Keyword cTypeReliabilityKeyword_6_0_9 = (Keyword)cTypeAlternatives_6_0.eContents().get(9);
+		private final Keyword cTypeInteroperabilityKeyword_6_0_10 = (Keyword)cTypeAlternatives_6_0.eContents().get(10);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cSubTypeKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cSubTypeAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
@@ -3627,6 +3630,10 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSubTypeUsabilityEaseOfUseKeyword_7_1_0_2 = (Keyword)cSubTypeAlternatives_7_1_0.eContents().get(2);
 		private final Keyword cSubTypeUsabilityEaseOfLearnKeyword_7_1_0_3 = (Keyword)cSubTypeAlternatives_7_1_0.eContents().get(3);
 		private final Keyword cSubTypeUsabilityAccessibilityKeyword_7_1_0_4 = (Keyword)cSubTypeAlternatives_7_1_0.eContents().get(4);
+		private final Keyword cSubTypeUsabilityUnderstandabilityKeyword_7_1_0_5 = (Keyword)cSubTypeAlternatives_7_1_0.eContents().get(5);
+		private final Keyword cSubTypeUsabilityLearnabilityKeyword_7_1_0_6 = (Keyword)cSubTypeAlternatives_7_1_0.eContents().get(6);
+		private final Keyword cSubTypeUsabilityAttractivenessKeyword_7_1_0_7 = (Keyword)cSubTypeAlternatives_7_1_0.eContents().get(7);
+		private final Keyword cSubTypeEfficiencyResourceUseKeyword_7_1_0_8 = (Keyword)cSubTypeAlternatives_7_1_0.eContents().get(8);
 		private final Keyword cMetricKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		private final Assignment cMetricAssignment_9 = (Assignment)cGroup.eContents().get(9);
 		private final Alternatives cMetricAlternatives_9_0 = (Alternatives)cMetricAssignment_9.eContents().get(0);
@@ -3660,19 +3667,21 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//QR:
 		//	"QualityRequirement" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Type"
-		//	type=("Security" | "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal")
-		//	("Sub-Type" subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLearn" |
-		//	"Usability.Accessibility"))? "Metric" metric=("Hours" | "Mins" | "Secs" | "mSecs" | "Tasks" | "Other") "Value"
-		//	value=INT ("Stakeholder" stakeholder=[Stakeholder])? "Priority" priority=Priority ("PartOf" partOf=[QR])?
-		//	("ProjectProgress" progress=ProjectProgress)? "}";
+		//	type=("Security" | "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal"
+		//	| "Efficiency" | "Reliability" | "Interoperability") ("Sub-Type" subType=("Security.Privacy" | "Security.Integrity" |
+		//	"Usability.EaseOfUse" | "Usability.EaseOfLearn" | "Usability.Accessibility" | "Usability.Understandability" |
+		//	"Usability.Learnability" | "Usability.Attractiveness" | "Efficiency.ResourceUse"))? "Metric" metric=("Hours" | "Mins"
+		//	| "Secs" | "mSecs" | "Tasks" | "Other") "Value" value=INT ("Stakeholder" stakeholder=[Stakeholder])? "Priority"
+		//	priority=Priority ("PartOf" partOf=[QR])? ("ProjectProgress" progress=ProjectProgress)? "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//"QualityRequirement" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Type" type=("Security"
-		//| "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal") ("Sub-Type"
-		//subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLearn" |
-		//"Usability.Accessibility"))? "Metric" metric=("Hours" | "Mins" | "Secs" | "mSecs" | "Tasks" | "Other") "Value"
-		//value=INT ("Stakeholder" stakeholder=[Stakeholder])? "Priority" priority=Priority ("PartOf" partOf=[QR])?
-		//("ProjectProgress" progress=ProjectProgress)? "}"
+		//| "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal" | "Efficiency" |
+		//"Reliability" | "Interoperability") ("Sub-Type" subType=("Security.Privacy" | "Security.Integrity" |
+		//"Usability.EaseOfUse" | "Usability.EaseOfLearn" | "Usability.Accessibility" | "Usability.Understandability" |
+		//"Usability.Learnability" | "Usability.Attractiveness" | "Efficiency.ResourceUse"))? "Metric" metric=("Hours" | "Mins"
+		//| "Secs" | "mSecs" | "Tasks" | "Other") "Value" value=INT ("Stakeholder" stakeholder=[Stakeholder])? "Priority"
+		//priority=Priority ("PartOf" partOf=[QR])? ("ProjectProgress" progress=ProjectProgress)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"QualityRequirement"
@@ -3714,10 +3723,12 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Type"
 		public Keyword getTypeKeyword_5() { return cTypeKeyword_5; }
 
-		//type=("Security" | "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal")
+		//type=("Security" | "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal" |
+		//"Efficiency" | "Reliability" | "Interoperability")
 		public Assignment getTypeAssignment_6() { return cTypeAssignment_6; }
 
-		//"Security" | "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal"
+		//"Security" | "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal" |
+		//"Efficiency" | "Reliability" | "Interoperability"
 		public Alternatives getTypeAlternatives_6_0() { return cTypeAlternatives_6_0; }
 
 		//"Security"
@@ -3744,18 +3755,30 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Legal"
 		public Keyword getTypeLegalKeyword_6_0_7() { return cTypeLegalKeyword_6_0_7; }
 
+		//"Efficiency"
+		public Keyword getTypeEfficiencyKeyword_6_0_8() { return cTypeEfficiencyKeyword_6_0_8; }
+
+		//"Reliability"
+		public Keyword getTypeReliabilityKeyword_6_0_9() { return cTypeReliabilityKeyword_6_0_9; }
+
+		//"Interoperability"
+		public Keyword getTypeInteroperabilityKeyword_6_0_10() { return cTypeInteroperabilityKeyword_6_0_10; }
+
 		//("Sub-Type" subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLearn" |
-		//"Usability.Accessibility"))?
+		//"Usability.Accessibility" | "Usability.Understandability" | "Usability.Learnability" | "Usability.Attractiveness" |
+		//"Efficiency.ResourceUse"))?
 		public Group getGroup_7() { return cGroup_7; }
 
 		//"Sub-Type"
 		public Keyword getSubTypeKeyword_7_0() { return cSubTypeKeyword_7_0; }
 
 		//subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLearn" |
-		//"Usability.Accessibility")
+		//"Usability.Accessibility" | "Usability.Understandability" | "Usability.Learnability" | "Usability.Attractiveness" |
+		//"Efficiency.ResourceUse")
 		public Assignment getSubTypeAssignment_7_1() { return cSubTypeAssignment_7_1; }
 
 		//"Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLearn" | "Usability.Accessibility"
+		//| "Usability.Understandability" | "Usability.Learnability" | "Usability.Attractiveness" | "Efficiency.ResourceUse"
 		public Alternatives getSubTypeAlternatives_7_1_0() { return cSubTypeAlternatives_7_1_0; }
 
 		//"Security.Privacy"
@@ -3772,6 +3795,18 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"Usability.Accessibility"
 		public Keyword getSubTypeUsabilityAccessibilityKeyword_7_1_0_4() { return cSubTypeUsabilityAccessibilityKeyword_7_1_0_4; }
+
+		//"Usability.Understandability"
+		public Keyword getSubTypeUsabilityUnderstandabilityKeyword_7_1_0_5() { return cSubTypeUsabilityUnderstandabilityKeyword_7_1_0_5; }
+
+		//"Usability.Learnability"
+		public Keyword getSubTypeUsabilityLearnabilityKeyword_7_1_0_6() { return cSubTypeUsabilityLearnabilityKeyword_7_1_0_6; }
+
+		//"Usability.Attractiveness"
+		public Keyword getSubTypeUsabilityAttractivenessKeyword_7_1_0_7() { return cSubTypeUsabilityAttractivenessKeyword_7_1_0_7; }
+
+		//"Efficiency.ResourceUse"
+		public Keyword getSubTypeEfficiencyResourceUseKeyword_7_1_0_8() { return cSubTypeEfficiencyResourceUseKeyword_7_1_0_8; }
 
 		//"Metric"
 		public Keyword getMetricKeyword_8() { return cMetricKeyword_8; }
@@ -4759,11 +4794,12 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 
 	//QR:
 	//	"QualityRequirement" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Type"
-	//	type=("Security" | "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal")
-	//	("Sub-Type" subType=("Security.Privacy" | "Security.Integrity" | "Usability.EaseOfUse" | "Usability.EaseOfLearn" |
-	//	"Usability.Accessibility"))? "Metric" metric=("Hours" | "Mins" | "Secs" | "mSecs" | "Tasks" | "Other") "Value"
-	//	value=INT ("Stakeholder" stakeholder=[Stakeholder])? "Priority" priority=Priority ("PartOf" partOf=[QR])?
-	//	("ProjectProgress" progress=ProjectProgress)? "}";
+	//	type=("Security" | "Performance" | "Usability" | "Appearance" | "Operational" | "Maintenance" | "Cultural" | "Legal"
+	//	| "Efficiency" | "Reliability" | "Interoperability") ("Sub-Type" subType=("Security.Privacy" | "Security.Integrity" |
+	//	"Usability.EaseOfUse" | "Usability.EaseOfLearn" | "Usability.Accessibility" | "Usability.Understandability" |
+	//	"Usability.Learnability" | "Usability.Attractiveness" | "Efficiency.ResourceUse"))? "Metric" metric=("Hours" | "Mins"
+	//	| "Secs" | "mSecs" | "Tasks" | "Other") "Value" value=INT ("Stakeholder" stakeholder=[Stakeholder])? "Priority"
+	//	priority=Priority ("PartOf" partOf=[QR])? ("ProjectProgress" progress=ProjectProgress)? "}";
 	public QRElements getQRAccess() {
 		return pQR;
 	}

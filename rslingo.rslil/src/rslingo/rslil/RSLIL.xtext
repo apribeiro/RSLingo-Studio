@@ -285,8 +285,13 @@ QR:
 	'QualityRequirement' name=ID '{'
 		('Name' nameAlias=STRING)?
 		('Description' description=STRING)?
-		'Type' type=('Security'|'Performance'|'Usability'|'Appearance'|'Operational'|'Maintenance'|'Cultural'|'Legal')
-		('Sub-Type' subType=('Security.Privacy'|'Security.Integrity'|'Usability.EaseOfUse'|'Usability.EaseOfLearn'|'Usability.Accessibility'))?
+		'Type' type=('Security'|'Performance'|'Usability'|'Appearance'|'Operational'
+			|'Maintenance'|'Cultural'|'Legal'|'Efficiency'|'Reliability'|'Interoperability'
+		)
+		('Sub-Type' subType=('Security.Privacy'|'Security.Integrity'|'Usability.EaseOfUse'
+			|'Usability.EaseOfLearn'|'Usability.Accessibility'|'Usability.Understandability'
+			|'Usability.Learnability'|'Usability.Attractiveness'|'Efficiency.ResourceUse'
+		))?
 		'Metric' metric=('Hours'|'Mins'|'Secs'|'mSecs'|'Tasks'|'Other')
 		'Value' value=INT
 		('Stakeholder' stakeholder=[Stakeholder])?
