@@ -711,9 +711,10 @@ public class ImportExcelHandler extends AbstractHandler {
 		generateActorsRegion(wb, systems);
 //		generateUseCasesRegion(wb, systems);
 		generateFRsRegion(wb, systems);
-//		generateQRsRegion(wb, systems);
-//		generateConstraintsRegion(wb, systems);
-    	
+		generateQRsRegion(wb, systems);
+		generateConstraintsRegion(wb, systems);
+//		generateRequirementRelationsRegion(wb, systems);
+		
     	for (String key : systems.keySet()) {
 			sb.append(systems.get(key));
 			sb.append("\t}");
@@ -1122,11 +1123,200 @@ public class ImportExcelHandler extends AbstractHandler {
 	}
 	
 	private void generateQRsRegion(Workbook wb, Map<String, StringBuilder> systems) {
-		
+		String systemId = null;
+		// Get the Functional Requirements Sheet
+	    Sheet sheet = wb.getSheet("reqs.quality");
+    	Iterator<Row> rowIt = sheet.rowIterator();
+    	// Ignore the Header row
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	
+    	while (rowIt.hasNext()) {
+    		Row row = rowIt.next();
+    		Cell controlCell = row.getCell(3); 
+    		
+    		if (controlCell != null) {
+    			if (!controlCell.getStringCellValue().isEmpty()
+    				&& !controlCell.getStringCellValue().equals("Type (*)")) {
+	    			Cell cellId = row.getCell(0);
+	    			String id = formatId(cellId.getStringCellValue());
+	    			Cell cellName = row.getCell(1);
+	    			String name = cellName.getStringCellValue();
+	    			Cell cellDescription = row.getCell(2);
+	    			String description = cellDescription.getStringCellValue().replace("\"", "'");
+	    			Cell cellType = row.getCell(3);
+	    			String type = cellType.getStringCellValue();
+	    			Cell cellSubType = row.getCell(4);
+	    			String subType = cellSubType.getStringCellValue();
+	    			Cell cellMetric = row.getCell(5);
+	    			String metric = cellMetric.getStringCellValue();
+	    			Cell cellValue = row.getCell(6);
+	    			int value = (int) cellValue.getNumericCellValue();
+	    			Cell cellStakeholder = row.getCell(7);
+	    			String stakeholder = formatId(cellStakeholder.getStringCellValue());
+	    			Cell cellPriority = row.getCell(8);
+	    			String priority = cellPriority.getStringCellValue();
+	    			Cell cellPartOf = row.getCell(9);
+	    			String partOf = formatId(cellPartOf.getStringCellValue());
+	    			Cell cellProgress = row.getCell(10);
+	    			String progress = cellProgress.getStringCellValue();
+	    			
+	    			StringBuilder sb = systems.get(systemId);
+	    			sb.append("\t\tQualityRequirement " + id + " {");
+		    		sb.append("\n");
+		    		
+		    		if (!name.isEmpty()) {
+		    			sb.append("\t\t\tName \"" + name + "\"");
+			    		sb.append("\n");
+					}
+		    		
+		    		if (!description.isEmpty()) {
+		    			sb.append("\t\t\tDescription \"" + description + "\"");
+			    		sb.append("\n");
+		    		}
+		    		
+		    		sb.append("\t\t\tType " + type);
+		    		sb.append("\n");
+		    		
+		    		if (!subType.isEmpty()) {
+		    			sb.append("\t\t\tSub-Type " + subType);
+			    		sb.append("\n");
+					}
+		    		
+	    			sb.append("\t\t\tMetric " + metric);
+		    		sb.append("\n");
+			    	
+	    			sb.append("\t\t\tValue " + value);
+		    		sb.append("\n");
+		    		
+		    		if (!stakeholder.isEmpty()) {
+		    			sb.append("\t\t\tStakeholder " + stakeholder);
+			    		sb.append("\n");
+					}
+		    		
+		    		sb.append("\t\t\tPriority " + priority);
+		    		sb.append("\n");
+		    		
+		    		if (!partOf.isEmpty()) {
+		    			sb.append("\t\t\tPartOf " + partOf);
+			    		sb.append("\n");
+		    		}
+		    		
+		    		if (!progress.isEmpty()) {
+		    			sb.append("\t\t\tProjectProgress " + progress);
+			    		sb.append("\n");
+					}
+		    		
+		    		sb.append("\t\t}");
+		    		sb.append("\n\n");
+    			} else {
+    				Cell cellId = row.getCell(0);
+    				XSSFCellStyle cs = (XSSFCellStyle) cellId.getCellStyle();
+    				
+    				if (cs.getFillForegroundColorColor() != null) {
+        				String color = cs.getFillForegroundColorColor().getARGBHex();
+        			
+    	        		if (color.equals(SYSTEM_ORANGE)) {
+    						systemId = formatId(cellId.getStringCellValue());
+    	        		}
+    				}
+    			}
+			}
+		}
 	}
 	
 	private void generateConstraintsRegion(Workbook wb, Map<String, StringBuilder> systems) {
-		
+		String systemId = null;
+		// Get the Functional Requirements Sheet
+	    Sheet sheet = wb.getSheet("reqs.constraint");
+    	Iterator<Row> rowIt = sheet.rowIterator();
+    	// Ignore the Header row
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	
+    	while (rowIt.hasNext()) {
+    		Row row = rowIt.next();
+    		Cell controlCell = row.getCell(3); 
+    		
+    		if (controlCell != null) {
+    			if (!controlCell.getStringCellValue().isEmpty()
+    				&& !controlCell.getStringCellValue().equals("Type (*)")) {
+	    			Cell cellId = row.getCell(0);
+	    			String id = formatId(cellId.getStringCellValue());
+	    			Cell cellName = row.getCell(1);
+	    			String name = cellName.getStringCellValue();
+	    			Cell cellDescription = row.getCell(2);
+	    			String description = cellDescription.getStringCellValue().replace("\"", "'");
+	    			Cell cellType = row.getCell(3);
+	    			String type = cellType.getStringCellValue();
+	    			Cell cellStakeholder = row.getCell(4);
+	    			String stakeholder = formatId(cellStakeholder.getStringCellValue());
+	    			Cell cellPriority = row.getCell(5);
+	    			String priority = cellPriority.getStringCellValue();
+	    			Cell cellPartOf = row.getCell(6);
+	    			String partOf = formatId(cellPartOf.getStringCellValue());
+	    			Cell cellProgress = row.getCell(7);
+	    			String progress = cellProgress.getStringCellValue();
+	    			
+	    			StringBuilder sb = systems.get(systemId);
+	    			sb.append("\t\tConstraint " + id + " {");
+		    		sb.append("\n");
+		    		
+		    		if (!name.isEmpty()) {
+		    			sb.append("\t\t\tName \"" + name + "\"");
+			    		sb.append("\n");
+					}
+		    		
+		    		if (!description.isEmpty()) {
+		    			sb.append("\t\t\tDescription \"" + description + "\"");
+			    		sb.append("\n");
+		    		}
+		    		
+		    		sb.append("\t\t\tType " + type);
+		    		sb.append("\n");
+		    		
+		    		if (!stakeholder.isEmpty()) {
+		    			sb.append("\t\t\tStakeholder " + stakeholder);
+			    		sb.append("\n");
+					}
+		    		
+		    		sb.append("\t\t\tPriority " + priority);
+		    		sb.append("\n");
+		    		
+		    		if (!partOf.isEmpty()) {
+		    			sb.append("\t\t\tPartOf " + partOf);
+			    		sb.append("\n");
+		    		}
+		    		
+		    		if (!progress.isEmpty()) {
+		    			sb.append("\t\t\tProjectProgress " + progress);
+			    		sb.append("\n");
+					}
+		    		
+		    		sb.append("\t\t}");
+		    		sb.append("\n\n");
+    			} else {
+    				Cell cellId = row.getCell(0);
+    				XSSFCellStyle cs = (XSSFCellStyle) cellId.getCellStyle();
+    				
+    				if (cs.getFillForegroundColorColor() != null) {
+        				String color = cs.getFillForegroundColorColor().getARGBHex();
+        			
+    	        		if (color.equals(SYSTEM_ORANGE)) {
+    						systemId = formatId(cellId.getStringCellValue());
+    	        		}
+    				}
+    			}
+			}
+		}
 	}
 	
 	private void generateSystemRelationsRegion(Workbook wb, StringBuilder sb) {
