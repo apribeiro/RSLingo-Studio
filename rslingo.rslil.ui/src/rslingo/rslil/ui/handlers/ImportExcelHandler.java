@@ -124,8 +124,10 @@ public class ImportExcelHandler extends AbstractHandler {
 		generateProjectRegion(wb, sb);
 		generateGlossaryRegion(wb, sb);
 		generateStakeholdersRegion(wb, sb);
-//		generateGoalsRegion(wb, sb);
+		generateGoalsRegion(wb, sb);
+		generateGoalRelationsRegion(wb, sb);
 //		generateSytemsRegion(wb, sb, fileName);
+//		generateSytemRelationsRegion(wb, sb, fileName);
     	
     	sb.deleteCharAt(sb.length() - 1);
 		sb.append("}");
@@ -489,9 +491,9 @@ public class ImportExcelHandler extends AbstractHandler {
     	
     	while (rowIt.hasNext()) {
     		Row row = rowIt.next();
-    		Cell cellId = row.getCell(0);
     		
-    		if (cellId != null) {
+    		if (!row.getCell(3).getStringCellValue().isEmpty()) {
+    			Cell cellId = row.getCell(0);
     			String id = formatId(cellId.getStringCellValue());
     			Cell cellName = row.getCell(1);
     			String name = cellName.getStringCellValue();
@@ -501,8 +503,12 @@ public class ImportExcelHandler extends AbstractHandler {
     			String stakeholder = cellStakeholder.getStringCellValue();
     			Cell cellPriority = row.getCell(4);
     			String priority = cellPriority.getStringCellValue();
-    			// ComposedBy
-    			// DependsOn
+    			Cell cellPartOfAnd = row.getCell(5);
+    			String partOfAnd = cellPartOfAnd.getStringCellValue();
+    			Cell cellPartOfOr = row.getCell(6);
+    			String partOfOr = cellPartOfOr.getStringCellValue();
+    			Cell cellProgress = row.getCell(7);
+    			String progress = cellProgress.getStringCellValue();
 	    		
     			sb.append("\tGoal " + id + " {");
 	    		sb.append("\n");
@@ -517,22 +523,88 @@ public class ImportExcelHandler extends AbstractHandler {
 		    		sb.append("\n");
 	    		}
 	    		
-	    		if (!stakeholder.isEmpty()) {
-	    			sb.append("\t\tStakeholder " + stakeholder);
-		    		sb.append("\n");
-	    		}
+    			sb.append("\t\tStakeholder " + stakeholder);
+	    		sb.append("\n");
 	    		
 	    		sb.append("\t\tPriority " + priority);
 	    		sb.append("\n");
 	    		
+	    		if (!partOfAnd.isEmpty()) {
+	    			sb.append("\t\tPartOf-And " + partOfAnd);
+		    		sb.append("\n");
+	    		}
+	    		
+	    		if (!partOfOr.isEmpty()) {
+	    			sb.append("\t\tPartOf-Or " + partOfOr);
+		    		sb.append("\n");
+	    		}
+	    		
+	    		if (!progress.isEmpty()) {
+	    			sb.append("\t\tProjectProgress \"" + progress + "\"");
+		    		sb.append("\n");
+	    		}
+	    		
 	    		sb.append("\t}");
 	    		sb.append("\n\n");
 			}
-    		else
-    			break;
 		}
 	}
-
+	
+	private void generateGoalRelationsRegion(Workbook wb, StringBuilder sb) {
+		// Get the Goals Relations Sheet
+	    Sheet sheet = wb.getSheet("goals.relations");
+    	Iterator<Row> rowIt = sheet.rowIterator();
+    	// Ignore the Header row
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	
+    	while (rowIt.hasNext()) {
+    		Row row = rowIt.next();
+    		
+    		if (!row.getCell(3).getStringCellValue().isEmpty()) {
+    			Cell cellId = row.getCell(0);
+    			String id = formatId(cellId.getStringCellValue());
+    			Cell cellSource = row.getCell(1);
+    			String source = cellSource.getStringCellValue();
+    			Cell cellTarget = row.getCell(3);
+    			String target = cellTarget.getStringCellValue();
+    			Cell cellType = row.getCell(5);
+    			String type = cellType.getStringCellValue();
+    			Cell cellDescription = row.getCell(6);
+    			String description = cellDescription.getStringCellValue();
+	    		
+    			sb.append("\tGoalRelation " + id + " {");
+	    		sb.append("\n");
+	    		
+	    		sb.append("\t\tSource " + source);
+	    		sb.append("\n");
+	    		
+	    		sb.append("\t\tTarget " + target);
+	    		sb.append("\n");
+	    		
+	    		sb.append("\t\tType " + type);
+	    		sb.append("\n");
+	    		
+	    		if (!description.isEmpty()) {
+	    			sb.append("\t\tDescription \"" + description + "\"");
+		    		sb.append("\n");
+	    		}
+	    		
+	    		sb.append("\t}");
+	    		sb.append("\n\n");
+			}
+		}
+	}
+	
 	private void generateSytemsRegion(Workbook wb, StringBuilder sb, String fileName) {
 		// Get the Home Sheet
 	    Sheet sheet = wb.getSheet("home");
