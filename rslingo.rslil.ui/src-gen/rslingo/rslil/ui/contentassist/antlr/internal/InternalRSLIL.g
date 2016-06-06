@@ -1949,99 +1949,107 @@ rule__Stakeholder__CategoryAlternatives_8_0
 )
 
     |(
-{ before(grammarAccess.getStakeholderAccess().getCategoryBusinessUserDirectKeyword_8_0_4()); }
+{ before(grammarAccess.getStakeholderAccess().getCategoryBusinessCustomerOtherKeyword_8_0_4()); }
+
+	'Business.Customer.Other' 
+
+{ after(grammarAccess.getStakeholderAccess().getCategoryBusinessCustomerOtherKeyword_8_0_4()); }
+)
+
+    |(
+{ before(grammarAccess.getStakeholderAccess().getCategoryBusinessUserDirectKeyword_8_0_5()); }
 
 	'Business.User.Direct' 
 
-{ after(grammarAccess.getStakeholderAccess().getCategoryBusinessUserDirectKeyword_8_0_4()); }
+{ after(grammarAccess.getStakeholderAccess().getCategoryBusinessUserDirectKeyword_8_0_5()); }
 )
 
     |(
-{ before(grammarAccess.getStakeholderAccess().getCategoryBusinessUserIndirectKeyword_8_0_5()); }
+{ before(grammarAccess.getStakeholderAccess().getCategoryBusinessUserIndirectKeyword_8_0_6()); }
 
 	'Business.User.Indirect' 
 
-{ after(grammarAccess.getStakeholderAccess().getCategoryBusinessUserIndirectKeyword_8_0_5()); }
+{ after(grammarAccess.getStakeholderAccess().getCategoryBusinessUserIndirectKeyword_8_0_6()); }
 )
 
     |(
-{ before(grammarAccess.getStakeholderAccess().getCategoryBusinessAdvisorDomainExpertKeyword_8_0_6()); }
+{ before(grammarAccess.getStakeholderAccess().getCategoryBusinessAdvisorDomainExpertKeyword_8_0_7()); }
 
 	'Business.Advisor.DomainExpert' 
 
-{ after(grammarAccess.getStakeholderAccess().getCategoryBusinessAdvisorDomainExpertKeyword_8_0_6()); }
+{ after(grammarAccess.getStakeholderAccess().getCategoryBusinessAdvisorDomainExpertKeyword_8_0_7()); }
 )
 
     |(
-{ before(grammarAccess.getStakeholderAccess().getCategoryBusinessAdvisorTrainerKeyword_8_0_7()); }
+{ before(grammarAccess.getStakeholderAccess().getCategoryBusinessAdvisorTrainerKeyword_8_0_8()); }
 
 	'Business.Advisor.Trainer' 
 
-{ after(grammarAccess.getStakeholderAccess().getCategoryBusinessAdvisorTrainerKeyword_8_0_7()); }
+{ after(grammarAccess.getStakeholderAccess().getCategoryBusinessAdvisorTrainerKeyword_8_0_8()); }
 )
 
     |(
-{ before(grammarAccess.getStakeholderAccess().getCategoryBusinessAdvisorRegulatorAgentKeyword_8_0_8()); }
+{ before(grammarAccess.getStakeholderAccess().getCategoryBusinessAdvisorRegulatorAgentKeyword_8_0_9()); }
 
 	'Business.Advisor.RegulatorAgent' 
 
-{ after(grammarAccess.getStakeholderAccess().getCategoryBusinessAdvisorRegulatorAgentKeyword_8_0_8()); }
+{ after(grammarAccess.getStakeholderAccess().getCategoryBusinessAdvisorRegulatorAgentKeyword_8_0_9()); }
 )
 
     |(
-{ before(grammarAccess.getStakeholderAccess().getCategoryBusinessSystemKeyword_8_0_9()); }
+{ before(grammarAccess.getStakeholderAccess().getCategoryBusinessSystemKeyword_8_0_10()); }
 
 	'Business.System' 
 
-{ after(grammarAccess.getStakeholderAccess().getCategoryBusinessSystemKeyword_8_0_9()); }
+{ after(grammarAccess.getStakeholderAccess().getCategoryBusinessSystemKeyword_8_0_10()); }
 )
 
     |(
-{ before(grammarAccess.getStakeholderAccess().getCategoryTechnicalKeyword_8_0_10()); }
+{ before(grammarAccess.getStakeholderAccess().getCategoryTechnicalKeyword_8_0_11()); }
 
 	'Technical' 
 
-{ after(grammarAccess.getStakeholderAccess().getCategoryTechnicalKeyword_8_0_10()); }
+{ after(grammarAccess.getStakeholderAccess().getCategoryTechnicalKeyword_8_0_11()); }
 )
 
     |(
-{ before(grammarAccess.getStakeholderAccess().getCategoryTechnicalBusinessAnalystKeyword_8_0_11()); }
+{ before(grammarAccess.getStakeholderAccess().getCategoryTechnicalBusinessAnalystKeyword_8_0_12()); }
 
 	'Technical.BusinessAnalyst' 
 
-{ after(grammarAccess.getStakeholderAccess().getCategoryTechnicalBusinessAnalystKeyword_8_0_11()); }
+{ after(grammarAccess.getStakeholderAccess().getCategoryTechnicalBusinessAnalystKeyword_8_0_12()); }
 )
 
     |(
-{ before(grammarAccess.getStakeholderAccess().getCategoryTechnicalRequirementsEngineerKeyword_8_0_12()); }
+{ before(grammarAccess.getStakeholderAccess().getCategoryTechnicalRequirementsEngineerKeyword_8_0_13()); }
 
 	'Technical.Requirements.Engineer' 
 
-{ after(grammarAccess.getStakeholderAccess().getCategoryTechnicalRequirementsEngineerKeyword_8_0_12()); }
+{ after(grammarAccess.getStakeholderAccess().getCategoryTechnicalRequirementsEngineerKeyword_8_0_13()); }
 )
 
     |(
-{ before(grammarAccess.getStakeholderAccess().getCategoryTechnicalSoftwareArchitectKeyword_8_0_13()); }
+{ before(grammarAccess.getStakeholderAccess().getCategoryTechnicalSoftwareArchitectKeyword_8_0_14()); }
 
 	'Technical.Software.Architect' 
 
-{ after(grammarAccess.getStakeholderAccess().getCategoryTechnicalSoftwareArchitectKeyword_8_0_13()); }
+{ after(grammarAccess.getStakeholderAccess().getCategoryTechnicalSoftwareArchitectKeyword_8_0_14()); }
 )
 
     |(
-{ before(grammarAccess.getStakeholderAccess().getCategoryTechnicalSoftwareDesignerKeyword_8_0_14()); }
+{ before(grammarAccess.getStakeholderAccess().getCategoryTechnicalSoftwareDesignerKeyword_8_0_15()); }
 
 	'Technical.Software.Designer' 
 
-{ after(grammarAccess.getStakeholderAccess().getCategoryTechnicalSoftwareDesignerKeyword_8_0_14()); }
+{ after(grammarAccess.getStakeholderAccess().getCategoryTechnicalSoftwareDesignerKeyword_8_0_15()); }
 )
 
     |(
-{ before(grammarAccess.getStakeholderAccess().getCategoryTechnicalSoftwareTesterKeyword_8_0_15()); }
+{ before(grammarAccess.getStakeholderAccess().getCategoryTechnicalSoftwareTesterKeyword_8_0_16()); }
 
 	'Technical.Software.Tester' 
 
-{ after(grammarAccess.getStakeholderAccess().getCategoryTechnicalSoftwareTesterKeyword_8_0_15()); }
+{ after(grammarAccess.getStakeholderAccess().getCategoryTechnicalSoftwareTesterKeyword_8_0_16()); }
 )
 
 ;

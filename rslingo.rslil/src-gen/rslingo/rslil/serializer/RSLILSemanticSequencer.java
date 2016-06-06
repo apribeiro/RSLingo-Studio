@@ -800,6 +800,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *             category='Business.Customer' | 
 	 *             category='Business.Customer.Sponsor' | 
 	 *             category='Business.Customer.Champion' | 
+	 *             category='Business.Customer.Other' | 
 	 *             category='Business.User.Direct' | 
 	 *             category='Business.User.Indirect' | 
 	 *             category='Business.Advisor.DomainExpert' | 

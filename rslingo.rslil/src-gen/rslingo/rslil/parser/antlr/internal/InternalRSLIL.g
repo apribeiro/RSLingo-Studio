@@ -2657,9 +2657,9 @@ ruleStakeholder returns [EObject current=null]
        		setWithLastConsumed($current, "category", lv_category_10_4, null);
 	    }
 
-    |		lv_category_10_5=	'Business.User.Direct' 
+    |		lv_category_10_5=	'Business.Customer.Other' 
     {
-        newLeafNode(lv_category_10_5, grammarAccess.getStakeholderAccess().getCategoryBusinessUserDirectKeyword_8_0_4());
+        newLeafNode(lv_category_10_5, grammarAccess.getStakeholderAccess().getCategoryBusinessCustomerOtherKeyword_8_0_4());
     }
  
 	    {
@@ -2669,9 +2669,9 @@ ruleStakeholder returns [EObject current=null]
        		setWithLastConsumed($current, "category", lv_category_10_5, null);
 	    }
 
-    |		lv_category_10_6=	'Business.User.Indirect' 
+    |		lv_category_10_6=	'Business.User.Direct' 
     {
-        newLeafNode(lv_category_10_6, grammarAccess.getStakeholderAccess().getCategoryBusinessUserIndirectKeyword_8_0_5());
+        newLeafNode(lv_category_10_6, grammarAccess.getStakeholderAccess().getCategoryBusinessUserDirectKeyword_8_0_5());
     }
  
 	    {
@@ -2681,9 +2681,9 @@ ruleStakeholder returns [EObject current=null]
        		setWithLastConsumed($current, "category", lv_category_10_6, null);
 	    }
 
-    |		lv_category_10_7=	'Business.Advisor.DomainExpert' 
+    |		lv_category_10_7=	'Business.User.Indirect' 
     {
-        newLeafNode(lv_category_10_7, grammarAccess.getStakeholderAccess().getCategoryBusinessAdvisorDomainExpertKeyword_8_0_6());
+        newLeafNode(lv_category_10_7, grammarAccess.getStakeholderAccess().getCategoryBusinessUserIndirectKeyword_8_0_6());
     }
  
 	    {
@@ -2693,9 +2693,9 @@ ruleStakeholder returns [EObject current=null]
        		setWithLastConsumed($current, "category", lv_category_10_7, null);
 	    }
 
-    |		lv_category_10_8=	'Business.Advisor.Trainer' 
+    |		lv_category_10_8=	'Business.Advisor.DomainExpert' 
     {
-        newLeafNode(lv_category_10_8, grammarAccess.getStakeholderAccess().getCategoryBusinessAdvisorTrainerKeyword_8_0_7());
+        newLeafNode(lv_category_10_8, grammarAccess.getStakeholderAccess().getCategoryBusinessAdvisorDomainExpertKeyword_8_0_7());
     }
  
 	    {
@@ -2705,9 +2705,9 @@ ruleStakeholder returns [EObject current=null]
        		setWithLastConsumed($current, "category", lv_category_10_8, null);
 	    }
 
-    |		lv_category_10_9=	'Business.Advisor.RegulatorAgent' 
+    |		lv_category_10_9=	'Business.Advisor.Trainer' 
     {
-        newLeafNode(lv_category_10_9, grammarAccess.getStakeholderAccess().getCategoryBusinessAdvisorRegulatorAgentKeyword_8_0_8());
+        newLeafNode(lv_category_10_9, grammarAccess.getStakeholderAccess().getCategoryBusinessAdvisorTrainerKeyword_8_0_8());
     }
  
 	    {
@@ -2717,9 +2717,9 @@ ruleStakeholder returns [EObject current=null]
        		setWithLastConsumed($current, "category", lv_category_10_9, null);
 	    }
 
-    |		lv_category_10_10=	'Business.System' 
+    |		lv_category_10_10=	'Business.Advisor.RegulatorAgent' 
     {
-        newLeafNode(lv_category_10_10, grammarAccess.getStakeholderAccess().getCategoryBusinessSystemKeyword_8_0_9());
+        newLeafNode(lv_category_10_10, grammarAccess.getStakeholderAccess().getCategoryBusinessAdvisorRegulatorAgentKeyword_8_0_9());
     }
  
 	    {
@@ -2729,9 +2729,9 @@ ruleStakeholder returns [EObject current=null]
        		setWithLastConsumed($current, "category", lv_category_10_10, null);
 	    }
 
-    |		lv_category_10_11=	'Technical' 
+    |		lv_category_10_11=	'Business.System' 
     {
-        newLeafNode(lv_category_10_11, grammarAccess.getStakeholderAccess().getCategoryTechnicalKeyword_8_0_10());
+        newLeafNode(lv_category_10_11, grammarAccess.getStakeholderAccess().getCategoryBusinessSystemKeyword_8_0_10());
     }
  
 	    {
@@ -2741,9 +2741,9 @@ ruleStakeholder returns [EObject current=null]
        		setWithLastConsumed($current, "category", lv_category_10_11, null);
 	    }
 
-    |		lv_category_10_12=	'Technical.BusinessAnalyst' 
+    |		lv_category_10_12=	'Technical' 
     {
-        newLeafNode(lv_category_10_12, grammarAccess.getStakeholderAccess().getCategoryTechnicalBusinessAnalystKeyword_8_0_11());
+        newLeafNode(lv_category_10_12, grammarAccess.getStakeholderAccess().getCategoryTechnicalKeyword_8_0_11());
     }
  
 	    {
@@ -2753,9 +2753,9 @@ ruleStakeholder returns [EObject current=null]
        		setWithLastConsumed($current, "category", lv_category_10_12, null);
 	    }
 
-    |		lv_category_10_13=	'Technical.Requirements.Engineer' 
+    |		lv_category_10_13=	'Technical.BusinessAnalyst' 
     {
-        newLeafNode(lv_category_10_13, grammarAccess.getStakeholderAccess().getCategoryTechnicalRequirementsEngineerKeyword_8_0_12());
+        newLeafNode(lv_category_10_13, grammarAccess.getStakeholderAccess().getCategoryTechnicalBusinessAnalystKeyword_8_0_12());
     }
  
 	    {
@@ -2765,9 +2765,9 @@ ruleStakeholder returns [EObject current=null]
        		setWithLastConsumed($current, "category", lv_category_10_13, null);
 	    }
 
-    |		lv_category_10_14=	'Technical.Software.Architect' 
+    |		lv_category_10_14=	'Technical.Requirements.Engineer' 
     {
-        newLeafNode(lv_category_10_14, grammarAccess.getStakeholderAccess().getCategoryTechnicalSoftwareArchitectKeyword_8_0_13());
+        newLeafNode(lv_category_10_14, grammarAccess.getStakeholderAccess().getCategoryTechnicalRequirementsEngineerKeyword_8_0_13());
     }
  
 	    {
@@ -2777,9 +2777,9 @@ ruleStakeholder returns [EObject current=null]
        		setWithLastConsumed($current, "category", lv_category_10_14, null);
 	    }
 
-    |		lv_category_10_15=	'Technical.Software.Designer' 
+    |		lv_category_10_15=	'Technical.Software.Architect' 
     {
-        newLeafNode(lv_category_10_15, grammarAccess.getStakeholderAccess().getCategoryTechnicalSoftwareDesignerKeyword_8_0_14());
+        newLeafNode(lv_category_10_15, grammarAccess.getStakeholderAccess().getCategoryTechnicalSoftwareArchitectKeyword_8_0_14());
     }
  
 	    {
@@ -2789,9 +2789,9 @@ ruleStakeholder returns [EObject current=null]
        		setWithLastConsumed($current, "category", lv_category_10_15, null);
 	    }
 
-    |		lv_category_10_16=	'Technical.Software.Tester' 
+    |		lv_category_10_16=	'Technical.Software.Designer' 
     {
-        newLeafNode(lv_category_10_16, grammarAccess.getStakeholderAccess().getCategoryTechnicalSoftwareTesterKeyword_8_0_15());
+        newLeafNode(lv_category_10_16, grammarAccess.getStakeholderAccess().getCategoryTechnicalSoftwareDesignerKeyword_8_0_15());
     }
  
 	    {
@@ -2799,6 +2799,18 @@ ruleStakeholder returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getStakeholderRule());
 	        }
        		setWithLastConsumed($current, "category", lv_category_10_16, null);
+	    }
+
+    |		lv_category_10_17=	'Technical.Software.Tester' 
+    {
+        newLeafNode(lv_category_10_17, grammarAccess.getStakeholderAccess().getCategoryTechnicalSoftwareTesterKeyword_8_0_16());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getStakeholderRule());
+	        }
+       		setWithLastConsumed($current, "category", lv_category_10_17, null);
 	    }
 
 )

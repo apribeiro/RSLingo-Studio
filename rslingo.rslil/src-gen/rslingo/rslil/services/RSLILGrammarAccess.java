@@ -1370,18 +1370,19 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cCategoryBusinessCustomerKeyword_8_0_1 = (Keyword)cCategoryAlternatives_8_0.eContents().get(1);
 		private final Keyword cCategoryBusinessCustomerSponsorKeyword_8_0_2 = (Keyword)cCategoryAlternatives_8_0.eContents().get(2);
 		private final Keyword cCategoryBusinessCustomerChampionKeyword_8_0_3 = (Keyword)cCategoryAlternatives_8_0.eContents().get(3);
-		private final Keyword cCategoryBusinessUserDirectKeyword_8_0_4 = (Keyword)cCategoryAlternatives_8_0.eContents().get(4);
-		private final Keyword cCategoryBusinessUserIndirectKeyword_8_0_5 = (Keyword)cCategoryAlternatives_8_0.eContents().get(5);
-		private final Keyword cCategoryBusinessAdvisorDomainExpertKeyword_8_0_6 = (Keyword)cCategoryAlternatives_8_0.eContents().get(6);
-		private final Keyword cCategoryBusinessAdvisorTrainerKeyword_8_0_7 = (Keyword)cCategoryAlternatives_8_0.eContents().get(7);
-		private final Keyword cCategoryBusinessAdvisorRegulatorAgentKeyword_8_0_8 = (Keyword)cCategoryAlternatives_8_0.eContents().get(8);
-		private final Keyword cCategoryBusinessSystemKeyword_8_0_9 = (Keyword)cCategoryAlternatives_8_0.eContents().get(9);
-		private final Keyword cCategoryTechnicalKeyword_8_0_10 = (Keyword)cCategoryAlternatives_8_0.eContents().get(10);
-		private final Keyword cCategoryTechnicalBusinessAnalystKeyword_8_0_11 = (Keyword)cCategoryAlternatives_8_0.eContents().get(11);
-		private final Keyword cCategoryTechnicalRequirementsEngineerKeyword_8_0_12 = (Keyword)cCategoryAlternatives_8_0.eContents().get(12);
-		private final Keyword cCategoryTechnicalSoftwareArchitectKeyword_8_0_13 = (Keyword)cCategoryAlternatives_8_0.eContents().get(13);
-		private final Keyword cCategoryTechnicalSoftwareDesignerKeyword_8_0_14 = (Keyword)cCategoryAlternatives_8_0.eContents().get(14);
-		private final Keyword cCategoryTechnicalSoftwareTesterKeyword_8_0_15 = (Keyword)cCategoryAlternatives_8_0.eContents().get(15);
+		private final Keyword cCategoryBusinessCustomerOtherKeyword_8_0_4 = (Keyword)cCategoryAlternatives_8_0.eContents().get(4);
+		private final Keyword cCategoryBusinessUserDirectKeyword_8_0_5 = (Keyword)cCategoryAlternatives_8_0.eContents().get(5);
+		private final Keyword cCategoryBusinessUserIndirectKeyword_8_0_6 = (Keyword)cCategoryAlternatives_8_0.eContents().get(6);
+		private final Keyword cCategoryBusinessAdvisorDomainExpertKeyword_8_0_7 = (Keyword)cCategoryAlternatives_8_0.eContents().get(7);
+		private final Keyword cCategoryBusinessAdvisorTrainerKeyword_8_0_8 = (Keyword)cCategoryAlternatives_8_0.eContents().get(8);
+		private final Keyword cCategoryBusinessAdvisorRegulatorAgentKeyword_8_0_9 = (Keyword)cCategoryAlternatives_8_0.eContents().get(9);
+		private final Keyword cCategoryBusinessSystemKeyword_8_0_10 = (Keyword)cCategoryAlternatives_8_0.eContents().get(10);
+		private final Keyword cCategoryTechnicalKeyword_8_0_11 = (Keyword)cCategoryAlternatives_8_0.eContents().get(11);
+		private final Keyword cCategoryTechnicalBusinessAnalystKeyword_8_0_12 = (Keyword)cCategoryAlternatives_8_0.eContents().get(12);
+		private final Keyword cCategoryTechnicalRequirementsEngineerKeyword_8_0_13 = (Keyword)cCategoryAlternatives_8_0.eContents().get(13);
+		private final Keyword cCategoryTechnicalSoftwareArchitectKeyword_8_0_14 = (Keyword)cCategoryAlternatives_8_0.eContents().get(14);
+		private final Keyword cCategoryTechnicalSoftwareDesignerKeyword_8_0_15 = (Keyword)cCategoryAlternatives_8_0.eContents().get(15);
+		private final Keyword cCategoryTechnicalSoftwareTesterKeyword_8_0_16 = (Keyword)cCategoryAlternatives_8_0.eContents().get(16);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
 		private final Keyword cIsAKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
 		private final Assignment cIsAAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
@@ -1398,19 +1399,21 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//	"Stakeholder" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Type"
 		//	type=("Group.Organization" | "Group.BusinessUnit" | "Group.Team" | "Individual.Person" | "Individual.ExternalSystem")
 		//	"Category" category=("Business" | "Business.Customer" | "Business.Customer.Sponsor" | "Business.Customer.Champion" |
-		//	"Business.User.Direct" | "Business.User.Indirect" | "Business.Advisor.DomainExpert" | "Business.Advisor.Trainer" |
-		//	"Business.Advisor.RegulatorAgent" | "Business.System" | "Technical" | "Technical.BusinessAnalyst" |
-		//	"Technical.Requirements.Engineer" | "Technical.Software.Architect" | "Technical.Software.Designer" |
-		//	"Technical.Software.Tester") ("IsA" isA=[Stakeholder])? ("PartOf" partOf=[Stakeholder])? "}";
+		//	"Business.Customer.Other" | "Business.User.Direct" | "Business.User.Indirect" | "Business.Advisor.DomainExpert" |
+		//	"Business.Advisor.Trainer" | "Business.Advisor.RegulatorAgent" | "Business.System" | "Technical" |
+		//	"Technical.BusinessAnalyst" | "Technical.Requirements.Engineer" | "Technical.Software.Architect" |
+		//	"Technical.Software.Designer" | "Technical.Software.Tester") ("IsA" isA=[Stakeholder])? ("PartOf"
+		//	partOf=[Stakeholder])? "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//"Stakeholder" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Type"
 		//type=("Group.Organization" | "Group.BusinessUnit" | "Group.Team" | "Individual.Person" | "Individual.ExternalSystem")
 		//"Category" category=("Business" | "Business.Customer" | "Business.Customer.Sponsor" | "Business.Customer.Champion" |
-		//"Business.User.Direct" | "Business.User.Indirect" | "Business.Advisor.DomainExpert" | "Business.Advisor.Trainer" |
-		//"Business.Advisor.RegulatorAgent" | "Business.System" | "Technical" | "Technical.BusinessAnalyst" |
-		//"Technical.Requirements.Engineer" | "Technical.Software.Architect" | "Technical.Software.Designer" |
-		//"Technical.Software.Tester") ("IsA" isA=[Stakeholder])? ("PartOf" partOf=[Stakeholder])? "}"
+		//"Business.Customer.Other" | "Business.User.Direct" | "Business.User.Indirect" | "Business.Advisor.DomainExpert" |
+		//"Business.Advisor.Trainer" | "Business.Advisor.RegulatorAgent" | "Business.System" | "Technical" |
+		//"Technical.BusinessAnalyst" | "Technical.Requirements.Engineer" | "Technical.Software.Architect" |
+		//"Technical.Software.Designer" | "Technical.Software.Tester") ("IsA" isA=[Stakeholder])? ("PartOf"
+		//partOf=[Stakeholder])? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Stakeholder"
@@ -1477,17 +1480,17 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getCategoryKeyword_7() { return cCategoryKeyword_7; }
 
 		//category=("Business" | "Business.Customer" | "Business.Customer.Sponsor" | "Business.Customer.Champion" |
-		//"Business.User.Direct" | "Business.User.Indirect" | "Business.Advisor.DomainExpert" | "Business.Advisor.Trainer" |
-		//"Business.Advisor.RegulatorAgent" | "Business.System" | "Technical" | "Technical.BusinessAnalyst" |
-		//"Technical.Requirements.Engineer" | "Technical.Software.Architect" | "Technical.Software.Designer" |
-		//"Technical.Software.Tester")
+		//"Business.Customer.Other" | "Business.User.Direct" | "Business.User.Indirect" | "Business.Advisor.DomainExpert" |
+		//"Business.Advisor.Trainer" | "Business.Advisor.RegulatorAgent" | "Business.System" | "Technical" |
+		//"Technical.BusinessAnalyst" | "Technical.Requirements.Engineer" | "Technical.Software.Architect" |
+		//"Technical.Software.Designer" | "Technical.Software.Tester")
 		public Assignment getCategoryAssignment_8() { return cCategoryAssignment_8; }
 
-		//"Business" | "Business.Customer" | "Business.Customer.Sponsor" | "Business.Customer.Champion" | "Business.User.Direct" |
-		//"Business.User.Indirect" | "Business.Advisor.DomainExpert" | "Business.Advisor.Trainer" |
-		//"Business.Advisor.RegulatorAgent" | "Business.System" | "Technical" | "Technical.BusinessAnalyst" |
-		//"Technical.Requirements.Engineer" | "Technical.Software.Architect" | "Technical.Software.Designer" |
-		//"Technical.Software.Tester"
+		//"Business" | "Business.Customer" | "Business.Customer.Sponsor" | "Business.Customer.Champion" |
+		//"Business.Customer.Other" | "Business.User.Direct" | "Business.User.Indirect" | "Business.Advisor.DomainExpert" |
+		//"Business.Advisor.Trainer" | "Business.Advisor.RegulatorAgent" | "Business.System" | "Technical" |
+		//"Technical.BusinessAnalyst" | "Technical.Requirements.Engineer" | "Technical.Software.Architect" |
+		//"Technical.Software.Designer" | "Technical.Software.Tester"
 		public Alternatives getCategoryAlternatives_8_0() { return cCategoryAlternatives_8_0; }
 
 		//"Business"
@@ -1502,41 +1505,44 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"Business.Customer.Champion"
 		public Keyword getCategoryBusinessCustomerChampionKeyword_8_0_3() { return cCategoryBusinessCustomerChampionKeyword_8_0_3; }
 
+		//"Business.Customer.Other"
+		public Keyword getCategoryBusinessCustomerOtherKeyword_8_0_4() { return cCategoryBusinessCustomerOtherKeyword_8_0_4; }
+
 		//"Business.User.Direct"
-		public Keyword getCategoryBusinessUserDirectKeyword_8_0_4() { return cCategoryBusinessUserDirectKeyword_8_0_4; }
+		public Keyword getCategoryBusinessUserDirectKeyword_8_0_5() { return cCategoryBusinessUserDirectKeyword_8_0_5; }
 
 		//"Business.User.Indirect"
-		public Keyword getCategoryBusinessUserIndirectKeyword_8_0_5() { return cCategoryBusinessUserIndirectKeyword_8_0_5; }
+		public Keyword getCategoryBusinessUserIndirectKeyword_8_0_6() { return cCategoryBusinessUserIndirectKeyword_8_0_6; }
 
 		//"Business.Advisor.DomainExpert"
-		public Keyword getCategoryBusinessAdvisorDomainExpertKeyword_8_0_6() { return cCategoryBusinessAdvisorDomainExpertKeyword_8_0_6; }
+		public Keyword getCategoryBusinessAdvisorDomainExpertKeyword_8_0_7() { return cCategoryBusinessAdvisorDomainExpertKeyword_8_0_7; }
 
 		//"Business.Advisor.Trainer"
-		public Keyword getCategoryBusinessAdvisorTrainerKeyword_8_0_7() { return cCategoryBusinessAdvisorTrainerKeyword_8_0_7; }
+		public Keyword getCategoryBusinessAdvisorTrainerKeyword_8_0_8() { return cCategoryBusinessAdvisorTrainerKeyword_8_0_8; }
 
 		//"Business.Advisor.RegulatorAgent"
-		public Keyword getCategoryBusinessAdvisorRegulatorAgentKeyword_8_0_8() { return cCategoryBusinessAdvisorRegulatorAgentKeyword_8_0_8; }
+		public Keyword getCategoryBusinessAdvisorRegulatorAgentKeyword_8_0_9() { return cCategoryBusinessAdvisorRegulatorAgentKeyword_8_0_9; }
 
 		//"Business.System"
-		public Keyword getCategoryBusinessSystemKeyword_8_0_9() { return cCategoryBusinessSystemKeyword_8_0_9; }
+		public Keyword getCategoryBusinessSystemKeyword_8_0_10() { return cCategoryBusinessSystemKeyword_8_0_10; }
 
 		//"Technical"
-		public Keyword getCategoryTechnicalKeyword_8_0_10() { return cCategoryTechnicalKeyword_8_0_10; }
+		public Keyword getCategoryTechnicalKeyword_8_0_11() { return cCategoryTechnicalKeyword_8_0_11; }
 
 		//"Technical.BusinessAnalyst"
-		public Keyword getCategoryTechnicalBusinessAnalystKeyword_8_0_11() { return cCategoryTechnicalBusinessAnalystKeyword_8_0_11; }
+		public Keyword getCategoryTechnicalBusinessAnalystKeyword_8_0_12() { return cCategoryTechnicalBusinessAnalystKeyword_8_0_12; }
 
 		//"Technical.Requirements.Engineer"
-		public Keyword getCategoryTechnicalRequirementsEngineerKeyword_8_0_12() { return cCategoryTechnicalRequirementsEngineerKeyword_8_0_12; }
+		public Keyword getCategoryTechnicalRequirementsEngineerKeyword_8_0_13() { return cCategoryTechnicalRequirementsEngineerKeyword_8_0_13; }
 
 		//"Technical.Software.Architect"
-		public Keyword getCategoryTechnicalSoftwareArchitectKeyword_8_0_13() { return cCategoryTechnicalSoftwareArchitectKeyword_8_0_13; }
+		public Keyword getCategoryTechnicalSoftwareArchitectKeyword_8_0_14() { return cCategoryTechnicalSoftwareArchitectKeyword_8_0_14; }
 
 		//"Technical.Software.Designer"
-		public Keyword getCategoryTechnicalSoftwareDesignerKeyword_8_0_14() { return cCategoryTechnicalSoftwareDesignerKeyword_8_0_14; }
+		public Keyword getCategoryTechnicalSoftwareDesignerKeyword_8_0_15() { return cCategoryTechnicalSoftwareDesignerKeyword_8_0_15; }
 
 		//"Technical.Software.Tester"
-		public Keyword getCategoryTechnicalSoftwareTesterKeyword_8_0_15() { return cCategoryTechnicalSoftwareTesterKeyword_8_0_15; }
+		public Keyword getCategoryTechnicalSoftwareTesterKeyword_8_0_16() { return cCategoryTechnicalSoftwareTesterKeyword_8_0_16; }
 
 		//("IsA" isA=[Stakeholder])?
 		public Group getGroup_9() { return cGroup_9; }
@@ -4500,10 +4506,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	//	"Stakeholder" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Type"
 	//	type=("Group.Organization" | "Group.BusinessUnit" | "Group.Team" | "Individual.Person" | "Individual.ExternalSystem")
 	//	"Category" category=("Business" | "Business.Customer" | "Business.Customer.Sponsor" | "Business.Customer.Champion" |
-	//	"Business.User.Direct" | "Business.User.Indirect" | "Business.Advisor.DomainExpert" | "Business.Advisor.Trainer" |
-	//	"Business.Advisor.RegulatorAgent" | "Business.System" | "Technical" | "Technical.BusinessAnalyst" |
-	//	"Technical.Requirements.Engineer" | "Technical.Software.Architect" | "Technical.Software.Designer" |
-	//	"Technical.Software.Tester") ("IsA" isA=[Stakeholder])? ("PartOf" partOf=[Stakeholder])? "}";
+	//	"Business.Customer.Other" | "Business.User.Direct" | "Business.User.Indirect" | "Business.Advisor.DomainExpert" |
+	//	"Business.Advisor.Trainer" | "Business.Advisor.RegulatorAgent" | "Business.System" | "Technical" |
+	//	"Technical.BusinessAnalyst" | "Technical.Requirements.Engineer" | "Technical.Software.Architect" |
+	//	"Technical.Software.Designer" | "Technical.Software.Tester") ("IsA" isA=[Stakeholder])? ("PartOf"
+	//	partOf=[Stakeholder])? "}";
 	public StakeholderElements getStakeholderAccess() {
 		return pStakeholder;
 	}
