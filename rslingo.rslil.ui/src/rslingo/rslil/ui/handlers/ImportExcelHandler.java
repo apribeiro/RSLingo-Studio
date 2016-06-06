@@ -501,7 +501,7 @@ public class ImportExcelHandler extends AbstractHandler {
     			Cell cellName = row.getCell(1);
     			String name = cellName.getStringCellValue();
     			Cell cellDescription = row.getCell(2);
-    			String description = cellDescription.getStringCellValue();
+    			String description = cellDescription.getStringCellValue().replace("\"", "'");
     			Cell cellStakeholder = row.getCell(3);
     			String stakeholder = formatId(cellStakeholder.getStringCellValue());
     			Cell cellPriority = row.getCell(4);
@@ -578,7 +578,7 @@ public class ImportExcelHandler extends AbstractHandler {
     			Cell cellType = row.getCell(4);
     			String type = cellType.getStringCellValue();
     			Cell cellDescription = row.getCell(5);
-    			String description = cellDescription.getStringCellValue();
+    			String description = cellDescription.getStringCellValue().replace("\"", "'");
     			String id = source + "_" + target + "_" + type;
 	    		
     			sb.append("\tGoalRelation " + id + " {");
@@ -625,7 +625,7 @@ public class ImportExcelHandler extends AbstractHandler {
 	    	Cell cellName = row.getCell(1);
 			String name = cellName.getStringCellValue();
 			Cell cellDescription = row.getCell(2);
-			String description = cellDescription.getStringCellValue();
+			String description = cellDescription.getStringCellValue().replace("\"", "'");
 			Cell cellType = row.getCell(3);
 			String type = cellType.getStringCellValue();
 			Cell cellScope = row.getCell(4);
@@ -636,6 +636,12 @@ public class ImportExcelHandler extends AbstractHandler {
 			StringBuilder builder = new StringBuilder();
 			builder.append("\tPackage-System " + fileName + "_" + id + " {");
     		builder.append("\n");
+    		
+    		if (!partOf.isEmpty()) {
+    			builder.append("\t\timport " + fileName + "_" + partOf + ".*");
+        		builder.append("\n");
+        		builder.append("\n");
+    		}
     		
     		builder.append("\t\tSystem " + id + " {");
     		builder.append("\n");
@@ -929,7 +935,8 @@ public class ImportExcelHandler extends AbstractHandler {
 	}
 	
 	private String formatId(String id) {
-		return id.replaceAll(" ", "_").replaceAll("-", "_").replaceAll("\\.", "_").replaceAll("/", "")
+		return id.replaceAll(" ", "_").replaceAll("-", "_").replaceAll("\\.", "_")
+				.replaceAll("[()/]", "")
 				.replaceAll("ç", "c").replaceAll("ã", "a").replaceAll("õ", "o")
 				.replaceAll("â", "a").replaceAll("ê", "e").replaceAll("ô", "o")
 				.replaceAll("à", "a").replaceAll("á", "a")
