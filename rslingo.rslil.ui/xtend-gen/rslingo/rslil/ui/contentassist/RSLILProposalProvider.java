@@ -32,7 +32,9 @@ import rslingo.rslil.ui.contentassist.AbstractRSLILProposalProvider;
 public class RSLILProposalProvider extends AbstractRSLILProposalProvider {
   private final static Set<String> SUBTYPES = Sets.<String>newHashSet("Security.Privacy", 
     "Security.Integrity", "Usability.EaseOfUse", 
-    "Usability.EaseOfLearn", "Usability.Accessibility");
+    "Usability.EaseOfLearn", "Usability.Accessibility", 
+    "Usability.Understandability", "Usability.Learnability", 
+    "Usability.Attractiveness", "Efficiency.ResourceUse");
   
   @Override
   public void completeKeyword(final Keyword keyword, final ContentAssistContext contentAssistContext, final ICompletionProposalAcceptor acceptor) {
@@ -77,12 +79,19 @@ public class RSLILProposalProvider extends AbstractRSLILProposalProvider {
   public void completeQR_SubType(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     final String qrType = ((QR) model).getType();
     boolean _or = false;
+    boolean _or_1 = false;
     boolean _equals = qrType.equals("Security");
     if (_equals) {
-      _or = true;
+      _or_1 = true;
     } else {
       boolean _equals_1 = qrType.equals("Usability");
-      _or = _equals_1;
+      _or_1 = _equals_1;
+    }
+    if (_or_1) {
+      _or = true;
+    } else {
+      boolean _equals_2 = qrType.equals("Efficiency");
+      _or = _equals_2;
     }
     if (_or) {
       AbstractElement _terminal = assignment.getTerminal();

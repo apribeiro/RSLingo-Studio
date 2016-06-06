@@ -24,7 +24,9 @@ class RSLILProposalProvider extends AbstractRSLILProposalProvider {
 	
 	final static private Set<String> SUBTYPES = Sets.newHashSet("Security.Privacy",
 		"Security.Integrity", "Usability.EaseOfUse",
-		"Usability.EaseOfLearn", "Usability.Accessibility")
+		"Usability.EaseOfLearn", "Usability.Accessibility",
+		"Usability.Understandability", "Usability.Learnability",
+		"Usability.Attractiveness", "Efficiency.ResourceUse")
 	
 	override completeKeyword(Keyword keyword, ContentAssistContext contentAssistContext,
 		ICompletionProposalAcceptor acceptor) {
@@ -68,7 +70,8 @@ class RSLILProposalProvider extends AbstractRSLILProposalProvider {
 		ContentAssistContext context, ICompletionProposalAcceptor acceptor) { 
 		val qrType = (model as QR).type
 		
-		if (qrType.equals("Security") || qrType.equals("Usability")) {
+		if (qrType.equals("Security") || qrType.equals("Usability")
+			|| qrType.equals("Efficiency")) {
 			(assignment.terminal as Alternatives).elements.forEach[e |
 				var option = (e as Keyword).value 
 				 

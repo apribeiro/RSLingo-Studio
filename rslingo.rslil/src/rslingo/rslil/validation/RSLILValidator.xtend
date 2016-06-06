@@ -74,8 +74,15 @@ class RSLILValidator extends AbstractRSLILValidator {
 			} else if (qr.type.equals("Usability")) {
 				if (!qr.subType.equals("Usability.EaseOfUse")
 					&& !qr.subType.equals("Usability.EaseOfLearn")
-					&& !qr.subType.equals("Usability.Accessibility")) {
-					error('A QualityRequirement of type \'Usability\' can only have the following sub-types: Usability.EaseOfUse, Usability.EaseOfLearn or Usability.Accessibility.', RSLILPackage.Literals.QR__SUB_TYPE)	
+					&& !qr.subType.equals("Usability.Accessibility")
+					&& !qr.subType.equals("Usability.Understandability")
+					&& !qr.subType.equals("Usability.Learnability")
+					&& !qr.subType.equals("Usability.Attractiveness")) {
+					error('A QualityRequirement of type \'Usability\' can only have the following sub-types: Usability.EaseOfUse, Usability.EaseOfLearn, Usability.Accessibility, Usability.Understandability, Usability.Learnability, Usability.Attractiveness.', RSLILPackage.Literals.QR__SUB_TYPE)	
+				}
+			} else if (qr.type.equals("Efficiency")) {
+				if (!qr.subType.equals("Efficciency.ResourceUse")) {
+					error('A QualityRequirement of type \'Efficiency\' can only have the following sub-types: Efficiency.ResourceUse.', RSLILPackage.Literals.QR__SUB_TYPE)	
 				}
 			} else {
 				// Don't allow Sub-Type when Type != of Security and Usability

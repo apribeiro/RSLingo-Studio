@@ -154,33 +154,71 @@ public class RSLILValidator extends AbstractRSLILValidator {
         if (_equals_3) {
           boolean _and_1 = false;
           boolean _and_2 = false;
+          boolean _and_3 = false;
+          boolean _and_4 = false;
+          boolean _and_5 = false;
           String _subType_3 = qr.getSubType();
           boolean _equals_4 = _subType_3.equals("Usability.EaseOfUse");
           boolean _not_2 = (!_equals_4);
           if (!_not_2) {
-            _and_2 = false;
+            _and_5 = false;
           } else {
             String _subType_4 = qr.getSubType();
             boolean _equals_5 = _subType_4.equals("Usability.EaseOfLearn");
             boolean _not_3 = (!_equals_5);
-            _and_2 = _not_3;
+            _and_5 = _not_3;
           }
-          if (!_and_2) {
-            _and_1 = false;
+          if (!_and_5) {
+            _and_4 = false;
           } else {
             String _subType_5 = qr.getSubType();
             boolean _equals_6 = _subType_5.equals("Usability.Accessibility");
             boolean _not_4 = (!_equals_6);
-            _and_1 = _not_4;
+            _and_4 = _not_4;
+          }
+          if (!_and_4) {
+            _and_3 = false;
+          } else {
+            String _subType_6 = qr.getSubType();
+            boolean _equals_7 = _subType_6.equals("Usability.Understandability");
+            boolean _not_5 = (!_equals_7);
+            _and_3 = _not_5;
+          }
+          if (!_and_3) {
+            _and_2 = false;
+          } else {
+            String _subType_7 = qr.getSubType();
+            boolean _equals_8 = _subType_7.equals("Usability.Learnability");
+            boolean _not_6 = (!_equals_8);
+            _and_2 = _not_6;
+          }
+          if (!_and_2) {
+            _and_1 = false;
+          } else {
+            String _subType_8 = qr.getSubType();
+            boolean _equals_9 = _subType_8.equals("Usability.Attractiveness");
+            boolean _not_7 = (!_equals_9);
+            _and_1 = _not_7;
           }
           if (_and_1) {
-            this.error("A QualityRequirement of type \'Usability\' can only have the following sub-types: Usability.EaseOfUse, Usability.EaseOfLearn or Usability.Accessibility.", RSLILPackage.Literals.QR__SUB_TYPE);
+            this.error("A QualityRequirement of type \'Usability\' can only have the following sub-types: Usability.EaseOfUse, Usability.EaseOfLearn, Usability.Accessibility, Usability.Understandability, Usability.Learnability, Usability.Attractiveness.", RSLILPackage.Literals.QR__SUB_TYPE);
           }
         } else {
           String _type_2 = qr.getType();
-          String _plus = ("A QualityRequirement of type \'" + _type_2);
-          String _plus_1 = (_plus + "\' cannot have a sub-type.");
-          this.error(_plus_1, RSLILPackage.Literals.QR__SUB_TYPE);
+          boolean _equals_10 = _type_2.equals("Efficiency");
+          if (_equals_10) {
+            String _subType_9 = qr.getSubType();
+            boolean _equals_11 = _subType_9.equals("Efficciency.ResourceUse");
+            boolean _not_8 = (!_equals_11);
+            if (_not_8) {
+              this.error("A QualityRequirement of type \'Efficiency\' can only have the following sub-types: Efficiency.ResourceUse.", RSLILPackage.Literals.QR__SUB_TYPE);
+            }
+          } else {
+            String _type_3 = qr.getType();
+            String _plus = ("A QualityRequirement of type \'" + _type_3);
+            String _plus_1 = (_plus + "\' cannot have a sub-type.");
+            this.error(_plus_1, RSLILPackage.Literals.QR__SUB_TYPE);
+          }
         }
       }
     }
