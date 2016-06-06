@@ -67,7 +67,7 @@ PlannedSchedule:
 
 ActualSchedule:
 	'ActualSchedule' '{'
-		'Start' start=Date
+		('Start' start=Date)?
 		('End' end=Date)?
 	'}';
 
@@ -127,8 +127,8 @@ Stakeholder:
 		('Name' nameAlias=STRING)?
 		('Description' description=STRING)?
 		'Type' type=('Group.Organization'|'Group.BusinessUnit'|'Group.Team'|'Individual.Person'|'Individual.ExternalSystem')
-		'Category' category=('Business'|'Business.Customer'|'Business.Customer.Sponsor'
-			|'Business.Customer.Champion'|'Business.User.Direct'|'Business.User.Indirect'
+		'Category' category=('Business'|'Business.Customer'|'Business.Customer.Sponsor'|'Business.Customer.Champion'
+			|'Business.Customer.Other'|'Business.User.Direct'|'Business.User.Indirect'
 			|'Business.Advisor.DomainExpert'|'Business.Advisor.Trainer'|'Business.Advisor.RegulatorAgent'
 			|'Business.System'|'Technical'|'Technical.BusinessAnalyst'|'Technical.Requirements.Engineer'
 			|'Technical.Software.Architect'|'Technical.Software.Designer'|'Technical.Software.Tester'
