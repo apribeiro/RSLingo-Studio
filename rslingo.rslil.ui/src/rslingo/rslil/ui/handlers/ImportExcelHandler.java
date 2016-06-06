@@ -705,20 +705,20 @@ public class ImportExcelHandler extends AbstractHandler {
 	    		
 				systems.put(id, builder);
 	    	}
-	    	
-	//    	generateEntitiesRegion(wb, systems);
-	//		generateActorsRegion(wb, systems);
-	//		generateUseCasesRegion(wb, systems);
-	//		generateFRsRegion(wb, systems);
-	//		generateQRsRegion(wb, systems);
-	//		generateConstraintsRegion(wb, systems);
-	    	
-	    	for (String key : systems.keySet()) {
-				sb.append(systems.get(key));
-				sb.append("\t}");
-				sb.append("\n\n");
-			}
     	}
+    	
+//    	generateEntitiesRegion(wb, systems);
+		generateActorsRegion(wb, systems);
+//		generateUseCasesRegion(wb, systems);
+//		generateFRsRegion(wb, systems);
+//		generateQRsRegion(wb, systems);
+//		generateConstraintsRegion(wb, systems);
+    	
+    	for (String key : systems.keySet()) {
+			sb.append(systems.get(key));
+			sb.append("\t}");
+			sb.append("\n\n");
+		}
 	}
 	
 	private void generateEntitiesRegion(Workbook wb, Map<String, StringBuilder> systems) {
@@ -949,7 +949,82 @@ public class ImportExcelHandler extends AbstractHandler {
 	}
 	
 	private void generateActorsRegion(Workbook wb, Map<String, StringBuilder> systems) {
-		
+		String systemId = null;
+		// Get the Goals Sheet
+	    Sheet sheet = wb.getSheet("actors");
+    	Iterator<Row> rowIt = sheet.rowIterator();
+    	// Ignore the Header row
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	
+    	while (rowIt.hasNext()) {
+    		Row row = rowIt.next();
+    		Cell controlCell = row.getCell(3); 
+    		
+    		if (controlCell != null) {
+    			if (!controlCell.getStringCellValue().isEmpty()
+    				&& !controlCell.getStringCellValue().equals("Type (*)")) {
+	    			Cell cellId = row.getCell(0);
+	    			String id = formatId(cellId.getStringCellValue());
+	    			Cell cellName = row.getCell(1);
+	    			String name = cellName.getStringCellValue();
+	    			Cell cellDescription = row.getCell(2);
+	    			String description = cellDescription.getStringCellValue().replace("\"", "'");
+	    			Cell cellType = row.getCell(3);
+	    			String type = cellType.getStringCellValue();
+	    			Cell cellStakeholder = row.getCell(4);
+	    			String stakeholder = formatId(cellStakeholder.getStringCellValue());
+	    			Cell cellIsA = row.getCell(5);
+	    			String isA = formatId(cellIsA.getStringCellValue());
+		    		
+	    			StringBuilder sb = systems.get(systemId);
+	    			sb.append("\t\tActor " + id + " {");
+		    		sb.append("\n");
+		    		
+		    		if (!name.isEmpty()) {
+		    			sb.append("\t\t\tName \"" + name + "\"");
+			    		sb.append("\n");
+					}
+		    		
+		    		if (!description.isEmpty()) {
+		    			sb.append("\t\t\tDescription \"" + description + "\"");
+			    		sb.append("\n");
+		    		}
+		    		
+		    		sb.append("\t\t\tType " + type);
+		    		sb.append("\n");
+		    		
+		    		if (!stakeholder.isEmpty()) {
+		    			sb.append("\t\t\tStakeholder " + stakeholder);
+			    		sb.append("\n");
+					}
+		    		
+		    		if (!isA.isEmpty()) {
+		    			sb.append("\t\t\tIsA " + isA);
+			    		sb.append("\n");
+		    		}
+		    		
+		    		sb.append("\t\t}");
+		    		sb.append("\n\n");
+    			} else {
+    				Cell cellId = row.getCell(0);
+    				XSSFCellStyle cs = (XSSFCellStyle) cellId.getCellStyle();
+    				
+    				if (cs.getFillForegroundColorColor() != null) {
+        				String color = cs.getFillForegroundColorColor().getARGBHex();
+        			
+    	        		if (color.equals(SYSTEM_ORANGE)) {
+    						systemId = formatId(cellId.getStringCellValue());
+    	        		}
+    				}
+    			}
+			}
+		}
 	}
 	
 	private void generateUseCasesRegion(Workbook wb, Map<String, StringBuilder> systems) {
