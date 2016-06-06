@@ -1101,22 +1101,13 @@ public interface RSLILPackage extends EPackage
   int GOAL__PRIORITY = 4;
 
   /**
-   * The feature id for the '<em><b>Progress</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int GOAL__PROGRESS = 5;
-
-  /**
    * The feature id for the '<em><b>Part Of And</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GOAL__PART_OF_AND = 6;
+  int GOAL__PART_OF_AND = 5;
 
   /**
    * The feature id for the '<em><b>Part Of Or</b></em>' reference.
@@ -1125,7 +1116,16 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int GOAL__PART_OF_OR = 7;
+  int GOAL__PART_OF_OR = 6;
+
+  /**
+   * The feature id for the '<em><b>Progress</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GOAL__PROGRESS = 7;
 
   /**
    * The number of structural features of the '<em>Goal</em>' class.
@@ -3725,17 +3725,6 @@ public interface RSLILPackage extends EPackage
   EReference getGoal_Priority();
 
   /**
-   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Goal#getProgress <em>Progress</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Progress</em>'.
-   * @see rslingo.rslil.rSLIL.Goal#getProgress()
-   * @see #getGoal()
-   * @generated
-   */
-  EReference getGoal_Progress();
-
-  /**
    * Returns the meta object for the reference '{@link rslingo.rslil.rSLIL.Goal#getPartOfAnd <em>Part Of And</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3756,6 +3745,17 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EReference getGoal_PartOfOr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link rslingo.rslil.rSLIL.Goal#getProgress <em>Progress</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Progress</em>'.
+   * @see rslingo.rslil.rSLIL.Goal#getProgress()
+   * @see #getGoal()
+   * @generated
+   */
+  EReference getGoal_Progress();
 
   /**
    * Returns the meta object for class '{@link rslingo.rslil.rSLIL.GoalRelation <em>Goal Relation</em>}'.
@@ -5933,14 +5933,6 @@ public interface RSLILPackage extends EPackage
     EReference GOAL__PRIORITY = eINSTANCE.getGoal_Priority();
 
     /**
-     * The meta object literal for the '<em><b>Progress</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference GOAL__PROGRESS = eINSTANCE.getGoal_Progress();
-
-    /**
      * The meta object literal for the '<em><b>Part Of And</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5955,6 +5947,14 @@ public interface RSLILPackage extends EPackage
      * @generated
      */
     EReference GOAL__PART_OF_OR = eINSTANCE.getGoal_PartOfOr();
+
+    /**
+     * The meta object literal for the '<em><b>Progress</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GOAL__PROGRESS = eINSTANCE.getGoal_Progress();
 
     /**
      * The meta object literal for the '{@link rslingo.rslil.rSLIL.impl.GoalRelationImpl <em>Goal Relation</em>}' class.

@@ -1359,7 +1359,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getGoal_Progress()
+  public EReference getGoal_PartOfAnd()
   {
     return (EReference)goalEClass.getEStructuralFeatures().get(5);
   }
@@ -1369,7 +1369,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getGoal_PartOfAnd()
+  public EReference getGoal_PartOfOr()
   {
     return (EReference)goalEClass.getEStructuralFeatures().get(6);
   }
@@ -1379,7 +1379,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getGoal_PartOfOr()
+  public EReference getGoal_Progress()
   {
     return (EReference)goalEClass.getEStructuralFeatures().get(7);
   }
@@ -2794,9 +2794,9 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     createEAttribute(goalEClass, GOAL__DESCRIPTION);
     createEReference(goalEClass, GOAL__STAKEHOLDER);
     createEReference(goalEClass, GOAL__PRIORITY);
-    createEReference(goalEClass, GOAL__PROGRESS);
     createEReference(goalEClass, GOAL__PART_OF_AND);
     createEReference(goalEClass, GOAL__PART_OF_OR);
+    createEReference(goalEClass, GOAL__PROGRESS);
 
     goalRelationEClass = createEClass(GOAL_RELATION);
     createEAttribute(goalRelationEClass, GOAL_RELATION__NAME);
@@ -3097,9 +3097,9 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     initEAttribute(getGoal_Description(), ecorePackage.getEString(), "description", null, 0, 1, Goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGoal_Stakeholder(), this.getStakeholder(), null, "stakeholder", null, 0, 1, Goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGoal_Priority(), this.getPriority(), null, "priority", null, 0, 1, Goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGoal_Progress(), this.getProjectProgress(), null, "progress", null, 0, 1, Goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGoal_PartOfAnd(), this.getGoal(), null, "partOfAnd", null, 0, 1, Goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getGoal_PartOfOr(), this.getGoal(), null, "partOfOr", null, 0, 1, Goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGoal_Progress(), this.getProjectProgress(), null, "progress", null, 0, 1, Goal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(goalRelationEClass, GoalRelation.class, "GoalRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getGoalRelation_Name(), ecorePackage.getEString(), "name", null, 0, 1, GoalRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

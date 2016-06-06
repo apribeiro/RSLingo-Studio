@@ -261,9 +261,9 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGoalAccess().getDescriptionAssignment_4_1(), "rule__Goal__DescriptionAssignment_4_1");
 					put(grammarAccess.getGoalAccess().getStakeholderAssignment_6(), "rule__Goal__StakeholderAssignment_6");
 					put(grammarAccess.getGoalAccess().getPriorityAssignment_8(), "rule__Goal__PriorityAssignment_8");
-					put(grammarAccess.getGoalAccess().getProgressAssignment_9_1(), "rule__Goal__ProgressAssignment_9_1");
-					put(grammarAccess.getGoalAccess().getPartOfAndAssignment_10_1(), "rule__Goal__PartOfAndAssignment_10_1");
-					put(grammarAccess.getGoalAccess().getPartOfOrAssignment_11_1(), "rule__Goal__PartOfOrAssignment_11_1");
+					put(grammarAccess.getGoalAccess().getPartOfAndAssignment_9_1(), "rule__Goal__PartOfAndAssignment_9_1");
+					put(grammarAccess.getGoalAccess().getPartOfOrAssignment_10_1(), "rule__Goal__PartOfOrAssignment_10_1");
+					put(grammarAccess.getGoalAccess().getProgressAssignment_11_1(), "rule__Goal__ProgressAssignment_11_1");
 					put(grammarAccess.getGoalRelationAccess().getNameAssignment_1(), "rule__GoalRelation__NameAssignment_1");
 					put(grammarAccess.getGoalRelationAccess().getSourceAssignment_4(), "rule__GoalRelation__SourceAssignment_4");
 					put(grammarAccess.getGoalRelationAccess().getTargetAssignment_6(), "rule__GoalRelation__TargetAssignment_6");

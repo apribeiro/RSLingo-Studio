@@ -138,10 +138,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="stakeholder" eType="#//Stakeholder"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="priority" eType="#//Priority"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="progress" eType="#//ProjectProgress"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="partOfAnd" eType="#//Goal"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="partOfOr" eType="#//Goal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="progress" eType="#//ProjectProgress"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GoalRelation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

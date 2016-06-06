@@ -1595,30 +1595,30 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPriorityAssignment_8 = (Assignment)cGroup.eContents().get(8);
 		private final RuleCall cPriorityPriorityParserRuleCall_8_0 = (RuleCall)cPriorityAssignment_8.eContents().get(0);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
-		private final Keyword cProjectProgressKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
-		private final Assignment cProgressAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final RuleCall cProgressProjectProgressParserRuleCall_9_1_0 = (RuleCall)cProgressAssignment_9_1.eContents().get(0);
+		private final Keyword cPartOfAndKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
+		private final Assignment cPartOfAndAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final CrossReference cPartOfAndGoalCrossReference_9_1_0 = (CrossReference)cPartOfAndAssignment_9_1.eContents().get(0);
+		private final RuleCall cPartOfAndGoalIDTerminalRuleCall_9_1_0_1 = (RuleCall)cPartOfAndGoalCrossReference_9_1_0.eContents().get(1);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
-		private final Keyword cPartOfAndKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
-		private final Assignment cPartOfAndAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
-		private final CrossReference cPartOfAndGoalCrossReference_10_1_0 = (CrossReference)cPartOfAndAssignment_10_1.eContents().get(0);
-		private final RuleCall cPartOfAndGoalIDTerminalRuleCall_10_1_0_1 = (RuleCall)cPartOfAndGoalCrossReference_10_1_0.eContents().get(1);
+		private final Keyword cPartOfOrKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
+		private final Assignment cPartOfOrAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final CrossReference cPartOfOrGoalCrossReference_10_1_0 = (CrossReference)cPartOfOrAssignment_10_1.eContents().get(0);
+		private final RuleCall cPartOfOrGoalIDTerminalRuleCall_10_1_0_1 = (RuleCall)cPartOfOrGoalCrossReference_10_1_0.eContents().get(1);
 		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
-		private final Keyword cPartOfOrKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
-		private final Assignment cPartOfOrAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
-		private final CrossReference cPartOfOrGoalCrossReference_11_1_0 = (CrossReference)cPartOfOrAssignment_11_1.eContents().get(0);
-		private final RuleCall cPartOfOrGoalIDTerminalRuleCall_11_1_0_1 = (RuleCall)cPartOfOrGoalCrossReference_11_1_0.eContents().get(1);
+		private final Keyword cProjectProgressKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Assignment cProgressAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
+		private final RuleCall cProgressProjectProgressParserRuleCall_11_1_0 = (RuleCall)cProgressAssignment_11_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		
 		//Goal:
 		//	"Goal" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Stakeholder"
-		//	stakeholder=[Stakeholder] "Priority" priority=Priority ("ProjectProgress" progress=ProjectProgress)? ("PartOf-And"
-		//	partOfAnd=[Goal])? ("PartOf-Or" partOfOr=[Goal])? "}";
+		//	stakeholder=[Stakeholder] "Priority" priority=Priority ("PartOf-And" partOfAnd=[Goal])? ("PartOf-Or"
+		//	partOfOr=[Goal])? ("ProjectProgress" progress=ProjectProgress)? "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//"Goal" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Stakeholder"
-		//stakeholder=[Stakeholder] "Priority" priority=Priority ("ProjectProgress" progress=ProjectProgress)? ("PartOf-And"
-		//partOfAnd=[Goal])? ("PartOf-Or" partOfOr=[Goal])? "}"
+		//stakeholder=[Stakeholder] "Priority" priority=Priority ("PartOf-And" partOfAnd=[Goal])? ("PartOf-Or" partOfOr=[Goal])?
+		//("ProjectProgress" progress=ProjectProgress)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Goal"
@@ -1678,47 +1678,47 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//Priority
 		public RuleCall getPriorityPriorityParserRuleCall_8_0() { return cPriorityPriorityParserRuleCall_8_0; }
 
-		//("ProjectProgress" progress=ProjectProgress)?
+		//("PartOf-And" partOfAnd=[Goal])?
 		public Group getGroup_9() { return cGroup_9; }
 
-		//"ProjectProgress"
-		public Keyword getProjectProgressKeyword_9_0() { return cProjectProgressKeyword_9_0; }
-
-		//progress=ProjectProgress
-		public Assignment getProgressAssignment_9_1() { return cProgressAssignment_9_1; }
-
-		//ProjectProgress
-		public RuleCall getProgressProjectProgressParserRuleCall_9_1_0() { return cProgressProjectProgressParserRuleCall_9_1_0; }
-
-		//("PartOf-And" partOfAnd=[Goal])?
-		public Group getGroup_10() { return cGroup_10; }
-
 		//"PartOf-And"
-		public Keyword getPartOfAndKeyword_10_0() { return cPartOfAndKeyword_10_0; }
+		public Keyword getPartOfAndKeyword_9_0() { return cPartOfAndKeyword_9_0; }
 
 		//partOfAnd=[Goal]
-		public Assignment getPartOfAndAssignment_10_1() { return cPartOfAndAssignment_10_1; }
+		public Assignment getPartOfAndAssignment_9_1() { return cPartOfAndAssignment_9_1; }
 
 		//[Goal]
-		public CrossReference getPartOfAndGoalCrossReference_10_1_0() { return cPartOfAndGoalCrossReference_10_1_0; }
+		public CrossReference getPartOfAndGoalCrossReference_9_1_0() { return cPartOfAndGoalCrossReference_9_1_0; }
 
 		//ID
-		public RuleCall getPartOfAndGoalIDTerminalRuleCall_10_1_0_1() { return cPartOfAndGoalIDTerminalRuleCall_10_1_0_1; }
+		public RuleCall getPartOfAndGoalIDTerminalRuleCall_9_1_0_1() { return cPartOfAndGoalIDTerminalRuleCall_9_1_0_1; }
 
 		//("PartOf-Or" partOfOr=[Goal])?
-		public Group getGroup_11() { return cGroup_11; }
+		public Group getGroup_10() { return cGroup_10; }
 
 		//"PartOf-Or"
-		public Keyword getPartOfOrKeyword_11_0() { return cPartOfOrKeyword_11_0; }
+		public Keyword getPartOfOrKeyword_10_0() { return cPartOfOrKeyword_10_0; }
 
 		//partOfOr=[Goal]
-		public Assignment getPartOfOrAssignment_11_1() { return cPartOfOrAssignment_11_1; }
+		public Assignment getPartOfOrAssignment_10_1() { return cPartOfOrAssignment_10_1; }
 
 		//[Goal]
-		public CrossReference getPartOfOrGoalCrossReference_11_1_0() { return cPartOfOrGoalCrossReference_11_1_0; }
+		public CrossReference getPartOfOrGoalCrossReference_10_1_0() { return cPartOfOrGoalCrossReference_10_1_0; }
 
 		//ID
-		public RuleCall getPartOfOrGoalIDTerminalRuleCall_11_1_0_1() { return cPartOfOrGoalIDTerminalRuleCall_11_1_0_1; }
+		public RuleCall getPartOfOrGoalIDTerminalRuleCall_10_1_0_1() { return cPartOfOrGoalIDTerminalRuleCall_10_1_0_1; }
+
+		//("ProjectProgress" progress=ProjectProgress)?
+		public Group getGroup_11() { return cGroup_11; }
+
+		//"ProjectProgress"
+		public Keyword getProjectProgressKeyword_11_0() { return cProjectProgressKeyword_11_0; }
+
+		//progress=ProjectProgress
+		public Assignment getProgressAssignment_11_1() { return cProgressAssignment_11_1; }
+
+		//ProjectProgress
+		public RuleCall getProgressProjectProgressParserRuleCall_11_1_0() { return cProgressProjectProgressParserRuleCall_11_1_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
@@ -4514,8 +4514,8 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Goal:
 	//	"Goal" name=ID "{" ("Name" nameAlias=STRING)? ("Description" description=STRING)? "Stakeholder"
-	//	stakeholder=[Stakeholder] "Priority" priority=Priority ("ProjectProgress" progress=ProjectProgress)? ("PartOf-And"
-	//	partOfAnd=[Goal])? ("PartOf-Or" partOfOr=[Goal])? "}";
+	//	stakeholder=[Stakeholder] "Priority" priority=Priority ("PartOf-And" partOfAnd=[Goal])? ("PartOf-Or"
+	//	partOfOr=[Goal])? ("ProjectProgress" progress=ProjectProgress)? "}";
 	public GoalElements getGoalAccess() {
 		return pGoal;
 	}

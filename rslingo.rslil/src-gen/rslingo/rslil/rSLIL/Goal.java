@@ -18,9 +18,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link rslingo.rslil.rSLIL.Goal#getDescription <em>Description</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Goal#getStakeholder <em>Stakeholder</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Goal#getPriority <em>Priority</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.Goal#getProgress <em>Progress</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Goal#getPartOfAnd <em>Part Of And</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.Goal#getPartOfOr <em>Part Of Or</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.Goal#getProgress <em>Progress</em>}</li>
  * </ul>
  *
  * @see rslingo.rslil.rSLIL.RSLILPackage#getGoal()
@@ -160,32 +160,6 @@ public interface Goal extends EObject
   void setPriority(Priority value);
 
   /**
-   * Returns the value of the '<em><b>Progress</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Progress</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Progress</em>' containment reference.
-   * @see #setProgress(ProjectProgress)
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getGoal_Progress()
-   * @model containment="true"
-   * @generated
-   */
-  ProjectProgress getProgress();
-
-  /**
-   * Sets the value of the '{@link rslingo.rslil.rSLIL.Goal#getProgress <em>Progress</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Progress</em>' containment reference.
-   * @see #getProgress()
-   * @generated
-   */
-  void setProgress(ProjectProgress value);
-
-  /**
    * Returns the value of the '<em><b>Part Of And</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
@@ -236,5 +210,31 @@ public interface Goal extends EObject
    * @generated
    */
   void setPartOfOr(Goal value);
+
+  /**
+   * Returns the value of the '<em><b>Progress</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Progress</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Progress</em>' containment reference.
+   * @see #setProgress(ProjectProgress)
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getGoal_Progress()
+   * @model containment="true"
+   * @generated
+   */
+  ProjectProgress getProgress();
+
+  /**
+   * Sets the value of the '{@link rslingo.rslil.rSLIL.Goal#getProgress <em>Progress</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Progress</em>' containment reference.
+   * @see #getProgress()
+   * @generated
+   */
+  void setProgress(ProjectProgress value);
 
 } // Goal

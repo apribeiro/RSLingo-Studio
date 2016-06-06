@@ -2972,31 +2972,26 @@ ruleGoal returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_11='ProjectProgress' 
+)(	otherlv_11='PartOf-And' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getGoalAccess().getProjectProgressKeyword_9_0());
+    	newLeafNode(otherlv_11, grammarAccess.getGoalAccess().getPartOfAndKeyword_9_0());
     }
 (
 (
-		{ 
-	        newCompositeNode(grammarAccess.getGoalAccess().getProgressProjectProgressParserRuleCall_9_1_0()); 
-	    }
-		lv_progress_12_0=ruleProjectProgress		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getGoalRule());
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getGoalRule());
 	        }
-       		set(
-       			$current, 
-       			"progress",
-        		lv_progress_12_0, 
-        		"ProjectProgress");
-	        afterParserOrEnumRuleCall();
-	    }
+        }
+	otherlv_12=RULE_ID
+	{
+		newLeafNode(otherlv_12, grammarAccess.getGoalAccess().getPartOfAndGoalCrossReference_9_1_0()); 
+	}
 
 )
-))?(	otherlv_13='PartOf-And' 
+))?(	otherlv_13='PartOf-Or' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getGoalAccess().getPartOfAndKeyword_10_0());
+    	newLeafNode(otherlv_13, grammarAccess.getGoalAccess().getPartOfOrKeyword_10_0());
     }
 (
 (
@@ -3007,25 +3002,30 @@ ruleGoal returns [EObject current=null]
         }
 	otherlv_14=RULE_ID
 	{
-		newLeafNode(otherlv_14, grammarAccess.getGoalAccess().getPartOfAndGoalCrossReference_10_1_0()); 
+		newLeafNode(otherlv_14, grammarAccess.getGoalAccess().getPartOfOrGoalCrossReference_10_1_0()); 
 	}
 
 )
-))?(	otherlv_15='PartOf-Or' 
+))?(	otherlv_15='ProjectProgress' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getGoalAccess().getPartOfOrKeyword_11_0());
+    	newLeafNode(otherlv_15, grammarAccess.getGoalAccess().getProjectProgressKeyword_11_0());
     }
 (
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getGoalRule());
+		{ 
+	        newCompositeNode(grammarAccess.getGoalAccess().getProgressProjectProgressParserRuleCall_11_1_0()); 
+	    }
+		lv_progress_16_0=ruleProjectProgress		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getGoalRule());
 	        }
-        }
-	otherlv_16=RULE_ID
-	{
-		newLeafNode(otherlv_16, grammarAccess.getGoalAccess().getPartOfOrGoalCrossReference_11_1_0()); 
-	}
+       		set(
+       			$current, 
+       			"progress",
+        		lv_progress_16_0, 
+        		"ProjectProgress");
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 ))?	otherlv_17='}' 

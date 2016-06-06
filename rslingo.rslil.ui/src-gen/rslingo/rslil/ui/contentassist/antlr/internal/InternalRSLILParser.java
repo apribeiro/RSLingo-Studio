@@ -22286,7 +22286,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             int alt71=2;
             int LA71_0 = input.LA(1);
 
-            if ( (LA71_0==169) ) {
+            if ( (LA71_0==194) ) {
                 alt71=1;
             }
             switch (alt71) {
@@ -22382,7 +22382,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             int alt72=2;
             int LA72_0 = input.LA(1);
 
-            if ( (LA72_0==194) ) {
+            if ( (LA72_0==195) ) {
                 alt72=1;
             }
             switch (alt72) {
@@ -22478,7 +22478,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             int alt73=2;
             int LA73_0 = input.LA(1);
 
-            if ( (LA73_0==195) ) {
+            if ( (LA73_0==169) ) {
                 alt73=1;
             }
             switch (alt73) {
@@ -22937,21 +22937,21 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Goal__Group_9__0__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8616:1: rule__Goal__Group_9__0__Impl : ( 'ProjectProgress' ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8616:1: rule__Goal__Group_9__0__Impl : ( 'PartOf-And' ) ;
     public final void rule__Goal__Group_9__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8620:1: ( ( 'ProjectProgress' ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8621:1: ( 'ProjectProgress' )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8620:1: ( ( 'PartOf-And' ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8621:1: ( 'PartOf-And' )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8621:1: ( 'ProjectProgress' )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8622:1: 'ProjectProgress'
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8621:1: ( 'PartOf-And' )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8622:1: 'PartOf-And'
             {
-             before(grammarAccess.getGoalAccess().getProjectProgressKeyword_9_0()); 
-            match(input,169,FOLLOW_169_in_rule__Goal__Group_9__0__Impl17712); 
-             after(grammarAccess.getGoalAccess().getProjectProgressKeyword_9_0()); 
+             before(grammarAccess.getGoalAccess().getPartOfAndKeyword_9_0()); 
+            match(input,194,FOLLOW_194_in_rule__Goal__Group_9__0__Impl17712); 
+             after(grammarAccess.getGoalAccess().getPartOfAndKeyword_9_0()); 
 
             }
 
@@ -23007,31 +23007,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Goal__Group_9__1__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8646:1: rule__Goal__Group_9__1__Impl : ( ( rule__Goal__ProgressAssignment_9_1 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8646:1: rule__Goal__Group_9__1__Impl : ( ( rule__Goal__PartOfAndAssignment_9_1 ) ) ;
     public final void rule__Goal__Group_9__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8650:1: ( ( ( rule__Goal__ProgressAssignment_9_1 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8651:1: ( ( rule__Goal__ProgressAssignment_9_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8650:1: ( ( ( rule__Goal__PartOfAndAssignment_9_1 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8651:1: ( ( rule__Goal__PartOfAndAssignment_9_1 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8651:1: ( ( rule__Goal__ProgressAssignment_9_1 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8652:1: ( rule__Goal__ProgressAssignment_9_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8651:1: ( ( rule__Goal__PartOfAndAssignment_9_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8652:1: ( rule__Goal__PartOfAndAssignment_9_1 )
             {
-             before(grammarAccess.getGoalAccess().getProgressAssignment_9_1()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8653:1: ( rule__Goal__ProgressAssignment_9_1 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8653:2: rule__Goal__ProgressAssignment_9_1
+             before(grammarAccess.getGoalAccess().getPartOfAndAssignment_9_1()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8653:1: ( rule__Goal__PartOfAndAssignment_9_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8653:2: rule__Goal__PartOfAndAssignment_9_1
             {
-            pushFollow(FOLLOW_rule__Goal__ProgressAssignment_9_1_in_rule__Goal__Group_9__1__Impl17770);
-            rule__Goal__ProgressAssignment_9_1();
+            pushFollow(FOLLOW_rule__Goal__PartOfAndAssignment_9_1_in_rule__Goal__Group_9__1__Impl17770);
+            rule__Goal__PartOfAndAssignment_9_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getGoalAccess().getProgressAssignment_9_1()); 
+             after(grammarAccess.getGoalAccess().getPartOfAndAssignment_9_1()); 
 
             }
 
@@ -23092,21 +23092,21 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Goal__Group_10__0__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8679:1: rule__Goal__Group_10__0__Impl : ( 'PartOf-And' ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8679:1: rule__Goal__Group_10__0__Impl : ( 'PartOf-Or' ) ;
     public final void rule__Goal__Group_10__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8683:1: ( ( 'PartOf-And' ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8684:1: ( 'PartOf-And' )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8683:1: ( ( 'PartOf-Or' ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8684:1: ( 'PartOf-Or' )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8684:1: ( 'PartOf-And' )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8685:1: 'PartOf-And'
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8684:1: ( 'PartOf-Or' )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8685:1: 'PartOf-Or'
             {
-             before(grammarAccess.getGoalAccess().getPartOfAndKeyword_10_0()); 
-            match(input,194,FOLLOW_194_in_rule__Goal__Group_10__0__Impl17835); 
-             after(grammarAccess.getGoalAccess().getPartOfAndKeyword_10_0()); 
+             before(grammarAccess.getGoalAccess().getPartOfOrKeyword_10_0()); 
+            match(input,195,FOLLOW_195_in_rule__Goal__Group_10__0__Impl17835); 
+             after(grammarAccess.getGoalAccess().getPartOfOrKeyword_10_0()); 
 
             }
 
@@ -23162,31 +23162,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Goal__Group_10__1__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8709:1: rule__Goal__Group_10__1__Impl : ( ( rule__Goal__PartOfAndAssignment_10_1 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8709:1: rule__Goal__Group_10__1__Impl : ( ( rule__Goal__PartOfOrAssignment_10_1 ) ) ;
     public final void rule__Goal__Group_10__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8713:1: ( ( ( rule__Goal__PartOfAndAssignment_10_1 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8714:1: ( ( rule__Goal__PartOfAndAssignment_10_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8713:1: ( ( ( rule__Goal__PartOfOrAssignment_10_1 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8714:1: ( ( rule__Goal__PartOfOrAssignment_10_1 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8714:1: ( ( rule__Goal__PartOfAndAssignment_10_1 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8715:1: ( rule__Goal__PartOfAndAssignment_10_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8714:1: ( ( rule__Goal__PartOfOrAssignment_10_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8715:1: ( rule__Goal__PartOfOrAssignment_10_1 )
             {
-             before(grammarAccess.getGoalAccess().getPartOfAndAssignment_10_1()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8716:1: ( rule__Goal__PartOfAndAssignment_10_1 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8716:2: rule__Goal__PartOfAndAssignment_10_1
+             before(grammarAccess.getGoalAccess().getPartOfOrAssignment_10_1()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8716:1: ( rule__Goal__PartOfOrAssignment_10_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8716:2: rule__Goal__PartOfOrAssignment_10_1
             {
-            pushFollow(FOLLOW_rule__Goal__PartOfAndAssignment_10_1_in_rule__Goal__Group_10__1__Impl17893);
-            rule__Goal__PartOfAndAssignment_10_1();
+            pushFollow(FOLLOW_rule__Goal__PartOfOrAssignment_10_1_in_rule__Goal__Group_10__1__Impl17893);
+            rule__Goal__PartOfOrAssignment_10_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getGoalAccess().getPartOfAndAssignment_10_1()); 
+             after(grammarAccess.getGoalAccess().getPartOfOrAssignment_10_1()); 
 
             }
 
@@ -23247,21 +23247,21 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Goal__Group_11__0__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8742:1: rule__Goal__Group_11__0__Impl : ( 'PartOf-Or' ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8742:1: rule__Goal__Group_11__0__Impl : ( 'ProjectProgress' ) ;
     public final void rule__Goal__Group_11__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8746:1: ( ( 'PartOf-Or' ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8747:1: ( 'PartOf-Or' )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8746:1: ( ( 'ProjectProgress' ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8747:1: ( 'ProjectProgress' )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8747:1: ( 'PartOf-Or' )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8748:1: 'PartOf-Or'
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8747:1: ( 'ProjectProgress' )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8748:1: 'ProjectProgress'
             {
-             before(grammarAccess.getGoalAccess().getPartOfOrKeyword_11_0()); 
-            match(input,195,FOLLOW_195_in_rule__Goal__Group_11__0__Impl17958); 
-             after(grammarAccess.getGoalAccess().getPartOfOrKeyword_11_0()); 
+             before(grammarAccess.getGoalAccess().getProjectProgressKeyword_11_0()); 
+            match(input,169,FOLLOW_169_in_rule__Goal__Group_11__0__Impl17958); 
+             after(grammarAccess.getGoalAccess().getProjectProgressKeyword_11_0()); 
 
             }
 
@@ -23317,31 +23317,31 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Goal__Group_11__1__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8772:1: rule__Goal__Group_11__1__Impl : ( ( rule__Goal__PartOfOrAssignment_11_1 ) ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8772:1: rule__Goal__Group_11__1__Impl : ( ( rule__Goal__ProgressAssignment_11_1 ) ) ;
     public final void rule__Goal__Group_11__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8776:1: ( ( ( rule__Goal__PartOfOrAssignment_11_1 ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8777:1: ( ( rule__Goal__PartOfOrAssignment_11_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8776:1: ( ( ( rule__Goal__ProgressAssignment_11_1 ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8777:1: ( ( rule__Goal__ProgressAssignment_11_1 ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8777:1: ( ( rule__Goal__PartOfOrAssignment_11_1 ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8778:1: ( rule__Goal__PartOfOrAssignment_11_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8777:1: ( ( rule__Goal__ProgressAssignment_11_1 ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8778:1: ( rule__Goal__ProgressAssignment_11_1 )
             {
-             before(grammarAccess.getGoalAccess().getPartOfOrAssignment_11_1()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8779:1: ( rule__Goal__PartOfOrAssignment_11_1 )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8779:2: rule__Goal__PartOfOrAssignment_11_1
+             before(grammarAccess.getGoalAccess().getProgressAssignment_11_1()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8779:1: ( rule__Goal__ProgressAssignment_11_1 )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:8779:2: rule__Goal__ProgressAssignment_11_1
             {
-            pushFollow(FOLLOW_rule__Goal__PartOfOrAssignment_11_1_in_rule__Goal__Group_11__1__Impl18016);
-            rule__Goal__PartOfOrAssignment_11_1();
+            pushFollow(FOLLOW_rule__Goal__ProgressAssignment_11_1_in_rule__Goal__Group_11__1__Impl18016);
+            rule__Goal__ProgressAssignment_11_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getGoalAccess().getPartOfOrAssignment_11_1()); 
+             after(grammarAccess.getGoalAccess().getProgressAssignment_11_1()); 
 
             }
 
@@ -50429,26 +50429,116 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Goal__PriorityAssignment_8"
 
 
-    // $ANTLR start "rule__Goal__ProgressAssignment_9_1"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19150:1: rule__Goal__ProgressAssignment_9_1 : ( ruleProjectProgress ) ;
-    public final void rule__Goal__ProgressAssignment_9_1() throws RecognitionException {
+    // $ANTLR start "rule__Goal__PartOfAndAssignment_9_1"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19150:1: rule__Goal__PartOfAndAssignment_9_1 : ( ( RULE_ID ) ) ;
+    public final void rule__Goal__PartOfAndAssignment_9_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19154:1: ( ( ruleProjectProgress ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19155:1: ( ruleProjectProgress )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19154:1: ( ( ( RULE_ID ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19155:1: ( ( RULE_ID ) )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19155:1: ( ruleProjectProgress )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19156:1: ruleProjectProgress
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19155:1: ( ( RULE_ID ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19156:1: ( RULE_ID )
             {
-             before(grammarAccess.getGoalAccess().getProgressProjectProgressParserRuleCall_9_1_0()); 
-            pushFollow(FOLLOW_ruleProjectProgress_in_rule__Goal__ProgressAssignment_9_138593);
+             before(grammarAccess.getGoalAccess().getPartOfAndGoalCrossReference_9_1_0()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19157:1: ( RULE_ID )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19158:1: RULE_ID
+            {
+             before(grammarAccess.getGoalAccess().getPartOfAndGoalIDTerminalRuleCall_9_1_0_1()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Goal__PartOfAndAssignment_9_138597); 
+             after(grammarAccess.getGoalAccess().getPartOfAndGoalIDTerminalRuleCall_9_1_0_1()); 
+
+            }
+
+             after(grammarAccess.getGoalAccess().getPartOfAndGoalCrossReference_9_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Goal__PartOfAndAssignment_9_1"
+
+
+    // $ANTLR start "rule__Goal__PartOfOrAssignment_10_1"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19169:1: rule__Goal__PartOfOrAssignment_10_1 : ( ( RULE_ID ) ) ;
+    public final void rule__Goal__PartOfOrAssignment_10_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19173:1: ( ( ( RULE_ID ) ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19174:1: ( ( RULE_ID ) )
+            {
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19174:1: ( ( RULE_ID ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19175:1: ( RULE_ID )
+            {
+             before(grammarAccess.getGoalAccess().getPartOfOrGoalCrossReference_10_1_0()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19176:1: ( RULE_ID )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19177:1: RULE_ID
+            {
+             before(grammarAccess.getGoalAccess().getPartOfOrGoalIDTerminalRuleCall_10_1_0_1()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Goal__PartOfOrAssignment_10_138636); 
+             after(grammarAccess.getGoalAccess().getPartOfOrGoalIDTerminalRuleCall_10_1_0_1()); 
+
+            }
+
+             after(grammarAccess.getGoalAccess().getPartOfOrGoalCrossReference_10_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Goal__PartOfOrAssignment_10_1"
+
+
+    // $ANTLR start "rule__Goal__ProgressAssignment_11_1"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19188:1: rule__Goal__ProgressAssignment_11_1 : ( ruleProjectProgress ) ;
+    public final void rule__Goal__ProgressAssignment_11_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19192:1: ( ( ruleProjectProgress ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19193:1: ( ruleProjectProgress )
+            {
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19193:1: ( ruleProjectProgress )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19194:1: ruleProjectProgress
+            {
+             before(grammarAccess.getGoalAccess().getProgressProjectProgressParserRuleCall_11_1_0()); 
+            pushFollow(FOLLOW_ruleProjectProgress_in_rule__Goal__ProgressAssignment_11_138671);
             ruleProjectProgress();
 
             state._fsp--;
 
-             after(grammarAccess.getGoalAccess().getProgressProjectProgressParserRuleCall_9_1_0()); 
+             after(grammarAccess.getGoalAccess().getProgressProjectProgressParserRuleCall_11_1_0()); 
 
             }
 
@@ -50467,97 +50557,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Goal__ProgressAssignment_9_1"
-
-
-    // $ANTLR start "rule__Goal__PartOfAndAssignment_10_1"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19165:1: rule__Goal__PartOfAndAssignment_10_1 : ( ( RULE_ID ) ) ;
-    public final void rule__Goal__PartOfAndAssignment_10_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19169:1: ( ( ( RULE_ID ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19170:1: ( ( RULE_ID ) )
-            {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19170:1: ( ( RULE_ID ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19171:1: ( RULE_ID )
-            {
-             before(grammarAccess.getGoalAccess().getPartOfAndGoalCrossReference_10_1_0()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19172:1: ( RULE_ID )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19173:1: RULE_ID
-            {
-             before(grammarAccess.getGoalAccess().getPartOfAndGoalIDTerminalRuleCall_10_1_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Goal__PartOfAndAssignment_10_138628); 
-             after(grammarAccess.getGoalAccess().getPartOfAndGoalIDTerminalRuleCall_10_1_0_1()); 
-
-            }
-
-             after(grammarAccess.getGoalAccess().getPartOfAndGoalCrossReference_10_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Goal__PartOfAndAssignment_10_1"
-
-
-    // $ANTLR start "rule__Goal__PartOfOrAssignment_11_1"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19184:1: rule__Goal__PartOfOrAssignment_11_1 : ( ( RULE_ID ) ) ;
-    public final void rule__Goal__PartOfOrAssignment_11_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19188:1: ( ( ( RULE_ID ) ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19189:1: ( ( RULE_ID ) )
-            {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19189:1: ( ( RULE_ID ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19190:1: ( RULE_ID )
-            {
-             before(grammarAccess.getGoalAccess().getPartOfOrGoalCrossReference_11_1_0()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19191:1: ( RULE_ID )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:19192:1: RULE_ID
-            {
-             before(grammarAccess.getGoalAccess().getPartOfOrGoalIDTerminalRuleCall_11_1_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Goal__PartOfOrAssignment_11_138667); 
-             after(grammarAccess.getGoalAccess().getPartOfOrGoalIDTerminalRuleCall_11_1_0_1()); 
-
-            }
-
-             after(grammarAccess.getGoalAccess().getPartOfOrGoalCrossReference_11_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Goal__PartOfOrAssignment_11_1"
+    // $ANTLR end "rule__Goal__ProgressAssignment_11_1"
 
 
     // $ANTLR start "rule__GoalRelation__NameAssignment_1"
@@ -56181,21 +56181,21 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_167_in_rule__Goal__Group_4__0__Impl17589 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Goal__Group_4__1__Impl_in_rule__Goal__Group_4__117620 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Goal__DescriptionAssignment_4_1_in_rule__Goal__Group_4__1__Impl17647 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Goal__Group_9__0__Impl_in_rule__Goal__Group_9__017681 = new BitSet(new long[]{0x000007F000000000L});
+    public static final BitSet FOLLOW_rule__Goal__Group_9__0__Impl_in_rule__Goal__Group_9__017681 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_rule__Goal__Group_9__1_in_rule__Goal__Group_9__017684 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_169_in_rule__Goal__Group_9__0__Impl17712 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_194_in_rule__Goal__Group_9__0__Impl17712 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Goal__Group_9__1__Impl_in_rule__Goal__Group_9__117743 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Goal__ProgressAssignment_9_1_in_rule__Goal__Group_9__1__Impl17770 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Goal__PartOfAndAssignment_9_1_in_rule__Goal__Group_9__1__Impl17770 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Goal__Group_10__0__Impl_in_rule__Goal__Group_10__017804 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_rule__Goal__Group_10__1_in_rule__Goal__Group_10__017807 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_194_in_rule__Goal__Group_10__0__Impl17835 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_195_in_rule__Goal__Group_10__0__Impl17835 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Goal__Group_10__1__Impl_in_rule__Goal__Group_10__117866 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Goal__PartOfAndAssignment_10_1_in_rule__Goal__Group_10__1__Impl17893 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Goal__Group_11__0__Impl_in_rule__Goal__Group_11__017927 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__Goal__PartOfOrAssignment_10_1_in_rule__Goal__Group_10__1__Impl17893 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Goal__Group_11__0__Impl_in_rule__Goal__Group_11__017927 = new BitSet(new long[]{0x000007F000000000L});
     public static final BitSet FOLLOW_rule__Goal__Group_11__1_in_rule__Goal__Group_11__017930 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_195_in_rule__Goal__Group_11__0__Impl17958 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_169_in_rule__Goal__Group_11__0__Impl17958 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Goal__Group_11__1__Impl_in_rule__Goal__Group_11__117989 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Goal__PartOfOrAssignment_11_1_in_rule__Goal__Group_11__1__Impl18016 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Goal__ProgressAssignment_11_1_in_rule__Goal__Group_11__1__Impl18016 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__GoalRelation__Group__0__Impl_in_rule__GoalRelation__Group__018050 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_rule__GoalRelation__Group__1_in_rule__GoalRelation__Group__018053 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_196_in_rule__GoalRelation__Group__0__Impl18081 = new BitSet(new long[]{0x0000000000000002L});
@@ -57068,9 +57068,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Goal__DescriptionAssignment_4_138492 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__Goal__StakeholderAssignment_638527 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePriority_in_rule__Goal__PriorityAssignment_838562 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProjectProgress_in_rule__Goal__ProgressAssignment_9_138593 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Goal__PartOfAndAssignment_10_138628 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Goal__PartOfOrAssignment_11_138667 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Goal__PartOfAndAssignment_9_138597 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Goal__PartOfOrAssignment_10_138636 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProjectProgress_in_rule__Goal__ProgressAssignment_11_138671 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__GoalRelation__NameAssignment_138702 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__GoalRelation__SourceAssignment_438737 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__GoalRelation__TargetAssignment_638776 = new BitSet(new long[]{0x0000000000000002L});

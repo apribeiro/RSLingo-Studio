@@ -6553,7 +6553,7 @@ public class InternalRSLILParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGoal"
-    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2862:1: ruleGoal returns [EObject current=null] : (otherlv_0= 'Goal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Name' ( (lv_nameAlias_4_0= RULE_STRING ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? otherlv_7= 'Stakeholder' ( (otherlv_8= RULE_ID ) ) otherlv_9= 'Priority' ( (lv_priority_10_0= rulePriority ) ) (otherlv_11= 'ProjectProgress' ( (lv_progress_12_0= ruleProjectProgress ) ) )? (otherlv_13= 'PartOf-And' ( (otherlv_14= RULE_ID ) ) )? (otherlv_15= 'PartOf-Or' ( (otherlv_16= RULE_ID ) ) )? otherlv_17= '}' ) ;
+    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2862:1: ruleGoal returns [EObject current=null] : (otherlv_0= 'Goal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Name' ( (lv_nameAlias_4_0= RULE_STRING ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? otherlv_7= 'Stakeholder' ( (otherlv_8= RULE_ID ) ) otherlv_9= 'Priority' ( (lv_priority_10_0= rulePriority ) ) (otherlv_11= 'PartOf-And' ( (otherlv_12= RULE_ID ) ) )? (otherlv_13= 'PartOf-Or' ( (otherlv_14= RULE_ID ) ) )? (otherlv_15= 'ProjectProgress' ( (lv_progress_16_0= ruleProjectProgress ) ) )? otherlv_17= '}' ) ;
     public final EObject ruleGoal() throws RecognitionException {
         EObject current = null;
 
@@ -6568,24 +6568,24 @@ public class InternalRSLILParser extends AbstractInternalAntlrParser {
         Token otherlv_8=null;
         Token otherlv_9=null;
         Token otherlv_11=null;
+        Token otherlv_12=null;
         Token otherlv_13=null;
         Token otherlv_14=null;
         Token otherlv_15=null;
-        Token otherlv_16=null;
         Token otherlv_17=null;
         EObject lv_priority_10_0 = null;
 
-        EObject lv_progress_12_0 = null;
+        EObject lv_progress_16_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2865:28: ( (otherlv_0= 'Goal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Name' ( (lv_nameAlias_4_0= RULE_STRING ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? otherlv_7= 'Stakeholder' ( (otherlv_8= RULE_ID ) ) otherlv_9= 'Priority' ( (lv_priority_10_0= rulePriority ) ) (otherlv_11= 'ProjectProgress' ( (lv_progress_12_0= ruleProjectProgress ) ) )? (otherlv_13= 'PartOf-And' ( (otherlv_14= RULE_ID ) ) )? (otherlv_15= 'PartOf-Or' ( (otherlv_16= RULE_ID ) ) )? otherlv_17= '}' ) )
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2866:1: (otherlv_0= 'Goal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Name' ( (lv_nameAlias_4_0= RULE_STRING ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? otherlv_7= 'Stakeholder' ( (otherlv_8= RULE_ID ) ) otherlv_9= 'Priority' ( (lv_priority_10_0= rulePriority ) ) (otherlv_11= 'ProjectProgress' ( (lv_progress_12_0= ruleProjectProgress ) ) )? (otherlv_13= 'PartOf-And' ( (otherlv_14= RULE_ID ) ) )? (otherlv_15= 'PartOf-Or' ( (otherlv_16= RULE_ID ) ) )? otherlv_17= '}' )
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2865:28: ( (otherlv_0= 'Goal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Name' ( (lv_nameAlias_4_0= RULE_STRING ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? otherlv_7= 'Stakeholder' ( (otherlv_8= RULE_ID ) ) otherlv_9= 'Priority' ( (lv_priority_10_0= rulePriority ) ) (otherlv_11= 'PartOf-And' ( (otherlv_12= RULE_ID ) ) )? (otherlv_13= 'PartOf-Or' ( (otherlv_14= RULE_ID ) ) )? (otherlv_15= 'ProjectProgress' ( (lv_progress_16_0= ruleProjectProgress ) ) )? otherlv_17= '}' ) )
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2866:1: (otherlv_0= 'Goal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Name' ( (lv_nameAlias_4_0= RULE_STRING ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? otherlv_7= 'Stakeholder' ( (otherlv_8= RULE_ID ) ) otherlv_9= 'Priority' ( (lv_priority_10_0= rulePriority ) ) (otherlv_11= 'PartOf-And' ( (otherlv_12= RULE_ID ) ) )? (otherlv_13= 'PartOf-Or' ( (otherlv_14= RULE_ID ) ) )? (otherlv_15= 'ProjectProgress' ( (lv_progress_16_0= ruleProjectProgress ) ) )? otherlv_17= '}' )
             {
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2866:1: (otherlv_0= 'Goal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Name' ( (lv_nameAlias_4_0= RULE_STRING ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? otherlv_7= 'Stakeholder' ( (otherlv_8= RULE_ID ) ) otherlv_9= 'Priority' ( (lv_priority_10_0= rulePriority ) ) (otherlv_11= 'ProjectProgress' ( (lv_progress_12_0= ruleProjectProgress ) ) )? (otherlv_13= 'PartOf-And' ( (otherlv_14= RULE_ID ) ) )? (otherlv_15= 'PartOf-Or' ( (otherlv_16= RULE_ID ) ) )? otherlv_17= '}' )
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2866:3: otherlv_0= 'Goal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Name' ( (lv_nameAlias_4_0= RULE_STRING ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? otherlv_7= 'Stakeholder' ( (otherlv_8= RULE_ID ) ) otherlv_9= 'Priority' ( (lv_priority_10_0= rulePriority ) ) (otherlv_11= 'ProjectProgress' ( (lv_progress_12_0= ruleProjectProgress ) ) )? (otherlv_13= 'PartOf-And' ( (otherlv_14= RULE_ID ) ) )? (otherlv_15= 'PartOf-Or' ( (otherlv_16= RULE_ID ) ) )? otherlv_17= '}'
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2866:1: (otherlv_0= 'Goal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Name' ( (lv_nameAlias_4_0= RULE_STRING ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? otherlv_7= 'Stakeholder' ( (otherlv_8= RULE_ID ) ) otherlv_9= 'Priority' ( (lv_priority_10_0= rulePriority ) ) (otherlv_11= 'PartOf-And' ( (otherlv_12= RULE_ID ) ) )? (otherlv_13= 'PartOf-Or' ( (otherlv_14= RULE_ID ) ) )? (otherlv_15= 'ProjectProgress' ( (lv_progress_16_0= ruleProjectProgress ) ) )? otherlv_17= '}' )
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2866:3: otherlv_0= 'Goal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' (otherlv_3= 'Name' ( (lv_nameAlias_4_0= RULE_STRING ) ) )? (otherlv_5= 'Description' ( (lv_description_6_0= RULE_STRING ) ) )? otherlv_7= 'Stakeholder' ( (otherlv_8= RULE_ID ) ) otherlv_9= 'Priority' ( (lv_priority_10_0= rulePriority ) ) (otherlv_11= 'PartOf-And' ( (otherlv_12= RULE_ID ) ) )? (otherlv_13= 'PartOf-Or' ( (otherlv_14= RULE_ID ) ) )? (otherlv_15= 'ProjectProgress' ( (lv_progress_16_0= ruleProjectProgress ) ) )? otherlv_17= '}'
             {
             otherlv_0=(Token)match(input,119,FOLLOW_119_in_ruleGoal6131); 
 
@@ -6775,32 +6775,116 @@ public class InternalRSLILParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2975:2: (otherlv_11= 'ProjectProgress' ( (lv_progress_12_0= ruleProjectProgress ) ) )?
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2975:2: (otherlv_11= 'PartOf-And' ( (otherlv_12= RULE_ID ) ) )?
             int alt54=2;
             int LA54_0 = input.LA(1);
 
-            if ( (LA54_0==35) ) {
+            if ( (LA54_0==121) ) {
                 alt54=1;
             }
             switch (alt54) {
                 case 1 :
-                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2975:4: otherlv_11= 'ProjectProgress' ( (lv_progress_12_0= ruleProjectProgress ) )
+                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2975:4: otherlv_11= 'PartOf-And' ( (otherlv_12= RULE_ID ) )
                     {
-                    otherlv_11=(Token)match(input,35,FOLLOW_35_in_ruleGoal6317); 
+                    otherlv_11=(Token)match(input,121,FOLLOW_121_in_ruleGoal6317); 
 
-                        	newLeafNode(otherlv_11, grammarAccess.getGoalAccess().getProjectProgressKeyword_9_0());
+                        	newLeafNode(otherlv_11, grammarAccess.getGoalAccess().getPartOfAndKeyword_9_0());
                         
-                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2979:1: ( (lv_progress_12_0= ruleProjectProgress ) )
-                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2980:1: (lv_progress_12_0= ruleProjectProgress )
+                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2979:1: ( (otherlv_12= RULE_ID ) )
+                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2980:1: (otherlv_12= RULE_ID )
                     {
-                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2980:1: (lv_progress_12_0= ruleProjectProgress )
-                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2981:3: lv_progress_12_0= ruleProjectProgress
+                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2980:1: (otherlv_12= RULE_ID )
+                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2981:3: otherlv_12= RULE_ID
+                    {
+
+                    			if (current==null) {
+                    	            current = createModelElement(grammarAccess.getGoalRule());
+                    	        }
+                            
+                    otherlv_12=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleGoal6337); 
+
+                    		newLeafNode(otherlv_12, grammarAccess.getGoalAccess().getPartOfAndGoalCrossReference_9_1_0()); 
+                    	
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2992:4: (otherlv_13= 'PartOf-Or' ( (otherlv_14= RULE_ID ) ) )?
+            int alt55=2;
+            int LA55_0 = input.LA(1);
+
+            if ( (LA55_0==122) ) {
+                alt55=1;
+            }
+            switch (alt55) {
+                case 1 :
+                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2992:6: otherlv_13= 'PartOf-Or' ( (otherlv_14= RULE_ID ) )
+                    {
+                    otherlv_13=(Token)match(input,122,FOLLOW_122_in_ruleGoal6352); 
+
+                        	newLeafNode(otherlv_13, grammarAccess.getGoalAccess().getPartOfOrKeyword_10_0());
+                        
+                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2996:1: ( (otherlv_14= RULE_ID ) )
+                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2997:1: (otherlv_14= RULE_ID )
+                    {
+                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2997:1: (otherlv_14= RULE_ID )
+                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2998:3: otherlv_14= RULE_ID
+                    {
+
+                    			if (current==null) {
+                    	            current = createModelElement(grammarAccess.getGoalRule());
+                    	        }
+                            
+                    otherlv_14=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleGoal6372); 
+
+                    		newLeafNode(otherlv_14, grammarAccess.getGoalAccess().getPartOfOrGoalCrossReference_10_1_0()); 
+                    	
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:3009:4: (otherlv_15= 'ProjectProgress' ( (lv_progress_16_0= ruleProjectProgress ) ) )?
+            int alt56=2;
+            int LA56_0 = input.LA(1);
+
+            if ( (LA56_0==35) ) {
+                alt56=1;
+            }
+            switch (alt56) {
+                case 1 :
+                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:3009:6: otherlv_15= 'ProjectProgress' ( (lv_progress_16_0= ruleProjectProgress ) )
+                    {
+                    otherlv_15=(Token)match(input,35,FOLLOW_35_in_ruleGoal6387); 
+
+                        	newLeafNode(otherlv_15, grammarAccess.getGoalAccess().getProjectProgressKeyword_11_0());
+                        
+                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:3013:1: ( (lv_progress_16_0= ruleProjectProgress ) )
+                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:3014:1: (lv_progress_16_0= ruleProjectProgress )
+                    {
+                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:3014:1: (lv_progress_16_0= ruleProjectProgress )
+                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:3015:3: lv_progress_16_0= ruleProjectProgress
                     {
                      
-                    	        newCompositeNode(grammarAccess.getGoalAccess().getProgressProjectProgressParserRuleCall_9_1_0()); 
+                    	        newCompositeNode(grammarAccess.getGoalAccess().getProgressProjectProgressParserRuleCall_11_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleProjectProgress_in_ruleGoal6338);
-                    lv_progress_12_0=ruleProjectProgress();
+                    pushFollow(FOLLOW_ruleProjectProgress_in_ruleGoal6408);
+                    lv_progress_16_0=ruleProjectProgress();
 
                     state._fsp--;
 
@@ -6811,94 +6895,10 @@ public class InternalRSLILParser extends AbstractInternalAntlrParser {
                            		set(
                            			current, 
                            			"progress",
-                            		lv_progress_12_0, 
+                            		lv_progress_16_0, 
                             		"ProjectProgress");
                     	        afterParserOrEnumRuleCall();
                     	    
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2997:4: (otherlv_13= 'PartOf-And' ( (otherlv_14= RULE_ID ) ) )?
-            int alt55=2;
-            int LA55_0 = input.LA(1);
-
-            if ( (LA55_0==121) ) {
-                alt55=1;
-            }
-            switch (alt55) {
-                case 1 :
-                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:2997:6: otherlv_13= 'PartOf-And' ( (otherlv_14= RULE_ID ) )
-                    {
-                    otherlv_13=(Token)match(input,121,FOLLOW_121_in_ruleGoal6353); 
-
-                        	newLeafNode(otherlv_13, grammarAccess.getGoalAccess().getPartOfAndKeyword_10_0());
-                        
-                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:3001:1: ( (otherlv_14= RULE_ID ) )
-                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:3002:1: (otherlv_14= RULE_ID )
-                    {
-                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:3002:1: (otherlv_14= RULE_ID )
-                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:3003:3: otherlv_14= RULE_ID
-                    {
-
-                    			if (current==null) {
-                    	            current = createModelElement(grammarAccess.getGoalRule());
-                    	        }
-                            
-                    otherlv_14=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleGoal6373); 
-
-                    		newLeafNode(otherlv_14, grammarAccess.getGoalAccess().getPartOfAndGoalCrossReference_10_1_0()); 
-                    	
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:3014:4: (otherlv_15= 'PartOf-Or' ( (otherlv_16= RULE_ID ) ) )?
-            int alt56=2;
-            int LA56_0 = input.LA(1);
-
-            if ( (LA56_0==122) ) {
-                alt56=1;
-            }
-            switch (alt56) {
-                case 1 :
-                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:3014:6: otherlv_15= 'PartOf-Or' ( (otherlv_16= RULE_ID ) )
-                    {
-                    otherlv_15=(Token)match(input,122,FOLLOW_122_in_ruleGoal6388); 
-
-                        	newLeafNode(otherlv_15, grammarAccess.getGoalAccess().getPartOfOrKeyword_11_0());
-                        
-                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:3018:1: ( (otherlv_16= RULE_ID ) )
-                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:3019:1: (otherlv_16= RULE_ID )
-                    {
-                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:3019:1: (otherlv_16= RULE_ID )
-                    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:3020:3: otherlv_16= RULE_ID
-                    {
-
-                    			if (current==null) {
-                    	            current = createModelElement(grammarAccess.getGoalRule());
-                    	        }
-                            
-                    otherlv_16=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleGoal6408); 
-
-                    		newLeafNode(otherlv_16, grammarAccess.getGoalAccess().getPartOfOrGoalCrossReference_11_1_0()); 
-                    	
 
                     }
 
@@ -15650,12 +15650,12 @@ public class InternalRSLILParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleGoal6271 = new BitSet(new long[]{0x0000000000000000L,0x0100000000000000L});
     public static final BitSet FOLLOW_120_in_ruleGoal6283 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x000000000000001EL});
     public static final BitSet FOLLOW_rulePriority_in_ruleGoal6304 = new BitSet(new long[]{0x0000000800002000L,0x0600000000000000L});
-    public static final BitSet FOLLOW_35_in_ruleGoal6317 = new BitSet(new long[]{0xF800000000000000L,0x0000000000000003L});
-    public static final BitSet FOLLOW_ruleProjectProgress_in_ruleGoal6338 = new BitSet(new long[]{0x0000000000002000L,0x0600000000000000L});
-    public static final BitSet FOLLOW_121_in_ruleGoal6353 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleGoal6373 = new BitSet(new long[]{0x0000000000002000L,0x0400000000000000L});
-    public static final BitSet FOLLOW_122_in_ruleGoal6388 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleGoal6408 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_121_in_ruleGoal6317 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleGoal6337 = new BitSet(new long[]{0x0000000800002000L,0x0400000000000000L});
+    public static final BitSet FOLLOW_122_in_ruleGoal6352 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleGoal6372 = new BitSet(new long[]{0x0000000800002000L});
+    public static final BitSet FOLLOW_35_in_ruleGoal6387 = new BitSet(new long[]{0xF800000000000000L,0x0000000000000003L});
+    public static final BitSet FOLLOW_ruleProjectProgress_in_ruleGoal6408 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_13_in_ruleGoal6422 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleGoalRelation_in_entryRuleGoalRelation6458 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleGoalRelation6468 = new BitSet(new long[]{0x0000000000000002L});

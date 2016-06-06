@@ -143,9 +143,9 @@ Goal:
 		('Description' description=STRING)?
 		'Stakeholder' stakeholder=[Stakeholder]
 		'Priority' priority=Priority
-		('ProjectProgress' progress=ProjectProgress)?
 		('PartOf-And' partOfAnd=[Goal])?
 		('PartOf-Or' partOfOr=[Goal])?
+		('ProjectProgress' progress=ProjectProgress)?
 	'}';
 
 GoalRelation:

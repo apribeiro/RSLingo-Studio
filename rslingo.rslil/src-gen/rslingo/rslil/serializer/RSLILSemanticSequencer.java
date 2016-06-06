@@ -436,9 +436,9 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         description=STRING? 
 	 *         stakeholder=[Stakeholder|ID] 
 	 *         priority=Priority 
-	 *         progress=ProjectProgress? 
 	 *         partOfAnd=[Goal|ID]? 
-	 *         partOfOr=[Goal|ID]?
+	 *         partOfOr=[Goal|ID]? 
+	 *         progress=ProjectProgress?
 	 *     )
 	 */
 	protected void sequence_Goal(EObject context, Goal semanticObject) {
