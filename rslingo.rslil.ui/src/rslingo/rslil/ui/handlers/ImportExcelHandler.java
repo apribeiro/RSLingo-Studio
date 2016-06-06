@@ -117,7 +117,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		StringBuilder sb = new StringBuilder();
 		InputStream inp = new FileInputStream(filePath);
 		Workbook wb = WorkbookFactory.create(inp);
-		sb.append("Package-Project " + fileName + " {");
+		sb.append("Package-Project " + formatId(fileName) + " {");
 		sb.append("\n");
 		sb.append("\n");
 		
@@ -125,7 +125,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		generateGlossaryRegion(wb, sb);
 		generateStakeholdersRegion(wb, sb);
 		generateGoalsRegion(wb, sb);
-//		generateGoalRelationsRegion(wb, sb);
+		generateGoalRelationsRegion(wb, sb);
 //		generateSytemsRegion(wb, sb, fileName);
 //		generateSytemRelationsRegion(wb, sb, fileName);
     	
@@ -434,9 +434,9 @@ public class ImportExcelHandler extends AbstractHandler {
     			Cell cellCategory = row.getCell(4);
 	    		String category = cellCategory.getStringCellValue();
 	    		Cell cellIsA = row.getCell(5);
-	    		String isA = cellIsA.getStringCellValue();
+	    		String isA = formatId(cellIsA.getStringCellValue());
 	    		Cell cellPartOf = row.getCell(6);
-	    		String partOf = cellPartOf.getStringCellValue();
+	    		String partOf = formatId(cellPartOf.getStringCellValue());
 	    		
 	    		sb.append("\tStakeholder " + id + " {");
 	    		sb.append("\n");
@@ -503,13 +503,13 @@ public class ImportExcelHandler extends AbstractHandler {
     			Cell cellDescription = row.getCell(2);
     			String description = cellDescription.getStringCellValue();
     			Cell cellStakeholder = row.getCell(3);
-    			String stakeholder = cellStakeholder.getStringCellValue();
+    			String stakeholder = formatId(cellStakeholder.getStringCellValue());
     			Cell cellPriority = row.getCell(4);
     			String priority = cellPriority.getStringCellValue();
     			Cell cellPartOfAnd = row.getCell(5);
-    			String partOfAnd = cellPartOfAnd.getStringCellValue();
+    			String partOfAnd = formatId(cellPartOfAnd.getStringCellValue());
     			Cell cellPartOfOr = row.getCell(6);
-    			String partOfOr = cellPartOfOr.getStringCellValue();
+    			String partOfOr = formatId(cellPartOfOr.getStringCellValue());
     			Cell cellProgress = row.getCell(7);
     			String progress = cellProgress.getStringCellValue();
 	    		
@@ -571,16 +571,15 @@ public class ImportExcelHandler extends AbstractHandler {
     		Row row = rowIt.next();
     		
     		if (!row.getCell(3).getStringCellValue().isEmpty()) {
-    			Cell cellId = row.getCell(0);
-    			String id = formatId(cellId.getStringCellValue());
-    			Cell cellSource = row.getCell(1);
-    			String source = cellSource.getStringCellValue();
-    			Cell cellTarget = row.getCell(3);
-    			String target = cellTarget.getStringCellValue();
-    			Cell cellType = row.getCell(5);
+    			Cell cellSource = row.getCell(0);
+    			String source = formatId(cellSource.getStringCellValue());
+    			Cell cellTarget = row.getCell(2);
+    			String target = formatId(cellTarget.getStringCellValue());
+    			Cell cellType = row.getCell(4);
     			String type = cellType.getStringCellValue();
-    			Cell cellDescription = row.getCell(6);
+    			Cell cellDescription = row.getCell(5);
     			String description = cellDescription.getStringCellValue();
+    			String id = source + "_" + target + "_" + type;
 	    		
     			sb.append("\tGoalRelation " + id + " {");
 	    		sb.append("\n");
@@ -932,7 +931,12 @@ public class ImportExcelHandler extends AbstractHandler {
 	}
 	
 	private String formatId(String id) {
-		return id.replaceAll(" ", "_").replaceAll("-", "_");
+		return id.replaceAll(" ", "_").replaceAll("-", "_").replaceAll("\\.", "_")
+				.replaceAll("ç", "c").replaceAll("ã", "a").replaceAll("õ", "o")
+				.replaceAll("â", "a").replaceAll("ê", "e").replaceAll("ô", "o")
+				.replaceAll("à", "a").replaceAll("á", "a")
+				.replaceAll("è", "e").replaceAll("é", "e")
+				.replaceAll("í", "i").replaceAll("ó", "o").replaceAll("ú", "u");
 	}
 	
 	private String toUpperFirst(String s) {
