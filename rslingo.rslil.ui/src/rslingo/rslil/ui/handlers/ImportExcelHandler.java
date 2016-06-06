@@ -713,7 +713,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		generateFRsRegion(wb, systems);
 		generateQRsRegion(wb, systems);
 		generateConstraintsRegion(wb, systems);
-//		generateRequirementRelationsRegion(wb, systems);
+		generateRequirementRelationsRegion(wb, systems);
 		
     	for (String key : systems.keySet()) {
 			sb.append(systems.get(key));
@@ -1317,6 +1317,75 @@ public class ImportExcelHandler extends AbstractHandler {
     			}
 			}
 		}
+	}
+	
+	private void generateRequirementRelationsRegion(Workbook wb, Map<String, StringBuilder> systems) {
+		String systemId = null;
+		// Get the Requirements Relations Sheet
+	    Sheet sheet = wb.getSheet("reqs.relations");
+    	Iterator<Row> rowIt = sheet.rowIterator();
+    	// Ignore the Header row
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	
+    	while (rowIt.hasNext()) {
+    		Row row = rowIt.next();
+    		Cell controlCell = row.getCell(2);
+    		
+    		if (controlCell != null) {
+    			if (!controlCell.getStringCellValue().isEmpty()
+					&& !controlCell.getStringCellValue().equals("Description")
+    				&& !controlCell.getStringCellValue().equals("Target (*)")
+    				&& !controlCell.getStringCellValue().equals("Id")) {
+    				Cell cellSource = row.getCell(0);
+    				String source = formatId(cellSource.getStringCellValue());
+    				Cell cellTarget = row.getCell(2);
+    				String target = formatId(cellTarget.getStringCellValue());
+    				Cell cellType = row.getCell(4);
+    				String type = cellType.getStringCellValue();
+    				Cell cellDescription = row.getCell(5);
+    				String description = cellDescription.getStringCellValue().replace("\"", "'");
+    				String id = source + "_" + target + "_" + type.replace("-", "_");
+    	    		
+    				StringBuilder sb = systems.get(systemId);
+    				sb.append("\t\tRequirementRelation " + id + " {");
+    	    		sb.append("\n");
+    	    		
+    	    		sb.append("\t\t\tSource " + source);
+    	    		sb.append("\n");
+    	    		
+    	    		sb.append("\t\t\tTarget " + target);
+    	    		sb.append("\n");
+    	    		
+    	    		sb.append("\t\t\tType " + type);
+    	    		sb.append("\n");
+    	    		
+    	    		if (!description.isEmpty()) {
+    	    			sb.append("\t\t\tDescription \"" + description + "\"");
+    		    		sb.append("\n");
+    	    		}
+    	    		
+    	    		sb.append("\t\t}");
+    	    		sb.append("\n\n");
+    			} else {
+    				Cell cellId = row.getCell(0);
+    				XSSFCellStyle cs = (XSSFCellStyle) cellId.getCellStyle();
+    				
+    				if (cs.getFillForegroundColorColor() != null) {
+        				String color = cs.getFillForegroundColorColor().getARGBHex();
+        			
+    	        		if (color.equals(SYSTEM_ORANGE)) {
+    						systemId = formatId(cellId.getStringCellValue());
+    	        		}
+    				}
+    			}
+    		}
+    	}
 	}
 	
 	private void generateSystemRelationsRegion(Workbook wb, StringBuilder sb) {
