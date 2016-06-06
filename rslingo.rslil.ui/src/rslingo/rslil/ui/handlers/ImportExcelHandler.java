@@ -710,7 +710,7 @@ public class ImportExcelHandler extends AbstractHandler {
 //    	generateEntitiesRegion(wb, systems);
 		generateActorsRegion(wb, systems);
 //		generateUseCasesRegion(wb, systems);
-//		generateFRsRegion(wb, systems);
+		generateFRsRegion(wb, systems);
 //		generateQRsRegion(wb, systems);
 //		generateConstraintsRegion(wb, systems);
     	
@@ -1032,7 +1032,93 @@ public class ImportExcelHandler extends AbstractHandler {
 	}
 	
 	private void generateFRsRegion(Workbook wb, Map<String, StringBuilder> systems) {
-		
+		String systemId = null;
+		// Get the Functional Requirements Sheet
+	    Sheet sheet = wb.getSheet("reqs.functional");
+    	Iterator<Row> rowIt = sheet.rowIterator();
+    	// Ignore the Header row
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	
+    	while (rowIt.hasNext()) {
+    		Row row = rowIt.next();
+    		Cell controlCell = row.getCell(3); 
+    		
+    		if (controlCell != null) {
+    			if (!controlCell.getStringCellValue().isEmpty()
+    				&& !controlCell.getStringCellValue().equals("Type (*)")) {
+	    			Cell cellId = row.getCell(0);
+	    			String id = formatId(cellId.getStringCellValue());
+	    			Cell cellName = row.getCell(1);
+	    			String name = cellName.getStringCellValue();
+	    			Cell cellDescription = row.getCell(2);
+	    			String description = cellDescription.getStringCellValue().replace("\"", "'");
+	    			Cell cellType = row.getCell(3);
+	    			String type = cellType.getStringCellValue();
+	    			Cell cellStakeholder = row.getCell(4);
+	    			String stakeholder = formatId(cellStakeholder.getStringCellValue());
+	    			Cell cellPriority = row.getCell(5);
+	    			String priority = cellPriority.getStringCellValue();
+	    			Cell cellPartOf = row.getCell(6);
+	    			String partOf = formatId(cellPartOf.getStringCellValue());
+	    			Cell cellProgress = row.getCell(7);
+	    			String progress = cellProgress.getStringCellValue();
+	    			
+	    			StringBuilder sb = systems.get(systemId);
+	    			sb.append("\t\tFunctionalRequirement " + id + " {");
+		    		sb.append("\n");
+		    		
+		    		if (!name.isEmpty()) {
+		    			sb.append("\t\t\tName \"" + name + "\"");
+			    		sb.append("\n");
+					}
+		    		
+		    		if (!description.isEmpty()) {
+		    			sb.append("\t\t\tDescription \"" + description + "\"");
+			    		sb.append("\n");
+		    		}
+		    		
+		    		sb.append("\t\t\tType " + type);
+		    		sb.append("\n");
+		    		
+		    		if (!stakeholder.isEmpty()) {
+		    			sb.append("\t\t\tStakeholder " + stakeholder);
+			    		sb.append("\n");
+					}
+		    		
+		    		sb.append("\t\t\tPriority " + priority);
+		    		sb.append("\n");
+		    		
+		    		if (!partOf.isEmpty()) {
+		    			sb.append("\t\t\tPartOf " + partOf);
+			    		sb.append("\n");
+		    		}
+		    		
+		    		if (!progress.isEmpty()) {
+		    			sb.append("\t\t\tProjectProgress " + progress);
+			    		sb.append("\n");
+					}
+		    		
+		    		sb.append("\t\t}");
+		    		sb.append("\n\n");
+    			} else {
+    				Cell cellId = row.getCell(0);
+    				XSSFCellStyle cs = (XSSFCellStyle) cellId.getCellStyle();
+    				
+    				if (cs.getFillForegroundColorColor() != null) {
+        				String color = cs.getFillForegroundColorColor().getARGBHex();
+        			
+    	        		if (color.equals(SYSTEM_ORANGE)) {
+    						systemId = formatId(cellId.getStringCellValue());
+    	        		}
+    				}
+    			}
+			}
+		}
 	}
 	
 	private void generateQRsRegion(Workbook wb, Map<String, StringBuilder> systems) {
