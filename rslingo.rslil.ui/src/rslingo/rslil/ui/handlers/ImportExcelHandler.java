@@ -620,71 +620,74 @@ public class ImportExcelHandler extends AbstractHandler {
     	
     	while (rowIt.hasNext()) {
     		Row row = rowIt.next();
-    		Cell cellId = row.getCell(0);
-			String id = formatId(cellId.getStringCellValue());
-	    	Cell cellName = row.getCell(1);
-			String name = cellName.getStringCellValue();
-			Cell cellDescription = row.getCell(2);
-			String description = cellDescription.getStringCellValue().replace("\"", "'");
-			Cell cellType = row.getCell(3);
-			String type = cellType.getStringCellValue();
-			Cell cellScope = row.getCell(4);
-			String scope = cellScope.getStringCellValue();
-			Cell cellPartOf = row.getCell(5);
-			String partOf = formatId(cellPartOf.getStringCellValue());
-			
-			StringBuilder builder = new StringBuilder();
-			builder.append("\tPackage-System " + fileName + "_" + id + " {");
-    		builder.append("\n");
     		
-    		if (!partOf.isEmpty()) {
-    			builder.append("\t\timport " + fileName + "_" + partOf + ".*");
-        		builder.append("\n");
-        		builder.append("\n");
-    		}
-    		
-    		builder.append("\t\tSystem " + id + " {");
-    		builder.append("\n");
-    		
-    		if (!name.isEmpty()) {
-    			builder.append("\t\t\tName \"" + name + "\"");
+    		if (!row.getCell(3).getStringCellValue().isEmpty()) {
+	    		Cell cellId = row.getCell(0);
+				String id = formatId(cellId.getStringCellValue());
+		    	Cell cellName = row.getCell(1);
+				String name = cellName.getStringCellValue();
+				Cell cellDescription = row.getCell(2);
+				String description = cellDescription.getStringCellValue().replace("\"", "'");
+				Cell cellType = row.getCell(3);
+				String type = cellType.getStringCellValue();
+				Cell cellScope = row.getCell(4);
+				String scope = cellScope.getStringCellValue();
+				Cell cellPartOf = row.getCell(5);
+				String partOf = formatId(cellPartOf.getStringCellValue());
+				
+				StringBuilder builder = new StringBuilder();
+				builder.append("\tPackage-System " + fileName + "_" + id + " {");
 	    		builder.append("\n");
+	    		
+	    		if (!partOf.isEmpty()) {
+	    			builder.append("\t\timport " + fileName + "_" + partOf + ".*");
+	        		builder.append("\n");
+	        		builder.append("\n");
+	    		}
+	    		
+	    		builder.append("\t\tSystem " + id + " {");
+	    		builder.append("\n");
+	    		
+	    		if (!name.isEmpty()) {
+	    			builder.append("\t\t\tName \"" + name + "\"");
+		    		builder.append("\n");
+				}
+	    		
+	    		if (!description.isEmpty()) {
+	    			builder.append("\t\t\tDescription \"" + description + "\"");
+		    		builder.append("\n");
+	    		}
+	    		
+	    		builder.append("\t\t\tType " + type);
+	    		builder.append("\n");
+	    		
+	    		builder.append("\t\t\tScope " + scope);
+	    		builder.append("\n");
+	    		
+	    		if (!partOf.isEmpty()) {
+	    			builder.append("\t\t\tPartOf " + partOf);
+		    		builder.append("\n");
+	    		}
+	    		
+	    		builder.append("\t\t}");
+	    		builder.append("\n\n");
+	    		
+				systems.put(id, builder);
+	    	}
+	    	
+	//    	generateEntitiesRegion(wb, systems);
+	//		generateActorsRegion(wb, systems);
+	//		generateUseCasesRegion(wb, systems);
+	//		generateFRsRegion(wb, systems);
+	//		generateQRsRegion(wb, systems);
+	//		generateConstraintsRegion(wb, systems);
+	    	
+	    	for (String key : systems.keySet()) {
+				sb.append(systems.get(key));
+				sb.append("\t}");
+				sb.append("\n\n");
 			}
-    		
-    		if (!description.isEmpty()) {
-    			builder.append("\t\t\tDescription \"" + description + "\"");
-	    		builder.append("\n");
-    		}
-    		
-    		builder.append("\t\t\tType " + type);
-    		builder.append("\n");
-    		
-    		builder.append("\t\t\tScope " + scope);
-    		builder.append("\n");
-    		
-    		if (!partOf.isEmpty()) {
-    			builder.append("\t\t\tPartOf " + partOf);
-	    		builder.append("\n");
-    		}
-    		
-    		builder.append("\t\t}");
-    		builder.append("\n\n");
-    		
-			systems.put(id, builder);
     	}
-    	
-//    	generateEntitiesRegion(wb, systems);
-//		generateActorsRegion(wb, systems);
-//		generateUseCasesRegion(wb, systems);
-//		generateFRsRegion(wb, systems);
-//		generateQRsRegion(wb, systems);
-//		generateConstraintsRegion(wb, systems);
-    	
-    	for (String key : systems.keySet()) {
-			sb.append(systems.get(key));
-			sb.append("\t}");
-			sb.append("\n\n");
-		}
 	}
 	
 	private void generateEntitiesRegion(Workbook wb, Map<String, StringBuilder> systems) {
