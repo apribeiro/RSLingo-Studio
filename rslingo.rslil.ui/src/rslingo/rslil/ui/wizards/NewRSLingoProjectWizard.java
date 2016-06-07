@@ -20,6 +20,14 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 
+import rslingo.rslil.rSLIL.impl.ActualScheduleImpl;
+import rslingo.rslil.rSLIL.impl.DateImpl;
+import rslingo.rslil.rSLIL.impl.MonthImpl;
+import rslingo.rslil.rSLIL.impl.OrganizationsImpl;
+import rslingo.rslil.rSLIL.impl.PlannedScheduleImpl;
+import rslingo.rslil.rSLIL.impl.ProjectImpl;
+import rslingo.rslil.rSLIL.impl.ProjectProgressImpl;
+
 public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 	private NewRSLingoProjectWizardPage page;
 	private MetadataWizardPage metadataPage;
@@ -44,21 +52,66 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 	
 	@Override
 	public boolean performFinish() {
-		/*final String projectName = page.getProjectName();
+		final String projectName = page.getProjectName();
 		final String fileMode = page.getFileMode();
-		final Metadata metadata = new MetadataImpl() {};
-		metadata.setName(metadataPage.getPolicyName());
-		metadata.setDescription(metadataPage.getDescription());
-		metadata.setAuthors(metadataPage.getAuthors());
-		metadata.setOrganizations(metadataPage.getOrganizations());
-		metadata.setVersion(metadataPage.getVersion());
+		final ProjectImpl project = new ProjectImpl() {};
+		project.setNameAlias(metadataPage.getPolicyName());
+		
+		project.setType("type");
+		project.setDomain("domain");
+		
+		PlannedScheduleImpl plannedSchedule = new PlannedScheduleImpl() {};
+		DateImpl plannedStart = new DateImpl() {}; 
+		plannedStart.setDay(1);
+		MonthImpl month = new MonthImpl() {};
+		month.setName("name");
+		plannedStart.setMonth(month);
+		plannedStart.setYear(2016);
+		DateImpl plannedEnd = new DateImpl() {}; 
+		plannedEnd.setDay(1);
+		month = new MonthImpl() {};
+		month.setName("name");
+		plannedEnd.setMonth(month);
+		plannedEnd.setYear(2016);
+		plannedSchedule.setStart(plannedStart);
+		plannedSchedule.setEnd(plannedEnd);
+		project.setPlanned(plannedSchedule);
+		
+		ActualScheduleImpl actualSchedule = new ActualScheduleImpl() {};
+		DateImpl actualStart = new DateImpl() {}; 
+		actualStart.setDay(1);
+		month = new MonthImpl() {};
+		month.setName("name");
+		plannedStart.setMonth(month);
+		plannedStart.setYear(2016);
+		DateImpl actualEnd = new DateImpl() {}; 
+		actualEnd.setDay(1);
+		month = new MonthImpl() {};
+		month.setName("name");
+		actualEnd.setMonth(month);
+		actualEnd.setYear(2016);
+		actualSchedule.setStart(actualStart);
+		actualSchedule.setEnd(actualEnd);
+		project.setActual(actualSchedule);
+		
+		OrganizationsImpl orgs = new OrganizationsImpl() {};
+		orgs.setCustomer("");
+		orgs.setSupplier("");
+		orgs.setPartners("");
+		project.setOrganizations(orgs);
+		
+		ProjectProgressImpl progress = new ProjectProgressImpl() {};
+		progress.setValue("");
+		project.setProgress(progress);
+		
+		project.setSummary("");
+		project.setDescription("");
 		final String namespace = metadataPage.getNamespace();
-		final String date = metadataPage.getDate();
 		
 		IRunnableWithProgress op = new IRunnableWithProgress() {
 			public void run(IProgressMonitor monitor) throws InvocationTargetException {
 				try {
-					doFinish(projectName, fileMode, namespace, metadata, date, monitor);
+					doFinish(projectName, fileMode, namespace, project, monitor);
 				} catch (CoreException e) {
 					throw new InvocationTargetException(e);
 				} finally {
@@ -75,13 +128,12 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 			Throwable realException = e.getTargetException();
 			MessageDialog.openError(getShell(), "Error", realException.getMessage());
 			return false;
-		}*/
+		}
 		return true;
 	}
 	
-	/*private void doFinish(String projectName, String fileMode, String namespace,
-			Metadata metadata, String date, IProgressMonitor monitor)
-			throws CoreException {
+	private void doFinish(String projectName, String fileMode, String namespace,
+		ProjectImpl packageProject, IProgressMonitor monitor) throws CoreException {
 		// Create the Project structure
 		monitor.beginTask("Creating the project " + fileMode, 2);
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
@@ -99,49 +151,28 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 		monitor.setTaskName("Creating policy files...");
 		
 		if (fileMode.equals(NewRSLingoProjectWizardPage.SINGLE)) {
-			generateSingleFile(folder, namespace, metadata, date, monitor);
+			generateSingleFile(folder, namespace, packageProject, monitor);
 		} else {
-			generateMainFile(folder, namespace, metadata, date, monitor);
-			generateStatementsFile(folder, namespace, monitor);
-			generatePrivateDataFile(folder, namespace, monitor);
-			generateServicesFile(folder, namespace, monitor);
-			generateRecipientsFile(folder, namespace, monitor);
-			generateEnforcementsFile(folder, namespace, monitor);
+			generatePackageProjectFile(folder, namespace, packageProject, monitor);
+			generatePackageSystemFile(folder, namespace, monitor);
 		}
 		monitor.worked(1);
-
-//		monitor.setTaskName("Opening file for editing...");
-//		getShell().getDisplay().asyncExec(new Runnable() {
-//			public void run() {
-//				IWorkbenchPage page =
-//					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-//				try {
-//					IDE.openEditor(page, file, true);
-//				} catch (PartInitException e) {
-//				}
-//			}
-//		});
-//		monitor.worked(1);
 	}
 	
-	private void generateSingleFile(IFolder folder, String namespace, Metadata metadata,
-			String date, IProgressMonitor monitor) {
+	private void generateSingleFile(IFolder folder, String namespace, ProjectImpl project,
+		IProgressMonitor monitor) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Package " + namespace + " {");
 		sb.append("\n");
 		sb.append("\n");
 		
-		generateMetadataRegion(metadata, date, sb);
-		generateStatementsRegion(sb);
-		generatePrivateDataRegion(sb);
-		generateRecipientsRegion(sb);
-		generateServicesRegion(sb);
-		generateEnforcementsRegion(sb);
+		generateProjectRegion(project, sb);
+		generateSystemRegion(sb);
     	
     	sb.deleteCharAt(sb.length() - 1);
 		sb.append("}");
 		
-		IFile file = folder.getFile("new_policy.rslil");
+		IFile file = folder.getFile("new_project.rslil");
 		InputStream stream = new ByteArrayInputStream(sb.toString().getBytes());
 		
 		try {
@@ -154,8 +185,8 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 		}
 	}
 	
-	private void generateMainFile(IFolder folder, String namespace, Metadata metadata,
-			String date, IProgressMonitor monitor) {
+	private void generatePackageProjectFile(IFolder folder, String namespace,
+		ProjectImpl project, IProgressMonitor monitor) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Package " + namespace + ".Main {");
 		sb.append("\n");
@@ -172,7 +203,7 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 		sb.append("\n");
 		sb.append("\n");
 		
-		generateMetadataRegion(metadata, date, sb);
+		generateProjectRegion(project, sb);
     	
     	sb.deleteCharAt(sb.length() - 1);
     	sb.append("}");
@@ -190,8 +221,8 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 		}
 	}
 		
-	private void generateStatementsFile(IFolder folder, String namespace,
-			IProgressMonitor monitor) {
+	private void generatePackageSystemFile(IFolder folder, String namespace,
+		IProgressMonitor monitor) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Package " + namespace + ".Statements {");
 		sb.append("\n");
@@ -206,65 +237,12 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 		sb.append("\n");
 		sb.append("\n");
 		
-		generateStatementsRegion(sb);
+		generateSystemRegion(sb);
     	
     	sb.deleteCharAt(sb.length() - 1);
     	sb.append("}");
 		
-		IFile file = folder.getFile("new_policy.Statements.rslil");
-		InputStream stream = new ByteArrayInputStream(sb.toString().getBytes());
-		
-		try {
-			if (!file.exists()) {
-				file.create(stream, IResource.FORCE, monitor);
-			} else {
-				file.setContents(stream, IResource.FORCE, monitor);
-			}
-		} catch (CoreException e) {
-		}
-	}
-		
-	private void generatePrivateDataFile(IFolder folder, String namespace,
-			IProgressMonitor monitor) {
-		StringBuilder sb = new StringBuilder();
-		sb.append("Package " + namespace + ".Privatedata {");
-		sb.append("\n");
-		sb.append("\n");
-		
-		generatePrivateDataRegion(sb);
-    	
-    	sb.deleteCharAt(sb.length() - 1);
-    	sb.append("}");
-		
-		IFile file = folder.getFile("new_policy.Privatedata.rslil");
-		InputStream stream = new ByteArrayInputStream(sb.toString().getBytes());
-		
-		try {
-			if (!file.exists()) {
-				file.create(stream, IResource.FORCE, monitor);
-			} else {
-				file.setContents(stream, IResource.FORCE, monitor);
-			}
-		} catch (CoreException e) {
-		}
-	}
-		
-	private void generateServicesFile(IFolder folder, String namespace,
-			IProgressMonitor monitor) {
-		StringBuilder sb = new StringBuilder();
-		sb.append("Package " + namespace + ".Services {");
-		sb.append("\n");
-		sb.append("\n");
-		sb.append("import " + namespace + ".Privatedata.*");
-		sb.append("\n");
-		sb.append("\n");
-		
-		generateServicesRegion(sb);
-    	
-    	sb.deleteCharAt(sb.length() - 1);
-    	sb.append("}");
-		
-		IFile file = folder.getFile("new_policy.Services.rslil");
+		IFile file = folder.getFile("new_project.System.rslil");
 		InputStream stream = new ByteArrayInputStream(sb.toString().getBytes());
 		
 		try {
@@ -277,135 +255,11 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 		}
 	}
 	
-	private void generateEnforcementsFile(IFolder folder, String namespace,
-			IProgressMonitor monitor) {
-		StringBuilder sb = new StringBuilder();
-		sb.append("Package " + namespace + ".Enforcements {");
-		sb.append("\n");
-		sb.append("\n");
-		
-		generateEnforcementsRegion(sb);
-    	
-    	sb.deleteCharAt(sb.length() - 1);
-    	sb.append("}");
-		
-		IFile file = folder.getFile("new_policy.Enforcements.rslil");
-		InputStream stream = new ByteArrayInputStream(sb.toString().getBytes());
-		
-		try {
-			if (!file.exists()) {
-				file.create(stream, IResource.FORCE, monitor);
-			} else {
-				file.setContents(stream, IResource.FORCE, monitor);
-			}
-		} catch (CoreException e) {
-		}
-	}	
-	
-	private void generateRecipientsFile(IFolder folder, String namespace,
-			IProgressMonitor monitor) {
-		StringBuilder sb = new StringBuilder();
-		sb.append("Package " + namespace + ".Recipients {");
-		sb.append("\n");
-		sb.append("\n");
-		
-		generateRecipientsRegion(sb);
-    	
-    	sb.deleteCharAt(sb.length() - 1);
-    	sb.append("}");
-		
-		IFile file = folder.getFile("new_policy.Recipients.rslil");
-		InputStream stream = new ByteArrayInputStream(sb.toString().getBytes());
-		
-		try {
-			if (!file.exists()) {
-				file.create(stream, IResource.FORCE, monitor);
-			} else {
-				file.setContents(stream, IResource.FORCE, monitor);
-			}
-		} catch (CoreException e) {
-		}
-	}
-		
-	
-	private void generateMetadataRegion(Metadata metadata, String date, StringBuilder sb) {
-		sb.append("PolicyMetadata {");
-		sb.append("\n");
-		sb.append("\tPolicyName \"" + metadata.getName() + "\"");
-		sb.append("\n");
-		sb.append("\tDescription \"" + metadata.getDescription() + "\"");
-		sb.append("\n");
-		sb.append("\tAuthor(s) \"" + metadata.getAuthors() + "\"");
-		sb.append("\n");
-		sb.append("\tOrganization(s) \"" + metadata.getOrganizations() + "\"");
-		sb.append("\n");
-		sb.append("\tDate " + date);
-		sb.append("\n");
-		sb.append("\tVersion \"" + metadata.getVersion() + "\"");
-		sb.append("\n}");
-		sb.append("\n\n");
+	private void generateProjectRegion(ProjectImpl project, StringBuilder sb) {
+		// TODO: Project Region
 	}
 	
-	private void generateStatementsRegion(StringBuilder sb) {
-		sb.append("Collection St1 {");
-		sb.append("\n");
-		sb.append("\tDescription \"St1 description\"");
-		sb.append("\n");
-		sb.append("\tCondition \" St1 condition\"");
-		sb.append("\n");
-		sb.append("\tModality Permitted");
-		sb.append("\n}");
-		sb.append("\n\n");
+	private void generateSystemRegion(StringBuilder sb) {
+		// TODO: Systems Region
 	}
-	
-	private void generatePrivateDataRegion(StringBuilder sb) {
-		sb.append("PrivateData PD1 {");
-		sb.append("\n");
-		sb.append("\tDescription \"PD1 description\"");
-		sb.append("\n");
-		sb.append("\tType PersonalInformation");
-		sb.append("\n");
-		sb.append("\tAttribute \"A1\" {");
-		sb.append("\n");
-		sb.append("\t\tDescription \"A1 description\"");
-		sb.append("\n\t}");
-		sb.append("\n}");
-		sb.append("\n\n");
-	}
-	
-	private void generateRecipientsRegion(StringBuilder sb) {
-		sb.append("Recipient R1 {");
-		sb.append("\n");
-		sb.append("\tName \"Recipient R1\"");
-		sb.append("\n");
-		sb.append("\tDescription \"R1 description\"");
-		sb.append("\n");		
-		sb.append("\tScope Internal");
-		sb.append("\n");
-		sb.append("\tType Individual");
-		sb.append("\n}");
-		sb.append("\n\n");
-	}
-	
-	private void generateServicesRegion(StringBuilder sb) {
-		sb.append("Service S1 {");
-		sb.append("\n");
-		sb.append("\tName \"Service 1\"");
-		sb.append("\n");
-		sb.append("\tDescription \"S1 description\"");
-		sb.append("\n}");
-		sb.append("\n\n");
-	}
-	
-	private void generateEnforcementsRegion(StringBuilder sb) {
-		sb.append("Enforcement En1 {");
-		sb.append("\n");
-		sb.append("\tName \"Enforcement 1\"");
-		sb.append("\n");
-		sb.append("\tDescription \"En1 description\"");
-		sb.append("\n");
-		sb.append("\tType Action");
-		sb.append("\n}");
-		sb.append("\n\n");
-	}*/
 }

@@ -97,7 +97,7 @@ public class NewRSLILWizardPage extends WizardPage {
 				containerText.setText(container.getFullPath().toString());
 			}
 		}
-		fileText.setText("new_file.rslil");
+		fileText.setText("new_project.rslil");
 	}
 
 	private void handleBrowse() {
