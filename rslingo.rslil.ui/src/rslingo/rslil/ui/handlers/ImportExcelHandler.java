@@ -94,7 +94,7 @@ public class ImportExcelHandler extends AbstractHandler {
 			generateSingleFile(srcGenFolder, filePath, fileName);
 		} else {
 			generatePackageProjectFile(srcGenFolder, filePath, fileName);
-//			generatePackageSystemFile(srcGenFolder, filePath, fileName);
+			generatePackageSystemFiles(srcGenFolder, filePath, fileName);
 		}
 	}
 	
@@ -125,7 +125,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		generateStakeholdersRegion(wb, sb);
 		generateGoalsRegion(wb, sb);
 		generateGoalRelationsRegion(wb, sb);
-		generateSytemsRegion(wb, sb, formatId(fileName));
+		generateSystemsRegion(wb, sb, formatId(fileName));
 		generateSystemRelationsRegion(wb, sb);
     	
     	sb.deleteCharAt(sb.length() - 1);
@@ -173,30 +173,102 @@ public class ImportExcelHandler extends AbstractHandler {
 		}
 	}
 	
-	private void generatePackageSystemFile(IFolder srcGenFolder, String filePath, String fileName)
+	private void generatePackageSystemFiles(IFolder srcGenFolder, String filePath, String fileName)
 			throws Exception {
-		StringBuilder sb = new StringBuilder();
+		String formattedFileName = formatId(fileName);
 		InputStream inp = new FileInputStream(filePath);
 		Workbook wb = WorkbookFactory.create(inp);
-		sb.append("Package " + fileName + ".Systems {");
-		sb.append("\n");
-		sb.append("\n");
-		sb.append("import " + fileName + ".Project.*");
-		sb.append("\n");
-		sb.append("\n");
+		// Get the Systems Sheet
+	    Sheet sheet = wb.getSheet("systems");
+		Iterator<Row> rowIt = sheet.rowIterator();
+		// Ignore the Header rows
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
+    	rowIt.next();
 		
-//		generateStatementsRegion(wb, sb);
+    	Map<String, StringBuilder> systems = new TreeMap<String, StringBuilder>();
+		
+    	while (rowIt.hasNext()) {
+    		Row row = rowIt.next();
+    		
+    		if (!row.getCell(3).getStringCellValue().isEmpty()) {
+	    		Cell cellId = row.getCell(0);
+				String id = formatId(cellId.getStringCellValue());
+		    	Cell cellName = row.getCell(1);
+				String name = cellName.getStringCellValue();
+				Cell cellDescription = row.getCell(2);
+				String description = cellDescription.getStringCellValue().replace("\"", "'");
+				Cell cellType = row.getCell(3);
+				String type = cellType.getStringCellValue();
+				Cell cellScope = row.getCell(4);
+				String scope = cellScope.getStringCellValue();
+				Cell cellPartOf = row.getCell(5);
+				String partOf = formatId(cellPartOf.getStringCellValue());
+				
+				StringBuilder builder = new StringBuilder();
+				builder.append("\tPackage-System " + formattedFileName + "_" + id + " {");
+	    		builder.append("\n");
+	    		
+	    		if (!partOf.isEmpty()) {
+	    			builder.append("\t\timport " + formattedFileName + "_" + partOf + ".*");
+	        		builder.append("\n");
+	        		builder.append("\n");
+	    		}
+	    		
+	    		builder.append("\t\tSystem " + id + " {");
+	    		builder.append("\n");
+	    		
+	    		if (!name.isEmpty()) {
+	    			builder.append("\t\t\tName \"" + name + "\"");
+		    		builder.append("\n");
+				}
+	    		
+	    		if (!description.isEmpty()) {
+	    			builder.append("\t\t\tDescription \"" + description + "\"");
+		    		builder.append("\n");
+	    		}
+	    		
+	    		builder.append("\t\t\tType " + type);
+	    		builder.append("\n");
+	    		
+	    		builder.append("\t\t\tScope " + scope);
+	    		builder.append("\n");
+	    		
+	    		if (!partOf.isEmpty()) {
+	    			builder.append("\t\t\tPartOf " + partOf);
+		    		builder.append("\n");
+	    		}
+	    		
+	    		builder.append("\t\t}");
+	    		builder.append("\n\n");
+	    		
+				systems.put(id, builder);
+	    	}
+    	}
     	
-    	sb.deleteCharAt(sb.length() - 1);
-    	sb.append("}");
+//    	generateEntitiesRegion(wb, systems);
+		generateActorsRegion(wb, systems);
+//		generateUseCasesRegion(wb, systems);
+		generateFRsRegion(wb, systems);
+		generateQRsRegion(wb, systems);
+		generateConstraintsRegion(wb, systems);
+		generateRequirementRelationsRegion(wb, systems);
 		
-		IFile file = srcGenFolder.getFile(fileName + ".Systems.rslil");
-		InputStream source = new ByteArrayInputStream(sb.toString().getBytes());
-		
-		if (!file.exists()) {
-			file.create(source, IResource.FORCE, null);
-		} else {
-			file.setContents(source, IResource.FORCE, null);
+    	for (String system : systems.keySet()) {
+    		StringBuilder sb = systems.get(system); 
+			sb.append("\t}");
+			
+			IFile file = srcGenFolder.getFile(fileName + ".Systems." + system + ".rslil");
+			InputStream source = new ByteArrayInputStream(sb.toString().getBytes());
+			
+			if (!file.exists()) {
+				file.create(source, IResource.FORCE, null);
+			} else {
+				file.setContents(source, IResource.FORCE, null);
+			}
 		}
 	}
 	
@@ -622,7 +694,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		}
 	}
 	
-	private void generateSytemsRegion(Workbook wb, StringBuilder sb, String fileName) {
+	private void generateSystemsRegion(Workbook wb, StringBuilder sb, String fileName) {
 		// Get the Systems Sheet
 	    Sheet sheet = wb.getSheet("systems");
 		Iterator<Row> rowIt = sheet.rowIterator();
