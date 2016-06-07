@@ -105,8 +105,46 @@ public class NewRSLILWizard extends Wizard implements INewWizard {
 	
 	private InputStream openContentStream() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Package New_Policy {");
-		sb.append("\n\t");
+		sb.append("Package-Project New_Package_Project {");
+		sb.append("\n\n");
+		sb.append("\tProject New_project {");
+		sb.append("\n");
+		sb.append("\t\tName \"New Project\"");
+		sb.append("\n");
+		sb.append("\t\tType Research");
+		sb.append("\n");
+		sb.append("\t\tApplicationDomain Education");
+		sb.append("\n");
+		sb.append("\t\tPlannedSchedule {");
+		sb.append("\n");
+		sb.append("\t\t\tStart 1-Jun-2016");
+		sb.append("\n");
+		sb.append("\t\t\tEnd 1-Jun-2017");
+		sb.append("\n");
+		sb.append("\t\t}");
+		sb.append("\n");
+		sb.append("\t\tActualSchedule {");
+		sb.append("\n");
+		sb.append("\t\t\tStart 6-Jun-2016");
+		sb.append("\n");
+		sb.append("\t\t}");
+		sb.append("\n");
+		sb.append("\t\tOrganizations {");
+		sb.append("\n");
+		sb.append("\t\t\tCustomer \"Customer1\"");
+		sb.append("\n");
+		sb.append("\t\t\tSupplier \"Supplier1\"");
+		sb.append("\n");
+		sb.append("\t\t\tPartners \"Partner1\"");
+		sb.append("\n");
+		sb.append("\t\t}");
+		sb.append("\n");
+		sb.append("\t\tProjectProgress Plan");
+		sb.append("\n");
+		sb.append("\t\tSummary \"New Project's summary\"");
+		sb.append("\n");
+		sb.append("\t\tDescription \"New Project's description\"");
+		sb.append("\n\t}");
 		sb.append("\n}");
 		return new ByteArrayInputStream(sb.toString().getBytes());
 	}
