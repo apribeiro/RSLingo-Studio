@@ -149,7 +149,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		sb.append("Package-Project " + formatId(fileName) + " {");
 		sb.append("\n");
 		sb.append("\n");
-		sb.append("\timport " + formatId(fileName) + ".Systems.*");
+		generateSytemImportsRegion(wb, sb, formatId(fileName));
 		sb.append("\n");
 		sb.append("\n");
 		
@@ -209,41 +209,45 @@ public class ImportExcelHandler extends AbstractHandler {
 				String partOf = formatId(cellPartOf.getStringCellValue());
 				
 				StringBuilder builder = new StringBuilder();
-				builder.append("\tPackage-System " + formattedFileName + "_" + id + " {");
+				builder.append("Package-System " + formattedFileName + "_" + id + " {");
 	    		builder.append("\n");
-	    		
+    			builder.append("\n");
+    			builder.append("\timport " + formattedFileName + ".*");
+    			builder.append("\n");
+    			builder.append("\n");
+    			
 	    		if (!partOf.isEmpty()) {
-	    			builder.append("\t\timport " + formattedFileName + "_" + partOf + ".*");
+	    			builder.append("\timport " + formattedFileName + "_" + partOf + ".*");
 	        		builder.append("\n");
 	        		builder.append("\n");
 	    		}
 	    		
-	    		builder.append("\t\tSystem " + id + " {");
+	    		builder.append("\tSystem " + id + " {");
 	    		builder.append("\n");
 	    		
 	    		if (!name.isEmpty()) {
-	    			builder.append("\t\t\tName \"" + name + "\"");
+	    			builder.append("\t\tName \"" + name + "\"");
 		    		builder.append("\n");
 				}
 	    		
 	    		if (!description.isEmpty()) {
-	    			builder.append("\t\t\tDescription \"" + description + "\"");
+	    			builder.append("\t\tDescription \"" + description + "\"");
 		    		builder.append("\n");
 	    		}
 	    		
-	    		builder.append("\t\t\tType " + type);
+	    		builder.append("\t\tType " + type);
 	    		builder.append("\n");
 	    		
-	    		builder.append("\t\t\tScope " + scope);
+	    		builder.append("\t\tScope " + scope);
 	    		builder.append("\n");
 	    		
 	    		if (!partOf.isEmpty()) {
-	    			builder.append("\t\t\tPartOf " + partOf);
+	    			builder.append("\t\tPartOf " + partOf);
 		    		builder.append("\n");
 	    		}
 	    		
-	    		builder.append("\t\t}");
-	    		builder.append("\n\n");
+	    		builder.append("\t}");
+	    		builder.append("\n");
 	    		
 				systems.put(id, builder);
 	    	}
@@ -259,7 +263,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		
     	for (String system : systems.keySet()) {
     		StringBuilder sb = systems.get(system); 
-			sb.append("\t}");
+			sb.append("}");
 			
 			IFile file = srcGenFolder.getFile(fileName + ".Systems." + system + ".rslil");
 			InputStream source = new ByteArrayInputStream(sb.toString().getBytes());
