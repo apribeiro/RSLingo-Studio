@@ -93,12 +93,8 @@ public class ImportExcelHandler extends AbstractHandler {
 		if (importMode.equals(ImportWindow.SINGLE)) {
 			generateSingleFile(srcGenFolder, filePath, fileName);
 		} else {
-//			generateMainFile(srcGenFolder, filePath, fileName);
-//			generateStatementsFile(srcGenFolder, filePath, fileName);
-//			generatePrivateDataFile(srcGenFolder, filePath, fileName);
-//			generateServicesFile(srcGenFolder, filePath, fileName);
-//			generateEnforcementsFile(srcGenFolder, filePath, fileName);
-//			generateRecipientsFile(srcGenFolder, filePath, fileName);
+			generatePackageProjectFile(srcGenFolder, filePath, fileName);
+//			generatePackageSystemFile(srcGenFolder, filePath, fileName);
 		}
 	}
 	
@@ -145,56 +141,47 @@ public class ImportExcelHandler extends AbstractHandler {
 		}
 	}
 	
-	private void generateMainFile(IFolder srcGenFolder, String filePath, String fileName)
-		throws Exception {
-			StringBuilder sb = new StringBuilder();
-			InputStream inp = new FileInputStream(filePath);
-			Workbook wb = WorkbookFactory.create(inp);
-			sb.append("Package " + fileName + ".Main {");
-			sb.append("\n");
-			sb.append("\n");
-			sb.append("import " + fileName + ".Statements.*");
-			sb.append("\n");
-			sb.append("import " + fileName + ".Privatedata.*");
-			sb.append("\n");
-			sb.append("import " + fileName + ".Recipients.*");
-			sb.append("\n");
-			sb.append("import " + fileName + ".Enforcements.*");
-			sb.append("\n");
-			sb.append("import " + fileName + ".Services.*");
-			sb.append("\n");
-			sb.append("\n");
-			
-//			generateProjectRegion(wb, sb);
-	    	
-	    	sb.deleteCharAt(sb.length() - 1);
-	    	sb.append("}");
-			
-			IFile file = srcGenFolder.getFile(fileName + ".Main.rslil");
-			InputStream source = new ByteArrayInputStream(sb.toString().getBytes());
-			
-			if (!file.exists()) {
-				file.create(source, IResource.FORCE, null);
-			} else {
-				file.setContents(source, IResource.FORCE, null);
-			}
-	}
-	
-	private void generateStatementsFile(IFolder srcGenFolder, String filePath, String fileName)
+	private void generatePackageProjectFile(IFolder srcGenFolder, String filePath, String fileName)
 			throws Exception {
 		StringBuilder sb = new StringBuilder();
 		InputStream inp = new FileInputStream(filePath);
 		Workbook wb = WorkbookFactory.create(inp);
-		sb.append("Package " + fileName + ".Statements {");
+		sb.append("Package-Project " + formatId(fileName) + " {");
 		sb.append("\n");
 		sb.append("\n");
-		sb.append("import " + fileName + ".Privatedata.*");
+		sb.append("\timport " + formatId(fileName) + ".Systems.*");
 		sb.append("\n");
-		sb.append("import " + fileName + ".Services.*");
 		sb.append("\n");
-		sb.append("import " + fileName + ".Enforcements.*");
+		
+		generateProjectRegion(wb, sb);
+		generateGlossaryRegion(wb, sb);
+		generateStakeholdersRegion(wb, sb);
+		generateGoalsRegion(wb, sb);
+		generateGoalRelationsRegion(wb, sb);
+		generateSystemRelationsRegion(wb, sb);
+    	
+    	sb.deleteCharAt(sb.length() - 1);
+    	sb.append("}");
+		
+		IFile file = srcGenFolder.getFile(fileName + ".Project.rslil");
+		InputStream source = new ByteArrayInputStream(sb.toString().getBytes());
+		
+		if (!file.exists()) {
+			file.create(source, IResource.FORCE, null);
+		} else {
+			file.setContents(source, IResource.FORCE, null);
+		}
+	}
+	
+	private void generatePackageSystemFile(IFolder srcGenFolder, String filePath, String fileName)
+			throws Exception {
+		StringBuilder sb = new StringBuilder();
+		InputStream inp = new FileInputStream(filePath);
+		Workbook wb = WorkbookFactory.create(inp);
+		sb.append("Package " + fileName + ".Systems {");
 		sb.append("\n");
-		sb.append("import " + fileName + ".Recipients.*");
+		sb.append("\n");
+		sb.append("import " + fileName + ".Project.*");
 		sb.append("\n");
 		sb.append("\n");
 		
@@ -203,7 +190,7 @@ public class ImportExcelHandler extends AbstractHandler {
     	sb.deleteCharAt(sb.length() - 1);
     	sb.append("}");
 		
-		IFile file = srcGenFolder.getFile(fileName + ".Statements.rslil");
+		IFile file = srcGenFolder.getFile(fileName + ".Systems.rslil");
 		InputStream source = new ByteArrayInputStream(sb.toString().getBytes());
 		
 		if (!file.exists()) {
