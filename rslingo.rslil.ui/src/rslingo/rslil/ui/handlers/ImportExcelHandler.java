@@ -1512,8 +1512,4 @@ public class ImportExcelHandler extends AbstractHandler {
 				.replaceAll("è", "e").replaceAll("é", "e")
 				.replaceAll("í", "i").replaceAll("ó", "o").replaceAll("ú", "u");
 	}
-	
-	private String toUpperFirst(String s) {
-		return s.substring(0, 1).toUpperCase() + s.substring(1);
-	}
 }
