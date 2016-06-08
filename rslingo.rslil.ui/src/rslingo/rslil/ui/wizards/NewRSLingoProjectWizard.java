@@ -21,8 +21,6 @@ import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 
 import rslingo.rslil.rSLIL.impl.ActualScheduleImpl;
-import rslingo.rslil.rSLIL.impl.DateImpl;
-import rslingo.rslil.rSLIL.impl.MonthImpl;
 import rslingo.rslil.rSLIL.impl.OrganizationsImpl;
 import rslingo.rslil.rSLIL.impl.PlannedScheduleImpl;
 import rslingo.rslil.rSLIL.impl.ProjectImpl;
@@ -55,57 +53,32 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 		final String projectName = page.getProjectName();
 		final String fileMode = page.getFileMode();
 		final ProjectImpl project = new ProjectImpl() {};
-		project.setNameAlias(packageProjectPage.getPolicyName());
-		
-		project.setType("type");
-		project.setDomain("domain");
+		project.setNameAlias(packageProjectPage.getProjectName());
+		project.setType(packageProjectPage.getType());
+		project.setDomain(packageProjectPage.getDomain());
 		
 		PlannedScheduleImpl plannedSchedule = new PlannedScheduleImpl() {};
-		DateImpl plannedStart = new DateImpl() {}; 
-		plannedStart.setDay(1);
-		MonthImpl month = new MonthImpl() {};
-		month.setName("name");
-		plannedStart.setMonth(month);
-		plannedStart.setYear(2016);
-		DateImpl plannedEnd = new DateImpl() {}; 
-		plannedEnd.setDay(1);
-		month = new MonthImpl() {};
-		month.setName("name");
-		plannedEnd.setMonth(month);
-		plannedEnd.setYear(2016);
-		plannedSchedule.setStart(plannedStart);
-		plannedSchedule.setEnd(plannedEnd);
+		plannedSchedule.setStart(packageProjectPage.getPlannedStart());
+		plannedSchedule.setEnd(packageProjectPage.getPlannedEnd());
 		project.setPlanned(plannedSchedule);
 		
 		ActualScheduleImpl actualSchedule = new ActualScheduleImpl() {};
-		DateImpl actualStart = new DateImpl() {}; 
-		actualStart.setDay(1);
-		month = new MonthImpl() {};
-		month.setName("name");
-		plannedStart.setMonth(month);
-		plannedStart.setYear(2016);
-		DateImpl actualEnd = new DateImpl() {}; 
-		actualEnd.setDay(1);
-		month = new MonthImpl() {};
-		month.setName("name");
-		actualEnd.setMonth(month);
-		actualEnd.setYear(2016);
-		actualSchedule.setStart(actualStart);
-		actualSchedule.setEnd(actualEnd);
+		actualSchedule.setStart(packageProjectPage.getActualStart());
+		actualSchedule.setEnd(packageProjectPage.getActualEnd());
 		project.setActual(actualSchedule);
 		
 		OrganizationsImpl orgs = new OrganizationsImpl() {};
-		orgs.setCustomer("");
-		orgs.setSupplier("");
-		orgs.setPartners("");
+		orgs.setCustomer(packageProjectPage.getCustomer());
+		orgs.setSupplier(packageProjectPage.getSupplier());
+		orgs.setPartners(packageProjectPage.getPartners());
 		project.setOrganizations(orgs);
 		
 		ProjectProgressImpl progress = new ProjectProgressImpl() {};
-		progress.setValue("");
+		progress.setValue(packageProjectPage.getProgress());
 		project.setProgress(progress);
 		
-		project.setSummary("");
-		project.setDescription("");
+		project.setSummary(packageProjectPage.getSummary());
+		project.setDescription(packageProjectPage.getDescription());
 		final String namespace = packageProjectPage.getNamespace();
 		
 		IRunnableWithProgress op = new IRunnableWithProgress() {
@@ -162,7 +135,7 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 	private void generateSingleFile(IFolder folder, String namespace, ProjectImpl project,
 		IProgressMonitor monitor) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Package " + namespace + " {");
+		sb.append("Package-Project " + namespace + " {");
 		sb.append("\n");
 		sb.append("\n");
 		
@@ -188,18 +161,10 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 	private void generatePackageProjectFile(IFolder folder, String namespace,
 		ProjectImpl project, IProgressMonitor monitor) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Package " + namespace + ".Main {");
+		sb.append("Package-Project " + namespace + ".Project {");
 		sb.append("\n");
 		sb.append("\n");
-		sb.append("import " + namespace + ".Statements.*");
-		sb.append("\n");
-		sb.append("import " + namespace + ".Privatedata.*");
-		sb.append("\n");
-		sb.append("import " + namespace + ".Recipients.*");
-		sb.append("\n");
-		sb.append("import " + namespace + ".Enforcements.*");
-		sb.append("\n");
-		sb.append("import " + namespace + ".Services.*");
+		sb.append("import " + namespace + ".Systems.*");
 		sb.append("\n");
 		sb.append("\n");
 		
@@ -208,7 +173,7 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
     	sb.deleteCharAt(sb.length() - 1);
     	sb.append("}");
 		
-		IFile file = folder.getFile("new_policy.Main.rslil");
+		IFile file = folder.getFile("new_project.Project.rslil");
 		InputStream source = new ByteArrayInputStream(sb.toString().getBytes());
 		
 		try {
@@ -224,7 +189,7 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 	private void generatePackageSystemFile(IFolder folder, String namespace,
 		IProgressMonitor monitor) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Package " + namespace + ".Statements {");
+		sb.append("Package-System " + namespace + ".Systems {");
 		sb.append("\n");
 		sb.append("\n");
 		sb.append("import " + namespace + ".Privatedata.*");

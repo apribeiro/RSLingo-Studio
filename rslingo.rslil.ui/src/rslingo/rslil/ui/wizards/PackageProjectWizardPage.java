@@ -6,11 +6,15 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DateTime;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.swt.widgets.Combo;
+
+import rslingo.rslil.rSLIL.impl.DateImpl;
+import rslingo.rslil.rSLIL.impl.MonthImpl;
+import rslingo.rslil.ui.handlers.DocumentHelper;
 
 public class PackageProjectWizardPage extends WizardPage {
 
@@ -75,6 +79,11 @@ public class PackageProjectWizardPage extends WizardPage {
 			"SystemMaintenance", "Training", "Research", "Other"
 		};
 		typeCombo.setItems(items);
+		typeCombo.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent e) {
+				dialogChanged();
+			}
+		});
 		
 		label = new Label(container, SWT.NULL);
 		label.setText("&Application Domain:");
@@ -86,12 +95,61 @@ public class PackageProjectWizardPage extends WizardPage {
 			"Energy&Utilities", "Finance&Banks", "Other"
 		};
 		domainCombo.setItems(items);
+		domainCombo.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent e) {
+				dialogChanged();
+			}
+		});
 		
-		// TODO: Schedules
-		// TODO: Organizations
+		// Schedules
+		label = new Label(container, SWT.NULL);
+		label.setText("Planned Start:");
+
+		plannedStart = new DateTime(container, SWT.NULL);
+		gd = new GridData(GridData.FILL_HORIZONTAL);
 		
 		label = new Label(container, SWT.NULL);
-		label.setText("&Project Progress:");
+		label.setText("Planned End:");
+
+		plannedEnd = new DateTime(container, SWT.NULL);
+		gd = new GridData(GridData.FILL_HORIZONTAL);
+		
+		label = new Label(container, SWT.NULL);
+		label.setText("Actual Start:");
+
+		actualStart = new DateTime(container, SWT.NULL);
+		gd = new GridData(GridData.FILL_HORIZONTAL);
+		
+		label = new Label(container, SWT.NULL);
+		label.setText("Actual End:");
+
+		actualEnd = new DateTime(container, SWT.NULL);
+		gd = new GridData(GridData.FILL_HORIZONTAL);
+		
+		// Organizations
+		label = new Label(container, SWT.NULL);
+		label.setText("Customer:");
+
+		customerText = new Text(container, SWT.BORDER | SWT.SINGLE);
+		gd = new GridData(GridData.FILL_HORIZONTAL);
+		customerText.setLayoutData(gd);
+		
+		label = new Label(container, SWT.NULL);
+		label.setText("Supplier:");
+
+		supplierText = new Text(container, SWT.BORDER | SWT.SINGLE);
+		gd = new GridData(GridData.FILL_HORIZONTAL);
+		supplierText.setLayoutData(gd);
+		
+		label = new Label(container, SWT.NULL);
+		label.setText("Partner(s):");
+
+		partnersText = new Text(container, SWT.BORDER | SWT.SINGLE);
+		gd = new GridData(GridData.FILL_HORIZONTAL);
+		partnersText.setLayoutData(gd);
+		
+		label = new Label(container, SWT.NULL);
+		label.setText("Project Progress:");
 		
 		progressCombo = new Combo(container, SWT.BORDER | SWT.SINGLE | SWT.READ_ONLY);
 		gd = new GridData(GridData.FILL_HORIZONTAL);
@@ -133,22 +191,37 @@ public class PackageProjectWizardPage extends WizardPage {
 		String regex = "^[a-zA-Z_\\$][\\w\\$]*(?:\\.[a-zA-Z_\\$][\\w\\$]*)*$";
 		String namespace = getNamespace();
 		
-		if (namespace.length() == 0) {
-			updateStatus("Package namespace must be specified");
+		if (namespace.isEmpty()) {
+			updateStatus("Namespace must be specified");
 			return;
 		}
 		
 		if (!namespace.matches(regex)) {
-			updateStatus("Invalid package namespace");
+			updateStatus("Invalid namespace");
 			return;
 		}
 		
-		if (getPolicyName().length() == 0) {
-			updateStatus("Policy name must be specified");
+		if (getProjectName().isEmpty()) {
+			updateStatus("Project name must be specified");
 			return;
 		}
 		
-		if (getDescription().length() == 0) {
+		if (getType().isEmpty()) {
+			updateStatus("Type must be specified");
+			return;
+		}
+		
+		if (getDomain().isEmpty()) {
+			updateStatus("Application Domain must be specified");
+			return;
+		}
+		
+		if (getSummary().isEmpty()) {
+			updateStatus("Summary must be specified");
+			return;
+		}
+		
+		if (getDescription().isEmpty()) {
 			updateStatus("Description must be specified");
 			return;
 		}
@@ -165,10 +238,81 @@ public class PackageProjectWizardPage extends WizardPage {
 		return namespaceText.getText();
 	}
 	
-	public String getPolicyName() {
+	public String getProjectName() {
 		return projectNameText.getText();
 	}
-
+	
+	public String getType() {
+		int index = typeCombo.getSelectionIndex();
+		return index > -1 ? typeCombo.getItem(index) : "";
+	}
+	
+	public String getDomain() {
+		int index = domainCombo.getSelectionIndex();
+		return index > -1 ? domainCombo.getItem(index) : "";
+	}
+	
+	public DateImpl getPlannedStart() {
+		DateImpl date = new DateImpl() {}; 
+		date.setDay(plannedStart.getDay());
+		MonthImpl month = new MonthImpl() {};
+		month.setName(DocumentHelper.getRSLILMonth(plannedStart.getMonth()));
+		date.setMonth(month);
+		date.setYear(plannedStart.getYear());
+		return date;
+	}
+	
+	public DateImpl getPlannedEnd() {
+		DateImpl date = new DateImpl() {}; 
+		date.setDay(plannedEnd.getDay());
+		MonthImpl month = new MonthImpl() {};
+		month.setName(DocumentHelper.getRSLILMonth(plannedEnd.getMonth()));
+		date.setMonth(month);
+		date.setYear(plannedEnd.getYear());
+		return date;
+	}
+	
+	public DateImpl getActualStart() {
+		DateImpl date = new DateImpl() {}; 
+		date.setDay(actualStart.getDay());
+		MonthImpl month = new MonthImpl() {};
+		month.setName(DocumentHelper.getRSLILMonth(actualStart.getMonth()));
+		date.setMonth(month);
+		date.setYear(actualStart.getYear());
+		return date;
+	}
+	
+	public DateImpl getActualEnd() {
+		DateImpl date = new DateImpl() {}; 
+		date.setDay(actualEnd.getDay());
+		MonthImpl month = new MonthImpl() {};
+		month.setName(DocumentHelper.getRSLILMonth(actualEnd.getMonth()));
+		date.setMonth(month);
+		date.setYear(actualEnd.getYear());
+		return date;
+	}
+	
+	public String getCustomer() {
+		return customerText.getText();
+	}
+	
+	public String getSupplier() {
+		return supplierText.getText();
+	}
+	
+	public String getPartners() {
+		return partnersText.getText();
+	}
+	
+	public String getProgress() {
+		int index = progressCombo.getSelectionIndex();
+		return index > -1 ? progressCombo.getItem(index) : "";
+	}
+	
+	public String getSummary() {
+		return summaryText.getText();
+	}
+	
 	public String getDescription() {
 		return descriptionText.getText();
 	}

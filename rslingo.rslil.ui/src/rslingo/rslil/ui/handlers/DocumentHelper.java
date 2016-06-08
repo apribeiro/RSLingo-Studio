@@ -316,7 +316,7 @@ public class DocumentHelper {
 		return rslilDate;
 	}
 	
-	private static String getRSLILMonth(int month) {
+	public static String getRSLILMonth(int month) {
 		String rslilMonth = "";
 		
 		switch (month) {
