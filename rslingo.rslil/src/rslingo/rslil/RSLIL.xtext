@@ -49,7 +49,7 @@ Project:
 			|'SystemMaintenance'|'Training'|'Research'|'Other'
 		)
 		'ApplicationDomain' domain=('PublicSector'|'Education'|'Health'|'Telecoms'
-			|'Energy&Utilities'|'Finance&Banks'|'Other'		
+			|'Energy&Utilities'|'Finance&Banks'|'Other'
 		)
 		(planned=PlannedSchedule)?
 		(actual=ActualSchedule)?
