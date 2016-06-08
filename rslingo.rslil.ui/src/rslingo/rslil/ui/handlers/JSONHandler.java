@@ -102,7 +102,10 @@ public class JSONHandler extends AbstractHandler {
         if (resource.getContents().get(0) instanceof PackageProject) {
         	PackageProject packageProj = (PackageProject) resource.getContents().get(0);
         	
-			if (packageProj.getImports().size() == 0) {
+			if ((packageProj.getImports().size() == 0
+					&& packageProj.getPackageSystems().size() == 0)
+				|| (packageProj.getImports().size() > 0
+					&& packageProj.getPackageSystems().size() > 0)) {
 				// Single File
 				generator.setGenMode(RSLILGenerator.JSON_MODE);
 		        generator.doGenerate(resource, fsa);
