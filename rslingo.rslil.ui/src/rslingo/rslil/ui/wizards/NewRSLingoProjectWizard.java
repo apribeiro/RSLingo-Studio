@@ -26,6 +26,7 @@ import rslingo.rslil.rSLIL.impl.OrganizationsImpl;
 import rslingo.rslil.rSLIL.impl.PlannedScheduleImpl;
 import rslingo.rslil.rSLIL.impl.ProjectImpl;
 import rslingo.rslil.rSLIL.impl.ProjectProgressImpl;
+import rslingo.rslil.ui.handlers.DocumentHelper;
 
 public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 	private NewRSLingoProjectWizardPage page;
@@ -54,7 +55,7 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 		final String projectName = page.getProjectName();
 		final String fileMode = page.getFileMode();
 		final ProjectImpl project = new ProjectImpl() {};
-		project.setName(formatId(packageProjectPage.getProjectName()));
+		project.setName(DocumentHelper.formatId(packageProjectPage.getProjectName()));
 		project.setNameAlias(packageProjectPage.getProjectName());
 		project.setType(packageProjectPage.getType());
 		project.setDomain(packageProjectPage.getDomain());
@@ -328,15 +329,5 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 		sb.append(indentation + "\tScope In");
 		sb.append("\n");
 		sb.append(indentation + "}");
-	}
-	
-	private String formatId(String id) {
-		return id.replaceAll(" ", "_").replaceAll("-", "_").replaceAll("\\.", "_")
-				.replaceAll("[()/]", "")
-				.replaceAll("ç", "c").replaceAll("ã", "a").replaceAll("õ", "o")
-				.replaceAll("â", "a").replaceAll("ê", "e").replaceAll("ô", "o")
-				.replaceAll("à", "a").replaceAll("á", "a")
-				.replaceAll("è", "e").replaceAll("é", "e")
-				.replaceAll("í", "i").replaceAll("ó", "o").replaceAll("ú", "u");
 	}
 }

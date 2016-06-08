@@ -431,4 +431,14 @@ public class DocumentHelper {
 		
 		return packageProj;
 	}
+	
+	public static String formatId(String id) {
+		return id.replaceAll(" ", "_").replaceAll("-", "_").replaceAll("\\.", "_")
+				.replaceAll("[()/]", "")
+				.replaceAll("ç", "c").replaceAll("ã", "a").replaceAll("õ", "o")
+				.replaceAll("â", "a").replaceAll("ê", "e").replaceAll("ô", "o")
+				.replaceAll("à", "a").replaceAll("á", "a")
+				.replaceAll("è", "e").replaceAll("é", "e")
+				.replaceAll("í", "i").replaceAll("ó", "o").replaceAll("ú", "u");
+	}
 }

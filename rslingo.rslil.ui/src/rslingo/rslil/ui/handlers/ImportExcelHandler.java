@@ -115,9 +115,9 @@ public class ImportExcelHandler extends AbstractHandler {
 		StringBuilder sb = new StringBuilder();
 		InputStream inp = new FileInputStream(filePath);
 		Workbook wb = WorkbookFactory.create(inp);
-		sb.append("Package-Project " + formatId(fileName) + " {");
+		sb.append("Package-Project " + DocumentHelper.formatId(fileName) + " {");
 		sb.append("\n");
-		generateSytemImportsRegion(wb, sb, formatId(fileName));
+		generateSytemImportsRegion(wb, sb, DocumentHelper.formatId(fileName));
 		sb.append("\n");
 		
 		generateProjectRegion(wb, sb);
@@ -125,7 +125,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		generateStakeholdersRegion(wb, sb);
 		generateGoalsRegion(wb, sb);
 		generateGoalRelationsRegion(wb, sb);
-		generateSystemsRegion(wb, sb, formatId(fileName));
+		generateSystemsRegion(wb, sb, DocumentHelper.formatId(fileName));
 		generateSystemRelationsRegion(wb, sb);
     	
     	sb.deleteCharAt(sb.length() - 1);
@@ -146,10 +146,10 @@ public class ImportExcelHandler extends AbstractHandler {
 		StringBuilder sb = new StringBuilder();
 		InputStream inp = new FileInputStream(filePath);
 		Workbook wb = WorkbookFactory.create(inp);
-		sb.append("Package-Project " + formatId(fileName) + " {");
+		sb.append("Package-Project " + DocumentHelper.formatId(fileName) + " {");
 		sb.append("\n");
 		sb.append("\n");
-		generateSytemImportsRegion(wb, sb, formatId(fileName));
+		generateSytemImportsRegion(wb, sb, DocumentHelper.formatId(fileName));
 		sb.append("\n");
 		sb.append("\n");
 		
@@ -175,7 +175,7 @@ public class ImportExcelHandler extends AbstractHandler {
 	
 	private void generatePackageSystemFiles(IFolder srcGenFolder, String filePath, String fileName)
 			throws Exception {
-		String formattedFileName = formatId(fileName);
+		String formattedFileName = DocumentHelper.formatId(fileName);
 		InputStream inp = new FileInputStream(filePath);
 		Workbook wb = WorkbookFactory.create(inp);
 		// Get the Systems Sheet
@@ -196,7 +196,7 @@ public class ImportExcelHandler extends AbstractHandler {
     		
     		if (!row.getCell(3).getStringCellValue().isEmpty()) {
 	    		Cell cellId = row.getCell(0);
-				String id = formatId(cellId.getStringCellValue());
+				String id = DocumentHelper.formatId(cellId.getStringCellValue());
 		    	Cell cellName = row.getCell(1);
 				String name = cellName.getStringCellValue();
 				Cell cellDescription = row.getCell(2);
@@ -206,7 +206,7 @@ public class ImportExcelHandler extends AbstractHandler {
 				Cell cellScope = row.getCell(4);
 				String scope = cellScope.getStringCellValue();
 				Cell cellPartOf = row.getCell(5);
-				String partOf = formatId(cellPartOf.getStringCellValue());
+				String partOf = DocumentHelper.formatId(cellPartOf.getStringCellValue());
 				
 				StringBuilder builder = new StringBuilder();
 				builder.append("Package-System " + formattedFileName + "_" + id + " {");
@@ -291,7 +291,7 @@ public class ImportExcelHandler extends AbstractHandler {
 		
     	Row row = rowIt.next();
     	Cell cellId = row.getCell(0);
-		String id = formatId(cellId.getStringCellValue());
+		String id = DocumentHelper.formatId(cellId.getStringCellValue());
     	Cell cellName = row.getCell(1);
 		String name = cellName.getStringCellValue();
 		Cell cellType = row.getCell(2);
@@ -415,9 +415,9 @@ public class ImportExcelHandler extends AbstractHandler {
     	while (rowIt.hasNext()) {
     		Row row = rowIt.next();
     		Cell cellSource = row.getCell(0);
-			String source = formatId(cellSource.getStringCellValue());
+			String source = DocumentHelper.formatId(cellSource.getStringCellValue());
 			Cell cellTarget = row.getCell(1);
-			String target = formatId(cellTarget.getStringCellValue());
+			String target = DocumentHelper.formatId(cellTarget.getStringCellValue());
 			
 			systemIds.add(source);
 			systemIds.add(target);
@@ -446,7 +446,7 @@ public class ImportExcelHandler extends AbstractHandler {
     		
     		if (!row.getCell(3).getStringCellValue().isEmpty()) {
     			Cell cellId = row.getCell(0);
-    			String id = formatId(cellId.getStringCellValue());
+    			String id = DocumentHelper.formatId(cellId.getStringCellValue());
     			Cell cellName = row.getCell(1);
 	    		String name= cellName.getStringCellValue();
     			Cell cellDescription = row.getCell(2);
@@ -521,7 +521,7 @@ public class ImportExcelHandler extends AbstractHandler {
     		
     		if (!row.getCell(3).getStringCellValue().isEmpty()) {
     			Cell cellId = row.getCell(0);
-    			String id = formatId(cellId.getStringCellValue());
+    			String id = DocumentHelper.formatId(cellId.getStringCellValue());
     			Cell cellName = row.getCell(1);
 	    		String name = cellName.getStringCellValue();
     			Cell cellDescription = row.getCell(2);
@@ -531,9 +531,9 @@ public class ImportExcelHandler extends AbstractHandler {
     			Cell cellCategory = row.getCell(4);
 	    		String category = cellCategory.getStringCellValue();
 	    		Cell cellIsA = row.getCell(5);
-	    		String isA = formatId(cellIsA.getStringCellValue());
+	    		String isA = DocumentHelper.formatId(cellIsA.getStringCellValue());
 	    		Cell cellPartOf = row.getCell(6);
-	    		String partOf = formatId(cellPartOf.getStringCellValue());
+	    		String partOf = DocumentHelper.formatId(cellPartOf.getStringCellValue());
 	    		
 	    		sb.append("\tStakeholder " + id + " {");
 	    		sb.append("\n");
@@ -594,19 +594,19 @@ public class ImportExcelHandler extends AbstractHandler {
     		if (controlCell != null && !controlCell.getStringCellValue().isEmpty()
     			&& !controlCell.getStringCellValue().equals("Source (Stakeholder) (*)")) {
     			Cell cellId = row.getCell(0);
-    			String id = formatId(cellId.getStringCellValue());
+    			String id = DocumentHelper.formatId(cellId.getStringCellValue());
     			Cell cellName = row.getCell(1);
     			String name = cellName.getStringCellValue();
     			Cell cellDescription = row.getCell(2);
     			String description = cellDescription.getStringCellValue().replace("\"", "'");
     			Cell cellStakeholder = row.getCell(3);
-    			String stakeholder = formatId(cellStakeholder.getStringCellValue());
+    			String stakeholder = DocumentHelper.formatId(cellStakeholder.getStringCellValue());
     			Cell cellPriority = row.getCell(4);
     			String priority = cellPriority.getStringCellValue();
     			Cell cellPartOfAnd = row.getCell(5);
-    			String partOfAnd = formatId(cellPartOfAnd.getStringCellValue());
+    			String partOfAnd = DocumentHelper.formatId(cellPartOfAnd.getStringCellValue());
     			Cell cellPartOfOr = row.getCell(6);
-    			String partOfOr = formatId(cellPartOfOr.getStringCellValue());
+    			String partOfOr = DocumentHelper.formatId(cellPartOfOr.getStringCellValue());
     			Cell cellProgress = row.getCell(7);
     			String progress = cellProgress.getStringCellValue();
 	    		
@@ -667,9 +667,9 @@ public class ImportExcelHandler extends AbstractHandler {
     	while (rowIt.hasNext()) {
     		Row row = rowIt.next();
 			Cell cellSource = row.getCell(0);
-			String source = formatId(cellSource.getStringCellValue());
+			String source = DocumentHelper.formatId(cellSource.getStringCellValue());
 			Cell cellTarget = row.getCell(2);
-			String target = formatId(cellTarget.getStringCellValue());
+			String target = DocumentHelper.formatId(cellTarget.getStringCellValue());
 			Cell cellType = row.getCell(4);
 			String type = cellType.getStringCellValue();
 			Cell cellDescription = row.getCell(5);
@@ -717,7 +717,7 @@ public class ImportExcelHandler extends AbstractHandler {
     		
     		if (!row.getCell(3).getStringCellValue().isEmpty()) {
 	    		Cell cellId = row.getCell(0);
-				String id = formatId(cellId.getStringCellValue());
+				String id = DocumentHelper.formatId(cellId.getStringCellValue());
 		    	Cell cellName = row.getCell(1);
 				String name = cellName.getStringCellValue();
 				Cell cellDescription = row.getCell(2);
@@ -727,7 +727,7 @@ public class ImportExcelHandler extends AbstractHandler {
 				Cell cellScope = row.getCell(4);
 				String scope = cellScope.getStringCellValue();
 				Cell cellPartOf = row.getCell(5);
-				String partOf = formatId(cellPartOf.getStringCellValue());
+				String partOf = DocumentHelper.formatId(cellPartOf.getStringCellValue());
 				
 				StringBuilder builder = new StringBuilder();
 				builder.append("\tPackage-System " + fileName + "_" + id + " {");
@@ -1034,7 +1034,7 @@ public class ImportExcelHandler extends AbstractHandler {
     			if (!controlCell.getStringCellValue().isEmpty()
     				&& !controlCell.getStringCellValue().equals("Type (*)")) {
 	    			Cell cellId = row.getCell(0);
-	    			String id = formatId(cellId.getStringCellValue());
+	    			String id = DocumentHelper.formatId(cellId.getStringCellValue());
 	    			Cell cellName = row.getCell(1);
 	    			String name = cellName.getStringCellValue();
 	    			Cell cellDescription = row.getCell(2);
@@ -1042,9 +1042,9 @@ public class ImportExcelHandler extends AbstractHandler {
 	    			Cell cellType = row.getCell(3);
 	    			String type = cellType.getStringCellValue();
 	    			Cell cellStakeholder = row.getCell(4);
-	    			String stakeholder = formatId(cellStakeholder.getStringCellValue());
+	    			String stakeholder = DocumentHelper.formatId(cellStakeholder.getStringCellValue());
 	    			Cell cellIsA = row.getCell(5);
-	    			String isA = formatId(cellIsA.getStringCellValue());
+	    			String isA = DocumentHelper.formatId(cellIsA.getStringCellValue());
 		    		
 	    			StringBuilder sb = systems.get(systemId);
 	    			sb.append("\t\tActor " + id + " {");
@@ -1083,7 +1083,7 @@ public class ImportExcelHandler extends AbstractHandler {
         				String color = cs.getFillForegroundColorColor().getARGBHex();
         			
     	        		if (color.equals(SYSTEM_ORANGE)) {
-    						systemId = formatId(cellId.getStringCellValue());
+    						systemId = DocumentHelper.formatId(cellId.getStringCellValue());
     	        		}
     				}
     			}
@@ -1116,7 +1116,7 @@ public class ImportExcelHandler extends AbstractHandler {
     			if (!controlCell.getStringCellValue().isEmpty()
     				&& !controlCell.getStringCellValue().equals("Type (*)")) {
 	    			Cell cellId = row.getCell(0);
-	    			String id = formatId(cellId.getStringCellValue());
+	    			String id = DocumentHelper.formatId(cellId.getStringCellValue());
 	    			Cell cellName = row.getCell(1);
 	    			String name = cellName.getStringCellValue();
 	    			Cell cellDescription = row.getCell(2);
@@ -1124,11 +1124,11 @@ public class ImportExcelHandler extends AbstractHandler {
 	    			Cell cellType = row.getCell(3);
 	    			String type = cellType.getStringCellValue();
 	    			Cell cellStakeholder = row.getCell(4);
-	    			String stakeholder = formatId(cellStakeholder.getStringCellValue());
+	    			String stakeholder = DocumentHelper.formatId(cellStakeholder.getStringCellValue());
 	    			Cell cellPriority = row.getCell(5);
 	    			String priority = cellPriority.getStringCellValue();
 	    			Cell cellPartOf = row.getCell(6);
-	    			String partOf = formatId(cellPartOf.getStringCellValue());
+	    			String partOf = DocumentHelper.formatId(cellPartOf.getStringCellValue());
 	    			Cell cellProgress = row.getCell(7);
 	    			String progress = cellProgress.getStringCellValue();
 	    			
@@ -1177,7 +1177,7 @@ public class ImportExcelHandler extends AbstractHandler {
         				String color = cs.getFillForegroundColorColor().getARGBHex();
         			
     	        		if (color.equals(SYSTEM_ORANGE)) {
-    						systemId = formatId(cellId.getStringCellValue());
+    						systemId = DocumentHelper.formatId(cellId.getStringCellValue());
     	        		}
     				}
     			}
@@ -1206,7 +1206,7 @@ public class ImportExcelHandler extends AbstractHandler {
     			if (!controlCell.getStringCellValue().isEmpty()
     				&& !controlCell.getStringCellValue().equals("Type (*)")) {
 	    			Cell cellId = row.getCell(0);
-	    			String id = formatId(cellId.getStringCellValue());
+	    			String id = DocumentHelper.formatId(cellId.getStringCellValue());
 	    			Cell cellName = row.getCell(1);
 	    			String name = cellName.getStringCellValue();
 	    			Cell cellDescription = row.getCell(2);
@@ -1220,11 +1220,11 @@ public class ImportExcelHandler extends AbstractHandler {
 	    			Cell cellValue = row.getCell(6);
 	    			int value = (int) cellValue.getNumericCellValue();
 	    			Cell cellStakeholder = row.getCell(7);
-	    			String stakeholder = formatId(cellStakeholder.getStringCellValue());
+	    			String stakeholder = DocumentHelper.formatId(cellStakeholder.getStringCellValue());
 	    			Cell cellPriority = row.getCell(8);
 	    			String priority = cellPriority.getStringCellValue();
 	    			Cell cellPartOf = row.getCell(9);
-	    			String partOf = formatId(cellPartOf.getStringCellValue());
+	    			String partOf = DocumentHelper.formatId(cellPartOf.getStringCellValue());
 	    			Cell cellProgress = row.getCell(10);
 	    			String progress = cellProgress.getStringCellValue();
 	    			
@@ -1284,7 +1284,7 @@ public class ImportExcelHandler extends AbstractHandler {
         				String color = cs.getFillForegroundColorColor().getARGBHex();
         			
     	        		if (color.equals(SYSTEM_ORANGE)) {
-    						systemId = formatId(cellId.getStringCellValue());
+    						systemId = DocumentHelper.formatId(cellId.getStringCellValue());
     	        		}
     				}
     			}
@@ -1313,7 +1313,7 @@ public class ImportExcelHandler extends AbstractHandler {
     			if (!controlCell.getStringCellValue().isEmpty()
     				&& !controlCell.getStringCellValue().equals("Type (*)")) {
 	    			Cell cellId = row.getCell(0);
-	    			String id = formatId(cellId.getStringCellValue());
+	    			String id = DocumentHelper.formatId(cellId.getStringCellValue());
 	    			Cell cellName = row.getCell(1);
 	    			String name = cellName.getStringCellValue();
 	    			Cell cellDescription = row.getCell(2);
@@ -1321,11 +1321,11 @@ public class ImportExcelHandler extends AbstractHandler {
 	    			Cell cellType = row.getCell(3);
 	    			String type = cellType.getStringCellValue();
 	    			Cell cellStakeholder = row.getCell(4);
-	    			String stakeholder = formatId(cellStakeholder.getStringCellValue());
+	    			String stakeholder = DocumentHelper.formatId(cellStakeholder.getStringCellValue());
 	    			Cell cellPriority = row.getCell(5);
 	    			String priority = cellPriority.getStringCellValue();
 	    			Cell cellPartOf = row.getCell(6);
-	    			String partOf = formatId(cellPartOf.getStringCellValue());
+	    			String partOf = DocumentHelper.formatId(cellPartOf.getStringCellValue());
 	    			Cell cellProgress = row.getCell(7);
 	    			String progress = cellProgress.getStringCellValue();
 	    			
@@ -1374,7 +1374,7 @@ public class ImportExcelHandler extends AbstractHandler {
         				String color = cs.getFillForegroundColorColor().getARGBHex();
         			
     	        		if (color.equals(SYSTEM_ORANGE)) {
-    						systemId = formatId(cellId.getStringCellValue());
+    						systemId = DocumentHelper.formatId(cellId.getStringCellValue());
     	        		}
     				}
     			}
@@ -1406,9 +1406,9 @@ public class ImportExcelHandler extends AbstractHandler {
     				&& !controlCell.getStringCellValue().equals("Target (*)")
     				&& !controlCell.getStringCellValue().equals("Id")) {
     				Cell cellSource = row.getCell(0);
-    				String source = formatId(cellSource.getStringCellValue());
+    				String source = DocumentHelper.formatId(cellSource.getStringCellValue());
     				Cell cellTarget = row.getCell(2);
-    				String target = formatId(cellTarget.getStringCellValue());
+    				String target = DocumentHelper.formatId(cellTarget.getStringCellValue());
     				Cell cellType = row.getCell(4);
     				String type = cellType.getStringCellValue();
     				Cell cellDescription = row.getCell(5);
@@ -1443,7 +1443,7 @@ public class ImportExcelHandler extends AbstractHandler {
         				String color = cs.getFillForegroundColorColor().getARGBHex();
         			
     	        		if (color.equals(SYSTEM_ORANGE)) {
-    						systemId = formatId(cellId.getStringCellValue());
+    						systemId = DocumentHelper.formatId(cellId.getStringCellValue());
     	        		}
     				}
     			}
@@ -1467,9 +1467,9 @@ public class ImportExcelHandler extends AbstractHandler {
     	while (rowIt.hasNext()) {
     		Row row = rowIt.next();
     		Cell cellSource = row.getCell(0);
-			String source = formatId(cellSource.getStringCellValue());
+			String source = DocumentHelper.formatId(cellSource.getStringCellValue());
 			Cell cellTarget = row.getCell(1);
-			String target = formatId(cellTarget.getStringCellValue());
+			String target = DocumentHelper.formatId(cellTarget.getStringCellValue());
 			Cell cellCategory = row.getCell(2);
 			String category = cellCategory.getStringCellValue();
 			Cell cellType = row.getCell(3);
@@ -1501,15 +1501,5 @@ public class ImportExcelHandler extends AbstractHandler {
     		sb.append("\t}");
     		sb.append("\n\n");
 		}
-	}
-	
-	private String formatId(String id) {
-		return id.replaceAll(" ", "_").replaceAll("-", "_").replaceAll("\\.", "_")
-				.replaceAll("[()/]", "")
-				.replaceAll("ç", "c").replaceAll("ã", "a").replaceAll("õ", "o")
-				.replaceAll("â", "a").replaceAll("ê", "e").replaceAll("ô", "o")
-				.replaceAll("à", "a").replaceAll("á", "a")
-				.replaceAll("è", "e").replaceAll("é", "e")
-				.replaceAll("í", "i").replaceAll("ó", "o").replaceAll("ú", "u");
 	}
 }
