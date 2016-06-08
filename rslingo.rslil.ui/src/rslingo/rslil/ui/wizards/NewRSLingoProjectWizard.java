@@ -30,7 +30,7 @@ import rslingo.rslil.rSLIL.impl.ProjectProgressImpl;
 
 public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 	private NewRSLingoProjectWizardPage page;
-	private MetadataWizardPage metadataPage;
+	private PackageProjectWizardPage packageProjectPage;
 	
 	public NewRSLingoProjectWizard() {
 		super();
@@ -40,9 +40,9 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 
 	public void addPages() {
 		page = new NewRSLingoProjectWizardPage();
-		metadataPage = new MetadataWizardPage();
+		packageProjectPage = new PackageProjectWizardPage();
 		addPage(page);
-		addPage(metadataPage);
+		addPage(packageProjectPage);
 	}
 	
 	@Override
@@ -55,7 +55,7 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 		final String projectName = page.getProjectName();
 		final String fileMode = page.getFileMode();
 		final ProjectImpl project = new ProjectImpl() {};
-		project.setNameAlias(metadataPage.getPolicyName());
+		project.setNameAlias(packageProjectPage.getPolicyName());
 		
 		project.setType("type");
 		project.setDomain("domain");
@@ -106,7 +106,7 @@ public class NewRSLingoProjectWizard extends Wizard implements INewWizard {
 		
 		project.setSummary("");
 		project.setDescription("");
-		final String namespace = metadataPage.getNamespace();
+		final String namespace = packageProjectPage.getNamespace();
 		
 		IRunnableWithProgress op = new IRunnableWithProgress() {
 			public void run(IProgressMonitor monitor) throws InvocationTargetException {

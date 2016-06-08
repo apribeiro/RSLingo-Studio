@@ -15,20 +15,27 @@ import org.eclipse.swt.widgets.Text;
 
 import rslingo.rslil.ui.handlers.DocumentHelper;
 
-public class MetadataWizardPage extends WizardPage {
+public class PackageProjectWizardPage extends WizardPage {
 
 	Text namespaceText;
-	Text policyNameText;
+	Text projectNameText;
+	Text typeText;
+	Text domainText;
+	DateTime plannedStart;
+	DateTime plannedEnd;
+	DateTime actualStart;
+	DateTime actualEnd;
+	Text customerText;
+	Text supplierText;
+	Text partnersText;
+	Text progressText;
+	Text summaryText;
 	Text descriptionText;
-	Text authorsText;
-	Text organizationsText;
-	DateTime dateTime;
-	Text versionText;
 	
-	public MetadataWizardPage() {
-		super("MetadataWizardPage");
-		setTitle("RSL-IL Policy Metadata");
-		setDescription("Define the RSL-IL policy metadata.");
+	public PackageProjectWizardPage() {
+		super("PackageProjectWizardPage");
+		setTitle("RSL-IL Package Project Information");
+		setDescription("Define the RSL-IL Package Project information.");
 	}
 
 	public void createControl(Composite parent) {
@@ -52,10 +59,10 @@ public class MetadataWizardPage extends WizardPage {
 		label = new Label(container, SWT.NULL);
 		label.setText("&Policy name:");
 
-		policyNameText = new Text(container, SWT.BORDER | SWT.SINGLE);
+		projectNameText = new Text(container, SWT.BORDER | SWT.SINGLE);
 		gd = new GridData(GridData.FILL_HORIZONTAL);
-		policyNameText.setLayoutData(gd);
-		policyNameText.addModifyListener(new ModifyListener() {
+		projectNameText.setLayoutData(gd);
+		projectNameText.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
 				dialogChanged();
 			}
@@ -170,7 +177,7 @@ public class MetadataWizardPage extends WizardPage {
 	}
 	
 	public String getPolicyName() {
-		return policyNameText.getText();
+		return projectNameText.getText();
 	}
 
 	public String getDescription() {
