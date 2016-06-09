@@ -40,6 +40,7 @@ import com.google.inject.Inject;
 
 import rslingo.rslil.rSLIL.Date;
 import rslingo.rslil.rSLIL.GlossaryTerm;
+import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.PackageProject;
 import rslingo.rslil.rSLIL.PackageSystem;
 import rslingo.rslil.rSLIL.Project;
@@ -130,7 +131,6 @@ public class ExportExcelHandler extends AbstractHandler {
 						packageProj = DocumentHelper.getFullPackageProject(project, resourceSet, packageProj);
 					}
 					
-
 					try {
 						InputStream from = new FileInputStream(RSLINGO_PATH + DEF_WORD_PATH);
 						XSSFWorkbook workbook = new XSSFWorkbook(from);
@@ -141,7 +141,9 @@ public class ExportExcelHandler extends AbstractHandler {
 						writeSystemRelations(packageProj, workbook);
 						writeGlossary(packageProj, workbook);
 						writeStakeholders(packageProj, workbook);
-
+						writeGoals(packageProj, workbook);
+						writeGoalRelations(packageProj, workbook);
+						
 						// Write the Document in file system
 						String fileName = file.getName().split(FILE_EXT)[0];
 						File to = new File(project.getLocation().toOSString()
@@ -419,6 +421,96 @@ public class ExportExcelHandler extends AbstractHandler {
 		
 		// Delete the Template Row
 		if (project.getStakeholders().size() > 0) {
+			sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+		}
+	}
+	
+	private void writeGoals(PackageProject project, XSSFWorkbook workbook) {
+		XSSFSheet sheet = workbook.getSheet("goals");
+		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "GID").getRow();
+		
+		for (Goal goal : project.getGoals()) {
+			XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
+			DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
+			
+			DocumentHelper.replaceText(nRow, "GID", goal.getName());
+			
+			if (goal.getNameAlias() != null) {
+				DocumentHelper.replaceText(nRow, "GNAME", goal.getNameAlias());
+			} else {
+				DocumentHelper.replaceText(nRow, "GNAME", "");
+			}
+			
+			if (goal.getDescription() != null) {
+				DocumentHelper.replaceText(nRow, "GDESCRIPTION", goal.getDescription());
+			} else {
+				DocumentHelper.replaceText(nRow, "GDESCRIPTION", "");
+			}
+			
+			DocumentHelper.replaceText(nRow, "GSTAKEHOLDER", goal.getStakeholder().getName());
+			DocumentHelper.replaceText(nRow, "GPRIORITY", goal.getPriority().getValue());
+			
+			if (goal.getPartOfAnd() != null) {
+				DocumentHelper.replaceText(nRow, "GPARTOFAND", goal.getPartOfAnd().getName());
+			} else {
+				DocumentHelper.replaceText(nRow, "GPARTOFAND", "");
+			}
+			
+			
+			if (goal.getPartOfOr() != null) {
+				DocumentHelper.replaceText(nRow, "GPARTOFOR", goal.getPartOfOr().getName());
+			} else {
+				DocumentHelper.replaceText(nRow, "GPARTOFOR", "");
+			}
+			
+			if (goal.getProgress() != null) {
+				DocumentHelper.replaceText(nRow, "GPROGRESS", goal.getProgress().getValue());
+			} else {
+				DocumentHelper.replaceText(nRow, "GPROGRESS", "");
+			}
+		}
+		
+		// Delete the Template Row
+		if (project.getGoals().size() > 0) {
+			sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+		}
+	}
+	
+	private void writeGoalRelations(PackageProject project, XSSFWorkbook workbook) {
+		XSSFSheet sheet = workbook.getSheet("goals.relations");
+		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "GRSRCID").getRow();
+		
+		for (SystemRelation relation : project.getSystemRelations()) {
+			XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
+			DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
+			
+			DocumentHelper.replaceText(nRow, "GRSRCID", relation.getSource().getName());
+			
+			if (relation.getSource().getNameAlias() != null) {
+				DocumentHelper.replaceText(nRow, "GRSRCNAME", relation.getSource().getNameAlias());
+			} else {
+				DocumentHelper.replaceText(nRow, "GRSRCNAME", "");
+			}
+			
+			DocumentHelper.replaceText(nRow, "GRTGTID", relation.getTarget().getName());
+			
+			if (relation.getTarget().getNameAlias() != null) {
+				DocumentHelper.replaceText(nRow, "GRTGTNAME", relation.getTarget().getNameAlias());
+			} else {
+				DocumentHelper.replaceText(nRow, "GRTGTNAME", "");
+			}
+			
+			DocumentHelper.replaceText(nRow, "GRTYPE", relation.getType());
+			
+			if (relation.getDescription() != null) {
+				DocumentHelper.replaceText(nRow, "GRDESCRIPTION", relation.getDescription());
+			} else {
+				DocumentHelper.replaceText(nRow, "GRDESCRIPTION", "");
+			}
+		}
+		
+		// Delete the Template Row
+		if (project.getGoalRelations().size() > 0) {
 			sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
 		}
 	}
