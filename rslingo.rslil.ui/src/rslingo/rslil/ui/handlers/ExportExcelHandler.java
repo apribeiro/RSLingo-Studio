@@ -43,6 +43,7 @@ import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.PackageProject;
 import rslingo.rslil.rSLIL.PackageSystem;
 import rslingo.rslil.rSLIL.Project;
+import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.SystemRelation;
 import rslingo.rslil.rSLIL.TermType;
 import rslingo.rslil.ui.windows.MenuCommand;
@@ -139,6 +140,7 @@ public class ExportExcelHandler extends AbstractHandler {
 						writeSystems(packageProj, workbook);
 						writeSystemRelations(packageProj, workbook);
 						writeGlossary(packageProj, workbook);
+						writeStakeholders(packageProj, workbook);
 
 						// Write the Document in file system
 						String fileName = file.getName().split(FILE_EXT)[0];
@@ -344,12 +346,6 @@ public class ExportExcelHandler extends AbstractHandler {
 			}
 			DocumentHelper.replaceText(nRow, "GTTYPE", type);
 			
-			if (term.getDescription() != null) {
-				DocumentHelper.replaceText(nRow, "GTDESCRIPTION", term.getDescription());
-			} else {
-				DocumentHelper.replaceText(nRow, "GTDESCRIPTION", "");
-			}
-			
 			if (term.getAcronym() != null) {
 				DocumentHelper.replaceText(nRow, "GTACRONYM", term.getAcronym());
 			} else {
@@ -374,6 +370,48 @@ public class ExportExcelHandler extends AbstractHandler {
 				DocumentHelper.replaceText(nRow, "GTHYPERNYM", "");
 			}
 			
+		}
+		
+		// Delete the Template Row
+		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+	}
+	
+	private void writeStakeholders(PackageProject project, XSSFWorkbook workbook) {
+		XSSFSheet sheet = workbook.getSheet("stakeholders");
+		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "STKID").getRow();
+		
+		for (Stakeholder stakeholder : project.getStakeholders()) {
+			XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
+			DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
+			
+			DocumentHelper.replaceText(nRow, "STKID", stakeholder.getName());
+			
+			if (stakeholder.getNameAlias() != null) {
+				DocumentHelper.replaceText(nRow, "STKNAME", stakeholder.getNameAlias());
+			} else {
+				DocumentHelper.replaceText(nRow, "STKNAME", "");
+			}
+			
+			if (stakeholder.getDescription() != null) {
+				DocumentHelper.replaceText(nRow, "STKDESCRIPTION", stakeholder.getDescription());
+			} else {
+				DocumentHelper.replaceText(nRow, "STKDESCRIPTION", "");
+			}
+			
+			DocumentHelper.replaceText(nRow, "STKTYPE", stakeholder.getType());
+			DocumentHelper.replaceText(nRow, "STKCATEGORY", stakeholder.getCategory());
+			
+			if (stakeholder.getIsA() != null) {
+				DocumentHelper.replaceText(nRow, "STKISA", stakeholder.getIsA().getName());
+			} else {
+				DocumentHelper.replaceText(nRow, "STKISA", "");
+			}
+			
+			if (stakeholder.getPartOf() != null) {
+				DocumentHelper.replaceText(nRow, "STKPARTOF", stakeholder.getPartOf().getName());
+			} else {
+				DocumentHelper.replaceText(nRow, "STKPARTOF", "");
+			}
 		}
 		
 		// Delete the Template Row
