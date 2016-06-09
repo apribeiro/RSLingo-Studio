@@ -179,8 +179,8 @@ public class ExportExcelHandler extends AbstractHandler {
 	
 	private void writeProject(Project project, XSSFWorkbook workbook) {
 		XSSFSheet sheet = workbook.getSheet("project");
-		XSSFRow rowId = (XSSFRow) DocumentHelper.getCell(sheet, "PPID").getRow();
-		DocumentHelper.replaceText(rowId, "PPID", project.getName());
+		XSSFRow rowId = (XSSFRow) DocumentHelper.getCell(sheet, "PID").getRow();
+		DocumentHelper.replaceText(rowId, "PID", project.getName());
 		
 		XSSFRow rowName = (XSSFRow) DocumentHelper.getCell(sheet, "PNAME").getRow();
 		
@@ -210,11 +210,10 @@ public class ExportExcelHandler extends AbstractHandler {
 		Cell cellAEnd = DocumentHelper.getCell(sheet, "PAEND");
 		
 		if (project.getActual() != null) {
-			// Set Date cell and apply style
-			
+			setDateCell(project.getActual().getStart(), workbook, cellAStart);
 			
 			if (project.getActual().getEnd() != null) {
-				
+				setDateCell(project.getActual().getEnd(), workbook, cellAEnd);
 			} else {
 				cellAEnd.setCellValue("");
 			}
@@ -250,10 +249,6 @@ public class ExportExcelHandler extends AbstractHandler {
 		
 		XSSFRow rowDescription = (XSSFRow) DocumentHelper.getCell(sheet, "PDESCRIPTION").getRow();
 		DocumentHelper.replaceText(rowDescription, "PDESCRIPTION", project.getDescription());
-		
-		// Delete the Template Row
-//		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "PPID").getRow();
-//		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
 	}
 
 	private void writeSystems(PackageProject project, XSSFWorkbook workbook) {
@@ -290,7 +285,7 @@ public class ExportExcelHandler extends AbstractHandler {
 		}
 		
 		// Delete the Template Row
-		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+//		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
 	}
 	
 	private void writeSystemRelations(PackageProject project, XSSFWorkbook workbook) {
@@ -314,7 +309,7 @@ public class ExportExcelHandler extends AbstractHandler {
 		}
 		
 		// Delete the Template Row
-		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+//		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
 	}
 	
 	private void writeGlossary(PackageProject project, XSSFWorkbook workbook) {
@@ -369,11 +364,10 @@ public class ExportExcelHandler extends AbstractHandler {
 			} else {
 				DocumentHelper.replaceText(nRow, "GTHYPERNYM", "");
 			}
-			
 		}
 		
 		// Delete the Template Row
-		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+//		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
 	}
 	
 	private void writeStakeholders(PackageProject project, XSSFWorkbook workbook) {
@@ -415,7 +409,7 @@ public class ExportExcelHandler extends AbstractHandler {
 		}
 		
 		// Delete the Template Row
-		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+//		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
 	}
 	
 	private void setDateCell(Date date, XSSFWorkbook workbook, Cell cellDate) {
