@@ -38,7 +38,13 @@ import org.eclipse.xtext.ui.resource.IResourceSetProvider;
 
 import com.google.inject.Inject;
 
+import rslingo.rslil.rSLIL.Date;
+import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.PackageProject;
+import rslingo.rslil.rSLIL.PackageSystem;
+import rslingo.rslil.rSLIL.Project;
+import rslingo.rslil.rSLIL.SystemRelation;
+import rslingo.rslil.rSLIL.TermType;
 import rslingo.rslil.ui.windows.MenuCommand;
 import rslingo.rslil.ui.windows.MenuCommandWindow;
 
@@ -122,6 +128,35 @@ public class ExportExcelHandler extends AbstractHandler {
 						&& packageProj.getPackageSystems().size() == 0) {
 						packageProj = DocumentHelper.getFullPackageProject(project, resourceSet, packageProj);
 					}
+					
+
+					try {
+						InputStream from = new FileInputStream(RSLINGO_PATH + DEF_WORD_PATH);
+						XSSFWorkbook workbook = new XSSFWorkbook(from);
+
+						// TODO: Write Sheets
+						writeProject(packageProj.getProject(), workbook);
+						writeSystems(packageProj, workbook);
+						writeSystemRelations(packageProj, workbook);
+						writeGlossary(packageProj, workbook);
+
+						// Write the Document in file system
+						String fileName = file.getName().split(FILE_EXT)[0];
+						File to = new File(project.getLocation().toOSString()
+								+ "/" + GEN_FOLDER + "/" + DOCS_FOLDER 
+								+ "/" + fileName + ".xlsx");
+						FileOutputStream out = new FileOutputStream(to);
+						workbook.write(out);
+						out.close();
+						workbook.close();
+
+						project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+
+						System.out.println(fileName + ".xlsx generated!");
+					} catch (Exception e) {
+						return new Status(Status.ERROR, PLUGIN_ID, e.getMessage(), e);
+					}
+					return Status.OK_STATUS;
 				} else {
 					shell.getDisplay().asyncExec(new Runnable() {
 						@Override
@@ -134,52 +169,218 @@ public class ExportExcelHandler extends AbstractHandler {
 					});
 				    return Status.OK_STATUS;
 				}
-
-				try {
-					InputStream from = new FileInputStream(RSLINGO_PATH + DEF_WORD_PATH);
-					XSSFWorkbook workbook = new XSSFWorkbook(from);
-
-					// TODO: Write Sheets
-//					writeMetadata(policy.getMetadata(), workbook);
-//					writePrivateData(policy, workbook);
-
-					// Write the Document in file system
-					String fileName = file.getName().split(FILE_EXT)[0];
-					File to = new File(project.getLocation().toOSString()
-							+ "/" + GEN_FOLDER + "/" + DOCS_FOLDER 
-							+ "/" + fileName + ".xlsx");
-					FileOutputStream out = new FileOutputStream(to);
-					workbook.write(out);
-					out.close();
-					workbook.close();
-
-					project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-
-					System.out.println(fileName + ".xlsx generated!");
-				} catch (Exception e) {
-					return new Status(Status.ERROR, PLUGIN_ID, e.getMessage(), e);
-				}
-				return Status.OK_STATUS;
 			}
 	    };
 	    job.setUser(true);
 	    job.schedule();
 	}
 	
-	/*private void writeMetadata(Metadata metadata, XSSFWorkbook workbook) {
-		XSSFSheet sheet = workbook.getSheet("Home");
-		XSSFRow rowName = (XSSFRow) DocumentHelper.getCell(sheet, "HPolicyName").getRow();
-		DocumentHelper.replaceText(rowName, "HPolicyName", metadata.getName());
-		XSSFRow rowDescription = (XSSFRow) DocumentHelper.getCell(sheet, "HDescription").getRow();
-		DocumentHelper.replaceText(rowDescription, "HDescription", metadata.getDescription());
-		XSSFRow rowAuthors = (XSSFRow) DocumentHelper.getCell(sheet, "HAuthors").getRow();
-		DocumentHelper.replaceText(rowAuthors, "HAuthors", metadata.getAuthors());
-		XSSFRow rowOrgs = (XSSFRow) DocumentHelper.getCell(sheet, "HOrganizations").getRow();
-		DocumentHelper.replaceText(rowOrgs, "HOrganizations", metadata.getOrganizations());
+	private void writeProject(Project project, XSSFWorkbook workbook) {
+		XSSFSheet sheet = workbook.getSheet("project");
+		XSSFRow rowId = (XSSFRow) DocumentHelper.getCell(sheet, "PPID").getRow();
+		DocumentHelper.replaceText(rowId, "PPID", project.getName());
+		
+		XSSFRow rowName = (XSSFRow) DocumentHelper.getCell(sheet, "PNAME").getRow();
+		
+		if (project.getNameAlias() != null) {
+			DocumentHelper.replaceText(rowName, "PNAME", project.getNameAlias());
+		} else {
+			DocumentHelper.replaceText(rowName, "PNAME", "");
+		}
+		
+		XSSFRow rowType = (XSSFRow) DocumentHelper.getCell(sheet, "PTYPE").getRow();
+		DocumentHelper.replaceText(rowType, "PTYPE", project.getType());
+		XSSFRow rowDomain = (XSSFRow) DocumentHelper.getCell(sheet, "PDOMAIN").getRow();
+		DocumentHelper.replaceText(rowDomain, "PDOMAIN", project.getDomain());
 
-		// Set Date cell and apply style
-		Cell cellDate = DocumentHelper.getCell(sheet, "HDate");
-		Date date = metadata.getDate();
+		Cell cellPStart = DocumentHelper.getCell(sheet, "PPSTART");
+		Cell cellPEnd = DocumentHelper.getCell(sheet, "PPEND");
+		
+		if (project.getPlanned() != null) {
+			setDateCell(project.getPlanned().getStart(), workbook, cellPStart);
+			setDateCell(project.getPlanned().getEnd(), workbook, cellPEnd);
+		} else {
+			cellPStart.setCellValue("");
+			cellPEnd.setCellValue("");
+		}
+		
+		Cell cellAStart = DocumentHelper.getCell(sheet, "PASTART");
+		Cell cellAEnd = DocumentHelper.getCell(sheet, "PAEND");
+		
+		if (project.getActual() != null) {
+			// Set Date cell and apply style
+			
+			
+			if (project.getActual().getEnd() != null) {
+				
+			} else {
+				cellAEnd.setCellValue("");
+			}
+		} else {
+			cellAStart.setCellValue("");
+			cellAEnd.setCellValue("");
+		}
+		
+		XSSFRow rowCustomer = (XSSFRow) DocumentHelper.getCell(sheet, "PCUSTOMER").getRow();
+		XSSFRow rowSupplier = (XSSFRow) DocumentHelper.getCell(sheet, "PSUPPLIER").getRow();
+		XSSFRow rowPartners = (XSSFRow) DocumentHelper.getCell(sheet, "PPARTNERS").getRow();
+		
+		if (project.getOrganizations() != null) {
+			DocumentHelper.replaceText(rowCustomer, "PCUSTOMER", "");
+			DocumentHelper.replaceText(rowSupplier, "PSUPPLIER", "");
+			DocumentHelper.replaceText(rowPartners, "PPARTNERS", "");
+		} else {
+			DocumentHelper.replaceText(rowCustomer, "PCUSTOMER", project.getProgress().getValue());
+			DocumentHelper.replaceText(rowSupplier, "PSUPPLIER", project.getProgress().getValue());
+			DocumentHelper.replaceText(rowPartners, "PPARTNERS", project.getOrganizations().getPartners());
+		}
+		
+		XSSFRow rowProgress = (XSSFRow) DocumentHelper.getCell(sheet, "PPROGRESS").getRow();
+		
+		if (project.getProgress() != null) {
+			DocumentHelper.replaceText(rowProgress, "PPROGRESS", project.getProgress().getValue());
+		} else {
+			DocumentHelper.replaceText(rowProgress, "PPROGRESS", "");
+		}
+		
+		XSSFRow rowSummary = (XSSFRow) DocumentHelper.getCell(sheet, "PSUMMARY").getRow();
+		DocumentHelper.replaceText(rowSummary, "PSUMMARY", project.getSummary());
+		
+		XSSFRow rowDescription = (XSSFRow) DocumentHelper.getCell(sheet, "PDESCRIPTION").getRow();
+		DocumentHelper.replaceText(rowDescription, "PDESCRIPTION", project.getDescription());
+		
+		// Delete the Template Row
+//		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "PPID").getRow();
+//		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+	}
+
+	private void writeSystems(PackageProject project, XSSFWorkbook workbook) {
+		XSSFSheet sheet = workbook.getSheet("systems");
+		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "SID").getRow();
+		
+		for (PackageSystem packageSystem : project.getPackageSystems()) {
+			XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
+			DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
+			
+			rslingo.rslil.rSLIL.System system = packageSystem.getSystem();
+			DocumentHelper.replaceText(nRow, "SID", system.getName());
+			
+			if (system.getNameAlias() != null) {
+				DocumentHelper.replaceText(nRow, "SNAME", system.getNameAlias());
+			} else {
+				DocumentHelper.replaceText(nRow, "SNAME", "");
+			}
+			
+			if (system.getDescription() != null) {
+				DocumentHelper.replaceText(nRow, "SDESCRIPTION", system.getDescription());
+			} else {
+				DocumentHelper.replaceText(nRow, "SDESCRIPTION", "");
+			}
+			
+			DocumentHelper.replaceText(nRow, "STYPE", system.getType());
+			DocumentHelper.replaceText(nRow, "SSCOPE", system.getScope());
+			
+			if (system.getPartOf() != null) {
+				DocumentHelper.replaceText(nRow, "SPARTOF", system.getPartOf().getName());
+			} else {
+				DocumentHelper.replaceText(nRow, "SPARTOF", "");
+			}
+		}
+		
+		// Delete the Template Row
+		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+	}
+	
+	private void writeSystemRelations(PackageProject project, XSSFWorkbook workbook) {
+		XSSFSheet sheet = workbook.getSheet("systems.relations");
+		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "SRSOURCE").getRow();
+		
+		for (SystemRelation relation : project.getSystemRelations()) {
+			XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
+			DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
+			
+			DocumentHelper.replaceText(nRow, "SRSOURCE", relation.getSource().getName());
+			DocumentHelper.replaceText(nRow, "SRTARGET", relation.getTarget().getName());
+			DocumentHelper.replaceText(nRow, "SRCATEGORY", relation.getCategory());
+			DocumentHelper.replaceText(nRow, "SRTYPE", relation.getType());
+			
+			if (relation.getDescription() != null) {
+				DocumentHelper.replaceText(nRow, "SRDESCRIPTION", relation.getDescription());
+			} else {
+				DocumentHelper.replaceText(nRow, "SRDESCRIPTION", "");
+			}
+		}
+		
+		// Delete the Template Row
+		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+	}
+	
+	private void writeGlossary(PackageProject project, XSSFWorkbook workbook) {
+		XSSFSheet sheet = workbook.getSheet("glossary");
+		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "GTID").getRow();
+		
+		for (GlossaryTerm term : project.getGlossaryTerms()) {
+			XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
+			DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
+			
+			DocumentHelper.replaceText(nRow, "GTID", term.getName());
+			
+			if (term.getNameAlias() != null) {
+				DocumentHelper.replaceText(nRow, "GTNAME", term.getNameAlias());
+			} else {
+				DocumentHelper.replaceText(nRow, "GTNAME", "");
+			}
+			
+			if (term.getDescription() != null) {
+				DocumentHelper.replaceText(nRow, "GTDESCRIPTION", term.getDescription());
+			} else {
+				DocumentHelper.replaceText(nRow, "GTDESCRIPTION", "");
+			}
+			
+			String type = term.getType().getRefType().getType();
+			
+			for (TermType termType : term.getType().getRefs()) {
+				type += "; " + termType.getType();
+			}
+			DocumentHelper.replaceText(nRow, "GTTYPE", type);
+			
+			if (term.getDescription() != null) {
+				DocumentHelper.replaceText(nRow, "GTDESCRIPTION", term.getDescription());
+			} else {
+				DocumentHelper.replaceText(nRow, "GTDESCRIPTION", "");
+			}
+			
+			if (term.getAcronym() != null) {
+				DocumentHelper.replaceText(nRow, "GTACRONYM", term.getAcronym());
+			} else {
+				DocumentHelper.replaceText(nRow, "GTACRONYM", "");
+			}
+			
+			if (term.getPos() != null) {
+				DocumentHelper.replaceText(nRow, "GTPOS", term.getPos());
+			} else {
+				DocumentHelper.replaceText(nRow, "GTPOS", "");
+			}
+			
+			if (term.getSynonym() != null) {
+				DocumentHelper.replaceText(nRow, "GTSYNONYM", term.getSynonym());
+			} else {
+				DocumentHelper.replaceText(nRow, "GTSYNONYM", "");
+			}
+			
+			if (term.getHypernym() != null) {
+				DocumentHelper.replaceText(nRow, "GTHYPERNYM", term.getHypernym());
+			} else {
+				DocumentHelper.replaceText(nRow, "GTHYPERNYM", "");
+			}
+			
+		}
+		
+		// Delete the Template Row
+		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+	}
+	
+	private void setDateCell(Date date, XSSFWorkbook workbook, Cell cellDate) {
 		String dateVal = date.getDay() + "-"
 				+ DocumentHelper.getNumberOfRSLILMonth(date.getMonth().getName())
 				+ "-" + date.getYear();
@@ -188,48 +389,5 @@ public class ExportExcelHandler extends AbstractHandler {
 		cellStyle.setDataFormat(createHelper.createDataFormat().getFormat("dd-mmm-yyyy"));
 		cellDate.setCellValue(DocumentHelper.parseDate(dateVal));
 		cellDate.setCellStyle(cellStyle);
-		
-		XSSFRow rowVersion = (XSSFRow) DocumentHelper.getCell(sheet, "HVersion").getRow();
-		DocumentHelper.replaceText(rowVersion, "HVersion", metadata.getVersion());
 	}
-
-	private void writePrivateData(Policy policy, XSSFWorkbook workbook) {
-		XSSFSheet sheet = workbook.getSheet("PrivateData");
-		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "PDId").getRow();
-		
-		for (PrivateData privateData : policy.getPrivateData()) {
-			XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
-			DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
-			
-			DocumentHelper.replaceText(nRow, "PDId", privateData.getName());
-
-			String type = privateData.getType();
-			
-			if (type.equals("PersonalInformation")) {
-				type = "Personal Information";
-			} else {
-				type = "Usage Information";
-			}
-			
-			DocumentHelper.replaceText(nRow, "PDType", type);
-			DocumentHelper.replaceText(nRow, "PDDescription", privateData.getDescription());
-			
-			if (privateData.getAttribute().size() > 0) {
-				StringBuilder attributes = new StringBuilder();
-				
-				for (Attribute attr : privateData.getAttribute()) {
-					attributes.append(attr.getName());
-					attributes.append(", ");
-				}
-				attributes.delete(attributes.length() - 2, attributes.length());
-				
-				DocumentHelper.replaceText(nRow, "PDAttributes", attributes.toString());
-			} else {
-				DocumentHelper.replaceText(nRow, "PDAttributes", "");
-			}
-		}
-		
-		// Delete the Template Row
-		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
-	}*/
 }
