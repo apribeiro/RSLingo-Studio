@@ -288,7 +288,9 @@ public class ExportExcelHandler extends AbstractHandler {
 		}
 		
 		// Delete the Template Row
-		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+		if (project.getPackageSystems().size() > 0) {
+			sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+		}
 	}
 	
 	private void writeSystemRelations(PackageProject project, XSSFWorkbook workbook) {
@@ -312,7 +314,9 @@ public class ExportExcelHandler extends AbstractHandler {
 		}
 		
 		// Delete the Template Row
-//		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+		if (project.getSystemRelations().size() > 0) {
+			sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+		}
 	}
 	
 	private void writeGlossary(PackageProject project, XSSFWorkbook workbook) {
@@ -370,7 +374,9 @@ public class ExportExcelHandler extends AbstractHandler {
 		}
 		
 		// Delete the Template Row
-//		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+		if (project.getGlossaryTerms().size() > 0) {
+			sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+		}
 	}
 	
 	private void writeStakeholders(PackageProject project, XSSFWorkbook workbook) {
@@ -412,7 +418,9 @@ public class ExportExcelHandler extends AbstractHandler {
 		}
 		
 		// Delete the Template Row
-//		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+		if (project.getStakeholders().size() > 0) {
+			sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+		}
 	}
 	
 	private void setDateCell(Date date, XSSFWorkbook workbook, Cell cellDate) {
