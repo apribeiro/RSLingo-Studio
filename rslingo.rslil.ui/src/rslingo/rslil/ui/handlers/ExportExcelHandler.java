@@ -227,13 +227,16 @@ public class ExportExcelHandler extends AbstractHandler {
 		XSSFRow rowPartners = (XSSFRow) DocumentHelper.getCell(sheet, "PPARTNERS").getRow();
 		
 		if (project.getOrganizations() != null) {
+			DocumentHelper.replaceText(rowCustomer, "PCUSTOMER",
+				project.getOrganizations().getCustomer());			
+			DocumentHelper.replaceText(rowSupplier, "PSUPPLIER",
+				project.getOrganizations().getSupplier());
+			DocumentHelper.replaceText(rowPartners, "PPARTNERS",
+				project.getOrganizations().getPartners());
+		} else {
 			DocumentHelper.replaceText(rowCustomer, "PCUSTOMER", "");
 			DocumentHelper.replaceText(rowSupplier, "PSUPPLIER", "");
 			DocumentHelper.replaceText(rowPartners, "PPARTNERS", "");
-		} else {
-			DocumentHelper.replaceText(rowCustomer, "PCUSTOMER", project.getProgress().getValue());
-			DocumentHelper.replaceText(rowSupplier, "PSUPPLIER", project.getProgress().getValue());
-			DocumentHelper.replaceText(rowPartners, "PPARTNERS", project.getOrganizations().getPartners());
 		}
 		
 		XSSFRow rowProgress = (XSSFRow) DocumentHelper.getCell(sheet, "PPROGRESS").getRow();
@@ -285,7 +288,7 @@ public class ExportExcelHandler extends AbstractHandler {
 		}
 		
 		// Delete the Template Row
-//		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+		sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
 	}
 	
 	private void writeSystemRelations(PackageProject project, XSSFWorkbook workbook) {
