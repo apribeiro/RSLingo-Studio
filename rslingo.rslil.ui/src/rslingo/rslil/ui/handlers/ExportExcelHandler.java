@@ -38,12 +38,15 @@ import org.eclipse.xtext.ui.resource.IResourceSetProvider;
 
 import com.google.inject.Inject;
 
+import rslingo.rslil.rSLIL.Constraint;
 import rslingo.rslil.rSLIL.Date;
+import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.PackageProject;
 import rslingo.rslil.rSLIL.PackageSystem;
 import rslingo.rslil.rSLIL.Project;
+import rslingo.rslil.rSLIL.QR;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.SystemRelation;
 import rslingo.rslil.rSLIL.TermType;
@@ -143,6 +146,9 @@ public class ExportExcelHandler extends AbstractHandler {
 						writeStakeholders(packageProj, workbook);
 						writeGoals(packageProj, workbook);
 						writeGoalRelations(packageProj, workbook);
+						writeFRs(packageProj, workbook);
+						writeQRs(packageProj, workbook);
+						writeConstraints(packageProj, workbook);
 						
 						// Write the Document in file system
 						String fileName = file.getName().split(FILE_EXT)[0];
@@ -511,6 +517,180 @@ public class ExportExcelHandler extends AbstractHandler {
 		
 		// Delete the Template Row
 		if (project.getGoalRelations().size() > 0) {
+			sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+		}
+	}
+	
+	private void writeFRs(PackageProject project, XSSFWorkbook workbook) {
+		boolean hasFRs = false;
+		XSSFSheet sheet = workbook.getSheet("reqs.functional");
+		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "FRID").getRow();
+		
+		for (PackageSystem pSystem : project.getPackageSystems()) {
+			for (FR fr : pSystem.getFrs()) {
+				hasFRs = true;
+				XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
+				DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
+				
+				DocumentHelper.replaceText(nRow, "FRID", fr.getName());
+				
+				if (fr.getNameAlias() != null) {
+					DocumentHelper.replaceText(nRow, "FRNAME", fr.getNameAlias());
+				} else {
+					DocumentHelper.replaceText(nRow, "FRNAME", "");
+				}
+				
+				if (fr.getDescription() != null) {
+					DocumentHelper.replaceText(nRow, "FRDESCRIPTION", fr.getDescription());
+				} else {
+					DocumentHelper.replaceText(nRow, "FRDESCRIPTION", "");
+				}
+				
+				DocumentHelper.replaceText(nRow, "FRTYPE", fr.getType());
+				
+				if (fr.getStakeholder() != null) {
+					DocumentHelper.replaceText(nRow, "FRSTAKEHOLDER", fr.getStakeholder().getName());
+				} else {
+					DocumentHelper.replaceText(nRow, "FRSTAKEHOLDER", "");
+				}
+				
+				DocumentHelper.replaceText(nRow, "FRPRIORITY", fr.getPriority().getValue());
+				
+				if (fr.getPartOf() != null) {
+					DocumentHelper.replaceText(nRow, "FRPARTOF", fr.getPartOf().getName());
+				} else {
+					DocumentHelper.replaceText(nRow, "FRPARTOF", "");
+				}
+				
+				if (fr.getProgress() != null) {
+					DocumentHelper.replaceText(nRow, "FRPROGRESS", fr.getProgress().getValue());
+				} else {
+					DocumentHelper.replaceText(nRow, "FRPROGRESS", "");
+				}
+			}
+		}
+		
+		// Delete the Template Row
+		if (hasFRs) {
+			sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+		}
+	}
+	
+	private void writeQRs(PackageProject project, XSSFWorkbook workbook) {
+		boolean hasQRs = false;
+		XSSFSheet sheet = workbook.getSheet("reqs.quality");
+		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "QRID").getRow();
+		
+		for (PackageSystem pSystem : project.getPackageSystems()) {
+			for (QR qr : pSystem.getQrs()) {
+				hasQRs = true;
+				XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
+				DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
+				
+				DocumentHelper.replaceText(nRow, "QRID", qr.getName());
+				
+				if (qr.getNameAlias() != null) {
+					DocumentHelper.replaceText(nRow, "QRNAME", qr.getNameAlias());
+				} else {
+					DocumentHelper.replaceText(nRow, "QRNAME", "");
+				}
+				
+				if (qr.getDescription() != null) {
+					DocumentHelper.replaceText(nRow, "QRDESCRIPTION", qr.getDescription());
+				} else {
+					DocumentHelper.replaceText(nRow, "QRDESCRIPTION", "");
+				}
+				
+				DocumentHelper.replaceText(nRow, "QRTYPE", qr.getType());
+				
+				if (qr.getSubType() != null) {
+					DocumentHelper.replaceText(nRow, "QRSUBTYPE", qr.getSubType());
+				} else {
+					DocumentHelper.replaceText(nRow, "QRSUBTYPE", "");
+				}
+				
+				DocumentHelper.replaceText(nRow, "QRMETRIC", qr.getMetric());
+				DocumentHelper.replaceText(nRow, "QRVALUE", Integer.toString(qr.getValue()));
+				
+				if (qr.getStakeholder() != null) {
+					DocumentHelper.replaceText(nRow, "QRSTAKEHOLDER", qr.getStakeholder().getName());
+				} else {
+					DocumentHelper.replaceText(nRow, "QRSTAKEHOLDER", "");
+				}
+				
+				DocumentHelper.replaceText(nRow, "QRPRIORITY", qr.getPriority().getValue());
+				
+				if (qr.getPartOf() != null) {
+					DocumentHelper.replaceText(nRow, "QRPARTOF", qr.getPartOf().getName());
+				} else {
+					DocumentHelper.replaceText(nRow, "QRPARTOF", "");
+				}
+				
+				if (qr.getProgress() != null) {
+					DocumentHelper.replaceText(nRow, "QRPROGRESS", qr.getProgress().getValue());
+				} else {
+					DocumentHelper.replaceText(nRow, "QRPROGRESS", "");
+				}
+			}
+		}
+		
+		// Delete the Template Row
+		if (hasQRs) {
+			sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+		}
+	}
+	
+	private void writeConstraints(PackageProject project, XSSFWorkbook workbook) {
+		boolean hasConstraints = false;
+		XSSFSheet sheet = workbook.getSheet("reqs.constraint");
+		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "CID").getRow();
+		
+		for (PackageSystem pSystem : project.getPackageSystems()) {
+			for (Constraint constraint : pSystem.getConstraints()) {
+				hasConstraints = true;
+				XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
+				DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
+				
+				DocumentHelper.replaceText(nRow, "CID", constraint.getName());
+				
+				if (constraint.getNameAlias() != null) {
+					DocumentHelper.replaceText(nRow, "CNAME", constraint.getNameAlias());
+				} else {
+					DocumentHelper.replaceText(nRow, "CNAME", "");
+				}
+				
+				if (constraint.getDescription() != null) {
+					DocumentHelper.replaceText(nRow, "CDESCRIPTION", constraint.getDescription());
+				} else {
+					DocumentHelper.replaceText(nRow, "CDESCRIPTION", "");
+				}
+				
+				DocumentHelper.replaceText(nRow, "CTYPE", constraint.getType());
+				
+				if (constraint.getStakeholder() != null) {
+					DocumentHelper.replaceText(nRow, "CSTAKEHOLDER", constraint.getStakeholder().getName());
+				} else {
+					DocumentHelper.replaceText(nRow, "CSTAKEHOLDER", "");
+				}
+				
+				DocumentHelper.replaceText(nRow, "CPRIORITY", constraint.getPriority().getValue());
+				
+				if (constraint.getPartOf() != null) {
+					DocumentHelper.replaceText(nRow, "CPARTOF", constraint.getPartOf().getName());
+				} else {
+					DocumentHelper.replaceText(nRow, "CPARTOF", "");
+				}
+				
+				if (constraint.getProgress() != null) {
+					DocumentHelper.replaceText(nRow, "CPROGRESS", constraint.getProgress().getValue());
+				} else {
+					DocumentHelper.replaceText(nRow, "CPROGRESS", "");
+				}
+			}
+		}
+		
+		// Delete the Template Row
+		if (hasConstraints) {
 			sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
 		}
 	}
