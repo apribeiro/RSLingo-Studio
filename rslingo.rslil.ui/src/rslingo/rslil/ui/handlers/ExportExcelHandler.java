@@ -47,6 +47,7 @@ import rslingo.rslil.rSLIL.PackageProject;
 import rslingo.rslil.rSLIL.PackageSystem;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.QR;
+import rslingo.rslil.rSLIL.RequirementRelation;
 import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.SystemRelation;
 import rslingo.rslil.rSLIL.TermType;
@@ -149,6 +150,10 @@ public class ExportExcelHandler extends AbstractHandler {
 						writeFRs(packageProj, workbook);
 						writeQRs(packageProj, workbook);
 						writeConstraints(packageProj, workbook);
+						writeRequirementRelations(packageProj, workbook);
+						// Entities
+						writeActors(packageProj, workbook);
+						// Use Cases
 						
 						// Write the Document in file system
 						String fileName = file.getName().split(FILE_EXT)[0];
@@ -643,6 +648,104 @@ public class ExportExcelHandler extends AbstractHandler {
 	private void writeConstraints(PackageProject project, XSSFWorkbook workbook) {
 		boolean hasConstraints = false;
 		XSSFSheet sheet = workbook.getSheet("reqs.constraint");
+		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "CID").getRow();
+		
+		for (PackageSystem pSystem : project.getPackageSystems()) {
+			for (Constraint constraint : pSystem.getConstraints()) {
+				hasConstraints = true;
+				XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
+				DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
+				
+				DocumentHelper.replaceText(nRow, "CID", constraint.getName());
+				
+				if (constraint.getNameAlias() != null) {
+					DocumentHelper.replaceText(nRow, "CNAME", constraint.getNameAlias());
+				} else {
+					DocumentHelper.replaceText(nRow, "CNAME", "");
+				}
+				
+				if (constraint.getDescription() != null) {
+					DocumentHelper.replaceText(nRow, "CDESCRIPTION", constraint.getDescription());
+				} else {
+					DocumentHelper.replaceText(nRow, "CDESCRIPTION", "");
+				}
+				
+				DocumentHelper.replaceText(nRow, "CTYPE", constraint.getType());
+				
+				if (constraint.getStakeholder() != null) {
+					DocumentHelper.replaceText(nRow, "CSTAKEHOLDER", constraint.getStakeholder().getName());
+				} else {
+					DocumentHelper.replaceText(nRow, "CSTAKEHOLDER", "");
+				}
+				
+				DocumentHelper.replaceText(nRow, "CPRIORITY", constraint.getPriority().getValue());
+				
+				if (constraint.getPartOf() != null) {
+					DocumentHelper.replaceText(nRow, "CPARTOF", constraint.getPartOf().getName());
+				} else {
+					DocumentHelper.replaceText(nRow, "CPARTOF", "");
+				}
+				
+				if (constraint.getProgress() != null) {
+					DocumentHelper.replaceText(nRow, "CPROGRESS", constraint.getProgress().getValue());
+				} else {
+					DocumentHelper.replaceText(nRow, "CPROGRESS", "");
+				}
+			}
+		}
+		
+		// Delete the Template Row
+		if (hasConstraints) {
+			sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+		}
+	}
+	
+	private void writeRequirementRelations(PackageProject project, XSSFWorkbook workbook) {
+		boolean hasRelations = false;
+		XSSFSheet sheet = workbook.getSheet("reqs.relations");
+		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "RRID").getRow();
+		
+		for (PackageSystem pSystem : project.getPackageSystems()) {
+			for (RequirementRelation relation : pSystem.getRequirementRelations()) {
+				hasRelations = true;
+				XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
+				DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
+				
+				DocumentHelper.replaceText(nRow, "RRSRCID", relation.getSource().getName());
+				
+				if (relation.getSource().getNameAlias() != null) {
+					DocumentHelper.replaceText(nRow, "RRSRCNAME", relation.getSource().getNameAlias());
+				} else {
+					DocumentHelper.replaceText(nRow, "RRSRCNAME", "");
+				}
+				
+				DocumentHelper.replaceText(nRow, "RRTGTID", relation.getTarget().getName());
+				
+				if (relation.getTarget().getNameAlias() != null) {
+					DocumentHelper.replaceText(nRow, "RRTGTNAME", relation.getTarget().getNameAlias());
+				} else {
+					DocumentHelper.replaceText(nRow, "RRTGTNAME", "");
+				}
+				
+				DocumentHelper.replaceText(nRow, "RRTYPE", relation.getType());
+				
+				if (relation.getDescription() != null) {
+					DocumentHelper.replaceText(nRow, "RRDESCRIPTION", relation.getDescription());
+				} else {
+					DocumentHelper.replaceText(nRow, "RRDESCRIPTION", "");
+				}
+			}
+		}
+		
+		// Delete the Template Row
+		if (hasRelations) {
+			sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
+		}
+	}
+	
+	private void writeActors(PackageProject project, XSSFWorkbook workbook) {
+		boolean hasConstraints = false;
+		XSSFSheet sheet = workbook.getSheet("actors");
 		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "CID").getRow();
 		
 		for (PackageSystem pSystem : project.getPackageSystems()) {
