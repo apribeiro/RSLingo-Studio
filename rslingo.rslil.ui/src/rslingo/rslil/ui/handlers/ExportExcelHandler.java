@@ -38,11 +38,13 @@ import org.eclipse.xtext.ui.resource.IResourceSetProvider;
 
 import com.google.inject.Inject;
 
+import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Constraint;
 import rslingo.rslil.rSLIL.Date;
 import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
+import rslingo.rslil.rSLIL.GoalRelation;
 import rslingo.rslil.rSLIL.PackageProject;
 import rslingo.rslil.rSLIL.PackageSystem;
 import rslingo.rslil.rSLIL.Project;
@@ -491,7 +493,7 @@ public class ExportExcelHandler extends AbstractHandler {
 		XSSFSheet sheet = workbook.getSheet("goals.relations");
 		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "GRSRCID").getRow();
 		
-		for (SystemRelation relation : project.getSystemRelations()) {
+		for (GoalRelation relation : project.getGoalRelations()) {
 			XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
 			DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
 			
@@ -703,7 +705,7 @@ public class ExportExcelHandler extends AbstractHandler {
 	private void writeRequirementRelations(PackageProject project, XSSFWorkbook workbook) {
 		boolean hasRelations = false;
 		XSSFSheet sheet = workbook.getSheet("reqs.relations");
-		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "RRID").getRow();
+		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "RRSRCID").getRow();
 		
 		for (PackageSystem pSystem : project.getPackageSystems()) {
 			for (RequirementRelation relation : pSystem.getRequirementRelations()) {
@@ -744,56 +746,48 @@ public class ExportExcelHandler extends AbstractHandler {
 	}
 	
 	private void writeActors(PackageProject project, XSSFWorkbook workbook) {
-		boolean hasConstraints = false;
+		boolean hasActors = false;
 		XSSFSheet sheet = workbook.getSheet("actors");
-		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "CID").getRow();
+		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "AID").getRow();
 		
 		for (PackageSystem pSystem : project.getPackageSystems()) {
-			for (Constraint constraint : pSystem.getConstraints()) {
-				hasConstraints = true;
+			for (Actor actor : pSystem.getActors()) {
+				hasActors = true;
 				XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
 				DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
 				
-				DocumentHelper.replaceText(nRow, "CID", constraint.getName());
+				DocumentHelper.replaceText(nRow, "AID", actor.getName());
 				
-				if (constraint.getNameAlias() != null) {
-					DocumentHelper.replaceText(nRow, "CNAME", constraint.getNameAlias());
+				if (actor.getNameAlias() != null) {
+					DocumentHelper.replaceText(nRow, "ANAME", actor.getNameAlias());
 				} else {
-					DocumentHelper.replaceText(nRow, "CNAME", "");
+					DocumentHelper.replaceText(nRow, "ANAME", "");
 				}
 				
-				if (constraint.getDescription() != null) {
-					DocumentHelper.replaceText(nRow, "CDESCRIPTION", constraint.getDescription());
+				if (actor.getDescription() != null) {
+					DocumentHelper.replaceText(nRow, "ADESCRIPTION", actor.getDescription());
 				} else {
-					DocumentHelper.replaceText(nRow, "CDESCRIPTION", "");
+					DocumentHelper.replaceText(nRow, "ADESCRIPTION", "");
 				}
 				
-				DocumentHelper.replaceText(nRow, "CTYPE", constraint.getType());
+				DocumentHelper.replaceText(nRow, "ATYPE", actor.getType());
 				
-				if (constraint.getStakeholder() != null) {
-					DocumentHelper.replaceText(nRow, "CSTAKEHOLDER", constraint.getStakeholder().getName());
+				if (actor.getStakeholder() != null) {
+					DocumentHelper.replaceText(nRow, "ASTAKEHOLDER", actor.getStakeholder().getName());
 				} else {
-					DocumentHelper.replaceText(nRow, "CSTAKEHOLDER", "");
+					DocumentHelper.replaceText(nRow, "ASTAKEHOLDER", "");
 				}
 				
-				DocumentHelper.replaceText(nRow, "CPRIORITY", constraint.getPriority().getValue());
-				
-				if (constraint.getPartOf() != null) {
-					DocumentHelper.replaceText(nRow, "CPARTOF", constraint.getPartOf().getName());
+				if (actor.getActor() != null) {
+					DocumentHelper.replaceText(nRow, "AISA", actor.getActor().getName());
 				} else {
-					DocumentHelper.replaceText(nRow, "CPARTOF", "");
-				}
-				
-				if (constraint.getProgress() != null) {
-					DocumentHelper.replaceText(nRow, "CPROGRESS", constraint.getProgress().getValue());
-				} else {
-					DocumentHelper.replaceText(nRow, "CPROGRESS", "");
+					DocumentHelper.replaceText(nRow, "AISA", "");
 				}
 			}
 		}
 		
 		// Delete the Template Row
-		if (hasConstraints) {
+		if (hasActors) {
 			sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
 		}
 	}
