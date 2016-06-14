@@ -23,12 +23,15 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cPackageProjectParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cPackageSystemParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cPackageGlossaryParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cPackageStakeholderParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cPackageGoalParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//Model:
-		//	PackageProject | PackageSystem;
+		//	PackageProject | PackageSystem | PackageGlossary | PackageStakeholder | PackageGoal;
 		@Override public ParserRule getRule() { return rule; }
 
-		//PackageProject | PackageSystem
+		//PackageProject | PackageSystem | PackageGlossary | PackageStakeholder | PackageGoal
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//PackageProject
@@ -36,6 +39,15 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 
 		//PackageSystem
 		public RuleCall getPackageSystemParserRuleCall_1() { return cPackageSystemParserRuleCall_1; }
+
+		//PackageGlossary
+		public RuleCall getPackageGlossaryParserRuleCall_2() { return cPackageGlossaryParserRuleCall_2; }
+
+		//PackageStakeholder
+		public RuleCall getPackageStakeholderParserRuleCall_3() { return cPackageStakeholderParserRuleCall_3; }
+
+		//PackageGoal
+		public RuleCall getPackageGoalParserRuleCall_4() { return cPackageGoalParserRuleCall_4; }
 	}
 
 	public class PackageProjectElements extends AbstractParserRuleElementFinder {
@@ -49,12 +61,12 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cImportsImportParserRuleCall_3_0 = (RuleCall)cImportsAssignment_3.eContents().get(0);
 		private final Assignment cProjectAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cProjectProjectParserRuleCall_4_0 = (RuleCall)cProjectAssignment_4.eContents().get(0);
-		private final Assignment cGlossaryTermsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cGlossaryTermsGlossaryTermParserRuleCall_5_0 = (RuleCall)cGlossaryTermsAssignment_5.eContents().get(0);
-		private final Assignment cStakeholdersAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cStakeholdersStakeholderParserRuleCall_6_0 = (RuleCall)cStakeholdersAssignment_6.eContents().get(0);
-		private final Assignment cGoalsAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cGoalsGoalParserRuleCall_7_0 = (RuleCall)cGoalsAssignment_7.eContents().get(0);
+		private final Assignment cPackageGlossaryAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cPackageGlossaryPackageGlossaryParserRuleCall_5_0 = (RuleCall)cPackageGlossaryAssignment_5.eContents().get(0);
+		private final Assignment cPackageStakeholdersAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cPackageStakeholdersPackageStakeholderParserRuleCall_6_0 = (RuleCall)cPackageStakeholdersAssignment_6.eContents().get(0);
+		private final Assignment cPackageGoalsAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cPackageGoalsPackageGoalParserRuleCall_7_0 = (RuleCall)cPackageGoalsAssignment_7.eContents().get(0);
 		private final Assignment cGoalRelationsAssignment_8 = (Assignment)cGroup.eContents().get(8);
 		private final RuleCall cGoalRelationsGoalRelationParserRuleCall_8_0 = (RuleCall)cGoalRelationsAssignment_8.eContents().get(0);
 		private final Assignment cPackageSystemsAssignment_9 = (Assignment)cGroup.eContents().get(9);
@@ -64,14 +76,14 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		//PackageProject: // Business Level
-		//	"Package-Project" name=QualifiedName "{" imports+=Import* project=Project glossaryTerms+=GlossaryTerm*
-		//	stakeholders+=Stakeholder* goals+=Goal* goalRelations+=GoalRelation* // Optional Nested System Level
+		//	"Package-Project" name=QualifiedName "{" imports+=Import* project=Project packageGlossary+=PackageGlossary*
+		//	packageStakeholders+=PackageStakeholder* packageGoals+=PackageGoal* goalRelations+=GoalRelation* // Optional Nested System Level
 		//	packageSystems+=PackageSystem* systemRelations+=SystemRelation* "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//// Business Level
-		//"Package-Project" name=QualifiedName "{" imports+=Import* project=Project glossaryTerms+=GlossaryTerm*
-		//stakeholders+=Stakeholder* goals+=Goal* goalRelations+=GoalRelation* // Optional Nested System Level
+		//"Package-Project" name=QualifiedName "{" imports+=Import* project=Project packageGlossary+=PackageGlossary*
+		//packageStakeholders+=PackageStakeholder* packageGoals+=PackageGoal* goalRelations+=GoalRelation* // Optional Nested System Level
 		//packageSystems+=PackageSystem* systemRelations+=SystemRelation* "}"
 		public Group getGroup() { return cGroup; }
 
@@ -100,23 +112,23 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//Project
 		public RuleCall getProjectProjectParserRuleCall_4_0() { return cProjectProjectParserRuleCall_4_0; }
 
-		//glossaryTerms+=GlossaryTerm*
-		public Assignment getGlossaryTermsAssignment_5() { return cGlossaryTermsAssignment_5; }
+		//packageGlossary+=PackageGlossary*
+		public Assignment getPackageGlossaryAssignment_5() { return cPackageGlossaryAssignment_5; }
 
-		//GlossaryTerm
-		public RuleCall getGlossaryTermsGlossaryTermParserRuleCall_5_0() { return cGlossaryTermsGlossaryTermParserRuleCall_5_0; }
+		//PackageGlossary
+		public RuleCall getPackageGlossaryPackageGlossaryParserRuleCall_5_0() { return cPackageGlossaryPackageGlossaryParserRuleCall_5_0; }
 
-		//stakeholders+=Stakeholder*
-		public Assignment getStakeholdersAssignment_6() { return cStakeholdersAssignment_6; }
+		//packageStakeholders+=PackageStakeholder*
+		public Assignment getPackageStakeholdersAssignment_6() { return cPackageStakeholdersAssignment_6; }
 
-		//Stakeholder
-		public RuleCall getStakeholdersStakeholderParserRuleCall_6_0() { return cStakeholdersStakeholderParserRuleCall_6_0; }
+		//PackageStakeholder
+		public RuleCall getPackageStakeholdersPackageStakeholderParserRuleCall_6_0() { return cPackageStakeholdersPackageStakeholderParserRuleCall_6_0; }
 
-		//goals+=Goal*
-		public Assignment getGoalsAssignment_7() { return cGoalsAssignment_7; }
+		//packageGoals+=PackageGoal*
+		public Assignment getPackageGoalsAssignment_7() { return cPackageGoalsAssignment_7; }
 
-		//Goal
-		public RuleCall getGoalsGoalParserRuleCall_7_0() { return cGoalsGoalParserRuleCall_7_0; }
+		//PackageGoal
+		public RuleCall getPackageGoalsPackageGoalParserRuleCall_7_0() { return cPackageGoalsPackageGoalParserRuleCall_7_0; }
 
 		//goalRelations+=GoalRelation*
 		public Assignment getGoalRelationsAssignment_8() { return cGoalRelationsAssignment_8; }
@@ -247,6 +259,134 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
+	}
+
+	public class PackageGlossaryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PackageGlossary");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPackageGlossaryKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cGlossaryTermsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cGlossaryTermsGlossaryTermParserRuleCall_3_0 = (RuleCall)cGlossaryTermsAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//PackageGlossary:
+		//	"Package-Glossary" name=QualifiedName "{" glossaryTerms+=GlossaryTerm* "}";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"Package-Glossary" name=QualifiedName "{" glossaryTerms+=GlossaryTerm* "}"
+		public Group getGroup() { return cGroup; }
+
+		//"Package-Glossary"
+		public Keyword getPackageGlossaryKeyword_0() { return cPackageGlossaryKeyword_0; }
+
+		//name=QualifiedName
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//QualifiedName
+		public RuleCall getNameQualifiedNameParserRuleCall_1_0() { return cNameQualifiedNameParserRuleCall_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//glossaryTerms+=GlossaryTerm*
+		public Assignment getGlossaryTermsAssignment_3() { return cGlossaryTermsAssignment_3; }
+
+		//GlossaryTerm
+		public RuleCall getGlossaryTermsGlossaryTermParserRuleCall_3_0() { return cGlossaryTermsGlossaryTermParserRuleCall_3_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+
+	public class PackageStakeholderElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PackageStakeholder");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPackageStakeholderKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cStakeholdersAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cStakeholdersStakeholderParserRuleCall_3_0 = (RuleCall)cStakeholdersAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//PackageStakeholder:
+		//	"Package-Stakeholder" name=QualifiedName "{" stakeholders+=Stakeholder* "}";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"Package-Stakeholder" name=QualifiedName "{" stakeholders+=Stakeholder* "}"
+		public Group getGroup() { return cGroup; }
+
+		//"Package-Stakeholder"
+		public Keyword getPackageStakeholderKeyword_0() { return cPackageStakeholderKeyword_0; }
+
+		//name=QualifiedName
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//QualifiedName
+		public RuleCall getNameQualifiedNameParserRuleCall_1_0() { return cNameQualifiedNameParserRuleCall_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//stakeholders+=Stakeholder*
+		public Assignment getStakeholdersAssignment_3() { return cStakeholdersAssignment_3; }
+
+		//Stakeholder
+		public RuleCall getStakeholdersStakeholderParserRuleCall_3_0() { return cStakeholdersStakeholderParserRuleCall_3_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+
+	public class PackageGoalElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PackageGoal");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPackageGoalKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cGoalsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cGoalsGoalParserRuleCall_3_0 = (RuleCall)cGoalsAssignment_3.eContents().get(0);
+		private final Assignment cGoalRelationsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cGoalRelationsGoalRelationParserRuleCall_4_0 = (RuleCall)cGoalRelationsAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//PackageGoal:
+		//	"Package-Goal" name=QualifiedName "{" goals+=Goal* goalRelations+=GoalRelation* "}";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"Package-Goal" name=QualifiedName "{" goals+=Goal* goalRelations+=GoalRelation* "}"
+		public Group getGroup() { return cGroup; }
+
+		//"Package-Goal"
+		public Keyword getPackageGoalKeyword_0() { return cPackageGoalKeyword_0; }
+
+		//name=QualifiedName
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//QualifiedName
+		public RuleCall getNameQualifiedNameParserRuleCall_1_0() { return cNameQualifiedNameParserRuleCall_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//goals+=Goal*
+		public Assignment getGoalsAssignment_3() { return cGoalsAssignment_3; }
+
+		//Goal
+		public RuleCall getGoalsGoalParserRuleCall_3_0() { return cGoalsGoalParserRuleCall_3_0; }
+
+		//goalRelations+=GoalRelation*
+		public Assignment getGoalRelationsAssignment_4() { return cGoalRelationsAssignment_4; }
+
+		//GoalRelation
+		public RuleCall getGoalRelationsGoalRelationParserRuleCall_4_0() { return cGoalRelationsGoalRelationParserRuleCall_4_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
 	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
@@ -4219,6 +4359,9 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	private final ModelElements pModel;
 	private final PackageProjectElements pPackageProject;
 	private final PackageSystemElements pPackageSystem;
+	private final PackageGlossaryElements pPackageGlossary;
+	private final PackageStakeholderElements pPackageStakeholder;
+	private final PackageGoalElements pPackageGoal;
 	private final QualifiedNameElements pQualifiedName;
 	private final QualifiedNameWithWildcardElements pQualifiedNameWithWildcard;
 	private final ImportElements pImport;
@@ -4274,6 +4417,9 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		this.pModel = new ModelElements();
 		this.pPackageProject = new PackageProjectElements();
 		this.pPackageSystem = new PackageSystemElements();
+		this.pPackageGlossary = new PackageGlossaryElements();
+		this.pPackageStakeholder = new PackageStakeholderElements();
+		this.pPackageGoal = new PackageGoalElements();
 		this.pQualifiedName = new QualifiedNameElements();
 		this.pQualifiedNameWithWildcard = new QualifiedNameWithWildcardElements();
 		this.pImport = new ImportElements();
@@ -4346,7 +4492,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	PackageProject | PackageSystem;
+	//	PackageProject | PackageSystem | PackageGlossary | PackageStakeholder | PackageGoal;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -4356,8 +4502,8 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PackageProject: // Business Level
-	//	"Package-Project" name=QualifiedName "{" imports+=Import* project=Project glossaryTerms+=GlossaryTerm*
-	//	stakeholders+=Stakeholder* goals+=Goal* goalRelations+=GoalRelation* // Optional Nested System Level
+	//	"Package-Project" name=QualifiedName "{" imports+=Import* project=Project packageGlossary+=PackageGlossary*
+	//	packageStakeholders+=PackageStakeholder* packageGoals+=PackageGoal* goalRelations+=GoalRelation* // Optional Nested System Level
 	//	packageSystems+=PackageSystem* systemRelations+=SystemRelation* "}";
 	public PackageProjectElements getPackageProjectAccess() {
 		return pPackageProject;
@@ -4376,6 +4522,36 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getPackageSystemRule() {
 		return getPackageSystemAccess().getRule();
+	}
+
+	//PackageGlossary:
+	//	"Package-Glossary" name=QualifiedName "{" glossaryTerms+=GlossaryTerm* "}";
+	public PackageGlossaryElements getPackageGlossaryAccess() {
+		return pPackageGlossary;
+	}
+	
+	public ParserRule getPackageGlossaryRule() {
+		return getPackageGlossaryAccess().getRule();
+	}
+
+	//PackageStakeholder:
+	//	"Package-Stakeholder" name=QualifiedName "{" stakeholders+=Stakeholder* "}";
+	public PackageStakeholderElements getPackageStakeholderAccess() {
+		return pPackageStakeholder;
+	}
+	
+	public ParserRule getPackageStakeholderRule() {
+		return getPackageStakeholderAccess().getRule();
+	}
+
+	//PackageGoal:
+	//	"Package-Goal" name=QualifiedName "{" goals+=Goal* goalRelations+=GoalRelation* "}";
+	public PackageGoalElements getPackageGoalAccess() {
+		return pPackageGoal;
+	}
+	
+	public ParserRule getPackageGoalRule() {
+		return getPackageGoalAccess().getRule();
 	}
 
 	//QualifiedName:

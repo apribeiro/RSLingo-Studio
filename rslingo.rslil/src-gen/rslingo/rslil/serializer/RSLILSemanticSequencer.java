@@ -34,7 +34,10 @@ import rslingo.rslil.rSLIL.Import;
 import rslingo.rslil.rSLIL.Month;
 import rslingo.rslil.rSLIL.Multiplicity;
 import rslingo.rslil.rSLIL.Organizations;
+import rslingo.rslil.rSLIL.PackageGlossary;
+import rslingo.rslil.rSLIL.PackageGoal;
 import rslingo.rslil.rSLIL.PackageProject;
+import rslingo.rslil.rSLIL.PackageStakeholder;
 import rslingo.rslil.rSLIL.PackageSystem;
 import rslingo.rslil.rSLIL.PlannedSchedule;
 import rslingo.rslil.rSLIL.PrimaryKey;
@@ -122,8 +125,17 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 			case RSLILPackage.ORGANIZATIONS:
 				sequence_Organizations(context, (Organizations) semanticObject); 
 				return; 
+			case RSLILPackage.PACKAGE_GLOSSARY:
+				sequence_PackageGlossary(context, (PackageGlossary) semanticObject); 
+				return; 
+			case RSLILPackage.PACKAGE_GOAL:
+				sequence_PackageGoal(context, (PackageGoal) semanticObject); 
+				return; 
 			case RSLILPackage.PACKAGE_PROJECT:
 				sequence_PackageProject(context, (PackageProject) semanticObject); 
+				return; 
+			case RSLILPackage.PACKAGE_STAKEHOLDER:
+				sequence_PackageStakeholder(context, (PackageStakeholder) semanticObject); 
 				return; 
 			case RSLILPackage.PACKAGE_SYSTEM:
 				sequence_PackageSystem(context, (PackageSystem) semanticObject); 
@@ -517,19 +529,46 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
+	 *     (name=QualifiedName glossaryTerms+=GlossaryTerm*)
+	 */
+	protected void sequence_PackageGlossary(EObject context, PackageGlossary semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=QualifiedName goals+=Goal* goalRelations+=GoalRelation*)
+	 */
+	protected void sequence_PackageGoal(EObject context, PackageGoal semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
 	 *         name=QualifiedName 
 	 *         imports+=Import* 
 	 *         project=Project 
-	 *         glossaryTerms+=GlossaryTerm* 
-	 *         stakeholders+=Stakeholder* 
-	 *         goals+=Goal* 
+	 *         packageGlossary+=PackageGlossary* 
+	 *         packageStakeholders+=PackageStakeholder* 
+	 *         packageGoals+=PackageGoal* 
 	 *         goalRelations+=GoalRelation* 
 	 *         packageSystems+=PackageSystem* 
 	 *         systemRelations+=SystemRelation*
 	 *     )
 	 */
 	protected void sequence_PackageProject(EObject context, PackageProject semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=QualifiedName stakeholders+=Stakeholder*)
+	 */
+	protected void sequence_PackageStakeholder(EObject context, PackageStakeholder semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

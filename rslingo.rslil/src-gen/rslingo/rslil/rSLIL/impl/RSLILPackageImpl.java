@@ -27,7 +27,10 @@ import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.Month;
 import rslingo.rslil.rSLIL.Multiplicity;
 import rslingo.rslil.rSLIL.Organizations;
+import rslingo.rslil.rSLIL.PackageGlossary;
+import rslingo.rslil.rSLIL.PackageGoal;
 import rslingo.rslil.rSLIL.PackageProject;
+import rslingo.rslil.rSLIL.PackageStakeholder;
 import rslingo.rslil.rSLIL.PackageSystem;
 import rslingo.rslil.rSLIL.PlannedSchedule;
 import rslingo.rslil.rSLIL.PrimaryKey;
@@ -80,6 +83,27 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * @generated
    */
   private EClass packageSystemEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass packageGlossaryEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass packageStakeholderEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass packageGoalEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -449,16 +473,6 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Imports()
-  {
-    return (EReference)modelEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getPackageProject()
   {
     return packageProjectEClass;
@@ -469,7 +483,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageProject_Project()
+  public EReference getPackageProject_Imports()
   {
     return (EReference)packageProjectEClass.getEStructuralFeatures().get(0);
   }
@@ -479,7 +493,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageProject_GlossaryTerms()
+  public EReference getPackageProject_Project()
   {
     return (EReference)packageProjectEClass.getEStructuralFeatures().get(1);
   }
@@ -489,7 +503,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageProject_Stakeholders()
+  public EReference getPackageProject_PackageGlossary()
   {
     return (EReference)packageProjectEClass.getEStructuralFeatures().get(2);
   }
@@ -499,7 +513,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageProject_Goals()
+  public EReference getPackageProject_PackageStakeholders()
   {
     return (EReference)packageProjectEClass.getEStructuralFeatures().get(3);
   }
@@ -509,7 +523,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageProject_GoalRelations()
+  public EReference getPackageProject_PackageGoals()
   {
     return (EReference)packageProjectEClass.getEStructuralFeatures().get(4);
   }
@@ -519,7 +533,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageProject_PackageSystems()
+  public EReference getPackageProject_GoalRelations()
   {
     return (EReference)packageProjectEClass.getEStructuralFeatures().get(5);
   }
@@ -529,9 +543,19 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageProject_SystemRelations()
+  public EReference getPackageProject_PackageSystems()
   {
     return (EReference)packageProjectEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPackageProject_SystemRelations()
+  {
+    return (EReference)packageProjectEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -549,7 +573,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageSystem_System()
+  public EReference getPackageSystem_Imports()
   {
     return (EReference)packageSystemEClass.getEStructuralFeatures().get(0);
   }
@@ -559,7 +583,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageSystem_Entities()
+  public EReference getPackageSystem_System()
   {
     return (EReference)packageSystemEClass.getEStructuralFeatures().get(1);
   }
@@ -569,7 +593,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageSystem_Actors()
+  public EReference getPackageSystem_Entities()
   {
     return (EReference)packageSystemEClass.getEStructuralFeatures().get(2);
   }
@@ -579,7 +603,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageSystem_UseCases()
+  public EReference getPackageSystem_Actors()
   {
     return (EReference)packageSystemEClass.getEStructuralFeatures().get(3);
   }
@@ -589,7 +613,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageSystem_Frs()
+  public EReference getPackageSystem_UseCases()
   {
     return (EReference)packageSystemEClass.getEStructuralFeatures().get(4);
   }
@@ -599,7 +623,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageSystem_Qrs()
+  public EReference getPackageSystem_Frs()
   {
     return (EReference)packageSystemEClass.getEStructuralFeatures().get(5);
   }
@@ -609,7 +633,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageSystem_Constraints()
+  public EReference getPackageSystem_Qrs()
   {
     return (EReference)packageSystemEClass.getEStructuralFeatures().get(6);
   }
@@ -619,9 +643,89 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageSystem_RequirementRelations()
+  public EReference getPackageSystem_Constraints()
   {
     return (EReference)packageSystemEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPackageSystem_RequirementRelations()
+  {
+    return (EReference)packageSystemEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPackageGlossary()
+  {
+    return packageGlossaryEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPackageGlossary_GlossaryTerms()
+  {
+    return (EReference)packageGlossaryEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPackageStakeholder()
+  {
+    return packageStakeholderEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPackageStakeholder_Stakeholders()
+  {
+    return (EReference)packageStakeholderEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPackageGoal()
+  {
+    return packageGoalEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPackageGoal_Goals()
+  {
+    return (EReference)packageGoalEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPackageGoal_GoalRelations()
+  {
+    return (EReference)packageGoalEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2686,18 +2790,19 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     // Create classes and their features
     modelEClass = createEClass(MODEL);
     createEAttribute(modelEClass, MODEL__NAME);
-    createEReference(modelEClass, MODEL__IMPORTS);
 
     packageProjectEClass = createEClass(PACKAGE_PROJECT);
+    createEReference(packageProjectEClass, PACKAGE_PROJECT__IMPORTS);
     createEReference(packageProjectEClass, PACKAGE_PROJECT__PROJECT);
-    createEReference(packageProjectEClass, PACKAGE_PROJECT__GLOSSARY_TERMS);
-    createEReference(packageProjectEClass, PACKAGE_PROJECT__STAKEHOLDERS);
-    createEReference(packageProjectEClass, PACKAGE_PROJECT__GOALS);
+    createEReference(packageProjectEClass, PACKAGE_PROJECT__PACKAGE_GLOSSARY);
+    createEReference(packageProjectEClass, PACKAGE_PROJECT__PACKAGE_STAKEHOLDERS);
+    createEReference(packageProjectEClass, PACKAGE_PROJECT__PACKAGE_GOALS);
     createEReference(packageProjectEClass, PACKAGE_PROJECT__GOAL_RELATIONS);
     createEReference(packageProjectEClass, PACKAGE_PROJECT__PACKAGE_SYSTEMS);
     createEReference(packageProjectEClass, PACKAGE_PROJECT__SYSTEM_RELATIONS);
 
     packageSystemEClass = createEClass(PACKAGE_SYSTEM);
+    createEReference(packageSystemEClass, PACKAGE_SYSTEM__IMPORTS);
     createEReference(packageSystemEClass, PACKAGE_SYSTEM__SYSTEM);
     createEReference(packageSystemEClass, PACKAGE_SYSTEM__ENTITIES);
     createEReference(packageSystemEClass, PACKAGE_SYSTEM__ACTORS);
@@ -2706,6 +2811,16 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     createEReference(packageSystemEClass, PACKAGE_SYSTEM__QRS);
     createEReference(packageSystemEClass, PACKAGE_SYSTEM__CONSTRAINTS);
     createEReference(packageSystemEClass, PACKAGE_SYSTEM__REQUIREMENT_RELATIONS);
+
+    packageGlossaryEClass = createEClass(PACKAGE_GLOSSARY);
+    createEReference(packageGlossaryEClass, PACKAGE_GLOSSARY__GLOSSARY_TERMS);
+
+    packageStakeholderEClass = createEClass(PACKAGE_STAKEHOLDER);
+    createEReference(packageStakeholderEClass, PACKAGE_STAKEHOLDER__STAKEHOLDERS);
+
+    packageGoalEClass = createEClass(PACKAGE_GOAL);
+    createEReference(packageGoalEClass, PACKAGE_GOAL__GOALS);
+    createEReference(packageGoalEClass, PACKAGE_GOAL__GOAL_RELATIONS);
 
     importEClass = createEClass(IMPORT);
     createEAttribute(importEClass, IMPORT__IMPORTED_NAMESPACE);
@@ -2982,6 +3097,9 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     // Add supertypes to classes
     packageProjectEClass.getESuperTypes().add(this.getModel());
     packageSystemEClass.getESuperTypes().add(this.getModel());
+    packageGlossaryEClass.getESuperTypes().add(this.getModel());
+    packageStakeholderEClass.getESuperTypes().add(this.getModel());
+    packageGoalEClass.getESuperTypes().add(this.getModel());
     frEClass.getESuperTypes().add(this.getRequirement());
     qrEClass.getESuperTypes().add(this.getRequirement());
     constraintEClass.getESuperTypes().add(this.getRequirement());
@@ -2989,18 +3107,19 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModel_Imports(), this.getImport(), null, "imports", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(packageProjectEClass, PackageProject.class, "PackageProject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPackageProject_Imports(), this.getImport(), null, "imports", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageProject_Project(), this.getProject(), null, "project", null, 0, 1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPackageProject_GlossaryTerms(), this.getGlossaryTerm(), null, "glossaryTerms", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPackageProject_Stakeholders(), this.getStakeholder(), null, "stakeholders", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPackageProject_Goals(), this.getGoal(), null, "goals", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackageProject_PackageGlossary(), this.getPackageGlossary(), null, "packageGlossary", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackageProject_PackageStakeholders(), this.getPackageStakeholder(), null, "packageStakeholders", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackageProject_PackageGoals(), this.getPackageGoal(), null, "packageGoals", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageProject_GoalRelations(), this.getGoalRelation(), null, "goalRelations", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageProject_PackageSystems(), this.getPackageSystem(), null, "packageSystems", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageProject_SystemRelations(), this.getSystemRelation(), null, "systemRelations", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(packageSystemEClass, PackageSystem.class, "PackageSystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPackageSystem_Imports(), this.getImport(), null, "imports", null, 0, -1, PackageSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageSystem_System(), this.getSystem(), null, "system", null, 0, 1, PackageSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageSystem_Entities(), this.getEntity(), null, "entities", null, 0, -1, PackageSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageSystem_Actors(), this.getActor(), null, "actors", null, 0, -1, PackageSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3009,6 +3128,16 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     initEReference(getPackageSystem_Qrs(), this.getQR(), null, "qrs", null, 0, -1, PackageSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageSystem_Constraints(), this.getConstraint(), null, "constraints", null, 0, -1, PackageSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageSystem_RequirementRelations(), this.getRequirementRelation(), null, "requirementRelations", null, 0, -1, PackageSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(packageGlossaryEClass, PackageGlossary.class, "PackageGlossary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPackageGlossary_GlossaryTerms(), this.getGlossaryTerm(), null, "glossaryTerms", null, 0, -1, PackageGlossary.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(packageStakeholderEClass, PackageStakeholder.class, "PackageStakeholder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPackageStakeholder_Stakeholders(), this.getStakeholder(), null, "stakeholders", null, 0, -1, PackageStakeholder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(packageGoalEClass, PackageGoal.class, "PackageGoal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPackageGoal_Goals(), this.getGoal(), null, "goals", null, 0, -1, PackageGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackageGoal_GoalRelations(), this.getGoalRelation(), null, "goalRelations", null, 0, -1, PackageGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

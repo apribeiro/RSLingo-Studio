@@ -96,6 +96,36 @@ ruleModel returns [EObject current=null]
         $current = $this_PackageSystem_1.current; 
         afterParserOrEnumRuleCall();
     }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getModelAccess().getPackageGlossaryParserRuleCall_2()); 
+    }
+    this_PackageGlossary_2=rulePackageGlossary
+    { 
+        $current = $this_PackageGlossary_2.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getModelAccess().getPackageStakeholderParserRuleCall_3()); 
+    }
+    this_PackageStakeholder_3=rulePackageStakeholder
+    { 
+        $current = $this_PackageStakeholder_3.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getModelAccess().getPackageGoalParserRuleCall_4()); 
+    }
+    this_PackageGoal_4=rulePackageGoal
+    { 
+        $current = $this_PackageGoal_4.current; 
+        afterParserOrEnumRuleCall();
+    }
 )
 ;
 
@@ -182,17 +212,17 @@ rulePackageProject returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPackageProjectAccess().getGlossaryTermsGlossaryTermParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getPackageProjectAccess().getPackageGlossaryPackageGlossaryParserRuleCall_5_0()); 
 	    }
-		lv_glossaryTerms_5_0=ruleGlossaryTerm		{
+		lv_packageGlossary_5_0=rulePackageGlossary		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPackageProjectRule());
 	        }
        		add(
        			$current, 
-       			"glossaryTerms",
-        		lv_glossaryTerms_5_0, 
-        		"GlossaryTerm");
+       			"packageGlossary",
+        		lv_packageGlossary_5_0, 
+        		"PackageGlossary");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -200,17 +230,17 @@ rulePackageProject returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPackageProjectAccess().getStakeholdersStakeholderParserRuleCall_6_0()); 
+	        newCompositeNode(grammarAccess.getPackageProjectAccess().getPackageStakeholdersPackageStakeholderParserRuleCall_6_0()); 
 	    }
-		lv_stakeholders_6_0=ruleStakeholder		{
+		lv_packageStakeholders_6_0=rulePackageStakeholder		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPackageProjectRule());
 	        }
        		add(
        			$current, 
-       			"stakeholders",
-        		lv_stakeholders_6_0, 
-        		"Stakeholder");
+       			"packageStakeholders",
+        		lv_packageStakeholders_6_0, 
+        		"PackageStakeholder");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -218,17 +248,17 @@ rulePackageProject returns [EObject current=null]
 )*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPackageProjectAccess().getGoalsGoalParserRuleCall_7_0()); 
+	        newCompositeNode(grammarAccess.getPackageProjectAccess().getPackageGoalsPackageGoalParserRuleCall_7_0()); 
 	    }
-		lv_goals_7_0=ruleGoal		{
+		lv_packageGoals_7_0=rulePackageGoal		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPackageProjectRule());
 	        }
        		add(
        			$current, 
-       			"goals",
-        		lv_goals_7_0, 
-        		"Goal");
+       			"packageGoals",
+        		lv_packageGoals_7_0, 
+        		"PackageGoal");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -503,6 +533,231 @@ rulePackageSystem returns [EObject current=null]
 )*	otherlv_12='}' 
     {
     	newLeafNode(otherlv_12, grammarAccess.getPackageSystemAccess().getRightCurlyBracketKeyword_12());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRulePackageGlossary
+entryRulePackageGlossary returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getPackageGlossaryRule()); }
+	 iv_rulePackageGlossary=rulePackageGlossary 
+	 { $current=$iv_rulePackageGlossary.current; } 
+	 EOF 
+;
+
+// Rule PackageGlossary
+rulePackageGlossary returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='Package-Glossary' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getPackageGlossaryAccess().getPackageGlossaryKeyword_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPackageGlossaryAccess().getNameQualifiedNameParserRuleCall_1_0()); 
+	    }
+		lv_name_1_0=ruleQualifiedName		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPackageGlossaryRule());
+	        }
+       		set(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
+        		"QualifiedName");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_2='{' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getPackageGlossaryAccess().getLeftCurlyBracketKeyword_2());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPackageGlossaryAccess().getGlossaryTermsGlossaryTermParserRuleCall_3_0()); 
+	    }
+		lv_glossaryTerms_3_0=ruleGlossaryTerm		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPackageGlossaryRule());
+	        }
+       		add(
+       			$current, 
+       			"glossaryTerms",
+        		lv_glossaryTerms_3_0, 
+        		"GlossaryTerm");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_4='}' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getPackageGlossaryAccess().getRightCurlyBracketKeyword_4());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRulePackageStakeholder
+entryRulePackageStakeholder returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getPackageStakeholderRule()); }
+	 iv_rulePackageStakeholder=rulePackageStakeholder 
+	 { $current=$iv_rulePackageStakeholder.current; } 
+	 EOF 
+;
+
+// Rule PackageStakeholder
+rulePackageStakeholder returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='Package-Stakeholder' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getPackageStakeholderAccess().getPackageStakeholderKeyword_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPackageStakeholderAccess().getNameQualifiedNameParserRuleCall_1_0()); 
+	    }
+		lv_name_1_0=ruleQualifiedName		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPackageStakeholderRule());
+	        }
+       		set(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
+        		"QualifiedName");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_2='{' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getPackageStakeholderAccess().getLeftCurlyBracketKeyword_2());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPackageStakeholderAccess().getStakeholdersStakeholderParserRuleCall_3_0()); 
+	    }
+		lv_stakeholders_3_0=ruleStakeholder		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPackageStakeholderRule());
+	        }
+       		add(
+       			$current, 
+       			"stakeholders",
+        		lv_stakeholders_3_0, 
+        		"Stakeholder");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_4='}' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getPackageStakeholderAccess().getRightCurlyBracketKeyword_4());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRulePackageGoal
+entryRulePackageGoal returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getPackageGoalRule()); }
+	 iv_rulePackageGoal=rulePackageGoal 
+	 { $current=$iv_rulePackageGoal.current; } 
+	 EOF 
+;
+
+// Rule PackageGoal
+rulePackageGoal returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='Package-Goal' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getPackageGoalAccess().getPackageGoalKeyword_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPackageGoalAccess().getNameQualifiedNameParserRuleCall_1_0()); 
+	    }
+		lv_name_1_0=ruleQualifiedName		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPackageGoalRule());
+	        }
+       		set(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
+        		"QualifiedName");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_2='{' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getPackageGoalAccess().getLeftCurlyBracketKeyword_2());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPackageGoalAccess().getGoalsGoalParserRuleCall_3_0()); 
+	    }
+		lv_goals_3_0=ruleGoal		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPackageGoalRule());
+	        }
+       		add(
+       			$current, 
+       			"goals",
+        		lv_goals_3_0, 
+        		"Goal");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPackageGoalAccess().getGoalRelationsGoalRelationParserRuleCall_4_0()); 
+	    }
+		lv_goalRelations_4_0=ruleGoalRelation		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPackageGoalRule());
+	        }
+       		add(
+       			$current, 
+       			"goalRelations",
+        		lv_goalRelations_4_0, 
+        		"GoalRelation");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_5='}' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getPackageGoalAccess().getRightCurlyBracketKeyword_5());
     }
 )
 ;

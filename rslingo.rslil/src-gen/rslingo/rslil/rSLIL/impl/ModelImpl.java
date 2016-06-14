@@ -2,23 +2,13 @@
  */
 package rslingo.rslil.rSLIL.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import rslingo.rslil.rSLIL.Import;
 import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.RSLILPackage;
 
@@ -31,7 +21,6 @@ import rslingo.rslil.rSLIL.RSLILPackage;
  * </p>
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getName <em>Name</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.ModelImpl#getImports <em>Imports</em>}</li>
  * </ul>
  *
  * @generated
@@ -57,16 +46,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getImports()
-   * @generated
-   * @ordered
-   */
-  protected EList<Import> imports;
 
   /**
    * <!-- begin-user-doc -->
@@ -117,36 +96,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Import> getImports()
-  {
-    if (imports == null)
-    {
-      imports = new EObjectContainmentEList<Import>(Import.class, this, RSLILPackage.MODEL__IMPORTS);
-    }
-    return imports;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case RSLILPackage.MODEL__IMPORTS:
-        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -154,8 +103,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case RSLILPackage.MODEL__NAME:
         return getName();
-      case RSLILPackage.MODEL__IMPORTS:
-        return getImports();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -165,7 +112,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -173,10 +119,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case RSLILPackage.MODEL__NAME:
         setName((String)newValue);
-        return;
-      case RSLILPackage.MODEL__IMPORTS:
-        getImports().clear();
-        getImports().addAll((Collection<? extends Import>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -195,9 +137,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case RSLILPackage.MODEL__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case RSLILPackage.MODEL__IMPORTS:
-        getImports().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -214,8 +153,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case RSLILPackage.MODEL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case RSLILPackage.MODEL__IMPORTS:
-        return imports != null && !imports.isEmpty();
     }
     return super.eIsSet(featureID);
   }

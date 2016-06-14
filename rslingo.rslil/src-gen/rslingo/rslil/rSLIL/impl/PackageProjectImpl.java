@@ -17,14 +17,15 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import rslingo.rslil.rSLIL.GlossaryTerm;
-import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.GoalRelation;
+import rslingo.rslil.rSLIL.Import;
+import rslingo.rslil.rSLIL.PackageGlossary;
+import rslingo.rslil.rSLIL.PackageGoal;
 import rslingo.rslil.rSLIL.PackageProject;
+import rslingo.rslil.rSLIL.PackageStakeholder;
 import rslingo.rslil.rSLIL.PackageSystem;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.RSLILPackage;
-import rslingo.rslil.rSLIL.Stakeholder;
 import rslingo.rslil.rSLIL.SystemRelation;
 
 /**
@@ -35,10 +36,11 @@ import rslingo.rslil.rSLIL.SystemRelation;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getProject <em>Project</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getGlossaryTerms <em>Glossary Terms</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getStakeholders <em>Stakeholders</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getGoals <em>Goals</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getPackageGlossary <em>Package Glossary</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getPackageStakeholders <em>Package Stakeholders</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getPackageGoals <em>Package Goals</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getGoalRelations <em>Goal Relations</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getPackageSystems <em>Package Systems</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getSystemRelations <em>System Relations</em>}</li>
@@ -48,6 +50,16 @@ import rslingo.rslil.rSLIL.SystemRelation;
  */
 public class PackageProjectImpl extends ModelImpl implements PackageProject
 {
+  /**
+   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getImports()
+   * @generated
+   * @ordered
+   */
+  protected EList<Import> imports;
+
   /**
    * The cached value of the '{@link #getProject() <em>Project</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -59,34 +71,34 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
   protected Project project;
 
   /**
-   * The cached value of the '{@link #getGlossaryTerms() <em>Glossary Terms</em>}' containment reference list.
+   * The cached value of the '{@link #getPackageGlossary() <em>Package Glossary</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGlossaryTerms()
+   * @see #getPackageGlossary()
    * @generated
    * @ordered
    */
-  protected EList<GlossaryTerm> glossaryTerms;
+  protected EList<PackageGlossary> packageGlossary;
 
   /**
-   * The cached value of the '{@link #getStakeholders() <em>Stakeholders</em>}' containment reference list.
+   * The cached value of the '{@link #getPackageStakeholders() <em>Package Stakeholders</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStakeholders()
+   * @see #getPackageStakeholders()
    * @generated
    * @ordered
    */
-  protected EList<Stakeholder> stakeholders;
+  protected EList<PackageStakeholder> packageStakeholders;
 
   /**
-   * The cached value of the '{@link #getGoals() <em>Goals</em>}' containment reference list.
+   * The cached value of the '{@link #getPackageGoals() <em>Package Goals</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGoals()
+   * @see #getPackageGoals()
    * @generated
    * @ordered
    */
-  protected EList<Goal> goals;
+  protected EList<PackageGoal> packageGoals;
 
   /**
    * The cached value of the '{@link #getGoalRelations() <em>Goal Relations</em>}' containment reference list.
@@ -144,6 +156,20 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Import> getImports()
+  {
+    if (imports == null)
+    {
+      imports = new EObjectContainmentEList<Import>(Import.class, this, RSLILPackage.PACKAGE_PROJECT__IMPORTS);
+    }
+    return imports;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Project getProject()
   {
     return project;
@@ -192,13 +218,13 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<GlossaryTerm> getGlossaryTerms()
+  public EList<PackageGlossary> getPackageGlossary()
   {
-    if (glossaryTerms == null)
+    if (packageGlossary == null)
     {
-      glossaryTerms = new EObjectContainmentEList<GlossaryTerm>(GlossaryTerm.class, this, RSLILPackage.PACKAGE_PROJECT__GLOSSARY_TERMS);
+      packageGlossary = new EObjectContainmentEList<PackageGlossary>(PackageGlossary.class, this, RSLILPackage.PACKAGE_PROJECT__PACKAGE_GLOSSARY);
     }
-    return glossaryTerms;
+    return packageGlossary;
   }
 
   /**
@@ -206,13 +232,13 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Stakeholder> getStakeholders()
+  public EList<PackageStakeholder> getPackageStakeholders()
   {
-    if (stakeholders == null)
+    if (packageStakeholders == null)
     {
-      stakeholders = new EObjectContainmentEList<Stakeholder>(Stakeholder.class, this, RSLILPackage.PACKAGE_PROJECT__STAKEHOLDERS);
+      packageStakeholders = new EObjectContainmentEList<PackageStakeholder>(PackageStakeholder.class, this, RSLILPackage.PACKAGE_PROJECT__PACKAGE_STAKEHOLDERS);
     }
-    return stakeholders;
+    return packageStakeholders;
   }
 
   /**
@@ -220,13 +246,13 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Goal> getGoals()
+  public EList<PackageGoal> getPackageGoals()
   {
-    if (goals == null)
+    if (packageGoals == null)
     {
-      goals = new EObjectContainmentEList<Goal>(Goal.class, this, RSLILPackage.PACKAGE_PROJECT__GOALS);
+      packageGoals = new EObjectContainmentEList<PackageGoal>(PackageGoal.class, this, RSLILPackage.PACKAGE_PROJECT__PACKAGE_GOALS);
     }
-    return goals;
+    return packageGoals;
   }
 
   /**
@@ -281,14 +307,16 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
   {
     switch (featureID)
     {
+      case RSLILPackage.PACKAGE_PROJECT__IMPORTS:
+        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
       case RSLILPackage.PACKAGE_PROJECT__PROJECT:
         return basicSetProject(null, msgs);
-      case RSLILPackage.PACKAGE_PROJECT__GLOSSARY_TERMS:
-        return ((InternalEList<?>)getGlossaryTerms()).basicRemove(otherEnd, msgs);
-      case RSLILPackage.PACKAGE_PROJECT__STAKEHOLDERS:
-        return ((InternalEList<?>)getStakeholders()).basicRemove(otherEnd, msgs);
-      case RSLILPackage.PACKAGE_PROJECT__GOALS:
-        return ((InternalEList<?>)getGoals()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.PACKAGE_PROJECT__PACKAGE_GLOSSARY:
+        return ((InternalEList<?>)getPackageGlossary()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.PACKAGE_PROJECT__PACKAGE_STAKEHOLDERS:
+        return ((InternalEList<?>)getPackageStakeholders()).basicRemove(otherEnd, msgs);
+      case RSLILPackage.PACKAGE_PROJECT__PACKAGE_GOALS:
+        return ((InternalEList<?>)getPackageGoals()).basicRemove(otherEnd, msgs);
       case RSLILPackage.PACKAGE_PROJECT__GOAL_RELATIONS:
         return ((InternalEList<?>)getGoalRelations()).basicRemove(otherEnd, msgs);
       case RSLILPackage.PACKAGE_PROJECT__PACKAGE_SYSTEMS:
@@ -309,14 +337,16 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
   {
     switch (featureID)
     {
+      case RSLILPackage.PACKAGE_PROJECT__IMPORTS:
+        return getImports();
       case RSLILPackage.PACKAGE_PROJECT__PROJECT:
         return getProject();
-      case RSLILPackage.PACKAGE_PROJECT__GLOSSARY_TERMS:
-        return getGlossaryTerms();
-      case RSLILPackage.PACKAGE_PROJECT__STAKEHOLDERS:
-        return getStakeholders();
-      case RSLILPackage.PACKAGE_PROJECT__GOALS:
-        return getGoals();
+      case RSLILPackage.PACKAGE_PROJECT__PACKAGE_GLOSSARY:
+        return getPackageGlossary();
+      case RSLILPackage.PACKAGE_PROJECT__PACKAGE_STAKEHOLDERS:
+        return getPackageStakeholders();
+      case RSLILPackage.PACKAGE_PROJECT__PACKAGE_GOALS:
+        return getPackageGoals();
       case RSLILPackage.PACKAGE_PROJECT__GOAL_RELATIONS:
         return getGoalRelations();
       case RSLILPackage.PACKAGE_PROJECT__PACKAGE_SYSTEMS:
@@ -338,20 +368,24 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
   {
     switch (featureID)
     {
+      case RSLILPackage.PACKAGE_PROJECT__IMPORTS:
+        getImports().clear();
+        getImports().addAll((Collection<? extends Import>)newValue);
+        return;
       case RSLILPackage.PACKAGE_PROJECT__PROJECT:
         setProject((Project)newValue);
         return;
-      case RSLILPackage.PACKAGE_PROJECT__GLOSSARY_TERMS:
-        getGlossaryTerms().clear();
-        getGlossaryTerms().addAll((Collection<? extends GlossaryTerm>)newValue);
+      case RSLILPackage.PACKAGE_PROJECT__PACKAGE_GLOSSARY:
+        getPackageGlossary().clear();
+        getPackageGlossary().addAll((Collection<? extends PackageGlossary>)newValue);
         return;
-      case RSLILPackage.PACKAGE_PROJECT__STAKEHOLDERS:
-        getStakeholders().clear();
-        getStakeholders().addAll((Collection<? extends Stakeholder>)newValue);
+      case RSLILPackage.PACKAGE_PROJECT__PACKAGE_STAKEHOLDERS:
+        getPackageStakeholders().clear();
+        getPackageStakeholders().addAll((Collection<? extends PackageStakeholder>)newValue);
         return;
-      case RSLILPackage.PACKAGE_PROJECT__GOALS:
-        getGoals().clear();
-        getGoals().addAll((Collection<? extends Goal>)newValue);
+      case RSLILPackage.PACKAGE_PROJECT__PACKAGE_GOALS:
+        getPackageGoals().clear();
+        getPackageGoals().addAll((Collection<? extends PackageGoal>)newValue);
         return;
       case RSLILPackage.PACKAGE_PROJECT__GOAL_RELATIONS:
         getGoalRelations().clear();
@@ -379,17 +413,20 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
   {
     switch (featureID)
     {
+      case RSLILPackage.PACKAGE_PROJECT__IMPORTS:
+        getImports().clear();
+        return;
       case RSLILPackage.PACKAGE_PROJECT__PROJECT:
         setProject((Project)null);
         return;
-      case RSLILPackage.PACKAGE_PROJECT__GLOSSARY_TERMS:
-        getGlossaryTerms().clear();
+      case RSLILPackage.PACKAGE_PROJECT__PACKAGE_GLOSSARY:
+        getPackageGlossary().clear();
         return;
-      case RSLILPackage.PACKAGE_PROJECT__STAKEHOLDERS:
-        getStakeholders().clear();
+      case RSLILPackage.PACKAGE_PROJECT__PACKAGE_STAKEHOLDERS:
+        getPackageStakeholders().clear();
         return;
-      case RSLILPackage.PACKAGE_PROJECT__GOALS:
-        getGoals().clear();
+      case RSLILPackage.PACKAGE_PROJECT__PACKAGE_GOALS:
+        getPackageGoals().clear();
         return;
       case RSLILPackage.PACKAGE_PROJECT__GOAL_RELATIONS:
         getGoalRelations().clear();
@@ -414,14 +451,16 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
   {
     switch (featureID)
     {
+      case RSLILPackage.PACKAGE_PROJECT__IMPORTS:
+        return imports != null && !imports.isEmpty();
       case RSLILPackage.PACKAGE_PROJECT__PROJECT:
         return project != null;
-      case RSLILPackage.PACKAGE_PROJECT__GLOSSARY_TERMS:
-        return glossaryTerms != null && !glossaryTerms.isEmpty();
-      case RSLILPackage.PACKAGE_PROJECT__STAKEHOLDERS:
-        return stakeholders != null && !stakeholders.isEmpty();
-      case RSLILPackage.PACKAGE_PROJECT__GOALS:
-        return goals != null && !goals.isEmpty();
+      case RSLILPackage.PACKAGE_PROJECT__PACKAGE_GLOSSARY:
+        return packageGlossary != null && !packageGlossary.isEmpty();
+      case RSLILPackage.PACKAGE_PROJECT__PACKAGE_STAKEHOLDERS:
+        return packageStakeholders != null && !packageStakeholders.isEmpty();
+      case RSLILPackage.PACKAGE_PROJECT__PACKAGE_GOALS:
+        return packageGoals != null && !packageGoals.isEmpty();
       case RSLILPackage.PACKAGE_PROJECT__GOAL_RELATIONS:
         return goalRelations != null && !goalRelations.isEmpty();
       case RSLILPackage.PACKAGE_PROJECT__PACKAGE_SYSTEMS:

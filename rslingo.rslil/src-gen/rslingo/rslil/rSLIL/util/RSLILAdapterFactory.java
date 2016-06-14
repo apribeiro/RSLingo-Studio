@@ -28,7 +28,10 @@ import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.Month;
 import rslingo.rslil.rSLIL.Multiplicity;
 import rslingo.rslil.rSLIL.Organizations;
+import rslingo.rslil.rSLIL.PackageGlossary;
+import rslingo.rslil.rSLIL.PackageGoal;
 import rslingo.rslil.rSLIL.PackageProject;
+import rslingo.rslil.rSLIL.PackageStakeholder;
 import rslingo.rslil.rSLIL.PackageSystem;
 import rslingo.rslil.rSLIL.PlannedSchedule;
 import rslingo.rslil.rSLIL.PrimaryKey;
@@ -130,6 +133,21 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
       public Adapter casePackageSystem(PackageSystem object)
       {
         return createPackageSystemAdapter();
+      }
+      @Override
+      public Adapter casePackageGlossary(PackageGlossary object)
+      {
+        return createPackageGlossaryAdapter();
+      }
+      @Override
+      public Adapter casePackageStakeholder(PackageStakeholder object)
+      {
+        return createPackageStakeholderAdapter();
+      }
+      @Override
+      public Adapter casePackageGoal(PackageGoal object)
+      {
+        return createPackageGoalAdapter();
       }
       @Override
       public Adapter caseImport(Import object)
@@ -394,6 +412,51 @@ public class RSLILAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPackageSystemAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.PackageGlossary <em>Package Glossary</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.PackageGlossary
+   * @generated
+   */
+  public Adapter createPackageGlossaryAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.PackageStakeholder <em>Package Stakeholder</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.PackageStakeholder
+   * @generated
+   */
+  public Adapter createPackageStakeholderAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link rslingo.rslil.rSLIL.PackageGoal <em>Package Goal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see rslingo.rslil.rSLIL.PackageGoal
+   * @generated
+   */
+  public Adapter createPackageGoalAdapter()
   {
     return null;
   }

@@ -3,18 +3,18 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="rSLIL" nsURI="http://www.rslil.rslingo/RSLIL" nsPrefix="rSLIL">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
-        eType="#//Import" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PackageProject" eSuperTypes="#//Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="#//Import" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="project" eType="#//Project"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="glossaryTerms" upperBound="-1"
-        eType="#//GlossaryTerm" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="stakeholders" upperBound="-1"
-        eType="#//Stakeholder" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="goals" upperBound="-1"
-        eType="#//Goal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packageGlossary" upperBound="-1"
+        eType="#//PackageGlossary" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packageStakeholders" upperBound="-1"
+        eType="#//PackageStakeholder" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packageGoals" upperBound="-1"
+        eType="#//PackageGoal" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="goalRelations" upperBound="-1"
         eType="#//GoalRelation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="packageSystems" upperBound="-1"
@@ -23,6 +23,8 @@
         eType="#//SystemRelation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PackageSystem" eSuperTypes="#//Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="#//Import" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="system" eType="#//System"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entities" upperBound="-1"
@@ -39,6 +41,20 @@
         eType="#//Constraint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="requirementRelations" upperBound="-1"
         eType="#//RequirementRelation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PackageGlossary" eSuperTypes="#//Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="glossaryTerms" upperBound="-1"
+        eType="#//GlossaryTerm" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PackageStakeholder" eSuperTypes="#//Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stakeholders" upperBound="-1"
+        eType="#//Stakeholder" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PackageGoal" eSuperTypes="#//Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="goals" upperBound="-1"
+        eType="#//Goal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="goalRelations" upperBound="-1"
+        eType="#//GoalRelation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Import">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

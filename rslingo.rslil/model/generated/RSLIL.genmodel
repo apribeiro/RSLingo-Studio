@@ -9,18 +9,19 @@
       fileExtensions="rslil" ecorePackage="RSLIL.ecore#/">
     <genClasses ecoreClass="RSLIL.ecore#//Model">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Model/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//Model/imports"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//PackageProject">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/imports"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/project"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/glossaryTerms"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/stakeholders"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/goals"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/packageGlossary"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/packageStakeholders"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/packageGoals"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/goalRelations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/packageSystems"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/systemRelations"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//PackageSystem">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/imports"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/system"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/entities"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/actors"/>
@@ -29,6 +30,16 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/qrs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/constraints"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageSystem/requirementRelations"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//PackageGlossary">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageGlossary/glossaryTerms"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//PackageStakeholder">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageStakeholder/stakeholders"/>
+    </genClasses>
+    <genClasses ecoreClass="RSLIL.ecore#//PackageGoal">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageGoal/goals"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageGoal/goalRelations"/>
     </genClasses>
     <genClasses ecoreClass="RSLIL.ecore#//Import">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute RSLIL.ecore#//Import/importedNamespace"/>

@@ -13,10 +13,11 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getImports <em>Imports</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getProject <em>Project</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getGlossaryTerms <em>Glossary Terms</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getStakeholders <em>Stakeholders</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getGoals <em>Goals</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getPackageGlossary <em>Package Glossary</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getPackageStakeholders <em>Package Stakeholders</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getPackageGoals <em>Package Goals</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getGoalRelations <em>Goal Relations</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getPackageSystems <em>Package Systems</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getSystemRelations <em>System Relations</em>}</li>
@@ -28,6 +29,22 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface PackageProject extends Model
 {
+  /**
+   * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.Import}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Imports</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Imports</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getPackageProject_Imports()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Import> getImports();
+
   /**
    * Returns the value of the '<em><b>Project</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -55,52 +72,52 @@ public interface PackageProject extends Model
   void setProject(Project value);
 
   /**
-   * Returns the value of the '<em><b>Glossary Terms</b></em>' containment reference list.
-   * The list contents are of type {@link rslingo.rslil.rSLIL.GlossaryTerm}.
+   * Returns the value of the '<em><b>Package Glossary</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.PackageGlossary}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Glossary Terms</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Package Glossary</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Glossary Terms</em>' containment reference list.
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getPackageProject_GlossaryTerms()
+   * @return the value of the '<em>Package Glossary</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getPackageProject_PackageGlossary()
    * @model containment="true"
    * @generated
    */
-  EList<GlossaryTerm> getGlossaryTerms();
+  EList<PackageGlossary> getPackageGlossary();
 
   /**
-   * Returns the value of the '<em><b>Stakeholders</b></em>' containment reference list.
-   * The list contents are of type {@link rslingo.rslil.rSLIL.Stakeholder}.
+   * Returns the value of the '<em><b>Package Stakeholders</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.PackageStakeholder}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Stakeholders</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Package Stakeholders</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Stakeholders</em>' containment reference list.
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getPackageProject_Stakeholders()
+   * @return the value of the '<em>Package Stakeholders</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getPackageProject_PackageStakeholders()
    * @model containment="true"
    * @generated
    */
-  EList<Stakeholder> getStakeholders();
+  EList<PackageStakeholder> getPackageStakeholders();
 
   /**
-   * Returns the value of the '<em><b>Goals</b></em>' containment reference list.
-   * The list contents are of type {@link rslingo.rslil.rSLIL.Goal}.
+   * Returns the value of the '<em><b>Package Goals</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.PackageGoal}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Goals</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Package Goals</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Goals</em>' containment reference list.
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getPackageProject_Goals()
+   * @return the value of the '<em>Package Goals</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getPackageProject_PackageGoals()
    * @model containment="true"
    * @generated
    */
-  EList<Goal> getGoals();
+  EList<PackageGoal> getPackageGoals();
 
   /**
    * Returns the value of the '<em><b>Goal Relations</b></em>' containment reference list.

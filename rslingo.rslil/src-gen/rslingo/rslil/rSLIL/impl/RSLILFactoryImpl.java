@@ -29,7 +29,10 @@ import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.Month;
 import rslingo.rslil.rSLIL.Multiplicity;
 import rslingo.rslil.rSLIL.Organizations;
+import rslingo.rslil.rSLIL.PackageGlossary;
+import rslingo.rslil.rSLIL.PackageGoal;
 import rslingo.rslil.rSLIL.PackageProject;
+import rslingo.rslil.rSLIL.PackageStakeholder;
 import rslingo.rslil.rSLIL.PackageSystem;
 import rslingo.rslil.rSLIL.PlannedSchedule;
 import rslingo.rslil.rSLIL.PrimaryKey;
@@ -110,6 +113,9 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
       case RSLILPackage.MODEL: return createModel();
       case RSLILPackage.PACKAGE_PROJECT: return createPackageProject();
       case RSLILPackage.PACKAGE_SYSTEM: return createPackageSystem();
+      case RSLILPackage.PACKAGE_GLOSSARY: return createPackageGlossary();
+      case RSLILPackage.PACKAGE_STAKEHOLDER: return createPackageStakeholder();
+      case RSLILPackage.PACKAGE_GOAL: return createPackageGoal();
       case RSLILPackage.IMPORT: return createImport();
       case RSLILPackage.PROJECT: return createProject();
       case RSLILPackage.PLANNED_SCHEDULE: return createPlannedSchedule();
@@ -186,6 +192,39 @@ public class RSLILFactoryImpl extends EFactoryImpl implements RSLILFactory
   {
     PackageSystemImpl packageSystem = new PackageSystemImpl();
     return packageSystem;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PackageGlossary createPackageGlossary()
+  {
+    PackageGlossaryImpl packageGlossary = new PackageGlossaryImpl();
+    return packageGlossary;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PackageStakeholder createPackageStakeholder()
+  {
+    PackageStakeholderImpl packageStakeholder = new PackageStakeholderImpl();
+    return packageStakeholder;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PackageGoal createPackageGoal()
+  {
+    PackageGoalImpl packageGoal = new PackageGoalImpl();
+    return packageGoal;
   }
 
   /**

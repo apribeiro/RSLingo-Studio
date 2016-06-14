@@ -50,6 +50,33 @@ public interface RSLILFactory extends EFactory
   PackageSystem createPackageSystem();
 
   /**
+   * Returns a new object of class '<em>Package Glossary</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Package Glossary</em>'.
+   * @generated
+   */
+  PackageGlossary createPackageGlossary();
+
+  /**
+   * Returns a new object of class '<em>Package Stakeholder</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Package Stakeholder</em>'.
+   * @generated
+   */
+  PackageStakeholder createPackageStakeholder();
+
+  /**
+   * Returns a new object of class '<em>Package Goal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Package Goal</em>'.
+   * @generated
+   */
+  PackageGoal createPackageGoal();
+
+  /**
    * Returns a new object of class '<em>Import</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

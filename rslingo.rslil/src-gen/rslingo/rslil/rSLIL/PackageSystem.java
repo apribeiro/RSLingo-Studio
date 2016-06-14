@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link rslingo.rslil.rSLIL.PackageSystem#getImports <em>Imports</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageSystem#getSystem <em>System</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageSystem#getEntities <em>Entities</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageSystem#getActors <em>Actors</em>}</li>
@@ -29,6 +30,22 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface PackageSystem extends Model
 {
+  /**
+   * Returns the value of the '<em><b>Imports</b></em>' containment reference list.
+   * The list contents are of type {@link rslingo.rslil.rSLIL.Import}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Imports</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Imports</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getPackageSystem_Imports()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Import> getImports();
+
   /**
    * Returns the value of the '<em><b>System</b></em>' containment reference.
    * <!-- begin-user-doc -->

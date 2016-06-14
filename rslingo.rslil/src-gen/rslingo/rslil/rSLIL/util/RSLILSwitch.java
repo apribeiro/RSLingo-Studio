@@ -26,7 +26,10 @@ import rslingo.rslil.rSLIL.Model;
 import rslingo.rslil.rSLIL.Month;
 import rslingo.rslil.rSLIL.Multiplicity;
 import rslingo.rslil.rSLIL.Organizations;
+import rslingo.rslil.rSLIL.PackageGlossary;
+import rslingo.rslil.rSLIL.PackageGoal;
 import rslingo.rslil.rSLIL.PackageProject;
+import rslingo.rslil.rSLIL.PackageStakeholder;
 import rslingo.rslil.rSLIL.PackageSystem;
 import rslingo.rslil.rSLIL.PlannedSchedule;
 import rslingo.rslil.rSLIL.PrimaryKey;
@@ -134,6 +137,30 @@ public class RSLILSwitch<T> extends Switch<T>
         PackageSystem packageSystem = (PackageSystem)theEObject;
         T result = casePackageSystem(packageSystem);
         if (result == null) result = caseModel(packageSystem);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.PACKAGE_GLOSSARY:
+      {
+        PackageGlossary packageGlossary = (PackageGlossary)theEObject;
+        T result = casePackageGlossary(packageGlossary);
+        if (result == null) result = caseModel(packageGlossary);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.PACKAGE_STAKEHOLDER:
+      {
+        PackageStakeholder packageStakeholder = (PackageStakeholder)theEObject;
+        T result = casePackageStakeholder(packageStakeholder);
+        if (result == null) result = caseModel(packageStakeholder);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case RSLILPackage.PACKAGE_GOAL:
+      {
+        PackageGoal packageGoal = (PackageGoal)theEObject;
+        T result = casePackageGoal(packageGoal);
+        if (result == null) result = caseModel(packageGoal);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -468,6 +495,54 @@ public class RSLILSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePackageSystem(PackageSystem object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Package Glossary</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Package Glossary</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePackageGlossary(PackageGlossary object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Package Stakeholder</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Package Stakeholder</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePackageStakeholder(PackageStakeholder object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Package Goal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Package Goal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePackageGoal(PackageGoal object)
   {
     return null;
   }

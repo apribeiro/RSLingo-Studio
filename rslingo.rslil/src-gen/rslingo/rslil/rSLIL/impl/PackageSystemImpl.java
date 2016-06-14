@@ -21,6 +21,7 @@ import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.Constraint;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.FR;
+import rslingo.rslil.rSLIL.Import;
 import rslingo.rslil.rSLIL.PackageSystem;
 import rslingo.rslil.rSLIL.QR;
 import rslingo.rslil.rSLIL.RSLILPackage;
@@ -35,6 +36,7 @@ import rslingo.rslil.rSLIL.UseCase;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.PackageSystemImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageSystemImpl#getSystem <em>System</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageSystemImpl#getEntities <em>Entities</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageSystemImpl#getActors <em>Actors</em>}</li>
@@ -49,6 +51,16 @@ import rslingo.rslil.rSLIL.UseCase;
  */
 public class PackageSystemImpl extends ModelImpl implements PackageSystem
 {
+  /**
+   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getImports()
+   * @generated
+   * @ordered
+   */
+  protected EList<Import> imports;
+
   /**
    * The cached value of the '{@link #getSystem() <em>System</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -148,6 +160,20 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
   protected EClass eStaticClass()
   {
     return RSLILPackage.Literals.PACKAGE_SYSTEM;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Import> getImports()
+  {
+    if (imports == null)
+    {
+      imports = new EObjectContainmentEList<Import>(Import.class, this, RSLILPackage.PACKAGE_SYSTEM__IMPORTS);
+    }
+    return imports;
   }
 
   /**
@@ -306,6 +332,8 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
   {
     switch (featureID)
     {
+      case RSLILPackage.PACKAGE_SYSTEM__IMPORTS:
+        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
       case RSLILPackage.PACKAGE_SYSTEM__SYSTEM:
         return basicSetSystem(null, msgs);
       case RSLILPackage.PACKAGE_SYSTEM__ENTITIES:
@@ -336,6 +364,8 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
   {
     switch (featureID)
     {
+      case RSLILPackage.PACKAGE_SYSTEM__IMPORTS:
+        return getImports();
       case RSLILPackage.PACKAGE_SYSTEM__SYSTEM:
         return getSystem();
       case RSLILPackage.PACKAGE_SYSTEM__ENTITIES:
@@ -367,6 +397,10 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
   {
     switch (featureID)
     {
+      case RSLILPackage.PACKAGE_SYSTEM__IMPORTS:
+        getImports().clear();
+        getImports().addAll((Collection<? extends Import>)newValue);
+        return;
       case RSLILPackage.PACKAGE_SYSTEM__SYSTEM:
         setSystem((rslingo.rslil.rSLIL.System)newValue);
         return;
@@ -412,6 +446,9 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
   {
     switch (featureID)
     {
+      case RSLILPackage.PACKAGE_SYSTEM__IMPORTS:
+        getImports().clear();
+        return;
       case RSLILPackage.PACKAGE_SYSTEM__SYSTEM:
         setSystem((rslingo.rslil.rSLIL.System)null);
         return;
@@ -450,6 +487,8 @@ public class PackageSystemImpl extends ModelImpl implements PackageSystem
   {
     switch (featureID)
     {
+      case RSLILPackage.PACKAGE_SYSTEM__IMPORTS:
+        return imports != null && !imports.isEmpty();
       case RSLILPackage.PACKAGE_SYSTEM__SYSTEM:
         return system != null;
       case RSLILPackage.PACKAGE_SYSTEM__ENTITIES:
