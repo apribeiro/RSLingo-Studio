@@ -40,7 +40,10 @@ import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTRPr;
 import com.google.common.io.CharStreams;
 
 import rslingo.rslil.rSLIL.Import;
+import rslingo.rslil.rSLIL.PackageGlossary;
+import rslingo.rslil.rSLIL.PackageGoal;
 import rslingo.rslil.rSLIL.PackageProject;
+import rslingo.rslil.rSLIL.PackageStakeholder;
 import rslingo.rslil.rSLIL.PackageSystem;
 
 public class DocumentHelper {
@@ -426,6 +429,15 @@ public class DocumentHelper {
 			if (res.getContents().get(0) instanceof PackageSystem) {
 				PackageSystem system = (PackageSystem) res.getContents().get(0);
 				packageProj.getPackageSystems().add(system);
+			} else if (res.getContents().get(0) instanceof PackageGlossary) {
+				PackageGlossary glossary = (PackageGlossary) res.getContents().get(0);
+				packageProj.getPackageGlossaries().add(glossary);
+			}  else if (res.getContents().get(0) instanceof PackageStakeholder) {
+				PackageStakeholder stakeholder = (PackageStakeholder) res.getContents().get(0);
+				packageProj.getPackageStakeholders().add(stakeholder);
+			}  else if (res.getContents().get(0) instanceof PackageGoal) {
+				PackageGoal goal = (PackageGoal) res.getContents().get(0);
+				packageProj.getPackageGoals().add(goal);
 			}
 		}
 		
