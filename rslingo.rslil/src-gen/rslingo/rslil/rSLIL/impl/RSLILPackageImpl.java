@@ -503,7 +503,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageProject_PackageGlossary()
+  public EReference getPackageProject_PackageGlossaries()
   {
     return (EReference)packageProjectEClass.getEStructuralFeatures().get(2);
   }
@@ -2794,7 +2794,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     packageProjectEClass = createEClass(PACKAGE_PROJECT);
     createEReference(packageProjectEClass, PACKAGE_PROJECT__IMPORTS);
     createEReference(packageProjectEClass, PACKAGE_PROJECT__PROJECT);
-    createEReference(packageProjectEClass, PACKAGE_PROJECT__PACKAGE_GLOSSARY);
+    createEReference(packageProjectEClass, PACKAGE_PROJECT__PACKAGE_GLOSSARIES);
     createEReference(packageProjectEClass, PACKAGE_PROJECT__PACKAGE_STAKEHOLDERS);
     createEReference(packageProjectEClass, PACKAGE_PROJECT__PACKAGE_GOALS);
     createEReference(packageProjectEClass, PACKAGE_PROJECT__GOAL_RELATIONS);
@@ -3111,7 +3111,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     initEClass(packageProjectEClass, PackageProject.class, "PackageProject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPackageProject_Imports(), this.getImport(), null, "imports", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageProject_Project(), this.getProject(), null, "project", null, 0, 1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPackageProject_PackageGlossary(), this.getPackageGlossary(), null, "packageGlossary", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackageProject_PackageGlossaries(), this.getPackageGlossary(), null, "packageGlossaries", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageProject_PackageStakeholders(), this.getPackageStakeholder(), null, "packageStakeholders", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageProject_PackageGoals(), this.getPackageGoal(), null, "packageGoals", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageProject_GoalRelations(), this.getGoalRelation(), null, "goalRelations", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

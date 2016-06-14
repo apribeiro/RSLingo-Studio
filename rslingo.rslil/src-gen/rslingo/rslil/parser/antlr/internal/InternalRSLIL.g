@@ -212,16 +212,16 @@ rulePackageProject returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPackageProjectAccess().getPackageGlossaryPackageGlossaryParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getPackageProjectAccess().getPackageGlossariesPackageGlossaryParserRuleCall_5_0()); 
 	    }
-		lv_packageGlossary_5_0=rulePackageGlossary		{
+		lv_packageGlossaries_5_0=rulePackageGlossary		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPackageProjectRule());
 	        }
        		add(
        			$current, 
-       			"packageGlossary",
-        		lv_packageGlossary_5_0, 
+       			"packageGlossaries",
+        		lv_packageGlossaries_5_0, 
         		"PackageGlossary");
 	        afterParserOrEnumRuleCall();
 	    }

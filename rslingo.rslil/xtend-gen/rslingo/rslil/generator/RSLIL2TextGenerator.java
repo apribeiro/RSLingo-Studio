@@ -85,13 +85,10 @@ public class RSLIL2TextGenerator implements IGenerator {
   public CharSequence compile(final PackageProject packageProject) {
     throw new Error("Unresolved compilation problems:"
       + "\nThe method glossaryTerms is undefined for the type RSLIL2TextGenerator"
-      + "\nThe method glossaryTerms is undefined for the type RSLIL2TextGenerator"
       + "\nThe method stakeholders is undefined for the type RSLIL2TextGenerator"
       + "\nThe method stakeholders is undefined for the type RSLIL2TextGenerator"
       + "\nThe method goals is undefined for the type RSLIL2TextGenerator"
       + "\nThe method goals is undefined for the type RSLIL2TextGenerator"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
       + "\ncompile cannot be resolved"
       + "\nempty cannot be resolved"
       + "\n! cannot be resolved"

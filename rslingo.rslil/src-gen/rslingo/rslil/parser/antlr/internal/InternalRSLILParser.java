@@ -543,7 +543,7 @@ public class InternalRSLILParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePackageProject"
-    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:146:1: rulePackageProject returns [EObject current=null] : (otherlv_0= 'Package-Project' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( (lv_imports_3_0= ruleImport ) )* ( (lv_project_4_0= ruleProject ) ) ( (lv_packageGlossary_5_0= rulePackageGlossary ) )* ( (lv_packageStakeholders_6_0= rulePackageStakeholder ) )* ( (lv_packageGoals_7_0= rulePackageGoal ) )* ( (lv_goalRelations_8_0= ruleGoalRelation ) )* ( (lv_packageSystems_9_0= rulePackageSystem ) )* ( (lv_systemRelations_10_0= ruleSystemRelation ) )* otherlv_11= '}' ) ;
+    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:146:1: rulePackageProject returns [EObject current=null] : (otherlv_0= 'Package-Project' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( (lv_imports_3_0= ruleImport ) )* ( (lv_project_4_0= ruleProject ) ) ( (lv_packageGlossaries_5_0= rulePackageGlossary ) )* ( (lv_packageStakeholders_6_0= rulePackageStakeholder ) )* ( (lv_packageGoals_7_0= rulePackageGoal ) )* ( (lv_goalRelations_8_0= ruleGoalRelation ) )* ( (lv_packageSystems_9_0= rulePackageSystem ) )* ( (lv_systemRelations_10_0= ruleSystemRelation ) )* otherlv_11= '}' ) ;
     public final EObject rulePackageProject() throws RecognitionException {
         EObject current = null;
 
@@ -556,7 +556,7 @@ public class InternalRSLILParser extends AbstractInternalAntlrParser {
 
         EObject lv_project_4_0 = null;
 
-        EObject lv_packageGlossary_5_0 = null;
+        EObject lv_packageGlossaries_5_0 = null;
 
         EObject lv_packageStakeholders_6_0 = null;
 
@@ -572,11 +572,11 @@ public class InternalRSLILParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:149:28: ( (otherlv_0= 'Package-Project' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( (lv_imports_3_0= ruleImport ) )* ( (lv_project_4_0= ruleProject ) ) ( (lv_packageGlossary_5_0= rulePackageGlossary ) )* ( (lv_packageStakeholders_6_0= rulePackageStakeholder ) )* ( (lv_packageGoals_7_0= rulePackageGoal ) )* ( (lv_goalRelations_8_0= ruleGoalRelation ) )* ( (lv_packageSystems_9_0= rulePackageSystem ) )* ( (lv_systemRelations_10_0= ruleSystemRelation ) )* otherlv_11= '}' ) )
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:150:1: (otherlv_0= 'Package-Project' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( (lv_imports_3_0= ruleImport ) )* ( (lv_project_4_0= ruleProject ) ) ( (lv_packageGlossary_5_0= rulePackageGlossary ) )* ( (lv_packageStakeholders_6_0= rulePackageStakeholder ) )* ( (lv_packageGoals_7_0= rulePackageGoal ) )* ( (lv_goalRelations_8_0= ruleGoalRelation ) )* ( (lv_packageSystems_9_0= rulePackageSystem ) )* ( (lv_systemRelations_10_0= ruleSystemRelation ) )* otherlv_11= '}' )
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:149:28: ( (otherlv_0= 'Package-Project' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( (lv_imports_3_0= ruleImport ) )* ( (lv_project_4_0= ruleProject ) ) ( (lv_packageGlossaries_5_0= rulePackageGlossary ) )* ( (lv_packageStakeholders_6_0= rulePackageStakeholder ) )* ( (lv_packageGoals_7_0= rulePackageGoal ) )* ( (lv_goalRelations_8_0= ruleGoalRelation ) )* ( (lv_packageSystems_9_0= rulePackageSystem ) )* ( (lv_systemRelations_10_0= ruleSystemRelation ) )* otherlv_11= '}' ) )
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:150:1: (otherlv_0= 'Package-Project' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( (lv_imports_3_0= ruleImport ) )* ( (lv_project_4_0= ruleProject ) ) ( (lv_packageGlossaries_5_0= rulePackageGlossary ) )* ( (lv_packageStakeholders_6_0= rulePackageStakeholder ) )* ( (lv_packageGoals_7_0= rulePackageGoal ) )* ( (lv_goalRelations_8_0= ruleGoalRelation ) )* ( (lv_packageSystems_9_0= rulePackageSystem ) )* ( (lv_systemRelations_10_0= ruleSystemRelation ) )* otherlv_11= '}' )
             {
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:150:1: (otherlv_0= 'Package-Project' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( (lv_imports_3_0= ruleImport ) )* ( (lv_project_4_0= ruleProject ) ) ( (lv_packageGlossary_5_0= rulePackageGlossary ) )* ( (lv_packageStakeholders_6_0= rulePackageStakeholder ) )* ( (lv_packageGoals_7_0= rulePackageGoal ) )* ( (lv_goalRelations_8_0= ruleGoalRelation ) )* ( (lv_packageSystems_9_0= rulePackageSystem ) )* ( (lv_systemRelations_10_0= ruleSystemRelation ) )* otherlv_11= '}' )
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:150:3: otherlv_0= 'Package-Project' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( (lv_imports_3_0= ruleImport ) )* ( (lv_project_4_0= ruleProject ) ) ( (lv_packageGlossary_5_0= rulePackageGlossary ) )* ( (lv_packageStakeholders_6_0= rulePackageStakeholder ) )* ( (lv_packageGoals_7_0= rulePackageGoal ) )* ( (lv_goalRelations_8_0= ruleGoalRelation ) )* ( (lv_packageSystems_9_0= rulePackageSystem ) )* ( (lv_systemRelations_10_0= ruleSystemRelation ) )* otherlv_11= '}'
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:150:1: (otherlv_0= 'Package-Project' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( (lv_imports_3_0= ruleImport ) )* ( (lv_project_4_0= ruleProject ) ) ( (lv_packageGlossaries_5_0= rulePackageGlossary ) )* ( (lv_packageStakeholders_6_0= rulePackageStakeholder ) )* ( (lv_packageGoals_7_0= rulePackageGoal ) )* ( (lv_goalRelations_8_0= ruleGoalRelation ) )* ( (lv_packageSystems_9_0= rulePackageSystem ) )* ( (lv_systemRelations_10_0= ruleSystemRelation ) )* otherlv_11= '}' )
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:150:3: otherlv_0= 'Package-Project' ( (lv_name_1_0= ruleQualifiedName ) ) otherlv_2= '{' ( (lv_imports_3_0= ruleImport ) )* ( (lv_project_4_0= ruleProject ) ) ( (lv_packageGlossaries_5_0= rulePackageGlossary ) )* ( (lv_packageStakeholders_6_0= rulePackageStakeholder ) )* ( (lv_packageGoals_7_0= rulePackageGoal ) )* ( (lv_goalRelations_8_0= ruleGoalRelation ) )* ( (lv_packageSystems_9_0= rulePackageSystem ) )* ( (lv_systemRelations_10_0= ruleSystemRelation ) )* otherlv_11= '}'
             {
             otherlv_0=(Token)match(input,11,FOLLOW_11_in_rulePackageProject322); 
 
@@ -697,7 +697,7 @@ public class InternalRSLILParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:212:2: ( (lv_packageGlossary_5_0= rulePackageGlossary ) )*
+            // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:212:2: ( (lv_packageGlossaries_5_0= rulePackageGlossary ) )*
             loop3:
             do {
                 int alt3=2;
@@ -710,16 +710,16 @@ public class InternalRSLILParser extends AbstractInternalAntlrParser {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:213:1: (lv_packageGlossary_5_0= rulePackageGlossary )
+            	    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:213:1: (lv_packageGlossaries_5_0= rulePackageGlossary )
             	    {
-            	    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:213:1: (lv_packageGlossary_5_0= rulePackageGlossary )
-            	    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:214:3: lv_packageGlossary_5_0= rulePackageGlossary
+            	    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:213:1: (lv_packageGlossaries_5_0= rulePackageGlossary )
+            	    // ../rslingo.rslil/src-gen/rslingo/rslil/parser/antlr/internal/InternalRSLIL.g:214:3: lv_packageGlossaries_5_0= rulePackageGlossary
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getPackageProjectAccess().getPackageGlossaryPackageGlossaryParserRuleCall_5_0()); 
+            	    	        newCompositeNode(grammarAccess.getPackageProjectAccess().getPackageGlossariesPackageGlossaryParserRuleCall_5_0()); 
             	    	    
             	    pushFollow(FOLLOW_rulePackageGlossary_in_rulePackageProject419);
-            	    lv_packageGlossary_5_0=rulePackageGlossary();
+            	    lv_packageGlossaries_5_0=rulePackageGlossary();
 
             	    state._fsp--;
 
@@ -729,8 +729,8 @@ public class InternalRSLILParser extends AbstractInternalAntlrParser {
             	    	        }
             	           		add(
             	           			current, 
-            	           			"packageGlossary",
-            	            		lv_packageGlossary_5_0, 
+            	           			"packageGlossaries",
+            	            		lv_packageGlossaries_5_0, 
             	            		"PackageGlossary");
             	    	        afterParserOrEnumRuleCall();
             	    	    

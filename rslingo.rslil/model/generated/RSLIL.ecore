@@ -9,7 +9,7 @@
         eType="#//Import" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="project" eType="#//Project"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="packageGlossary" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="packageGlossaries" upperBound="-1"
         eType="#//PackageGlossary" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="packageStakeholders" upperBound="-1"
         eType="#//PackageStakeholder" containment="true"/>

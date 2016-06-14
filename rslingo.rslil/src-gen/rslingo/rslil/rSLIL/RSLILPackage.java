@@ -122,13 +122,13 @@ public interface RSLILPackage extends EPackage
   int PACKAGE_PROJECT__PROJECT = MODEL_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Package Glossary</b></em>' containment reference list.
+   * The feature id for the '<em><b>Package Glossaries</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PACKAGE_PROJECT__PACKAGE_GLOSSARY = MODEL_FEATURE_COUNT + 2;
+  int PACKAGE_PROJECT__PACKAGE_GLOSSARIES = MODEL_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Package Stakeholders</b></em>' containment reference list.
@@ -2884,15 +2884,15 @@ public interface RSLILPackage extends EPackage
   EReference getPackageProject_Project();
 
   /**
-   * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.PackageProject#getPackageGlossary <em>Package Glossary</em>}'.
+   * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.PackageProject#getPackageGlossaries <em>Package Glossaries</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Package Glossary</em>'.
-   * @see rslingo.rslil.rSLIL.PackageProject#getPackageGlossary()
+   * @return the meta object for the containment reference list '<em>Package Glossaries</em>'.
+   * @see rslingo.rslil.rSLIL.PackageProject#getPackageGlossaries()
    * @see #getPackageProject()
    * @generated
    */
-  EReference getPackageProject_PackageGlossary();
+  EReference getPackageProject_PackageGlossaries();
 
   /**
    * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.PackageProject#getPackageStakeholders <em>Package Stakeholders</em>}'.
@@ -5393,12 +5393,12 @@ public interface RSLILPackage extends EPackage
     EReference PACKAGE_PROJECT__PROJECT = eINSTANCE.getPackageProject_Project();
 
     /**
-     * The meta object literal for the '<em><b>Package Glossary</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Package Glossaries</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PACKAGE_PROJECT__PACKAGE_GLOSSARY = eINSTANCE.getPackageProject_PackageGlossary();
+    EReference PACKAGE_PROJECT__PACKAGE_GLOSSARIES = eINSTANCE.getPackageProject_PackageGlossaries();
 
     /**
      * The meta object literal for the '<em><b>Package Stakeholders</b></em>' containment reference list feature.

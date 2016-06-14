@@ -61,8 +61,8 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cImportsImportParserRuleCall_3_0 = (RuleCall)cImportsAssignment_3.eContents().get(0);
 		private final Assignment cProjectAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cProjectProjectParserRuleCall_4_0 = (RuleCall)cProjectAssignment_4.eContents().get(0);
-		private final Assignment cPackageGlossaryAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cPackageGlossaryPackageGlossaryParserRuleCall_5_0 = (RuleCall)cPackageGlossaryAssignment_5.eContents().get(0);
+		private final Assignment cPackageGlossariesAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cPackageGlossariesPackageGlossaryParserRuleCall_5_0 = (RuleCall)cPackageGlossariesAssignment_5.eContents().get(0);
 		private final Assignment cPackageStakeholdersAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cPackageStakeholdersPackageStakeholderParserRuleCall_6_0 = (RuleCall)cPackageStakeholdersAssignment_6.eContents().get(0);
 		private final Assignment cPackageGoalsAssignment_7 = (Assignment)cGroup.eContents().get(7);
@@ -76,13 +76,13 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		
 		//PackageProject: // Business Level
-		//	"Package-Project" name=QualifiedName "{" imports+=Import* project=Project packageGlossary+=PackageGlossary*
+		//	"Package-Project" name=QualifiedName "{" imports+=Import* project=Project packageGlossaries+=PackageGlossary*
 		//	packageStakeholders+=PackageStakeholder* packageGoals+=PackageGoal* goalRelations+=GoalRelation* // Optional Nested System Level
 		//	packageSystems+=PackageSystem* systemRelations+=SystemRelation* "}";
 		@Override public ParserRule getRule() { return rule; }
 
 		//// Business Level
-		//"Package-Project" name=QualifiedName "{" imports+=Import* project=Project packageGlossary+=PackageGlossary*
+		//"Package-Project" name=QualifiedName "{" imports+=Import* project=Project packageGlossaries+=PackageGlossary*
 		//packageStakeholders+=PackageStakeholder* packageGoals+=PackageGoal* goalRelations+=GoalRelation* // Optional Nested System Level
 		//packageSystems+=PackageSystem* systemRelations+=SystemRelation* "}"
 		public Group getGroup() { return cGroup; }
@@ -112,11 +112,11 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//Project
 		public RuleCall getProjectProjectParserRuleCall_4_0() { return cProjectProjectParserRuleCall_4_0; }
 
-		//packageGlossary+=PackageGlossary*
-		public Assignment getPackageGlossaryAssignment_5() { return cPackageGlossaryAssignment_5; }
+		//packageGlossaries+=PackageGlossary*
+		public Assignment getPackageGlossariesAssignment_5() { return cPackageGlossariesAssignment_5; }
 
 		//PackageGlossary
-		public RuleCall getPackageGlossaryPackageGlossaryParserRuleCall_5_0() { return cPackageGlossaryPackageGlossaryParserRuleCall_5_0; }
+		public RuleCall getPackageGlossariesPackageGlossaryParserRuleCall_5_0() { return cPackageGlossariesPackageGlossaryParserRuleCall_5_0; }
 
 		//packageStakeholders+=PackageStakeholder*
 		public Assignment getPackageStakeholdersAssignment_6() { return cPackageStakeholdersAssignment_6; }
@@ -4502,7 +4502,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PackageProject: // Business Level
-	//	"Package-Project" name=QualifiedName "{" imports+=Import* project=Project packageGlossary+=PackageGlossary*
+	//	"Package-Project" name=QualifiedName "{" imports+=Import* project=Project packageGlossaries+=PackageGlossary*
 	//	packageStakeholders+=PackageStakeholder* packageGoals+=PackageGoal* goalRelations+=GoalRelation* // Optional Nested System Level
 	//	packageSystems+=PackageSystem* systemRelations+=SystemRelation* "}";
 	public PackageProjectElements getPackageProjectAccess() {

@@ -551,7 +551,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         name=QualifiedName 
 	 *         imports+=Import* 
 	 *         project=Project 
-	 *         packageGlossary+=PackageGlossary* 
+	 *         packageGlossaries+=PackageGlossary* 
 	 *         packageStakeholders+=PackageStakeholder* 
 	 *         packageGoals+=PackageGoal* 
 	 *         goalRelations+=GoalRelation* 

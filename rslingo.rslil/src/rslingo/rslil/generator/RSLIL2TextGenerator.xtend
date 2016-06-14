@@ -55,7 +55,7 @@ class RSLIL2TextGenerator implements IGenerator {
 	Project
 	----------------------------------------
 	«packageProject.project.compile»
-	«IF !packageProject.glossaryTerms.empty»
+	«IF !packageProject.packageGlossaries.empty»
 	
 	#Glossary
 	------------------

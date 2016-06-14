@@ -3233,9 +3233,9 @@ rule__PackageProject__Group__5__Impl
     }
 :
 (
-{ before(grammarAccess.getPackageProjectAccess().getPackageGlossaryAssignment_5()); }
-(rule__PackageProject__PackageGlossaryAssignment_5)*
-{ after(grammarAccess.getPackageProjectAccess().getPackageGlossaryAssignment_5()); }
+{ before(grammarAccess.getPackageProjectAccess().getPackageGlossariesAssignment_5()); }
+(rule__PackageProject__PackageGlossariesAssignment_5)*
+{ after(grammarAccess.getPackageProjectAccess().getPackageGlossariesAssignment_5()); }
 )
 
 ;
@@ -18678,14 +18678,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__PackageProject__PackageGlossaryAssignment_5
+rule__PackageProject__PackageGlossariesAssignment_5
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getPackageProjectAccess().getPackageGlossaryPackageGlossaryParserRuleCall_5_0()); }
-	rulePackageGlossary{ after(grammarAccess.getPackageProjectAccess().getPackageGlossaryPackageGlossaryParserRuleCall_5_0()); }
+{ before(grammarAccess.getPackageProjectAccess().getPackageGlossariesPackageGlossaryParserRuleCall_5_0()); }
+	rulePackageGlossary{ after(grammarAccess.getPackageProjectAccess().getPackageGlossariesPackageGlossaryParserRuleCall_5_0()); }
 )
 
 ;

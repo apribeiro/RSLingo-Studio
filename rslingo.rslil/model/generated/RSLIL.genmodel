@@ -13,7 +13,7 @@
     <genClasses ecoreClass="RSLIL.ecore#//PackageProject">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/imports"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/project"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/packageGlossary"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/packageGlossaries"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/packageStakeholders"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/packageGoals"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference RSLIL.ecore#//PackageProject/goalRelations"/>

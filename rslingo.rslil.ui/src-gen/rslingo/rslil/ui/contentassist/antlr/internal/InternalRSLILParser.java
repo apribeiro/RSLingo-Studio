@@ -8941,20 +8941,20 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PackageProject__Group__5__Impl"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3230:1: rule__PackageProject__Group__5__Impl : ( ( rule__PackageProject__PackageGlossaryAssignment_5 )* ) ;
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3230:1: rule__PackageProject__Group__5__Impl : ( ( rule__PackageProject__PackageGlossariesAssignment_5 )* ) ;
     public final void rule__PackageProject__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3234:1: ( ( ( rule__PackageProject__PackageGlossaryAssignment_5 )* ) )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3235:1: ( ( rule__PackageProject__PackageGlossaryAssignment_5 )* )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3234:1: ( ( ( rule__PackageProject__PackageGlossariesAssignment_5 )* ) )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3235:1: ( ( rule__PackageProject__PackageGlossariesAssignment_5 )* )
             {
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3235:1: ( ( rule__PackageProject__PackageGlossaryAssignment_5 )* )
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3236:1: ( rule__PackageProject__PackageGlossaryAssignment_5 )*
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3235:1: ( ( rule__PackageProject__PackageGlossariesAssignment_5 )* )
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3236:1: ( rule__PackageProject__PackageGlossariesAssignment_5 )*
             {
-             before(grammarAccess.getPackageProjectAccess().getPackageGlossaryAssignment_5()); 
-            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3237:1: ( rule__PackageProject__PackageGlossaryAssignment_5 )*
+             before(grammarAccess.getPackageProjectAccess().getPackageGlossariesAssignment_5()); 
+            // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3237:1: ( rule__PackageProject__PackageGlossariesAssignment_5 )*
             loop32:
             do {
                 int alt32=2;
@@ -8967,10 +8967,10 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
 
                 switch (alt32) {
             	case 1 :
-            	    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3237:2: rule__PackageProject__PackageGlossaryAssignment_5
+            	    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:3237:2: rule__PackageProject__PackageGlossariesAssignment_5
             	    {
-            	    pushFollow(FOLLOW_rule__PackageProject__PackageGlossaryAssignment_5_in_rule__PackageProject__Group__5__Impl7158);
-            	    rule__PackageProject__PackageGlossaryAssignment_5();
+            	    pushFollow(FOLLOW_rule__PackageProject__PackageGlossariesAssignment_5_in_rule__PackageProject__Group__5__Impl7158);
+            	    rule__PackageProject__PackageGlossariesAssignment_5();
 
             	    state._fsp--;
 
@@ -8983,7 +8983,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
                 }
             } while (true);
 
-             after(grammarAccess.getPackageProjectAccess().getPackageGlossaryAssignment_5()); 
+             after(grammarAccess.getPackageProjectAccess().getPackageGlossariesAssignment_5()); 
 
             }
 
@@ -49208,9 +49208,9 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__PackageProject__ProjectAssignment_4"
 
 
-    // $ANTLR start "rule__PackageProject__PackageGlossaryAssignment_5"
-    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:18681:1: rule__PackageProject__PackageGlossaryAssignment_5 : ( rulePackageGlossary ) ;
-    public final void rule__PackageProject__PackageGlossaryAssignment_5() throws RecognitionException {
+    // $ANTLR start "rule__PackageProject__PackageGlossariesAssignment_5"
+    // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:18681:1: rule__PackageProject__PackageGlossariesAssignment_5 : ( rulePackageGlossary ) ;
+    public final void rule__PackageProject__PackageGlossariesAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -49221,13 +49221,13 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:18686:1: ( rulePackageGlossary )
             // ../rslingo.rslil.ui/src-gen/rslingo/rslil/ui/contentassist/antlr/internal/InternalRSLIL.g:18687:1: rulePackageGlossary
             {
-             before(grammarAccess.getPackageProjectAccess().getPackageGlossaryPackageGlossaryParserRuleCall_5_0()); 
-            pushFollow(FOLLOW_rulePackageGlossary_in_rule__PackageProject__PackageGlossaryAssignment_537623);
+             before(grammarAccess.getPackageProjectAccess().getPackageGlossariesPackageGlossaryParserRuleCall_5_0()); 
+            pushFollow(FOLLOW_rulePackageGlossary_in_rule__PackageProject__PackageGlossariesAssignment_537623);
             rulePackageGlossary();
 
             state._fsp--;
 
-             after(grammarAccess.getPackageProjectAccess().getPackageGlossaryPackageGlossaryParserRuleCall_5_0()); 
+             after(grammarAccess.getPackageProjectAccess().getPackageGlossariesPackageGlossaryParserRuleCall_5_0()); 
 
             }
 
@@ -49246,7 +49246,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__PackageProject__PackageGlossaryAssignment_5"
+    // $ANTLR end "rule__PackageProject__PackageGlossariesAssignment_5"
 
 
     // $ANTLR start "rule__PackageProject__PackageStakeholdersAssignment_6"
@@ -57807,7 +57807,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rule__PackageProject__ProjectAssignment_4_in_rule__PackageProject__Group__4__Impl7098 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__PackageProject__Group__5__Impl_in_rule__PackageProject__Group__57128 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x00000F8000000000L,0x0000000000008001L});
     public static final BitSet FOLLOW_rule__PackageProject__Group__6_in_rule__PackageProject__Group__57131 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__PackageProject__PackageGlossaryAssignment_5_in_rule__PackageProject__Group__5__Impl7158 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000020000000000L});
+    public static final BitSet FOLLOW_rule__PackageProject__PackageGlossariesAssignment_5_in_rule__PackageProject__Group__5__Impl7158 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000020000000000L});
     public static final BitSet FOLLOW_rule__PackageProject__Group__6__Impl_in_rule__PackageProject__Group__67189 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x00000F8000000000L,0x0000000000008001L});
     public static final BitSet FOLLOW_rule__PackageProject__Group__7_in_rule__PackageProject__Group__67192 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__PackageProject__PackageStakeholdersAssignment_6_in_rule__PackageProject__Group__6__Impl7219 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000000L,0x0000040000000000L});
@@ -59151,7 +59151,7 @@ public class InternalRSLILParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_ruleQualifiedName_in_rule__PackageProject__NameAssignment_137530 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleImport_in_rule__PackageProject__ImportsAssignment_337561 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleProject_in_rule__PackageProject__ProjectAssignment_437592 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePackageGlossary_in_rule__PackageProject__PackageGlossaryAssignment_537623 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePackageGlossary_in_rule__PackageProject__PackageGlossariesAssignment_537623 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePackageStakeholder_in_rule__PackageProject__PackageStakeholdersAssignment_637654 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePackageGoal_in_rule__PackageProject__PackageGoalsAssignment_737685 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleGoalRelation_in_rule__PackageProject__GoalRelationsAssignment_837716 = new BitSet(new long[]{0x0000000000000002L});

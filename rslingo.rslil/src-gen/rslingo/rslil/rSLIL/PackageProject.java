@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getImports <em>Imports</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getProject <em>Project</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getPackageGlossary <em>Package Glossary</em>}</li>
+ *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getPackageGlossaries <em>Package Glossaries</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getPackageStakeholders <em>Package Stakeholders</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getPackageGoals <em>Package Goals</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getGoalRelations <em>Goal Relations</em>}</li>
@@ -72,20 +72,20 @@ public interface PackageProject extends Model
   void setProject(Project value);
 
   /**
-   * Returns the value of the '<em><b>Package Glossary</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Package Glossaries</b></em>' containment reference list.
    * The list contents are of type {@link rslingo.rslil.rSLIL.PackageGlossary}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Package Glossary</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Package Glossaries</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Package Glossary</em>' containment reference list.
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getPackageProject_PackageGlossary()
+   * @return the value of the '<em>Package Glossaries</em>' containment reference list.
+   * @see rslingo.rslil.rSLIL.RSLILPackage#getPackageProject_PackageGlossaries()
    * @model containment="true"
    * @generated
    */
-  EList<PackageGlossary> getPackageGlossary();
+  EList<PackageGlossary> getPackageGlossaries();
 
   /**
    * Returns the value of the '<em><b>Package Stakeholders</b></em>' containment reference list.
