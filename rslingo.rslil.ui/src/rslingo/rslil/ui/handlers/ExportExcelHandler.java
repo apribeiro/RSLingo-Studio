@@ -45,7 +45,10 @@ import rslingo.rslil.rSLIL.FR;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.GoalRelation;
+import rslingo.rslil.rSLIL.PackageGlossary;
+import rslingo.rslil.rSLIL.PackageGoal;
 import rslingo.rslil.rSLIL.PackageProject;
+import rslingo.rslil.rSLIL.PackageStakeholder;
 import rslingo.rslil.rSLIL.PackageSystem;
 import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.QR;
@@ -337,59 +340,60 @@ public class ExportExcelHandler extends AbstractHandler {
 	private void writeGlossary(PackageProject project, XSSFWorkbook workbook) {
 		XSSFSheet sheet = workbook.getSheet("glossary");
 		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "GTID").getRow();
-		
-		for (GlossaryTerm term : project.getGlossaryTerms()) {
-			XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
-			DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
-			
-			DocumentHelper.replaceText(nRow, "GTID", term.getName());
-			
-			if (term.getNameAlias() != null) {
-				DocumentHelper.replaceText(nRow, "GTNAME", term.getNameAlias());
-			} else {
-				DocumentHelper.replaceText(nRow, "GTNAME", "");
-			}
-			
-			if (term.getDescription() != null) {
-				DocumentHelper.replaceText(nRow, "GTDESCRIPTION", term.getDescription());
-			} else {
-				DocumentHelper.replaceText(nRow, "GTDESCRIPTION", "");
-			}
-			
-			String type = term.getType().getRefType().getType();
-			
-			for (TermType termType : term.getType().getRefs()) {
-				type += "; " + termType.getType();
-			}
-			DocumentHelper.replaceText(nRow, "GTTYPE", type);
-			
-			if (term.getAcronym() != null) {
-				DocumentHelper.replaceText(nRow, "GTACRONYM", term.getAcronym());
-			} else {
-				DocumentHelper.replaceText(nRow, "GTACRONYM", "");
-			}
-			
-			if (term.getPos() != null) {
-				DocumentHelper.replaceText(nRow, "GTPOS", term.getPos());
-			} else {
-				DocumentHelper.replaceText(nRow, "GTPOS", "");
-			}
-			
-			if (term.getSynonym() != null) {
-				DocumentHelper.replaceText(nRow, "GTSYNONYM", term.getSynonym());
-			} else {
-				DocumentHelper.replaceText(nRow, "GTSYNONYM", "");
-			}
-			
-			if (term.getHypernym() != null) {
-				DocumentHelper.replaceText(nRow, "GTHYPERNYM", term.getHypernym());
-			} else {
-				DocumentHelper.replaceText(nRow, "GTHYPERNYM", "");
+		for (PackageGlossary pg : project.getPackageGlossaries()) {
+			for (GlossaryTerm term : pg.getGlossaryTerms()) {
+				XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
+				DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
+				
+				DocumentHelper.replaceText(nRow, "GTID", term.getName());
+				
+				if (term.getNameAlias() != null) {
+					DocumentHelper.replaceText(nRow, "GTNAME", term.getNameAlias());
+				} else {
+					DocumentHelper.replaceText(nRow, "GTNAME", "");
+				}
+				
+				if (term.getDescription() != null) {
+					DocumentHelper.replaceText(nRow, "GTDESCRIPTION", term.getDescription());
+				} else {
+					DocumentHelper.replaceText(nRow, "GTDESCRIPTION", "");
+				}
+				
+				String type = term.getType().getRefType().getType();
+				
+				for (TermType termType : term.getType().getRefs()) {
+					type += "; " + termType.getType();
+				}
+				DocumentHelper.replaceText(nRow, "GTTYPE", type);
+				
+				if (term.getAcronym() != null) {
+					DocumentHelper.replaceText(nRow, "GTACRONYM", term.getAcronym());
+				} else {
+					DocumentHelper.replaceText(nRow, "GTACRONYM", "");
+				}
+				
+				if (term.getPos() != null) {
+					DocumentHelper.replaceText(nRow, "GTPOS", term.getPos());
+				} else {
+					DocumentHelper.replaceText(nRow, "GTPOS", "");
+				}
+				
+				if (term.getSynonym() != null) {
+					DocumentHelper.replaceText(nRow, "GTSYNONYM", term.getSynonym());
+				} else {
+					DocumentHelper.replaceText(nRow, "GTSYNONYM", "");
+				}
+				
+				if (term.getHypernym() != null) {
+					DocumentHelper.replaceText(nRow, "GTHYPERNYM", term.getHypernym());
+				} else {
+					DocumentHelper.replaceText(nRow, "GTHYPERNYM", "");
+				}
 			}
 		}
 		
 		// Delete the Template Row
-		if (project.getGlossaryTerms().size() > 0) {
+		if (project.getPackageGlossaries().size() > 0) {
 			sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
 		}
 	}
@@ -398,42 +402,44 @@ public class ExportExcelHandler extends AbstractHandler {
 		XSSFSheet sheet = workbook.getSheet("stakeholders");
 		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "STKID").getRow();
 		
-		for (Stakeholder stakeholder : project.getStakeholders()) {
-			XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
-			DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
-			
-			DocumentHelper.replaceText(nRow, "STKID", stakeholder.getName());
-			
-			if (stakeholder.getNameAlias() != null) {
-				DocumentHelper.replaceText(nRow, "STKNAME", stakeholder.getNameAlias());
-			} else {
-				DocumentHelper.replaceText(nRow, "STKNAME", "");
-			}
-			
-			if (stakeholder.getDescription() != null) {
-				DocumentHelper.replaceText(nRow, "STKDESCRIPTION", stakeholder.getDescription());
-			} else {
-				DocumentHelper.replaceText(nRow, "STKDESCRIPTION", "");
-			}
-			
-			DocumentHelper.replaceText(nRow, "STKTYPE", stakeholder.getType());
-			DocumentHelper.replaceText(nRow, "STKCATEGORY", stakeholder.getCategory());
-			
-			if (stakeholder.getIsA() != null) {
-				DocumentHelper.replaceText(nRow, "STKISA", stakeholder.getIsA().getName());
-			} else {
-				DocumentHelper.replaceText(nRow, "STKISA", "");
-			}
-			
-			if (stakeholder.getPartOf() != null) {
-				DocumentHelper.replaceText(nRow, "STKPARTOF", stakeholder.getPartOf().getName());
-			} else {
-				DocumentHelper.replaceText(nRow, "STKPARTOF", "");
+		for (PackageStakeholder ps : project.getPackageStakeholders()) {
+			for (Stakeholder stakeholder : ps.getStakeholders()) {
+				XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
+				DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
+				
+				DocumentHelper.replaceText(nRow, "STKID", stakeholder.getName());
+				
+				if (stakeholder.getNameAlias() != null) {
+					DocumentHelper.replaceText(nRow, "STKNAME", stakeholder.getNameAlias());
+				} else {
+					DocumentHelper.replaceText(nRow, "STKNAME", "");
+				}
+				
+				if (stakeholder.getDescription() != null) {
+					DocumentHelper.replaceText(nRow, "STKDESCRIPTION", stakeholder.getDescription());
+				} else {
+					DocumentHelper.replaceText(nRow, "STKDESCRIPTION", "");
+				}
+				
+				DocumentHelper.replaceText(nRow, "STKTYPE", stakeholder.getType());
+				DocumentHelper.replaceText(nRow, "STKCATEGORY", stakeholder.getCategory());
+				
+				if (stakeholder.getIsA() != null) {
+					DocumentHelper.replaceText(nRow, "STKISA", stakeholder.getIsA().getName());
+				} else {
+					DocumentHelper.replaceText(nRow, "STKISA", "");
+				}
+				
+				if (stakeholder.getPartOf() != null) {
+					DocumentHelper.replaceText(nRow, "STKPARTOF", stakeholder.getPartOf().getName());
+				} else {
+					DocumentHelper.replaceText(nRow, "STKPARTOF", "");
+				}
 			}
 		}
 		
 		// Delete the Template Row
-		if (project.getStakeholders().size() > 0) {
+		if (project.getPackageStakeholders().size() > 0) {
 			sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
 		}
 	}
@@ -442,49 +448,51 @@ public class ExportExcelHandler extends AbstractHandler {
 		XSSFSheet sheet = workbook.getSheet("goals");
 		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "GID").getRow();
 		
-		for (Goal goal : project.getGoals()) {
-			XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
-			DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
-			
-			DocumentHelper.replaceText(nRow, "GID", goal.getName());
-			
-			if (goal.getNameAlias() != null) {
-				DocumentHelper.replaceText(nRow, "GNAME", goal.getNameAlias());
-			} else {
-				DocumentHelper.replaceText(nRow, "GNAME", "");
-			}
-			
-			if (goal.getDescription() != null) {
-				DocumentHelper.replaceText(nRow, "GDESCRIPTION", goal.getDescription());
-			} else {
-				DocumentHelper.replaceText(nRow, "GDESCRIPTION", "");
-			}
-			
-			DocumentHelper.replaceText(nRow, "GSTAKEHOLDER", goal.getStakeholder().getName());
-			DocumentHelper.replaceText(nRow, "GPRIORITY", goal.getPriority().getValue());
-			
-			if (goal.getPartOfAnd() != null) {
-				DocumentHelper.replaceText(nRow, "GPARTOFAND", goal.getPartOfAnd().getName());
-			} else {
-				DocumentHelper.replaceText(nRow, "GPARTOFAND", "");
-			}
-			
-			
-			if (goal.getPartOfOr() != null) {
-				DocumentHelper.replaceText(nRow, "GPARTOFOR", goal.getPartOfOr().getName());
-			} else {
-				DocumentHelper.replaceText(nRow, "GPARTOFOR", "");
-			}
-			
-			if (goal.getProgress() != null) {
-				DocumentHelper.replaceText(nRow, "GPROGRESS", goal.getProgress().getValue());
-			} else {
-				DocumentHelper.replaceText(nRow, "GPROGRESS", "");
+		for (PackageGoal pg : project.getPackageGoals()) {
+			for (Goal goal : pg.getGoals()) {
+				XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
+				DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
+				
+				DocumentHelper.replaceText(nRow, "GID", goal.getName());
+				
+				if (goal.getNameAlias() != null) {
+					DocumentHelper.replaceText(nRow, "GNAME", goal.getNameAlias());
+				} else {
+					DocumentHelper.replaceText(nRow, "GNAME", "");
+				}
+				
+				if (goal.getDescription() != null) {
+					DocumentHelper.replaceText(nRow, "GDESCRIPTION", goal.getDescription());
+				} else {
+					DocumentHelper.replaceText(nRow, "GDESCRIPTION", "");
+				}
+				
+				DocumentHelper.replaceText(nRow, "GSTAKEHOLDER", goal.getStakeholder().getName());
+				DocumentHelper.replaceText(nRow, "GPRIORITY", goal.getPriority().getValue());
+				
+				if (goal.getPartOfAnd() != null) {
+					DocumentHelper.replaceText(nRow, "GPARTOFAND", goal.getPartOfAnd().getName());
+				} else {
+					DocumentHelper.replaceText(nRow, "GPARTOFAND", "");
+				}
+				
+				
+				if (goal.getPartOfOr() != null) {
+					DocumentHelper.replaceText(nRow, "GPARTOFOR", goal.getPartOfOr().getName());
+				} else {
+					DocumentHelper.replaceText(nRow, "GPARTOFOR", "");
+				}
+				
+				if (goal.getProgress() != null) {
+					DocumentHelper.replaceText(nRow, "GPROGRESS", goal.getProgress().getValue());
+				} else {
+					DocumentHelper.replaceText(nRow, "GPROGRESS", "");
+				}
 			}
 		}
 		
 		// Delete the Template Row
-		if (project.getGoals().size() > 0) {
+		if (project.getPackageGoals().size() > 0) {
 			sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
 		}
 	}
