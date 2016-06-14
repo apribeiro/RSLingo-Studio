@@ -3,16 +3,16 @@ grammar rslingo.rslil.RSLIL with org.eclipse.xtext.common.Terminals
 generate rSLIL "http://www.rslil.rslingo/RSLIL"
 
 Model:
-	PackageProject | PackageSystem;
+	PackageProject | PackageSystem | PackageGlossary | PackageStakeholder | PackageGoal;
 
 PackageProject:
 	// Business Level
 	'Package-Project' name=QualifiedName '{'
 		imports+=Import*
 		project=Project
-		glossaryTerms+=GlossaryTerm*
-		stakeholders+=Stakeholder*
-		goals+=Goal*
+		packageGlossary+=PackageGlossary*
+		packageStakeholders+=PackageStakeholder*
+		packageGoals+=PackageGoal*
 		goalRelations+=GoalRelation*
 		// Optional Nested System Level
 		packageSystems+=PackageSystem*
@@ -31,6 +31,22 @@ PackageSystem:
 		qrs+=QR*
 		constraints+=Constraint*
 		requirementRelations+=RequirementRelation*
+	'}';
+
+PackageGlossary:
+	'Package-Glossary' name=QualifiedName '{'
+		glossaryTerms+=GlossaryTerm*
+	'}';
+
+PackageStakeholder:
+	'Package-Stakeholder' name=QualifiedName '{'
+		stakeholders+=Stakeholder*
+	'}';
+
+PackageGoal:
+	'Package-Goal' name=QualifiedName '{'
+		goals+=Goal*
+		goalRelations+=GoalRelation*
 	'}';
 
 QualifiedName:
