@@ -75,12 +75,15 @@ class RSLIL2JsonGenerator implements IGenerator {
 	«ENDIF»
 	"Summary": "«packageProject.project.summary»",
 	"Description": "«packageProject.project.description»",
-	«IF !packageProject.glossaryTerms.empty»"Glossary": [
-	«FOR g:packageProject.glossaryTerms SEPARATOR ', '»«g.compile»«ENDFOR»],«ENDIF»
-	«IF !packageProject.stakeholders.empty»"Stakeholders": [
-	«FOR s:packageProject.stakeholders SEPARATOR ', '»«s.compile»«ENDFOR»],«ENDIF»
-	«IF !packageProject.goals.empty»"Goals": [
-	«FOR g:packageProject.goals SEPARATOR ', '»«g.compile»«ENDFOR»],«ENDIF»
+	«IF !packageProject.packageGlossaries.empty»"Glossary": [
+	«FOR pg:packageProject.packageGlossaries»
+	«FOR g:pg.glossaryTerms SEPARATOR ', '»«g.compile»«ENDFOR»«ENDFOR»],«ENDIF»
+	«IF !packageProject.packageStakeholders.empty»"Stakeholders": [
+	«FOR ps:packageProject.packageStakeholders»
+	«FOR s:ps.stakeholders SEPARATOR ', '»«s.compile»«ENDFOR»«ENDFOR»],«ENDIF»
+	«IF !packageProject.packageGoals.empty»"Goals": [
+	«FOR pg:packageProject.packageGoals»
+	«FOR g:pg.goals SEPARATOR ', '»«g.compile»«ENDFOR»«ENDFOR»],«ENDIF»
 	«IF !packageProject.goalRelations.empty»"Goal Relations": [
 	«FOR g:packageProject.goalRelations SEPARATOR ', '»«g.compile»«ENDFOR»],«ENDIF»
 	«IF !packageProject.packageSystems.empty»"Systems": [

@@ -14,9 +14,11 @@ import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import rslingo.rslil.rSLIL.Actor;
+import rslingo.rslil.rSLIL.ActualSchedule;
 import rslingo.rslil.rSLIL.Attribute;
 import rslingo.rslil.rSLIL.Check;
 import rslingo.rslil.rSLIL.Constraint;
+import rslingo.rslil.rSLIL.Date;
 import rslingo.rslil.rSLIL.Entity;
 import rslingo.rslil.rSLIL.EntityType;
 import rslingo.rslil.rSLIL.ExtensionPoint;
@@ -25,11 +27,18 @@ import rslingo.rslil.rSLIL.ForeignKey;
 import rslingo.rslil.rSLIL.GlossaryTerm;
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.GoalRelation;
+import rslingo.rslil.rSLIL.Month;
 import rslingo.rslil.rSLIL.Multiplicity;
+import rslingo.rslil.rSLIL.Organizations;
+import rslingo.rslil.rSLIL.PackageGlossary;
+import rslingo.rslil.rSLIL.PackageGoal;
 import rslingo.rslil.rSLIL.PackageProject;
+import rslingo.rslil.rSLIL.PackageStakeholder;
 import rslingo.rslil.rSLIL.PackageSystem;
+import rslingo.rslil.rSLIL.PlannedSchedule;
 import rslingo.rslil.rSLIL.PrimaryKey;
 import rslingo.rslil.rSLIL.Priority;
+import rslingo.rslil.rSLIL.Project;
 import rslingo.rslil.rSLIL.ProjectProgress;
 import rslingo.rslil.rSLIL.QR;
 import rslingo.rslil.rSLIL.RefActor;
@@ -72,22 +81,406 @@ public class RSLIL2JsonGenerator implements IGenerator {
   }
   
   public CharSequence compile(final PackageProject packageProject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method glossaryTerms is undefined for the type RSLIL2JsonGenerator"
-      + "\nThe method glossaryTerms is undefined for the type RSLIL2JsonGenerator"
-      + "\nThe method stakeholders is undefined for the type RSLIL2JsonGenerator"
-      + "\nThe method stakeholders is undefined for the type RSLIL2JsonGenerator"
-      + "\nThe method goals is undefined for the type RSLIL2JsonGenerator"
-      + "\nThe method goals is undefined for the type RSLIL2JsonGenerator"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\ncompile cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\ncompile cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\ncompile cannot be resolved");
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("\"ID\": \"");
+    Project _project = packageProject.getProject();
+    String _name = _project.getName();
+    _builder.append(_name, "\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("\"Name\": \"");
+    Project _project_1 = packageProject.getProject();
+    String _nameAlias = _project_1.getNameAlias();
+    _builder.append(_nameAlias, "\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("\"Application Domain\": \"");
+    Project _project_2 = packageProject.getProject();
+    String _domain = _project_2.getDomain();
+    _builder.append(_domain, "\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("\"Type\": \"");
+    Project _project_3 = packageProject.getProject();
+    String _type = _project_3.getType();
+    _builder.append(_type, "\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    {
+      Project _project_4 = packageProject.getProject();
+      PlannedSchedule _planned = _project_4.getPlanned();
+      boolean _notEquals = (!Objects.equal(_planned, null));
+      if (_notEquals) {
+        _builder.append("\t");
+        _builder.append("\"Planned Schedule\": {");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("\"Start\": \"");
+        Project _project_5 = packageProject.getProject();
+        PlannedSchedule _planned_1 = _project_5.getPlanned();
+        Date _start = _planned_1.getStart();
+        int _day = _start.getDay();
+        _builder.append(_day, "\t\t");
+        _builder.append("-");
+        Project _project_6 = packageProject.getProject();
+        PlannedSchedule _planned_2 = _project_6.getPlanned();
+        Date _start_1 = _planned_2.getStart();
+        Month _month = _start_1.getMonth();
+        String _name_1 = _month.getName();
+        _builder.append(_name_1, "\t\t");
+        _builder.append("-");
+        Project _project_7 = packageProject.getProject();
+        PlannedSchedule _planned_3 = _project_7.getPlanned();
+        Date _start_2 = _planned_3.getStart();
+        int _year = _start_2.getYear();
+        _builder.append(_year, "\t\t");
+        _builder.append("\",");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("\"End\": \"");
+        Project _project_8 = packageProject.getProject();
+        PlannedSchedule _planned_4 = _project_8.getPlanned();
+        Date _end = _planned_4.getEnd();
+        int _day_1 = _end.getDay();
+        _builder.append(_day_1, "\t\t");
+        _builder.append("-");
+        Project _project_9 = packageProject.getProject();
+        PlannedSchedule _planned_5 = _project_9.getPlanned();
+        Date _end_1 = _planned_5.getEnd();
+        Month _month_1 = _end_1.getMonth();
+        String _name_2 = _month_1.getName();
+        _builder.append(_name_2, "\t\t");
+        _builder.append("-");
+        Project _project_10 = packageProject.getProject();
+        PlannedSchedule _planned_6 = _project_10.getPlanned();
+        Date _end_2 = _planned_6.getEnd();
+        int _year_1 = _end_2.getYear();
+        _builder.append(_year_1, "\t\t");
+        _builder.append("\"");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("},");
+        _builder.newLine();
+      }
+    }
+    {
+      Project _project_11 = packageProject.getProject();
+      ActualSchedule _actual = _project_11.getActual();
+      boolean _notEquals_1 = (!Objects.equal(_actual, null));
+      if (_notEquals_1) {
+        _builder.append("\t");
+        _builder.append("\"Actual Schedule\": {");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("\"Start\": \"");
+        Project _project_12 = packageProject.getProject();
+        ActualSchedule _actual_1 = _project_12.getActual();
+        Date _start_3 = _actual_1.getStart();
+        int _day_2 = _start_3.getDay();
+        _builder.append(_day_2, "\t\t");
+        _builder.append("-");
+        Project _project_13 = packageProject.getProject();
+        ActualSchedule _actual_2 = _project_13.getActual();
+        Date _start_4 = _actual_2.getStart();
+        Month _month_2 = _start_4.getMonth();
+        String _name_3 = _month_2.getName();
+        _builder.append(_name_3, "\t\t");
+        _builder.append("-");
+        Project _project_14 = packageProject.getProject();
+        ActualSchedule _actual_3 = _project_14.getActual();
+        Date _start_5 = _actual_3.getStart();
+        int _year_2 = _start_5.getYear();
+        _builder.append(_year_2, "\t\t");
+        _builder.append("\",");
+        _builder.newLineIfNotEmpty();
+        {
+          Project _project_15 = packageProject.getProject();
+          ActualSchedule _actual_4 = _project_15.getActual();
+          Date _end_3 = _actual_4.getEnd();
+          boolean _notEquals_2 = (!Objects.equal(_end_3, null));
+          if (_notEquals_2) {
+            _builder.append("\t");
+            _builder.append("\t");
+            _builder.append("\"End\": \"");
+            Project _project_16 = packageProject.getProject();
+            ActualSchedule _actual_5 = _project_16.getActual();
+            Date _end_4 = _actual_5.getEnd();
+            int _day_3 = _end_4.getDay();
+            _builder.append(_day_3, "\t\t");
+            _builder.append("-");
+            Project _project_17 = packageProject.getProject();
+            ActualSchedule _actual_6 = _project_17.getActual();
+            Date _end_5 = _actual_6.getEnd();
+            Month _month_3 = _end_5.getMonth();
+            String _name_4 = _month_3.getName();
+            _builder.append(_name_4, "\t\t");
+            _builder.append("-");
+            Project _project_18 = packageProject.getProject();
+            ActualSchedule _actual_7 = _project_18.getActual();
+            Date _end_6 = _actual_7.getEnd();
+            int _year_3 = _end_6.getYear();
+            _builder.append(_year_3, "\t\t");
+            _builder.append("\"");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("\t");
+        _builder.append("},");
+        _builder.newLine();
+      }
+    }
+    {
+      Project _project_19 = packageProject.getProject();
+      Organizations _organizations = _project_19.getOrganizations();
+      boolean _notEquals_3 = (!Objects.equal(_organizations, null));
+      if (_notEquals_3) {
+        _builder.append("\t");
+        _builder.append("\"Organizations\": {");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("\"Customer\": \"");
+        Project _project_20 = packageProject.getProject();
+        Organizations _organizations_1 = _project_20.getOrganizations();
+        String _customer = _organizations_1.getCustomer();
+        _builder.append(_customer, "\t\t");
+        _builder.append("\",");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("\"Supplier\": \"");
+        Project _project_21 = packageProject.getProject();
+        Organizations _organizations_2 = _project_21.getOrganizations();
+        String _supplier = _organizations_2.getSupplier();
+        _builder.append(_supplier, "\t\t");
+        _builder.append("\",");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("\"Partners\": \"");
+        Project _project_22 = packageProject.getProject();
+        Organizations _organizations_3 = _project_22.getOrganizations();
+        String _partners = _organizations_3.getPartners();
+        _builder.append(_partners, "\t\t");
+        _builder.append("\"");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("},");
+        _builder.newLine();
+      }
+    }
+    {
+      Project _project_23 = packageProject.getProject();
+      ProjectProgress _progress = _project_23.getProgress();
+      boolean _notEquals_4 = (!Objects.equal(_progress, null));
+      if (_notEquals_4) {
+        _builder.append("\t");
+        _builder.append("\"Project Progress\": \"");
+        Project _project_24 = packageProject.getProject();
+        ProjectProgress _progress_1 = _project_24.getProgress();
+        String _value = _progress_1.getValue();
+        _builder.append(_value, "\t");
+        _builder.append("\",");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("\"Summary\": \"");
+    Project _project_25 = packageProject.getProject();
+    String _summary = _project_25.getSummary();
+    _builder.append(_summary, "\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("\"Description\": \"");
+    Project _project_26 = packageProject.getProject();
+    String _description = _project_26.getDescription();
+    _builder.append(_description, "\t");
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    {
+      EList<PackageGlossary> _packageGlossaries = packageProject.getPackageGlossaries();
+      boolean _isEmpty = _packageGlossaries.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.append("\"Glossary\": [");
+        _builder.newLineIfNotEmpty();
+        {
+          EList<PackageGlossary> _packageGlossaries_1 = packageProject.getPackageGlossaries();
+          for(final PackageGlossary pg : _packageGlossaries_1) {
+            _builder.append("\t");
+            {
+              EList<GlossaryTerm> _glossaryTerms = pg.getGlossaryTerms();
+              boolean _hasElements = false;
+              for(final GlossaryTerm g : _glossaryTerms) {
+                if (!_hasElements) {
+                  _hasElements = true;
+                } else {
+                  _builder.appendImmediate(", ", "\t");
+                }
+                CharSequence _compile = this.compile(g);
+                _builder.append(_compile, "\t");
+              }
+            }
+          }
+        }
+        _builder.append("],");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    {
+      EList<PackageStakeholder> _packageStakeholders = packageProject.getPackageStakeholders();
+      boolean _isEmpty_1 = _packageStakeholders.isEmpty();
+      boolean _not_1 = (!_isEmpty_1);
+      if (_not_1) {
+        _builder.append("\"Stakeholders\": [");
+        _builder.newLineIfNotEmpty();
+        {
+          EList<PackageStakeholder> _packageStakeholders_1 = packageProject.getPackageStakeholders();
+          for(final PackageStakeholder ps : _packageStakeholders_1) {
+            _builder.append("\t");
+            {
+              EList<Stakeholder> _stakeholders = ps.getStakeholders();
+              boolean _hasElements_1 = false;
+              for(final Stakeholder s : _stakeholders) {
+                if (!_hasElements_1) {
+                  _hasElements_1 = true;
+                } else {
+                  _builder.appendImmediate(", ", "\t");
+                }
+                CharSequence _compile_1 = this.compile(s);
+                _builder.append(_compile_1, "\t");
+              }
+            }
+          }
+        }
+        _builder.append("],");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    {
+      EList<PackageGoal> _packageGoals = packageProject.getPackageGoals();
+      boolean _isEmpty_2 = _packageGoals.isEmpty();
+      boolean _not_2 = (!_isEmpty_2);
+      if (_not_2) {
+        _builder.append("\"Goals\": [");
+        _builder.newLineIfNotEmpty();
+        {
+          EList<PackageGoal> _packageGoals_1 = packageProject.getPackageGoals();
+          for(final PackageGoal pg_1 : _packageGoals_1) {
+            _builder.append("\t");
+            {
+              EList<Goal> _goals = pg_1.getGoals();
+              boolean _hasElements_2 = false;
+              for(final Goal g_1 : _goals) {
+                if (!_hasElements_2) {
+                  _hasElements_2 = true;
+                } else {
+                  _builder.appendImmediate(", ", "\t");
+                }
+                CharSequence _compile_2 = this.compile(g_1);
+                _builder.append(_compile_2, "\t");
+              }
+            }
+          }
+        }
+        _builder.append("],");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    {
+      EList<GoalRelation> _goalRelations = packageProject.getGoalRelations();
+      boolean _isEmpty_3 = _goalRelations.isEmpty();
+      boolean _not_3 = (!_isEmpty_3);
+      if (_not_3) {
+        _builder.append("\"Goal Relations\": [");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        {
+          EList<GoalRelation> _goalRelations_1 = packageProject.getGoalRelations();
+          boolean _hasElements_3 = false;
+          for(final GoalRelation g_2 : _goalRelations_1) {
+            if (!_hasElements_3) {
+              _hasElements_3 = true;
+            } else {
+              _builder.appendImmediate(", ", "\t");
+            }
+            CharSequence _compile_3 = this.compile(g_2);
+            _builder.append(_compile_3, "\t");
+          }
+        }
+        _builder.append("],");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    {
+      EList<PackageSystem> _packageSystems = packageProject.getPackageSystems();
+      boolean _isEmpty_4 = _packageSystems.isEmpty();
+      boolean _not_4 = (!_isEmpty_4);
+      if (_not_4) {
+        _builder.append("\"Systems\": [");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        {
+          EList<PackageSystem> _packageSystems_1 = packageProject.getPackageSystems();
+          boolean _hasElements_4 = false;
+          for(final PackageSystem s_1 : _packageSystems_1) {
+            if (!_hasElements_4) {
+              _hasElements_4 = true;
+            } else {
+              _builder.appendImmediate(", ", "\t");
+            }
+            CharSequence _compile_4 = this.compile(s_1);
+            _builder.append(_compile_4, "\t");
+          }
+        }
+        _builder.append("],");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    {
+      EList<SystemRelation> _systemRelations = packageProject.getSystemRelations();
+      boolean _isEmpty_5 = _systemRelations.isEmpty();
+      boolean _not_5 = (!_isEmpty_5);
+      if (_not_5) {
+        _builder.append("\"System Relations\": [");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        {
+          EList<SystemRelation> _systemRelations_1 = packageProject.getSystemRelations();
+          boolean _hasElements_5 = false;
+          for(final SystemRelation s_2 : _systemRelations_1) {
+            if (!_hasElements_5) {
+              _hasElements_5 = true;
+            } else {
+              _builder.appendImmediate(", ", "\t");
+            }
+            CharSequence _compile_5 = this.compile(s_2);
+            _builder.append(_compile_5, "\t");
+          }
+        }
+        _builder.append("]");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
   }
   
   public CharSequence compile(final GlossaryTerm g) {

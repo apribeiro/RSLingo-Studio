@@ -59,17 +59,20 @@ class RSLIL2TextGenerator implements IGenerator {
 	
 	#Glossary
 	------------------
-	«FOR g:packageProject.glossaryTerms SEPARATOR '\n'»«g.compile»«ENDFOR»«ENDIF»
-	«IF !packageProject.stakeholders.empty»
+	«FOR pg:packageProject.packageGlossaries»
+	«FOR g:pg.glossaryTerms SEPARATOR '\n'»«g.compile»«ENDFOR»«ENDFOR»«ENDIF»
+	«IF !packageProject.packageStakeholders.empty»
 	
 	#Stakeholders
 	------------------
-	«FOR s:packageProject.stakeholders SEPARATOR '\n'»«s.compile»«ENDFOR»«ENDIF»
-	«IF !packageProject.goals.empty»
+	«FOR ps:packageProject.packageStakeholders»
+	«FOR s:ps.stakeholders SEPARATOR '\n'»«s.compile»«ENDFOR»«ENDFOR»«ENDIF»
+	«IF !packageProject.packageGoals.empty»
 	
 	#Goals
 	------------------
-	«FOR g:packageProject.goals SEPARATOR '\n'»«g.compile»«ENDFOR»«ENDIF»
+	«FOR pg:packageProject.packageGoals»
+	«FOR g:pg.goals SEPARATOR '\n'»«g.compile»«ENDFOR»«ENDFOR»«ENDIF»
 	«IF !packageProject.goalRelations.empty»
 	
 	#Goal Relations
