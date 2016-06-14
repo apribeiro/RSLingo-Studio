@@ -35,17 +35,17 @@ PackageSystem:
 
 PackageGlossary:
 	'Package-Glossary' name=QualifiedName '{'
-		glossaryTerms+=GlossaryTerm*
+		glossaryTerms+=GlossaryTerm+
 	'}';
 
 PackageStakeholder:
 	'Package-Stakeholder' name=QualifiedName '{'
-		stakeholders+=Stakeholder*
+		stakeholders+=Stakeholder+
 	'}';
 
 PackageGoal:
 	'Package-Goal' name=QualifiedName '{'
-		goals+=Goal*
+		goals+=Goal+
 		goalRelations+=GoalRelation*
 	'}';
 

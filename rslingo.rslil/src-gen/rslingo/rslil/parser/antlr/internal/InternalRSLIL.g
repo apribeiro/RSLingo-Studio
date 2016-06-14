@@ -599,7 +599,7 @@ rulePackageGlossary returns [EObject current=null]
 	    }
 
 )
-)*	otherlv_4='}' 
+)+	otherlv_4='}' 
     {
     	newLeafNode(otherlv_4, grammarAccess.getPackageGlossaryAccess().getRightCurlyBracketKeyword_4());
     }
@@ -668,7 +668,7 @@ rulePackageStakeholder returns [EObject current=null]
 	    }
 
 )
-)*	otherlv_4='}' 
+)+	otherlv_4='}' 
     {
     	newLeafNode(otherlv_4, grammarAccess.getPackageStakeholderAccess().getRightCurlyBracketKeyword_4());
     }
@@ -737,7 +737,7 @@ rulePackageGoal returns [EObject current=null]
 	    }
 
 )
-)*(
+)+(
 (
 		{ 
 	        newCompositeNode(grammarAccess.getPackageGoalAccess().getGoalRelationsGoalRelationParserRuleCall_4_0()); 

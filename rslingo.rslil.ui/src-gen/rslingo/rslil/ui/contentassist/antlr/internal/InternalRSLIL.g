@@ -3960,9 +3960,16 @@ rule__PackageGlossary__Group__3__Impl
     }
 :
 (
+(
+{ before(grammarAccess.getPackageGlossaryAccess().getGlossaryTermsAssignment_3()); }
+(rule__PackageGlossary__GlossaryTermsAssignment_3)
+{ after(grammarAccess.getPackageGlossaryAccess().getGlossaryTermsAssignment_3()); }
+)
+(
 { before(grammarAccess.getPackageGlossaryAccess().getGlossaryTermsAssignment_3()); }
 (rule__PackageGlossary__GlossaryTermsAssignment_3)*
 { after(grammarAccess.getPackageGlossaryAccess().getGlossaryTermsAssignment_3()); }
+)
 )
 
 ;
@@ -4120,9 +4127,16 @@ rule__PackageStakeholder__Group__3__Impl
     }
 :
 (
+(
+{ before(grammarAccess.getPackageStakeholderAccess().getStakeholdersAssignment_3()); }
+(rule__PackageStakeholder__StakeholdersAssignment_3)
+{ after(grammarAccess.getPackageStakeholderAccess().getStakeholdersAssignment_3()); }
+)
+(
 { before(grammarAccess.getPackageStakeholderAccess().getStakeholdersAssignment_3()); }
 (rule__PackageStakeholder__StakeholdersAssignment_3)*
 { after(grammarAccess.getPackageStakeholderAccess().getStakeholdersAssignment_3()); }
+)
 )
 
 ;
@@ -4280,9 +4294,16 @@ rule__PackageGoal__Group__3__Impl
     }
 :
 (
+(
+{ before(grammarAccess.getPackageGoalAccess().getGoalsAssignment_3()); }
+(rule__PackageGoal__GoalsAssignment_3)
+{ after(grammarAccess.getPackageGoalAccess().getGoalsAssignment_3()); }
+)
+(
 { before(grammarAccess.getPackageGoalAccess().getGoalsAssignment_3()); }
 (rule__PackageGoal__GoalsAssignment_3)*
 { after(grammarAccess.getPackageGoalAccess().getGoalsAssignment_3()); }
+)
 )
 
 ;

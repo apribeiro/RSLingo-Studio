@@ -273,10 +273,10 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//PackageGlossary:
-		//	"Package-Glossary" name=QualifiedName "{" glossaryTerms+=GlossaryTerm* "}";
+		//	"Package-Glossary" name=QualifiedName "{" glossaryTerms+=GlossaryTerm+ "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Package-Glossary" name=QualifiedName "{" glossaryTerms+=GlossaryTerm* "}"
+		//"Package-Glossary" name=QualifiedName "{" glossaryTerms+=GlossaryTerm+ "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Package-Glossary"
@@ -291,7 +291,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//glossaryTerms+=GlossaryTerm*
+		//glossaryTerms+=GlossaryTerm+
 		public Assignment getGlossaryTermsAssignment_3() { return cGlossaryTermsAssignment_3; }
 
 		//GlossaryTerm
@@ -313,10 +313,10 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//PackageStakeholder:
-		//	"Package-Stakeholder" name=QualifiedName "{" stakeholders+=Stakeholder* "}";
+		//	"Package-Stakeholder" name=QualifiedName "{" stakeholders+=Stakeholder+ "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Package-Stakeholder" name=QualifiedName "{" stakeholders+=Stakeholder* "}"
+		//"Package-Stakeholder" name=QualifiedName "{" stakeholders+=Stakeholder+ "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Package-Stakeholder"
@@ -331,7 +331,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//stakeholders+=Stakeholder*
+		//stakeholders+=Stakeholder+
 		public Assignment getStakeholdersAssignment_3() { return cStakeholdersAssignment_3; }
 
 		//Stakeholder
@@ -355,10 +355,10 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//PackageGoal:
-		//	"Package-Goal" name=QualifiedName "{" goals+=Goal* goalRelations+=GoalRelation* "}";
+		//	"Package-Goal" name=QualifiedName "{" goals+=Goal+ goalRelations+=GoalRelation* "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"Package-Goal" name=QualifiedName "{" goals+=Goal* goalRelations+=GoalRelation* "}"
+		//"Package-Goal" name=QualifiedName "{" goals+=Goal+ goalRelations+=GoalRelation* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"Package-Goal"
@@ -373,7 +373,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//goals+=Goal*
+		//goals+=Goal+
 		public Assignment getGoalsAssignment_3() { return cGoalsAssignment_3; }
 
 		//Goal
@@ -4525,7 +4525,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PackageGlossary:
-	//	"Package-Glossary" name=QualifiedName "{" glossaryTerms+=GlossaryTerm* "}";
+	//	"Package-Glossary" name=QualifiedName "{" glossaryTerms+=GlossaryTerm+ "}";
 	public PackageGlossaryElements getPackageGlossaryAccess() {
 		return pPackageGlossary;
 	}
@@ -4535,7 +4535,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PackageStakeholder:
-	//	"Package-Stakeholder" name=QualifiedName "{" stakeholders+=Stakeholder* "}";
+	//	"Package-Stakeholder" name=QualifiedName "{" stakeholders+=Stakeholder+ "}";
 	public PackageStakeholderElements getPackageStakeholderAccess() {
 		return pPackageStakeholder;
 	}
@@ -4545,7 +4545,7 @@ public class RSLILGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PackageGoal:
-	//	"Package-Goal" name=QualifiedName "{" goals+=Goal* goalRelations+=GoalRelation* "}";
+	//	"Package-Goal" name=QualifiedName "{" goals+=Goal+ goalRelations+=GoalRelation* "}";
 	public PackageGoalElements getPackageGoalAccess() {
 		return pPackageGoal;
 	}
