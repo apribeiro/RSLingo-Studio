@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import rslingo.rslil.rSLIL.GoalRelation;
 import rslingo.rslil.rSLIL.Import;
 import rslingo.rslil.rSLIL.PackageGlossary;
 import rslingo.rslil.rSLIL.PackageGoal;
@@ -41,7 +40,6 @@ import rslingo.rslil.rSLIL.SystemRelation;
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getPackageGlossaries <em>Package Glossaries</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getPackageStakeholders <em>Package Stakeholders</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getPackageGoals <em>Package Goals</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getGoalRelations <em>Goal Relations</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getPackageSystems <em>Package Systems</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageProjectImpl#getSystemRelations <em>System Relations</em>}</li>
  * </ul>
@@ -99,16 +97,6 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
    * @ordered
    */
   protected EList<PackageGoal> packageGoals;
-
-  /**
-   * The cached value of the '{@link #getGoalRelations() <em>Goal Relations</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getGoalRelations()
-   * @generated
-   * @ordered
-   */
-  protected EList<GoalRelation> goalRelations;
 
   /**
    * The cached value of the '{@link #getPackageSystems() <em>Package Systems</em>}' containment reference list.
@@ -260,20 +248,6 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<GoalRelation> getGoalRelations()
-  {
-    if (goalRelations == null)
-    {
-      goalRelations = new EObjectContainmentEList<GoalRelation>(GoalRelation.class, this, RSLILPackage.PACKAGE_PROJECT__GOAL_RELATIONS);
-    }
-    return goalRelations;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<PackageSystem> getPackageSystems()
   {
     if (packageSystems == null)
@@ -317,8 +291,6 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
         return ((InternalEList<?>)getPackageStakeholders()).basicRemove(otherEnd, msgs);
       case RSLILPackage.PACKAGE_PROJECT__PACKAGE_GOALS:
         return ((InternalEList<?>)getPackageGoals()).basicRemove(otherEnd, msgs);
-      case RSLILPackage.PACKAGE_PROJECT__GOAL_RELATIONS:
-        return ((InternalEList<?>)getGoalRelations()).basicRemove(otherEnd, msgs);
       case RSLILPackage.PACKAGE_PROJECT__PACKAGE_SYSTEMS:
         return ((InternalEList<?>)getPackageSystems()).basicRemove(otherEnd, msgs);
       case RSLILPackage.PACKAGE_PROJECT__SYSTEM_RELATIONS:
@@ -347,8 +319,6 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
         return getPackageStakeholders();
       case RSLILPackage.PACKAGE_PROJECT__PACKAGE_GOALS:
         return getPackageGoals();
-      case RSLILPackage.PACKAGE_PROJECT__GOAL_RELATIONS:
-        return getGoalRelations();
       case RSLILPackage.PACKAGE_PROJECT__PACKAGE_SYSTEMS:
         return getPackageSystems();
       case RSLILPackage.PACKAGE_PROJECT__SYSTEM_RELATIONS:
@@ -387,10 +357,6 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
         getPackageGoals().clear();
         getPackageGoals().addAll((Collection<? extends PackageGoal>)newValue);
         return;
-      case RSLILPackage.PACKAGE_PROJECT__GOAL_RELATIONS:
-        getGoalRelations().clear();
-        getGoalRelations().addAll((Collection<? extends GoalRelation>)newValue);
-        return;
       case RSLILPackage.PACKAGE_PROJECT__PACKAGE_SYSTEMS:
         getPackageSystems().clear();
         getPackageSystems().addAll((Collection<? extends PackageSystem>)newValue);
@@ -428,9 +394,6 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
       case RSLILPackage.PACKAGE_PROJECT__PACKAGE_GOALS:
         getPackageGoals().clear();
         return;
-      case RSLILPackage.PACKAGE_PROJECT__GOAL_RELATIONS:
-        getGoalRelations().clear();
-        return;
       case RSLILPackage.PACKAGE_PROJECT__PACKAGE_SYSTEMS:
         getPackageSystems().clear();
         return;
@@ -461,8 +424,6 @@ public class PackageProjectImpl extends ModelImpl implements PackageProject
         return packageStakeholders != null && !packageStakeholders.isEmpty();
       case RSLILPackage.PACKAGE_PROJECT__PACKAGE_GOALS:
         return packageGoals != null && !packageGoals.isEmpty();
-      case RSLILPackage.PACKAGE_PROJECT__GOAL_RELATIONS:
-        return goalRelations != null && !goalRelations.isEmpty();
       case RSLILPackage.PACKAGE_PROJECT__PACKAGE_SYSTEMS:
         return packageSystems != null && !packageSystems.isEmpty();
       case RSLILPackage.PACKAGE_PROJECT__SYSTEM_RELATIONS:

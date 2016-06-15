@@ -149,22 +149,13 @@ public interface RSLILPackage extends EPackage
   int PACKAGE_PROJECT__PACKAGE_GOALS = MODEL_FEATURE_COUNT + 4;
 
   /**
-   * The feature id for the '<em><b>Goal Relations</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PACKAGE_PROJECT__GOAL_RELATIONS = MODEL_FEATURE_COUNT + 5;
-
-  /**
    * The feature id for the '<em><b>Package Systems</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PACKAGE_PROJECT__PACKAGE_SYSTEMS = MODEL_FEATURE_COUNT + 6;
+  int PACKAGE_PROJECT__PACKAGE_SYSTEMS = MODEL_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>System Relations</b></em>' containment reference list.
@@ -173,7 +164,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE_PROJECT__SYSTEM_RELATIONS = MODEL_FEATURE_COUNT + 7;
+  int PACKAGE_PROJECT__SYSTEM_RELATIONS = MODEL_FEATURE_COUNT + 6;
 
   /**
    * The number of structural features of the '<em>Package Project</em>' class.
@@ -182,7 +173,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE_PROJECT_FEATURE_COUNT = MODEL_FEATURE_COUNT + 8;
+  int PACKAGE_PROJECT_FEATURE_COUNT = MODEL_FEATURE_COUNT + 7;
 
   /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.PackageSystemImpl <em>Package System</em>}' class.
@@ -387,13 +378,22 @@ public interface RSLILPackage extends EPackage
   int PACKAGE_GOAL__NAME = MODEL__NAME;
 
   /**
+   * The feature id for the '<em><b>Imports</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE_GOAL__IMPORTS = MODEL_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Goals</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PACKAGE_GOAL__GOALS = MODEL_FEATURE_COUNT + 0;
+  int PACKAGE_GOAL__GOALS = MODEL_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Goal Relations</b></em>' containment reference list.
@@ -402,7 +402,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE_GOAL__GOAL_RELATIONS = MODEL_FEATURE_COUNT + 1;
+  int PACKAGE_GOAL__GOAL_RELATIONS = MODEL_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Package Goal</em>' class.
@@ -411,7 +411,7 @@ public interface RSLILPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE_GOAL_FEATURE_COUNT = MODEL_FEATURE_COUNT + 2;
+  int PACKAGE_GOAL_FEATURE_COUNT = MODEL_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link rslingo.rslil.rSLIL.impl.ImportImpl <em>Import</em>}' class.
@@ -2917,17 +2917,6 @@ public interface RSLILPackage extends EPackage
   EReference getPackageProject_PackageGoals();
 
   /**
-   * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.PackageProject#getGoalRelations <em>Goal Relations</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Goal Relations</em>'.
-   * @see rslingo.rslil.rSLIL.PackageProject#getGoalRelations()
-   * @see #getPackageProject()
-   * @generated
-   */
-  EReference getPackageProject_GoalRelations();
-
-  /**
    * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.PackageProject#getPackageSystems <em>Package Systems</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3109,6 +3098,17 @@ public interface RSLILPackage extends EPackage
    * @generated
    */
   EClass getPackageGoal();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.PackageGoal#getImports <em>Imports</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Imports</em>'.
+   * @see rslingo.rslil.rSLIL.PackageGoal#getImports()
+   * @see #getPackageGoal()
+   * @generated
+   */
+  EReference getPackageGoal_Imports();
 
   /**
    * Returns the meta object for the containment reference list '{@link rslingo.rslil.rSLIL.PackageGoal#getGoals <em>Goals</em>}'.
@@ -5417,14 +5417,6 @@ public interface RSLILPackage extends EPackage
     EReference PACKAGE_PROJECT__PACKAGE_GOALS = eINSTANCE.getPackageProject_PackageGoals();
 
     /**
-     * The meta object literal for the '<em><b>Goal Relations</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PACKAGE_PROJECT__GOAL_RELATIONS = eINSTANCE.getPackageProject_GoalRelations();
-
-    /**
      * The meta object literal for the '<em><b>Package Systems</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5567,6 +5559,14 @@ public interface RSLILPackage extends EPackage
      * @generated
      */
     EClass PACKAGE_GOAL = eINSTANCE.getPackageGoal();
+
+    /**
+     * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PACKAGE_GOAL__IMPORTS = eINSTANCE.getPackageGoal_Imports();
 
     /**
      * The meta object literal for the '<em><b>Goals</b></em>' containment reference list feature.

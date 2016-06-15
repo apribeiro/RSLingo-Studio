@@ -193,9 +193,8 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPackageProjectAccess().getPackageGlossariesAssignment_5(), "rule__PackageProject__PackageGlossariesAssignment_5");
 					put(grammarAccess.getPackageProjectAccess().getPackageStakeholdersAssignment_6(), "rule__PackageProject__PackageStakeholdersAssignment_6");
 					put(grammarAccess.getPackageProjectAccess().getPackageGoalsAssignment_7(), "rule__PackageProject__PackageGoalsAssignment_7");
-					put(grammarAccess.getPackageProjectAccess().getGoalRelationsAssignment_8(), "rule__PackageProject__GoalRelationsAssignment_8");
-					put(grammarAccess.getPackageProjectAccess().getPackageSystemsAssignment_9(), "rule__PackageProject__PackageSystemsAssignment_9");
-					put(grammarAccess.getPackageProjectAccess().getSystemRelationsAssignment_10(), "rule__PackageProject__SystemRelationsAssignment_10");
+					put(grammarAccess.getPackageProjectAccess().getPackageSystemsAssignment_8(), "rule__PackageProject__PackageSystemsAssignment_8");
+					put(grammarAccess.getPackageProjectAccess().getSystemRelationsAssignment_9(), "rule__PackageProject__SystemRelationsAssignment_9");
 					put(grammarAccess.getPackageSystemAccess().getNameAssignment_1(), "rule__PackageSystem__NameAssignment_1");
 					put(grammarAccess.getPackageSystemAccess().getImportsAssignment_3(), "rule__PackageSystem__ImportsAssignment_3");
 					put(grammarAccess.getPackageSystemAccess().getSystemAssignment_4(), "rule__PackageSystem__SystemAssignment_4");
@@ -211,8 +210,9 @@ public class RSLILParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPackageStakeholderAccess().getNameAssignment_1(), "rule__PackageStakeholder__NameAssignment_1");
 					put(grammarAccess.getPackageStakeholderAccess().getStakeholdersAssignment_3(), "rule__PackageStakeholder__StakeholdersAssignment_3");
 					put(grammarAccess.getPackageGoalAccess().getNameAssignment_1(), "rule__PackageGoal__NameAssignment_1");
-					put(grammarAccess.getPackageGoalAccess().getGoalsAssignment_3(), "rule__PackageGoal__GoalsAssignment_3");
-					put(grammarAccess.getPackageGoalAccess().getGoalRelationsAssignment_4(), "rule__PackageGoal__GoalRelationsAssignment_4");
+					put(grammarAccess.getPackageGoalAccess().getImportsAssignment_3(), "rule__PackageGoal__ImportsAssignment_3");
+					put(grammarAccess.getPackageGoalAccess().getGoalsAssignment_4(), "rule__PackageGoal__GoalsAssignment_4");
+					put(grammarAccess.getPackageGoalAccess().getGoalRelationsAssignment_5(), "rule__PackageGoal__GoalRelationsAssignment_5");
 					put(grammarAccess.getImportAccess().getImportedNamespaceAssignment_1(), "rule__Import__ImportedNamespaceAssignment_1");
 					put(grammarAccess.getProjectAccess().getNameAssignment_1(), "rule__Project__NameAssignment_1");
 					put(grammarAccess.getProjectAccess().getNameAliasAssignment_3_1(), "rule__Project__NameAliasAssignment_3_1");

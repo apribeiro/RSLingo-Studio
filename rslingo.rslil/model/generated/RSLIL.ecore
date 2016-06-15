@@ -15,8 +15,6 @@
         eType="#//PackageStakeholder" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="packageGoals" upperBound="-1"
         eType="#//PackageGoal" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="goalRelations" upperBound="-1"
-        eType="#//GoalRelation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="packageSystems" upperBound="-1"
         eType="#//PackageSystem" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="systemRelations" upperBound="-1"
@@ -51,6 +49,8 @@
         eType="#//Stakeholder" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PackageGoal" eSuperTypes="#//Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="#//Import" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="goals" upperBound="-1"
         eType="#//Goal" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="goalRelations" upperBound="-1"

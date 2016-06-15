@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import rslingo.rslil.rSLIL.Goal;
 import rslingo.rslil.rSLIL.GoalRelation;
+import rslingo.rslil.rSLIL.Import;
 import rslingo.rslil.rSLIL.PackageGoal;
 import rslingo.rslil.rSLIL.RSLILPackage;
 
@@ -27,6 +28,7 @@ import rslingo.rslil.rSLIL.RSLILPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link rslingo.rslil.rSLIL.impl.PackageGoalImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageGoalImpl#getGoals <em>Goals</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.impl.PackageGoalImpl#getGoalRelations <em>Goal Relations</em>}</li>
  * </ul>
@@ -35,6 +37,16 @@ import rslingo.rslil.rSLIL.RSLILPackage;
  */
 public class PackageGoalImpl extends ModelImpl implements PackageGoal
 {
+  /**
+   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getImports()
+   * @generated
+   * @ordered
+   */
+  protected EList<Import> imports;
+
   /**
    * The cached value of the '{@link #getGoals() <em>Goals</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -81,6 +93,20 @@ public class PackageGoalImpl extends ModelImpl implements PackageGoal
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Import> getImports()
+  {
+    if (imports == null)
+    {
+      imports = new EObjectContainmentEList<Import>(Import.class, this, RSLILPackage.PACKAGE_GOAL__IMPORTS);
+    }
+    return imports;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Goal> getGoals()
   {
     if (goals == null)
@@ -114,6 +140,8 @@ public class PackageGoalImpl extends ModelImpl implements PackageGoal
   {
     switch (featureID)
     {
+      case RSLILPackage.PACKAGE_GOAL__IMPORTS:
+        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
       case RSLILPackage.PACKAGE_GOAL__GOALS:
         return ((InternalEList<?>)getGoals()).basicRemove(otherEnd, msgs);
       case RSLILPackage.PACKAGE_GOAL__GOAL_RELATIONS:
@@ -132,6 +160,8 @@ public class PackageGoalImpl extends ModelImpl implements PackageGoal
   {
     switch (featureID)
     {
+      case RSLILPackage.PACKAGE_GOAL__IMPORTS:
+        return getImports();
       case RSLILPackage.PACKAGE_GOAL__GOALS:
         return getGoals();
       case RSLILPackage.PACKAGE_GOAL__GOAL_RELATIONS:
@@ -151,6 +181,10 @@ public class PackageGoalImpl extends ModelImpl implements PackageGoal
   {
     switch (featureID)
     {
+      case RSLILPackage.PACKAGE_GOAL__IMPORTS:
+        getImports().clear();
+        getImports().addAll((Collection<? extends Import>)newValue);
+        return;
       case RSLILPackage.PACKAGE_GOAL__GOALS:
         getGoals().clear();
         getGoals().addAll((Collection<? extends Goal>)newValue);
@@ -173,6 +207,9 @@ public class PackageGoalImpl extends ModelImpl implements PackageGoal
   {
     switch (featureID)
     {
+      case RSLILPackage.PACKAGE_GOAL__IMPORTS:
+        getImports().clear();
+        return;
       case RSLILPackage.PACKAGE_GOAL__GOALS:
         getGoals().clear();
         return;
@@ -193,6 +230,8 @@ public class PackageGoalImpl extends ModelImpl implements PackageGoal
   {
     switch (featureID)
     {
+      case RSLILPackage.PACKAGE_GOAL__IMPORTS:
+        return imports != null && !imports.isEmpty();
       case RSLILPackage.PACKAGE_GOAL__GOALS:
         return goals != null && !goals.isEmpty();
       case RSLILPackage.PACKAGE_GOAL__GOAL_RELATIONS:

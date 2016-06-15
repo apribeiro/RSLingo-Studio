@@ -538,7 +538,7 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Constraint:
-	 *     (name=QualifiedName goals+=Goal+ goalRelations+=GoalRelation*)
+	 *     (name=QualifiedName imports+=Import* goals+=Goal* goalRelations+=GoalRelation*)
 	 */
 	protected void sequence_PackageGoal(EObject context, PackageGoal semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -554,7 +554,6 @@ public class RSLILSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *         packageGlossaries+=PackageGlossary* 
 	 *         packageStakeholders+=PackageStakeholder* 
 	 *         packageGoals+=PackageGoal* 
-	 *         goalRelations+=GoalRelation* 
 	 *         packageSystems+=PackageSystem* 
 	 *         systemRelations+=SystemRelation*
 	 *     )

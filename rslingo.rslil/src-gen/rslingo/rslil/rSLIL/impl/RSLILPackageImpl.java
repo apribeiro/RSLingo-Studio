@@ -533,7 +533,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageProject_GoalRelations()
+  public EReference getPackageProject_PackageSystems()
   {
     return (EReference)packageProjectEClass.getEStructuralFeatures().get(5);
   }
@@ -543,19 +543,9 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageProject_PackageSystems()
-  {
-    return (EReference)packageProjectEClass.getEStructuralFeatures().get(6);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getPackageProject_SystemRelations()
   {
-    return (EReference)packageProjectEClass.getEStructuralFeatures().get(7);
+    return (EReference)packageProjectEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -713,7 +703,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageGoal_Goals()
+  public EReference getPackageGoal_Imports()
   {
     return (EReference)packageGoalEClass.getEStructuralFeatures().get(0);
   }
@@ -723,9 +713,19 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageGoal_GoalRelations()
+  public EReference getPackageGoal_Goals()
   {
     return (EReference)packageGoalEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPackageGoal_GoalRelations()
+  {
+    return (EReference)packageGoalEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2797,7 +2797,6 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     createEReference(packageProjectEClass, PACKAGE_PROJECT__PACKAGE_GLOSSARIES);
     createEReference(packageProjectEClass, PACKAGE_PROJECT__PACKAGE_STAKEHOLDERS);
     createEReference(packageProjectEClass, PACKAGE_PROJECT__PACKAGE_GOALS);
-    createEReference(packageProjectEClass, PACKAGE_PROJECT__GOAL_RELATIONS);
     createEReference(packageProjectEClass, PACKAGE_PROJECT__PACKAGE_SYSTEMS);
     createEReference(packageProjectEClass, PACKAGE_PROJECT__SYSTEM_RELATIONS);
 
@@ -2819,6 +2818,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     createEReference(packageStakeholderEClass, PACKAGE_STAKEHOLDER__STAKEHOLDERS);
 
     packageGoalEClass = createEClass(PACKAGE_GOAL);
+    createEReference(packageGoalEClass, PACKAGE_GOAL__IMPORTS);
     createEReference(packageGoalEClass, PACKAGE_GOAL__GOALS);
     createEReference(packageGoalEClass, PACKAGE_GOAL__GOAL_RELATIONS);
 
@@ -3114,7 +3114,6 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     initEReference(getPackageProject_PackageGlossaries(), this.getPackageGlossary(), null, "packageGlossaries", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageProject_PackageStakeholders(), this.getPackageStakeholder(), null, "packageStakeholders", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageProject_PackageGoals(), this.getPackageGoal(), null, "packageGoals", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPackageProject_GoalRelations(), this.getGoalRelation(), null, "goalRelations", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageProject_PackageSystems(), this.getPackageSystem(), null, "packageSystems", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageProject_SystemRelations(), this.getSystemRelation(), null, "systemRelations", null, 0, -1, PackageProject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3136,6 +3135,7 @@ public class RSLILPackageImpl extends EPackageImpl implements RSLILPackage
     initEReference(getPackageStakeholder_Stakeholders(), this.getStakeholder(), null, "stakeholders", null, 0, -1, PackageStakeholder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(packageGoalEClass, PackageGoal.class, "PackageGoal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPackageGoal_Imports(), this.getImport(), null, "imports", null, 0, -1, PackageGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageGoal_Goals(), this.getGoal(), null, "goals", null, 0, -1, PackageGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageGoal_GoalRelations(), this.getGoalRelation(), null, "goalRelations", null, 0, -1, PackageGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

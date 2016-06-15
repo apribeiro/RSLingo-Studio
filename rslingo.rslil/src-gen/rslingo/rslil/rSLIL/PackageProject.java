@@ -18,7 +18,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getPackageGlossaries <em>Package Glossaries</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getPackageStakeholders <em>Package Stakeholders</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getPackageGoals <em>Package Goals</em>}</li>
- *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getGoalRelations <em>Goal Relations</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getPackageSystems <em>Package Systems</em>}</li>
  *   <li>{@link rslingo.rslil.rSLIL.PackageProject#getSystemRelations <em>System Relations</em>}</li>
  * </ul>
@@ -118,22 +117,6 @@ public interface PackageProject extends Model
    * @generated
    */
   EList<PackageGoal> getPackageGoals();
-
-  /**
-   * Returns the value of the '<em><b>Goal Relations</b></em>' containment reference list.
-   * The list contents are of type {@link rslingo.rslil.rSLIL.GoalRelation}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Goal Relations</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Goal Relations</em>' containment reference list.
-   * @see rslingo.rslil.rSLIL.RSLILPackage#getPackageProject_GoalRelations()
-   * @model containment="true"
-   * @generated
-   */
-  EList<GoalRelation> getGoalRelations();
 
   /**
    * Returns the value of the '<em><b>Package Systems</b></em>' containment reference list.
