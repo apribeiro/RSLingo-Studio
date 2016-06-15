@@ -419,7 +419,7 @@ public class DocumentHelper {
 		}
 		
 		// Imports are not needed in the Merged File
-		packageProj.getImports().clear();
+//		packageProj.getImports().clear();
 		
 		// Set the missing PackageSystem Elements
 		for (IFile iFile : refs) {

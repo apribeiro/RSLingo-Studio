@@ -132,7 +132,7 @@ public class JSONHandler extends AbstractHandler {
 			shell.getDisplay().asyncExec(new Runnable() {
 				@Override
 				public void run() {
-					String message = "You should run this command using the Main file associated to this file!";
+					String message = "You should run this command using the Package-Project file associated to this file!";
 					MessageDialog errorDialog = new MessageDialog(shell, "RSLingo Studio",
 				    		null, message, MessageDialog.ERROR, new String[] { "OK" }, 0);
 				    errorDialog.open();
