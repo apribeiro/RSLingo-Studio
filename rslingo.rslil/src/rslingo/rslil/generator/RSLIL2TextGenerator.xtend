@@ -67,17 +67,16 @@ class RSLIL2TextGenerator implements IGenerator {
 	------------------
 	«FOR ps:packageProject.packageStakeholders»
 	«FOR s:ps.stakeholders SEPARATOR '\n'»«s.compile»«ENDFOR»«ENDFOR»«ENDIF»
-	«IF !packageProject.packageGoals.empty»
+	«IF !packageProject.packageGoals.empty && !packageProject.packageGoals.filter(typeof(Goal)).empty»
 	
 	#Goals
 	------------------
-	«FOR pg:packageProject.packageGoals»
-	«FOR g:pg.goals SEPARATOR '\n'»«g.compile»«ENDFOR»«ENDFOR»«ENDIF»
-	«IF !packageProject.goalRelations.empty»
+	«FOR g:packageProject.packageGoals.filter(typeof(Goal)) SEPARATOR '\n'»«g.compile»«ENDFOR»«ENDIF»
+	«IF !packageProject.packageGoals.empty && !packageProject.packageGoals.filter(typeof(GoalRelation)).empty»
 	
 	#Goal Relations
 	------------------
-	«FOR gr:packageProject.goalRelations SEPARATOR '\n'»«gr.compile»«ENDFOR»«ENDIF»
+	«FOR gr:packageProject.packageGoals.filter(typeof(GoalRelation)) SEPARATOR '\n'»«gr.compile»«ENDFOR»«ENDIF»
 	«IF !packageProject.packageSystems.empty»
 	
 	#Systems

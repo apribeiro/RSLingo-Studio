@@ -81,11 +81,10 @@ class RSLIL2JsonGenerator implements IGenerator {
 	«IF !packageProject.packageStakeholders.empty»"Stakeholders": [
 	«FOR ps:packageProject.packageStakeholders»
 	«FOR s:ps.stakeholders SEPARATOR ', '»«s.compile»«ENDFOR»«ENDFOR»],«ENDIF»
-	«IF !packageProject.packageGoals.empty»"Goals": [
-	«FOR pg:packageProject.packageGoals»
-	«FOR g:pg.goals SEPARATOR ', '»«g.compile»«ENDFOR»«ENDFOR»],«ENDIF»
-	«IF !packageProject.goalRelations.empty»"Goal Relations": [
-	«FOR g:packageProject.goalRelations SEPARATOR ', '»«g.compile»«ENDFOR»],«ENDIF»
+	«IF !packageProject.packageGoals.empty && !packageProject.packageGoals.filter(typeof(Goal)).empty»"Goals": [
+	«FOR g:packageProject.packageGoals.filter(typeof(Goal)) SEPARATOR ', '»«g.compile»«ENDFOR»],«ENDIF»
+	«IF !packageProject.packageGoals.empty && !packageProject.packageGoals.filter(typeof(GoalRelation)).empty»"Goal Relations": [
+	«FOR g:packageProject.packageGoals.filter(typeof(GoalRelation)) SEPARATOR ', '»«g.compile»«ENDFOR»],«ENDIF»
 	«IF !packageProject.packageSystems.empty»"Systems": [
 	«FOR s:packageProject.packageSystems SEPARATOR ', '»«s.compile»«ENDFOR»],«ENDIF»
 	«IF !packageProject.systemRelations.empty»"System Relations": [

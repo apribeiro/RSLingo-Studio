@@ -1,6 +1,7 @@
 package rslingo.rslil.generator;
 
 import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Iterators;
 import java.util.Iterator;
 import org.eclipse.emf.common.util.EList;
@@ -12,6 +13,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import rslingo.rslil.rSLIL.Actor;
 import rslingo.rslil.rSLIL.ActualSchedule;
@@ -30,7 +32,10 @@ import rslingo.rslil.rSLIL.GoalRelation;
 import rslingo.rslil.rSLIL.Month;
 import rslingo.rslil.rSLIL.Multiplicity;
 import rslingo.rslil.rSLIL.Organizations;
+import rslingo.rslil.rSLIL.PackageGlossary;
+import rslingo.rslil.rSLIL.PackageGoal;
 import rslingo.rslil.rSLIL.PackageProject;
+import rslingo.rslil.rSLIL.PackageStakeholder;
 import rslingo.rslil.rSLIL.PackageSystem;
 import rslingo.rslil.rSLIL.PlannedSchedule;
 import rslingo.rslil.rSLIL.PrimaryKey;
@@ -83,12 +88,204 @@ public class RSLIL2TextGenerator implements IGenerator {
   }
   
   public CharSequence compile(final PackageProject packageProject) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method goalRelations is undefined for the type RSLIL2TextGenerator"
-      + "\nThe method goalRelations is undefined for the type RSLIL2TextGenerator"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\ncompile cannot be resolved");
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("Project");
+    _builder.newLine();
+    _builder.append("----------------------------------------");
+    _builder.newLine();
+    Project _project = packageProject.getProject();
+    CharSequence _compile = this.compile(_project);
+    _builder.append(_compile, "");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<PackageGlossary> _packageGlossaries = packageProject.getPackageGlossaries();
+      boolean _isEmpty = _packageGlossaries.isEmpty();
+      boolean _not = (!_isEmpty);
+      if (_not) {
+        _builder.newLine();
+        _builder.append("#Glossary");
+        _builder.newLine();
+        _builder.append("------------------");
+        _builder.newLine();
+        {
+          EList<PackageGlossary> _packageGlossaries_1 = packageProject.getPackageGlossaries();
+          for(final PackageGlossary pg : _packageGlossaries_1) {
+            {
+              EList<GlossaryTerm> _glossaryTerms = pg.getGlossaryTerms();
+              boolean _hasElements = false;
+              for(final GlossaryTerm g : _glossaryTerms) {
+                if (!_hasElements) {
+                  _hasElements = true;
+                } else {
+                  _builder.appendImmediate("\n", "");
+                }
+                CharSequence _compile_1 = this.compile(g);
+                _builder.append(_compile_1, "");
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      EList<PackageStakeholder> _packageStakeholders = packageProject.getPackageStakeholders();
+      boolean _isEmpty_1 = _packageStakeholders.isEmpty();
+      boolean _not_1 = (!_isEmpty_1);
+      if (_not_1) {
+        _builder.newLine();
+        _builder.append("#Stakeholders");
+        _builder.newLine();
+        _builder.append("------------------");
+        _builder.newLine();
+        {
+          EList<PackageStakeholder> _packageStakeholders_1 = packageProject.getPackageStakeholders();
+          for(final PackageStakeholder ps : _packageStakeholders_1) {
+            {
+              EList<Stakeholder> _stakeholders = ps.getStakeholders();
+              boolean _hasElements_1 = false;
+              for(final Stakeholder s : _stakeholders) {
+                if (!_hasElements_1) {
+                  _hasElements_1 = true;
+                } else {
+                  _builder.appendImmediate("\n", "");
+                }
+                CharSequence _compile_2 = this.compile(s);
+                _builder.append(_compile_2, "");
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      boolean _and = false;
+      EList<PackageGoal> _packageGoals = packageProject.getPackageGoals();
+      boolean _isEmpty_2 = _packageGoals.isEmpty();
+      boolean _not_2 = (!_isEmpty_2);
+      if (!_not_2) {
+        _and = false;
+      } else {
+        EList<PackageGoal> _packageGoals_1 = packageProject.getPackageGoals();
+        Iterable<Goal> _filter = Iterables.<Goal>filter(_packageGoals_1, Goal.class);
+        boolean _isEmpty_3 = IterableExtensions.isEmpty(_filter);
+        boolean _not_3 = (!_isEmpty_3);
+        _and = _not_3;
+      }
+      if (_and) {
+        _builder.newLine();
+        _builder.append("#Goals");
+        _builder.newLine();
+        _builder.append("------------------");
+        _builder.newLine();
+        {
+          EList<PackageGoal> _packageGoals_2 = packageProject.getPackageGoals();
+          Iterable<Goal> _filter_1 = Iterables.<Goal>filter(_packageGoals_2, Goal.class);
+          boolean _hasElements_2 = false;
+          for(final Goal g_1 : _filter_1) {
+            if (!_hasElements_2) {
+              _hasElements_2 = true;
+            } else {
+              _builder.appendImmediate("\n", "");
+            }
+            CharSequence _compile_3 = this.compile(g_1);
+            _builder.append(_compile_3, "");
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      boolean _and_1 = false;
+      EList<PackageGoal> _packageGoals_3 = packageProject.getPackageGoals();
+      boolean _isEmpty_4 = _packageGoals_3.isEmpty();
+      boolean _not_4 = (!_isEmpty_4);
+      if (!_not_4) {
+        _and_1 = false;
+      } else {
+        EList<PackageGoal> _packageGoals_4 = packageProject.getPackageGoals();
+        Iterable<GoalRelation> _filter_2 = Iterables.<GoalRelation>filter(_packageGoals_4, GoalRelation.class);
+        boolean _isEmpty_5 = IterableExtensions.isEmpty(_filter_2);
+        boolean _not_5 = (!_isEmpty_5);
+        _and_1 = _not_5;
+      }
+      if (_and_1) {
+        _builder.newLine();
+        _builder.append("#Goal Relations");
+        _builder.newLine();
+        _builder.append("------------------");
+        _builder.newLine();
+        {
+          EList<PackageGoal> _packageGoals_5 = packageProject.getPackageGoals();
+          Iterable<GoalRelation> _filter_3 = Iterables.<GoalRelation>filter(_packageGoals_5, GoalRelation.class);
+          boolean _hasElements_3 = false;
+          for(final GoalRelation gr : _filter_3) {
+            if (!_hasElements_3) {
+              _hasElements_3 = true;
+            } else {
+              _builder.appendImmediate("\n", "");
+            }
+            CharSequence _compile_4 = this.compile(gr);
+            _builder.append(_compile_4, "");
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      EList<PackageSystem> _packageSystems = packageProject.getPackageSystems();
+      boolean _isEmpty_6 = _packageSystems.isEmpty();
+      boolean _not_6 = (!_isEmpty_6);
+      if (_not_6) {
+        _builder.newLine();
+        _builder.append("#Systems");
+        _builder.newLine();
+        _builder.append("------------------");
+        _builder.newLine();
+        {
+          EList<PackageSystem> _packageSystems_1 = packageProject.getPackageSystems();
+          boolean _hasElements_4 = false;
+          for(final PackageSystem s_1 : _packageSystems_1) {
+            if (!_hasElements_4) {
+              _hasElements_4 = true;
+            } else {
+              _builder.appendImmediate("\n", "");
+            }
+            CharSequence _compile_5 = this.compile(s_1);
+            _builder.append(_compile_5, "");
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      EList<SystemRelation> _systemRelations = packageProject.getSystemRelations();
+      boolean _isEmpty_7 = _systemRelations.isEmpty();
+      boolean _not_7 = (!_isEmpty_7);
+      if (_not_7) {
+        _builder.newLine();
+        _builder.append("#System Relations");
+        _builder.newLine();
+        _builder.append("------------------");
+        _builder.newLine();
+        {
+          EList<SystemRelation> _systemRelations_1 = packageProject.getSystemRelations();
+          boolean _hasElements_5 = false;
+          for(final SystemRelation sr : _systemRelations_1) {
+            if (!_hasElements_5) {
+              _hasElements_5 = true;
+            } else {
+              _builder.appendImmediate("\n", "");
+            }
+            CharSequence _compile_6 = this.compile(sr);
+            _builder.append(_compile_6, "");
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
   }
   
   public CharSequence compile(final Project p) {
