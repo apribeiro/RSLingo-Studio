@@ -445,11 +445,13 @@ public class ExportExcelHandler extends AbstractHandler {
 	}
 	
 	private void writeGoals(PackageProject project, XSSFWorkbook workbook) {
+		boolean hasGoals = false;
 		XSSFSheet sheet = workbook.getSheet("goals");
 		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "GID").getRow();
 		
 		for (PackageGoal pg : project.getPackageGoals()) {
 			for (Goal goal : pg.getGoals()) {
+				hasGoals = true;
 				XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
 				DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
 				
@@ -476,7 +478,6 @@ public class ExportExcelHandler extends AbstractHandler {
 					DocumentHelper.replaceText(nRow, "GPARTOFAND", "");
 				}
 				
-				
 				if (goal.getPartOfOr() != null) {
 					DocumentHelper.replaceText(nRow, "GPARTOFOR", goal.getPartOfOr().getName());
 				} else {
@@ -492,46 +493,50 @@ public class ExportExcelHandler extends AbstractHandler {
 		}
 		
 		// Delete the Template Row
-		if (project.getPackageGoals().size() > 0) {
+		if (hasGoals) {
 			sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
 		}
 	}
 	
 	private void writeGoalRelations(PackageProject project, XSSFWorkbook workbook) {
+		boolean hasGoalRelations = false;
 		XSSFSheet sheet = workbook.getSheet("goals.relations");
 		XSSFRow tRow = (XSSFRow) DocumentHelper.getCell(sheet, "GRSRCID").getRow();
 		
-		for (GoalRelation relation : project.getGoalRelations()) {
-			XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
-			DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
-			
-			DocumentHelper.replaceText(nRow, "GRSRCID", relation.getSource().getName());
-			
-			if (relation.getSource().getNameAlias() != null) {
-				DocumentHelper.replaceText(nRow, "GRSRCNAME", relation.getSource().getNameAlias());
-			} else {
-				DocumentHelper.replaceText(nRow, "GRSRCNAME", "");
-			}
-			
-			DocumentHelper.replaceText(nRow, "GRTGTID", relation.getTarget().getName());
-			
-			if (relation.getTarget().getNameAlias() != null) {
-				DocumentHelper.replaceText(nRow, "GRTGTNAME", relation.getTarget().getNameAlias());
-			} else {
-				DocumentHelper.replaceText(nRow, "GRTGTNAME", "");
-			}
-			
-			DocumentHelper.replaceText(nRow, "GRTYPE", relation.getType());
-			
-			if (relation.getDescription() != null) {
-				DocumentHelper.replaceText(nRow, "GRDESCRIPTION", relation.getDescription());
-			} else {
-				DocumentHelper.replaceText(nRow, "GRDESCRIPTION", "");
+		for (PackageGoal pg : project.getPackageGoals()) {
+			for (GoalRelation relation : pg.getGoalRelations()) {
+				hasGoalRelations = true;
+				XSSFRow nRow = sheet.createRow(sheet.getLastRowNum() + 1);
+				DocumentHelper.cloneRow(workbook, sheet, nRow, tRow);
+				
+				DocumentHelper.replaceText(nRow, "GRSRCID", relation.getSource().getName());
+				
+				if (relation.getSource().getNameAlias() != null) {
+					DocumentHelper.replaceText(nRow, "GRSRCNAME", relation.getSource().getNameAlias());
+				} else {
+					DocumentHelper.replaceText(nRow, "GRSRCNAME", "");
+				}
+				
+				DocumentHelper.replaceText(nRow, "GRTGTID", relation.getTarget().getName());
+				
+				if (relation.getTarget().getNameAlias() != null) {
+					DocumentHelper.replaceText(nRow, "GRTGTNAME", relation.getTarget().getNameAlias());
+				} else {
+					DocumentHelper.replaceText(nRow, "GRTGTNAME", "");
+				}
+				
+				DocumentHelper.replaceText(nRow, "GRTYPE", relation.getType());
+				
+				if (relation.getDescription() != null) {
+					DocumentHelper.replaceText(nRow, "GRDESCRIPTION", relation.getDescription());
+				} else {
+					DocumentHelper.replaceText(nRow, "GRDESCRIPTION", "");
+				}
 			}
 		}
 		
 		// Delete the Template Row
-		if (project.getGoalRelations().size() > 0) {
+		if (hasGoalRelations) {
 			sheet.shiftRows(tRow.getRowNum() + 1, sheet.getLastRowNum(), -1);
 		}
 	}
