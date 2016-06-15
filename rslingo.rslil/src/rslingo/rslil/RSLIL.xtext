@@ -13,7 +13,6 @@ PackageProject:
 		packageGlossaries+=PackageGlossary*
 		packageStakeholders+=PackageStakeholder*
 		packageGoals+=PackageGoal*
-		goalRelations+=GoalRelation*
 		// Optional Nested System Level
 		packageSystems+=PackageSystem*
 		systemRelations+=SystemRelation*
@@ -45,7 +44,8 @@ PackageStakeholder:
 
 PackageGoal:
 	'Package-Goal' name=QualifiedName '{'
-		goals+=Goal+
+		imports+=Import*
+		goals+=Goal*
 		goalRelations+=GoalRelation*
 	'}';
 
